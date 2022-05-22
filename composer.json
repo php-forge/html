@@ -6,7 +6,8 @@
         "html",
         "php"
     ],
-    "license": "BSD-3-Clause",
+    "license": "BSD-4-Clause",
+    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.0"
