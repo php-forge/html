@@ -1,12 +1,12 @@
 {
-    "name": "php-forge/template",
+    "name": "php-forge/html",
     "type": "library",
-    "description": "_____",
+    "description": "Generador de código HTML para PHP.",
     "keywords": [
-        "_____"
+        "html",
+        "php"
     ],
     "license": "BSD-3-Clause",
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.0"
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Template\\": "src"
+            "Forge\\Html\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Template\\Tests\\": "tests"
+            "Forge\\Html\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -32,6 +32,9 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
     }
 }
