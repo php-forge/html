@@ -1,5 +1,5 @@
 {
-    "name": "php-forge/html",
+    "name": "forge/html",
     "type": "library",
     "description": "Generador de código HTML para PHP.",
     "keywords": [
