@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html;
+namespace Forge\Html\Attribute;
 
 use Stringable;
 
