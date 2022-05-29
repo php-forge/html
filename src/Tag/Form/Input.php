@@ -35,6 +35,7 @@ final class Input
     ): string {
         $attributes['type'] = $type;
         $attributes['name'] = $name;
+        /** @var mixed */
         $attributes['value'] = $value;
 
         return (new Tag())->create('input', '', $attributes);

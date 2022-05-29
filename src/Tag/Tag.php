@@ -31,6 +31,9 @@ final class Tag
         'wbr' => '',
     ];
 
+
+    private Attributes $attributes;
+
     public function __construct()
     {
         $this->attributes = new Attributes();
