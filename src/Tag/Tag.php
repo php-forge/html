@@ -67,7 +67,7 @@ final class Tag
     {
         $result = '';
 
-        if (array_key_exists($tag, static::VOID_ELEMENT)) {
+        if (array_key_exists($tag, self::VOID_ELEMENT)) {
             $result = $tag;
         }
 
