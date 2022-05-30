@@ -12,8 +12,8 @@ final class Input
     /**
      * Generates an input tag.
      *
-     * @param null|string $type The type attribute. If null, the type attribute will not be added.
-     * @param null|string $name The name attribute. If null, the name attribute will not be added.
+     * @param string|null $type The type attribute. If null, the type attribute will not be added.
+     * @param string|null $name The name attribute. If null, the name attribute will not be added.
      * @param mixed $value the value attribute. If null, the value attribute will not be added.
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
