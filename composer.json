@@ -13,6 +13,7 @@
         "php": "^8.0"
     },
     "require-dev": {
+        "forge/test-utils": "*",
         "phpunit/phpunit": "*",
         "roave/infection-static-analysis-plugin": "*",
         "vimeo/psalm": "*"

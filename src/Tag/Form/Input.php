@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Forge\Html\Tag\Form;
 
-use Forge\Html\Attribute;
+use Forge\Html\Attribute\Attributes;
 use Forge\Html\Tag\Tag;
-use JsonException;
 
 final class Input
 {
@@ -19,11 +18,7 @@ final class Input
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
      *
-     * If a value is null, the corresponding attribute will not be rendered.
-     *
      * See {@see Attributes::render()} for details on how attributes are being rendered.
-     *
-     * @throws JsonException
      *
      * @return string The generated input tag.
      */

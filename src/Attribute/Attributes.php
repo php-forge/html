@@ -172,15 +172,36 @@ final class Attributes
 
     private function renderAttributes(string $name, mixed $values): string
     {
-        return match (true) {
-            is_array($values) && in_array($name, $this->data, true) => $this->renderDataAttributes($name, $values),
-            is_array($values) && ($name === 'class') => $this->renderClassAttributes($name, $values),
-            is_array($values) && ($name === 'style') => $this->renderStyleAttributes($name, $values),
-            is_array($values) => $this->renderAttribute($name, json_encode($values, self::JSON_FLAGS), '\''),
-            is_bool($values) => ($values) ? $this->renderAttribute($name) : '',
-            null === $values => '',
+        return match (gettype($values)) {
+            'array' => $this->renderArrayAttributes($name, $values),
+            'boolean' => $this->renderBooleanAttributes($name, $values),
+            'NULL' => '',
             default => $this->renderAttribute($name, $this->encodeAttribute($values)),
         };
+    }
+
+    private function renderArrayAttributes(string $name, array $values): string
+    {
+        $attributes = $this->renderAttribute($name, json_encode($values, self::JSON_FLAGS), '\'');
+
+        if (in_array($name, $this->data, true)) {
+            $attributes = $this->renderDataAttributes($name, $values);
+        }
+
+        if ($name === 'class') {
+            $attributes = $this->renderClassAttributes($name, $values);
+        }
+
+        if ($name === 'style') {
+            $attributes = $this->renderStyleAttributes($name, $values);
+        }
+
+        return $attributes;
+    }
+
+    private function renderBooleanAttributes(string $name, bool $value): string
+    {
+        return $value === true ? $this->renderAttribute($name) : '';
     }
 
     private function renderClassAttributes(string $name, array $values): string
