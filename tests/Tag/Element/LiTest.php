@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Forge\Html\Tag\Element;
 
-use Forge\Html\Tag\Element\Li;
 use PHPUnit\Framework\TestCase;
 
 final class LiTest extends TestCase
