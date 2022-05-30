@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Tag\Element;
+namespace Forge\Html\Tests\Tag\Element;
 
 use Forge\Html\Tag\Element\Nav;
 use PHPUnit\Framework\TestCase;
