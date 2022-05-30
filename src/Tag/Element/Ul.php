@@ -10,7 +10,7 @@ use Forge\Html\Tag\Tag;
 final class Ul
 {
     /**
-     * Generates an Ul tag.
+     * The <ul> HTML element represents an unordered list of items, typically rendered as a bulleted list.
      *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.

@@ -10,7 +10,9 @@ use Forge\Html\Tag\Tag;
 final class Nav
 {
     /**
-     * Generates an nav tag.
+     * The <nav> HTML element represents a section of a page whose purpose is to provide navigation links, either within
+     * the current document or to other documents. Common examples of navigation sections are menus, tables of contents,
+     * and indexes.
      *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.

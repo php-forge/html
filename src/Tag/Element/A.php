@@ -10,7 +10,8 @@ use Forge\Html\Tag\Tag;
 final class A
 {
     /**
-     * Generates an a tag.
+     * The <a> HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email
+     * addresses, locations in the same page, or anything else a URL can address.
      *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
