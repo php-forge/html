@@ -29,9 +29,9 @@ final class Ul
         /** @psalm-var array[] $items */
         foreach ($items as $item) {
             /** @var array */
-            $liAttributes = isset($item['attributes']) ? $item['attributes'] : [];
+            $liAttributes = $item['attributes'] ?? [];
             /** @var string */
-            $liContent = isset($item['content']) ? $item['content'] : '';
+            $liContent = $item['content'] ?? '';
             $li .= (new Tag())->create('li', $liContent, $liAttributes) . PHP_EOL;
         }
 
