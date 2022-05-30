@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Forge\Tests;
+namespace Forge\Html\Tests;
 
-use Forge\Html\Attributes;
+use Forge\Html\Attribute\Attributes;
 use PHPUnit\Framework\TestCase;
 
-final class AttributesTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function dataRenderTagAttributes(): array
     {
