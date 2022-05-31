@@ -15,7 +15,7 @@ final class NavTest extends TestCase
     {
         return [
             [[], '', '<nav>' . PHP_EOL . '</nav>'],
-            [['class' => 'class'], '', '<nav class="class">'  . PHP_EOL . '</nav>'],
+            [['class' => 'class'], '', '<nav class="class">' . PHP_EOL . '</nav>'],
             [[], 'Content' . PHP_EOL, '<nav>' . PHP_EOL . 'Content' . PHP_EOL . '</nav>'],
             [['disabled' => true], '', '<nav disabled>' . PHP_EOL . '</nav>'],
         ];
