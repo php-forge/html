@@ -29,7 +29,7 @@ final class TagTest extends TestCase
                 'input',
                 '',
                 ['type' => 'text', 'name' => 'test', 'value' => '<>'],
-                '<input type="text" name="test" value="&lt;&gt;">'
+                '<input type="text" name="test" value="&lt;&gt;">',
             ],
             ['span', '', [], '<span></span>'],
             ['span', '', ['disabled' => true], '<span disabled></span>'],

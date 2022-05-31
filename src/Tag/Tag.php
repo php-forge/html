@@ -42,7 +42,7 @@ final class Tag
     public function begin(string $tag, array $attributes = []): string
     {
         $tag = $this->validateTag($tag);
-        return '<' . $tag  . $this->attributes->render($attributes) . '>';
+        return '<' . $tag . $this->attributes->render($attributes) . '>';
     }
 
     public function end(string $tag): string

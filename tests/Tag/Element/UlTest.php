@@ -52,7 +52,7 @@ final class UlTest extends TestCase
                 </li>
                 </ul>
                 HTML,
-            ]
+            ],
         ];
     }
 
