@@ -27,7 +27,7 @@ final class Nav
      */
     public function begin(array $attributes = []): string
     {
-        return (new Tag())->begin('nav', $attributes) . PHP_EOL;
+        return (new Tag())->begin('nav', $attributes);
     }
 
     /**
