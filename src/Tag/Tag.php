@@ -42,20 +42,21 @@ final class Tag
     public function begin(string $tag, array $attributes = []): string
     {
         $tag = $this->validateTag($tag);
-        return "<$tag" . $this->attributes->render($attributes) . '>';
+        return '<' . $tag  . $this->attributes->render($attributes) . '>';
     }
 
     public function end(string $tag): string
     {
         $tag = $this->validateTag($tag);
-        return "</$tag>";
+        return '</' . $tag . '>';
     }
 
     public function create(string $tag, string $content = '', array $attributes = []): string
     {
         $tag = $this->validateTag($tag);
         $html = "<$tag" . $this->attributes->render($attributes) . '>';
-        return $this->voidElements($tag) !== '' ? $html : "$html$content</$tag>";
+        $content = $content === '' ? '' : PHP_EOL . $content . PHP_EOL;
+        return $this->voidElements($tag) !== '' ? $html : $html . $content . '</' . $tag . '>';
     }
 
     /**

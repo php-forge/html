@@ -13,10 +13,14 @@ final class A
      * The <a> HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email
      * addresses, locations in the same page, or anything else a URL can address.
      *
+     * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element
+     *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
      *
      * See {@see Attributes::render()} for details on how attributes are being rendered.
+     *
+     * @param string $content The content of the tag.
      *
      * @return string The generated li tag.
      *
@@ -40,8 +44,8 @@ final class A
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-type
      */
-    public function create(array $attributes = []): string
+    public function create(array $attributes = [], string $content = ''): string
     {
-        return (new Tag())->create('a', '', $attributes);
+        return (new Tag())->create('a', $content, $attributes);
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Forge\Html\Tests\Tag;
 
 use Forge\Html\Tag\Tag;
+use Forge\TestUtils\Assert;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
@@ -12,40 +13,55 @@ final class TagTest extends TestCase
 {
     public function testBegin(): void
     {
-        $this->tag = new Tag();
-        $this->assertSame('<div>', $this->tag->begin('div'));
-        $this->assertSame('<div class="class">', $this->tag->begin('div', ['class' => 'class']));
+        $tag = new Tag();
+        $this->assertSame('<div>', $tag->begin('div'));
+        $this->assertSame('<div class="class">', $tag->begin('div', ['class' => 'class']));
     }
 
-    public function testCreate(): void
+    public function createProvider(): array
     {
-        $this->tag = new Tag();
-        $this->assertSame('<br>', $this->tag->create('br'));
-        $this->assertSame('<br>', $this->tag->create('BR'));
-        $this->assertSame('<span></span>', $this->tag->create('span'));
-        $this->assertSame('<div>Content</div>', $this->tag->create('div', 'Content'));
-        $this->assertSame('<span disabled></span>', $this->tag->create('span', '', ['disabled' => true]));
-        $this->assertSame(
-            '<input type="text" name="test" value="&lt;&gt;">',
-            $this->tag->create('input', '', ['type' => 'text', 'name' => 'test', 'value' => '<>'])
-        );
-        $this->assertSame(
-            '<article id="id-1" class="class"></article>',
-            $this->tag->create('article', '', ['id' => 'id-1', 'class' => 'class'])
-        );
+        return [
+            ['article', '', ['id' => 'id-1', 'class' => 'class'], '<article id="id-1" class="class"></article>'],
+            ['br', '', [], '<br>'],
+            ['BR', '', [], '<br>'],
+            ['div', 'Content', [], '<div>' . PHP_EOL . 'Content' . PHP_EOL . '</div>'],
+            [
+                'input',
+                '',
+                ['type' => 'text', 'name' => 'test', 'value' => '<>'],
+                '<input type="text" name="test" value="&lt;&gt;">'
+            ],
+            ['span', '', [], '<span></span>'],
+            ['span', '', ['disabled' => true], '<span disabled></span>'],
+        ];
+    }
+
+    /**
+     * @dataProvider createProvider
+     *
+     * @param string $tagName Tag name.
+     * @param string $content Tag content.
+     * @param array $attributes Tag attributes.
+     * @param string $expected Expected result.
+     */
+    public function testCreate(string $tagName, string $content, array $attributes, string $expected): void
+    {
+        $assert = new Assert();
+        $tag = new Tag();
+        $assert->equalsWithoutLE($expected, $tag->create($tagName, $content, $attributes));
     }
 
     public function testEnd(): void
     {
-        $this->tag = new Tag();
-        $this->assertSame('</div>', $this->tag->end('div'));
+        $tag = new Tag();
+        $this->assertSame('</div>', $tag->end('div'));
     }
 
     public function testException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Tag name cannot be empty.');
-        $this->tag = new Tag();
-        $this->tag->create('');
+        $tag = new Tag();
+        $tag->create('');
     }
 }

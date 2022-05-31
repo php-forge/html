@@ -12,6 +12,8 @@ final class Ul
     /**
      * The <ul> HTML element represents an unordered list of items, typically rendered as a bulleted list.
      *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element
+     *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
      * @param array $items The list items. Each item is an array with the following keys:
@@ -32,11 +34,8 @@ final class Ul
             $liAttributes = $item['attributes'] ?? [];
             /** @var string */
             $liContent = $item['content'] ?? '';
-            $li .= (new Tag())->create('li', $liContent, $liAttributes) . PHP_EOL;
-        }
-
-        if ($li !== '') {
-            $li = PHP_EOL . $li;
+            $liTag = (new Li())->create($liAttributes, $liContent);
+            $li .= $item === end($items) ? $liTag : $liTag . PHP_EOL;
         }
 
         return (new Tag())->create('ul', $li, $attributes);

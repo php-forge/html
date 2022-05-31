@@ -10,52 +10,63 @@ use PHPUnit\Framework\TestCase;
 
 final class UlTest extends TestCase
 {
-    public function testCreate(): void
+    public function createProvider(): array
     {
-        $this->ul = new Ul();
-        $this->assertSame('<ul></ul>', $this->ul->create());
-        $this->assertSame('<ul class="class"></ul>', $this->ul->create(['class' => 'class']));
-    }
-
-    public function testItems(): void
-    {
-        $this->assert = new Assert();
-        $this->ul = new Ul();
-        $this->assert->equalsWithoutLE(
-            <<<HTML
-            <ul>
-            <li>Uno</li>
-            <li>Dos</li>
-            <li>Tres</li>
-            </ul>
-            HTML,
-            $this->ul->create(
+        return [
+            [[], [], '<ul></ul>'],
+            [['class' => 'class'], [], '<ul class="class"></ul>'],
+            [
                 [],
                 ['0' => ['content' => 'Uno'], '1' => ['content' => 'Dos'], '2' => ['content' => 'Tres']],
-            )
-        );
-    }
-
-    public function testItemsWithAttributes(): void
-    {
-        $this->assert = new Assert();
-        $this->ul = new Ul();
-        $this->assert->equalsWithoutLE(
-            <<<HTML
-            <ul>
-            <li Value="1">Uno</li>
-            <li Value="2">Dos</li>
-            <li Value="3">Tres</li>
-            </ul>
-            HTML,
-            $this->ul->create(
+                <<<HTML
+                <ul>
+                <li>
+                Uno
+                </li>
+                <li>
+                Dos
+                </li>
+                <li>
+                Tres
+                </li>
+                </ul>
+                HTML,
+            ],
+            [
                 [],
                 [
                     '0' => ['content' => 'Uno', 'attributes' => ['Value' => '1']],
                     '1' => ['content' => 'Dos', 'attributes' => ['Value' => '2']],
                     '2' => ['content' => 'Tres', 'attributes' => ['Value' => '3']],
                 ],
-            )
-        );
+                <<<HTML
+                <ul>
+                <li Value="1">
+                Uno
+                </li>
+                <li Value="2">
+                Dos
+                </li>
+                <li Value="3">
+                Tres
+                </li>
+                </ul>
+                HTML,
+            ]
+        ];
+    }
+
+    /**
+     * @dataProvider createProvider
+     *
+     * @param array $attributes Tag attributes.
+     * @param array $items Tag li items.
+     * @param string $expected Expected result.
+     */
+    public function testCreate(array $attributes, array $items, string $expected): void
+    {
+        $assert = new Assert();
+        $ul = new Ul();
+        $assert->equalsWithoutLE($expected, $ul->create($attributes, $items));
     }
 }

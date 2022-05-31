@@ -15,6 +15,8 @@ final class Li
      * In menus and unordered lists, list items are usually displayed using bullet points.
      * In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
      *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element
+     *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
      * @param string $content The content of the tag.

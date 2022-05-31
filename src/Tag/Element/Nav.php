@@ -14,15 +14,18 @@ final class Nav
      * the current document or to other documents. Common examples of navigation sections are menus, tables of contents,
      * and indexes.
      *
+     * @link https://html.spec.whatwg.org/multipage/sections.html#the-nav-element
+     *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * @param string $content The content of the tag.
      *
      * See {@see Attributes::render()} for details on how attributes are being rendered.
      *
      * @return string The generated nav tag.
      */
-    public function create(array $attributes = []): string
+    public function create(array $attributes = [], string $content = ''): string
     {
-        return (new Tag())->create('nav', '', $attributes);
+        return (new Tag())->create('nav', $content, $attributes);
     }
 }

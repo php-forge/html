@@ -5,22 +5,37 @@ declare(strict_types=1);
 namespace Forge\Html\Tests\Tag\Element;
 
 use Forge\Html\Tag\Element\A;
+use Forge\TestUtils\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class ATest extends TestCase
 {
-    public function testCreate(): void
+    public function createProvider(): array
     {
-        $this->a = new A();
-        $this->assertSame('<a></a>', $this->a->create());
+        return [
+            [[], '', '<a></a>'],
+            [['class' => 'class'], '', '<a class="class"></a>'],
+            [[], 'Content', '<a>' . PHP_EOL . 'Content' . PHP_EOL . '</a>'],
+            [['disabled' => true], '', '<a disabled></a>'],
+            [
+                ['download' => true, 'href' => '/images/myw3schoolsimage.jpg'],
+                '',
+                '<a href="/images/myw3schoolsimage.jpg" download></a>',
+            ],
+        ];
     }
 
-    public function testAttributes(): void
+    /**
+     * @dataProvider createProvider
+     *
+     * @param array $attributes Tag attributes.
+     * @param string $content Tag content.
+     * @param string $expected Expected result.
+     */
+    public function testCreate(array $attributes, string $content, string $expected): void
     {
-        $this->a = new A();
-        $this->assertSame(
-            '<a href="/images/myw3schoolsimage.jpg" download></a>',
-            $this->a->create(['download' => true, 'href' => '/images/myw3schoolsimage.jpg'])
-        );
+        $a = new A();
+        $assert = new Assert();
+        $assert->equalsWithoutLE($expected, $a->create($attributes, $content));
     }
 }
