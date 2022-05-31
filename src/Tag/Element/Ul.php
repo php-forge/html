@@ -7,20 +7,22 @@ namespace Forge\Html\Tag\Element;
 use Forge\Html\Attribute\Attributes;
 use Forge\Html\Tag\Tag;
 
+/**
+ * The <ul> HTML element represents an unordered list of items, typically rendered as a bulleted list.
+ *
+ * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element
+ */
 final class Ul
 {
     /**
-     * The <ul> HTML element represents an unordered list of items, typically rendered as a bulleted list.
-     *
-     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element
+     * The created <ul> HTML element.
      *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
      * @param array $items The list items. Each item is an array with the following keys:
      * - content: (required) The content of the list item.
      * - attributes: The HTML attributes of the list item.
-     *
-     * See {@see Attributes::render()} for details on how attributes are being rendered.
      *
      * @return string The generated ul tag.
      */

@@ -7,25 +7,36 @@ namespace Forge\Html\Tag\Element;
 use Forge\Html\Attribute\Attributes;
 use Forge\Html\Tag\Tag;
 
+/**
+ * The <nav> HTML element represents a section of a page whose purpose is to provide navigation links, either within
+ * the current document or to other documents. Common examples of navigation sections are menus, tables of contents,
+ * and indexes.
+ *
+ * @link https://html.spec.whatwg.org/multipage/sections.html#the-nav-element
+ */
 final class Nav
 {
     /**
-     * The <nav> HTML element represents a section of a page whose purpose is to provide navigation links, either within
-     * the current document or to other documents. Common examples of navigation sections are menus, tables of contents,
-     * and indexes.
-     *
-     * @link https://html.spec.whatwg.org/multipage/sections.html#the-nav-element
+     * The begin <nav> HTML element.
      *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
-     * @param string $content The content of the tag.
-     *
      * See {@see Attributes::render()} for details on how attributes are being rendered.
      *
      * @return string The generated nav tag.
      */
-    public function create(array $attributes = [], string $content = ''): string
+    public function begin(array $attributes = []): string
     {
-        return (new Tag())->create('nav', $content, $attributes);
+        return (new Tag())->begin('nav', $attributes) . PHP_EOL;
+    }
+
+    /**
+     * The end <nav> HTML element.
+     *
+     * @return string The generated end nav tag.
+     */
+    public function end(): string
+    {
+        return (new Tag())->end('nav');
     }
 }

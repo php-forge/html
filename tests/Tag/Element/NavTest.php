@@ -14,10 +14,10 @@ final class NavTest extends TestCase
     public function createProvider(): array
     {
         return [
-            [[], '', '<nav></nav>'],
-            [['class' => 'class'], '', '<nav class="class"></nav>'],
-            [[], 'Content', '<nav>' . PHP_EOL . 'Content' . PHP_EOL . '</nav>'],
-            [['disabled' => true], '', '<nav disabled></nav>'],
+            [[], '', '<nav>' . PHP_EOL . '</nav>'],
+            [['class' => 'class'], '', '<nav class="class">' . PHP_EOL . '</nav>'],
+            [[], 'Content' . PHP_EOL, '<nav>' . PHP_EOL . 'Content' . PHP_EOL . '</nav>'],
+            [['disabled' => true], '', '<nav disabled>' . PHP_EOL . '</nav>'],
         ];
     }
 
@@ -33,6 +33,6 @@ final class NavTest extends TestCase
         $a = new A();
         $assert = new Assert();
         $nav = new Nav();
-        $assert->equalsWithoutLE($expected, $nav->create($attributes, $content));
+        $assert->equalsWithoutLE($expected, $nav->begin($attributes) . $content . $nav->end());
     }
 }
