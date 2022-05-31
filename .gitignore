@@ -1,4 +1,4 @@
-#code coverage
+# code coverage
 /code_coverage
 
 # composer vendor dir
@@ -16,8 +16,11 @@
 .phpunit.xml
 .phpunit.result.cache
 
-#yii3 config packages
+# yii3 config packages
 /config/packages
 
 # windows thumbnail cache
 Thumbs.db
+
+# vscode
+.vscode
