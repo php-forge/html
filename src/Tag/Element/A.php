@@ -19,7 +19,6 @@ final class A
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
      *
      * See {@see Attributes::render()} for details on how attributes are being rendered.
-     *
      * @param string $content The content of the tag.
      *
      * @return string The generated li tag.
