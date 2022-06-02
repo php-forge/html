@@ -13,10 +13,10 @@ final class LiTest extends TestCase
     public function createProvider(): array
     {
         return [
-            [[], '', '<li></li>'],
-            [['class' => 'class'], '', '<li class="class"></li>'],
+            [[], '', '<li>' . PHP_EOL . '</li>'],
+            [['class' => 'class'], '', '<li class="class">' . PHP_EOL . '</li>'],
             [[], 'Content', '<li>' . PHP_EOL . 'Content' . PHP_EOL . '</li>'],
-            [['disabled' => true], '', '<li disabled></li>'],
+            [['disabled' => true], '', '<li disabled>' . PHP_EOL . '</li>'],
         ];
     }
 

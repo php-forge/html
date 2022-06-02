@@ -21,7 +21,12 @@ final class TagTest extends TestCase
     public function createProvider(): array
     {
         return [
-            ['article', '', ['id' => 'id-1', 'class' => 'class'], '<article id="id-1" class="class"></article>'],
+            [
+                'article',
+                '',
+                ['id' => 'id-1', 'class' => 'class'],
+                '<article id="id-1" class="class">' . PHP_EOL . '</article>',
+            ],
             ['br', '', [], '<br>'],
             ['BR', '', [], '<br>'],
             ['div', 'Content', [], '<div>' . PHP_EOL . 'Content' . PHP_EOL . '</div>'],

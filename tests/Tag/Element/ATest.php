@@ -15,7 +15,7 @@ final class ATest extends TestCase
         return [
             [[], '', '<a></a>'],
             [['class' => 'class'], '', '<a class="class"></a>'],
-            [[], 'Content', '<a>' . PHP_EOL . 'Content' . PHP_EOL . '</a>'],
+            [[], 'Content', '<a>Content</a>'],
             [['disabled' => true], '', '<a disabled></a>'],
             [
                 ['download' => true, 'href' => '/images/myw3schoolsimage.jpg'],

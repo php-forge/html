@@ -12,23 +12,82 @@ use function strtolower;
 final class Tag
 {
     /** @var array<array-key, string> */
+    private const INLINE_ELEMENTS = [
+        'a',
+        'abbr',
+        'acronym',
+        'audio',
+        'b',
+        'bdi',
+        'bdo',
+        'big',
+        'br',
+        'button',
+        'canvas',
+        'cite',
+        'code',
+        'data',
+        'datalist',
+        'del',
+        'dfn',
+        'em',
+        'embed',
+        'i',
+        'iframe',
+        'img',
+        'input',
+        'ins',
+        'kbd',
+        'label',
+        'map',
+        'mark',
+        'meter',
+        'noscript',
+        'object',
+        'output',
+        'picture',
+        'progress',
+        'q',
+        'ruby',
+        's',
+        'samp',
+        'script',
+        'select',
+        'slot',
+        'small',
+        'span',
+        'strong',
+        'sub',
+        'sup',
+        'svg',
+        'template',
+        'textarea',
+        'time',
+        'u',
+        'tt',
+        'var',
+        'video',
+        'wbr',
+    ];
+
+    /** @var array<array-key, string> */
     private const VOID_ELEMENT = [
-        'area' => '',
-        'base' => '',
-        'br' => '',
-        'col' => '',
-        'command' => '',
-        'embed' => '',
-        'hr' => '',
-        'img' => '',
-        'input' => '',
-        'keygen' => '',
-        'link' => '',
-        'meta' => '',
-        'param' => '',
-        'source' => '',
-        'track' => '',
-        'wbr' => '',
+        'area',
+        'base',
+        'br',
+        'col',
+        'command',
+        'embed',
+        'hr',
+        'img',
+        'input',
+        'keygen',
+        'link',
+        'meta',
+        'param',
+        'source',
+        'track',
+        'wbr',
     ];
 
 
@@ -54,25 +113,37 @@ final class Tag
     public function create(string $tag, string $content = '', array $attributes = []): string
     {
         $tag = $this->validateTag($tag);
-        $html = "<$tag" . $this->attributes->render($attributes) . '>';
-        $content = $content === '' ? '' : PHP_EOL . $content . PHP_EOL;
-        return $this->voidElements($tag) !== '' ? $html : $html . $content . '</' . $tag . '>';
+        $voidElement = "<$tag" . $this->attributes->render($attributes) . '>';
+
+        if ($this->inlinedElements($tag) === false) {
+            $voidElement .= PHP_EOL;
+        }
+
+        if ($this->inlinedElements($tag) === false && $content !== '') {
+            $content = $content . PHP_EOL;
+        }
+
+        return $this->voidElements($tag) ? $voidElement : $voidElement . $content . '</' . $tag . '>';
     }
 
     /**
-     * {@see http://www.w3.org/TR/html-markup/syntax.html#void-element}
+     * @return bool True if tag is inlined element.
      *
-     * @return string list of void elements (element name => '').
+     * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
      */
-    private function voidElements(string $tag): string
+    private function inlinedElements(string $tag): bool
     {
-        $result = '';
+        return in_array($tag, self::INLINE_ELEMENTS, true) ? true : false;
+    }
 
-        if (array_key_exists($tag, self::VOID_ELEMENT)) {
-            $result = $tag;
-        }
-
-        return $result;
+    /**
+     * @return bool True if tag is void element.
+     *
+     * @link http://www.w3.org/TR/html-markup/syntax.html#void-element
+     */
+    private function voidElements(string $tag): bool
+    {
+        return in_array($tag, self::VOID_ELEMENT, true) ? true : false;
     }
 
     private function validateTag(string $tag): string

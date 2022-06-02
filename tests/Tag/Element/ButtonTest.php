@@ -15,7 +15,7 @@ final class ButtonTest extends TestCase
         return [
             [[], '', '<button type="button"></button>'],
             [['class' => 'class'], '', '<button type="button" class="class"></button>'],
-            [[], 'Content', '<button type="button">' . PHP_EOL . 'Content' . PHP_EOL . '</button>'],
+            [[], 'Content', '<button type="button">Content</button>'],
             [['disabled' => true], '', '<button type="button" disabled></button>'],
             [
                 ['download' => true, 'href' => '/images/myw3schoolsimage.jpg'],

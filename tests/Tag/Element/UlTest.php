@@ -13,8 +13,8 @@ final class UlTest extends TestCase
     public function createProvider(): array
     {
         return [
-            [[], [], '<ul></ul>'],
-            [['class' => 'class'], [], '<ul class="class"></ul>'],
+            [[], [], '<ul>' . PHP_EOL . '</ul>'],
+            [['class' => 'class'], [], '<ul class="class">' . PHP_EOL . '</ul>'],
             [
                 [],
                 ['0' => ['content' => 'Uno'], '1' => ['content' => 'Dos'], '2' => ['content' => 'Tres']],
