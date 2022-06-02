@@ -24,7 +24,7 @@ final class Ul
      * - content: (required) The content of the list item.
      * - attributes: The HTML attributes of the list item.
      *
-     * @return string The generated ul tag.
+     * @return string The generated <ul> HTML element.
      */
     public function create(array $attributes = [], array $items = []): string
     {

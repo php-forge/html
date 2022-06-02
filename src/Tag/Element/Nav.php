@@ -23,7 +23,7 @@ final class Nav
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
      * See {@see Attributes::render()} for details on how attributes are being rendered.
      *
-     * @return string The generated nav tag.
+     * @return string The generated <nav> HTML element.
      */
     public function begin(array $attributes = []): string
     {

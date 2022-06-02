@@ -25,7 +25,7 @@ final class Li
      * See {@see Attributes::render()} for details on how attributes are being rendered.
      * @param string $content The content of the tag.
      *
-     * @return string The generated li tag.
+     * @return string The generated <li> HTML element.
      *
      * @psalm-param array{value: mixed}|array $attributes
      *
