@@ -23,7 +23,7 @@ final class A
      * See {@see Attributes::render()} for details on how attributes are being rendered.
      * @param string $content The content of the tag.
      *
-     * @return string The generated li tag.
+     * @return string The generated <a> HTML element.
      *
      * @psalm-param array{
      *   download: bool,
