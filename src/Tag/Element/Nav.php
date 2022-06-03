@@ -17,7 +17,7 @@ use Forge\Html\Tag\Tag;
 final class Nav
 {
     /**
-     * The begin <nav> HTML element.
+     * The beginning <nav> HTML element.
      *
      * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
      * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
