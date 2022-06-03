@@ -66,5 +66,4 @@ final class CssClassTest extends TestCase
         $cssClass->add($attributes, ['additional' => 'class-2']);
         $this->assertSame(['persistent' => 'class-1', 'additional' => 'class-2'], $attributes['class']);
     }
-
 }
