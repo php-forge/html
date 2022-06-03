@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Tests;
+namespace Forge\Html\Tests\Attribute;
 
 use Forge\Html\Attribute\Attributes;
 use PHPUnit\Framework\TestCase;
