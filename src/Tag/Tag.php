@@ -7,6 +7,7 @@ namespace Forge\Html\Tag;
 use Forge\Html\Attribute\Attributes;
 use InvalidArgumentException;
 
+use function in_array;
 use function strtolower;
 
 final class Tag

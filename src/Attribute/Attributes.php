@@ -4,23 +4,22 @@ declare(strict_types=1);
 
 namespace Forge\Html\Attribute;
 
+use Forge\Html\Helper\Encode;
 use Stringable;
 
 use function array_merge;
 use function count;
-use function htmlspecialchars;
+use function gettype;
 use function implode;
 use function in_array;
 use function is_array;
 use function json_encode;
 use function rtrim;
-use function strtr;
 
 final class Attributes
 {
     private const JSON_FLAGS = JSON_UNESCAPED_UNICODE | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS |
          JSON_THROW_ON_ERROR;
-    private const HTMLSPECIALCHARS_FLAGS = ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE;
 
     /**
      * @var array list of tag attributes that should be specially handled when their values are of array type.
@@ -29,6 +28,8 @@ final class Attributes
      * generated instead of one: `data-name="xyz" data-age="13"`.
      */
     private array $data = ['aria', 'data', 'data-ng', 'ng'];
+
+    private Encode $encode;
 
     /**
      * @var array the preferred order of attributes in a tag. This mainly affects the order of the attributes that are
@@ -70,45 +71,9 @@ final class Attributes
         'media',
     ];
 
-    /**
-     * Encodes special characters into HTML entities for use as a tag content i.e. `<div>tag content</div>`.
-     *
-     * Characters encoded are: &, <, >.
-     *
-     * @param mixed $content The content to be encoded.
-     * @param bool $doubleEncode If already encoded entities should be encoded.
-     * @param string $encoding The encoding to use, defaults to "UTF-8".
-     *
-     * @return string Encoded content.
-     *
-     * @link https://html.spec.whatwg.org/#data-state
-     */
-    public function encode(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public function __construct()
     {
-        return htmlspecialchars((string) $content, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
-    }
-
-    /**
-     * Encodes special characters into HTML entities for use as HTML tag quoted attribute value
-     * i.e. `<input value="my-value">`.
-     * Characters encoded are: &, <, >, ", ', U+0000 (null).
-     *
-     * @param mixed $value The attribute value to be encoded.
-     * @param bool $doubleEncode If already encoded entities should be encoded.
-     * @param string $encoding The encoding to use, defaults to "UTF-8".
-     *
-     * @return string Encoded attribute value.
-     *
-     * @link https://html.spec.whatwg.org/#attribute-value-(single-quoted)-state
-     * @link https://html.spec.whatwg.org/#attribute-value-(double-quoted)-state
-     */
-    public function encodeAttribute(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
-    {
-        $value = htmlspecialchars((string) $value, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
-
-        return strtr($value, [
-            "\u{0000}" => '&#0;', // U+0000 NULL
-        ]);
+        $this->encode = new Encode();
     }
 
     /**
@@ -180,7 +145,7 @@ final class Attributes
             'array' => $this->renderArrayAttributes($name, $values),
             'boolean' => $this->renderBooleanAttributes($name, $values),
             'NULL' => '',
-            default => $this->renderAttribute($name, $this->encodeAttribute($values)),
+            default => $this->renderAttribute($name, $this->encode->value($values)),
         };
     }
 
@@ -213,7 +178,7 @@ final class Attributes
         /** @psalm-var string[] $values */
         return match ($values) {
             [] => '',
-            default => " $name=\"" . $this->encode(implode(' ', $values)) . '"',
+            default => " $name=\"" . $this->encode->content(implode(' ', $values)) . '"',
         };
     }
 
@@ -225,7 +190,7 @@ final class Attributes
         foreach ($values as $n => $v) {
             $result .= match (is_array($v)) {
                 true => $this->renderAttribute($name . '-' . $n, json_encode($v, self::JSON_FLAGS), '\''),
-                false => $this->renderAttribute($name . '-' . $n, $this->encodeAttribute($v)),
+                false => $this->renderAttribute($name . '-' . $n, $this->encode->value($v)),
             };
         }
 
@@ -241,6 +206,6 @@ final class Attributes
             $result .= "$n: $v; ";
         }
 
-        return $result === '' ? '' : " $name=\"" . $this->encode(rtrim($result)) . '"';
+        return $result === '' ? '' : " $name=\"" . $this->encode->content(rtrim($result)) . '"';
     }
 }
