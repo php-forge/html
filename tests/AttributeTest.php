@@ -21,7 +21,7 @@ final class AttributeTest extends TestCase
             [' style="width: 100px; height: 200px;"', ['style' => ['width' => '100px', 'height' => '200px']]],
             [' name="position" value="42"', ['value' => 42, 'name' => 'position']],
             [
-                ' id="x" class="a b" data-a="1" data-b="2" style="width: 100px;" any=\'[1,2]\'',
+                ' class="a b" id="x" data-a="1" data-b="2" style="width: 100px;" any=\'[1,2]\'',
                 [
                     'id' => 'x',
                     'class' => ['a', 'b'],

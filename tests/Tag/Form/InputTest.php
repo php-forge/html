@@ -9,19 +9,39 @@ use PHPUnit\Framework\TestCase;
 
 final class InputTest extends TestCase
 {
-    public function testCreate(): void
+    public function createProvider(): array
     {
-        $this->input = new Input();
-        $this->assertSame('<input>', $this->input->create());
-        $this->assertSame('<input type="text">', $this->input->create('text'));
-        $this->assertSame('<input type="text" name="name">', $this->input->create('text', 'name'));
-        $this->assertSame(
-            '<input type="text" name="name" value="value">',
-            $this->input->create('text', 'name', 'value'),
-        );
-        $this->assertSame(
-            '<input type="text" class="class" name="name" value="value">',
-            $this->input->create('text', 'name', 'value', ['class' => 'class']),
-        );
+        return [
+            [null, null, null, [], '<input>'],
+            ['text', null, null, [], '<input type="text">'],
+            ['text', 'name', null, [], '<input name="name" type="text">'],
+            ['text', 'name', 'value', [], '<input name="name" type="text" value="value">'],
+            [
+                'text',
+                'name',
+                'value',
+                ['class' => 'class'],
+                '<input class="class" name="name" type="text" value="value">'
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider createProvider
+     *
+     * @param string|null $type Input type.
+     * @param string|null $name Input name.
+     * @param string|null $value Input value.
+     * @param array $attributes Input attributes.
+     */
+    public function testCreate(
+        string $type = null,
+        string $name = null,
+        mixed $value = null,
+        array $attributes = [],
+        string $expected = ''
+    ): void {
+        $input = new Input();
+        $this->assertSame($expected, $input->create($type, $name, $value, $attributes));
     }
 }

@@ -37,13 +37,18 @@ final class Attributes
      * @psalm-var string[]
      */
     private array $order = [
-        'type',
-        'id',
         'class',
+        'id',
         'name',
+        'type',
         'value',
         'href',
         'src',
+        'for',
+        'title',
+        'alt',
+        'role',
+        'tabindex',
         'srcset',
         'form',
         'action',
