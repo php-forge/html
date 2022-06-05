@@ -44,7 +44,7 @@ final class CssClass
                 $classes = preg_split('/\s+/', $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
                 $attributes['class'] = implode(' ', $this->merge($classes, (array) $class));
             }
-        } else {
+        } elseif ($class !== [] && $class !== '') {
             $attributes['class'] = $class;
         }
     }
