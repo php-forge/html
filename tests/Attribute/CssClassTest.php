@@ -14,6 +14,12 @@ final class CssClassTest extends TestCase
         $attributes = [];
         $cssClass = new CssClass();
 
+        $cssClass->add($attributes, '');
+        $this->assertSame([], $attributes);
+
+        $cssClass->add($attributes, []);
+        $this->assertSame([], $attributes);
+
         $cssClass->add($attributes, 'class');
         $this->assertSame(['class' => 'class'], $attributes);
 
