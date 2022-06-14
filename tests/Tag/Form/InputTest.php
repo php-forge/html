@@ -19,7 +19,7 @@ final class InputTest extends TestCase
             [
                 'text',
                 ['class' => 'class', 'name' => 'name', 'value' => 'value'],
-                '<input class="class" name="name" type="text" value="value">'
+                '<input class="class" name="name" type="text" value="value">',
             ],
         ];
     }
