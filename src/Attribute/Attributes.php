@@ -29,8 +29,6 @@ final class Attributes
      */
     private array $data = ['aria', 'data', 'data-ng', 'ng'];
 
-    private Encode $encode;
-
     /**
      * @var array the preferred order of attributes in a tag. This mainly affects the order of the attributes that are
      * rendered by {@see render()}.
@@ -70,11 +68,6 @@ final class Attributes
         'rel',
         'media',
     ];
-
-    public function __construct()
-    {
-        $this->encode = new Encode();
-    }
 
     /**
      * Renders the HTML tag attributes.
@@ -145,7 +138,7 @@ final class Attributes
             'array' => $this->renderArrayAttributes($name, $values),
             'boolean' => $this->renderBooleanAttributes($name, $values),
             'NULL' => '',
-            default => $this->renderAttribute($name, $this->encode->value($values)),
+            default => $this->renderAttribute($name, Encode::value($values)),
         };
     }
 
@@ -178,7 +171,7 @@ final class Attributes
         /** @psalm-var string[] $values */
         return match ($values) {
             [] => '',
-            default => " $name=\"" . $this->encode->content(implode(' ', $values)) . '"',
+            default => " $name=\"" . Encode::content(implode(' ', $values)) . '"',
         };
     }
 
@@ -190,7 +183,7 @@ final class Attributes
         foreach ($values as $n => $v) {
             $result .= match (is_array($v)) {
                 true => $this->renderAttribute($name . '-' . $n, json_encode($v, self::JSON_FLAGS), '\''),
-                false => $this->renderAttribute($name . '-' . $n, $this->encode->value($v)),
+                false => $this->renderAttribute($name . '-' . $n, Encode::value($v)),
             };
         }
 
@@ -206,6 +199,6 @@ final class Attributes
             $result .= "$n: $v; ";
         }
 
-        return $result === '' ? '' : " $name=\"" . $this->encode->content(rtrim($result)) . '"';
+        return $result === '' ? '' : " $name=\"" . Encode::content(rtrim($result)) . '"';
     }
 }

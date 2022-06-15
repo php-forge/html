@@ -25,7 +25,6 @@ final class EncodeTest extends TestCase
      */
     public function testEncode(string $value, string $expected): void
     {
-        $encode = new Encode();
-        $this->assertSame($expected, $encode->content($value));
+        $this->assertSame($expected, Encode::content($value));
     }
 }
