@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Attribute;
+namespace Forge\Html\Helper;
 
 use function array_unique;
 use function implode;
@@ -33,16 +33,16 @@ final class CssClass
      * @param array $attributes The attributes to be modified.
      * @param string|string[] $class The CSS class(es) to be added.
      */
-    public function add(array &$attributes, array|string $class): void
+    public static function add(array &$attributes, array|string $class): void
     {
         if (isset($attributes['class'])) {
             if (is_array($attributes['class'])) {
                 /** @psalm-var string[] $attributes['class'] */
-                $attributes['class'] = $this->merge($attributes['class'], (array) $class);
+                $attributes['class'] = self::merge($attributes['class'], (array) $class);
             } else {
                 /** @psalm-var string $attributes['class'] */
                 $classes = preg_split('/\s+/', $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
-                $attributes['class'] = implode(' ', $this->merge($classes, (array) $class));
+                $attributes['class'] = implode(' ', self::merge($classes, (array) $class));
             }
         } elseif ($class !== [] && $class !== '') {
             $attributes['class'] = $class;
@@ -59,7 +59,7 @@ final class CssClass
      *
      * @return string[] merge result.
      */
-    private function merge(array $existingClasses, array $additionalClasses): array
+    private static function merge(array $existingClasses, array $additionalClasses): array
     {
         foreach ($additionalClasses as $key => $class) {
             if (is_int($key) && !in_array($class, $existingClasses, true)) {

@@ -24,7 +24,7 @@ final class Encode
      *
      * @link https://html.spec.whatwg.org/#data-state
      */
-    public function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public static function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
         return htmlspecialchars((string) $content, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
     }
@@ -43,7 +43,7 @@ final class Encode
      * @link https://html.spec.whatwg.org/#attribute-value-(single-quoted)-state
      * @link https://html.spec.whatwg.org/#attribute-value-(double-quoted)-state
      */
-    public function value(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public static function value(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
         $value = htmlspecialchars((string) $value, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
 
