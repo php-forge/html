@@ -91,13 +91,6 @@ final class Tag
         'wbr',
     ];
 
-    private Attributes $attributes;
-
-    public function __construct()
-    {
-        $this->attributes = new Attributes();
-    }
-
     /**
      * Create a new open tag.
      *
@@ -106,10 +99,12 @@ final class Tag
      *
      * @return string The open tag.
      */
-    public function begin(string $tag, array $attributes = []): string
+    public static function begin(string $tag, array $attributes = []): string
     {
-        $tag = $this->validateTag($tag);
-        return '<' . $tag . $this->attributes->render($attributes) . '>';
+        $helperAttributes = new Attributes();
+        $tag = self::validateTag($tag);
+
+        return '<' . $tag . $helperAttributes->render($attributes) . '>';
     }
 
     /**
@@ -119,9 +114,10 @@ final class Tag
      *
      * @return string The closing tag.
      */
-    public function end(string $tag): string
+    public static function end(string $tag): string
     {
-        $tag = $this->validateTag($tag);
+        $tag = self::validateTag($tag);
+
         return '</' . $tag . '>';
     }
 
@@ -134,20 +130,22 @@ final class Tag
      *
      * @return string The tag.
      */
-    public function create(string $tag, string $content = '', array $attributes = []): string
+    public static function create(string $tag, string $content = '', array $attributes = []): string
     {
-        $tag = $this->validateTag($tag);
-        $voidElement = "<$tag" . $this->attributes->render($attributes) . '>';
+        $helperAttributes = new Attributes();
+        $tag = self::validateTag($tag);
+        $voidElement = "<$tag" . $helperAttributes->render($attributes) . '>';
 
-        if ($this->voidElements($tag)) {
+        if (self::voidElements($tag)) {
             return $voidElement;
         }
 
-        if ($this->inlinedElements($tag)) {
+        if (self::inlinedElements($tag)) {
             return $voidElement . $content . '</' . $tag . '>';
         }
 
         $content = $content === '' ? '' : $content . PHP_EOL;
+
         return $voidElement . PHP_EOL . $content . '</' . $tag . '>';
     }
 
@@ -156,7 +154,7 @@ final class Tag
      *
      * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Inline_elements
      */
-    private function inlinedElements(string $tag): bool
+    private static function inlinedElements(string $tag): bool
     {
         return in_array($tag, self::INLINE_ELEMENTS, true);
     }
@@ -166,7 +164,7 @@ final class Tag
      *
      * @link http://www.w3.org/TR/html-markup/syntax.html#void-element
      */
-    private function voidElements(string $tag): bool
+    private static function voidElements(string $tag): bool
     {
         return in_array($tag, self::VOID_ELEMENT, true);
     }
@@ -174,7 +172,7 @@ final class Tag
     /**
      * @throws InvalidArgumentException
      */
-    private function validateTag(string $tag): string
+    private static function validateTag(string $tag): string
     {
         $tag = strtolower($tag);
 
