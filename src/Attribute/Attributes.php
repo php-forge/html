@@ -36,10 +36,10 @@ final class Attributes
      * @psalm-var string[]
      */
     private array $order = [
-        'type',
         'class',
         'id',
         'name',
+        'type',
         'value',
         'href',
         'src',
