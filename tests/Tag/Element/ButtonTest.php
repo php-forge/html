@@ -14,7 +14,7 @@ final class ButtonTest extends TestCase
     {
         return [
             [[], '', '<button type="button"></button>'],
-            [['class' => 'class'], '', '<button class="class" type="button"></button>'],
+            [['class' => 'class'], '', '<button type="button" class="class"></button>'],
             [[], 'Content', '<button type="button">Content</button>'],
             [['disabled' => true], '', '<button type="button" disabled></button>'],
             [
