@@ -13,9 +13,8 @@ final class TagTest extends TestCase
 {
     public function testBegin(): void
     {
-        $tag = new Tag();
-        $this->assertSame('<div>', $tag->begin('div'));
-        $this->assertSame('<div class="class">', $tag->begin('div', ['class' => 'class']));
+        $this->assertSame('<div>', Tag::begin('div'));
+        $this->assertSame('<div class="class">', Tag::begin('div', ['class' => 'class']));
     }
 
     public function createProvider(): array
@@ -54,21 +53,18 @@ final class TagTest extends TestCase
     public function testCreate(string $tagName, string $content, array $attributes, string $expected): void
     {
         $assert = new Assert();
-        $tag = new Tag();
-        $assert->equalsWithoutLE($expected, $tag->create($tagName, $content, $attributes));
+        $assert->equalsWithoutLE($expected, Tag::create($tagName, $content, $attributes));
     }
 
     public function testEnd(): void
     {
-        $tag = new Tag();
-        $this->assertSame('</div>', $tag->end('div'));
+        $this->assertSame('</div>', Tag::end('div'));
     }
 
     public function testException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Tag name cannot be empty.');
-        $tag = new Tag();
-        $tag->create('');
+        Tag::create('');
     }
 }
