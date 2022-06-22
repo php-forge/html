@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Forge\Html\Helper;
 
-use function strtr;
+use function substr;
 
 final class Utils
 {
