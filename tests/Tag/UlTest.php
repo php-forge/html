@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Tests\Tag\Element;
+namespace Forge\Html\Tests\Tag;
 
-use Forge\Html\Tag\Element\Ul;
+use Forge\Html\Tag\Tag;
 use Forge\TestUtils\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -66,7 +66,7 @@ final class UlTest extends TestCase
     public function testCreate(array $attributes, array $items, string $expected): void
     {
         $assert = new Assert();
-        $ul = new Ul();
-        $assert->equalsWithoutLE($expected, $ul->create($attributes, $items));
+
+        $assert->equalsWithoutLE($expected, Tag::ul($attributes, $items));
     }
 }
