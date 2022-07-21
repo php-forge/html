@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Tests\Tag\Element;
+namespace Forge\Html\Tests\Tag;
 
-use Forge\Html\Tag\Element\Li;
+use Forge\Html\Tag\Tag;
 use Forge\TestUtils\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -29,8 +29,8 @@ final class LiTest extends TestCase
      */
     public function testCreate(array $attributes, string $content, string $expected): void
     {
-        $li = new Li();
         $assert = new Assert();
-        $assert->equalsWithoutLE($expected, $li->create($attributes, $content));
+
+        $assert->equalsWithoutLE($expected, Tag::li($attributes, $content));
     }
 }

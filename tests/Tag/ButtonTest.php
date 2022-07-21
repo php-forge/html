@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Tests\Tag\Element;
+namespace Forge\Html\Tests\Tag;
 
-use Forge\Html\Tag\Element\Button;
+use Forge\Html\Tag\Tag;
 use Forge\TestUtils\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ final class ButtonTest extends TestCase
     public function testCreate(array $attributes, string $content, string $expected): void
     {
         $assert = new Assert();
-        $button = new Button();
-        $assert->equalsWithoutLE($expected, $button->create($attributes, $content));
+
+        $assert->equalsWithoutLE($expected, Tag::button($attributes, $content));
     }
 }

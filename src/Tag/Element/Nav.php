@@ -27,7 +27,7 @@ final class Nav
      */
     public function begin(array $attributes = []): string
     {
-        return (new Tag())->begin('nav', $attributes);
+        return Tag::begin('nav', $attributes);
     }
 
     /**
@@ -37,6 +37,6 @@ final class Nav
      */
     public function end(): string
     {
-        return (new Tag())->end('nav');
+        return Tag::end('nav');
     }
 }

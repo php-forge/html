@@ -92,6 +92,44 @@ final class Tag
     ];
 
     /**
+     * The `<a>` HTML element (or anchor element), with its href attribute, creates a hyperlink to web pages, files,
+     * email addresses, locations in the same page, or anything else a URL can address.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated <a> HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element
+     *
+     * @psalm-param array{
+     *   download: bool,
+     *   href: string,
+     *   hreflang: string,
+     *   ping: string,
+     *   referrerpolicy: string,
+     *   rel: string,
+     *   target: string,
+     *   type: string,
+     * }|array $attributes
+     *
+     * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-download
+     * @link https://www.w3.org/TR/html52/links.html#element-attrdef-a-href
+     * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-hreflang
+     * @link https://html.spec.whatwg.org/multipage/links.html#ping
+     * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-referrerpolicy
+     * @link https://www.w3.org/TR/html52/links.html#element-attrdef-a-rel
+     * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target
+     * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-type
+     */
+    public static function a(array $attributes = [], string $content = ''): string
+    {
+        return self::create('a', $content, $attributes);
+    }
+
+    /**
      * Create a new open tag.
      *
      * @param string $tag The tag name.
@@ -108,17 +146,50 @@ final class Tag
     }
 
     /**
-     * Create a closing tag.
+     * The `<button>` HTML element is an interactive element activated by a user with a mouse, keyboard, finger, voice
+     * command, or other assistive technology. Once activated, it then performs a programmable action, such as
+     * submitting a form or opening a dialog.
      *
-     * @param string $tag The tag name.
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
      *
-     * @return string The closing tag.
+     * @return string The generated <button> HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/form-elements.html#the-button-element
+     *
+     * @psalm-param array{
+     *   disabled: bool,
+     *   form: string,
+     *   formaction: string,
+     *   formenctype: string,
+     *   formmethod: string,
+     *   formnovalidate: bool,
+     *   formtarget: string,
+     *   name: string,
+     *   type: string,
+     *   value: string
+     * }|array $attributes
+     *
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-disabled
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fae-form
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-formaction
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-formenctype
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-formmethod
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-formnovalidate
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fs-formtarget
+     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name
+     * @link https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-type
+     * @link https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-value
      */
-    public static function end(string $tag): string
+    public static function button(array $attributes = [], string $content = ''): string
     {
-        $tag = self::validateTag($tag);
+        if (!isset($attributes['type'])) {
+            $attributes['type'] = 'button';
+        }
 
-        return '</' . $tag . '>';
+        return self::create('button', $content, $attributes);
     }
 
     /**
@@ -147,6 +218,74 @@ final class Tag
         $content = $content === '' ? '' : $content . PHP_EOL;
 
         return $voidElement . PHP_EOL . $content . '</' . $tag . '>';
+    }
+
+    /**
+     * Create a closing tag.
+     *
+     * @param string $tag The tag name.
+     *
+     * @return string The closing tag.
+     */
+    public static function end(string $tag): string
+    {
+        $tag = self::validateTag($tag);
+
+        return '</' . $tag . '>';
+    }
+
+    /**
+     * The `<li>` HTML element is used to represent an item in a list.
+     * It must be contained in a parent element: an ordered list (`<ol>`), an unordered list (`<ul>`), or a menu
+     * (`<menu>`).
+     * In menus and unordered lists, list items are usually displayed using bullet points.
+     * In ordered lists, they are usually displayed with an ascending counter on the left, such as a number or letter.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated `<li>` HTML element.
+     *
+     * @psalm-param array{value: mixed}|array $attributes
+     *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#attr-li-value
+     */
+    public static function li(array $attributes = [], string $content = ''): string
+    {
+        return self::create('li', $content, $attributes);
+    }
+
+    /**
+     * The `<ul>` HTML element represents an unordered list of items, typically rendered as a bulleted list.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param array $items The list items. Each item is an array with the following keys:
+     * - content: (required) The content of the list item.
+     * - attributes: The HTML attributes of the list item.
+     *
+     * @return string The generated `<ul>` HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element
+     */
+    public static function ul(array $attributes = [], array $items = []): string
+    {
+        $li = '';
+
+        /** @psalm-var array[] $items */
+        foreach ($items as $item) {
+            /** @var array */
+            $liAttributes = $item['attributes'] ?? [];
+            /** @var string */
+            $liContent = $item['content'] ?? '';
+            $liTag = self::li($liAttributes, $liContent);
+            $li .= $item === end($items) ? $liTag : $liTag . PHP_EOL;
+        }
+
+        return self::create('ul', $li, $attributes);
     }
 
     /**
