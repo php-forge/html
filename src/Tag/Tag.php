@@ -126,7 +126,7 @@ final class Tag
      */
     public static function a(array $attributes = [], string $content = ''): string
     {
-        return tag::create('a', $content, $attributes);
+        return Tag::create('a', $content, $attributes);
     }
 
     /**
