@@ -126,7 +126,7 @@ final class Tag
      */
     public static function a(array $attributes = [], string $content = ''): string
     {
-        return Tag::create('a', $content, $attributes);
+        return self::create('a', $content, $attributes);
     }
 
     /**
@@ -189,7 +189,7 @@ final class Tag
             $attributes['type'] = 'button';
         }
 
-        return Tag::create('button', $content, $attributes);
+        return self::create('button', $content, $attributes);
     }
 
     /**
@@ -254,7 +254,7 @@ final class Tag
      */
     public static function li(array $attributes = [], string $content = ''): string
     {
-        return Tag::create('li', $content, $attributes);
+        return self::create('li', $content, $attributes);
     }
 
     /**
@@ -281,11 +281,11 @@ final class Tag
             $liAttributes = $item['attributes'] ?? [];
             /** @var string */
             $liContent = $item['content'] ?? '';
-            $liTag = Tag::li($liAttributes, $liContent);
+            $liTag = self::li($liAttributes, $liContent);
             $li .= $item === end($items) ? $liTag : $liTag . PHP_EOL;
         }
 
-        return Tag::create('ul', $li, $attributes);
+        return self::create('ul', $li, $attributes);
     }
 
     /**
