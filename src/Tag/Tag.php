@@ -221,6 +221,26 @@ final class Tag
     }
 
     /**
+     * The `<div>` HTML element is the generic container for flow content. It has no effect on the content or layout
+     * until styled in some way using CSS (e.g. styling is directly applied to it, or some kind of layout model like
+     * Flexbox is applied to its parent element).
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated `<div>` HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element
+     * @link https://html.spec.whatwg.org/multipage/dom.html#global-attributes
+     */
+    public static function div(array $attributes = [], string $content = ''): string
+    {
+        return self::create('div', $content, $attributes);
+    }
+
+    /**
      * Create a closing tag.
      *
      * @param string $tag The tag name.
@@ -338,6 +358,28 @@ final class Tag
     public static function p(array $attributes = [], string $content = ''): string
     {
         return self::create('p', $content, $attributes);
+    }
+
+    /**
+     * The `<span>` HTML element is a generic inline container for phrasing content, which does not inherently represent
+     * anything. It can be used to group elements for styling purposes (using the class or id attributes), or because
+     * they share attribute values, such as lang. It should be used only when no other semantic element is appropriate.
+     * `<span>` is very much like a `<div>` element, but `<div>` is a block-level element whereas a `<span>` is an
+     * inline element.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated `<span>` HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-span-element
+     * @link https://html.spec.whatwg.org/multipage/dom.html#global-attributes
+     */
+    public static function span(array $attributes = [], string $content = ''): string
+    {
+        return self::create('span', $content, $attributes);
     }
 
     /**
