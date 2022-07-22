@@ -235,6 +235,47 @@ final class Tag
     }
 
     /**
+     * The `<h1>` to `<h6>` HTML elements represent six levels of section headings.
+     *
+     * @param int $level The level of the heading. `1` is the highest section level and `6` is the lowest.
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated `<h1>` to `<h6>` HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements
+     * @link https://html.spec.whatwg.org/multipage/dom.html#global-attributes
+     */
+    public static function h(int $level, array $attributes = [], string $content = ''): string
+    {
+        if ($level < 1 || $level > 6) {
+            throw new InvalidArgumentException('The level must be between 1 and 6.');
+        }
+
+        $tag = 'h' . $level;
+
+        return Tag::create($tag, $content, $attributes);
+    }
+
+    /**
+     * The `<hr>` HTML element represents a thematic break between paragraph-level elements: for example, a change of
+     * scene in a story, or a shift of topic within a section.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-hr-element
+     * @link https://html.spec.whatwg.org/multipage/dom.html#global-attributes
+     */
+    public static function hr(array $attributes = []): string
+    {
+        return Tag::create('hr', '', $attributes);
+    }
+
+    /**
      * The `<li>` HTML element is used to represent an item in a list.
      * It must be contained in a parent element: an ordered list (`<ol>`), an unordered list (`<ul>`), or a menu
      * (`<menu>`).
@@ -255,6 +296,28 @@ final class Tag
     public static function li(array $attributes = [], string $content = ''): string
     {
         return self::create('li', $content, $attributes);
+    }
+
+    /**
+     * The `<p>` HTML element represents a paragraph. Paragraphs are usually represented in visual media as blocks of
+     * text separated from adjacent blocks by blank lines and/or first-line indentation, but HTML paragraphs can be any
+     * structural grouping of related content, such as images or form fields.
+     *
+     * Paragraphs are block-level elements, and notably will automatically close if another block-level element is
+     * parsed before the closing `</p>` tag. See "Tag omission" below.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated `<p>` HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element
+     * @link https://html.spec.whatwg.org/multipage/dom.html#global-attributes
+     */
+    public static function p(array $attributes = [], string $content = ''): string
+    {
+        return Tag::create('p', $content, $attributes);
     }
 
     /**
