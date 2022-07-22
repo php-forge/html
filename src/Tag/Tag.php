@@ -276,6 +276,26 @@ final class Tag
     }
 
     /**
+     * The `<i>` HTML element represents a range of text that is set off from the normal text for some reason, such as
+     * idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented
+     * using italicized type, which is the original source of the `<i>` naming of this element.
+     *
+     * @param array $attributes The tag attributes in terms of name-value pairs. These will be rendered as the
+     * attributes of the resulting tag. The values will be HTML-encoded using {@see Attributes::encode()}.
+     * See {@see Attributes::render()} for details on how attributes are being rendered.
+     * @param string $content The content of the tag.
+     *
+     * @return string The generated `<i>` HTML element.
+     *
+     * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element
+     * @link https://html.spec.whatwg.org/multipage/dom.html#global-attributes
+     */
+    public static function i(array $attributes = [], string $content = ''): string
+    {
+        return self::create('i', $content, $attributes);
+    }
+
+    /**
      * The `<li>` HTML element is used to represent an item in a list.
      * It must be contained in a parent element: an ordered list (`<ol>`), an unordered list (`<ul>`), or a menu
      * (`<menu>`).
