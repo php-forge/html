@@ -256,7 +256,7 @@ final class Tag
 
         $tag = 'h' . $level;
 
-        return Tag::create($tag, $content, $attributes);
+        return self::create($tag, $content, $attributes);
     }
 
     /**
@@ -272,7 +272,7 @@ final class Tag
      */
     public static function hr(array $attributes = []): string
     {
-        return Tag::create('hr', '', $attributes);
+        return self::create('hr', '', $attributes);
     }
 
     /**
@@ -317,7 +317,7 @@ final class Tag
      */
     public static function p(array $attributes = [], string $content = ''): string
     {
-        return Tag::create('p', $content, $attributes);
+        return self::create('p', $content, $attributes);
     }
 
     /**
