@@ -395,22 +395,12 @@ final class Tag
      * @return string The generated `<ul>` HTML element.
      *
      * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element
+     *
+     * @psalm-param string[] $items
      */
     public static function ul(array $attributes = [], array $items = []): string
     {
-        $li = '';
-
-        /** @psalm-var array[] $items */
-        foreach ($items as $item) {
-            /** @var array */
-            $liAttributes = $item['attributes'] ?? [];
-            /** @var string */
-            $liContent = $item['content'] ?? '';
-            $liTag = self::li($liAttributes, $liContent);
-            $li .= $item === end($items) ? $liTag : $liTag . PHP_EOL;
-        }
-
-        return self::create('ul', $li, $attributes);
+        return self::create('ul', implode(PHP_EOL, $items), $attributes);
     }
 
     /**

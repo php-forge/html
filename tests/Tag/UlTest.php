@@ -17,7 +17,7 @@ final class UlTest extends TestCase
             [['class' => 'class'], [], '<ul class="class">' . PHP_EOL . '</ul>'],
             [
                 [],
-                ['0' => ['content' => 'Uno'], '1' => ['content' => 'Dos'], '2' => ['content' => 'Tres']],
+                [Tag::li([], 'Uno'), Tag::li([], 'Dos'), Tag::li([], 'Tres')],
                 <<<HTML
                 <ul>
                 <li>
@@ -35,19 +35,19 @@ final class UlTest extends TestCase
             [
                 [],
                 [
-                    '0' => ['content' => 'Uno', 'attributes' => ['Value' => '1']],
-                    '1' => ['content' => 'Dos', 'attributes' => ['Value' => '2']],
-                    '2' => ['content' => 'Tres', 'attributes' => ['Value' => '3']],
+                    Tag::li(['value' => 1], 'Uno'),
+                    Tag::li(['value' => 2], 'Dos'),
+                    Tag::li(['value' => 3], 'Tres'),
                 ],
                 <<<HTML
                 <ul>
-                <li Value="1">
+                <li value="1">
                 Uno
                 </li>
-                <li Value="2">
+                <li value="2">
                 Dos
                 </li>
-                <li Value="3">
+                <li value="3">
                 Tres
                 </li>
                 </ul>
