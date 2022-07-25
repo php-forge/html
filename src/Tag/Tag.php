@@ -45,6 +45,7 @@ final class Tag
         'meter',
         'noscript',
         'object',
+        'option',
         'output',
         'picture',
         'progress',
