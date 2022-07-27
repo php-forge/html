@@ -23,14 +23,12 @@ final class Attribute
     public static function add(array &$attributes, string $attribute, mixed $value): void
     {
         if (isset($attributes[$attribute])) {
-            if (is_string($value) && '' !== $value) {
-                /** @psalm-var string $attributes['class'] */
-                $values = preg_split('/\s+/', $attributes[$attribute], -1, PREG_SPLIT_NO_EMPTY);
-                $attributes[$attribute] = implode(PHP_EOL, self::merge($values, (array) $value));
-            } else {
+            if (is_array($value)) {
+                /** @var mixed */
                 $attributes[$attribute] = $value[0];
             }
         } elseif ($value !== [] && $value !== '') {
+            /** @var mixed */
             $attributes[$attribute] = $value;
         }
     }
