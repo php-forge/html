@@ -46,7 +46,7 @@ final class Utils
     public static function normalizeRegexpPattern(string $regexp, ?string $delimiter = null): string
     {
         if (strlen($regexp) < 2) {
-            throw new InvalidArgumentException('Incorrect regular expression.');
+            throw new InvalidArgumentException('The length of the regular expression cannot be less than 2.');
         }
 
         $pattern = preg_replace('/\\\\x{?([0-9a-fA-F]+)}?/', '\u$1', $regexp);

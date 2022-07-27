@@ -50,7 +50,8 @@ final class UtilsTest extends TestCase
     public function normalizeRegexpPatternInvalidProvider(): array
     {
         return [
-            ['', 'Incorrect regular expression.'],
+            ['', 'The length of the regular expression cannot be less than 2.'],
+            ['*', 'The length of the regular expression cannot be less than 2.'],
             ['.*', 'Incorrect regular expression.'],
             ['/.*', 'Incorrect regular expression.'],
             ['([a-z0-9-]+)', 'Incorrect regular expression.'],
