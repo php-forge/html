@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Forge\Form\Tests\Base;
 
 use Forge\Html\Attribute;
-use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 final class MutationTest extends TestCase
