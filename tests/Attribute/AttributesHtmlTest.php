@@ -79,7 +79,7 @@ final class AttributesHtmlTest extends TestCase
             use Attribute\Required;
             use Attribute\Size;
             use Attribute\Step;
-            use Attribute\TabIndex;
+            use Attribute\Tabindex;
             use Attribute\Title;
             use Attribute\Type;
             use Attribute\Value;
