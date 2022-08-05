@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Forge\Html\Tag;
 
-use Forge\Html\Attribute\Attributes;
+use Forge\Html\Helper\Attributes;
 use InvalidArgumentException;
 
 use function in_array;
