@@ -7,7 +7,7 @@ namespace Forge\Form\Tests\Base;
 use Forge\Html\Attribute;
 use PHPUnit\Framework\TestCase;
 
-final class AttributesHtmlTest extends TestCase
+final class ImmutabilityTest extends TestCase
 {
     public function testImmutability(): void
     {
