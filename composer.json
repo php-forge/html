@@ -11,7 +11,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
-        "forge/widget": "^1.0@dev"
+        "forge/widget": "dev-main"
     },
     "require-dev": {
         "forge/test-utils": "*",
