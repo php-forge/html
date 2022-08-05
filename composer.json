@@ -10,8 +10,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.0",
-        "forge/widget": "dev-main"
+        "php": "^8.0"
     },
     "require-dev": {
         "forge/test-utils": "*",
