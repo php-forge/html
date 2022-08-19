@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Forge\Html\Helper;
 
 use InvalidArgumentException;
-use ValueError;
 
 use function substr;
 
