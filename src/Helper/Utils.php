@@ -39,9 +39,9 @@ final class Utils
      * @param string $regexp PCRE regular expression.
      * @param string|null $delimiter Regular expression delimiter.
      *
-     * @throws InvalidArgumentException if incorrect regular expression or delimiter
+     * @throws InvalidArgumentException If incorrect regular expression or delimiter
      *
-     * @return string Value for use in the "pattern" HTML attribute
+     * @return string
      */
     public static function normalizeRegexpPattern(string $regexp, ?string $delimiter = null): string
     {
@@ -55,7 +55,7 @@ final class Utils
             $delimiter = substr($pattern, 0, 1);
         }
 
-        if ($delimiter !== null && strlen($delimiter) !== 1) {
+        if (strlen($delimiter) !== 1) {
             throw new InvalidArgumentException('Incorrect delimiter.');
         }
 
