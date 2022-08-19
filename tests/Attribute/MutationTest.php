@@ -21,10 +21,22 @@ final class MutationTest extends TestCase
         $this->assertSame(['class' => 'test-class'], $widget->attributes);
     }
 
+    public function testDisabled(): void
+    {
+        $widget = $this->widget()->disabled();
+        $this->assertSame(['disabled' => true], $widget->attributes);
+    }
+
     public function testFormnovalidate(): void
     {
         $widget = $this->widget()->formnovalidate();
         $this->assertSame(['formnovalidate' => true], $widget->attributes);
+    }
+
+    public function testMultiple(): void
+    {
+        $widget = $this->widget()->multiple();
+        $this->assertSame(['multiple' => true], $widget->attributes);
     }
 
     public function testReadOnly(): void
@@ -45,13 +57,22 @@ final class MutationTest extends TestCase
         $this->assertSame(['readonly' => true], $widget->attributes);
     }
 
+    public function testRequired(): void
+    {
+        $widget = $this->widget()->required();
+        $this->assertSame(['required' => true], $widget->attributes);
+    }
+
     private function widget(): object
     {
         return new class () {
             use Attribute\Autofocus;
             use Attribute\Classes;
+            use Attribute\Disabled;
             use Attribute\Formnovalidate;
+            use Attribute\Multiple;
             use Attribute\Readonlys;
+            use Attribute\Required;
 
             public array $attributes = [];
         };

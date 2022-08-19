@@ -53,15 +53,13 @@ final class Utils
 
         if ($delimiter === null) {
             $delimiter = substr($pattern, 0, 1);
-        } elseif (strlen($delimiter) !== 1) {
+        }
+
+        if ($delimiter !== null && strlen($delimiter) !== 1) {
             throw new InvalidArgumentException('Incorrect delimiter.');
         }
 
-        try {
-            $endPosition = strrpos($pattern, $delimiter, 1);
-        } catch (ValueError $e) { // For PHP 8
-            $endPosition = false;
-        }
+        $endPosition = strrpos($pattern, $delimiter, 1);
 
         if ($endPosition === false) {
             throw new InvalidArgumentException('Incorrect regular expression.');
