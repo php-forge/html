@@ -66,6 +66,8 @@ final class Tag
         'textarea',
         'time',
         'u',
+        'td',
+        'th',
         'tt',
         'var',
         'video',
