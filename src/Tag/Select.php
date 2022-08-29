@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Forge\Html\Tag;
 
 use Forge\Html\Attribute;
-use Forge\Html\Tag\Tag;
 use InvalidArgumentException;
 use Stringable;
 
