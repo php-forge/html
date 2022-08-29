@@ -38,6 +38,36 @@ final class SelectTest extends TestCase
     /**
      * @throws ReflectionException
      */
+    public function testAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select class="test.class" id="propertytypeform-int" name="PropertyTypeForm[int]">
+            <optgroup>
+            <option value="2"> Moscu</option>
+            <option value="3"> San Petersburgo</option>
+            <option value="4"> Novosibirsk</option>
+            <option value="5"> Ekaterinburgo</option>
+            </optgroup>
+            <optgroup>
+            <option value="6">Santiago</option>
+            <option value="7">Concepcion</option>
+            <option value="8">Chillan</option>
+            </optgroup>
+            </select>
+            HTML,
+            Select::create()
+                ->attributes(['class' => 'test.class'])
+                ->id('propertytypeform-int')
+                ->items($this->citiesGroups)
+                ->name('PropertyTypeForm[int]')
+                ->render(),
+        );
+    }
+
+    /**
+     * @throws ReflectionException
+     */
     public function testGroups(): void
     {
         Assert::equalsWithoutLE(

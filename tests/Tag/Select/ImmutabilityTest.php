@@ -16,6 +16,7 @@ final class ImmutabilityTest extends TestCase
     public function testImmutability(): void
     {
         $select = Select::create();
+        $this->assertNotSame($select, $select->attributes([]));
         $this->assertNotSame($select, $select->groups([]));
         $this->assertNotSame($select, $select->items([]));
         $this->assertNotSame($select, $select->itemsAttributes([]));
