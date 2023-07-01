@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Tests\Helper;
+namespace PHPForge\Html\Tests\Helper;
 
-use Forge\Html\Helper\Utils;
 use InvalidArgumentException;
+use PHPForge\Html\Helper\Utils;
 use PHPUnit\Framework\TestCase;
 
 final class UtilsTest extends TestCase
@@ -13,6 +13,35 @@ final class UtilsTest extends TestCase
     public function testGenerateArrayableName(): void
     {
         $this->assertSame('test.name[]', Utils::generateArrayableName('test.name'));
+    }
+
+    public function testGenerateInputId(): void
+    {
+        $this->assertSame('utilstest-string', Utils::generateInputId('UtilsTest', 'string'));
+    }
+
+    /**
+     * @dataProvider PHPForge\Html\Tests\Provider\UtilsProvider::dataGetInputName
+     */
+    public function testGetInputName(string $formName, string $attribute, string $expected): void
+    {
+        $this->assertSame($expected, Utils::generateInputName($formName, $attribute));
+    }
+
+    public function testGetInputNamewithOnlyCharacters(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Attribute name must contain word characters only.');
+
+        Utils::generateInputName('TestForm', 'content body');
+    }
+
+    public function testGetInputNameExceptionWithTabular(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The form name cannot be empty for tabular inputs.');
+
+        Utils::generateInputName('', '[0]dates[0]');
     }
 
     public function testMultibyteGenerateArrayableName(): void
@@ -23,20 +52,13 @@ final class UtilsTest extends TestCase
         $this->assertSame('[0]登录[0][]', Utils::generateArrayableName('[0]登录[0]'));
     }
 
-    public function normalizeRegexpPatternProvider(): array
+    public function testMultibyteGenerateInputId(): void
     {
-        return [
-            ['', '//'],
-            ['.*', '/.*/'],
-            ['([a-z0-9-]+)', '/([a-z0-9-]+)/Ugimex'],
-            ['([a-z0-9-]+)', '~([a-z0-9-]+)~Ugimex'],
-            ['([a-z0-9-]+)', '~([a-z0-9-]+)~Ugimex', '~'],
-            ['\u1F596([a-z])', '/\x{1F596}([a-z])/i'],
-        ];
+        $this->assertSame('testform-mąka', Utils::generateInputId('TestForm', 'mĄkA'));
     }
 
     /**
-     * @dataProvider normalizeRegexpPatternProvider
+     * @dataProvider PHPForge\Html\Tests\Provider\UtilsProvider::normalizeRegexpPattern
      *
      * @param string $expected The expected result.
      * @param string $regexp The regexp pattern to normalize.
@@ -47,22 +69,8 @@ final class UtilsTest extends TestCase
         $this->assertSame($expected, Utils::normalizeRegexpPattern($regexp, $delimiter));
     }
 
-    public function normalizeRegexpPatternInvalidProvider(): array
-    {
-        return [
-            ['', 'The length of the regular expression cannot be less than 2.'],
-            ['*', 'The length of the regular expression cannot be less than 2.'],
-            ['.*', 'Incorrect regular expression.'],
-            ['/.*', 'Incorrect regular expression.'],
-            ['([a-z0-9-]+)', 'Incorrect regular expression.'],
-            ['/.*/i', 'Incorrect regular expression.', '~'],
-            ['/.*/i', 'Incorrect delimiter.', '//'],
-            ['/~~/i', 'Incorrect delimiter.', '~~'],
-        ];
-    }
-
     /**
-     * @dataProvider normalizeRegexpPatternInvalidProvider
+     * @dataProvider PHPForge\Html\Tests\Provider\UtilsProvider::normalizeRegexpPatternInvalid
      *
      * @param string $regexp The regexp pattern to normalize.
      * @param string $message The expected exception message.
@@ -72,6 +80,12 @@ final class UtilsTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage($message);
+
         Utils::normalizeRegexpPattern($regexp, $delimiter);
+    }
+
+    public function testShortNameClass(): void
+    {
+        $this->assertSame('UtilsTest::class', Utils::shortNameClass(self::class));
     }
 }

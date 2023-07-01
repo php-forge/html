@@ -1,31 +1,35 @@
 {
-    "name": "forge/html",
+    "name": "yii-tools/html",
     "type": "library",
-    "description": "Generador de código HTML para PHP.",
+    "description": "Awesome HTML for YiiFramework v.3.0.",
     "keywords": [
+        "yii-tools",
+        "awesome",
         "html",
-        "php"
+        "yii3"
     ],
-    "license": "BSD-4-Clause",
+    "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^8.0"
+        "php": "^8.1",
+        "ext-mbstring": "*"
     },
     "require-dev": {
-        "forge/test-utils": "*",
-        "phpunit/phpunit": "*",
-        "roave/infection-static-analysis-plugin": "*",
-        "vimeo/psalm": "*"
+        "maglnet/composer-require-checker": "^4.3",
+        "php-forge/support": "^1.0@dev",
+        "phpunit/phpunit": "^10.0",
+        "roave/infection-static-analysis-plugin": "^1.28",
+        "vimeo/psalm": "^5.8"
     },
     "autoload": {
         "psr-4": {
-            "Forge\\Html\\": "src"
+            "PHPForge\\Html\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Forge\\Html\\Tests\\": "tests"
+            "PHPForge\\Html\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -38,5 +42,11 @@
         "allow-plugins": {
             "infection/extension-installer": true
         }
+    },
+    "scripts": {
+        "check-dependencies": "composer-require-checker",
+        "mutation": "roave-infection-static-analysis-plugin",
+        "psalm": "psalm",
+        "test": "phpunit"
     }
 }
