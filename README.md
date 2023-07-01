@@ -5,7 +5,7 @@
     <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" height="100px">
     </a>    
-    <h1 align="center">Awesome HTML for YiiFramework v.3.0.</h1>
+    <h1 align="center">Awesome HTML Code Generator for PHP.</h1>
     <br>
 </p>
 
@@ -32,7 +32,7 @@ composer require php-forge/html
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fphp-forge%2Fhtml%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/php-forge/html/main)
 [![static analysis](https://github.com/php-forge/html/actions/workflows/static.yml/badge.svg)](https://github.com/php-forge/html/actions/workflows/static.yml)
 [![type-coverage](https://shepherd.dev/github/php-forge/html/coverage.svg)](https://shepherd.dev/github/yiii-tools/html)
-[![StyleCI](https://github.styleci.io/repos/584885650/shield?branch=main)](https://github.styleci.io/repos/584885650?branch=main)
+[![StyleCI](https://github.styleci.io/repos/495122539/shield?branch=main)](https://github.styleci.io/repos/495122539?branch=main)
 
 ## License
 

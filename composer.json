@@ -1,12 +1,12 @@
 {
-    "name": "yii-tools/html",
+    "name": "php-forge/html",
     "type": "library",
-    "description": "Awesome HTML for YiiFramework v.3.0.",
+    "description": "Awesome HTML Code Generator for PHP.",
     "keywords": [
-        "yii-tools",
+        "php-forge",
         "awesome",
         "html",
-        "yii3"
+        "php"
     ],
     "license": "MIT",
     "minimum-stability": "dev",
