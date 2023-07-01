@@ -2,12 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Helper;
+namespace PHPForge\Html\Helper;
 
 use Stringable;
 
 use function array_merge;
-use function count;
 use function gettype;
 use function implode;
 use function in_array;
@@ -15,6 +14,9 @@ use function is_array;
 use function json_encode;
 use function rtrim;
 
+/**
+ * Attributes is a helper class that provides a set of helper methods for managing HTML tag attributes.
+ */
 final class Attributes
 {
     private const JSON_FLAGS = JSON_UNESCAPED_UNICODE | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS |
@@ -99,17 +101,16 @@ final class Attributes
     public function render(array $attributes): string
     {
         $html = '';
+        $sorted = [];
 
-        if (count($attributes) > 1) {
-            $sorted = [];
-            foreach ($this->order as $name) {
-                if (isset($attributes[$name])) {
-                    /** @var string[] */
-                    $sorted[$name] = $attributes[$name];
-                }
+        foreach ($this->order as $name) {
+            if (isset($attributes[$name])) {
+                /** @psalm-var string[] */
+                $sorted[$name] = $attributes[$name];
             }
-            $attributes = array_merge($sorted, $attributes);
         }
+
+        $attributes = array_merge($sorted, $attributes);
 
         /**
          * @var string $name

@@ -2,15 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Helper;
+namespace PHPForge\Html\Helper;
 
-use function array_unique;
 use function implode;
 use function in_array;
 use function is_array;
 use function is_int;
 use function preg_split;
 
+/**
+ * CssClass provides a set of static methods for managing CSS classes.
+ */
 final class CssClass
 {
     /**
@@ -69,6 +71,6 @@ final class CssClass
             }
         }
 
-        return array_unique($existingClasses);
+        return $existingClasses;
     }
 }

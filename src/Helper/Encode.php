@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Forge\Html\Helper;
+namespace PHPForge\Html\Helper;
 
 use function htmlspecialchars;
 use function strtr;
 
+/**
+ * Encode provides methods for encoding HTML special characters.
+ */
 final class Encode
 {
     private const HTMLSPECIALCHARS_FLAGS = ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE;
@@ -47,8 +50,6 @@ final class Encode
     {
         $value = htmlspecialchars((string) $value, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
 
-        return strtr($value, [
-            "\u{0000}" => '&#0;', // U+0000 NULL
-        ]);
+        return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
     }
 }

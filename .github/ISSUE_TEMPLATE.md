@@ -1,14 +1,14 @@
-# Reportar un problema
+### What steps will reproduce the problem?
 
-## Qué pasos reproducirán el problema
+### What is the expected result?
 
-## Cuál es el resultado esperado
+### What do you get instead?
 
-## Qué se obtiene en su lugar
 
-## Información adicional
+### Additional info
 
-| Q                 | A   |
-|-------------------|-----|
-| Versión PHP       |     |
-| Sistema Operativo |     |
+| Q                | A
+| ---------------- | ---
+| Version          | 1.0.?
+| PHP version      | 
+| Operating system |
