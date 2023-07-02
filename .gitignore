@@ -1,15 +1,12 @@
 #code coverage
-code_coverage
+/code_coverage
 
 # composer vendor dir
-vendor
-composer.lock
+/vendor
+/composer.lock
 
 #node_modules
-node_modules
-
-# package-lock.json
-package-lock.json
+/node_modules
 
 # phpstorm project files
 .idea
@@ -17,8 +14,11 @@ package-lock.json
 # phpunit
 .phpunit.cache
 .phpunit.result.cache
+phpunit.xml
 phpunit.phar
-phpunit.xml.dist.bak
+
+#yii3 config packages
+/config/packages
 
 # windows thumbnail cache
 Thumbs.db
