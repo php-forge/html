@@ -6,6 +6,7 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use Closure;
 use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Helper\Encode;
 
 /**
  * Provides methods to configure the label for the widget.
@@ -16,7 +17,6 @@ trait HasLabel
     private string $labelClass = '';
     private Closure|null $labelClosure = null;
     private string $labelContent = '';
-    private bool $labelEncode = true;
     private bool $notLabel = false;
 
     /**
@@ -64,23 +64,14 @@ trait HasLabel
      *
      * @param string $value The value of the label attribute. If null, the label won't be rendered.
      */
-    public function labelContent(string $value): static
+    public function labelContent(string $value, bool $encode = true): static
     {
+        if ($encode) {
+            $value = Encode::content($value);
+        }
+
         $new = clone $this;
         $new->labelContent = $value;
-
-        return $new;
-    }
-
-    /**
-     * Returns a new instance with the value indicating whether the label should be HTML-encoded.
-     *
-     * @param bool $value The value indicating whether the label should be HTML-encoded.
-     */
-    public function labelEncode(bool $value): static
-    {
-        $new = clone $this;
-        $new->labelEncode = $value;
 
         return $new;
     }
