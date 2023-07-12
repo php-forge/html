@@ -11,7 +11,7 @@ final class HasFormTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasForm;
 
             protected array $attributes = [];

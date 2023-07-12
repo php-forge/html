@@ -11,7 +11,7 @@ final class CanBeCheckedTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use CanBeChecked;
         };
 
@@ -20,7 +20,7 @@ final class CanBeCheckedTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use CanBeChecked;
 
             protected array $attributes = [];

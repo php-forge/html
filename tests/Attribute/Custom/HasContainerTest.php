@@ -12,7 +12,7 @@ final class HasContainerTest extends TestCase
 {
     public function testContainerClass(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasContainer;
 
             protected array $attributes = [];
@@ -37,7 +37,7 @@ final class HasContainerTest extends TestCase
 
     public function testException(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasContainer;
 
             protected array $attributes = [];
@@ -52,7 +52,7 @@ final class HasContainerTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasContainer;
 
             protected array $attributes = [];

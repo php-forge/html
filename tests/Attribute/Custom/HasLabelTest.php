@@ -11,7 +11,7 @@ final class HasLabelTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasLabel;
         };
 
@@ -24,7 +24,7 @@ final class HasLabelTest extends TestCase
 
     public function testLabelClass(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasLabel;
 
             public function getLabelClass(): string

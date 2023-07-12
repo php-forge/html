@@ -12,7 +12,7 @@ final class HasTagNameTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasTagName;
 
             protected string $tagName = '';
@@ -26,7 +26,7 @@ final class HasTagNameTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasTagName;
 
             protected string $tagName = '';

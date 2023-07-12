@@ -12,7 +12,7 @@ final class HasDataTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasData;
 
             protected array $attributes = [];

@@ -12,7 +12,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasPrefixAndSuffix;
         };
 
@@ -22,7 +22,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefixStringable(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             protected array $attributes = [];
@@ -33,7 +33,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $prefix = new class() implements Stringable {
+        $prefix = new class () implements Stringable {
             public function __toString(): string
             {
                 return 'foo';
@@ -46,7 +46,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffixStringable(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             protected array $attributes = [];
@@ -57,7 +57,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $suffix = new class() implements Stringable {
+        $suffix = new class () implements Stringable {
             public function __toString(): string
             {
                 return 'bar';

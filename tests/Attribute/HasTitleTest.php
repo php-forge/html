@@ -11,7 +11,7 @@ final class HasTitleTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasTitle;
 
             protected array $attributes = [];

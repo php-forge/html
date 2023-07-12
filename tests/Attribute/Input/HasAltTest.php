@@ -11,7 +11,7 @@ final class HasAltTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasAlt;
 
             protected array $attributes = [];

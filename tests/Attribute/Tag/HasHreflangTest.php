@@ -11,7 +11,7 @@ final class HasHreflangTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasHreflang;
 
             protected array $attributes = [];

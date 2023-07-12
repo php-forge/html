@@ -11,7 +11,7 @@ final class HasRowsTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class {
+        $instance = new class () {
             use HasRows;
 
             protected array $attributes = [];
