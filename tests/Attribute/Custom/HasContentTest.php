@@ -39,6 +39,31 @@ final class HasContentTest extends TestCase
         $this->assertNotSame($instance, $instance->content(''));
     }
 
+    public function testStringable(): void
+    {
+        $instance = new class () {
+            use HasContent;
+
+            protected array $attributes = [];
+
+            public function getContent(): string
+            {
+                return $this->content;
+            }
+        };
+
+        $instance = $instance->content(
+            new class () implements Stringable {
+                public function __toString(): string
+                {
+                    return 'foo && bar';
+                }
+            },
+        );
+
+        $this->assertSame('foo && bar', $instance->getContent());
+    }
+
     public function testStringableWithEncodeFalse(): void
     {
         $instance = new class () {
