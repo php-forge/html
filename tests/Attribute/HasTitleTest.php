@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Attribute\Tag;
+namespace PHPForge\Html\Tests\Attribute;
 
 use PHPForge\Html\Attribute\HasTitle;
 use PHPUnit\Framework\TestCase;
