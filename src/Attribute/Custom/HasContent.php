@@ -22,7 +22,7 @@ trait HasContent
      */
     public function content(string|Stringable $value, bool $encode = true): static
     {
-        if ($encode) {
+        if (!$value instanceof Stringable && $encode) {
             $value = Encode::content($value);
         }
 
