@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
+use Closure;
 use PHPForge\Html\Helper\CssClass;
 
 /**
@@ -11,28 +12,20 @@ use PHPForge\Html\Helper\CssClass;
  */
 trait HasLabel
 {
-    protected string|null $label = '';
-    protected array $labelAttributes = [];
+    private array $labelAttributes = [];
+    private string $labelClass = '';
+    private Closure|null $labelClosure = null;
+    private string $labelContent = '';
+    private bool $labelEncode = true;
+    private bool $notLabel = false;
 
     /**
-     * Return new instance specifying the label for the widget.
+     * Returns a new instance with the label attributes is an array that defines the HTML attributes of the label
+     * element.
      *
-     * @param string $value The label for the widget.
+     * @param array $values The Attribute values indexed by attribute names for field widget.
      */
-    public function label(string $value): self
-    {
-        $new = clone $this;
-        $new->label = $value;
-
-        return $new;
-    }
-
-    /**
-     * Return new instance specifying the `HTML` attributes for the label container.
-     *
-     * @param array $values Attribute values indexed by attribute names.
-     */
-    public function labelAttributes(array $values = []): static
+    public function labelAttributes(array $values): static
     {
         $new = clone $this;
         $new->labelAttributes = $values;
@@ -41,14 +34,53 @@ trait HasLabel
     }
 
     /**
-     * Returns a new specifying the `CSS` HTML label class name.
+     * Returns a new instance with the label class is a string that defines the class of the label element.
      *
-     * @param string $value The css class name
+     * @param string $value The value of the class attribute.
      */
     public function labelClass(string $value): static
     {
         $new = clone $this;
         CssClass::add($new->labelAttributes, $value);
+
+        return $new;
+    }
+
+    /**
+     * Returns a new instance with the label closure.
+     *
+     * @param Closure $value The label closure.
+     */
+    public function labelClosure(Closure $value): static
+    {
+        $new = clone $this;
+        $new->labelClosure = $value;
+
+        return $new;
+    }
+
+    /**
+     * Returns a new instance with the label attribute value is a string that defines the text of the label element.
+     *
+     * @param string $value The value of the label attribute. If null, the label won't be rendered.
+     */
+    public function labelContent(string $value): static
+    {
+        $new = clone $this;
+        $new->labelContent = $value;
+
+        return $new;
+    }
+
+    /**
+     * Returns a new instance with the value indicating whether the label should be HTML-encoded.
+     *
+     * @param bool $value The value indicating whether the label should be HTML-encoded.
+     */
+    public function labelEncode(bool $value): static
+    {
+        $new = clone $this;
+        $new->labelEncode = $value;
 
         return $new;
     }
@@ -67,13 +99,21 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance specifying when the label its disabled.
+     * Returns a new instance where the label isn't rendered.
      */
     public function notLabel(): static
     {
         $new = clone $this;
-        $new->label = null;
+        $new->notLabel = true;
 
         return $new;
+    }
+
+    /**
+     * Returns a new instance whether the label is rendered.
+     */
+    private function isLabel(): bool
+    {
+        return !$this->notLabel;
     }
 }
