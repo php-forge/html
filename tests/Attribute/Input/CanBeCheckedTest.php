@@ -15,7 +15,7 @@ final class CanBeCheckedTest extends TestCase
             use CanBeChecked;
         };
 
-        $this->assertNotSame($instance, $instance->checked());
+        $this->assertNotSame($instance, $instance->checked(false));
     }
 
     public function testRender(): void
@@ -31,7 +31,7 @@ final class CanBeCheckedTest extends TestCase
             }
         };
 
-        $this->assertFalse($instance->getChecked());
-        $this->assertTrue($instance->checked()->getChecked());
+        $this->assertFalse($instance->checked(false)->getChecked());
+        $this->assertTrue($instance->checked(true)->getChecked());
     }
 }

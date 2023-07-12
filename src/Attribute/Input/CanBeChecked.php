@@ -20,12 +20,14 @@ trait CanBeChecked
      * (when the page loads). It does not indicate whether this checkbox is currently checked: if the checkbox's state
      * is changed, this content attribute does not reflect the change.
      *
+     * @param bool $value The value of the checked attribute.
+     *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-checked
      */
-    public function checked(): static
+    public function checked(bool $value): static
     {
         $new = clone $this;
-        $new->checked = true;
+        $new->checked = $value;
 
         return $new;
     }
