@@ -13,10 +13,10 @@ use PHPForge\Html\Helper\Encode;
  */
 trait HasLabel
 {
+    private string $label = '';
     private array $labelAttributes = [];
     private string $labelClass = '';
     private Closure|null $labelClosure = null;
-    private string $labelContent = '';
     private bool $notLabel = false;
 
     /**
@@ -64,14 +64,14 @@ trait HasLabel
      *
      * @param string $value The value of the label attribute. If null, the label won't be rendered.
      */
-    public function labelContent(string $value, bool $encode = true): static
+    public function label(string $value, bool $encode = true): static
     {
         if ($encode) {
             $value = Encode::content($value);
         }
 
         $new = clone $this;
-        $new->labelContent = $value;
+        $new->label = $value;
 
         return $new;
     }
@@ -101,10 +101,10 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance whether the label is rendered.
+     * Returns a new instance whether the label is not rendered.
      */
-    private function isLabel(): bool
+    public function isNotLabel(): bool
     {
-        return !$this->notLabel;
+        return $this->notLabel;
     }
 }

@@ -16,27 +16,27 @@ final class HasLabelTest extends TestCase
             use HasLabel;
         };
 
+        $this->assertNotSame($instance, $instance->label(''));
         $this->assertNotSame($instance, $instance->labelAttributes([]));
         $this->assertNotSame($instance, $instance->labelClass(''));
         $this->assertNotSame($instance, $instance->labelClosure(static fn (): string => ''));
-        $this->assertNotSame($instance, $instance->labelContent(''));
         $this->assertNotSame($instance, $instance->labelFor(''));
         $this->assertNotSame($instance, $instance->notLabel());
     }
 
-    public function testIsLabel(): void
+    public function testIsNotLabel(): void
     {
         $instance = new class () {
             use HasLabel;
 
-            public function getIsLabel(): bool
+            public function getIsNotLabel(): bool
             {
-                return $this->isLabel();
+                return $this->isNotLabel();
             }
         };
 
-        $this->assertFalse($instance->notLabel()->getIsLabel());
-        $this->assertTrue($instance->getIsLabel());
+        $this->assertTrue($instance->notLabel()->getIsNotLabel());
+        $this->assertFalse($instance->getIsNotLabel());
     }
 
     public function testLabelClass(): void
@@ -84,28 +84,23 @@ final class HasLabelTest extends TestCase
         $instance = new class () {
             use HasLabel;
 
-            public function getLabelContent(): string
+            public function getLabel(): string
             {
-                return $this->labelContent;
+                return $this->label;
             }
         };
 
-        $this->assertSame('foo &amp; bar', $instance->labelContent('foo & bar')->getLabelContent());
-        $this->assertSame('foo & bar', $instance->labelContent('foo & bar', false)->getLabelContent());
+        $this->assertSame('foo &amp; bar', $instance->label('foo & bar')->getLabel());
+        $this->assertSame('foo & bar', $instance->label('foo & bar', false)->getLabel());
     }
 
     public function testNotLabel(): void
     {
         $instance = new class () {
             use HasLabel;
-
-            public function getNotLabel(): bool
-            {
-                return $this->notLabel;
-            }
         };
 
-        $this->assertFalse($instance->getNotLabel());
-        $this->assertTrue($instance->notLabel()->getNotLabel());
+        $this->assertFalse($instance->isNotLabel());
+        $this->assertTrue($instance->notLabel()->isNotLabel());
     }
 }
