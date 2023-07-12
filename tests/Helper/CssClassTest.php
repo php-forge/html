@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Attribute;
+namespace PHPForge\Html\Tests\Helper;
 
 use PHPForge\Html\Helper\CssClass;
 use PHPUnit\Framework\TestCase;
