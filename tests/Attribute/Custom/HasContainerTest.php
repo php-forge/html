@@ -16,6 +16,7 @@ final class HasContainerTest extends TestCase
             use HasContainer;
 
             protected array $attributes = [];
+            protected bool $container = true;
             protected string $containerTag = 'div';
 
             public function getContainerClass(): string
@@ -41,6 +42,7 @@ final class HasContainerTest extends TestCase
             use HasContainer;
 
             protected array $attributes = [];
+            protected bool $container = true;
             protected string $containerTag = '';
         };
 

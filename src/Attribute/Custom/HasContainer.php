@@ -12,7 +12,6 @@ use PHPForge\Html\Helper\CssClass;
  */
 trait HasContainer
 {
-    protected bool $container = true;
     protected array $containerAttributes = [];
 
     /**
