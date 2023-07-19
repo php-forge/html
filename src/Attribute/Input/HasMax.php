@@ -21,7 +21,7 @@ trait HasMax
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-max
      */
-    public function max(int $value): static
+    public function max(int|string $value): static
     {
         $new = clone $this;
         $new->attributes['max'] = $value;
