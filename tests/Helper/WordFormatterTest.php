@@ -20,6 +20,6 @@ final class WordFormatterTest extends TestCase
         $this->assertSame('Created At', WordFormatter::capitalizeToWords('created_at'));
         $this->assertSame('Created At', WordFormatter::capitalizeToWords('CREATED_AT'));
         $this->assertSame('Date Birth', WordFormatter::capitalizeToWords('dateBirth'));
-        $this->assertSame('Date Of Message',WordFormatter::capitalizeToWords('dateOfMessage'));
+        $this->assertSame('Date Of Message', WordFormatter::capitalizeToWords('dateOfMessage'));
     }
 }

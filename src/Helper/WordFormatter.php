@@ -6,7 +6,6 @@ namespace PHPForge\Html\Helper;
 
 use function implode;
 use function preg_match;
-use function preg_replace;
 use function preg_split;
 use function strtolower;
 use function ucfirst;
