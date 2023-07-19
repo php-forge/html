@@ -15,11 +15,11 @@ trait HasHeight
      *
      * Must be an integer without a unit.
      *
-     * @param int $value The width of the widget.
+     * @param int|string $value The width of the widget.
      *
      * @link https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-width
      */
-    public function height(int $value): static
+    public function height(int|string $value): static
     {
         $new = clone $this;
         $new->attributes['height'] = $value;
