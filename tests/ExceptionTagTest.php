@@ -6,7 +6,6 @@ namespace PHPForge\Html\Tests;
 
 use InvalidArgumentException;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Html\Tag;
 use PHPUnit\Framework\TestCase;
 
 final class ExceptionTagTest extends TestCase

@@ -9,17 +9,16 @@ use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
 /**
- *
  * This is an abstract class that extends AbstractWidget and serves as a base for generating various HTML tags.
  * Concrete classes should extend this class to implement specific HTML tags and their generation logic.
  */
 abstract class AbstractTag extends AbstractWidget
 {
-    use Attribute\HasClass;
-    use Attribute\HasId;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasTagName;
+    use Attribute\HasClass;
+    use Attribute\HasId;
 
     protected array $attributes = [];
     private bool $block = false;
