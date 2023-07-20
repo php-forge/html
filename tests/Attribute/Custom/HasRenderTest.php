@@ -20,7 +20,7 @@ final class HasRenderTest extends TestCase
         $this->assertSame(
             'test',
             $instance->renderStringable(
-                new class() implements Stringable {
+                new class () implements Stringable {
                     public function __toString(): string
                     {
                         return 'test';
