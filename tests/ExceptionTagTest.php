@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests;
 
 use InvalidArgumentException;
+use PHPForge\Html\HtmlBuilder;
 use PHPForge\Html\Tag;
 use PHPUnit\Framework\TestCase;
 
@@ -14,20 +15,23 @@ final class ExceptionTagTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Inline elements cannot be used with begin/end syntax.');
-        Tag::begin('br');
+
+        HtmlBuilder::begin('br');
     }
 
     public function testEndInlineElement(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Inline elements cannot be used with begin/end syntax.');
-        Tag::end('br');
+
+        HtmlBuilder::end('br');
     }
 
     public function testTagEmpty(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Tag name cannot be empty.');
-        Tag::create('');
+
+        HtmlBuilder::create('');
     }
 }
