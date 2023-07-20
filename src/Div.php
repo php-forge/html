@@ -12,7 +12,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element
  */
-final class Div extends Base\AbstractTag
+final class Div extends Base\AbstractElement
 {
     protected string $tagName = 'div';
 }

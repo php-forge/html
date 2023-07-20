@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Tag;
+use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
 /**
@@ -38,6 +38,6 @@ abstract class AbstractI extends AbstractWidget
 
     protected function run(): string
     {
-        return Tag::widget()->attributes($this->attributes)->content($this->content)->tagName('i')->render();
+        return HtmlBuilder::create('i', $this->content, $this->attributes);
     }
 }
