@@ -15,7 +15,6 @@ final class HasContainerTest extends TestCase
         $instance = new class () {
             use HasContainer;
 
-            protected array $attributes = [];
             protected bool $container = true;
             protected string $containerTag = 'div';
 
@@ -41,7 +40,6 @@ final class HasContainerTest extends TestCase
         $instance = new class () {
             use HasContainer;
 
-            protected array $attributes = [];
             protected bool $container = true;
             protected string $containerTag = '';
         };
@@ -57,7 +55,6 @@ final class HasContainerTest extends TestCase
         $instance = new class () {
             use HasContainer;
 
-            protected array $attributes = [];
             protected string $containerTag = 'div';
         };
 

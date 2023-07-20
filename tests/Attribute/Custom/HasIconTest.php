@@ -14,8 +14,6 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            protected array $attributes = [];
-
             public function getIconAttributes(): array
             {
                 return $this->iconAttributes;
@@ -38,8 +36,6 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            protected array $attributes = [];
-
             public function getIconContainerAttributes(): array
             {
                 return $this->iconContainerAttributes;
@@ -61,8 +57,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            protected array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->iconAttributes([]));
