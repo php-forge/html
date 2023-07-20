@@ -14,11 +14,11 @@ use PHPForge\Widget\AbstractWidget;
  */
 abstract class AbstractTag extends AbstractWidget
 {
+    use Attribute\HasClass;
+    use Attribute\HasId;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasTagName;
-    use Attribute\HasClass;
-    use Attribute\HasId;
 
     protected array $attributes = [];
     private bool $block = false;

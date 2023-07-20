@@ -17,11 +17,11 @@ use function array_key_exists;
 
 abstract class AbstractSvg extends AbstractWidget
 {
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTitle;
+    use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasContent;
     use Attribute\Input\HasHeight;
     use Attribute\Input\HasWidth;
 

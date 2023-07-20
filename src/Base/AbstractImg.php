@@ -15,9 +15,9 @@ use PHPForge\Widget\AbstractWidget;
  */
 abstract class AbstractImg extends AbstractWidget
 {
-    use Attribute\Custom\HasAttributes;
     use Attribute\HasClass;
     use Attribute\HasId;
+    use Attribute\Custom\HasAttributes;
     use Attribute\Input\HasAlt;
     use Attribute\Input\HasHeight;
     use Attribute\Input\HasSrc;
