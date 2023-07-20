@@ -8,7 +8,7 @@ use InvalidArgumentException;
 use PHPForge\Html\HtmlBuilder;
 use PHPUnit\Framework\TestCase;
 
-final class ExceptionTagTest extends TestCase
+final class ExceptionTest extends TestCase
 {
     public function testBeginInlineElement(): void
     {
