@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Tag;
+namespace PHPForge\Html\Tests\Div;
 
-use PHPForge\Html\Tag;
+use PHPForge\Html\Div;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +15,7 @@ final class RenderTest extends TestCase
 {
     public function testBlockLevelElements(): void
     {
-        $this->assertSame('<div>test block</div>', Tag::widget()->tagName('div')->begin() . 'test block' . Tag::end());
+        $this->assertSame('<div>test block</div>', Div::widget()->begin() . 'test block' . Div::end());
     }
 
     public function testElement(): void
@@ -26,7 +26,7 @@ final class RenderTest extends TestCase
             test element
             </div>
             HTML,
-            Tag::widget()->content('test element')->tagName('div')->render(),
+            Div::widget()->content('test element')->render(),
         );
     }
 }

@@ -20,9 +20,9 @@ abstract class AbstractTag extends AbstractWidget
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasTagName;
 
+    protected string $tagName = '';
     protected array $attributes = [];
     private bool $block = false;
-    private string $tagName = '';
 
     public function begin(): string
     {

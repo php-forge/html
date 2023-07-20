@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Html;
+namespace PHPForge\Html\Tests\Tag;
 
 use InvalidArgumentException;
 use PHPForge\Html\Tag;
