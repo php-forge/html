@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Tag;
 
+use PHPForge\Html\Helper\Encode;
+
 /**
  * Is used by widgets which have a http-equiv attribute.
  */
@@ -21,7 +23,7 @@ trait HasHttpEquiv
     {
         $new = clone $this;
         $new->attributes['http-equiv'] = $value;
-        $new->attributes['content'] = $content;
+        $new->attributes['content'] = Encode::content($content);
 
         return $new;
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
+use PHPForge\Html\Helper\Encode;
 use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
@@ -34,7 +35,7 @@ abstract class AbstractMeta extends AbstractWidget
     {
         $new = clone $this;
         $new->attributes['name'] = $value;
-        $new->attributes['content'] = $content;
+        $new->attributes['content'] = Encode::content($content);
 
         return $new;
     }
