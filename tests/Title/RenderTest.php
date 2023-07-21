@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Head;
+namespace PHPForge\Html\Tests\Title;
 
-use PHPForge\Html\Head;
+use PHPForge\Html\Title;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -15,18 +15,18 @@ final class RenderTest extends TestCase
 {
     public function testBlockLevelElements(): void
     {
-        $this->assertSame('<head>test block</head>', Head::widget()->begin() . 'test block' . Head::end());
+        $this->assertSame('<title>test block</title>', Title::widget()->begin() . 'test block' . Title::end());
     }
 
     public function testElement(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head>
+            <title>
             test element
-            </head>
+            </title>
             HTML,
-            Head::widget()->content('test element')->render(),
+            Title::widget()->content('test element')->render(),
         );
     }
 }
