@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Tag;
 
+use PHPForge\Html\Helper\Encode;
+
 /**
  * Is used by widgets which have a charset attribute.
  */
@@ -19,7 +21,7 @@ trait HasCharset
     public function charset(string $value): self
     {
         $new = clone $this;
-        $new->attributes['charset'] = $value;
+        $new->attributes['charset'] = Encode::content($value);
 
         return $new;
     }
