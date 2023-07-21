@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute;
 
+use PHPForge\Html\Helper\Encode;
+
 /**
  * Is used by widgets which have a lang attribute.
  */
@@ -22,7 +24,7 @@ trait HasLang
     public function lang(string $value): static
     {
         $new = clone $this;
-        $new->attributes['lang'] = $value;
+        $new->attributes['lang'] = Encode::content($value);
 
         return $new;
     }
