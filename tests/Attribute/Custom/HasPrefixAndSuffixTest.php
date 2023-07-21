@@ -38,30 +38,6 @@ final class HasPrefixAndSuffixTest extends TestCase
         $this->assertSame('&lt;foo &amp;&amp; bar&gt;', $instance->prefix('<foo && bar>')->getPrefix());
     }
 
-    public function testPrefixStringable(): void
-    {
-        $instance = new class () {
-            use HasPrefixAndSuffix;
-
-            protected array $attributes = [];
-
-            public function getPrefix(): string
-            {
-                return $this->prefix;
-            }
-        };
-
-        $prefix = new class () implements Stringable {
-            public function __toString(): string
-            {
-                return 'foo';
-            }
-        };
-
-        $this->assertEmpty($instance->getPrefix());
-        $this->assertSame('foo', $instance->prefix($prefix)->getPrefix());
-    }
-
     public function testPrefixStringableSpecialChar(): void
     {
         $instance = new class () {
@@ -86,6 +62,30 @@ final class HasPrefixAndSuffixTest extends TestCase
         $this->assertSame('foo && bar', $instance->prefix($prefix)->getPrefix());
     }
 
+    public function testPrefixStringable(): void
+    {
+        $instance = new class () {
+            use HasPrefixAndSuffix;
+
+            protected array $attributes = [];
+
+            public function getPrefix(): string
+            {
+                return $this->prefix;
+            }
+        };
+
+        $prefix = new class () implements Stringable {
+            public function __toString(): string
+            {
+                return 'foo';
+            }
+        };
+
+        $this->assertEmpty($instance->getPrefix());
+        $this->assertSame('foo', $instance->prefix($prefix)->getPrefix());
+    }
+
     public function testSuffix(): void
     {
         $instance = new class () {
@@ -102,30 +102,6 @@ final class HasPrefixAndSuffixTest extends TestCase
         $this->assertEmpty($instance->getSuffix());
         $this->assertSame('foo', $instance->suffix('foo')->getSuffix());
         $this->assertSame('&lt;foo &amp;&amp; bar&gt;', $instance->suffix('<foo && bar>')->getSuffix());
-    }
-
-    public function testSuffixStringable(): void
-    {
-        $instance = new class () {
-            use HasPrefixAndSuffix;
-
-            protected array $attributes = [];
-
-            public function getSuffix(): string
-            {
-                return $this->suffix;
-            }
-        };
-
-        $suffix = new class () implements Stringable {
-            public function __toString(): string
-            {
-                return 'bar';
-            }
-        };
-
-        $this->assertEmpty($instance->getSuffix());
-        $this->assertSame('bar', $instance->suffix($suffix)->getSuffix());
     }
 
     public function testSuffixStringableSpecialChar(): void
@@ -150,5 +126,29 @@ final class HasPrefixAndSuffixTest extends TestCase
 
         $this->assertEmpty($instance->getSuffix());
         $this->assertSame('bar && baz', $instance->suffix($suffix)->getSuffix());
+    }
+
+    public function testSuffixStringable(): void
+    {
+        $instance = new class () {
+            use HasPrefixAndSuffix;
+
+            protected array $attributes = [];
+
+            public function getSuffix(): string
+            {
+                return $this->suffix;
+            }
+        };
+
+        $suffix = new class () implements Stringable {
+            public function __toString(): string
+            {
+                return 'bar';
+            }
+        };
+
+        $this->assertEmpty($instance->getSuffix());
+        $this->assertSame('bar', $instance->suffix($suffix)->getSuffix());
     }
 }
