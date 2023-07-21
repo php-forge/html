@@ -15,6 +15,11 @@ use RuntimeException;
 
 use function array_key_exists;
 
+/**
+ * This is an abstract class that extends AbstractWidget and serves as a base for generating the `<svg>` tag.
+ * The `<svg>` tag represents a scalable vector graphic in an HTML document.
+ * Concrete classes should extend this class to implement specific `<svg>` tag variations and their generation logic.
+ */
 abstract class AbstractSvg extends AbstractWidget
 {
     use Attribute\HasClass;

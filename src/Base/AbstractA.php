@@ -9,7 +9,7 @@ use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
 /**
- * This is an abstract class that extends AbstractWidget and serves as a base for creating anchor (a) elements.
+ * This is an abstract class that extends AbstractWidget and serves as a base for creating anchor `(a)` elements.
  * Anchor elements are used to create hyperlinks in HTML documents.
  * Concrete classes should extend this class to implement specific anchor elements and their generation logic.
  */

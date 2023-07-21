@@ -13,8 +13,6 @@ final class HasPromptTest extends TestCase
     {
         $instance = new class () {
             use HasPrompt;
-
-            protected array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->prompt(''));
@@ -24,8 +22,6 @@ final class HasPromptTest extends TestCase
     {
         $instance = new class () {
             use HasPrompt;
-
-            protected array $attributes = [];
 
             public function getPrompt(): string
             {

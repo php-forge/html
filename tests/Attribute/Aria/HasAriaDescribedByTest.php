@@ -13,8 +13,6 @@ final class HasAriaDescribedByTest extends TestCase
     {
         $instance = new class () {
             use HasAriaDescribedBy;
-
-            protected array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->ariaDescribedBy(''));

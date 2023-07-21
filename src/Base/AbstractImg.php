@@ -9,9 +9,9 @@ use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
 /**
- * This is an abstract class that extends AbstractWidget and serves as a base for generating the <img> tag.
- * The <img> tag represents an image in an HTML document.
- * Concrete classes should extend this class to implement specific <img> tag variations and their generation logic.
+ * This is an abstract class that extends AbstractWidget and serves as a base for generating the `<img>` tag.
+ * The `<img>` tag represents an image in an HTML document.
+ * Concrete classes should extend this class to implement specific `<img>` tag variations and their generation logic.
  */
 abstract class AbstractImg extends AbstractWidget
 {

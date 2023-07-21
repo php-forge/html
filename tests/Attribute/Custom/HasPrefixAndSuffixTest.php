@@ -25,8 +25,6 @@ final class HasPrefixAndSuffixTest extends TestCase
         $instance = new class () {
             use HasPrefixAndSuffix;
 
-            protected array $attributes = [];
-
             public function getPrefix(): string
             {
                 return $this->prefix;
@@ -42,8 +40,6 @@ final class HasPrefixAndSuffixTest extends TestCase
     {
         $instance = new class () {
             use HasPrefixAndSuffix;
-
-            protected array $attributes = [];
 
             public function getPrefix(): string
             {
@@ -67,8 +63,6 @@ final class HasPrefixAndSuffixTest extends TestCase
         $instance = new class () {
             use HasPrefixAndSuffix;
 
-            protected array $attributes = [];
-
             public function getPrefix(): string
             {
                 return $this->prefix;
@@ -91,8 +85,6 @@ final class HasPrefixAndSuffixTest extends TestCase
         $instance = new class () {
             use HasPrefixAndSuffix;
 
-            protected array $attributes = [];
-
             public function getSuffix(): string
             {
                 return $this->suffix;
@@ -108,8 +100,6 @@ final class HasPrefixAndSuffixTest extends TestCase
     {
         $instance = new class () {
             use HasPrefixAndSuffix;
-
-            protected array $attributes = [];
 
             public function getSuffix(): string
             {
@@ -132,8 +122,6 @@ final class HasPrefixAndSuffixTest extends TestCase
     {
         $instance = new class () {
             use HasPrefixAndSuffix;
-
-            protected array $attributes = [];
 
             public function getSuffix(): string
             {

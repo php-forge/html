@@ -9,9 +9,9 @@ use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
 /**
- * This is an abstract class that extends AbstractWidget and serves as a base for generating the <i> tag.
- * The <i> tag represents text in an alternative voice or mood, such as a technical term, a thought, or a ship name.
- * Concrete classes should extend this class to implement specific <i> tag variations and their generation logic.
+ * This is an abstract class that extends AbstractWidget and serves as a base for generating the `<i>` tag.
+ * The `<i>` tag represents text in an alternative voice or mood, such as a technical term, a thought, or a ship name.
+ * Concrete classes should extend this class to implement specific `<i>` tag variations and their generation logic.
  */
 abstract class AbstractI extends AbstractWidget
 {
