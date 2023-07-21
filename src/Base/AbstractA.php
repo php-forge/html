@@ -38,6 +38,6 @@ abstract class AbstractA extends AbstractWidget
 
     protected function run(): string
     {
-        return HtmlBuilder::create('a',$this->content, $this->attributes);
+        return HtmlBuilder::create('a', $this->content, $this->attributes);
     }
 }
