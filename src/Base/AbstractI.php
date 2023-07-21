@@ -19,6 +19,7 @@ abstract class AbstractI extends AbstractWidget
     use Attribute\CanBeHidden;
     use Attribute\HasClass;
     use Attribute\HasId;
+    use Attribute\HasLang;
     use Attribute\HasStyle;
     use Attribute\HasTabindex;
     use Attribute\HasTitle;

@@ -17,6 +17,7 @@ abstract class AbstractElement extends AbstractWidget
 {
     use Attribute\HasClass;
     use Attribute\HasId;
+    use Attribute\HasLang;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
 
