@@ -16,7 +16,9 @@ use function strtolower;
  */
 abstract class AbstractHtmlBuilder
 {
-    /** @psalm-var string[] */
+    /**
+     * @psalm-var string[]
+     */
     private const INLINE_ELEMENTS = [
         'a',
         'abbr',
@@ -78,7 +80,9 @@ abstract class AbstractHtmlBuilder
         'wbr',
     ];
 
-    /** @psalm-var string[] */
+    /**
+     * @psalm-var string[]
+     */
     private const VOID_ELEMENT = [
         'area',
         'base',

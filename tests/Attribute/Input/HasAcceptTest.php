@@ -11,7 +11,7 @@ final class HasAcceptTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasAccept;
 
             protected array $attributes = [];

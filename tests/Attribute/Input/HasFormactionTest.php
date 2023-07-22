@@ -12,7 +12,7 @@ final class HasFormactionTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasFormaction;
 
             protected array $attributes = [];
@@ -26,7 +26,7 @@ final class HasFormactionTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasFormaction;
 
             protected array $attributes = [];

@@ -12,7 +12,7 @@ final class HasLabelTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasLabel;
         };
 
@@ -26,7 +26,7 @@ final class HasLabelTest extends TestCase
 
     public function testIsNotLabel(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasLabel;
 
             public function getIsNotLabel(): bool
@@ -41,7 +41,7 @@ final class HasLabelTest extends TestCase
 
     public function testLabelClass(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasLabel;
 
             public function getLabelClass(): string
@@ -63,7 +63,7 @@ final class HasLabelTest extends TestCase
 
     public function testLabelClosure(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasLabel;
 
             public function getLabelClosure(): Closure|null
@@ -81,7 +81,7 @@ final class HasLabelTest extends TestCase
 
     public function testLabelEncode(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasLabel;
 
             public function getLabel(): string
@@ -96,7 +96,7 @@ final class HasLabelTest extends TestCase
 
     public function testNotLabel(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasLabel;
         };
 

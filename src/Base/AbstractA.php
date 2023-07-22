@@ -17,14 +17,14 @@ abstract class AbstractA extends AbstractWidget
 {
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
+    use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasContent;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasLang;
     use Attribute\HasStyle;
     use Attribute\HasTabindex;
     use Attribute\HasTitle;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
     use Attribute\Input\HasName;
     use Attribute\Input\HasType;
     use Attribute\Tag\HasDownload;

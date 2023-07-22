@@ -12,7 +12,7 @@ final class HasRelTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasRel;
 
             protected array $attributes = [];
@@ -28,7 +28,7 @@ final class HasRelTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasRel;
 
             protected array $attributes = [];

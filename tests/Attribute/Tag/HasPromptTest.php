@@ -11,7 +11,7 @@ final class HasPromptTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrompt;
         };
 
@@ -20,7 +20,7 @@ final class HasPromptTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrompt;
 
             public function getPrompt(): string

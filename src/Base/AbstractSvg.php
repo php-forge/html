@@ -22,12 +22,12 @@ use function array_key_exists;
  */
 abstract class AbstractSvg extends AbstractWidget
 {
+    use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasContent;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasLang;
     use Attribute\HasTitle;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
     use Attribute\Input\HasHeight;
     use Attribute\Input\HasWidth;
 
@@ -77,8 +77,6 @@ abstract class AbstractSvg extends AbstractWidget
      * Returns a new instance with the viewBox attribute of the SVG.
      *
      * @param string $value The viewBox value.
-     *
-     * @return self
      */
     public function viewBox(string $value): self
     {
@@ -92,8 +90,6 @@ abstract class AbstractSvg extends AbstractWidget
      * Returns a new instance with the xmlns attribute of the SVG.
      *
      * @param string $value The xmlns value.
-     *
-     * @return self
      */
     public function xmlns(string $value): self
     {

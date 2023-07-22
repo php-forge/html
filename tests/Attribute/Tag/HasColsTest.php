@@ -11,7 +11,7 @@ final class HasColsTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasCols;
         };
 

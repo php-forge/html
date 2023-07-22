@@ -23,6 +23,7 @@
         "php-forge/support": "^1.0@dev",
         "phpunit/phpunit": "^10.0",
         "roave/infection-static-analysis-plugin": "^1.28",
+        "symplify/easy-coding-standard": "^11.5",
         "vimeo/psalm": "^5.8"
     },
     "autoload": {
@@ -48,6 +49,7 @@
     },
     "scripts": {
         "check-dependencies": "composer-require-checker",
+        "easy-coding-standard": "ecs check",
         "mutation": "roave-infection-static-analysis-plugin",
         "psalm": "psalm",
         "test": "phpunit"

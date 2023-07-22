@@ -12,7 +12,7 @@ final class HasContentTest extends TestCase
 {
     public function testEncode(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasContent;
 
             public function getContent(): string
@@ -27,7 +27,7 @@ final class HasContentTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasContent;
 
             protected string $containerTag = 'div';
@@ -38,7 +38,7 @@ final class HasContentTest extends TestCase
 
     public function testStringable(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasContent;
 
             public function getContent(): string
@@ -48,7 +48,7 @@ final class HasContentTest extends TestCase
         };
 
         $instance = $instance->content(
-            new class () implements Stringable {
+            new class() implements Stringable {
                 public function __toString(): string
                 {
                     return 'foo && bar';
@@ -61,7 +61,7 @@ final class HasContentTest extends TestCase
 
     public function testStringableWithEncodeFalse(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasContent;
 
             public function getContent(): string
@@ -71,7 +71,7 @@ final class HasContentTest extends TestCase
         };
 
         $instance = $instance->content(
-            new class () implements Stringable {
+            new class() implements Stringable {
                 public function __toString(): string
                 {
                     return 'foo';

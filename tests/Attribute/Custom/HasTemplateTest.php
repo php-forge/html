@@ -11,7 +11,7 @@ final class HasTemplateTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasTemplate;
 
             protected string $template = '{input}';
