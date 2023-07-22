@@ -51,5 +51,13 @@
         "mutation": "roave-infection-static-analysis-plugin",
         "psalm": "psalm",
         "test": "phpunit"
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "name": "php-forge/awesome-widget",
+            "url": "https://github.com/php-forge/awesome-widget",
+            "branch": "main"
+        }
+    ]
 }

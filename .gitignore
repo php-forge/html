@@ -22,3 +22,6 @@ phpunit.phar
 
 # windows thumbnail cache
 Thumbs.db
+
+# security private repo
+auth.json

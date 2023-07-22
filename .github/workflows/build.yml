@@ -25,6 +25,7 @@ jobs:
   phpunit:
     uses: php-forge/actions/.github/workflows/phpunit.yml@main
     secrets:
+      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     with:
       os: >-
