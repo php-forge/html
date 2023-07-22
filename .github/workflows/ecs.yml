@@ -22,7 +22,7 @@ on:
 name: ecs
 
 jobs:
-  psalm:
+  easy-coding-standard:
     uses: php-forge/actions/.github/workflows/ecs.yml@main
     secrets:
       AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
