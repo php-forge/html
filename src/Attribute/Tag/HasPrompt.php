@@ -29,7 +29,11 @@ trait HasPrompt
         }
 
         $new = clone $this;
-        $new->prompt = Tag::create('option', $content, $attributes);
+        $new->prompt = Tag::widget()
+            ->attributes($attributes)
+            ->content($content)
+            ->tagName('option')
+            ->render();
 
         return $new;
     }

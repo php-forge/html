@@ -13,8 +13,6 @@ final class HasAriaLabelTest extends TestCase
     {
         $instance = new class () {
             use HasAriaLabel;
-
-            protected array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->ariaLabel(''));

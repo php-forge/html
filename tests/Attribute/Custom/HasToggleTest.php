@@ -6,6 +6,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasToggle;
 use PHPUnit\Framework\TestCase;
+use Stringable;
 
 final class HasToggleTest extends TestCase
 {
@@ -81,5 +82,66 @@ final class HasToggleTest extends TestCase
         $instance = $instance->toggleClass('test1');
 
         $this->assertSame(['class' => 'test test1'], $instance->getToggleAttributes());
+    }
+
+    public function testToggleContent(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function getToggleContent(): string
+            {
+                return $this->toggleContent;
+            }
+        };
+
+        $this->assertEmpty($instance->getToggleContent());
+        $this->assertSame('foo', $instance->toggleContent('foo')->getToggleContent());
+        $this->assertSame('&lt;foo &amp;&amp; bar&gt;', $instance->toggleContent('<foo && bar>')->getToggleContent());
+    }
+
+    public function testToggleContentSpecialChar(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function getToggleContent(): string
+            {
+                return $this->toggleContent;
+            }
+        };
+
+        $toggle = new class () implements Stringable {
+            public function __toString(): string
+            {
+                return 'bar && baz';
+            }
+        };
+
+        $this->assertEmpty($instance->getToggleContent());
+        $this->assertSame('bar && baz', $instance->toggleContent($toggle)->getToggleContent());
+    }
+
+    public function testToggleContentStringable(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function getToggleContent(): string
+            {
+                return $this->toggleContent;
+            }
+        };
+
+        $this->assertSame('', $instance->getToggleContent());
+
+        $toggle = new class () implements Stringable {
+            public function __toString(): string
+            {
+                return 'test';
+            }
+        };
+
+        $this->assertSame('test', $instance->toggleContent($toggle)->getToggleContent());
     }
 }

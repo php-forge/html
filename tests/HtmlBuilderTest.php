@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests;
 
 use InvalidArgumentException;
-use PHPForge\Html\Tag;
+use PHPForge\Html\HtmlBuilder;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
-final class TagTest extends TestCase
+final class HtmlBuilderTest extends TestCase
 {
     public function testBegin(): void
     {
-        $this->assertSame('<div>', Tag::begin('div'));
-        $this->assertSame('<div class="class">', Tag::begin('div', ['class' => 'class']));
+        $this->assertSame('<div>', HtmlBuilder::begin('div'));
+        $this->assertSame('<div class="class">', HtmlBuilder::begin('div', ['class' => 'class']));
     }
 
     /**
@@ -27,18 +27,19 @@ final class TagTest extends TestCase
      */
     public function testCreate(string $tagName, string $content, array $attributes, string $expected): void
     {
-        Assert::equalsWithoutLE($expected, Tag::create($tagName, $content, $attributes));
+        Assert::equalsWithoutLE($expected, HtmlBuilder::create($tagName, $content, $attributes));
     }
 
     public function testEnd(): void
     {
-        $this->assertSame('</div>', Tag::end('div'));
+        $this->assertSame('</div>', HtmlBuilder::end('div'));
     }
 
     public function testException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Tag name cannot be empty.');
-        Tag::create('');
+
+        HtmlBuilder::create('');
     }
 }

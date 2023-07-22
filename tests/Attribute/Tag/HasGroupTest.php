@@ -13,8 +13,6 @@ final class HasGroupTest extends TestCase
     {
         $instance = new class () {
             use HasGroup;
-
-            protected array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->groups([]));

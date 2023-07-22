@@ -15,8 +15,6 @@ final class HasContentTest extends TestCase
         $instance = new class () {
             use HasContent;
 
-            protected array $attributes = [];
-
             public function getContent(): string
             {
                 return $this->content;
@@ -32,7 +30,6 @@ final class HasContentTest extends TestCase
         $instance = new class () {
             use HasContent;
 
-            protected array $attributes = [];
             protected string $containerTag = 'div';
         };
 

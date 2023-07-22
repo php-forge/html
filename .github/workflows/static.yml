@@ -24,6 +24,8 @@ name: static analysis
 jobs:
   psalm:
     uses: php-forge/actions/.github/workflows/psalm.yml@main
+    secrets:
+      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
     with:
       os: >-
         ['ubuntu-latest']

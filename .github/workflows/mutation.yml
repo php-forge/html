@@ -23,6 +23,7 @@ jobs:
   mutation:
     uses: php-forge/actions/.github/workflows/roave-infection.yml@main
     secrets:
+      AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
     with:
       os: >-
