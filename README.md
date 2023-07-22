@@ -28,11 +28,10 @@ composer require php-forge/html
 ## CI status
 
 [![build](https://github.com/php-forge/html/actions/workflows/build.yml/badge.svg)](https://github.com/php-forge/html/actions/workflows/build.yml)
-[![codecov](https://codecov.io/gh/php-forge/html/branch/main/graph/badge.svg?token=CEBVCYZNQK)](https://codecov.io/gh/php-forge/html)
+[![codecov](https://codecov.io/gh/php-forge/html/branch/main/graph/badge.svg?token=xRTJCyUR2o)](https://codecov.io/gh/php-forge/html)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fphp-forge%2Fhtml%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/php-forge/html/main)
 [![static analysis](https://github.com/php-forge/html/actions/workflows/static.yml/badge.svg)](https://github.com/php-forge/html/actions/workflows/static.yml)
 [![type-coverage](https://shepherd.dev/github/php-forge/html/coverage.svg)](https://shepherd.dev/github/php-forge/html)
-[![StyleCI](https://github.styleci.io/repos/495122539/shield?branch=main)](https://github.styleci.io/repos/495122539?branch=main)
 
 ## License
 
