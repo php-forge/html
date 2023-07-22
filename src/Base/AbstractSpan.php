@@ -15,12 +15,12 @@ use PHPForge\Widget\AbstractWidget;
  */
 abstract class AbstractSpan extends AbstractWidget
 {
+    use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasContent;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasLang;
     use Attribute\HasTitle;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
 
     protected array $attributes = [];
 
