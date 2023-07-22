@@ -19,7 +19,7 @@ on:
       - 'infection.json.dist'
       - 'phpunit.xml.dist'
 
-name: easy-coding-standard
+name: ecs
 
 jobs:
   psalm:
