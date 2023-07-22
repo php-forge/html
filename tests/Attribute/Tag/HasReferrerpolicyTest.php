@@ -12,7 +12,7 @@ final class HasReferrerpolicyTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasReferrerpolicy;
 
             protected array $attributes = [];
@@ -28,7 +28,7 @@ final class HasReferrerpolicyTest extends TestCase
 
     public function testExceptionWithValueInvalid(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasReferrerpolicy;
 
             protected array $attributes = [];
@@ -44,7 +44,7 @@ final class HasReferrerpolicyTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasReferrerpolicy;
 
             protected array $attributes = [];

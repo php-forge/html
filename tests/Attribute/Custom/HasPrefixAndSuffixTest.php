@@ -12,7 +12,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
         };
 
@@ -22,7 +22,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefix(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
 
             public function getPrefix(): string
@@ -38,7 +38,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefixStringableSpecialChar(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
 
             public function getPrefix(): string
@@ -47,7 +47,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $prefix = new class () implements Stringable {
+        $prefix = new class() implements Stringable {
             public function __toString(): string
             {
                 return 'foo && bar';
@@ -60,7 +60,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefixStringable(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
 
             public function getPrefix(): string
@@ -69,7 +69,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $prefix = new class () implements Stringable {
+        $prefix = new class() implements Stringable {
             public function __toString(): string
             {
                 return 'foo';
@@ -82,7 +82,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffix(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
 
             public function getSuffix(): string
@@ -98,7 +98,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffixStringableSpecialChar(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
 
             public function getSuffix(): string
@@ -107,7 +107,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $suffix = new class () implements Stringable {
+        $suffix = new class() implements Stringable {
             public function __toString(): string
             {
                 return 'bar && baz';
@@ -120,7 +120,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffixStringable(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasPrefixAndSuffix;
 
             public function getSuffix(): string
@@ -129,7 +129,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $suffix = new class () implements Stringable {
+        $suffix = new class() implements Stringable {
             public function __toString(): string
             {
                 return 'bar';

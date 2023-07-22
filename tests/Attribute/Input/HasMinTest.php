@@ -11,7 +11,7 @@ final class HasMinTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasMin;
 
             protected array $attributes = [];

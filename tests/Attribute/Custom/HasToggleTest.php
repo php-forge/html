@@ -12,7 +12,7 @@ final class HasToggleTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
         };
 
@@ -27,7 +27,7 @@ final class HasToggleTest extends TestCase
 
     public function testNotToggle(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
 
             public function getToggle(): bool
@@ -42,7 +42,7 @@ final class HasToggleTest extends TestCase
 
     public function testToggleAttributes(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
 
             public function getToggleAttributes(): array
@@ -64,7 +64,7 @@ final class HasToggleTest extends TestCase
 
     public function testToggleClass(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
 
             public function getToggleAttributes(): array
@@ -86,7 +86,7 @@ final class HasToggleTest extends TestCase
 
     public function testToggleContent(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
 
             public function getToggleContent(): string
@@ -102,7 +102,7 @@ final class HasToggleTest extends TestCase
 
     public function testToggleContentSpecialChar(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
 
             public function getToggleContent(): string
@@ -111,7 +111,7 @@ final class HasToggleTest extends TestCase
             }
         };
 
-        $toggle = new class () implements Stringable {
+        $toggle = new class() implements Stringable {
             public function __toString(): string
             {
                 return 'bar && baz';
@@ -124,7 +124,7 @@ final class HasToggleTest extends TestCase
 
     public function testToggleContentStringable(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasToggle;
 
             public function getToggleContent(): string
@@ -135,7 +135,7 @@ final class HasToggleTest extends TestCase
 
         $this->assertSame('', $instance->getToggleContent());
 
-        $toggle = new class () implements Stringable {
+        $toggle = new class() implements Stringable {
             public function __toString(): string
             {
                 return 'test';

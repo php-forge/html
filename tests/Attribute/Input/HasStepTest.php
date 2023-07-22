@@ -12,7 +12,7 @@ final class HasStepTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasStep;
 
             protected array $attributes = [];
@@ -26,7 +26,7 @@ final class HasStepTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasStep;
 
             protected array $attributes = [];

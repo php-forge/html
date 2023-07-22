@@ -11,7 +11,7 @@ final class HasHeightTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class () {
+        $instance = new class() {
             use HasHeight;
 
             protected array $attributes = [];
