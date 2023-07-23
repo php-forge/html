@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
 use PHPForge\Html\Helper\HTMLPurifier;
 use Stringable;
 

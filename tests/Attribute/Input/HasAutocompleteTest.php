@@ -55,6 +55,5 @@ final class HasAutocompleteTest extends TestCase
         $instance = $instance->autocomplete('on');
 
         $this->assertSame([ 'autocomplete' => 'on'], $instance->getAttributes());
-
     }
 }

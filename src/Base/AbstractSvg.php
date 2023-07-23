@@ -126,7 +126,7 @@ abstract class AbstractSvg extends AbstractWidget
             '' => $this->renderSvg(),
             default => Tag::widget()
                 ->attributes($this->attributes)
-                ->content(PHP_EOL . $this->content . PHP_EOL, false)
+                ->content(PHP_EOL . $this->content . PHP_EOL)
                 ->tagName('svg')
                 ->render(),
         };
