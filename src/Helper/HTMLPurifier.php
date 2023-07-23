@@ -21,26 +21,26 @@ final class HTMLPurifier
         if ($def !== null) {
             /**
              * Add the SVG allowed elements and attributes.
-             *
-             * @var \HTMLPurifier_ElementDef $svg
              */
-            $svg = $def->addElement(
+            $def->addElement(
                 'svg',
                 'Block',
                 'Flow',
                 'Common',
                 [
-                    'version' => 'CDATA',
-                    'id' => 'CDATA',
-                    'xmlns' => 'CDATA',
-                    'width' => 'CDATA',
-                    'height' => 'CDATA',
-                    'xmlns:xlink' => 'CDATA',
-                    'x' => 'CDATA',
-                    'y' => 'CDATA',
-                    'viewBox' => 'CDATA',
+                    'aria-hidden' => 'CDATA',
                     'enable-background' => 'CDATA',
+                    'height' => 'CDATA',
+                    'fill' => 'CDATA',
+                    'id' => 'CDATA',
+                    'version' => 'CDATA',
+                    'viewbox' => 'CDATA',
+                    'width' => 'CDATA',
+                    'x' => 'CDATA',
                     'xml:space' => 'CDATA',
+                    'xmlns' => 'CDATA',
+                    'xmlns:xlink' => 'CDATA',
+                    'y' => 'CDATA',
                 ]
             );
             $def->addAttribute('a', 'target', 'Enum#_blank');
@@ -67,7 +67,17 @@ final class HTMLPurifier
                     'transform' => 'CDATA',
                 ],
             );
-            $def->addElement('path', 'Block', 'Flow', 'Common', ['d' => 'CDATA', 'fill' => 'CDATA', ]);
+            $def->addElement(
+                'path',
+                'Block',
+                'Flow',
+                'Common',
+                [
+                    'clip-rule' => 'CDATA',
+                    'd' => 'CDATA',
+                    'fill' => 'CDATA',
+                ],
+            );
             $def->addElement(
                 'polyline',
                 'Block',
