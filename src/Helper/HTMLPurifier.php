@@ -76,6 +76,7 @@ final class HTMLPurifier
                     'clip-rule' => 'CDATA',
                     'd' => 'CDATA',
                     'fill' => 'CDATA',
+                    'fill-rule' => 'CDATA',
                 ],
             );
             $def->addElement(
