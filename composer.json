@@ -16,6 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
+        "ezyang/htmlpurifier": "^4.16",
         "php-forge/awesome-widget": "^1.0@dev"
     },
     "require-dev": {

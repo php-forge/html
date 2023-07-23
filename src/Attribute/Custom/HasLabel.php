@@ -6,17 +6,18 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use Closure;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Helper\HTMLPurifier;
+use Stringable;
 
 /**
  * Provides methods to configure the label for the widget.
  */
 trait HasLabel
 {
-    private string $label = '';
     private array $labelAttributes = [];
     private string $labelClass = '';
     private Closure|null $labelClosure = null;
+    private string $labelContent = '';
     private bool $notLabel = false;
 
     /**
@@ -62,16 +63,16 @@ trait HasLabel
     /**
      * Returns a new instance with the label attribute value is a string that defines the text of the label element.
      *
-     * @param string $value The value of the label attribute. If null, the label won't be rendered.
+     * @param string|Stringable $value The value of the label attribute. If null, the label won't be rendered.
      */
-    public function label(string $value, bool $encode = true): static
+    public function labelContent(string|Stringable $value): static
     {
-        if ($encode) {
-            $value = Encode::content($value);
+        if (!$value instanceof Stringable) {
+            $value = HTMLPurifier::purifyAndEscapeHTML($value);
         }
 
         $new = clone $this;
-        $new->label = $value;
+        $new->labelContent = (string) $value;
 
         return $new;
     }

@@ -19,12 +19,12 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <svg fill="grey" stroke="red" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="40">
+            <circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot;>
             </circle>
             </svg>
             HTML,
             Svg::widget()
-                ->content(Tag::widget()->attributes(['cx' => 50, 'cy' => 50, 'r' => 40])->tagName('circle'), false)
+                ->content(Tag::widget()->attributes(['cx' => 50, 'cy' => 50, 'r' => 40])->tagName('circle'))
                 ->fill('grey')
                 ->stroke('red')
                 ->viewBox('0 0 300 100')

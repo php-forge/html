@@ -7,6 +7,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 use Closure;
 use PHPForge\Html\Attribute\Custom\HasLabel;
 use PHPUnit\Framework\TestCase;
+use Stringable;
 
 final class HasLabelTest extends TestCase
 {
@@ -16,10 +17,10 @@ final class HasLabelTest extends TestCase
             use HasLabel;
         };
 
-        $this->assertNotSame($instance, $instance->label(''));
         $this->assertNotSame($instance, $instance->labelAttributes([]));
         $this->assertNotSame($instance, $instance->labelClass(''));
         $this->assertNotSame($instance, $instance->labelClosure(static fn (): string => ''));
+        $this->assertNotSame($instance, $instance->labelContent(''));
         $this->assertNotSame($instance, $instance->labelFor(''));
         $this->assertNotSame($instance, $instance->notLabel());
     }
@@ -79,19 +80,60 @@ final class HasLabelTest extends TestCase
         $this->assertInstanceOf(Closure::class, $instance->getLabelClosure());
     }
 
-    public function testLabelEncode(): void
+    public function testLabelContentStringable(): void
     {
         $instance = new class() {
             use HasLabel;
 
-            public function getLabel(): string
+            public function getLabelContent(): string
             {
-                return $this->label;
+                return $this->labelContent;
             }
         };
 
-        $this->assertSame('foo &amp; bar', $instance->label('foo & bar')->getLabel());
-        $this->assertSame('foo & bar', $instance->label('foo & bar', false)->getLabel());
+        $label = new class() implements Stringable {
+            public function __toString(): string
+            {
+                return '<foo && bar>';
+            }
+        };
+
+        $this->assertEmpty($instance->getLabelContent());
+        $this->assertSame('<foo && bar>', $instance->labelContent($label)->getLabelContent());
+    }
+
+    public function testLabelContentStringText(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelContent(): string
+            {
+                return $this->labelContent;
+            }
+        };
+
+        $this->assertEmpty($instance->labelContent('<foo>')->getLabelContent());
+        $this->assertSame('foo', $instance->labelContent('foo')->getLabelContent());
+        $this->assertSame('foo &amp;&amp; bar', $instance->labelContent('foo && bar')->getLabelContent());
+    }
+
+    public function testLabelContentStringTag(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelContent(): string
+            {
+                return $this->labelContent;
+            }
+        };
+
+        $this->assertEmpty($instance->labelContent('<invalid_tag>')->getLabelContent());
+        $this->assertSame(
+            '<i class=&quot;bi bi-foo&quot;></i>',
+            $instance->labelContent('<i class="bi bi-foo"></i>')->getLabelContent(),
+        );
     }
 
     public function testNotLabel(): void
