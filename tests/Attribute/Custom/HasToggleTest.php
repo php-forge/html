@@ -8,7 +8,6 @@ use PHPForge\Html\Attribute\Custom\HasToggle;
 use PHPForge\Html\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Stringable;
 
 final class HasToggleTest extends TestCase
 {

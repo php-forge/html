@@ -7,9 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use Closure;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\Helper\Sanitizer;
 use PHPForge\Widget\WidgetInterface;
-use Stringable;
 
 /**
  * Provides methods to configure the label for the widget.
