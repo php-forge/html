@@ -84,44 +84,6 @@ final class HasToggleTest extends TestCase
         $this->assertSame(['class' => 'test test1'], $instance->getToggleAttributes());
     }
 
-    public function testToggleContent(): void
-    {
-        $instance = new class() {
-            use HasToggle;
-
-            public function getToggleContent(): string
-            {
-                return $this->toggleContent;
-            }
-        };
-
-        $this->assertEmpty($instance->getToggleContent());
-        $this->assertSame('foo', $instance->toggleContent('foo')->getToggleContent());
-        $this->assertSame('&lt;foo &amp;&amp; bar&gt;', $instance->toggleContent('<foo && bar>')->getToggleContent());
-    }
-
-    public function testToggleContentSpecialChar(): void
-    {
-        $instance = new class() {
-            use HasToggle;
-
-            public function getToggleContent(): string
-            {
-                return $this->toggleContent;
-            }
-        };
-
-        $toggle = new class() implements Stringable {
-            public function __toString(): string
-            {
-                return 'bar && baz';
-            }
-        };
-
-        $this->assertEmpty($instance->getToggleContent());
-        $this->assertSame('bar && baz', $instance->toggleContent($toggle)->getToggleContent());
-    }
-
     public function testToggleContentStringable(): void
     {
         $instance = new class() {
@@ -138,10 +100,44 @@ final class HasToggleTest extends TestCase
         $toggle = new class() implements Stringable {
             public function __toString(): string
             {
-                return 'test';
+                return '<foo && bar>';
             }
         };
 
-        $this->assertSame('test', $instance->toggleContent($toggle)->getToggleContent());
+        $this->assertSame('<foo && bar>', $instance->toggleContent($toggle)->getToggleContent());
+    }
+
+    public function testToggleContentStringText(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+
+            public function getToggleContent(): string
+            {
+                return $this->toggleContent;
+            }
+        };
+
+        $this->assertSame('foo', $instance->toggleContent('foo')->getToggleContent());
+        $this->assertSame('foo &amp;&amp; bar', $instance->toggleContent('foo && bar')->getToggleContent());
+        $this->assertEmpty($instance->toggleContent('<foo>')->getToggleContent());
+    }
+
+    public function testToggleContentStringTag(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+
+            public function getToggleContent(): string
+            {
+                return $this->toggleContent;
+            }
+        };
+
+        $this->assertSame(
+            '<i class="bi bi-foo"></i>',
+            $instance->toggleContent('<i class="bi bi-foo"></i>')->getToggleContent(),
+        );
+        $this->assertEmpty($instance->toggleContent('<invalid_tag>')->getToggleContent());
     }
 }

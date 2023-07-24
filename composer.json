@@ -16,6 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
+        "symfony/html-sanitizer": "^6.3",
         "php-forge/awesome-widget": "^1.0@dev"
     },
     "require-dev": {

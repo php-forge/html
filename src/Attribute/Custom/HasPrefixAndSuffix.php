@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Helper\Sanitizer;
 use Stringable;
 
 /**
@@ -19,12 +19,11 @@ trait HasPrefixAndSuffix
      * Return new instance specifying the `HTML` prefix content.
      *
      * @param string|Stringable $value The `HTML` prefix content.
-     * @param bool $encode Whether to encode the value.
      */
-    public function prefix(string|Stringable $value, bool $encode = true): static
+    public function prefix(string|Stringable $value): static
     {
-        if (!$value instanceof Stringable && $encode) {
-            $value = Encode::content($value);
+        if (!$value instanceof Stringable) {
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;
@@ -37,12 +36,11 @@ trait HasPrefixAndSuffix
      * Return new instance specifying the `HTML` suffix content.
      *
      * @param string|Stringable $value The `HTML` suffix content.
-     * @param bool $encode Whether to encode the value.
      */
-    public function suffix(string|Stringable $value, bool $encode = true): static
+    public function suffix(string|Stringable $value): static
     {
-        if (!$value instanceof Stringable && $encode) {
-            $value = Encode::content($value);
+        if ($value instanceof Stringable === false) {
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;

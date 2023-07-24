@@ -34,4 +34,26 @@ final class HasAutocompleteTest extends TestCase
 
         $this->assertNotSame($instance, $instance->autocomplete('on'));
     }
+
+    public function testRender(): void
+    {
+        $instance = new class() {
+            use HasAutocomplete;
+
+            protected array $attributes = [];
+
+            public function getAttributes(): array
+            {
+                return $this->attributes;
+            }
+        };
+
+        $instance = $instance->autocomplete('off');
+
+        $this->assertSame([ 'autocomplete' => 'off'], $instance->getAttributes());
+
+        $instance = $instance->autocomplete('on');
+
+        $this->assertSame([ 'autocomplete' => 'on'], $instance->getAttributes());
+    }
 }

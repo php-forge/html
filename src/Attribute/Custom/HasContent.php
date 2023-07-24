@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Helper\Sanitizer;
 use Stringable;
 
 /**
@@ -18,12 +18,11 @@ trait HasContent
      * Returns a new instance specifying the content value of the widget.
      *
      * @param string|Stringable $value The content value.
-     * @param bool $encode Whether to encode the content value.
      */
-    public function content(string|Stringable $value, bool $encode = true): static
+    public function content(string|Stringable $value): static
     {
-        if (!$value instanceof Stringable && $encode) {
-            $value = Encode::content($value);
+        if (!$value instanceof Stringable) {
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;

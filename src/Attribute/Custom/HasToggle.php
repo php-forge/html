@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Helper\Sanitizer;
 use Stringable;
 
 /**
@@ -60,12 +60,11 @@ trait HasToggle
      * Returns a new instance specifying the toggle button content.
      *
      * @param string|Stringable $value The toggle button content.
-     * @param bool $encode Whether to encode the content.
      */
-    public function toggleContent(string|Stringable $value, bool $encode = true): static
+    public function toggleContent(string|Stringable $value): static
     {
-        if (!$value instanceof Stringable && $encode) {
-            $value = Encode::content($value);
+        if (!$value instanceof Stringable) {
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;
