@@ -7,6 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
+use Stringable;
 
 /**
  * Is used by components that can have a toggle.
@@ -59,27 +60,21 @@ trait HasToggle
     /**
      * Returns a new instance specifying the toggle button content.
      *
-     * @param string $value The toggle button content.
+     * @param string|WidgetInterface ...$values The toggle button content.
      */
-    public function toggleContent(string $value): static
-    {
-        $new = clone $this;
-        $new->toggleContent .= $new->toggleContent === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
-
-        return $new;
-    }
-
-    /**
-     * Returns a new instance specifying the toggle button content tag.
-     *
-     * @param WidgetInterface $value The toggle button content tag.
-     */
-    public function toggleContentTag(WidgetInterface ...$value): static
+    public function toggleContent(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
 
-        foreach ($value as $widget) {
-            $new->toggleContent .= $new->toggleContent === '' ? $widget->render() : PHP_EOL . $widget->render();
+        foreach ($values as $value) {
+            if ($value instanceof Stringable) {
+                $value = $value->__toString();
+            }
+
+            $new->toggleContent .= match (Encode::isValidTag($value)) {
+                true => $value,
+                false => Encode::content($value),
+            };
         }
 
         return $new;
