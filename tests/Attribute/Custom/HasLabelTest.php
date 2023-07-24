@@ -6,8 +6,9 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use Closure;
 use PHPForge\Html\Attribute\Custom\HasLabel;
+use PHPForge\Html\Span;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Stringable;
 
 final class HasLabelTest extends TestCase
 {
@@ -21,6 +22,7 @@ final class HasLabelTest extends TestCase
         $this->assertNotSame($instance, $instance->labelClass(''));
         $this->assertNotSame($instance, $instance->labelClosure(static fn (): string => ''));
         $this->assertNotSame($instance, $instance->labelContent(''));
+        $this->assertNotSame($instance, $instance->labelContentTag(Span::widget()));
         $this->assertNotSame($instance, $instance->labelFor(''));
         $this->assertNotSame($instance, $instance->notLabel());
     }
@@ -80,7 +82,7 @@ final class HasLabelTest extends TestCase
         $this->assertInstanceOf(Closure::class, $instance->getLabelClosure());
     }
 
-    public function testLabelContentStringable(): void
+    public function testLabelContent(): void
     {
         $instance = new class() {
             use HasLabel;
@@ -91,50 +93,47 @@ final class HasLabelTest extends TestCase
             }
         };
 
-        $label = new class() implements Stringable {
-            public function __toString(): string
-            {
-                return '<foo && bar>';
-            }
-        };
+        $instance = $instance->labelContent('foo && bar');
 
-        $this->assertEmpty($instance->getLabelContent());
-        $this->assertSame('<foo && bar>', $instance->labelContent($label)->getLabelContent());
-    }
+        $this->assertSame('foo &amp;&amp; bar', $instance->getLabelContent());
 
-    public function testLabelContentStringText(): void
-    {
-        $instance = new class() {
-            use HasLabel;
+        $instance = $instance->labelContentTag(Span::widget());
 
-            public function getLabelContent(): string
-            {
-                return $this->labelContent;
-            }
-        };
-
-        $this->assertEmpty($instance->labelContent('<foo>')->getLabelContent());
-        $this->assertSame('foo', $instance->labelContent('foo')->getLabelContent());
-        $this->assertSame('foo &amp;&amp; bar', $instance->labelContent('foo && bar')->getLabelContent());
-    }
-
-    public function testLabelContentStringTag(): void
-    {
-        $instance = new class() {
-            use HasLabel;
-
-            public function getLabelContent(): string
-            {
-                return $this->labelContent;
-            }
-        };
-
-        $this->assertEmpty($instance->labelContent('<invalid_tag>')->getLabelContent());
-        $this->assertSame(
-            '<i class="bi bi-foo"></i>',
-            $instance->labelContent('<i class="bi bi-foo"></i>')->getLabelContent(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            foo &amp;&amp; bar
+            <span></span>
+            HTML,
+            $instance->getLabelContent(),
         );
     }
+
+    public function testLabelContentWithChangeOrder(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelContent(): string
+            {
+                return $this->labelContent;
+            }
+        };
+
+        $instance = $instance->labelContentTag(Span::widget());
+
+        $this->assertSame('<span></span>', $instance->getLabelContent());
+
+        $instance = $instance->labelContent('foo && bar');
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span></span>
+            foo &amp;&amp; bar
+            HTML,
+            $instance->getLabelContent(),
+        );
+    }
+
 
     public function testNotLabel(): void
     {

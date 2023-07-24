@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Helper\Sanitizer;
-use Stringable;
+use PHPForge\Html\Helper\Encode;
+use PHPForge\Widget\WidgetInterface;
 
 /**
  * Provides methods to set prefix and suffix.
@@ -18,16 +18,28 @@ trait HasPrefixAndSuffix
     /**
      * Return new instance specifying the `HTML` prefix content.
      *
-     * @param string|Stringable $value The `HTML` prefix content.
+     * @param string $value The `HTML` prefix content.
      */
-    public function prefix(string|Stringable $value): static
+    public function prefix(string $value): static
     {
-        if (!$value instanceof Stringable) {
-            $value = Sanitizer::clean($value);
-        }
-
         $new = clone $this;
-        $new->prefix = (string) $value;
+        $new->prefix .= $new->prefix === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
+
+        return $new;
+    }
+
+    /**
+     * Return new instance specifying the `HTML` prefix content of the widget tag.
+     *
+     * @param WidgetInterface $value The `HTML` prefix content of the widget tag.
+     */
+    public function prefixTag(WidgetInterface ...$value): static
+    {
+        $new = clone $this;
+
+        foreach ($value as $widget) {
+            $new->prefix .= $new->prefix === '' ? $widget->render() : PHP_EOL . $widget->render();
+        }
 
         return $new;
     }
@@ -35,16 +47,28 @@ trait HasPrefixAndSuffix
     /**
      * Return new instance specifying the `HTML` suffix content.
      *
-     * @param string|Stringable $value The `HTML` suffix content.
+     * @param string $value The `HTML` suffix content.
      */
-    public function suffix(string|Stringable $value): static
+    public function suffix(string$value): static
     {
-        if ($value instanceof Stringable === false) {
-            $value = Sanitizer::clean($value);
-        }
-
         $new = clone $this;
-        $new->suffix = (string) $value;
+        $new->suffix .= $new->suffix === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
+
+        return $new;
+    }
+
+    /**
+     * Return new instance specifying the `HTML` suffix content of the widget tag.
+     *
+     * @param WidgetInterface $value The `HTML` suffix content of the widget tag.
+     */
+    public function suffixTag(WidgetInterface ...$value): static
+    {
+        $new = clone $this;
+
+        foreach ($value as $widget) {
+            $new->suffix .= $new->suffix === '' ? $widget->render() : PHP_EOL . $widget->render();
+        }
 
         return $new;
     }

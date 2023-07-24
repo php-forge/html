@@ -6,8 +6,8 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use Closure;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Sanitizer;
-use Stringable;
+use PHPForge\Html\Helper\Encode;
+use PHPForge\Widget\WidgetInterface;
 
 /**
  * Provides methods to configure the label for the widget.
@@ -61,18 +61,30 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance with the label attribute value is a string that defines the text of the label element.
+     * Returns a new instance with the label content value.
      *
-     * @param string|Stringable $value The value of the label attribute. If null, the label won't be rendered.
+     * @param string $value The label content value.
      */
-    public function labelContent(string|Stringable $value): static
+    public function labelContent(string $value): static
     {
-        if (!$value instanceof Stringable) {
-            $value = Sanitizer::clean($value);
-        }
-
         $new = clone $this;
-        $new->labelContent = (string) $value;
+        $new->labelContent .= $new->labelContent === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
+
+        return $new;
+    }
+
+    /**
+     * Returns a new instance with the label content value of the widget tag.
+     *
+     * @param WidgetInterface $value The label content value of the widget tag.
+     */
+    public function labelContentTag(WidgetInterface ...$value): static
+    {
+        $new = clone $this;
+
+        foreach ($value as $widget) {
+            $new->labelContent .= $new->labelContent === '' ? $widget->render() : PHP_EOL . $widget->render();
+        }
 
         return $new;
     }

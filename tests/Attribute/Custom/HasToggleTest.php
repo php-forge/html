@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasToggle;
+use PHPForge\Html\Span;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Stringable;
 
 final class HasToggleTest extends TestCase
 {
@@ -20,6 +21,7 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleAttributes([]));
         $this->assertNotSame($instance, $instance->toggleClass(''));
         $this->assertNotSame($instance, $instance->toggleContent(''));
+        $this->assertNotSame($instance, $instance->toggleContentTag(Span::widget()));
         $this->assertNotSame($instance, $instance->toggleDataAttribute('id', ''));
         $this->assertNotSame($instance, $instance->toggleId(''));
         $this->assertNotSame($instance, $instance->toggleOnClick(''));
@@ -84,7 +86,7 @@ final class HasToggleTest extends TestCase
         $this->assertSame(['class' => 'test test1'], $instance->getToggleAttributes());
     }
 
-    public function testToggleContentStringable(): void
+    public function testTogleContent(): void
     {
         $instance = new class() {
             use HasToggle;
@@ -95,49 +97,49 @@ final class HasToggleTest extends TestCase
             }
         };
 
-        $this->assertSame('', $instance->getToggleContent());
+        $instance = $instance->toggleContent('foo && bar');
 
-        $toggle = new class() implements Stringable {
-            public function __toString(): string
-            {
-                return '<foo && bar>';
-            }
-        };
+        $this->assertSame('foo &amp;&amp; bar', $instance->getToggleContent());
 
-        $this->assertSame('<foo && bar>', $instance->toggleContent($toggle)->getToggleContent());
-    }
+        $instance = $instance->toggleContentTag(Span::widget());
 
-    public function testToggleContentStringText(): void
-    {
-        $instance = new class() {
-            use HasToggle;
-
-            public function getToggleContent(): string
-            {
-                return $this->toggleContent;
-            }
-        };
-
-        $this->assertSame('foo', $instance->toggleContent('foo')->getToggleContent());
-        $this->assertSame('foo &amp;&amp; bar', $instance->toggleContent('foo && bar')->getToggleContent());
-        $this->assertEmpty($instance->toggleContent('<foo>')->getToggleContent());
-    }
-
-    public function testToggleContentStringTag(): void
-    {
-        $instance = new class() {
-            use HasToggle;
-
-            public function getToggleContent(): string
-            {
-                return $this->toggleContent;
-            }
-        };
-
-        $this->assertSame(
-            '<i class="bi bi-foo"></i>',
-            $instance->toggleContent('<i class="bi bi-foo"></i>')->getToggleContent(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            foo &amp;&amp; bar
+            <span></span>
+            HTML,
+            $instance->getToggleContent(),
         );
-        $this->assertEmpty($instance->toggleContent('<invalid_tag>')->getToggleContent());
+    }
+
+    public function testToggleContentChangeOrder(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+
+            public function getToggleContent(): string
+            {
+                return $this->toggleContent;
+            }
+        };
+
+        $instance = $instance->toggleContentTag(Span::widget());
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span></span>
+            HTML,
+            $instance->getToggleContent(),
+        );
+
+        $instance = $instance->toggleContent('foo && bar');
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span></span>
+            foo &amp;&amp; bar
+            HTML,
+            $instance->getToggleContent(),
+        );
     }
 }

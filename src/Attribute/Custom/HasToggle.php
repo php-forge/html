@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Sanitizer;
-use Stringable;
+use PHPForge\Html\Helper\Encode;
+use PHPForge\Widget\WidgetInterface;
 
 /**
  * Is used by components that can have a toggle.
@@ -16,7 +16,7 @@ trait HasToggle
     private bool $toggle = true;
     private array $toggleAttributes = [];
     private string $toggleClass = '';
-    private string|Stringable $toggleContent = '';
+    private string $toggleContent = '';
     private string $toggleId = '';
 
     /**
@@ -59,16 +59,28 @@ trait HasToggle
     /**
      * Returns a new instance specifying the toggle button content.
      *
-     * @param string|Stringable $value The toggle button content.
+     * @param string $value The toggle button content.
      */
-    public function toggleContent(string|Stringable $value): static
+    public function toggleContent(string $value): static
     {
-        if (!$value instanceof Stringable) {
-            $value = Sanitizer::clean($value);
-        }
-
         $new = clone $this;
-        $new->toggleContent = (string) $value;
+        $new->toggleContent .= $new->toggleContent === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
+
+        return $new;
+    }
+
+    /**
+     * Returns a new instance specifying the toggle button content tag.
+     *
+     * @param WidgetInterface $value The toggle button content tag.
+     */
+    public function toggleContentTag(WidgetInterface ...$value): static
+    {
+        $new = clone $this;
+
+        foreach ($value as $widget) {
+            $new->toggleContent .= $new->toggleContent === '' ? $widget->render() : PHP_EOL . $widget->render();
+        }
 
         return $new;
     }
