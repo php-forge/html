@@ -118,9 +118,9 @@ final class HasToggleTest extends TestCase
             }
         };
 
-        $this->assertEmpty($instance->toggleContent('<foo>')->getToggleContent());
         $this->assertSame('foo', $instance->toggleContent('foo')->getToggleContent());
         $this->assertSame('foo &amp;&amp; bar', $instance->toggleContent('foo && bar')->getToggleContent());
+        $this->assertEmpty($instance->toggleContent('<foo>')->getToggleContent());
     }
 
     public function testToggleContentStringTag(): void
@@ -134,10 +134,10 @@ final class HasToggleTest extends TestCase
             }
         };
 
-        $this->assertEmpty($instance->toggleContent('<invalid_tag>')->getToggleContent());
         $this->assertSame(
-            '<i class=&quot;bi bi-foo&quot;></i>',
+            '<i class="bi bi-foo"></i>',
             $instance->toggleContent('<i class="bi bi-foo"></i>')->getToggleContent(),
         );
+        $this->assertEmpty($instance->toggleContent('<invalid_tag>')->getToggleContent());
     }
 }

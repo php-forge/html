@@ -6,7 +6,7 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use Closure;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\HTMLPurifier;
+use PHPForge\Html\Helper\Sanitizer;
 use Stringable;
 
 /**
@@ -68,7 +68,7 @@ trait HasLabel
     public function labelContent(string|Stringable $value): static
     {
         if (!$value instanceof Stringable) {
-            $value = HTMLPurifier::purifyAndEscapeHTML($value);
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;

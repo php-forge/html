@@ -75,7 +75,7 @@ final class HasContentTest extends TestCase
 
         $this->assertEmpty($instance->content('<invalid_tag>')->getContent());
         $this->assertSame(
-            '<i class=&quot;bi bi-foo&quot;></i>',
+            '<i class="bi bi-foo"></i>',
             $instance->content('<i class="bi bi-foo"></i>')->getContent(),
         );
     }

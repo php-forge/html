@@ -9,6 +9,7 @@ use DOMElement;
 use DOMXPath;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
+use PHPForge\Html\HtmlBuilder;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\AbstractWidget;
 use RuntimeException;
@@ -124,11 +125,7 @@ abstract class AbstractSvg extends AbstractWidget
     {
         return match ($this->content) {
             '' => $this->renderSvg(),
-            default => Tag::widget()
-                ->attributes($this->attributes)
-                ->content(PHP_EOL . $this->content . PHP_EOL)
-                ->tagName('svg')
-                ->render(),
+            default => HtmlBuilder::create('svg', PHP_EOL . $this->content . PHP_EOL, $this->attributes),
         };
     }
 

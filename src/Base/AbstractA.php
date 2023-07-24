@@ -20,6 +20,7 @@ abstract class AbstractA extends AbstractWidget
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
     use Attribute\HasClass;
+    use Attribute\HasData;
     use Attribute\HasId;
     use Attribute\HasLang;
     use Attribute\HasStyle;

@@ -71,7 +71,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
         $this->assertEmpty($instance->prefix('<invalid_tag>')->getPrefix());
         $this->assertSame(
-            '<i class=&quot;bi bi-foo&quot;></i>',
+            '<i class="bi bi-foo"></i>',
             $instance->prefix('<i class="bi bi-foo"></i>')->getPrefix(),
         );
     }
@@ -125,10 +125,10 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $this->assertEmpty($instance->suffix('<invalid_tag>')->getSuffix());
         $this->assertSame(
-            '<i class=&quot;bi bi-foo&quot;></i>',
+            '<i class="bi bi-foo"></i>',
             $instance->suffix('<i class="bi bi-foo"></i>')->getSuffix(),
         );
+        $this->assertEmpty($instance->suffix('<invalid_tag>')->getSuffix());
     }
 }

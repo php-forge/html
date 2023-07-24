@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Helper\HTMLPurifier;
+use PHPForge\Html\Helper\Sanitizer;
 use Stringable;
 
 /**
@@ -23,7 +23,7 @@ trait HasPrefixAndSuffix
     public function prefix(string|Stringable $value): static
     {
         if (!$value instanceof Stringable) {
-            $value = HTMLPurifier::purifyAndEscapeHTML($value);
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;
@@ -40,7 +40,7 @@ trait HasPrefixAndSuffix
     public function suffix(string|Stringable $value): static
     {
         if ($value instanceof Stringable === false) {
-            $value = HTMLPurifier::purifyAndEscapeHTML($value);
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;

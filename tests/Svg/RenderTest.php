@@ -19,7 +19,7 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <svg fill="grey" stroke="red" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot;>
+            <circle cx="50" cy="50" r="40">
             </circle>
             </svg>
             HTML,

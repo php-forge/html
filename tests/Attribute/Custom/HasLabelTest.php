@@ -131,7 +131,7 @@ final class HasLabelTest extends TestCase
 
         $this->assertEmpty($instance->labelContent('<invalid_tag>')->getLabelContent());
         $this->assertSame(
-            '<i class=&quot;bi bi-foo&quot;></i>',
+            '<i class="bi bi-foo"></i>',
             $instance->labelContent('<i class="bi bi-foo"></i>')->getLabelContent(),
         );
     }

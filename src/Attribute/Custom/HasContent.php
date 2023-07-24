@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Helper\HTMLPurifier;
+use PHPForge\Html\Helper\Sanitizer;
 use Stringable;
 
 /**
@@ -22,7 +22,7 @@ trait HasContent
     public function content(string|Stringable $value): static
     {
         if (!$value instanceof Stringable) {
-            $value = HtmlPurifier::purifyAndEscapeHTML($value);
+            $value = Sanitizer::clean($value);
         }
 
         $new = clone $this;
