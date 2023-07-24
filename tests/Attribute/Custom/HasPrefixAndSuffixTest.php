@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasPrefixAndSuffix;
+use PHPForge\Html\Span;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Stringable;
 
 final class HasPrefixAndSuffixTest extends TestCase
 {
@@ -17,10 +18,12 @@ final class HasPrefixAndSuffixTest extends TestCase
         };
 
         $this->assertNotSame($instance, $instance->prefix(''));
+        $this->assertNotSame($instance, $instance->prefixTag(Span::widget()));
         $this->assertNotSame($instance, $instance->suffix(''));
+        $this->assertNotSame($instance, $instance->suffixTag(Span::widget()));
     }
 
-    public function testPrefixStringable(): void
+    public function testPrefix(): void
     {
         $instance = new class() {
             use HasPrefixAndSuffix;
@@ -31,104 +34,96 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $prefix = new class() implements Stringable {
-            public function __toString(): string
-            {
-                return '<foo && bar>';
-            }
-        };
+        $instance = $instance->prefix('foo && bar');
 
-        $this->assertEmpty($instance->getPrefix());
-        $this->assertSame('<foo && bar>', $instance->prefix($prefix)->getPrefix());
-    }
+        $this->assertSame('foo &amp;&amp; bar', $instance->getPrefix());
 
-    public function testPrefixStringText(): void
-    {
-        $instance = new class() {
-            use HasPrefixAndSuffix;
+        $instance = $instance->prefixTag(Span::widget());
 
-            public function getPrefix(): string
-            {
-                return $this->prefix;
-            }
-        };
-
-        $this->assertEmpty($instance->prefix('<foo>')->getPrefix());
-        $this->assertSame('foo', $instance->prefix('foo')->getPrefix());
-        $this->assertSame('foo &amp;&amp; bar', $instance->prefix('foo && bar')->getPrefix());
-    }
-
-    public function testPrefixStringTag(): void
-    {
-        $instance = new class() {
-            use HasPrefixAndSuffix;
-
-            public function getPrefix(): string
-            {
-                return $this->prefix;
-            }
-        };
-
-        $this->assertEmpty($instance->prefix('<invalid_tag>')->getPrefix());
-        $this->assertSame(
-            '<i class="bi bi-foo"></i>',
-            $instance->prefix('<i class="bi bi-foo"></i>')->getPrefix(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            foo &amp;&amp; bar
+            <span></span>
+            HTML,
+            $instance->getPrefix(),
         );
     }
 
-    public function testSuffixStringable(): void
+    public function testPrefixWithChangeOrder(): void
     {
         $instance = new class() {
             use HasPrefixAndSuffix;
 
-            public function getSuffix(): string
+            public function getPrefix(): string
             {
-                return $this->suffix;
+                return $this->prefix;
             }
         };
 
-        $suffix = new class() implements Stringable {
-            public function __toString(): string
-            {
-                return '<foo && bar>';
-            }
-        };
+        $instance = $instance->prefixTag(Span::widget());
 
-        $this->assertEmpty($instance->getSuffix());
-        $this->assertSame('<foo && bar>', $instance->suffix($suffix)->getSuffix());
-    }
+        $this->assertSame('<span></span>', $instance->getPrefix());
 
-    public function testSuffixStringText(): void
-    {
-        $instance = new class() {
-            use HasPrefixAndSuffix;
+        $instance = $instance->prefix('foo && bar');
 
-            public function getSuffix(): string
-            {
-                return $this->suffix;
-            }
-        };
-
-        $this->assertEmpty($instance->suffix('<foo>')->getsuffix());
-        $this->assertSame('foo', $instance->suffix('foo')->getSuffix());
-        $this->assertSame('foo &amp;&amp; bar', $instance->suffix('foo && bar')->getSuffix());
-    }
-
-    public function testSuffixStringTag(): void
-    {
-        $instance = new class() {
-            use HasPrefixAndSuffix;
-
-            public function getSuffix(): string
-            {
-                return $this->suffix;
-            }
-        };
-
-        $this->assertSame(
-            '<i class="bi bi-foo"></i>',
-            $instance->suffix('<i class="bi bi-foo"></i>')->getSuffix(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span></span>
+            foo &amp;&amp; bar
+            HTML,
+            $instance->getPrefix(),
         );
-        $this->assertEmpty($instance->suffix('<invalid_tag>')->getSuffix());
+    }
+
+    public function testSuffix(): void
+    {
+        $instance = new class() {
+            use HasPrefixAndSuffix;
+
+            public function getSuffix(): string
+            {
+                return $this->suffix;
+            }
+        };
+
+        $instance = $instance->suffix('foo && bar');
+
+        $this->assertSame('foo &amp;&amp; bar', $instance->getSuffix());
+
+        $instance = $instance->suffixTag(Span::widget());
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            foo &amp;&amp; bar
+            <span></span>
+            HTML,
+            $instance->getSuffix(),
+        );
+    }
+
+    public function testSuffixWithChangeOrder(): void
+    {
+        $instance = new class() {
+            use HasPrefixAndSuffix;
+
+            public function getSuffix(): string
+            {
+                return $this->suffix;
+            }
+        };
+
+        $instance = $instance->suffixTag(Span::widget());
+
+        $this->assertSame('<span></span>', $instance->getSuffix());
+
+        $instance = $instance->suffix('foo && bar');
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span></span>
+            foo &amp;&amp; bar
+            HTML,
+            $instance->getSuffix(),
+        );
     }
 }

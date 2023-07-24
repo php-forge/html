@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasContent;
+use PHPForge\Html\Span;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
-use Stringable;
 
 final class HasContentTest extends TestCase
 {
@@ -19,9 +20,10 @@ final class HasContentTest extends TestCase
         };
 
         $this->assertNotSame($instance, $instance->content(''));
+        $this->assertNotSame($instance, $instance->contentTag(Span::widget()));
     }
 
-    public function testStringable(): void
+    public function testRender(): void
     {
         $instance = new class() {
             use HasContent;
@@ -32,21 +34,22 @@ final class HasContentTest extends TestCase
             }
         };
 
-        $this->assertEmpty('', $instance->getContent());
+        $instance = $instance->content('foo && bar');
 
-        $instance = $instance->content(
-            new class() implements Stringable {
-                public function __toString(): string
-                {
-                    return '<foo && bar>';
-                }
-            },
+        $this->assertSame('foo &amp;&amp; bar', $instance->getContent());
+
+        $instance = $instance->contentTag(Span::widget());
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            foo &amp;&amp; bar
+            <span></span>
+            HTML,
+            $instance->getContent(),
         );
-
-        $this->assertSame('<foo && bar>', $instance->getContent());
     }
 
-    public function testStringText(): void
+    public function testRenderWithChangeOrder(): void
     {
         $instance = new class() {
             use HasContent;
@@ -57,26 +60,18 @@ final class HasContentTest extends TestCase
             }
         };
 
-        $this->assertEmpty($instance->content('<foo>')->getContent());
-        $this->assertSame('foo', $instance->content('foo')->getContent());
-        $this->assertSame('foo &amp;&amp; bar', $instance->content('foo && bar')->getContent());
-    }
+        $instance = $instance->contentTag(Span::widget());
 
-    public function testStringTag(): void
-    {
-        $instance = new class() {
-            use HasContent;
+        $this->assertSame('<span></span>', $instance->getContent());
 
-            public function getContent(): string
-            {
-                return $this->content;
-            }
-        };
+        $instance = $instance->content('foo && bar');
 
-        $this->assertEmpty($instance->content('<invalid_tag>')->getContent());
-        $this->assertSame(
-            '<i class="bi bi-foo"></i>',
-            $instance->content('<i class="bi bi-foo"></i>')->getContent(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span></span>
+            foo &amp;&amp; bar
+            HTML,
+            $instance->getContent(),
         );
     }
 }
