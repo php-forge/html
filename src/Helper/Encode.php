@@ -74,7 +74,10 @@ final class Encode
 
         libxml_use_internal_errors(true);
 
-        $dom->loadHTML($content, LIBXML_NOBLANKS);
+        match (str_contains($content, '<svg')) {
+            false => $dom->loadHTML($content),
+            true => $dom->loadXML($content, LIBXML_NOBLANKS),
+        };
 
         $errors = libxml_get_errors();
 
