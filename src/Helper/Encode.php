@@ -74,7 +74,7 @@ final class Encode
 
         libxml_use_internal_errors(true);
 
-        $dom->loadHTML($content);
+        $dom->loadHTML($content, LIBXML_NOBLANKS);
 
         $errors = libxml_get_errors();
 
