@@ -16,6 +16,7 @@ final class ImmutableTest extends TestCase
     {
         $svg = Svg::widget();
 
+        $this->assertNotSame($svg, $svg->content(''));
         $this->assertNotSame($svg, $svg->filePath('php.svg'));
         $this->assertNotSame($svg, $svg->fill(''));
         $this->assertNotSame($svg, $svg->height(0));

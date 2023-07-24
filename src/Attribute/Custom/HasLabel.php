@@ -8,6 +8,7 @@ use Closure;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
+use Stringable;
 
 /**
  * Provides methods to configure the label for the widget.
@@ -63,27 +64,21 @@ trait HasLabel
     /**
      * Returns a new instance with the label content value.
      *
-     * @param string $value The label content value.
+     * @param string|WidgetInterface $values The label content value.
      */
-    public function labelContent(string $value): static
-    {
-        $new = clone $this;
-        $new->labelContent .= $new->labelContent === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
-
-        return $new;
-    }
-
-    /**
-     * Returns a new instance with the label content value of the widget tag.
-     *
-     * @param WidgetInterface $value The label content value of the widget tag.
-     */
-    public function labelContentTag(WidgetInterface ...$value): static
+    public function labelContent(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
 
-        foreach ($value as $widget) {
-            $new->labelContent .= $new->labelContent === '' ? $widget->render() : PHP_EOL . $widget->render();
+        foreach ($values as $value) {
+            if ($value instanceof Stringable) {
+                $value = $value->__toString();
+            }
+
+            $new->labelContent .= match (Encode::isValidTag($value)) {
+                true => $value,
+                false => Encode::content($value),
+            };
         }
 
         return $new;

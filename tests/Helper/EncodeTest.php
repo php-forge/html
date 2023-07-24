@@ -22,6 +22,11 @@ final class EncodeTest extends TestCase
         $this->assertSame($expected, Encode::content($value, $doubleEncode));
     }
 
+    public function testIsInvalidTagContent(): void
+    {
+        $this->assertFalse(Encode::isValidTag(''));
+    }
+
     /**
      * @dataProvider PHPForge\Html\Tests\Provider\EncodeProvider::encodeValue
      *

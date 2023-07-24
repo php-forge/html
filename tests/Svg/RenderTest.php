@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class RenderTest extends TestCase
 {
-    public function testContentTag(): void
+    public function testContent(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -24,7 +24,7 @@ final class RenderTest extends TestCase
             </svg>
             HTML,
             Svg::widget()
-                ->contentTag(Tag::widget()->attributes(['cx' => 50, 'cy' => 50, 'r' => 40])->tagName('circle'))
+                ->content(Tag::widget()->attributes(['cx' => 50, 'cy' => 50, 'r' => 40])->tagName('circle'))
                 ->fill('grey')
                 ->stroke('red')
                 ->viewBox('0 0 300 100')

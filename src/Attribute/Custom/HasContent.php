@@ -6,6 +6,7 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
+use Stringable;
 
 /**
  * Is used by widgets which have content value.
@@ -17,27 +18,21 @@ trait HasContent
     /**
      * Returns a new instance specifying the content value of the widget.
      *
-     * @param string $value The content value.
+     * @param string|WidgetInterface ...$values The content value.
      */
-    public function content(string $value): static
-    {
-        $new = clone $this;
-        $new->content .= $new->content === '' ? Encode::content($value) : PHP_EOL . Encode::content($value);
-
-        return $new;
-    }
-
-    /**
-     * Returns a new instance specifying the content value of the widget tag.
-     *
-     * @param WidgetInterface $value The content value of the widget tag.
-     */
-    public function contentTag(WidgetInterface ...$value): static
+    public function content(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
 
-        foreach ($value as $widget) {
-            $new->content .= $new->content === '' ? $widget->render() : PHP_EOL . $widget->render();
+        foreach ($values as $value) {
+            if ($value instanceof Stringable) {
+                $value = $value->__toString();
+            }
+
+            $new->content .= match (Encode::isValidTag($value)) {
+                true => $value,
+                false => Encode::content($value),
+            };
         }
 
         return $new;
