@@ -7,6 +7,7 @@ namespace PHPForge\Html\Tests\Helper;
 use PHPForge\Html\A;
 use PHPForge\Html\Helper\Sanitizer;
 use PHPForge\Html\Img;
+use PHPForge\Html\Svg;
 use PHPUnit\Framework\TestCase;
 
 final class SanitizerTest extends TestCase
@@ -72,6 +73,14 @@ final class SanitizerTest extends TestCase
         $this->assertSame(
             '<a rel="noopener noreferrer">Link</a>',
             Sanitizer::clean(A::widget()->href('javascript:alert(\'XSS\')')->content('Link')->render()),
+        );
+    }
+
+    public function testSvg(): void
+    {
+        $this->assertSame(
+            '<svg class="w-6 h-6" aria-hidden="true" fill="currentColor"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>',
+            Sanitizer::clean(Svg::widget()->filePath(__DIR__ . '/Stub/toggle.svg')->render()),
         );
     }
 }

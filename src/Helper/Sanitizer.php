@@ -43,6 +43,8 @@ final class Sanitizer
                 // Customize the configuration as needed
                 ->allowSafeElements()
                 ->allowStaticElements()
+                ->allowElement('svg', ['class', 'aria-hidden', 'fill', 'viewBox'])
+                ->allowElement('path', ['fill-rule', 'd', 'clip-rule'])
                 ->forceAttribute('a', 'rel', 'noopener noreferrer')
                 ->allowRelativeLinks()
                 ->allowRelativeMedias();
