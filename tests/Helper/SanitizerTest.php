@@ -5,13 +5,8 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Helper;
 
 use PHPForge\Html\A;
-use PHPForge\Html\Attribute\Enum\DataAttributes;
-use PHPForge\Html\Div;
 use PHPForge\Html\Helper\Sanitizer;
 use PHPForge\Html\Img;
-use PHPForge\Html\Span;
-use PHPForge\Html\Tag;
-use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class SanitizerTest extends TestCase

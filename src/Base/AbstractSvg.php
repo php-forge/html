@@ -10,7 +10,6 @@ use DOMXPath;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Html\Tag;
 use PHPForge\Widget\AbstractWidget;
 use RuntimeException;
 
