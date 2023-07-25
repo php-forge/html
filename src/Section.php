@@ -10,7 +10,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/sections.html#the-section-element
  */
-final class Section extends Base\AbstractElement
+final class Section extends Base\AbstractBlockElement
 {
     protected string $tagName = 'section';
 }

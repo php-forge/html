@@ -10,7 +10,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/sections.html#the-body-element
  */
-final class Body extends Base\AbstractElement
+final class Body extends Base\AbstractBlockElement
 {
     protected string $tagName = 'body';
 }

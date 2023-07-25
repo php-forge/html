@@ -11,7 +11,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element
  */
-final class P extends Base\AbstractElement
+final class P extends Base\AbstractBlockElement
 {
     protected string $tagName = 'p';
 }

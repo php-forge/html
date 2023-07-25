@@ -12,7 +12,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/sections.html#the-footer-element
  */
-final class Footer extends Base\AbstractElement
+final class Footer extends Base\AbstractBlockElement
 {
     protected string $tagName = 'footer';
 }

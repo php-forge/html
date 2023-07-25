@@ -10,7 +10,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/semantics.html#the-title-element
  */
-final class Title extends Base\AbstractElement
+final class Title extends Base\AbstractBlockElement
 {
     protected string $tagName = 'title';
 }

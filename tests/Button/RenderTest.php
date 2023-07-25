@@ -67,6 +67,11 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testElement(): void
+    {
+        $this->assertSame('<button type="button"></button>', Button::widget()->render());
+    }
+
     public function testLink(): void
     {
         $this->assertSame(
@@ -81,10 +86,5 @@ final class RenderTest extends TestCase
             '<a class="disabled" href="https://example.com" role="button" aria-disabled="true"></a>',
             Button::widget()->disabled()->href('https://example.com')->type('link')->render(),
         );
-    }
-
-    public function testRender(): void
-    {
-        $this->assertSame('<button type="button"></button>', Button::widget()->render());
     }
 }

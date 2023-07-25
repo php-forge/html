@@ -10,7 +10,10 @@ use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\AbstractWidget;
 
 /**
- * Base class for button widget.
+ * This is an abstract class that extends AbstractWidget and serves as a base for generating the `<button>` tag.
+ * The `<button>` tag is used to create a clickable button on a web page, typically used to initiate an action or submit
+ * a form.
+ * Concrete classes should extend this class to implement specific variations of the `<button>` tag and their generation logic.
  */
 abstract class AbstractButton extends AbstractWidget
 {
