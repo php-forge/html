@@ -14,6 +14,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-span-element
  */
-final class Span extends Base\AbstractSpan
+final class Span extends Base\AbstractElement
 {
+    protected string $tagName = 'span';
 }
