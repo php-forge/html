@@ -12,6 +12,11 @@ use PHPUnit\Framework\TestCase;
  */
 final class RenderTest extends TestCase
 {
+    public function testElement(): void
+    {
+        $this->assertSame('<meta>', Meta::widget()->render());
+    }
+
     public function testImmutablity(): void
     {
         $instance = Meta::widget();
@@ -22,10 +27,5 @@ final class RenderTest extends TestCase
     public function testName(): void
     {
         $this->assertSame('<meta name="csrf" content="test">', Meta::widget()->name('csrf', 'test')->render());
-    }
-
-    public function testRender(): void
-    {
-        $this->assertSame('<meta>', Meta::widget()->render());
     }
 }

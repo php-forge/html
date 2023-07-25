@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class RenderTest extends TestCase
 {
-    public function testRender(): void
+    public function testElement(): void
     {
         $this->assertSame('<img>', Img::widget()->render());
     }

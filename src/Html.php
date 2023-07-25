@@ -10,7 +10,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/semantics.html#the-html-element
  */
-final class Html extends Base\AbstractElement
+final class Html extends Base\AbstractBlockElement
 {
     protected string $tagName = 'html';
 }

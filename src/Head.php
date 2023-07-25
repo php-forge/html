@@ -10,7 +10,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/semantics.html#the-head-element
  */
-final class Head extends Base\AbstractElement
+final class Head extends Base\AbstractBlockElement
 {
     protected string $tagName = 'head';
 }
