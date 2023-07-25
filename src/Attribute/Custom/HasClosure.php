@@ -11,7 +11,7 @@ use Closure;
  */
 trait HasClosure
 {
-    protected Closure $closure;
+    protected Closure|null $closure = null;
 
     /**
      * Returns a new instance with closure that will be called to obtain content.
