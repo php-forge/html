@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html;
 
-
 /**
  * The <label> HTML element represents a caption for an item in a user interface.
  *
