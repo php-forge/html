@@ -11,7 +11,7 @@ use PHPForge\Html\HtmlBuilder;
  * This is an abstract class that extends AbstractWidget and serves as a base for form elements like Label.
  * Concrete classes should extend this class to implement specific form elements and their generation logic.
  */
-abstract class AbstractLabel extends AbstractBlockElement
+abstract class AbstractLabel extends AbstractElement
 {
     use Attribute\Input\HasForm;
     use Attribute\Tag\HasFor;
