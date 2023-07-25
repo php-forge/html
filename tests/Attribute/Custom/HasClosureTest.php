@@ -15,6 +15,6 @@ final class HasClosureTest extends TestCase
             use HasClosure;
         };
 
-        $this->assertNotSame($instance, $instance->closure(fn() => ''));
+        $this->assertNotSame($instance, $instance->closure(fn () => ''));
     }
 }
