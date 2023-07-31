@@ -31,10 +31,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $instance = $instance->prefix(
-            Span::widget(),
-            'foo && bar',
-        );
+        $instance = $instance->prefix(Span::widget(), 'foo && bar');
 
         $this->assertSame('<span></span>foo &amp;&amp; bar', $instance->getPrefix());
     }
@@ -50,10 +47,7 @@ final class HasPrefixAndSuffixTest extends TestCase
             }
         };
 
-        $instance = $instance->suffix(
-            'foo && bar',
-            Span::widget(),
-        );
+        $instance = $instance->suffix('foo && bar', Span::widget());
 
         $this->assertSame('foo &amp;&amp; bar<span></span>', $instance->getSuffix());
     }

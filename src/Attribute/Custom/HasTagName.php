@@ -11,6 +11,8 @@ use InvalidArgumentException;
  */
 trait HasTagName
 {
+    protected string $tagName = '';
+
     /**
      * Returns a new instance specifying the tag name of the widget.
      *
