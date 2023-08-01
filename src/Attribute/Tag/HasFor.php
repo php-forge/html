@@ -21,7 +21,7 @@ trait HasFor
      *
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/label.html#label.attrs.for
      */
-    public function for(string $value = null): self
+    public function for(string $value = null): static
     {
         $new = clone $this;
         $new->attributes['for'] = $value;

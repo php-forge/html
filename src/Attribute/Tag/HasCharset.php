@@ -18,7 +18,7 @@ trait HasCharset
      *
      * @link https://html.spec.whatwg.org/multipage/semantics.html#attr-link-charset
      */
-    public function charset(string $value): self
+    public function charset(string $value): static
     {
         $new = clone $this;
         $new->attributes['charset'] = Encode::content($value);

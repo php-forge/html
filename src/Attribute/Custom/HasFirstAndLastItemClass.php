@@ -17,7 +17,7 @@ trait HasFirstAndLastItemClass
      *
      * @param string $value The `CSS` class that will be assigned to the first item.
      */
-    public function firstItemClass(string $value): self
+    public function firstItemClass(string $value): static
     {
         $new = clone $this;
         $new->firstItemClass = $value;
@@ -30,7 +30,7 @@ trait HasFirstAndLastItemClass
      *
      * @param string $value The `CSS` class that will be assigned to the last item.
      */
-    public function lastItemClass(string $value): self
+    public function lastItemClass(string $value): static
     {
         $new = clone $this;
         $new->lastItemClass = $value;

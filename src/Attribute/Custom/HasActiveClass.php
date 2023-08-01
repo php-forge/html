@@ -16,7 +16,7 @@ trait HasActiveClass
      *
      * @param string $value The `CSS` class to be appended to the active class.
      */
-    public function activeClass(string $value): self
+    public function activeClass(string $value): static
     {
         $new = clone $this;
         $new->activeClass = $value;

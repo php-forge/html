@@ -16,7 +16,7 @@ trait HasCurrentPath
      *
      * @param string $value The current path.
      */
-    public function currentPath(string $value): self
+    public function currentPath(string $value): static
     {
         $new = clone $this;
         $new->currentPath = $value;

@@ -18,7 +18,7 @@ trait HasLinkAttributes
      *
      * @param array $values The `HTML` attributes for the link tag.
      */
-    public function linkAttributes(array $values): self
+    public function linkAttributes(array $values): static
     {
         $new = clone $this;
         $new->linkAttributes = array_merge($this->linkAttributes, $values);

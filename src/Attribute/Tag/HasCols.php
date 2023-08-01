@@ -16,7 +16,7 @@ trait HasCols
      *
      * @link https://html.spec.whatwg.org/multipage/form-elements.html#attr-textarea-cols
      */
-    public function cols(int $value): self
+    public function cols(int $value): static
     {
         $new = clone $this;
         $new->attributes['cols'] = $value;

@@ -16,7 +16,7 @@ trait HasLinkClass
      *
      * @param string $value The `CSS` class that will be assigned to the link.
      */
-    public function linkClass(string $value): self
+    public function linkClass(string $value): static
     {
         $new = clone $this;
         $new->linkClass = $value;
