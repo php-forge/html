@@ -32,10 +32,7 @@ final class HasContentTest extends TestCase
             }
         };
 
-        $instance = $instance->content(
-            Span::widget(),
-            'foo && bar',
-        );
+        $instance = $instance->content(Span::widget(), 'foo && bar');
 
         $this->assertSame('<span></span>foo &amp;&amp; bar', $instance->getContent());
     }

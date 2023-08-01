@@ -91,10 +91,7 @@ final class HasLabelTest extends TestCase
             }
         };
 
-        $instance = $instance->labelContent(
-            'foo && bar',
-            Span::widget()->content('foo && bar'),
-        );
+        $instance = $instance->labelContent('foo && bar', Span::widget()->content('foo && bar'));
 
         $this->assertSame('foo &amp;&amp; bar<span>foo &amp;&amp; bar</span>', $instance->getLabelContent());
     }

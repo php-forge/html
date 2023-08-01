@@ -7,9 +7,9 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 use PHPForge\Html\Attribute\Custom\HasAttributes;
 use PHPUnit\Framework\TestCase;
 
-final class HasAttributeTest extends TestCase
+final class HasAttributesTest extends TestCase
 {
-    public function testAttribute(): void
+    public function testAttributes(): void
     {
         $instance = new class() {
             use HasAttributes;
