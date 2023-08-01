@@ -28,6 +28,6 @@ trait HasId
 
     public function generateId(): string
     {
-        return $this->attributes['id'] ??= uniqid('id_');
+        return (string) ($this->attributes['id'] ??= uniqid('id_'));
     }
 }
