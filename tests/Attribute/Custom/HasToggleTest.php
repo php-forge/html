@@ -6,6 +6,8 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasToggle;
 use PHPForge\Html\Span;
+use PHPForge\Html\Svg;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class HasToggleTest extends TestCase
@@ -23,6 +25,7 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleDataAttribute('id', ''));
         $this->assertNotSame($instance, $instance->toggleId(''));
         $this->assertNotSame($instance, $instance->toggleOnClick(''));
+        $this->assertNotSame($instance, $instance->toggleSvg(''));
     }
 
     public function testNotToggle(): void
@@ -102,5 +105,44 @@ final class HasToggleTest extends TestCase
         );
 
         $this->assertSame('foo &amp;&amp; bar<span></span>id', $instance->getToggleContent());
+    }
+
+    public function testToggleSvg(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+
+            public function getToggleSvg(): string
+            {
+                return $this->toggleSvg;
+            }
+        };
+
+        $instance = $instance->toggleSvg(Svg::widget()->content('x'));
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <svg>
+            x
+            </svg>
+            HTML,
+            $instance->getToggleSvg(),
+        );
+    }
+
+    public function testToggleSvgWithString(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+
+            public function getToggleSvg(): string
+            {
+                return $this->toggleSvg;
+            }
+        };
+
+        $instance = $instance->toggleSvg('<svg>x</svg>');
+
+        $this->assertSame('<svg>x</svg>', $instance->getToggleSvg());
     }
 }

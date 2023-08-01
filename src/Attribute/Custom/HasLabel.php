@@ -8,7 +8,6 @@ use Closure;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
-use Stringable;
 
 /**
  * Provides methods to configure the label for the widget.
@@ -71,8 +70,8 @@ trait HasLabel
         $new = clone $this;
 
         foreach ($values as $value) {
-            if ($value instanceof Stringable) {
-                $value = $value->__toString();
+            if ($value instanceof WidgetInterface) {
+                $value = $value->render();
             }
 
             $new->labelContent .= match (Encode::isValidTag($value)) {
