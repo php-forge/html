@@ -23,7 +23,7 @@ trait HasTarget
      * context names or keywords.
      *
      * @param string $value The target attribute value.
-     * Values allowed are: `_blank`, `_self`, `_parent` or `_top`.
+     * Values allowed are: `_blank`, `_static`, `_parent` or `_top`.
      *
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target
      */

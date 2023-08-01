@@ -16,7 +16,7 @@ trait HasDisabledClass
      *
      * @param string $value The `CSS` class to be appended to the disabled class.
      */
-    public function disabledClass(string $value): self
+    public function disabledClass(string $value): static
     {
         $new = clone $this;
         $new->disabledClass = $value;

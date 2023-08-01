@@ -25,7 +25,7 @@ trait HasWrap
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/textarea.html#textarea.attrs.wrap.hard
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/textarea.html#textarea.attrs.wrap.soft
      */
-    public function wrap(string $value = 'hard'): self
+    public function wrap(string $value = 'hard'): static
     {
         if (!in_array($value, ['hard', 'soft'])) {
             throw new InvalidArgumentException('Invalid wrap value. Valid values are: "hard", "soft".');

@@ -16,7 +16,7 @@ trait HasRows
      *
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/textarea.html#textarea.attrs.rows
      */
-    public function rows(int $value): self
+    public function rows(int $value): static
     {
         $new = clone $this;
         $new->attributes['rows'] = $value;
