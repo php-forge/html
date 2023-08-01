@@ -45,5 +45,4 @@ final class HasIdTest extends TestCase
 
         $this->assertSame('foo', $instance->generateId());
     }
-
 }
