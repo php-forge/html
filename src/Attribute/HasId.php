@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute;
 
+use function uniqid;
+
 /**
  * Is used by widgets which have an id attribute.
  */
@@ -22,5 +24,10 @@ trait HasId
         $new->attributes['id'] = $id;
 
         return $new;
+    }
+
+    public function generateId(): string
+    {
+        return (string) ($this->attributes['id'] ??= uniqid('id_'));
     }
 }
