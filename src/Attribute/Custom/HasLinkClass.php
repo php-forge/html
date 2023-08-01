@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Attribute\Tag;
+namespace PHPForge\Html\Attribute\Custom;
 
 /**
  * Is used by widgets which have an link class property.

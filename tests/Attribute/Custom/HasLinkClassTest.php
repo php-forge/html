@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Tag\HasLinkClass;
+use PHPForge\Html\Attribute\Custom\HasLinkClass;
 use PHPUnit\Framework\TestCase;
 
 final class HasLinkClassTest extends TestCase
