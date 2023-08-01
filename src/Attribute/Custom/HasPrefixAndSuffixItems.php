@@ -9,19 +9,19 @@ use PHPForge\Widget\WidgetInterface;
 use Stringable;
 
 /**
- * Provides methods to set prefix and suffix item.
+ * Provides methods to set prefix and suffix items.
  */
-trait HasPrefixAndSuffixItem
+trait HasPrefixAndSuffixItems
 {
-    protected string $prefixItem = '';
-    protected string $suffixItem = '';
+    protected string $prefixItems = '';
+    protected string $suffixItems = '';
 
     /**
-     * Return new instance specifying the `HTML` prefix item content.
+     * Return new instance specifying the `HTML` prefix items content.
      *
      * @param string|WidgetInterface ...$values The `HTML` prefix item content.
      */
-    public function prefixItem(string|WidgetInterface ...$values): static
+    public function prefixItems(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
 
@@ -30,7 +30,7 @@ trait HasPrefixAndSuffixItem
                 $value = $value->__toString();
             }
 
-            $new->prefixItem .= match (Encode::isValidTag($value)) {
+            $new->prefixItems .= match (Encode::isValidTag($value)) {
                 true => $value,
                 false => Encode::content($value),
             };
@@ -40,9 +40,9 @@ trait HasPrefixAndSuffixItem
     }
 
     /**
-     * Return new instance specifying the `HTML` suffix item content.
+     * Return new instance specifying the `HTML` suffix items content.
      */
-    public function suffixItem(string|WidgetInterface ...$values): static
+    public function suffixItems(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
 
@@ -51,7 +51,7 @@ trait HasPrefixAndSuffixItem
                 $value = $value->__toString();
             }
 
-            $new->suffixItem .= match (Encode::isValidTag($value)) {
+            $new->suffixItems .= match (Encode::isValidTag($value)) {
                 true => $value,
                 false => Encode::content($value),
             };
