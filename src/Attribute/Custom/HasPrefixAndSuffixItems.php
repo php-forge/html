@@ -6,7 +6,6 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
-use Stringable;
 
 /**
  * Provides methods to set prefix and suffix items.
@@ -26,8 +25,8 @@ trait HasPrefixAndSuffixItems
         $new = clone $this;
 
         foreach ($values as $value) {
-            if ($value instanceof Stringable) {
-                $value = $value->__toString();
+            if ($value instanceof WidgetInterface) {
+                $value = $value->render();
             }
 
             $new->prefixItems .= match (Encode::isValidTag($value)) {
@@ -47,8 +46,8 @@ trait HasPrefixAndSuffixItems
         $new = clone $this;
 
         foreach ($values as $value) {
-            if ($value instanceof Stringable) {
-                $value = $value->__toString();
+            if ($value instanceof WidgetInterface) {
+                $value = $value->render();
             }
 
             $new->suffixItems .= match (Encode::isValidTag($value)) {

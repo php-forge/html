@@ -6,7 +6,6 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
-use Stringable;
 
 /**
  * Is used by widgets which have content value.
@@ -25,8 +24,8 @@ trait HasContent
         $new = clone $this;
 
         foreach ($values as $value) {
-            if ($value instanceof Stringable) {
-                $value = $value->__toString();
+            if ($value instanceof WidgetInterface) {
+                $value = $value->render();
             }
 
             $new->content .= match (Encode::isValidTag($value)) {

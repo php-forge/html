@@ -28,6 +28,7 @@ trait HasId
 
     public function generateId(): string
     {
-        return (string) ($this->attributes['id'] ??= uniqid('id_'));
+        /** @psalm-var string */
+        return $this->attributes['id'] ??= uniqid('id_');
     }
 }
