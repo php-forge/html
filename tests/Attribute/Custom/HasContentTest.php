@@ -10,6 +10,30 @@ use PHPUnit\Framework\TestCase;
 
 final class HasContentTest extends TestCase
 {
+    public function testGetContent(): void
+    {
+        $instance = new class() {
+            use HasContent;
+        };
+
+        $this->assertSame('', $instance->getContent());
+
+        $instance = $instance->content('foo');
+
+        $this->assertSame('foo', $instance->getContent());
+    }
+
+    public function testEncode(): void
+    {
+        $instance = new class() {
+            use HasContent;
+        };
+
+        $instance = $instance->content(Span::widget(), 'foo && bar');
+
+        $this->assertSame('<span></span>foo &amp;&amp; bar', $instance->getContent());
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class() {
@@ -19,21 +43,5 @@ final class HasContentTest extends TestCase
         };
 
         $this->assertNotSame($instance, $instance->content(''));
-    }
-
-    public function testRender(): void
-    {
-        $instance = new class() {
-            use HasContent;
-
-            public function getContent(): string
-            {
-                return $this->content;
-            }
-        };
-
-        $instance = $instance->content(Span::widget(), 'foo && bar');
-
-        $this->assertSame('<span></span>foo &amp;&amp; bar', $instance->getContent());
     }
 }
