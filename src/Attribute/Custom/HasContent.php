@@ -36,4 +36,12 @@ trait HasContent
 
         return $new;
     }
+
+    /**
+     * Returns the content value of the widget.
+     */
+    public function getContent(): string
+    {
+        return $this->content;
+    }
 }
