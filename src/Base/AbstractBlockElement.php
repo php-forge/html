@@ -20,12 +20,9 @@ abstract class AbstractBlockElement extends AbstractWidget
 
     protected array $attributes = [];
     protected string $tagName = '';
-    private bool $block = false;
 
     public function begin(): string
     {
-        $this->block = true;
-
         parent::begin();
 
         return HtmlBuilder::begin($this->tagName, $this->attributes);
@@ -33,7 +30,7 @@ abstract class AbstractBlockElement extends AbstractWidget
 
     protected function run(): string
     {
-        return match ($this->block) {
+        return match ($this->isBeginExecuted()) {
             false => HtmlBuilder::create($this->tagName, $this->content, $this->attributes),
             default => HtmlBuilder::end($this->tagName),
         };
