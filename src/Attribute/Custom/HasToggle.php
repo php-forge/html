@@ -19,6 +19,7 @@ trait HasToggle
     private string $toggleContent = '';
     private string $toggleId = '';
     private string $toggleSvg = '';
+    private string $toggleType = 'button';
 
     /**
      * Returns a new instance, specifying disabled toggle.
@@ -136,6 +137,19 @@ trait HasToggle
             true => $value,
             false => Encode::content($value),
         };
+
+        return $new;
+    }
+
+    /**
+     * Returns a new instance specifying the toggle button type.
+     *
+     * @param string $value The toggle button type. Default: `button`.
+     */
+    public function toggleType(string $value): static
+    {
+        $new = clone $this;
+        $new->toggleType = $value;
 
         return $new;
     }

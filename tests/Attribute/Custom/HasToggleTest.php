@@ -26,6 +26,7 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleId(''));
         $this->assertNotSame($instance, $instance->toggleOnClick(''));
         $this->assertNotSame($instance, $instance->toggleSvg(''));
+        $this->assertNotSame($instance, $instance->toggletype(''));
     }
 
     public function testNotToggle(): void
