@@ -125,22 +125,15 @@ trait HasToggle
      */
     public function toggleSvg(string|WidgetInterface $value): static
     {
-        $antiXss = new AntiXSS();
-        $antiXss->removeEvilHtmlTags(['svg']);
-
         $new = clone $this;
 
         if ($value instanceof WidgetInterface) {
             $value = $value->render();
         }
 
-        $antiXss->xss_clean($value);
-
-        if ($antiXss->isXssFound()) {
-            $value = $antiXss->xss_clean($value);
-        }
-
-        $new->toggleSvg = $value;
+        /** @psalm-var string|string[] $cleanSVG */
+        $cleanSVG = Encode::cleanXSS($value);
+        $new->toggleSvg = is_array($cleanSVG) ? implode('', $cleanSVG) : $cleanSVG;
 
         return $new;
     }

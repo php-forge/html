@@ -59,6 +59,8 @@ final class Encode
     {
         $antiXss = new AntiXSS();
 
+        $antiXss->removeEvilHtmlTags(['svg']);
+
         return $antiXss->xss_clean($content);
     }
 }
