@@ -29,10 +29,7 @@ trait HasPrefixAndSuffixItems
                 $value = $value->render();
             }
 
-            $new->prefixItems .= match (Encode::isValidTag($value)) {
-                true => $value,
-                false => Encode::content($value),
-            };
+            $new->prefixItems .= Encode::cleanXSS($value);
         }
 
         return $new;
@@ -50,10 +47,7 @@ trait HasPrefixAndSuffixItems
                 $value = $value->render();
             }
 
-            $new->suffixItems .= match (Encode::isValidTag($value)) {
-                true => $value,
-                false => Encode::content($value),
-            };
+            $new->suffixItems .= Encode::cleanXSS($value);
         }
 
         return $new;

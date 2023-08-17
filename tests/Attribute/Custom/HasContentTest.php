@@ -5,11 +5,26 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasContent;
-use PHPForge\Html\Span;
 use PHPUnit\Framework\TestCase;
 
 final class HasContentTest extends TestCase
 {
+    public function testContentWithXSS(): void
+    {
+        $instance = new class() {
+            use HasContent;
+
+            public function getContent(): string
+            {
+                return $this->content;
+            }
+        };
+
+        $instance = $instance->content("<script>alert('Hack');</script>");
+
+        $this->assertEmpty($instance->getContent());
+    }
+
     public function testGetContent(): void
     {
         $instance = new class() {
@@ -21,17 +36,6 @@ final class HasContentTest extends TestCase
         $instance = $instance->content('foo');
 
         $this->assertSame('foo', $instance->getContent());
-    }
-
-    public function testEncode(): void
-    {
-        $instance = new class() {
-            use HasContent;
-        };
-
-        $instance = $instance->content(Span::widget(), 'foo && bar');
-
-        $this->assertSame('<span></span>foo &amp;&amp; bar', $instance->getContent());
     }
 
     public function testImmutablity(): void

@@ -28,10 +28,9 @@ trait HasContent
                 $value = $value->render();
             }
 
-            $new->content .= match (Encode::isValidTag($value)) {
-                true => $value,
-                false => Encode::content($value),
-            };
+            /** @psalm-var string|string[] */
+            $cleanContent = Encode::cleanXSS($value);
+            $new->content .= is_array($cleanContent) ? implode('', $cleanContent) : $cleanContent;
         }
 
         return $new;

@@ -14,7 +14,12 @@ final class RenderTest extends TestCase
 {
     public function testContent(): void
     {
-        $this->assertSame('<label>Sam &amp; Dark</label>', Label::widget()->content('Sam & Dark')->render());
+        $this->assertSame('<label>Sam & Dark</label>', Label::widget()->content('Sam & Dark')->render());
+    }
+
+    public function testContentWithXSS(): void
+    {
+        $this->assertSame('<label></label>', Label::widget()->content("<script>alert('Hack');</script>")->render());
     }
 
     public function testElement(): void

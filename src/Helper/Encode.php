@@ -4,11 +4,9 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Helper;
 
-use DOMDocument;
+use voku\helper\AntiXSS;
 
 use function htmlspecialchars;
-use function libxml_get_errors;
-use function libxml_use_internal_errors;
 use function strtr;
 
 /**
@@ -57,32 +55,10 @@ final class Encode
         return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
     }
 
-    /**
-     * Validates if a string is a valid HTML tag.
-     *
-     * @param string $content The string to validate.
-     *
-     * @return bool `True` if the string is a valid HTML tag, `false` otherwise.
-     */
-    public static function isValidTag(string $content): bool
+    public static function cleanXSS(string $content): string|array
     {
-        if ($content === '') {
-            return false;
-        }
+        $antiXss = new AntiXSS();
 
-        $dom = new DOMDocument();
-
-        libxml_use_internal_errors(true);
-
-        match (str_contains($content, '<svg')) {
-            false => $dom->loadHTML($content),
-            true => $dom->loadXML($content, LIBXML_NOBLANKS),
-        };
-
-        $errors = libxml_get_errors();
-
-        libxml_clear_errors();
-
-        return $errors === [];
+        return $antiXss->xss_clean($content);
     }
 }

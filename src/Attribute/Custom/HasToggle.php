@@ -7,6 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
+use voku\helper\AntiXSS;
 
 /**
  * Is used by components that can have a toggle.
@@ -72,10 +73,7 @@ trait HasToggle
                 $value = $value->render();
             }
 
-            $new->toggleContent .= match (Encode::isValidTag($value)) {
-                true => $value,
-                false => Encode::content($value),
-            };
+            $new->toggleContent .= Encode::cleanXSS($value);
         }
 
         return $new;
@@ -127,16 +125,22 @@ trait HasToggle
      */
     public function toggleSvg(string|WidgetInterface $value): static
     {
+        $antiXss = new AntiXSS();
+        $antiXss->removeEvilHtmlTags(['svg']);
+
         $new = clone $this;
 
         if ($value instanceof WidgetInterface) {
             $value = $value->render();
         }
 
-        $new->toggleSvg = match (Encode::isValidTag($value)) {
-            true => $value,
-            false => Encode::content($value),
-        };
+        $antiXss->xss_clean($value);
+
+        if ($antiXss->isXssFound()) {
+            $value = $antiXss->xss_clean($value);
+        }
+
+        $new->toggleSvg = $value;
 
         return $new;
     }
