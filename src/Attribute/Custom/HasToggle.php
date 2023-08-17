@@ -7,7 +7,6 @@ namespace PHPForge\Html\Attribute\Custom;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\WidgetInterface;
-use voku\helper\AntiXSS;
 
 /**
  * Is used by components that can have a toggle.
