@@ -9,6 +9,30 @@ use PHPUnit\Framework\TestCase;
 
 final class EncodeTest extends TestCase
 {
+    public function testCleanXSS(): void
+    {
+        $this->assertSame(
+            '<button><img src="http://fakeurl.com/fake.jpg" /></button>',
+            Encode::cleanXSS('<button><img src="http://fakeurl.com/fake.jpg" onerror="alert(\'XSS\')"/></button>'),
+        );
+        $this->assertSame(
+            '<input type="text" value="test"  />',
+            Encode::cleanXSS('<input type="text" value="test" onfocus="alert(\'XSS\')" />'),
+        );
+        $this->assertSame(
+            '<select><option value="test">test</option></select>',
+            Encode::cleanXSS('<select><option value="test">test</option></select>'),
+        );
+        $this->assertSame(
+            '<svg></svg>',
+            Encode::cleanXSS('<svg><script>alert("XSS")</script></svg>'),
+        );
+        $this->assertSame(
+            '<textarea></textarea>',
+            Encode::cleanXSS('<textarea><script>alert("XSS")</script></textarea>'),
+        );
+    }
+
     /**
      * @dataProvider PHPForge\Html\Tests\Provider\EncodeProvider::encode
      *
