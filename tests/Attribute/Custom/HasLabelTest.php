@@ -93,7 +93,23 @@ final class HasLabelTest extends TestCase
 
         $instance = $instance->labelContent('foo && bar', Span::widget()->content('foo && bar'));
 
-        $this->assertSame('foo &amp;&amp; bar<span>foo &amp;&amp; bar</span>', $instance->getLabelContent());
+        $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabelContent());
+    }
+
+    public function testLabelContentWithXSS(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelContent(): string
+            {
+                return $this->labelContent;
+            }
+        };
+
+        $instance = $instance->labelContent("<script>alert('Hack');</script>", Span::widget()->content('foo && bar'));
+
+        $this->assertSame("<span>foo && bar</span>", $instance->getLabelContent());
     }
 
     public function testNotLabel(): void

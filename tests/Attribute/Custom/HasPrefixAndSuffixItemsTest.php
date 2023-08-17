@@ -33,7 +33,23 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
         $instance = $instance->prefixItems(Span::widget(), 'foo && bar');
 
-        $this->assertSame('<span></span>foo &amp;&amp; bar', $instance->getPrefixItems());
+        $this->assertSame('<span></span>foo && bar', $instance->getPrefixItems());
+    }
+
+    public function testPrefixItemsWithXSS(): void
+    {
+        $instance = new class() {
+            use HasPrefixAndSuffixItems;
+
+            public function getPrefixItems(): string
+            {
+                return $this->prefixItems;
+            }
+        };
+
+        $instance = $instance->prefixItems(Span::widget(), "<script>alert('Hack');</script>");
+
+        $this->assertSame("<span></span>", $instance->getPrefixItems());
     }
 
     public function testSuffixItems(): void
@@ -49,6 +65,22 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
         $instance = $instance->suffixItems('foo && bar', Span::widget());
 
-        $this->assertSame('foo &amp;&amp; bar<span></span>', $instance->getSuffixItems());
+        $this->assertSame('foo && bar<span></span>', $instance->getSuffixItems());
+    }
+
+    public function testSuffixItemsWithXSS(): void
+    {
+        $instance = new class() {
+            use HasPrefixAndSuffixItems;
+
+            public function getSuffixItems(): string
+            {
+                return $this->suffixItems;
+            }
+        };
+
+        $instance = $instance->suffixItems("<script>alert('Hack');</script>", Span::widget());
+
+        $this->assertSame("<span></span>", $instance->getSuffixItems());
     }
 }

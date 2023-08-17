@@ -74,10 +74,9 @@ trait HasLabel
                 $value = $value->render();
             }
 
-            $new->labelContent .= match (Encode::isValidTag($value)) {
-                true => $value,
-                false => Encode::content($value),
-            };
+            /** @psalm-var string|string[] */
+            $cleanContent = Encode::cleanXSS($value);
+            $new->labelContent .= is_array($cleanContent) ? implode('', $cleanContent) : $cleanContent;
         }
 
         return $new;

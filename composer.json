@@ -16,7 +16,8 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
-        "php-forge/awesome-widget": "^1.0@dev"
+        "php-forge/awesome-widget": "^1.0@dev",
+        "voku/anti-xss": "^4.1"
     },
     "require-dev": {
         "maglnet/composer-require-checker": "^4.3",

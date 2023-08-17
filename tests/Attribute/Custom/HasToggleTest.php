@@ -99,13 +99,9 @@ final class HasToggleTest extends TestCase
             }
         };
 
-        $instance = $instance->toggleContent(
-            'foo && bar',
-            Span::widget(),
-            'id',
-        );
+        $instance = $instance->toggleContent('foo && bar', Span::widget(), 'id');
 
-        $this->assertSame('foo &amp;&amp; bar<span></span>id', $instance->getToggleContent());
+        $this->assertSame('foo && bar<span></span>id', $instance->getToggleContent());
     }
 
     public function testToggleSvg(): void
@@ -143,6 +139,22 @@ final class HasToggleTest extends TestCase
         };
 
         $instance = $instance->toggleSvg('<svg>x</svg>');
+
+        $this->assertSame('<svg>x</svg>', $instance->getToggleSvg());
+    }
+
+    public function testToggleSvgWithXSS(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+
+            public function getToggleSvg(): string
+            {
+                return $this->toggleSvg;
+            }
+        };
+
+        $instance = $instance->toggleSvg('<svg><script>alert("xss")</script>x</svg>');
 
         $this->assertSame('<svg>x</svg>', $instance->getToggleSvg());
     }
