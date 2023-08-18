@@ -16,6 +16,10 @@ final class EncodeTest extends TestCase
             Encode::cleanXSS('<button><img src="http://fakeurl.com/fake.jpg" onerror="alert(\'XSS\')"/></button>'),
         );
         $this->assertSame(
+            '<form><input type="text" value="test" /></form>',
+            Encode::cleanXSS('<form><input type="text" value="test" onfocus="alert(\'XSS\')"/></form>'),
+        );
+        $this->assertSame(
             '<input type="text" value="test"  />',
             Encode::cleanXSS('<input type="text" value="test" onfocus="alert(\'XSS\')" />'),
         );
