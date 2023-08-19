@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Base;
 
+use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\Span;
+use PHPForge\Html\Svg;
+use PHPForge\Html\Tag;
 use PHPForge\Widget\AbstractWidget;
 
 /**
@@ -48,6 +52,7 @@ abstract class AbstractButton extends AbstractWidget
 
         $buttonHtml = match ($type) {
             'link' => $this->renderButtonLink($attributes),
+            'toggle' => $this->renderButtonToggle($attributes),
             default => $this->renderButton($attributes),
         };
 
@@ -87,5 +92,29 @@ abstract class AbstractButton extends AbstractWidget
         }
 
         return HtmlBuilder::create('a', $content, $attributes);
+    }
+
+    private function renderButtonToggle(array $attributes): string
+    {
+        if (array_key_exists('id', $attributes) === false) {
+            throw new InvalidArgumentException('The id attribute is required for the button toggle.');
+        }
+
+        $attributes['aria-controls'] = $attributes['id'];
+        $attributes['data-drawer-target'] = $attributes['id'];
+        $attributes['data-drawer-toggle'] = $attributes['id'];
+        $attributes['type'] = 'button';
+
+        return Tag::widget()
+            ->attributes($attributes)
+            ->content(
+                PHP_EOL,
+                Span::widget()->class('sr-only')->content('Open sidebar'),
+                PHP_EOL,
+                Svg::widget()->filePath(__DIR__ . '/Svg/toggle.svg'),
+                PHP_EOL,
+            )
+            ->tagName('button')
+            ->render();
     }
 }
