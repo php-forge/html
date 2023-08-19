@@ -10,10 +10,31 @@ use PHPUnit\Framework\TestCase;
 
 final class HasDataTest extends TestCase
 {
+    public function testClosure(): void
+    {
+        $instance = new class() {
+            use HasData;
+
+            protected array $attributes = [];
+
+            public function getAttributes(): array
+            {
+                return $this->attributes;
+            }
+        };
+
+        $closure = fn () => 'test';
+        $instance = $instance->dataAttributes([DataAttributes::ACTION->value => $closure]);
+
+        $this->assertSame(['data-action' => $closure], $instance->getAttributes());
+    }
+
     public function testExceptionKey(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The data attribute key and value must be a string.');
+        $this->expectExceptionMessage(
+            'The data attribute key must be a string and the value must be a string or a Closure.',
+        );
 
         $instance = new class() {
             use HasData;
@@ -27,7 +48,9 @@ final class HasDataTest extends TestCase
     public function testExceptionValue(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('The data attribute key and value must be a string.');
+        $this->expectExceptionMessage(
+            'The data attribute key must be a string and the value must be a string or a Closure.',
+        );
 
         $instance = new class() {
             use HasData;

@@ -21,6 +21,7 @@ abstract class AbstractButton extends AbstractWidget
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasContent;
     use Attribute\HasClass;
+    use Attribute\HasData;
     use Attribute\HasId;
     use Attribute\HasStyle;
     use Attribute\HasTabindex;
