@@ -17,10 +17,12 @@ use PHPForge\Widget\AbstractWidget;
  */
 abstract class AbstractButton extends AbstractWidget
 {
+    use Attribute\Aria\HasAriaControls;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasContent;
     use Attribute\HasClass;
+    use Attribute\HasData;
     use Attribute\HasId;
     use Attribute\HasStyle;
     use Attribute\HasTabindex;

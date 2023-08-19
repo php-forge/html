@@ -59,7 +59,7 @@ final class Encode
     {
         $antiXss = new AntiXSS();
 
-        $antiXss->removeEvilHtmlTags(['button', 'input', 'select', 'svg', 'textarea']);
+        $antiXss->removeEvilHtmlTags(['button', 'form', 'input', 'select', 'svg', 'textarea']);
 
         return $antiXss->xss_clean($content);
     }

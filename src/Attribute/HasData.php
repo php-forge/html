@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute;
 
+use Closure;
 use InvalidArgumentException;
 
 /**
@@ -23,8 +24,10 @@ trait HasData
         $new = clone $this;
 
         foreach ($values as $key => $value) {
-            if (!is_string($key) || !is_string($value)) {
-                throw new InvalidArgumentException('The data attribute key and value must be a string.');
+            if (!is_string($key) || (!is_string($value) && !$value instanceof Closure)) {
+                throw new InvalidArgumentException(
+                    'The data attribute key must be a string and the value must be a string or a Closure.',
+                );
             }
 
             $new->attributes[$key] = $value;
