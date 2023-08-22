@@ -21,6 +21,7 @@ abstract class AbstractButton extends AbstractWidget
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasContent;
+    use Attribute\Custom\HasTagName;
     use Attribute\HasClass;
     use Attribute\HasData;
     use Attribute\HasId;
@@ -29,7 +30,6 @@ abstract class AbstractButton extends AbstractWidget
     use Attribute\HasTitle;
     use Attribute\Input\HasName;
     use Attribute\Input\HasType;
-    use Attribute\Custom\HasTagName;
 
     protected array $attributes = [];
     private bool $container = false;
@@ -45,7 +45,7 @@ abstract class AbstractButton extends AbstractWidget
             $attributes['type'] = 'button';
         }
 
-        $buttonHtml =  $this->renderButton($attributes);
+        $buttonHtml = $this->renderButton($attributes);
 
         return match ($this->container) {
             true => Div::widget()->attributes($this->containerAttributes)->content($buttonHtml)->render(),
