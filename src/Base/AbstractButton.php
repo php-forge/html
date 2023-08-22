@@ -18,6 +18,9 @@ use PHPForge\Widget\AbstractWidget;
 abstract class AbstractButton extends AbstractWidget
 {
     use Attribute\Aria\HasAriaControls;
+    use Attribute\Aria\HasAriaDisabled;
+    use Attribute\Aria\HasAriaExpanded;
+    use Attribute\Aria\HasRole;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasContent;

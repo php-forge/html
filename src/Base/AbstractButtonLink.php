@@ -6,14 +6,17 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Button;
-use PHPForge\Html\Helper\CssClass;
 use PHPForge\Widget\AbstractWidget;
 
 abstract class AbstractButtonLink extends AbstractWidget
 {
     use Attribute\Custom\HasContent;
     use Attribute\HasClass;
+    use Attribute\HasData;
+    use Attribute\HasId;
+    use Attribute\HasStyle;
     use Attribute\Input\CanBeDisabled;
+    use Attribute\Input\HasName;
     use Attribute\Tag\HasHref;
 
     protected array $attributes = [];
@@ -21,16 +24,20 @@ abstract class AbstractButtonLink extends AbstractWidget
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $attributes['role'] = 'button';
-        $attributes['type'] = 'link';
+        $button = Button::widget();
 
         if (isset($attributes['disabled']) && is_bool($attributes['disabled']) && $attributes['disabled']) {
-            CssClass::add($attributes, 'disabled');
-            $attributes['aria-disabled'] = 'true';
+            $button = $button->ariaDisabled('true')->class('disabled');
 
             unset($attributes['disabled']);
         }
 
-        return Button::widget()->attributes($attributes)->content($this->content)->tagName('a')->render();
+        return $button
+            ->attributes($attributes)
+            ->content($this->content)
+            ->role('button')
+            ->tagName('a')
+            ->type('link')
+            ->render();
     }
 }
