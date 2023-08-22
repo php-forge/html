@@ -40,6 +40,7 @@ abstract class AbstractButtonToggle extends AbstractWidget
         $attributes = $this->attributes;
         $buttonToggle = Button::widget();
         $id = null;
+        $sidebarContent = $this->sidebar ? 'Open sidebar' : 'Open main menu';
 
         if (array_key_exists('id', $attributes) && is_string($attributes['id'])) {
             $id = $attributes['id'];
@@ -53,7 +54,7 @@ abstract class AbstractButtonToggle extends AbstractWidget
 
         $buttonToggle = match ($this->content) {
             '' => $buttonToggle->content(
-                Span::widget()->class('sr-only')->content('Open sidebar'),
+                Span::widget()->class('sr-only')->content($sidebarContent),
                 PHP_EOL,
                 Svg::widget()->filePath(__DIR__ . '/Svg/toggle.svg'),
             ),
