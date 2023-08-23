@@ -164,4 +164,12 @@ final class RenderTest extends TestCase
             Button::widget()->title('test')->render(),
         );
     }
+
+    public function testType(): void
+    {
+        $this->assertSame(
+            '<button type="submit"></button>',
+            Button::widget()->type('submit')->render(),
+        );
+    }
 }

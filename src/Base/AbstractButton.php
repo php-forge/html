@@ -41,11 +41,10 @@ abstract class AbstractButton extends AbstractWidget
     protected function run(): string
     {
         $attributes = $this->attributes;
+        $attributes['type'] ??= 'button';
 
         if (array_key_exists('type', $attributes) && $attributes['type'] === 'link') {
             unset($attributes['type']);
-        } else {
-            $attributes['type'] = 'button';
         }
 
         $buttonHtml = $this->renderButton($attributes);
