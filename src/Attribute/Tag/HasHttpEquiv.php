@@ -23,7 +23,7 @@ trait HasHttpEquiv
     {
         $new = clone $this;
         $new->attributes['http-equiv'] = $value;
-        $new->attributes['content'] = Encode::content($content);
+        $new->attributes['content'] = Encode::create()->content($content);
 
         return $new;
     }

@@ -66,14 +66,7 @@ trait HasToggle
     public function toggleContent(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
-
-        foreach ($values as $value) {
-            if ($value instanceof WidgetInterface) {
-                $value = $value->render();
-            }
-
-            $new->toggleContent .= Encode::cleanXSS($value);
-        }
+        $new->toggleContent = Encode::create()->santizeXSS(...$values);
 
         return $new;
     }
@@ -125,14 +118,7 @@ trait HasToggle
     public function toggleSvg(string|WidgetInterface $value): static
     {
         $new = clone $this;
-
-        if ($value instanceof WidgetInterface) {
-            $value = $value->render();
-        }
-
-        /** @psalm-var string|string[] $cleanSVG */
-        $cleanSVG = Encode::cleanXSS($value);
-        $new->toggleSvg = is_array($cleanSVG) ? implode('', $cleanSVG) : $cleanSVG;
+        $new->toggleSvg = Encode::create()->santizeXSS($value);
 
         return $new;
     }

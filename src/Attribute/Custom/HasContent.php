@@ -22,16 +22,7 @@ trait HasContent
     public function content(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
-
-        foreach ($values as $value) {
-            if ($value instanceof WidgetInterface) {
-                $value = $value->render();
-            }
-
-            /** @psalm-var string|string[] */
-            $cleanContent = Encode::cleanXSS($value);
-            $new->content .= is_array($cleanContent) ? implode('', $cleanContent) : $cleanContent;
-        }
+        $new->content = Encode::create()->santizeXSS(...$values);
 
         return $new;
     }

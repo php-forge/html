@@ -36,7 +36,7 @@ abstract class AbstractMeta extends AbstractWidget
     {
         $new = clone $this;
         $new->attributes['name'] = $value;
-        $new->attributes['content'] = Encode::content($content);
+        $new->attributes['content'] = Encode::create()->content($content);
 
         return $new;
     }
