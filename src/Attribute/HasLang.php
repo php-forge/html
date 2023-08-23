@@ -24,7 +24,7 @@ trait HasLang
     public function lang(string $value): static
     {
         $new = clone $this;
-        $new->attributes['lang'] = Encode::content($value);
+        $new->attributes['lang'] = Encode::create()->content($value);
 
         return $new;
     }

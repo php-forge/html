@@ -23,14 +23,7 @@ trait HasPrefixAndSuffixItems
     public function prefixItems(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
-
-        foreach ($values as $value) {
-            if ($value instanceof WidgetInterface) {
-                $value = $value->render();
-            }
-
-            $new->prefixItems .= Encode::cleanXSS($value);
-        }
+        $new->prefixItems = Encode::create()->santizeXSS(...$values);
 
         return $new;
     }
@@ -41,14 +34,7 @@ trait HasPrefixAndSuffixItems
     public function suffixItems(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
-
-        foreach ($values as $value) {
-            if ($value instanceof WidgetInterface) {
-                $value = $value->render();
-            }
-
-            $new->suffixItems .= Encode::cleanXSS($value);
-        }
+        $new->suffixItems = Encode::create()->santizeXSS(...$values);
 
         return $new;
     }

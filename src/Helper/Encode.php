@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Helper;
 
+use PHPForge\Widget\WidgetInterface;
 use voku\helper\AntiXSS;
 
 use function htmlspecialchars;
@@ -29,7 +30,7 @@ final class Encode
      *
      * @link https://html.spec.whatwg.org/#data-state
      */
-    public static function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
         return htmlspecialchars((string) $content, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
     }
@@ -48,14 +49,38 @@ final class Encode
      * @link https://html.spec.whatwg.org/#attribute-value-(single-quoted)-state
      * @link https://html.spec.whatwg.org/#attribute-value-(double-quoted)-state
      */
-    public static function value(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public function value(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
         $value = htmlspecialchars((string) $value, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
 
         return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
     }
 
-    public static function cleanXSS(string $content): string|array
+    public function santizeXSS(string|WidgetInterface ...$values): string
+    {
+        $cleanHtml = '';
+
+        foreach ($values as $value) {
+            if ($value instanceof WidgetInterface) {
+                $value = $value->render();
+            }
+
+            /** @psalm-var string|string[] $cleanValue */
+            $cleanValue = $this->cleanXSS($value);
+            $cleanValue = is_array($cleanValue) ? implode('', $cleanValue) : $cleanValue;
+
+            $cleanHtml .= $cleanValue;
+        }
+
+        return $cleanHtml;
+    }
+
+    public static function create(): self
+    {
+        return new self();
+    }
+
+    private function cleanXSS(string $content): string|array
     {
         $antiXss = new AntiXSS();
 

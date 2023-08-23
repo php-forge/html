@@ -138,7 +138,7 @@ final class Attributes
             'array' => $this->renderArrayAttributes($name, $values),
             'boolean' => $this->renderBooleanAttributes($name, $values),
             'NULL' => '',
-            default => $this->renderAttribute($name, Encode::value($values)),
+            default => $this->renderAttribute($name, Encode::create()->value($values)),
         };
     }
 
@@ -171,7 +171,7 @@ final class Attributes
         /** @psalm-var string[] $values */
         return match ($values) {
             [] => '',
-            default => " $name=\"" . Encode::content(implode(' ', $values)) . '"',
+            default => " $name=\"" . Encode::create()->content(implode(' ', $values)) . '"',
         };
     }
 
@@ -183,7 +183,7 @@ final class Attributes
         foreach ($values as $n => $v) {
             $result .= match (is_array($v)) {
                 true => $this->renderAttribute($name . '-' . $n, json_encode($v, self::JSON_FLAGS), '\''),
-                false => $this->renderAttribute($name . '-' . $n, Encode::value($v)),
+                false => $this->renderAttribute($name . '-' . $n, Encode::create()->value($v)),
             };
         }
 
@@ -199,6 +199,6 @@ final class Attributes
             $result .= "$n: $v; ";
         }
 
-        return $result === '' ? '' : " $name=\"" . Encode::content(rtrim($result)) . '"';
+        return $result === '' ? '' : " $name=\"" . Encode::create()->content(rtrim($result)) . '"';
     }
 }

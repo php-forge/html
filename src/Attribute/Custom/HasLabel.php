@@ -68,16 +68,7 @@ trait HasLabel
     public function labelContent(string|WidgetInterface ...$values): static
     {
         $new = clone $this;
-
-        foreach ($values as $value) {
-            if ($value instanceof WidgetInterface) {
-                $value = $value->render();
-            }
-
-            /** @psalm-var string|string[] */
-            $cleanContent = Encode::cleanXSS($value);
-            $new->labelContent .= is_array($cleanContent) ? implode('', $cleanContent) : $cleanContent;
-        }
+        $new->labelContent = Encode::create()->santizeXSS(...$values);
 
         return $new;
     }
