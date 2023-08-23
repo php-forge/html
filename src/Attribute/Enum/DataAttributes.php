@@ -12,6 +12,7 @@ enum DataAttributes: string
     case DATA_COLLAPSE_TOGGLE = 'data-collapse-toggle';
     case DATA_DRAWER_TARGET = 'data-drawer-target';
     case DATA_DRAWER_TOGGLE = 'data-drawer-toggle';
+    case DATA_DROPDOWN_TOGGLE = 'data-dropdown-toggle';
     case ICON = 'data-icon';
     case MESSAGE = 'data-message';
     case METHOD = 'data-method';
