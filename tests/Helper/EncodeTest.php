@@ -25,12 +25,20 @@ final class EncodeTest extends TestCase
     public function testSantizeXSS(): void
     {
         $this->assertSame(
+            '<a >click</a>',
+            Encode::create()->santizeXSS('<a href=&#x2000;javascript:alert(1)>click</a>'),
+        );
+        $this->assertSame(
             '<button><img src="http://fakeurl.com/fake.jpg" /></button>',
             Encode::create()->santizeXSS('<button><img src="http://fakeurl.com/fake.jpg" onerror="alert(\'XSS\')"/></button>'),
         );
         $this->assertSame(
             '<form><input type="text" value="test" /></form>',
             Encode::create()->santizeXSS('<form><input type="text" value="test" onfocus="alert(\'XSS\')"/></form>'),
+        );
+        $this->assertSame(
+            '<img >',
+            Encode::create()->santizeXSS('<img src=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>'),
         );
         $this->assertSame(
             '<input type="text" value="test"  />',
