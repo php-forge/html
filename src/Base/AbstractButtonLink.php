@@ -10,11 +10,13 @@ use PHPForge\Widget\AbstractWidget;
 
 abstract class AbstractButtonLink extends AbstractWidget
 {
+    use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
     use Attribute\HasClass;
     use Attribute\HasData;
     use Attribute\HasId;
     use Attribute\HasStyle;
+    use Attribute\HasTitle;
     use Attribute\Input\CanBeDisabled;
     use Attribute\Input\HasName;
     use Attribute\Tag\HasHref;
