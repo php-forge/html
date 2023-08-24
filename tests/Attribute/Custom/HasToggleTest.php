@@ -18,7 +18,7 @@ final class HasToggleTest extends TestCase
             use HasToggle;
         };
 
-        $this->assertNotSame($instance, $instance->notToggle());
+        $this->assertNotSame($instance, $instance->toggle(true));
         $this->assertNotSame($instance, $instance->toggleAttributes([]));
         $this->assertNotSame($instance, $instance->toggleClass(''));
         $this->assertNotSame($instance, $instance->toggleContent(''));
@@ -29,7 +29,7 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggletype(''));
     }
 
-    public function testNotToggle(): void
+    public function testToggle(): void
     {
         $instance = new class() {
             use HasToggle;
@@ -41,7 +41,7 @@ final class HasToggleTest extends TestCase
         };
 
         $this->assertTrue($instance->getToggle());
-        $this->assertFalse($instance->notToggle()->getToggle());
+        $this->assertFalse($instance->toggle(false)->getToggle());
     }
 
     public function testToggleAttributes(): void
