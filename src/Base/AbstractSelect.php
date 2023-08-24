@@ -8,14 +8,14 @@ use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
 use PHPForge\Html\Tag;
-use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Element;
 
 use function array_merge;
 use function get_debug_type;
 use function implode;
 use function in_array;
 
-abstract class AbstractSelect extends AbstractWidget
+abstract class AbstractSelect extends Element
 {
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasItems;

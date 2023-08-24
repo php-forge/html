@@ -6,7 +6,7 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Widget\WidgetInterface;
+use PHPForge\Widget\ElementInterface;
 
 /**
  * Is used by components that implement a brand methods.
@@ -81,9 +81,9 @@ trait HasBrand
     /**
      * Returns a new instance specifying the brand image.
      *
-     * @param string|WidgetInterface $value The brand image.
+     * @param string|ElementInterface $value The brand image.
      */
-    public function brandImage(string|WidgetInterface $value): static
+    public function brandImage(string|ElementInterface $value): static
     {
         $new = clone $this;
         $new->brandImage = Encode::create()->santizeXSS($value);
@@ -148,9 +148,9 @@ trait HasBrand
     /**
      * Returns a new instance specifying the brand text.
      *
-     * @param string|WidgetInterface $value The brand text.
+     * @param string|ElementInterface $value The brand text.
      */
-    public function brandText(string|WidgetInterface $value): static
+    public function brandText(string|ElementInterface $value): static
     {
         $new = clone $this;
         $new->brandText = Encode::create()->santizeXSS($value);
@@ -158,7 +158,7 @@ trait HasBrand
         return $new;
     }
 
-    public function brandToggle(string|WidgetInterface $value): static
+    public function brandToggle(string|ElementInterface $value): static
     {
         $new = clone $this;
         $new->brandToggle = Encode::create()->santizeXSS($value);

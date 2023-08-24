@@ -6,14 +6,9 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Element;
 
-/**
- * This is an abstract class that extends AbstractWidget and serves as a base for creating anchor `(a)` elements.
- * Anchor elements are used to create hyperlinks in HTML documents.
- * Concrete classes should extend this class to implement specific anchor elements and their generation logic.
- */
-abstract class AbstractA extends AbstractWidget
+abstract class AbstractA extends Element
 {
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;

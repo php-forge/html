@@ -10,9 +10,9 @@ use PHPForge\Html\Attribute\Enum\DataAttributes;
 use PHPForge\Html\Button;
 use PHPForge\Html\Span;
 use PHPForge\Html\Svg;
-use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Element;
 
-abstract class AbstractButtonToggle extends AbstractWidget
+abstract class AbstractButtonToggle extends Element
 {
     use Attribute\Aria\HasAriaControls;
     use Attribute\Aria\HasAriaExpanded;

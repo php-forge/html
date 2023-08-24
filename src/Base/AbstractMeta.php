@@ -7,14 +7,9 @@ namespace PHPForge\Html\Base;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Element;
 
-/**
- * This is an abstract class that extends AbstractWidget and serves as a base for generating the `<meta>` tag.
- * The `<meta>` tag provides metadata about the HTML document.
- * Concrete classes should extend this class to implement specific `<meta>` tag variations and their generation logic.
- */
-abstract class AbstractMeta extends AbstractWidget
+abstract class AbstractMeta extends Element
 {
     use Attribute\Custom\HasAttributes;
     use Attribute\HasClass;

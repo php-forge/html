@@ -6,9 +6,9 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Button;
-use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Element;
 
-abstract class AbstractButtonLink extends AbstractWidget
+abstract class AbstractButtonLink extends Element
 {
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;

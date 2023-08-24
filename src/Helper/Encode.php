@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Helper;
 
-use PHPForge\Widget\WidgetInterface;
+use PHPForge\Widget\ElementInterface;
 use voku\helper\AntiXSS;
 
 use function htmlspecialchars;
@@ -56,12 +56,12 @@ final class Encode
         return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
     }
 
-    public function santizeXSS(string|WidgetInterface ...$values): string
+    public function santizeXSS(string|ElementInterface ...$values): string
     {
         $cleanHtml = '';
 
         foreach ($values as $value) {
-            if ($value instanceof WidgetInterface) {
+            if ($value instanceof ElementInterface) {
                 $value = $value->render();
             }
 

@@ -7,7 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use Closure;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Widget\WidgetInterface;
+use PHPForge\Widget\ElementInterface;
 
 /**
  * Provides methods to configure the label for the widget.
@@ -63,9 +63,9 @@ trait HasLabel
     /**
      * Returns a new instance with the label content value.
      *
-     * @param string|WidgetInterface $values The label content value.
+     * @param string|ElementInterface $values The label content value.
      */
-    public function labelContent(string|WidgetInterface ...$values): static
+    public function labelContent(string|ElementInterface ...$values): static
     {
         $new = clone $this;
         $new->labelContent = Encode::create()->santizeXSS(...$values);
