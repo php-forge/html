@@ -22,12 +22,12 @@ trait HasToggle
     private string $toggleType = 'button';
 
     /**
-     * Returns a new instance, specifying disabled toggle.
+     * Returns a new instance, specifying if the toggle button should be rendered.
      */
-    public function notToggle(): static
+    public function toggle(bool $value): static
     {
         $new = clone $this;
-        $new->toggle = false;
+        $new->toggle = $value;
 
         return $new;
     }
