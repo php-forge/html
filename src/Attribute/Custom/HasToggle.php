@@ -6,7 +6,7 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Widget\WidgetInterface;
+use PHPForge\Widget\ElementInterface;
 
 /**
  * Is used by components that can have a toggle.
@@ -61,9 +61,9 @@ trait HasToggle
     /**
      * Returns a new instance specifying the toggle button content.
      *
-     * @param string|WidgetInterface ...$values The toggle button content.
+     * @param string|ElementInterface ...$values The toggle button content.
      */
-    public function toggleContent(string|WidgetInterface ...$values): static
+    public function toggleContent(string|ElementInterface ...$values): static
     {
         $new = clone $this;
         $new->toggleContent = Encode::create()->santizeXSS(...$values);
@@ -113,9 +113,9 @@ trait HasToggle
     /**
      * Returns a new instance specifying the svg for the toggle button.
      *
-     * @param string|WidgetInterface $value The svg for the toggle button.
+     * @param string|ElementInterface $value The svg for the toggle button.
      */
-    public function toggleSvg(string|WidgetInterface $value): static
+    public function toggleSvg(string|ElementInterface $value): static
     {
         $new = clone $this;
         $new->toggleSvg = Encode::create()->santizeXSS($value);

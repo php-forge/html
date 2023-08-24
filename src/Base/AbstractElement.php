@@ -6,9 +6,9 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Widget\AbstractWidget;
+use PHPForge\Widget\Element;
 
-abstract class AbstractElement extends AbstractWidget
+abstract class AbstractElement extends Element
 {
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;

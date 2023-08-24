@@ -10,20 +10,15 @@ use DOMXPath;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Widget\AbstractWidget;
-use PHPForge\Widget\WidgetInterface;
+use PHPForge\Widget\Element;
 use RuntimeException;
 
 use function array_key_exists;
 
-/**
- * This is an abstract class that extends AbstractWidget and serves as a base for generating the `<svg>` tag.
- * The `<svg>` tag represents a scalable vector graphic in an HTML document.
- * Concrete classes should extend this class to implement specific `<svg>` tag variations and their generation logic.
- */
-abstract class AbstractSvg extends AbstractWidget
+abstract class AbstractSvg extends Element
 {
     use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasContent;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasLang;
@@ -32,26 +27,7 @@ abstract class AbstractSvg extends AbstractWidget
     use Attribute\Input\HasWidth;
 
     protected array $attributes = [];
-    private string $content = '';
     private string $filePath = '';
-
-    /**
-     * Returns a new instance specifying the content value of the widget.
-     *
-     * @param string $value The content value.
-     */
-    public function content(string|WidgetInterface $value): static
-    {
-        $new = clone $this;
-
-        if ($value instanceof WidgetInterface) {
-            $value = (string) $value;
-        }
-
-        $new->content = $value;
-
-        return $new;
-    }
 
     /**
      * Returns a new instance with the file path of the SVG.
