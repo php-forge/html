@@ -9,6 +9,9 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Html\HtmlBuilder;
 use PHPForge\Widget\Element;
 
+/**
+ * Provides a foundation for creating HTML `meta` elements with various attributes and content.
+ */
 abstract class AbstractMeta extends Element
 {
     use Attribute\Custom\HasAttributes;
@@ -22,12 +25,14 @@ abstract class AbstractMeta extends Element
     protected array $attributes = [];
 
     /**
-     * Returns a new instance with the name and content attributes of the meta tag.
+     * Sets the name and content attributes.
      *
      * @param string $value The name value.
      * @param string $content The content value.
+     *
+     * @return static A new instance with the name and content attributes.
      */
-    public function name(string $value, string $content): self
+    public function content(string $value, string $content): static
     {
         $new = clone $this;
         $new->attributes['name'] = $value;
@@ -36,6 +41,11 @@ abstract class AbstractMeta extends Element
         return $new;
     }
 
+    /**
+     * Generate the HTML representation of the element.
+     *
+     * @return string The HTML representation of the element.
+     */
     protected function run(): string
     {
         return HtmlBuilder::create('meta', '', $this->attributes);

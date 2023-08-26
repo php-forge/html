@@ -8,16 +8,18 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Is used by widgets which have content value.
+ * Is used by widgets that implement the content method.
  */
 trait HasContent
 {
     protected string $content = '';
 
     /**
-     * Returns a new instance specifying the content value of the widget.
+     * Set the `HTML` content value.
      *
-     * @param string|ElementInterface ...$values The content value.
+     * @param string|ElementInterface ...$values The `HTML` content value.
+     *
+     * @return static A new instance of the current class with the specified content value.
      */
     public function content(string|ElementInterface ...$values): static
     {
@@ -28,7 +30,9 @@ trait HasContent
     }
 
     /**
-     * Returns the content value of the widget.
+     * Get the `HTML` content value.
+     *
+     * @return string The `HTML` content value.
      */
     public function getContent(): string
     {

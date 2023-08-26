@@ -7,14 +7,16 @@ namespace PHPForge\Html\Attribute\Tag;
 use function implode;
 
 /**
- * Is used by widgets which have a sizes attribute.
+ * Is used by widgets that implement the sizes method.
  */
 trait HasSizes
 {
     /**
-     * Returns a new instance specifying one or more strings separated by commas, indicating a set of source sizes.
+     * Set one or more strings separated by commas, indicating a set of source sizes.
      *
      * @param string ...$value The sizes attribute.
+     *
+     * @return static A new instance of the current class with the specified sizes value.
      *
      * @link https://www.w3.org/TR/html52/embedded-content-0.html#attr-img-sizes
      */

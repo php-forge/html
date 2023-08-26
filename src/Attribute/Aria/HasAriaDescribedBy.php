@@ -5,17 +5,22 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Aria;
 
 /**
- * Is used by widgets which have an aria-describedby attribute.
+ * Is used by widgets that require the aria-describedby attribute.
  */
 trait HasAriaDescribedBy
 {
     /**
-     * Returns a new instance specifying the element (or elements) that describes the element on which the attribute is
-     * set.
+     * Set the aria-describedby attribute, which identifies the element(s) that describe the current element.
      *
-     * @param string $value The value of the aria-describedby attribute.
+     * The aria-describedby attribute is used in WAI-ARIA to provide a relationship between an element and its
+     * descriptive elements. This helps screen readers and other assistive technologies provide additional context
+     * about the element.
      *
-     * @link https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby
+     * @param string $value IDs of the descriptive element(s) separated by spaces.
+     *
+     * @return static A new instance or clone of the current object with the aria-describedby attribute set.
+     *
+     * @link https://www.w3.org/TR/wai-aria-1.1/#aria-describedby
      */
     public function ariaDescribedBy(string $value): static
     {

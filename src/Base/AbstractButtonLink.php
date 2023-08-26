@@ -8,6 +8,9 @@ use PHPForge\Html\Attribute;
 use PHPForge\Html\Button;
 use PHPForge\Widget\Element;
 
+/**
+ * Provides a foundation for creating HTML `button` link elements with various attributes and content.
+ */
 abstract class AbstractButtonLink extends Element
 {
     use Attribute\Custom\HasAttributes;
@@ -23,6 +26,11 @@ abstract class AbstractButtonLink extends Element
 
     protected array $attributes = [];
 
+    /**
+     * Generate the HTML representation of the element.
+     *
+     * @return string The HTML representation of the element.
+     */
     protected function run(): string
     {
         $attributes = $this->attributes;
@@ -34,8 +42,7 @@ abstract class AbstractButtonLink extends Element
             unset($attributes['disabled']);
         }
 
-        return $button
-            ->attributes($attributes)
+        return $button->attributes($attributes)
             ->content($this->content)
             ->role('button')
             ->tagName('a')

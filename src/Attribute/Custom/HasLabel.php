@@ -10,7 +10,7 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Provides methods to configure the label for the widget.
+ * Is used by widgets that implement the label methods.
  */
 trait HasLabel
 {
@@ -21,10 +21,11 @@ trait HasLabel
     private bool $notLabel = false;
 
     /**
-     * Returns a new instance with the label attributes is an array that defines the HTML attributes of the label
-     * element.
+     * Set the `HTML` attributes for the label.
      *
-     * @param array $values The Attribute values indexed by attribute names for field widget.
+     * @param array $values Attribute values indexed by attribute names.
+     *
+     * @return static A new instance of the current class with the specified label attributes.
      */
     public function labelAttributes(array $values): static
     {
@@ -35,9 +36,11 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance with the label class is a string that defines the class of the label element.
+     * Set the `CSS` class for the label.
      *
      * @param string $value The value of the class attribute.
+     *
+     * @return static A new instance of the current class with the specified label class.
      */
     public function labelClass(string $value): static
     {
@@ -48,9 +51,11 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance with the label closure.
+     *  Set a new label closure that will be invoked to obtain `HTML` content.
      *
      * @param Closure $value The label closure.
+     *
+     * @return static A new instance of the current class with the specified label closure.
      */
     public function labelClosure(Closure $value): static
     {
@@ -61,9 +66,11 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance with the label content value.
+     * Set the `HTML` label content.
      *
-     * @param string|ElementInterface $values The label content value.
+     * @param string|ElementInterface $values The `HTML` label content value.
+     *
+     * @return static A new instance of the current class with the specified `HTML` label content.
      */
     public function labelContent(string|ElementInterface ...$values): static
     {
@@ -74,9 +81,11 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance specifying the `HTML` label `for` attribute.
+     * Set the `for` attribute for the label.
      *
      * @param string|null $value The value for the `for` attribute.
+     *
+     * @return static A new instance of the current class with the specified label `for` attribute.
      */
     public function labelFor(string|null $value): static
     {
@@ -87,7 +96,9 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance where the label isn't rendered.
+     * Disable the label rendering.
+     *
+     * @return static A new instance of the current class with the label disabled.
      */
     public function notLabel(): static
     {
@@ -98,7 +109,9 @@ trait HasLabel
     }
 
     /**
-     * Returns a new instance whether the label is not rendered.
+     * Determine if the label is disabled or not.
+     *
+     * @return bool `true` if the label is disabled, `false` otherwise.
      */
     public function isNotLabel(): bool
     {

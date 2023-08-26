@@ -15,6 +15,9 @@ use function get_debug_type;
 use function implode;
 use function in_array;
 
+/**
+ * Provides a foundation for creating HTML `select` elements with various attributes and content.
+ */
 abstract class AbstractSelect extends Element
 {
     use Attribute\Custom\HasAttributes;

@@ -19,7 +19,7 @@ final class HasLoadingTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The loading attribute value must be one of "eager", "lazy".');
+        $this->expectExceptionMessage('The value must be one of: eager, lazy.');
 
         $instance->loading('');
     }

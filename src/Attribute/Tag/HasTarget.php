@@ -9,30 +9,38 @@ use InvalidArgumentException;
 use function in_array;
 
 /**
- * Is used by widgets which have a target attribute.
+ * Is used by widgets that implement the target method.
  */
 trait HasTarget
 {
     /**
-     * @psalm-var string[] $targetValues
-     */
-    private array $targetValues = ['_blank', '_self', '_parent', '_top'];
-
-    /**
-     * Returns a new instances specifying target attributes, if specified, must have values that are valid browsing
-     * context names or keywords.
+     * Set the target attributes, if specified, must have values that are valid browsing context names or keywords.
      *
      * @param string $value The target attribute value.
-     * Values allowed are: `_blank`, `_static`, `_parent` or `_top`.
+     *
+     * @return static A new instance of the current class with the specified target value.
+     *
+     * @throws InvalidArgumentException If the target value is not one of the allowed values. Allowed values are:
+     * `_blank`, `_self`, `_parent`, `_top`.
      *
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-target
      */
     public function target(string $value): static
     {
-        $values = implode('", "', $this->targetValues);
+        $allowedTargetValues = [
+            '_blank',
+            '_self',
+            '_parent',
+            '_top',
+        ];
 
-        if (!in_array($value, $this->targetValues, true)) {
-            throw new InvalidArgumentException("The target attribute value must be one of \"$values\".");
+        if (in_array($value, $allowedTargetValues, true) === false) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    'The target value must be one of the following: %s',
+                    implode(', ', $allowedTargetValues)
+                )
+            );
         }
 
         $new = clone $this;

@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 /**
- * Is used by widgets which have an ismap attribute.
+ * Is used by widgets that implement the ismap method.
  */
 trait HasIsmap
 {
     /**
-     * Returns a new instance specially this ismap attribute indicates that the image is part of a server-side map.
+     * Set the image is a server-side image map.
      *
      * If so, the coordinates where the user clicked on the image are sent to the server.
+     *
+     * @return static A new instance of the current class with the specified ismap value.
      *
      * @link https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-ismap
      */

@@ -5,13 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which can be multiple.
+ * Is used by widgets that implement the multiple method.
  */
 trait CanBeMultiple
 {
     /**
-     * Returns a new instances specifying the boolean multiple attribute, if set, means the user can enter comma
-     * separated email addresses in the email widget or can choose more than one file with the file input.
+     * Set the multiple attribute, if set, means the user can enter comma separated email addresses in the email widget
+     * or can choose more than one file with the file input.
+     *
+     * @return static A new instance of the current class with the specified multiple value.
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-multiple
      */

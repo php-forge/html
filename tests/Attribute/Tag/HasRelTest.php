@@ -20,7 +20,7 @@ final class HasRelTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The rel attribute value must be one of "alternate", "author", "bookmark", "help", "icon", "license", "next", "nofollow", "noopener", "noreferrer", "pingback", "preconnect", "prefetch", "preload", "prerender", "prev", "search", "sidebar", "stylesheet", "tag".'
+            'The rel value must be one of the following: alternate, author, bookmark, help, icon, license, next, nofollow, noopener, noreferrer, pingback, preconnect, prefetch, preload, prerender, prev, search, sidebar, stylesheet, tag'
         );
 
         $instance->rel('');

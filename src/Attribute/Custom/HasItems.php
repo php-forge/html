@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 /**
- * Provides methods to configure the data items for the widget.
+ * Is used by widgets that implement the items methods.
  */
 trait HasItems
 {
@@ -13,7 +13,7 @@ trait HasItems
     protected array $itemsAttributes = [];
 
     /**
-     * Returns a new instances specifying the data items for the widget.
+     * Set the items.
      *
      * The array keys are option values, and the array values are the corresponding option labels. The array can also
      * be nested (for example, some array values are arrays too). For each sub-array, an option group will be generated
@@ -49,7 +49,9 @@ trait HasItems
      * ];
      * ```
      *
-     * @param array $value The option data items.
+     * @param array $value The items.
+     *
+     * @return static A new instance of the current class with the specified items.
      */
     public function items(array $value = []): static
     {
@@ -60,9 +62,11 @@ trait HasItems
     }
 
     /**
-     * Returns a new instances specifying the `HTML` attributes for items.
+     * Set the `HTML` attributes for the items.
      *
      * @param array $values Attribute values indexed by attribute names.
+     *
+     * @return static A new instance of the current class with the specified items attributes.
      */
     public function itemsAttributes(array $values = []): static
     {

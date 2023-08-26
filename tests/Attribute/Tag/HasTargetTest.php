@@ -20,7 +20,7 @@ final class HasTargetTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The target attribute value must be one of "_blank", "_self", "_parent", "_top".'
+            'The target value must be one of the following: _blank, _self, _parent, _top'
         );
 
         $instance->target('');

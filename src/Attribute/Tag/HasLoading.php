@@ -6,30 +6,32 @@ namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
 
+use function implode;
 use function in_array;
+use function sprintf;
 
 /**
- * Is used by widgets which have a loading attribute.
+ * Is used by widgets that implement the loading method.
  */
 trait HasLoading
 {
     /**
-     * @psalm-var string[] $loadingValues
-     */
-    private array $loadingValues = ['eager', 'lazy'];
-
-    /**
-     * Returns a new instance specifying when the browser should load the image:
+     * Specifying when the browser should load the image.
      *
      * @param string $value The loading value.
-     * Values allowed are: `eager`, `lazy`.
+     *
+     * @return static A new instance of the current class with the specified loading value.
+     *
+     * @throws InvalidArgumentException If the value is not one of: "eager", "lazy".
      */
     public function loading(string $value): static
     {
-        $values = implode('", "', $this->loadingValues);
+        $allowedLoadingValues = ['eager', 'lazy'];
 
-        if (!in_array($value, ['eager', 'lazy'], true)) {
-            throw new InvalidArgumentException("The loading attribute value must be one of \"$values\".");
+        if (in_array($value, $allowedLoadingValues, true) === false) {
+            throw new InvalidArgumentException(
+                sprintf('The value must be one of: %s.', implode(', ', $allowedLoadingValues))
+            );
         }
 
         $new = clone $this;

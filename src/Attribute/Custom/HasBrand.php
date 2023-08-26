@@ -9,7 +9,7 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Is used by components that implement a brand methods.
+ * Is used by widgets that implement brand methods.
  */
 trait HasBrand
 {
@@ -26,10 +26,12 @@ trait HasBrand
 
 
     /**
-     * Returns a new instance, if enabled or disabled the item container tag `<div>`.
+     * Enable or disable the brand container tag `<div>`.
      *
      * @param bool $value If enabled or disabled the item container tag `<div>`.
      * Default is `false`.
+     *
+     * @return static A new instance of the current class with the specified brand container.
      */
     public function brandContainer(bool $value): static
     {
@@ -40,9 +42,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the `HTML` attributes for the brand container.
+     * Set the `HTML` attributes for the brand container.
      *
-     * @param array $values The `HTML` attributes for the brand container.
+     * @param array $values Attribute values indexed by attribute names.
+     *
+     * @return static A new instance of the current class with the specified brand container attributes.
      */
     public function brandContainerAttributes(array $values): static
     {
@@ -53,9 +57,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the `CSS` class for the brand container.
+     * Set the `CSS` class for the brand container.
      *
      * @param string $value The `CSS` class for the brand container.
+     *
+     * @return static A new instance of the current class with the specified brand container class.
      */
     public function brandContainerClass(string $value): static
     {
@@ -66,9 +72,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the brand container tag.
+     * Set the brand container tag name.
      *
      * @param string $value The brand container tag.
+     *
+     * @return static A new instance of the current class with the specified brand container tag.
      */
     public function brandContainerTag(string $value): static
     {
@@ -79,9 +87,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the brand image.
+     * Set the brand image.
      *
      * @param string|ElementInterface $value The brand image.
+     *
+     * @return static A new instance of the current class with the specified brand image.
      */
     public function brandImage(string|ElementInterface $value): static
     {
@@ -92,9 +102,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the brand link.
+     * Set the brand link.
      *
      * @param string $value The brand link.
+     *
+     * @return static A new instance of the current class with the specified brand link.
      */
     public function brandLink(string $value): static
     {
@@ -105,9 +117,9 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the `HTML` attributes for the brand link.
+     * Set the the `HTML` attributes for the brand link.
      *
-     * @param array $value The `HTML` attributes for the brand link.
+     * @return static A new instance of the current class with the specified brand link attributes.
      */
     public function brandLinkAttributes(array $value): static
     {
@@ -118,9 +130,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the `CSS` class for the brand link.
+     * Set the `CSS` class for the brand link.
      *
      * @param string $value The `CSS` class for the brand link.
+     *
+     * @return static A new instance of the current class with the specified brand link class.
      */
     public function brandLinkClass(string $value): static
     {
@@ -131,11 +145,12 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the brand template.
-     *
+     * Set the brand template.
      * The following tokens are recognized: `{image}` and `{text}`.
      *
      * @param string $value The brand template.
+     *
+     * @return static A new instance of the current class with the specified brand template.
      */
     public function brandTemplate(string $value): static
     {
@@ -146,9 +161,11 @@ trait HasBrand
     }
 
     /**
-     * Returns a new instance specifying the brand text.
+     * Set the brand text.
      *
      * @param string|ElementInterface $value The brand text.
+     *
+     * @return static A new instance of the current class with the specified brand text.
      */
     public function brandText(string|ElementInterface $value): static
     {
@@ -158,6 +175,13 @@ trait HasBrand
         return $new;
     }
 
+    /**
+     * Set the brand toggle.
+     *
+     * @param string|ElementInterface $value The brand toggle.
+     *
+     * @return static A new instance of the current class with the specified brand toggle.
+     */
     public function brandToggle(string|ElementInterface $value): static
     {
         $new = clone $this;

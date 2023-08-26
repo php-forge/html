@@ -7,16 +7,17 @@ namespace PHPForge\Html\Attribute\Input;
 use InvalidArgumentException;
 
 /**
- * Is used by widgets which have an autocomplete attribute.
+ * Is used by widgets that implement the autocomplete method.
  */
 trait HasAutocomplete
 {
     /**
-     * Returns a new instance specifying when the element represents an input control for which a UA is meant to store
-     * the value entered by the user (so that the UA can prefill the form later).
+     * Represents an input control for which a UA is meant to store the value entered by the user
+     * (so that the UA can prefill the form later).
      *
-     * @param string $value Whether the element represents an input control for which a UA is meant to store
-     * the value entered by the user (so that the UA can prefill the form later).
+     * @param string $value The value of the autocomplete attribute.
+     *
+     * @return static A new instance of the current class with the specified autocomplete value.
      *
      * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-autocomplete
      */

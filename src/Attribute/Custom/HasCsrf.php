@@ -7,7 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use Stringable;
 
 /**
- * Is used by widgets which have a csrf tag.
+ * Is used by widgets that implement the csrf method.
  */
 trait HasCsrf
 {
@@ -16,10 +16,12 @@ trait HasCsrf
 
 
     /**
-     * Returns a new instances with the CSRF-token content attribute token that are known to be safe to use for.
+     * Set the CSRF-token attribute token that is known to be safe to use.
      *
      * @param string|Stringable $csrfToken The CSRF-token attribute value.
      * @param string $csrfName The CSRF-token attribute name.
+     *
+     * @return static A new instance of the current class with the specified csrf token, and csrf name.
      */
     public function csrf(string|Stringable $csrfToken, string $csrfName = '_csrf'): static
     {

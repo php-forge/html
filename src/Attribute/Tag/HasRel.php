@@ -6,55 +6,60 @@ namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
 
+use function implode;
 use function in_array;
+use function sprintf;
 
 /**
- * Is used by widgets which have a rel attribute.
+ * Is used by widgets that implement the rel method.
  */
 trait HasRel
 {
     /**
-     * @psalm-var string[] $relValues
-     */
-    private array $relValues = [
-        'alternate',
-        'author',
-        'bookmark',
-        'help',
-        'icon',
-        'license',
-        'next',
-        'nofollow',
-        'noopener',
-        'noreferrer',
-        'pingback',
-        'preconnect',
-        'prefetch',
-        'preload',
-        'prerender',
-        'prev',
-        'search',
-        'sidebar',
-        'stylesheet',
-        'tag',
-    ];
-
-    /**
-     * Returns a new instance specifying the relationship of the linked URL as space-separated link types.
+     * Set the rel attribute specifies the relationship between the current document and the linked document.
      *
      * @param string $value The relationship of the linked URL as space-separated link types.
-     * Values allowed are: `alternate`, `author`, `bookmark`, `help`, `icon`, `license`, `next`, `nofollow`,
-     * `noreferrer`, `pingback`, `preconnect`, `prefetch`, `preload`, `prerender`, `prev`, `search`, `sidebar`,
-     * `stylesheet`, `tag`.
+     *
+     * @return static A new instance of the current class with the specified rel value.
+     *
+     * @throws InvalidArgumentException If the value is not one of the allowed values. Allowed values are:
+     * `alternate`, `author`, `bookmark`, `help`, `icon`, `license`, `next`, `nofollow`, `noopener`, `noreferrer`,
+     * `pingback`, `preconnect`, `prefetch`, `preload`, `prerender`, `prev`, `search`, `sidebar`, `stylesheet`, `tag`.
      *
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-rel
      */
     public function rel(string $value): static
     {
-        $values = implode('", "', $this->relValues);
+        $allowedRelValues = [
+            'alternate',
+            'author',
+            'bookmark',
+            'help',
+            'icon',
+            'license',
+            'next',
+            'nofollow',
+            'noopener',
+            'noreferrer',
+            'pingback',
+            'preconnect',
+            'prefetch',
+            'preload',
+            'prerender',
+            'prev',
+            'search',
+            'sidebar',
+            'stylesheet',
+            'tag',
+        ];
 
-        if (!in_array($value, $this->relValues, true)) {
-            throw new InvalidArgumentException('The rel attribute value must be one of "' . $values . '".');
+        if (in_array($value, $allowedRelValues, true) === false) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    'The rel value must be one of the following: %s',
+                    implode(', ', $allowedRelValues)
+                )
+            );
         }
 
         $new = clone $this;

@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which can be required.
+ * Is used by widgets that implement the required method.
  */
 trait CanBeRequired
 {
     /**
-     * Returns a new instance specifying required attribute which, if present, indicates that the user must specify a
-     * value for the input before the owning form can be submitted.
+     * Set the required attribute which, if present, indicates that the user must specify a value for the input before
+     * the owning form can be submitted.
      *
      * The required attribute is supported by text, search, url, tel, email, date, month, week, time, datetime-local,
      * number, password, checkbox, radio, and file inputs.
+     *
+     * @return static A new instance of the current class with the specified required value.
      *
      * @link https://www.w3.org/TR/html52/sec-forms.html#the-required-attribute
      */

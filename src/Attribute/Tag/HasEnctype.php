@@ -6,28 +6,33 @@ namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
 
+use function in_array;
+use function sprintf;
+
 /**
- * Is used by widgets which have a enctype attribute.
+ * Is used by widgets that implement the enctype method.
  */
 trait HasEnctype
 {
     /**
-     * Returns a new instances with the enctype content attribute specifies the content type of the form submission.
+     * Set the enctype content attribute specifies the content type of the form submission.
      *
      * @param string $value The enctype attribute value.
+     *
+     * @return static A new instance of the current class with the specified enctype value.
+     *
+     * @throws InvalidArgumentException If the value is not one of: "multipart/form-data",
+     * "application/x-www-form-urlencoded", "text/plain".
      *
      * @link https://www.w3.org/TR/html52/sec-forms.html#element-attrdef-form-enctype
      */
     public function enctype(string $value): static
     {
-        if (
-            $value !== 'multipart/form-data' &&
-            $value !== 'application/x-www-form-urlencoded' &&
-            $value !== 'text/plain'
-        ) {
+        $allowedEnctype = ['multipart/form-data', 'application/x-www-form-urlencoded', 'text/plain'];
+
+        if (!in_array($value, $allowedEnctype, true)) {
             throw new InvalidArgumentException(
-                'The formenctype attribute must be one of the following values: ' .
-                '"multipart/form-data", "application/x-www-form-urlencoded", "text/plain".'
+                sprintf('The value must be one of: %s.', implode(', ', $allowedEnctype))
             );
         }
 

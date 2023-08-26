@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 /**
- * Is an attribute that can be used by widgets that can be novalidate.
+ * Is used by widgets that implement the novalidate method.
  */
 trait CanBeNoValidate
 {
     /**
-     * Return new instances with the novalidate attributes are boolean attributes.
-     *
      * If present, they indicate that the form isn't to be validated during submission.
+     *
+     * @return static A new instance of the current class with the specified novalidate attribute.
      *
      * @link https://www.w3.org/TR/html52/sec-forms.html#element-attrdef-form-novalidate
      */

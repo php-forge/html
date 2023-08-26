@@ -5,15 +5,17 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 /**
- * Is used by widgets which have a property attribute.
+ * Is used by widgets that implement the property method.
  */
 trait HasProperty
 {
     /**
-     * Returns a new instance specifying the property name.
+     * Set the property attribute is used to specify the property the meta element
      *
      * @param string $value The property name.
      * @param string $content The property value.
+     *
+     * @return static A new instance of the current class with the specified property value.
      *
      * @link https://html.spec.whatwg.org/multipage/semantics.html#attr-meta-property
      */

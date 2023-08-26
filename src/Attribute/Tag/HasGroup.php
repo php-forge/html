@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 /**
- * Is used to set the attributes for the optgroup tags.
+ * Is used by widgets that implement the groups method.
  */
 trait HasGroup
 {
     protected array $groups = [];
 
     /**
-     * Returns a new instances specifying the `<optgroup>` tags.
+     * Specifying the `<optgroup>` tags.
      *
      * The structure of this is similar to that of attributes, except that the array keys represent the optgroup
      * labels specified in $items.
@@ -27,6 +27,8 @@ trait HasGroup
      * ```
      *
      * @param array $values The optgroup labels specified in items.
+     *
+     * @return static A new instance of the current class with the specified groups value.
      *
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/optgroup.html#optgroup
      */

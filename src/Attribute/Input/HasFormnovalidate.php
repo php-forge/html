@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which have a formnovalidate attribute.
+ * Is used by widgets that implement the formnovalidate method.
  */
 trait HasFormnovalidate
 {
     /**
-     * Returns a new instances specifies that the element represents a control whose value is not meant to be validated
-     * during form submission.
+     * Specifies that the element represents a control whose value is not meant to be validated during form submission.
+     *
+     * @return static A new instance of the current class with the specified formnovalidate value.
      */
     public function formnovalidate(): static
     {

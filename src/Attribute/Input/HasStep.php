@@ -9,15 +9,19 @@ use InvalidArgumentException;
 use function is_numeric;
 
 /**
- * Is used by widgets which have a step attribute.
+ * Is used by widgets that implement the step method.
  */
 trait HasStep
 {
     /**
-     * Returns a new instances specifying the step attribute valid for date, month, week, time, datetime-local, number,
-     * and range, the step attribute is a number that specifies the granularity that the value must adhere to.
+     * Set the step attribute valid for date, month, week, time, datetime-local, number, and range, the step attribute
+     * is a number that specifies the granularity that the value must adhere to.
      *
      * @param int|string $value The value granularity of the element’s value.
+     *
+     * @return static A new instance of the current class with the specified step value.
+     *
+     * @throws InvalidArgumentException If the value is not numeric.
      */
     public function step(int|string $value): static
     {

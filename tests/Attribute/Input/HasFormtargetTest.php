@@ -20,7 +20,7 @@ final class HasFormtargetTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The formtarget attribute value must be one of "_blank", "_self", "_parent" or "_top"',
+            'The formtarget attribute value must be one of "_blank", "_self", "_parent", "_top"'
         );
 
         $instance->formtarget('');

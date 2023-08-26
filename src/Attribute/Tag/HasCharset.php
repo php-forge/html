@@ -7,14 +7,16 @@ namespace PHPForge\Html\Attribute\Tag;
 use PHPForge\Html\Helper\Encode;
 
 /**
- * Is used by widgets which have a charset attribute.
+ * Is used by widgets that implement the charset method.
  */
 trait HasCharset
 {
     /**
-     * Returns a new instance specifying the character encoding of the linked resource.
+     * Set the character encoding of the linked resource.
      *
      * @param string $value The character encoding of the linked resource.
+     *
+     * @return static A new instance of the current class with the specified charset value.
      *
      * @link https://html.spec.whatwg.org/multipage/semantics.html#attr-link-charset
      */

@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which have a value attribute.
+ * Is used by widgets that implement the value method.
  */
 trait HasValue
 {
     /**
-     * Returns a new instance specifying the value content attribute gives the default value of the field.
+     * set the value content attribute gives the default value of the field.
      *
      * @param mixed $value The value of the widget.
+     *
+     * @return static A new instance of the current class with the specified value.
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-value
      */

@@ -7,14 +7,16 @@ namespace PHPForge\Html\Attribute;
 use function uniqid;
 
 /**
- * Is used by widgets which have an id attribute.
+ * Is used by widgets that implement the id method.
  */
 trait HasId
 {
     /**
-     * Returns a new instance specifying the ID of the widget.
+     * Set the ID of the widget.
      *
      * @param string|null $id The ID of the widget.
+     *
+     * @return static A new instance of the current class with the specified ID value.
      *
      * @link https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute
      */
@@ -26,6 +28,11 @@ trait HasId
         return $new;
     }
 
+    /**
+     * Generate a unique ID for the widget.
+     *
+     * @return string A unique ID for the widget.
+     */
     public function generateId(): string
     {
         /** @psalm-var string */

@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 /**
- * Is used by widgets which have a download attribute.
+ * Is used by widgets that implement the download method.
  */
 trait HasDownload
 {
     /**
-     * Returns a new instance specifying that the hyperlink is to be used for downloading a resource.
+     * Set the hyperlink is to be used for downloading a resource.
+     *
+     * @return static A new instance of the current class with the specified download value.
      *
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-download
      */

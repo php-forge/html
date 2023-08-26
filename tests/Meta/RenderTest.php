@@ -21,11 +21,14 @@ final class RenderTest extends TestCase
     {
         $instance = Meta::widget();
 
-        $this->assertNotSame($instance, $instance->name('', ''));
+        $this->assertNotSame($instance, $instance->content('', ''));
     }
 
     public function testName(): void
     {
-        $this->assertSame('<meta name="csrf" content="test">', Meta::widget()->name('csrf', 'test')->render());
+        $this->assertSame(
+            '<meta name="csrf" content="test">',
+            Meta::widget()->content('csrf', 'test')->render(),
+        );
     }
 }

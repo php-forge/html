@@ -8,7 +8,7 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Provides methods to set prefix and suffix.
+ * Is used by widgets that implement the prefix and suffix methods.
  */
 trait HasPrefixAndSuffix
 {
@@ -16,9 +16,11 @@ trait HasPrefixAndSuffix
     protected string $suffix = '';
 
     /**
-     * Return new instance specifying the `HTML` prefix content.
+     * Set the `HTML` prefix content.
      *
      * @param string|ElementInterface ...$values The `HTML` prefix content.
+     *
+     * @return static A new instance of the current class with the specified prefix content.
      */
     public function prefix(string|ElementInterface ...$values): static
     {
@@ -29,7 +31,11 @@ trait HasPrefixAndSuffix
     }
 
     /**
-     * Return new instance specifying the `HTML` suffix content.
+     * Set the `HTML` suffix content.
+     *
+     * @param string|ElementInterface ...$values The `HTML` suffix content.
+     *
+     * @return static A new instance of the current class with the specified suffix content.
      */
     public function suffix(string|ElementInterface ...$values): static
     {

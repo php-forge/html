@@ -5,14 +5,16 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute;
 
 /**
- * Is used by widgets which have a style attribute.
+ * Is used by widgets that implement the style method.
  */
 trait HasStyle
 {
     /**
-     * Returns a new instance specifying the style attribute with CSS rules to be applied to the widget.
+     * Set the style attribute with CSS rules to be applied to the widget.
      *
      * @param string $value The CSS rules for the style attribute.
+     *
+     * @return static A new instance of the current class with the specified style value.
      *
      * @link https://html.spec.whatwg.org/multipage/dom.html#the-style-attribute
      */

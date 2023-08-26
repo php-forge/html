@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Helper\Encode;
 
 /**
- * Is used by components that can have an icon tag.
+ * Is used by widgets that implement the icon methods.
  */
 trait HasIcon
 {
@@ -17,24 +18,26 @@ trait HasIcon
     protected string $iconText = '';
 
     /**
-     * Returns a new instance with the HTML attributes for rendering the `<i>` tag for the icon.
+     * Set the `HTML` attributes for the icon.
      *
-     * @param array $valuesMap Attribute values indexed by attribute names.
+     * @param array $values Attribute values indexed by attribute names.
      *
-     * {@see Html::renderTagAttributes()} For details on how attributes are being rendered.
+     * @return static A new instance of the current class with the specified icon attributes.
      */
-    public function iconAttributes(array $valuesMap): static
+    public function iconAttributes(array $values): static
     {
         $new = clone $this;
-        $new->iconAttributes = $valuesMap;
+        $new->iconAttributes = $values;
 
         return $new;
     }
 
     /**
-     * Returns a new instance with the icon CSS class.
+     * Set the `CSS` class for the icon.
      *
      * @param string $value The icon CSS class.
+     *
+     * @return static A new instance of the current class with the specified icon CSS class.
      */
     public function iconClass(string $value): static
     {
@@ -45,7 +48,7 @@ trait HasIcon
     }
 
     /**
-     * Returns a new instance specifying when allows you to add a div tag to the icon extra wrapper.
+     * Enable or disable the icon container tag.
      *
      * @param bool $value The value indicating whether to add a div tag to the icon extra wrapper.
      */
@@ -58,26 +61,26 @@ trait HasIcon
     }
 
     /**
-     * Returns a new instance with the HTML attributes for rendering icon container.
+     * Set the `HTML` attributes for the icon container.
      *
-     * The rest of the options will be rendered as the HTML attributes of the icon container.
+     * @param array $values Attribute values indexed by attribute names.
      *
-     * @param array $valuesMap Attribute values indexed by attribute names.
-     *
-     * {@see Html::renderTagAttributes()} For details on how attributes are being rendered.
+     * @return static A new instance of the current class with the specified icon container attributes.
      */
-    public function iconContainerAttributes(array $valuesMap): static
+    public function iconContainerAttributes(array $values): static
     {
         $new = clone $this;
-        $new->iconContainerAttributes = $valuesMap;
+        $new->iconContainerAttributes = $values;
 
         return $new;
     }
 
     /**
-     * Returns a new instance with the CSS class for the icon container.
+     * Set the `CSS` class for the icon container.
      *
      * @param string $value The CSS class name.
+     *
+     * @return static A new instance of the current class with the specified icon container CSS class.
      */
     public function iconContainerClass(string $value): static
     {
@@ -88,14 +91,16 @@ trait HasIcon
     }
 
     /**
-     * Returns a new instance with the icon text.
+     * Set the icon `HTML` content.
      *
-     * @param string $value The icon text.
+     * @param string $value The icon `HTML` content.
+     *
+     * @return static A new instance of the current class with the specified icon content.
      */
     public function iconText(string $value): static
     {
         $new = clone $this;
-        $new->iconText = $value;
+        $new->iconText = Encode::create()->santizeXSS($value);
 
         return $new;
     }

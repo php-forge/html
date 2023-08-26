@@ -17,7 +17,7 @@ final class HasCrossoriginTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Crossorigin must be one of: "anonymous", "use-credentials".');
+        $this->expectExceptionMessage('The value must be one of: anonymous, use-credentials.');
 
         $instance->crossorigin('');
     }

@@ -12,6 +12,9 @@ use PHPForge\Html\Span;
 use PHPForge\Html\Svg;
 use PHPForge\Widget\Element;
 
+/**
+ * Provides a foundation for creating HTML `button` toggle elements with various attributes and content.
+ */
 abstract class AbstractButtonToggle extends Element
 {
     use Attribute\Aria\HasAriaControls;
@@ -35,6 +38,11 @@ abstract class AbstractButtonToggle extends Element
         return $new;
     }
 
+    /**
+     * Generate the HTML representation of the element.
+     *
+     * @return string The HTML representation of the element.
+     */
     protected function run(): string
     {
         $attributes = $this->attributes;
@@ -54,11 +62,13 @@ abstract class AbstractButtonToggle extends Element
 
         $buttonToggle = match ($this->content) {
             '' => $buttonToggle->content(
+                PHP_EOL,
                 Span::widget()->class('sr-only')->content($sidebarContent),
                 PHP_EOL,
                 Svg::widget()->filePath(__DIR__ . '/Svg/toggle.svg'),
+                PHP_EOL,
             ),
-            default => $buttonToggle->content($this->content),
+            default => $buttonToggle->content(PHP_EOL . $this->content . PHP_EOL),
         };
 
         $buttonToggle = $buttonToggle->ariaControls($id);
