@@ -6,7 +6,6 @@ namespace PHPForge\Html\Tests\ButtonLink;
 
 use PHPForge\Html\Attribute\Enum\DataAttributes;
 use PHPForge\Html\ButtonLink;
-use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -32,14 +31,7 @@ final class RenderTest extends TestCase
 
     public function testContent(): void
     {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a role="button">
-            content
-            </a>
-            HTML,
-            ButtonLink::widget()->content('content')->render(),
-        );
+        $this->assertSame('<a role="button">content</a>', ButtonLink::widget()->content('content')->render());
     }
 
     public function testDataAttributes(): void

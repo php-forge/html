@@ -75,6 +75,11 @@ final class Encode
         return $cleanHtml;
     }
 
+    /**
+     * Creates a new instance of Encode.
+     *
+     * @return self New instance of Encode.
+     */
     public static function create(): self
     {
         return new self();

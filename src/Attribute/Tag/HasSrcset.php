@@ -7,17 +7,16 @@ namespace PHPForge\Html\Attribute\Tag;
 use function implode;
 
 /**
- * Is used by widgets which have an srcset attribute.
- *
- * @link https://www.w3.org/TR/html52/embedded-content-0.html#attr-img-srcset
+ * Is used by widgets that implement the srcset method.
  */
 trait HasSrcset
 {
     /**
-     * Returns a new instance specifying one or more strings separated by commas, indicating possible image sources for
-     * the user agent to use.
+     * Set one or more strings separated by commas, indicating possible image sources for the user agent to use.
      *
      * @param string ...$value The source set of the widget.
+     *
+     * @return static A new instance of the current class with the specified srcset value.
      *
      * @link https://www.w3.org/TR/html52/embedded-content-0.html#attr-img-srcset
      */

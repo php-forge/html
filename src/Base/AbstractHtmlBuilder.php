@@ -11,7 +11,7 @@ use function in_array;
 use function strtolower;
 
 /**
- * This is an abstract base class that provides common functionality for building HTML code fragments programmatically.
+ * Provides common functionality for building HTML code fragments programmatically.
  * Concrete classes should extend this class to implement specific HTML elements and their generation logic.
  */
 abstract class AbstractHtmlBuilder

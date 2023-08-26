@@ -12,6 +12,20 @@ use PHPUnit\Framework\TestCase;
 
 final class HasToggleTest extends TestCase
 {
+    public function testExceptionDataAttributes(): void
+    {
+        $instance = new class() {
+            use HasToggle;
+        };
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'The data attribute `id` is not allowed. Allowed data attributes are: collapse-toggle, drawer-target, drawer-toggle, dropdown-toggle'
+        );
+
+        $instance->toggleDataAttribute('id', 'id');
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class() {
@@ -22,7 +36,7 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleAttributes([]));
         $this->assertNotSame($instance, $instance->toggleClass(''));
         $this->assertNotSame($instance, $instance->toggleContent(''));
-        $this->assertNotSame($instance, $instance->toggleDataAttribute('id', ''));
+        $this->assertNotSame($instance, $instance->toggleDataAttribute('drawer-target', 'id'));
         $this->assertNotSame($instance, $instance->toggleId(''));
         $this->assertNotSame($instance, $instance->toggleOnClick(''));
         $this->assertNotSame($instance, $instance->toggleSvg(''));

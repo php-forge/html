@@ -15,6 +15,9 @@ use RuntimeException;
 
 use function array_key_exists;
 
+/**
+ * Provides a foundation for creating HTML `svg` elements with various attributes and content.
+ */
 abstract class AbstractSvg extends Element
 {
     use Attribute\Custom\HasAttributes;

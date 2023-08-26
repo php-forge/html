@@ -20,7 +20,7 @@ final class HasEnctypeTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The formenctype attribute must be one of the following values: "multipart/form-data", "application/x-www-form-urlencoded", "text/plain".',
+            'The value must be one of: multipart/form-data, application/x-www-form-urlencoded, text/plain.'
         );
 
         $instance->enctype('');

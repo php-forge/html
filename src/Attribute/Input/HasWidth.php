@@ -5,17 +5,19 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which have a width attribute.
+ * Is used by widgets that implement the width method.
  */
 trait HasWidth
 {
     /**
-     * Returns a new instance specifying the width attribute valid for the image input button or img only, the width
-     * of the image file to display to represent the graphical submit button.
+     * Set the width attribute valid for the image input button or img only, the width of the image file to display to
+     * represent the graphical submit button.
      *
-     * Must be an integer without a unit.
+     * Must be an integer without a unit or a percentage value, i.e. a number followed immediately by "%".
      *
      * @param int $value The width of the widget.
+     *
+     * @return static A new instance of the current class with the specified width value.
      *
      * @link https://html.spec.whatwg.org/multipage/embedded-content-other.html#attr-dim-width
      */

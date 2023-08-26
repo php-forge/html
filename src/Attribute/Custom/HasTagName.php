@@ -7,16 +7,18 @@ namespace PHPForge\Html\Attribute\Custom;
 use InvalidArgumentException;
 
 /**
- * Is used by widgets which have a tag name, for example `div`, `span`, `a`, etc.
+ * Is used by widgets that implement the tag name method.
  */
 trait HasTagName
 {
     protected string $tagName = '';
 
     /**
-     * Returns a new instance specifying the tag name of the widget.
+     * Set the tag name.
      *
      * @param string $value The tag name of the widget.
+     *
+     * @return static A new instance of the current class with the specified tag name.
      */
     public function tagName(string $value): static
     {

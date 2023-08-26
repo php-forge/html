@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html;
 
 /**
- * Represents a tag component.
+ * The `<tag>` HTML element represents a generic tag.
  *
  * You must specify the tag name in the setter `tagName()`.
  *
@@ -16,6 +16,6 @@ namespace PHPForge\Html;
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element
  */
-final class Tag extends Base\AbstractTag
+final class Tag extends Base\AbstractBlockElement
 {
 }

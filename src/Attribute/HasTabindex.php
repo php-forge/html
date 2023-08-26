@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute;
 
 /**
- * Is used by widgets which have a tabindex attribute.
+ * Is used by widgets that implement the tabindex method.
  */
 trait HasTabindex
 {
     /**
-     * Returns a new instance specifying the tabindex global attribute indicates that its element can be focused, and
-     * where it participates in sequential keyboard navigation (usually with the Tab key, hence the name).
+     * Set the tabindex global attribute indicates that its element can be focused, and where it participates in
+     * sequential keyboard navigation (usually with the Tab key, hence the name).
      *
      * It accepts an integer as a value, with different results depending on the integer's value:
      *
@@ -26,6 +26,8 @@ trait HasTabindex
      * defined by the value of the number. That's, tabindex="4" is focused before tabindex="5", but after tabindex="3".
      *
      * @param int $value The tabindex value.
+     *
+     * @return static A new instance of the current class with the specified tabindex value.
      *
      * @link https://html.spec.whatwg.org/multipage/interaction.html#attr-tabindex
      */

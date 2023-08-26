@@ -7,14 +7,16 @@ namespace PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Is used by widgets which have a class attribute.
+ * Is used by widgets that implement the class method.
  */
 trait HasClass
 {
     /**
-     * Returns a new instance specifying the `CSS` `HTML` class attribute of the widget.
+     * Set the `CSS` `HTML` class attribute.
      *
      * @param string $value The `CSS` attribute of the widget.
+     *
+     * @return static A new instance of the current class with the specified class value.
      *
      * @link https://html.spec.whatwg.org/#classes
      */

@@ -20,7 +20,7 @@ final class HasReferrerpolicyTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The referrerpolicy attribute value must be one of "no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url".'
+            'The referrerpolicy value must be one of the following: no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url'
         );
 
         $instance->referrerpolicy('');
@@ -36,7 +36,7 @@ final class HasReferrerpolicyTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The referrerpolicy attribute value must be one of "no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url".'
+            'The referrerpolicy value must be one of the following: no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url'
         );
 
         $instance->referrerpolicy('invalid');

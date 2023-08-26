@@ -5,16 +5,18 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 /**
- * Is used by widgets which have an active class property.
+ * Is used by widgets which implement the activeClass method.
  */
 trait HasActiveClass
 {
     protected string $activeClass = 'active';
 
     /**
-     * Returns a new instance specifying the `CSS` class to be appended to the active class.
+     * Set the `CSS` class to be appended to the active class.
      *
      * @param string $value The `CSS` class to be appended to the active class.
+     *
+     * @return static A new instance of the current class with the specified active class.
      */
     public function activeClass(string $value): static
     {

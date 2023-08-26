@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which have a name attribute.
+ * Is used by widgets that implement the name method.
  */
 trait HasName
 {
     /**
-     * Returns a new instance specifying the name part of the name/value pair associated with this element for the
-     * purposes of form submission.
+     * Set the name part of the name/value pair associated with this element for the purposes of form submission.
      *
      * @param string|null $value The name of the widget.
+     *
+     * @return static A new instance of the current class with the specified name.
      *
      * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name
      */

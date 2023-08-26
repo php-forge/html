@@ -7,15 +7,19 @@ namespace PHPForge\Html\Attribute\Input;
 use InvalidArgumentException;
 
 /**
- * Is used by widgets which have a formenctype attribute.
+ * Is used by widgets that implement the formenctype method.
  */
 trait HasFormenctype
 {
     /**
-     * Returns a new instances specifies a mime type with which a UA is meant to associate this element for form
-     * submission.
+     * Set a mime type with which a UA is meant to associate this element for form submission.
      *
      * @param string $value The mime type.
+     *
+     * @return static A new instance of the current class with the specified formenctype value.
+     *
+     * @throws InvalidArgumentException If the provided formenctype value is not one of the following values:
+     * "multipart/form-data", "application/x-www-form-urlencoded", "text/plain".
      */
     public function formenctype(string $value): static
     {

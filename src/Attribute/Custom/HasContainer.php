@@ -8,16 +8,18 @@ use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Provides methods to configure the HTML container.
+ * Is used by widgets that implement container methods.
  */
 trait HasContainer
 {
     protected array $containerAttributes = [];
 
     /**
-     * Return new instance specifying when the container its enabled or disabled.
+     * Enable or disable the container tag.
      *
-     * @param bool $value `true` to enable container, `false` to disable.
+     * @param bool $value `true` to enable the container, `false` to disable.
+     *
+     * @return static A new instance of the current class with the specified container.
      */
     public function container(bool $value): static
     {
@@ -28,9 +30,11 @@ trait HasContainer
     }
 
     /**
-     * Returns a new instance specifying the `HTML` container attributes.
+     * Set the `HTML` attributes for the container.
      *
      * @param array $values Attribute values indexed by attribute names.
+     *
+     * @return static A new instance of the current class with the specified container attributes.
      */
     public function containerAttributes(array $values = []): static
     {
@@ -41,9 +45,11 @@ trait HasContainer
     }
 
     /**
-     * Returns a new instance specifying the `CSS` HTML container class name.
+     * Set the `CSS` class for the container.
      *
-     * @param string $value The css class name.
+     * @param string $value The CSS class name.
+     *
+     * @return static A new instance of the current class with the specified container class.
      */
     public function containerClass(string $value): static
     {
@@ -54,9 +60,13 @@ trait HasContainer
     }
 
     /**
-     * Return new instance specified the tag name for the container element.
+     * Set the container tag name.
      *
      * @param string $value The tag name for the container element.
+     *
+     * @return static A new instance of the current class with the specified container tag.
+     *
+     * @throws InvalidArgumentException If the container tag is an empty string.
      */
     public function containerTag(string $value): static
     {

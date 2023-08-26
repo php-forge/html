@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 /**
- * Is used by widgets which have an first and last item class property.
+ * Is used by widgets that implement the first and last item class method.
  */
 trait HasFirstAndLastItemClass
 {
@@ -13,9 +13,11 @@ trait HasFirstAndLastItemClass
     protected string $lastItemClass = '';
 
     /**
-     * Returns a new instance specifying the `CSS` class to be appended to the first item.
+     * Set the first item class.
      *
      * @param string $value The `CSS` class that will be assigned to the first item.
+     *
+     * @return static A new instance of the current class with the specified first item class.
      */
     public function firstItemClass(string $value): static
     {
@@ -26,9 +28,11 @@ trait HasFirstAndLastItemClass
     }
 
     /**
-     * Returns a new instance specifying the `CSS` class to be appended to the last item.
+     * Sets the last item class.
      *
      * @param string $value The `CSS` class that will be assigned to the last item.
+     *
+     * @return static A new instance of the current class with the specified last item class.
      */
     public function lastItemClass(string $value): static
     {

@@ -19,7 +19,9 @@ final class HasFormmethodTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The formnMethod attribute must be either "get" or "post".');
+        $this->expectExceptionMessage(
+            'The formmethod attribute must be one of the following values: "GET", "POST".'
+        );
 
         $instance->formmethod('');
     }

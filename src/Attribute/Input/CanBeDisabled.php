@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 /**
- * Is used by widgets which can be disabled.
+ * Is used by widgets that implement the disabled method.
  */
 trait CanBeDisabled
 {
     /**
-     * Returns a new instance specifying the disabled attribute.
+     * Set the disabled attribute.
      *
      * If this attribute is set to `true`, the element is disabled.
      *
@@ -20,6 +20,8 @@ trait CanBeDisabled
      * will not fire.
      *
      * In the case of form elements, it will not be submitted.
+     *
+     * @return static A new instance of the current class with the specified disabled value.
      *
      * @link https://www.w3.org/TR/html52/sec-forms.html#element-attrdef-disabledformelements-disabled
      */

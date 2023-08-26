@@ -19,7 +19,7 @@ final class HasWrapTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid wrap value. Valid values are: "hard", "soft".');
+        $this->expectExceptionMessage('The wrap value must be one of the following: hard, soft');
 
         $instance->wrap('');
     }

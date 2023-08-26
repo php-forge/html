@@ -7,16 +7,18 @@ namespace PHPForge\Html\Attribute\Custom;
 use Closure;
 
 /**
- * Provides method to configure the Closure that will be called to obtain content.
+ * Is used by widgets that implement closure method.
  */
 trait HasClosure
 {
     protected Closure|null $closure = null;
 
     /**
-     * Returns a new instance with closure that will be called to obtain content.
+     * Set a new closure that will be invoked to obtain `HTML` content.
      *
-     * @param Closure $value The closure that will be called to obtain content.
+     * @param Closure $value The closure to be invoked for obtaining `HTML` content.
+     *
+     * @return static A new instance of the current class with the specified closure.
      */
     public function closure(Closure $value): static
     {

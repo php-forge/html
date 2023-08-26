@@ -7,15 +7,17 @@ namespace PHPForge\Html\Attribute\Input;
 use InvalidArgumentException;
 
 /**
- * Is used by widgets which have a dirname attribute.
+ * Is used by widgets that implement the dirname method.
  */
 trait HasDirname
 {
     /**
-     * Returns a new instance specifying when enables submission of a value for the directionality of the element,
-     * and gives the name of the field that contains that value.
+     * Enables submission of a value for the directionality of the element, and gives the name of the field that
+     * contains that value.
      *
      * @param string $value The name of the field that contains the directionality of the element.
+     *
+     * @return static A new instance of the current class with the specified dirname value.
      *
      * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-dirname
      */

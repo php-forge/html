@@ -6,21 +6,35 @@ namespace PHPForge\Html\Attribute\Input;
 
 use InvalidArgumentException;
 
+use function implode;
+use function in_array;
+use function sprintf;
+
 /**
- * Is used by widgets which have a formtarget attribute.
+ * Is used by widgets that implement the formtarget method.
  */
 trait HasFormtarget
 {
     /**
-     * Returns a new instances specifies a browsing context name or keyword that represents the target of the control.
+     * Specifies a browsing context name or keyword that represents the target of the control.
      *
      * @param string $value The browsing context name or keyword.
+     *
+     * @return static A new instance of the current class with the specified formtarget value.
+     *
+     * @throws InvalidArgumentException If the provided formtarget value is not one of the following values:
+     * "_blank", "_self", "_parent" or "_top".
      */
     public function formtarget(string $value): static
     {
-        if ($value !== '_blank' && $value !== '_self' && $value !== '_parent' && $value !== '_top') {
+        $allowedValues = ['_blank', '_self', '_parent', '_top'];
+
+        if (in_array($value, $allowedValues, true) === false) {
             throw new InvalidArgumentException(
-                'The formtarget attribute value must be one of "_blank", "_self", "_parent" or "_top"'
+                sprintf(
+                    'The formtarget attribute value must be one of "%s"',
+                    implode('", "', $allowedValues)
+                )
             );
         }
 

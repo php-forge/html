@@ -7,7 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use function array_merge;
 
 /**
- * Is used by widgets which have an attributes.
+ * Is used by widgets which implement the attributes method.
  *
  * @link https://www.w3.org/TR/html52/dom.html#global-attributes
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
@@ -15,9 +15,11 @@ use function array_merge;
 trait HasAttributes
 {
     /**
-     * Returns a new instance specifying the `HTML` attributes.
+     * Set the `HTML` attributes.
      *
      * @param array $values Attribute values indexed by attribute names.
+     *
+     * @return static A new instance of the current class with the specified attributes.
      */
     public function attributes(array $values): static
     {

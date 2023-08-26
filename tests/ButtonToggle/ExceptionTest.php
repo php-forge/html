@@ -13,6 +13,14 @@ use PHPUnit\Framework\TestCase;
  */
 final class ExceptionTest extends TestCase
 {
+    public function testType(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The type "foo" is not allowed for the "ButtonToggle::class".');
+
+        ButtonToggle::widget()->type('foo')->render();
+    }
+
     public function testWithoutID(): void
     {
         $this->expectException(InvalidArgumentException::class);

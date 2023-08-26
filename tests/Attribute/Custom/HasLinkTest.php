@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasLinkAttributes;
+use PHPForge\Html\Attribute\Custom\HasLink;
 use PHPUnit\Framework\TestCase;
 
-final class HasLinkAttributeTest extends TestCase
+final class HasLinkTest extends TestCase
 {
     public function testLinkAttributes(): void
     {
         $instance = new class() {
-            use HasLinkAttributes;
+            use HasLink;
 
             public function getLinkAttributes(): array
             {
@@ -26,12 +26,27 @@ final class HasLinkAttributeTest extends TestCase
         $this->assertSame(['class' => 'foo', 'disabled' => true], $instance->getLinkAttributes());
     }
 
+    public function testLinkClass(): void
+    {
+        $instance = new class() {
+            use HasLink;
+
+            public function getLinkAttributes(): array
+            {
+                return $this->linkAttributes;
+            }
+        };
+
+        $this->assertSame(['class' => 'test-class'], $instance->linkClass('test-class')->getLinkAttributes());
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class() {
-            use HasLinkAttributes;
+            use HasLink;
         };
 
         $this->assertNotSame($instance, $instance->linkAttributes([]));
+        $this->assertNotSame($instance, $instance->linkClass(''));
     }
 }

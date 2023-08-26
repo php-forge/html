@@ -69,24 +69,13 @@ final class RenderTest extends TestCase
 
     public function testContent(): void
     {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button type="button">
-            content
-            </button>
-            HTML,
-            Button::widget()->content('content')->render(),
-        );
+        $this->assertSame('<button type="button">content</button>', Button::widget()->content('content')->render());
     }
 
     public function testContentWithTag(): void
     {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button type="button">
-            Page: <span>2</span> of <span>5</span>
-            </button>
-            HTML,
+        $this->assertSame(
+            '<button type="button">Page: <span>2</span> of <span>5</span></button>',
             Button::widget()->content(
                 'Page: ',
                 Span::widget()->content('2'),
@@ -149,7 +138,7 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testTagNama(): void
+    public function testTagName(): void
     {
         $this->assertSame(
             '<a></a>',

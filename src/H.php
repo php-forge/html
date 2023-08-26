@@ -12,7 +12,7 @@ use InvalidArgumentException;
  *
  * @link https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements
  */
-final class H extends Base\AbstractTag
+final class H extends Base\AbstractBlockElement
 {
     protected string $tagName = 'h1';
 

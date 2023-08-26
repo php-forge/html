@@ -6,27 +6,15 @@ namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
 
+use function implode;
 use function in_array;
+use function sprintf;
 
 /**
- * Is used by widgets which have a referrerpolicy attribute.
+ * Is used by widgets that implement the referrerpolicy method.
  */
 trait HasReferrerpolicy
 {
-    /**
-     * @psalm-var string[] $referrerpolicyValues
-     */
-    private array $referrerpolicyValues = [
-        'no-referrer',
-        'no-referrer-when-downgrade',
-        'origin',
-        'origin-when-cross-origin',
-        'same-origin',
-        'strict-origin',
-        'strict-origin-when-cross-origin',
-        'unsafe-url',
-    ];
-
     /**
      * Returns a new instance specifying a string indicating which referrer to use when fetching the resource.
      *
@@ -36,10 +24,24 @@ trait HasReferrerpolicy
      */
     public function referrerpolicy(string $value): static
     {
-        $values = implode('", "', $this->referrerpolicyValues);
+        $allowedReferrerpolicyValues = [
+            'no-referrer',
+            'no-referrer-when-downgrade',
+            'origin',
+            'origin-when-cross-origin',
+            'same-origin',
+            'strict-origin',
+            'strict-origin-when-cross-origin',
+            'unsafe-url',
+        ];
 
-        if ($value === '' || !in_array($value, $this->referrerpolicyValues, true)) {
-            throw new InvalidArgumentException("The referrerpolicy attribute value must be one of \"$values\".");
+        if (in_array($value, $allowedReferrerpolicyValues, true) === false) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    'The referrerpolicy value must be one of the following: %s',
+                    implode(', ', $allowedReferrerpolicyValues)
+                )
+            );
         }
 
         $new = clone $this;
