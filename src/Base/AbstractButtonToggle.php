@@ -19,6 +19,7 @@ abstract class AbstractButtonToggle extends Element
 {
     use Attribute\Aria\HasAriaControls;
     use Attribute\Aria\HasAriaExpanded;
+    use Attribute\Aria\HasAriaLabel;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
     use Attribute\HasClass;
@@ -28,12 +29,20 @@ abstract class AbstractButtonToggle extends Element
     use Attribute\Input\HasName;
 
     protected array $attributes = [];
-    private bool $sidebar = false;
+    private string $type = 'menu';
 
-    public function sidebar(): self
+    public function type(string $type): static
     {
+        $allowedTypes = ['alert', 'menu', 'sidebar'];
+
+        if (in_array($type, $allowedTypes, true) === false) {
+            throw new InvalidArgumentException(
+                sprintf('The type "%s" is not allowed for the "ButtonToggle::class".', $type)
+            );
+        }
+
         $new = clone $this;
-        $new->sidebar = true;
+        $new->type = $type;
 
         return $new;
     }
@@ -46,13 +55,10 @@ abstract class AbstractButtonToggle extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $buttonToggle = Button::widget();
         $id = null;
-        $sidebarContent = $this->sidebar ? 'Open sidebar' : 'Open main menu';
 
         if (array_key_exists('id', $attributes) && is_string($attributes['id'])) {
             $id = $attributes['id'];
-
             unset($attributes['id']);
         }
 
@@ -60,33 +66,93 @@ abstract class AbstractButtonToggle extends Element
             throw new InvalidArgumentException('The toogle id attribute is required for the "ButtonToggle::class".');
         }
 
+        return match ($this->type) {
+            'alert' => $this->renderAlertToggle($attributes, $id),
+            'menu' => $this->renderMenuToggle($attributes, $id),
+            'sidebar' => $this->renderSidebarToggle($attributes, $id),
+        };
+    }
+
+    private function renderAlertToggle(array $attributes, string $id): string
+    {
+        $buttonToggle = Button::widget();
+        $content = [
+            PHP_EOL,
+            Span::widget()->class('sr-only')->content('Close'),
+            PHP_EOL,
+            Svg::widget()->filePath(__DIR__ . '/Svg/circle-close.svg'),
+            PHP_EOL,
+        ];
+
         $buttonToggle = match ($this->content) {
-            '' => $buttonToggle->content(
-                PHP_EOL,
-                Span::widget()->class('sr-only')->content($sidebarContent),
-                PHP_EOL,
-                Svg::widget()->filePath(__DIR__ . '/Svg/toggle.svg'),
-                PHP_EOL,
-            ),
-            default => $buttonToggle->content(PHP_EOL . $this->content . PHP_EOL),
+            '' => $buttonToggle->content(...$content),
+            default => $buttonToggle->content(PHP_EOL, $this->content, PHP_EOL),
         };
 
-        $buttonToggle = $buttonToggle->ariaControls($id);
+        return $buttonToggle
+            ->ariaLabel('Close')
+            ->attributes($attributes)
+            ->dataAttributes(
+                [
+                    DataAttributes::DATA_DISMISS_TARGET->value => $id,
+                ],
+            )
+            ->render();
+    }
 
-        $buttonToggle = match ($this->sidebar) {
-            true => $buttonToggle->dataAttributes(
+    private function renderMenuToggle(array $attributes, string $id): string
+    {
+        $buttonToggle = Button::widget();
+        $content = [
+            PHP_EOL,
+            Span::widget()->class('sr-only')->content('Open main menu'),
+            PHP_EOL,
+            Svg::widget()->filePath(__DIR__ . '/Svg/toggle.svg'),
+            PHP_EOL,
+        ];
+
+        $buttonToggle = match ($this->content) {
+            '' => $buttonToggle->content(...$content),
+            default => $buttonToggle->content(PHP_EOL, $this->content, PHP_EOL),
+        };
+
+        return $buttonToggle
+            ->ariaControls($id)
+            ->ariaExpanded('false')
+            ->attributes($attributes)
+            ->dataAttributes(
+                [
+                    DataAttributes::DATA_COLLAPSE_TOGGLE->value => $id,
+                ],
+            )
+            ->render();
+    }
+
+    private function renderSidebarToggle(array $attributes, string $id): string
+    {
+        $buttonToggle = Button::widget();
+        $content = [
+            PHP_EOL,
+            Span::widget()->class('sr-only')->content('Open sidebar'),
+            PHP_EOL,
+            Svg::widget()->filePath(__DIR__ . '/Svg/toggle.svg'),
+            PHP_EOL,
+        ];
+
+        $buttonToggle = match ($this->content) {
+            '' => $buttonToggle->content(...$content),
+            default => $buttonToggle->content(PHP_EOL, $this->content, PHP_EOL),
+        };
+
+        return $buttonToggle
+            ->ariaControls($id)
+            ->attributes($attributes)
+            ->dataAttributes(
                 [
                     DataAttributes::DATA_DRAWER_TARGET->value => $id,
                     DataAttributes::DATA_DRAWER_TOGGLE->value => $id,
                 ],
-            ),
-            default => $buttonToggle->ariaExpanded('false')->dataAttributes(
-                [
-                    DataAttributes::DATA_COLLAPSE_TOGGLE->value => $id,
-                ],
-            ),
-        };
-
-        return $buttonToggle->attributes($attributes)->render();
+            )
+            ->render();
     }
 }

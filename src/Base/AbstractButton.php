@@ -15,6 +15,7 @@ abstract class AbstractButton extends AbstractElement
     use Attribute\Aria\HasAriaControls;
     use Attribute\Aria\HasAriaDisabled;
     use Attribute\Aria\HasAriaExpanded;
+    use Attribute\Aria\HasAriaLabel;
     use Attribute\Aria\HasRole;
     use Attribute\Custom\HasContainer;
     use Attribute\HasData;
