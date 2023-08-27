@@ -35,7 +35,7 @@ final class HasContainerTest extends TestCase
         $this->assertSame('foo bar', $instance->getContainerClass());
     }
 
-    public function testException(): void
+    public function testContainerTagException(): void
     {
         $instance = new class() {
             use HasContainer;
