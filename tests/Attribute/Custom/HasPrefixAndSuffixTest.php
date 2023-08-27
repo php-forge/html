@@ -27,6 +27,8 @@ final class HasPrefixAndSuffixTest extends TestCase
         $this->assertNotSame($instance, $instance->suffixContainerAttributes([]));
         $this->assertNotSame($instance, $instance->suffixContainerClass(''));
         $this->assertNotSame($instance, $instance->suffixContainerTag('span'));
+        $this->assertNotSame($instance, $instance->toggleInPrefix(false));
+        $this->assertNotSame($instance, $instance->toggleInSuffix(false));
     }
 
     public function testPrefix(): void

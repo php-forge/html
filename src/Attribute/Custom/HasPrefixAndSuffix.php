@@ -22,6 +22,8 @@ trait HasPrefixAndSuffix
     protected bool $suffixContainer = false;
     protected array $suffixContainerAttributes = [];
     protected string $suffixContainerTag = 'div';
+    protected bool $toggleInPrefix = false;
+    protected bool $toggleInSuffix = false;
 
     /**
      * Set the `HTML` prefix content.
@@ -181,6 +183,36 @@ trait HasPrefixAndSuffix
 
         $new = clone $this;
         $new->suffixContainerTag = $value;
+
+        return $new;
+    }
+
+    /**
+     * Enable or disable the toggle in prefix.
+     *
+     * @param bool $value The toggle in prefix value.
+     *
+     * @return static A new instance of the current class with the specified toggle in prefix value.
+     */
+    public function toggleInPrefix(bool $value): static
+    {
+        $new = clone $this;
+        $new->toggleInPrefix = $value;
+
+        return $new;
+    }
+
+    /**
+     * Enable or disable the toggle in suffix.
+     *
+     * @param bool $value The toggle in suffix value.
+     *
+     * @return static A new instance of the current class with the specified toggle in suffix value.
+     */
+    public function toggleInSuffix(bool $value): static
+    {
+        $new = clone $this;
+        $new->toggleInSuffix = $value;
 
         return $new;
     }
