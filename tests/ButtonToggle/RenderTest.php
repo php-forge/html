@@ -74,7 +74,7 @@ final class RenderTest extends TestCase
             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" aria-hidden="true" fill="none" viewBox="0 0 14 14"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/></svg>
             </button>
             HTML,
-            ButtonToggle::widget()->id('id')->type('alert')->render(),
+            ButtonToggle::widget()->alert()->id('id')->render(),
         );
     }
 
@@ -86,7 +86,7 @@ final class RenderTest extends TestCase
             test-content
             </button>
             HTML,
-            ButtonToggle::widget()->content('test-content')->id('id')->type('alert')->render(),
+            ButtonToggle::widget()->alert()->content('test-content')->id('id')->render(),
         );
     }
 
@@ -128,7 +128,7 @@ final class RenderTest extends TestCase
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"/></svg>
             </button>
             HTML,
-            ButtonToggle::widget()->id('id')->type('sidebar')->render(),
+            ButtonToggle::widget()->id('id')->sidebar()->render(),
         );
     }
 
@@ -140,7 +140,7 @@ final class RenderTest extends TestCase
             test-content
             </button>
             HTML,
-            ButtonToggle::widget()->content('test-content')->id('id')->type('sidebar')->render(),
+            ButtonToggle::widget()->content('test-content')->id('id')->sidebar()->render(),
         );
     }
 }

@@ -31,20 +31,14 @@ abstract class AbstractButtonToggle extends Element
     protected array $attributes = [];
     private string $type = 'menu';
 
-    public function type(string $type): static
+    public function alert(): static
     {
-        $allowedTypes = ['alert', 'menu', 'sidebar'];
+        return $this->type('alert');
+    }
 
-        if (in_array($type, $allowedTypes, true) === false) {
-            throw new InvalidArgumentException(
-                sprintf('The type "%s" is not allowed for the "ButtonToggle::class".', $type)
-            );
-        }
-
-        $new = clone $this;
-        $new->type = $type;
-
-        return $new;
+    public function sidebar(): static
+    {
+        return $this->type('sidebar');
     }
 
     /**
@@ -154,5 +148,13 @@ abstract class AbstractButtonToggle extends Element
                 ],
             )
             ->render();
+    }
+
+    private function type(string $type): static
+    {
+        $new = clone $this;
+        $new->type = $type;
+
+        return $new;
     }
 }
