@@ -18,6 +18,30 @@ trait HasIcon
     protected string $iconText = '';
 
     /**
+     * @return array The `HTML` attributes of the icon of the menu item.
+     */
+    public function getIconAttributes(): array
+    {
+        return $this->iconAttributes;
+    }
+
+    /**
+     * @return array The `HTML` attributes of the icon container of the menu item.
+     */
+    public function getIconContainerAttributes(): array
+    {
+        return $this->iconContainerAttributes;
+    }
+
+    /**
+     * @return string The icon of the menu item.
+     */
+    public function getIconText(): string
+    {
+        return $this->iconText;
+    }
+
+    /**
      * Set the `HTML` attributes for the icon.
      *
      * @param array $values Attribute values indexed by attribute names.

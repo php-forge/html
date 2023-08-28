@@ -17,6 +17,22 @@ trait HasLink
     protected array $linkAttributes = [];
 
     /**
+     * @return string The link of the menu item.
+     */
+    public function getLink(): string
+    {
+        return $this->link;
+    }
+
+    /**
+     * @return array The `HTML` attributes of the href of the menu item.
+     */
+    public function getLinkAttributes(): array
+    {
+        return $this->linkAttributes;
+    }
+
+    /**
      * Set the link of the menu item.
      *
      * @param string $value The link of the menu item.
