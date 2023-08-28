@@ -51,7 +51,10 @@
     "scripts": {
         "check-dependencies": "composer-require-checker",
         "easy-coding-standard": "ecs check",
-        "mutation": "roave-infection-static-analysis-plugin",
+        "mutation": [
+            "Composer\\Config::disableProcessTimeout",
+            "roave-infection-static-analysis-plugin"
+        ],
         "psalm": "psalm",
         "test": "phpunit"
     },

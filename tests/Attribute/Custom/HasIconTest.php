@@ -53,6 +53,45 @@ final class HasIconTest extends TestCase
         $this->assertSame(['class' => 'test test1'], $instance->getIconContainerAttributes());
     }
 
+    public function testGetIconAttributes(): void
+    {
+        $instance = new class() {
+            use HasIcon;
+        };
+
+        $this->assertEmpty($instance->getIconAttributes());
+
+        $instance = $instance->iconAttributes(['class' => 'test']);
+
+        $this->assertSame(['class' => 'test'], $instance->getIconAttributes());
+    }
+
+    public function testGetIconContainerAttributes(): void
+    {
+        $instance = new class() {
+            use HasIcon;
+        };
+
+        $this->assertEmpty($instance->getIconContainerAttributes());
+
+        $instance = $instance->iconContainerAttributes(['class' => 'test']);
+
+        $this->assertSame(['class' => 'test'], $instance->getIconContainerAttributes());
+    }
+
+    public function testGetIconText(): void
+    {
+        $instance = new class() {
+            use HasIcon;
+        };
+
+        $this->assertEmpty($instance->getIconText());
+
+        $instance = $instance->iconText('test');
+
+        $this->assertSame('test', $instance->getIconText());
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class() {

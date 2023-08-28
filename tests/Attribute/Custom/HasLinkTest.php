@@ -40,6 +40,24 @@ final class HasLinkTest extends TestCase
         $this->assertSame(['class' => 'test-class'], $instance->linkClass('test-class')->getLinkAttributes());
     }
 
+    public function testGetLink(): void
+    {
+        $instance = new class() {
+            use HasLink;
+        };
+
+        $this->assertSame('test-link', $instance->link('test-link')->getLink());
+    }
+
+    public function testGetLinkAttributes(): void
+    {
+        $instance = new class() {
+            use HasLink;
+        };
+
+        $this->assertSame(['class' => 'test-class'], $instance->linkAttributes(['class' => 'test-class'])->getLinkAttributes());
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class() {
