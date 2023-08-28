@@ -9,23 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasContentTest extends TestCase
 {
-    public function testContentWithXSS(): void
-    {
-        $instance = new class() {
-            use HasContent;
-
-            public function getContent(): string
-            {
-                return $this->content;
-            }
-        };
-
-        $instance = $instance->content("<script>alert('Hack');</script>");
-
-        $this->assertEmpty($instance->getContent());
-    }
-
-    public function testGetContent(): void
+    public function testGet(): void
     {
         $instance = new class() {
             use HasContent;
@@ -47,5 +31,21 @@ final class HasContentTest extends TestCase
         };
 
         $this->assertNotSame($instance, $instance->content(''));
+    }
+
+    public function testXSS(): void
+    {
+        $instance = new class() {
+            use HasContent;
+
+            public function getContent(): string
+            {
+                return $this->content;
+            }
+        };
+
+        $instance = $instance->content("<script>alert('Hack');</script>");
+
+        $this->assertEmpty($instance->getContent());
     }
 }

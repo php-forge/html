@@ -18,7 +18,7 @@ final class CanBeNoValidateTest extends TestCase
         $this->assertNotSame($instance, $instance->noValidate());
     }
 
-    public function testValue(): void
+    public function testRender(): void
     {
         $instance = new class() {
             use TagCanBeNoValidate;

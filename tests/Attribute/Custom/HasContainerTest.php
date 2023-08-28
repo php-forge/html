@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasContainerTest extends TestCase
 {
-    public function testContainerClass(): void
+    public function testClass(): void
     {
         $instance = new class() {
             use HasContainer;
@@ -35,7 +35,7 @@ final class HasContainerTest extends TestCase
         $this->assertSame('foo bar', $instance->getContainerClass());
     }
 
-    public function testContainerTagException(): void
+    public function testException(): void
     {
         $instance = new class() {
             use HasContainer;

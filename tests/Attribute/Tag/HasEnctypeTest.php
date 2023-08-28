@@ -37,7 +37,7 @@ final class HasEnctypeTest extends TestCase
         $this->assertNotSame($instance, $instance->enctype('text/plain'));
     }
 
-    public function testValue(): void
+    public function testRender(): void
     {
         $instance = new class() {
             use HasEnctype;

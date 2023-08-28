@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasIconTest extends TestCase
 {
-    public function testIconClass(): void
+    public function testClass(): void
     {
         $instance = new class() {
             use HasIcon;
@@ -31,7 +31,7 @@ final class HasIconTest extends TestCase
         $this->assertSame(['class' => 'test test1'], $instance->getIconAttributes());
     }
 
-    public function testIconContainerClass(): void
+    public function testContainerClass(): void
     {
         $instance = new class() {
             use HasIcon;

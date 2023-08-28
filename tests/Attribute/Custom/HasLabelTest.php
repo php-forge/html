@@ -11,6 +11,62 @@ use PHPUnit\Framework\TestCase;
 
 final class HasLabelTest extends TestCase
 {
+    public function testClass(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelClass(): string
+            {
+                return $this->labelAttributes['class'] ?? '';
+            }
+        };
+
+        $this->assertEmpty($instance->getLabelClass());
+
+        $instance = $instance->labelClass('foo');
+
+        $this->assertSame('foo', $instance->getLabelClass());
+
+        $instance = $instance->labelClass('bar');
+
+        $this->assertSame('foo bar', $instance->getLabelClass());
+    }
+
+    public function testClosure(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelClosure(): Closure|null
+            {
+                return $this->labelClosure;
+            }
+        };
+
+        $this->assertNull($instance->getLabelClosure());
+
+        $instance = $instance->labelClosure(static fn (): string => 'foo');
+
+        $this->assertInstanceOf(Closure::class, $instance->getLabelClosure());
+    }
+
+    public function testContent(): void
+    {
+        $instance = new class() {
+            use HasLabel;
+
+            public function getLabelContent(): string
+            {
+                return $this->labelContent;
+            }
+        };
+
+        $instance = $instance->labelContent('foo && bar', Span::widget()->content('foo && bar'));
+
+        $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabelContent());
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class() {
@@ -40,63 +96,17 @@ final class HasLabelTest extends TestCase
         $this->assertFalse($instance->getIsNotLabel());
     }
 
-    public function testLabelClass(): void
+    public function testNotLabel(): void
     {
         $instance = new class() {
             use HasLabel;
-
-            public function getLabelClass(): string
-            {
-                return $this->labelAttributes['class'] ?? '';
-            }
         };
 
-        $this->assertEmpty($instance->getLabelClass());
-
-        $instance = $instance->labelClass('foo');
-
-        $this->assertSame('foo', $instance->getLabelClass());
-
-        $instance = $instance->labelClass('bar');
-
-        $this->assertSame('foo bar', $instance->getLabelClass());
+        $this->assertFalse($instance->isNotLabel());
+        $this->assertTrue($instance->notLabel()->isNotLabel());
     }
 
-    public function testLabelClosure(): void
-    {
-        $instance = new class() {
-            use HasLabel;
-
-            public function getLabelClosure(): Closure|null
-            {
-                return $this->labelClosure;
-            }
-        };
-
-        $this->assertNull($instance->getLabelClosure());
-
-        $instance = $instance->labelClosure(static fn (): string => 'foo');
-
-        $this->assertInstanceOf(Closure::class, $instance->getLabelClosure());
-    }
-
-    public function testLabelContent(): void
-    {
-        $instance = new class() {
-            use HasLabel;
-
-            public function getLabelContent(): string
-            {
-                return $this->labelContent;
-            }
-        };
-
-        $instance = $instance->labelContent('foo && bar', Span::widget()->content('foo && bar'));
-
-        $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabelContent());
-    }
-
-    public function testLabelContentWithXSS(): void
+    public function testXSS(): void
     {
         $instance = new class() {
             use HasLabel;
@@ -110,15 +120,5 @@ final class HasLabelTest extends TestCase
         $instance = $instance->labelContent("<script>alert('Hack');</script>", Span::widget()->content('foo && bar'));
 
         $this->assertSame("<span>foo && bar</span>", $instance->getLabelContent());
-    }
-
-    public function testNotLabel(): void
-    {
-        $instance = new class() {
-            use HasLabel;
-        };
-
-        $this->assertFalse($instance->isNotLabel());
-        $this->assertTrue($instance->notLabel()->isNotLabel());
     }
 }
