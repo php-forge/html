@@ -10,6 +10,7 @@ on:
       - 'phpunit.xml.dist'
 
   push:
+    branches: ['main']
     paths-ignore:
       - 'docs/**'
       - 'README.md'
