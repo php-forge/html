@@ -31,11 +31,13 @@ trait HasId
     /**
      * Generate a unique ID for the widget.
      *
+     * @param string $value The value to use for the ID.
+     *
      * @return string A unique ID for the widget.
      */
-    public function generateId(): string
+    public function generateId(string $value = 'id_'): string
     {
         /** @psalm-var string */
-        return $this->attributes['id'] ??= uniqid('id_');
+        return $this->attributes['id'] ??= uniqid($value);
     }
 }
