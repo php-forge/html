@@ -99,6 +99,7 @@ trait HasToggle
             'drawer-target',
             'drawer-toggle',
             'dropdown-toggle',
+            'dropdown-trigger',
         ];
 
         if (in_array($name, $allowedDataAttributes, true) === false) {
