@@ -20,7 +20,7 @@ final class CanBeReadonlyTest extends TestCase
         $this->assertNotSame($instance, $instance->readonly());
     }
 
-    public function testReadonly(): void
+    public function testRender(): void
     {
         $instance = new class() {
             use CanBeReadonly;

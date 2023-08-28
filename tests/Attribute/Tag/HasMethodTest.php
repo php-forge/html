@@ -18,7 +18,7 @@ final class HasMethodTest extends TestCase
         $this->assertNotSame($instance, $instance->method(''));
     }
 
-    public function testValue(): void
+    public function testRender(): void
     {
         $instance = new class() {
             use HasMethod;

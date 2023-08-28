@@ -13,7 +13,23 @@ use function array_merge;
  */
 trait HasLink
 {
+    protected string $link = '';
     protected array $linkAttributes = [];
+
+    /**
+     * Set the link of the menu item.
+     *
+     * @param string $value The link of the menu item.
+     *
+     * @return static A new instance of the current class with the specified link.
+     */
+    public function link(string $value): static
+    {
+        $new = clone $this;
+        $new->link = $value;
+
+        return $new;
+    }
 
     /**
      * Set the `HTML` attributes for the link tag.

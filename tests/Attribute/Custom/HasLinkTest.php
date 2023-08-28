@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasLinkTest extends TestCase
 {
-    public function testLinkAttributes(): void
+    public function testAttributes(): void
     {
         $instance = new class() {
             use HasLink;
@@ -26,7 +26,7 @@ final class HasLinkTest extends TestCase
         $this->assertSame(['class' => 'foo', 'disabled' => true], $instance->getLinkAttributes());
     }
 
-    public function testLinkClass(): void
+    public function testClass(): void
     {
         $instance = new class() {
             use HasLink;
@@ -46,6 +46,7 @@ final class HasLinkTest extends TestCase
             use HasLink;
         };
 
+        $this->assertNotSame($instance, $instance->link(''));
         $this->assertNotSame($instance, $instance->linkAttributes([]));
         $this->assertNotSame($instance, $instance->linkClass(''));
     }
