@@ -138,14 +138,6 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testTagName(): void
-    {
-        $this->assertSame(
-            '<a></a>',
-            Button::widget()->tagName('a')->type('link')->render(),
-        );
-    }
-
     public function testTitle(): void
     {
         $this->assertSame(

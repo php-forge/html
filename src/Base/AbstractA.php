@@ -11,6 +11,8 @@ use PHPForge\Html\Attribute;
  */
 abstract class AbstractA extends AbstractElement
 {
+    use Attribute\Aria\HasAriaDisabled;
+    use Attribute\Aria\HasRole;
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
     use Attribute\HasData;

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Base;
 
+use PHPForge\Html\A;
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Button;
 use PHPForge\Widget\Element;
 
 /**
@@ -34,19 +34,14 @@ abstract class AbstractButtonLink extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $button = Button::widget();
+        $a = A::widget();
 
         if (isset($attributes['disabled']) && is_bool($attributes['disabled']) && $attributes['disabled']) {
-            $button = $button->ariaDisabled('true')->class('disabled');
+            $a = $a->ariaDisabled('true')->class('disabled');
 
             unset($attributes['disabled']);
         }
 
-        return $button->attributes($attributes)
-            ->content($this->content)
-            ->role('button')
-            ->tagName('a')
-            ->type('link')
-            ->render();
+        return $a->attributes($attributes)->content($this->content)->role('button')->render();
     }
 }
