@@ -31,10 +31,6 @@ abstract class AbstractButton extends AbstractElement
             $this->attributes['type'] = 'button';
         }
 
-        if (array_key_exists('type', $this->attributes) && $this->attributes['type'] === 'link') {
-            unset($this->attributes['type']);
-        }
-
         return parent::beforeRun();
     }
 
