@@ -12,7 +12,7 @@ use PHPForge\Html\Helper\CssClass;
 trait HasUl
 {
     protected array $ulAttributes = [];
-    protected bool $ulContainer = true;
+    protected bool $ulContainer = false;
     protected array $ulContainerAttributes = [];
 
     /**
