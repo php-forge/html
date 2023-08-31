@@ -14,7 +14,6 @@ trait HasCsrf
     protected string $csrfName = '_csrf';
     protected string $csrfToken = '';
 
-
     /**
      * Set the CSRF-token attribute token that is known to be safe to use.
      *
@@ -28,6 +27,10 @@ trait HasCsrf
         $new = clone $this;
         $new->csrfToken = (string) $csrfToken;
         $new->csrfName = $csrfName;
+
+        if ($new->csrfToken !== '') {
+            $new->attributes[$new->csrfName] = $new->csrfToken;
+        }
 
         return $new;
     }

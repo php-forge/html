@@ -56,8 +56,8 @@ final class CssClass
      *
      * This method provides the priority for named existing classes over additional.
      *
-     * @param string[] $existingClasses Already existing CSS classes.
-     * @param string[] $additionalClasses CSS classes to be added.
+     * @psalm-param string[] $existingClasses Already existing CSS classes.
+     * @psalm-param string[] $additionalClasses CSS classes to be added.
      *
      * @return string[] merge result.
      */

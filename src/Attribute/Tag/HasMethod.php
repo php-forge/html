@@ -11,8 +11,6 @@ use function strtoupper;
  */
 trait HasMethod
 {
-    protected string $method = '';
-
     /**
      * Set the method attribute specify how the form-data should be submitted.
      *
@@ -25,7 +23,7 @@ trait HasMethod
     public function method(string $value): static
     {
         $new = clone $this;
-        $new->method = strtoupper($value);
+        $new->attributes['method'] = strtoupper($value);
 
         return $new;
     }

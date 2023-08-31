@@ -23,9 +23,11 @@ final class HasMethodTest extends TestCase
         $instance = new class() {
             use HasMethod;
 
+            protected array $attributes = [];
+
             public function getMethod(): string
             {
-                return $this->method;
+                return $this->attributes['method'] ?? '';
             }
         };
 
