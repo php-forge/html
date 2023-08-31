@@ -71,7 +71,7 @@ final class HasToggleTest extends TestCase
 
         $this->assertSame('foo && bar<span></span>id', $instance->getToggleContent());
     }
-    
+
     public function testExceptionDataAttributes(): void
     {
         $instance = new class() {
@@ -98,6 +98,8 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleContent(''));
         $this->assertNotSame($instance, $instance->toggleDataAttribute('drawer-target', 'id'));
         $this->assertNotSame($instance, $instance->toggleId(''));
+        $this->assertNotSame($instance, $instance->toggleInPrefix(false));
+        $this->assertNotSame($instance, $instance->toggleInSuffix(false));
         $this->assertNotSame($instance, $instance->toggleOnClick(''));
         $this->assertNotSame($instance, $instance->toggleSvg(''));
         $this->assertNotSame($instance, $instance->toggletype(''));

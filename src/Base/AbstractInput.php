@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**
@@ -30,34 +30,22 @@ abstract class AbstractInput extends Element
     use Attribute\Input\HasType;
 
     protected array $attributes = [];
-    protected string $template = '{prefix}{input}{suffix}';
+    protected string $template = '{prefix}{tag}{suffix}';
 
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $prefix = $this->prefix;
-        $suffix = $this->suffix;
-        $type = $attributes['type'] ?? 'text';
-
-        if ($prefix !== '' && $type !== 'checkbox' && $type !== 'radio') {
-            $prefix .= PHP_EOL;
-        }
 
         if (array_key_exists('value', $attributes) && $attributes['value'] === '') {
             unset($attributes['value']);
         }
 
-        if ($suffix !== '' && $type !== 'checkbox' && $type !== 'radio') {
-            $suffix = PHP_EOL . $suffix;
-        }
-
-        return strtr(
-            $this->template,
-            [
-                '{prefix}' => $prefix,
-                '{input}' => HtmlBuilder::create('input', '', $attributes),
-                '{suffix}' => $suffix,
-            ],
-        );
+        return Tag::widget()
+            ->attributes($attributes)
+            ->prefix($this->prefix)
+            ->suffix($this->suffix)
+            ->tagName('input')
+            ->template($this->template)
+            ->render();
     }
 }

@@ -6,8 +6,8 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\HtmlBuilder;
 use PHPForge\Html\Li;
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 use function trim;
@@ -58,6 +58,6 @@ abstract class AbstractUl extends Element
      */
     protected function run(): string
     {
-        return HtmlBuilder::create('ul', $this->content, $this->attributes);
+        return Tag::widget()->attributes($this->attributes)->content($this->content)->tagName('ul')->render();
     }
 }
