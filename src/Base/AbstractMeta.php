@@ -6,7 +6,7 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**
@@ -48,6 +48,6 @@ abstract class AbstractMeta extends Element
      */
     protected function run(): string
     {
-        return HtmlBuilder::create('meta', '', $this->attributes);
+        return Tag::widget()->attributes($this->attributes)->tagName('meta')->render();
     }
 }

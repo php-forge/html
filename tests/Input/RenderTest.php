@@ -162,7 +162,7 @@ final class RenderTest extends TestCase
             <input>
             suffix
             HTML,
-            Input::widget()->prefix('prefix')->suffix('suffix')->template('{input}{suffix}')->render(),
+            Input::widget()->prefix('prefix')->suffix('suffix')->template('{tag}{suffix}')->render(),
         );
     }
 

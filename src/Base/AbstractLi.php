@@ -6,7 +6,7 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\Tag;
 use PHPForge\Html\Ul;
 use PHPForge\Widget\Element;
 
@@ -57,6 +57,6 @@ abstract class AbstractLi extends Element
      */
     protected function run(): string
     {
-        return HtmlBuilder::create('li', $this->content, $this->attributes);
+        return Tag::widget()->attributes($this->attributes)->content($this->content)->tagName('li')->render();
     }
 }

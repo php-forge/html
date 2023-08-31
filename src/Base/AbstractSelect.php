@@ -6,7 +6,7 @@ namespace PHPForge\Html\Base;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
@@ -61,12 +61,15 @@ abstract class AbstractSelect extends Element
                 ->content($items)
                 ->tagName('select')
                 ->render(),
-            default => HtmlBuilder::create(
-                'label',
-                $this->labelContent . PHP_EOL .
-                Tag::widget()->attributes($attributes)->content($items)->tagName('select')->render() . PHP_EOL,
-                $this->labelAttributes
-            ),
+            default => Label::widget()
+                ->attributes($this->labelAttributes)
+                ->content(
+                    $this->labelContent,
+                    PHP_EOL,
+                    Tag::widget()->attributes($attributes)->content($items)->tagName('select'),
+                    PHP_EOL,
+                )
+                ->render(),
         };
     }
 
