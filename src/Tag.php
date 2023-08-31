@@ -16,6 +16,6 @@ namespace PHPForge\Html;
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element
  */
-final class Tag extends Base\AbstractBlockElement
+final class Tag extends Base\AbstractTag
 {
 }

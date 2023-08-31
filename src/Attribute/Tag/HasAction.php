@@ -9,8 +9,6 @@ namespace PHPForge\Html\Attribute\Tag;
  */
 trait HasAction
 {
-    protected string $action = '';
-
     /**
      * Set the action and form-action content attributes, if specified, must have a value that is a valid non-empty URL
      * surrounded by spaces.
@@ -24,7 +22,7 @@ trait HasAction
     public function action(string $value): static
     {
         $new = clone $this;
-        $new->action = $value;
+        $new->attributes['action'] = $value;
 
         return $new;
     }
