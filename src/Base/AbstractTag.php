@@ -12,4 +12,5 @@ use PHPForge\Html\Attribute;
 abstract class AbstractTag extends AbstractElement
 {
     use Attribute\Custom\HasTagName;
+    use Attribute\Input\HasValue;
 }
