@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Select;
 
 use PHPForge\Html\Select;
+use PHPForge\Html\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -186,6 +187,23 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testPrefix(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span>test-prefix</span>
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->items($this->cities)->prefix(Span::widget()->content('test-prefix'))->render(),
+        );
+    }
+
     public function testPrompt(): void
     {
         Assert::equalsWithoutLE(
@@ -212,6 +230,23 @@ final class RenderTest extends TestCase
             </select>
             HTML,
             Select::widget()->items($this->cities)->prompt('Select City Birth', '0')->render(),
+        );
+    }
+
+    public function testSuffix(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            <span>test-suffix</span>
+            HTML,
+            Select::widget()->items($this->cities)->suffix(Span::widget()->content('test-suffix'))->render(),
         );
     }
 
