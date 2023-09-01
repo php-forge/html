@@ -26,6 +26,7 @@ abstract class AbstractSelect extends Element
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasItems;
     use Attribute\Custom\HasLabel;
+    use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\Input\CanBeMultiple;
@@ -67,20 +68,18 @@ abstract class AbstractSelect extends Element
 
         unset($attributes['value']);
 
+        $selectTag = Tag::widget()
+            ->attributes($attributes)
+            ->content($items)
+            ->prefix($this->prefix)
+            ->suffix($this->suffix)
+            ->tagName('select');
+
         return match ($this->labelContent) {
-            '' => Tag::widget()
-                ->attributes($attributes)
-                ->content($items)
-                ->tagName('select')
-                ->render(),
+            '' => $selectTag->render(),
             default => Label::widget()
                 ->attributes($this->labelAttributes)
-                ->content(
-                    $this->labelContent,
-                    PHP_EOL,
-                    Tag::widget()->attributes($attributes)->content($items)->tagName('select'),
-                    PHP_EOL,
-                )
+                ->content($this->labelContent, PHP_EOL, $selectTag, PHP_EOL)
                 ->render(),
         };
     }
