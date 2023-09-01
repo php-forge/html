@@ -28,6 +28,7 @@ abstract class AbstractInput extends Element
     use Attribute\HasTitle;
     use Attribute\Input\HasName;
     use Attribute\Input\HasType;
+    use Attribute\Input\HasValue;
 
     protected array $attributes = [];
     protected string $template = '{prefix}{tag}{suffix}';
