@@ -14,6 +14,9 @@ use function array_merge;
 use function get_debug_type;
 use function implode;
 use function in_array;
+use function is_array;
+use function is_bool;
+use function is_object;
 
 /**
  * Provides a foundation for creating HTML `select` elements with various attributes and content.
@@ -37,6 +40,7 @@ abstract class AbstractSelect extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
+        $multiple = false;
         /** @psalm-var array<int, \Stringable|scalar>|scalar|object|null $value */
         $value = $attributes['value'] ?? [];
 
@@ -47,6 +51,14 @@ abstract class AbstractSelect extends Element
 
         if (is_object($value)) {
             throw new InvalidArgumentException('Select::class widget value can not be an object.');
+        }
+
+        if (array_key_exists('multiple', $attributes) && is_bool($attributes['multiple'])) {
+            $multiple = $attributes['multiple'];
+        }
+
+        if ($multiple === true && is_array($value) === false) {
+            throw new InvalidArgumentException('Select::class widget value must be an array when multiple is "true".');
         }
 
         if ($this->items !== []) {

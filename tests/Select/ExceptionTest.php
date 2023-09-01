@@ -14,6 +14,14 @@ use stdClass;
  */
 final class ExceptionTest extends TestCase
 {
+    public function testMultiple(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Select::class widget value must be an array when multiple is "true".');
+
+        Select::widget()->multiple()->value('')->render();
+    }
+
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
