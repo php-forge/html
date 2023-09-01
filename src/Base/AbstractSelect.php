@@ -42,7 +42,7 @@ abstract class AbstractSelect extends Element
 
         $items = match ($this->prompt) {
             '' => PHP_EOL . Tag::widget()->content('Select an option')->tagName('option')->render(),
-            default => PHP_EOL . $this->prompt,
+            default => PHP_EOL . Tag::widget()->content($this->prompt)->tagName('option')->value($this->promptValue)->render(),
         };
 
         if (is_object($value)) {

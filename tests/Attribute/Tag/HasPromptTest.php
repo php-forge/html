@@ -17,18 +17,4 @@ final class HasPromptTest extends TestCase
 
         $this->assertNotSame($instance, $instance->prompt(''));
     }
-
-    public function testRender(): void
-    {
-        $instance = new class() {
-            use HasPrompt;
-
-            public function getPrompt(): string
-            {
-                return $this->prompt;
-            }
-        };
-
-        $this->assertSame('<option value="1">option 1</option>', $instance->prompt('option 1', '1')->getPrompt());
-    }
 }
