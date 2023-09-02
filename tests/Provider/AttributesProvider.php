@@ -64,6 +64,14 @@ final class AttributesProvider
                 '',
                 ['disabled' => null],
             ],
+            [
+                '',
+                ['value' => ''],
+            ],
+            [
+                '',
+                ['' => 'test-class'],
+            ],
         ];
     }
 }

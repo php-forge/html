@@ -117,7 +117,9 @@ final class Attributes
          * @var mixed $values
          */
         foreach ($attributes as $name => $values) {
-            $html .= $this->renderAttributes($name, $values);
+            if ($name !== '' && $values !== '' && $values !== null) {
+                $html .= $this->renderAttributes($name, $values);
+            }
         }
 
         return $html;
@@ -137,7 +139,6 @@ final class Attributes
         return match (gettype($values)) {
             'array' => $this->renderArrayAttributes($name, $values),
             'boolean' => $this->renderBooleanAttributes($name, $values),
-            'NULL' => '',
             default => $this->renderAttribute($name, Encode::create()->value($values)),
         };
     }
