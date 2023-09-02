@@ -215,4 +215,26 @@ final class RenderTest extends TestCase
             ],
         ];
     }
+
+    public function testWithoutId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <form>
+            </form>
+            HTML,
+            Form::widget()->id(null)->render(),
+        );
+    }
+
+    public function testWithoutName(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <form>
+            </form>
+            HTML,
+            Form::widget()->name(null)->render(),
+        );
+    }
 }

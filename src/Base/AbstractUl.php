@@ -58,6 +58,11 @@ abstract class AbstractUl extends Element
      */
     protected function run(): string
     {
-        return Tag::widget()->attributes($this->attributes)->content($this->content)->tagName('ul')->render();
+        return Tag::widget()
+            ->attributes($this->attributes)
+            ->content($this->content)
+            ->id($this->id)
+            ->tagName('ul')
+            ->render();
     }
 }

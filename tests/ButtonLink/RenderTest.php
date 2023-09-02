@@ -39,7 +39,7 @@ final class RenderTest extends TestCase
         $this->assertSame(
             '<a href="https://example.com" role="button" data-collapse-toggle="id"></a>',
             ButtonLink::widget()
-                ->dataAttributes([DataAttributes::DATA_COLLAPSE_TOGGLE->value => 'id'])
+                ->dataAttributes([DataAttributes::DATA_COLLAPSE_TOGGLE => 'id'])
                 ->href('https://example.com')
                 ->render(),
         );
@@ -90,6 +90,22 @@ final class RenderTest extends TestCase
         $this->assertSame(
             '<a href="https://example.com" title="test-title" role="button"></a>',
             ButtonLink::widget()->href('https://example.com')->title('test-title')->render(),
+        );
+    }
+
+    public function testWithoutId(): void
+    {
+        $this->assertSame(
+            '<a href="https://example.com" role="button"></a>',
+            ButtonLink::widget()->href('https://example.com')->id(null)->render(),
+        );
+    }
+
+    public function testWithoutName(): void
+    {
+        $this->assertSame(
+            '<a href="https://example.com" role="button"></a>',
+            ButtonLink::widget()->href('https://example.com')->name(null)->render(),
         );
     }
 }

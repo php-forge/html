@@ -9,7 +9,7 @@ namespace PHPForge\Html\Attribute\Custom;
  */
 trait HasActive
 {
-    private bool $active = false;
+    protected bool $active = false;
 
     /**
      * Set the active state.

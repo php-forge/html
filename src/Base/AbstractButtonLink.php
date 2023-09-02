@@ -42,6 +42,6 @@ abstract class AbstractButtonLink extends Element
             unset($attributes['disabled']);
         }
 
-        return $a->attributes($attributes)->content($this->content)->role('button')->render();
+        return $a->attributes($attributes)->content($this->content)->id($this->id)->role('button')->render();
     }
 }

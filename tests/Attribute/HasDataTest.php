@@ -23,8 +23,8 @@ final class HasDataTest extends TestCase
             }
         };
 
-        $closure = fn () => 'test';
-        $instance = $instance->dataAttributes([DataAttributes::ACTION->value => $closure]);
+        $closure = fn () => 'test-action';
+        $instance = $instance->dataAttributes([DataAttributes::DATA_ACTION => $closure]);
 
         $this->assertSame(['data-action' => $closure], $instance->getAttributes());
     }
@@ -69,6 +69,6 @@ final class HasDataTest extends TestCase
             protected array $attributes = [];
         };
 
-        $this->assertNotSame($instance, $instance->dataAttributes([DataAttributes::ACTION->value => 'test']));
+        $this->assertNotSame($instance, $instance->dataAttributes([DataAttributes::DATA_ACTION => 'test-action']));
     }
 }

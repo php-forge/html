@@ -9,7 +9,7 @@ namespace PHPForge\Html\Attribute\Custom;
  */
 trait HasDisabled
 {
-    private bool $disabled = false;
+    protected bool $disabled = false;
 
     /**
      * Set the disabled state.

@@ -71,6 +71,7 @@ abstract class AbstractSelect extends Element
         $selectTag = Tag::widget()
             ->attributes($attributes)
             ->content($items)
+            ->id($this->id)
             ->prefix($this->prefix)
             ->suffix($this->suffix)
             ->tagName('select');

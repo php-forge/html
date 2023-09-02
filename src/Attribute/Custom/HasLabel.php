@@ -14,11 +14,11 @@ use PHPForge\Widget\ElementInterface;
  */
 trait HasLabel
 {
-    private array $labelAttributes = [];
-    private string $labelClass = '';
-    private Closure|null $labelClosure = null;
-    private string $labelContent = '';
-    private bool $notLabel = false;
+    protected array $labelAttributes = [];
+    protected string $labelClass = '';
+    protected Closure|null $labelClosure = null;
+    protected string $labelContent = '';
+    protected bool $notLabel = false;
 
     /**
      * Set the `HTML` attributes for the label.

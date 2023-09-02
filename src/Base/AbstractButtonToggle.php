@@ -41,6 +41,15 @@ abstract class AbstractButtonToggle extends Element
         return $this->type('sidebar');
     }
 
+    protected function beforeRun(): bool
+    {
+        if ($this->id === null) {
+            throw new InvalidArgumentException('The toogle id attribute is required for the "ButtonToggle::class".');
+        }
+
+        return parent::beforeRun();
+    }
+
     /**
      * Generate the HTML representation of the element.
      *
@@ -49,25 +58,15 @@ abstract class AbstractButtonToggle extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $id = null;
-
-        if (array_key_exists('id', $attributes) && is_string($attributes['id'])) {
-            $id = $attributes['id'];
-            unset($attributes['id']);
-        }
-
-        if ($id === null) {
-            throw new InvalidArgumentException('The toogle id attribute is required for the "ButtonToggle::class".');
-        }
 
         return match ($this->type) {
-            'alert' => $this->renderAlertToggle($attributes, $id),
-            'menu' => $this->renderMenuToggle($attributes, $id),
-            'sidebar' => $this->renderSidebarToggle($attributes, $id),
+            'alert' => $this->renderAlertToggle($attributes),
+            'menu' => $this->renderMenuToggle($attributes),
+            'sidebar' => $this->renderSidebarToggle($attributes),
         };
     }
 
-    private function renderAlertToggle(array $attributes, string $id): string
+    private function renderAlertToggle(array $attributes): string
     {
         $buttonToggle = Button::widget();
         $content = [
@@ -88,13 +87,13 @@ abstract class AbstractButtonToggle extends Element
             ->attributes($attributes)
             ->dataAttributes(
                 [
-                    DataAttributes::DATA_DISMISS_TARGET->value => $id,
+                    DataAttributes::DATA_DISMISS_TARGET => $this->id,
                 ],
             )
             ->render();
     }
 
-    private function renderMenuToggle(array $attributes, string $id): string
+    private function renderMenuToggle(array $attributes): string
     {
         $buttonToggle = Button::widget();
         $content = [
@@ -110,19 +109,22 @@ abstract class AbstractButtonToggle extends Element
             default => $buttonToggle->content(PHP_EOL, $this->content, PHP_EOL),
         };
 
+        if ($this->id !== null) {
+            $buttonToggle = $buttonToggle->ariaControls($this->id);
+        }
+
         return $buttonToggle
-            ->ariaControls($id)
             ->ariaExpanded('false')
             ->attributes($attributes)
             ->dataAttributes(
                 [
-                    DataAttributes::DATA_COLLAPSE_TOGGLE->value => $id,
+                    DataAttributes::DATA_COLLAPSE_TOGGLE => $this->id,
                 ],
             )
             ->render();
     }
 
-    private function renderSidebarToggle(array $attributes, string $id): string
+    private function renderSidebarToggle(array $attributes): string
     {
         $buttonToggle = Button::widget();
         $content = [
@@ -138,13 +140,16 @@ abstract class AbstractButtonToggle extends Element
             default => $buttonToggle->content(PHP_EOL, $this->content, PHP_EOL),
         };
 
+        if ($this->id !== null) {
+            $buttonToggle = $buttonToggle->ariaControls($this->id);
+        }
+
         return $buttonToggle
-            ->ariaControls($id)
             ->attributes($attributes)
             ->dataAttributes(
                 [
-                    DataAttributes::DATA_DRAWER_TARGET->value => $id,
-                    DataAttributes::DATA_DRAWER_TOGGLE->value => $id,
+                    DataAttributes::DATA_DRAWER_TARGET => $this->id,
+                    DataAttributes::DATA_DRAWER_TOGGLE => $this->id,
                 ],
             )
             ->render();
