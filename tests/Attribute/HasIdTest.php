@@ -28,6 +28,8 @@ final class HasIdTest extends TestCase
             protected array $attributes = [];
         };
 
+        $instance = $instance->id(null);
+
         $this->assertNotEmpty($instance->generateId());
         $this->assertMatchesRegularExpression('/^id_[a-z0-9]{13}$/', $instance->generateId());
         $this->assertMatchesRegularExpression('/^alert_[a-z0-9]{13}$/', $instance->id(null)->generateId('alert_'));
@@ -45,5 +47,17 @@ final class HasIdTest extends TestCase
         $instance = $instance->id('foo');
 
         $this->assertSame('foo', $instance->generateId());
+    }
+
+    public function testGetId(): void
+    {
+        $instance = new class() {
+            use HasId;
+
+            protected array $attributes = [];
+        };
+
+        $this->assertSame('', $instance->id('')->getId());
+        $this->assertSame('foo', $instance->id('foo')->getId());
     }
 }

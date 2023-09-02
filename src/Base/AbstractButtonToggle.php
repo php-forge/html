@@ -43,7 +43,7 @@ abstract class AbstractButtonToggle extends Element
 
     protected function beforeRun(): bool
     {
-        if ($this->id === null) {
+        if ($this->id === null || $this->id === '') {
             throw new InvalidArgumentException('The toogle id attribute is required for the "ButtonToggle::class".');
         }
 

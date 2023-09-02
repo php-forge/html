@@ -11,7 +11,17 @@ use function uniqid;
  */
 trait HasId
 {
-    protected string|null $id = null;
+    protected string|null $id = '';
+
+    /**
+     * Get the ID of the widget.
+     *
+     * @return string|null The ID of the widget.
+     */
+    public function getId(): string|null
+    {
+        return $this->id;
+    }
 
     /**
      * Set the ID of the widget.
@@ -39,7 +49,6 @@ trait HasId
      */
     public function generateId(string $value = 'id_'): string
     {
-        /** @psalm-var string */
-        return $this->id ??= uniqid($value);
+        return $this->id === '' || $this->id === null ? uniqid($value) : $this->id;
     }
 }

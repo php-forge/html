@@ -34,7 +34,7 @@ abstract class AbstractBlockElement extends Block
     {
         parent::begin();
         $attributes = $this->attributes;
-        $attributes['id'] = $this->id;
+        $attributes['id'] = $this->id === '' ? null : $this->id;
 
         return HtmlBuilder::begin($this->tagName, $attributes);
     }
@@ -48,7 +48,7 @@ abstract class AbstractBlockElement extends Block
     {
         if ($this->isBeginExecuted() === false) {
             $attributes = $this->attributes;
-            $attributes['id'] = $this->id;
+            $attributes['id'] = $this->id === '' ? null : $this->id;
 
             return HtmlBuilder::create($this->tagName, $this->content, $attributes);
         }
