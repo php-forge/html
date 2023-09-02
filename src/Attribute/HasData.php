@@ -32,7 +32,7 @@ trait HasData
                 );
             }
 
-            $new->attributes[$key] = $value;
+            $new->attributes["data-$key"] = $value;
         }
 
         return $new;

@@ -9,7 +9,7 @@ namespace PHPForge\Html\Attribute\Custom;
  */
 trait HasVisible
 {
-    private bool $visible = true;
+    protected bool $visible = true;
 
     /**
      * @return bool Whether the visible state is true.

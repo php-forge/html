@@ -21,17 +21,29 @@ abstract class AbstractButton extends AbstractElement
     use Attribute\HasData;
     use Attribute\Input\HasType;
 
+    protected array $attributes = ['type' => 'button'];
     protected string $tagName = 'button';
     private bool $container = false;
     private string $containerTag = 'div';
 
-    protected function beforeRun(): bool
+    /**
+     * Set the button type to `submit`.
+     *
+     * @return static A new instance of the current class with the specified type value.
+     */
+    public function submit(): static
     {
-        if (array_key_exists('type', $this->attributes) === false) {
-            $this->attributes['type'] = 'button';
-        }
+        return $this->type('submit');
+    }
 
-        return parent::beforeRun();
+    /**
+     * Set the button type to `reset`.
+     *
+     * @return static A new instance of the current class with the specified type value.
+     */
+    public function reset(): static
+    {
+        return $this->type('reset');
     }
 
     /**

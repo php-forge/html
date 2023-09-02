@@ -33,8 +33,10 @@ abstract class AbstractBlockElement extends Block
     public function begin(): string
     {
         parent::begin();
+        $attributes = $this->attributes;
+        $attributes['id'] = $this->id;
 
-        return HtmlBuilder::begin($this->tagName, $this->attributes);
+        return HtmlBuilder::begin($this->tagName, $attributes);
     }
 
     /**
@@ -44,9 +46,13 @@ abstract class AbstractBlockElement extends Block
      */
     protected function run(): string
     {
-        return match ($this->isBeginExecuted()) {
-            false => HtmlBuilder::create($this->tagName, $this->content, $this->attributes),
-            default => HtmlBuilder::end($this->tagName),
-        };
+        if ($this->isBeginExecuted() === false) {
+            $attributes = $this->attributes;
+            $attributes['id'] = $this->id;
+
+            return HtmlBuilder::create($this->tagName, $this->content, $attributes);
+        }
+
+        return HtmlBuilder::end($this->tagName);
     }
 }

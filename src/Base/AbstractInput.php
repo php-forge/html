@@ -43,6 +43,7 @@ abstract class AbstractInput extends Element
 
         return Tag::widget()
             ->attributes($attributes)
+            ->id($this->id)
             ->prefix($this->prefix)
             ->suffix($this->suffix)
             ->tagName('input')

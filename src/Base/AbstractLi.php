@@ -57,6 +57,11 @@ abstract class AbstractLi extends Element
      */
     protected function run(): string
     {
-        return Tag::widget()->attributes($this->attributes)->content($this->content)->tagName('li')->render();
+        return Tag::widget()
+            ->attributes($this->attributes)
+            ->content($this->content)
+            ->id($this->id)
+            ->tagName('li')
+            ->render();
     }
 }

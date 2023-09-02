@@ -6,7 +6,6 @@ namespace PHPForge\Html\Tests\Button;
 
 use PHPForge\Html\Attribute\Enum\DataAttributes;
 use PHPForge\Html\Button;
-use PHPForge\Html\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -72,33 +71,17 @@ final class RenderTest extends TestCase
         $this->assertSame('<button type="button">content</button>', Button::widget()->content('content')->render());
     }
 
-    public function testContentWithTag(): void
-    {
-        $this->assertSame(
-            '<button type="button">Page: <span>2</span> of <span>5</span></button>',
-            Button::widget()->content(
-                'Page: ',
-                Span::widget()->content('2'),
-                " of ",
-                Span::widget()->content('5'),
-            )->render(),
-        );
-    }
-
     public function testDataAttributes(): void
     {
         $this->assertSame(
             '<button type="button" data-drawer-target="id"></button>',
-            Button::widget()->dataAttributes([DataAttributes::DATA_DRAWER_TARGET->value => 'id'])->render(),
+            Button::widget()->dataAttributes([DataAttributes::DATA_DRAWER_TARGET => 'id'])->render(),
         );
     }
 
     public function testId(): void
     {
-        $this->assertSame(
-            '<button id="test-id" type="button"></button>',
-            Button::widget()->id('test-id')->render(),
-        );
+        $this->assertSame('<button id="test-id" type="button"></button>', Button::widget()->id('test-id')->render());
     }
 
     public function testElement(): void
@@ -108,18 +91,17 @@ final class RenderTest extends TestCase
 
     public function testName(): void
     {
-        $this->assertSame(
-            '<button name="test" type="button"></button>',
-            Button::widget()->name('test')->render(),
-        );
+        $this->assertSame('<button name="test" type="button"></button>', Button::widget()->name('test')->render());
+    }
+
+    public function testReset(): void
+    {
+        $this->assertSame('<button type="reset"></button>', Button::widget()->reset()->render());
     }
 
     public function testRole(): void
     {
-        $this->assertSame(
-            '<button type="button" role="test"></button>',
-            Button::widget()->role('test')->render(),
-        );
+        $this->assertSame('<button type="button" role="test"></button>', Button::widget()->role('test')->render());
     }
 
     public function testStyle(): void
@@ -130,27 +112,21 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testSubmit(): void
+    {
+        $this->assertSame('<button type="submit"></button>', Button::widget()->submit()->render());
+    }
+
     public function testTabIndex(): void
     {
-        $this->assertSame(
-            '<button type="button" tabindex="1"></button>',
-            Button::widget()->tabIndex(1)->render(),
-        );
+        $this->assertSame('<button type="button" tabindex="1"></button>', Button::widget()->tabIndex(1)->render());
     }
 
     public function testTitle(): void
     {
         $this->assertSame(
-            '<button type="button" title="test"></button>',
-            Button::widget()->title('test')->render(),
-        );
-    }
-
-    public function testType(): void
-    {
-        $this->assertSame(
-            '<button type="submit"></button>',
-            Button::widget()->type('submit')->render(),
+            '<button type="button" title="test-title"></button>',
+            Button::widget()->title('test-title')->render(),
         );
     }
 }

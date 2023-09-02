@@ -13,16 +13,16 @@ use PHPForge\Widget\ElementInterface;
  */
 trait HasBrand
 {
-    private bool $brandContainer = false;
-    private array $brandContainerAttributes = [];
-    private string $brandContainerClass = '';
-    private string $brandContainerTag = 'div';
-    private string $brandImage = '';
-    private string $brandLink = '';
-    private array $brandLinkAttributes = [];
-    private string $brandText = '';
-    private string $brandTemplate = "\n{image}\n{text}\n";
-    private string $brandToggle = '';
+    protected bool $brandContainer = false;
+    protected array $brandContainerAttributes = [];
+    protected string $brandContainerClass = '';
+    protected string $brandContainerTag = 'div';
+    protected string $brandImage = '';
+    protected string $brandLink = '';
+    protected array $brandLinkAttributes = [];
+    protected string $brandText = '';
+    protected string $brandTemplate = "\n{image}\n{text}\n";
+    protected string $brandToggle = '';
 
 
     /**

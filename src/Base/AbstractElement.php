@@ -37,6 +37,9 @@ abstract class AbstractElement extends Element
      */
     protected function run(): string
     {
+        $attributes = $this->attributes;
+        $attributes['id'] = $this->id;
+
         /** @var string|null $type */
         $type = $this->attributes['type'] ?? null;
 
@@ -44,7 +47,7 @@ abstract class AbstractElement extends Element
             $this->template,
             [
                 '{prefix}' => $this->renderPrefix($type),
-                '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $this->attributes),
+                '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
                 '{suffix}' => $this->renderSuffix($type),
             ],
         );
