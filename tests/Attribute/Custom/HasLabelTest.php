@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use Closure;
 use PHPForge\Html\Attribute\Custom\HasLabel;
 use PHPForge\Html\Span;
 use PHPUnit\Framework\TestCase;
@@ -33,24 +32,6 @@ final class HasLabelTest extends TestCase
         $this->assertSame('foo bar', $instance->getLabelClass());
     }
 
-    public function testClosure(): void
-    {
-        $instance = new class() {
-            use HasLabel;
-
-            public function getLabelClosure(): Closure|null
-            {
-                return $this->labelClosure;
-            }
-        };
-
-        $this->assertNull($instance->getLabelClosure());
-
-        $instance = $instance->labelClosure(static fn (): string => 'foo');
-
-        $this->assertInstanceOf(Closure::class, $instance->getLabelClosure());
-    }
-
     public function testContent(): void
     {
         $instance = new class() {
@@ -75,7 +56,6 @@ final class HasLabelTest extends TestCase
 
         $this->assertNotSame($instance, $instance->labelAttributes([]));
         $this->assertNotSame($instance, $instance->labelClass(''));
-        $this->assertNotSame($instance, $instance->labelClosure(static fn (): string => ''));
         $this->assertNotSame($instance, $instance->labelContent(''));
         $this->assertNotSame($instance, $instance->labelFor(''));
         $this->assertNotSame($instance, $instance->notLabel());
