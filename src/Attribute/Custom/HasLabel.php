@@ -51,21 +51,6 @@ trait HasLabel
     }
 
     /**
-     *  Set a new label closure that will be invoked to obtain `HTML` content.
-     *
-     * @param Closure $value The label closure.
-     *
-     * @return static A new instance of the current class with the specified label closure.
-     */
-    public function labelClosure(Closure $value): static
-    {
-        $new = clone $this;
-        $new->labelClosure = $value;
-
-        return $new;
-    }
-
-    /**
      * Set the `HTML` label content.
      *
      * @param string|ElementInterface $values The `HTML` label content value.
