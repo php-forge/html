@@ -31,6 +31,7 @@ abstract class AbstractForm extends Block
     use Attribute\Input\HasName;
     use Attribute\Tag\CanBeNoValidate;
     use Attribute\Tag\HasAction;
+    use Attribute\Tag\HasEnctype;
     use Attribute\Tag\HasMethod;
 
     protected array $attributes = [];
