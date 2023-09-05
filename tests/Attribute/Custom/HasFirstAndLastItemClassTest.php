@@ -7,7 +7,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 use PHPForge\Html\Attribute\Custom\HasFirstAndLastItemClass;
 use PHPUnit\Framework\TestCase;
 
-final class HHasFirstAndLastItemClassTest extends TestCase
+final class HasFirstAndLastItemClassTest extends TestCase
 {
     public function testImmutablity(): void
     {
