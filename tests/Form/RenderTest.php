@@ -156,6 +156,17 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testNovalidate(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <form novalidate>
+            </form>
+            HTML,
+            Form::widget()->novalidate()->render(),
+        );
+    }
+
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(

@@ -6,8 +6,6 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Widget\ElementInterface;
 
 /**
  * Is used by widgets that implement container methods.
@@ -15,8 +13,6 @@ use PHPForge\Widget\ElementInterface;
 trait HasContainer
 {
     protected array $containerAttributes = [];
-    protected string $containerPrefix = '';
-    protected string $containerSuffix = '';
 
     /**
      * Enable or disable the container tag.
@@ -59,36 +55,6 @@ trait HasContainer
     {
         $new = clone $this;
         CssClass::add($new->containerAttributes, $value);
-
-        return $new;
-    }
-
-    /**
-     * Set the `HTML` container prefix content.
-     *
-     * @param string|ElementInterface ...$values The `HTML` container prefix content.
-     *
-     * @return static A new instance of the current class with the specified container prefix content.
-     */
-    public function containerPrefix(string|ElementInterface ...$values): static
-    {
-        $new = clone $this;
-        $new->containerPrefix = Encode::create()->santizeXSS(...$values);
-
-        return $new;
-    }
-
-    /**
-     * Set the `HTML` container suffix content.
-     *
-     * @param string|ElementInterface ...$values The `HTML` container suffix content.
-     *
-     * @return static A new instance of the current class with the specified container suffix content.
-     */
-    public function containerSuffix(string|ElementInterface ...$values): static
-    {
-        $new = clone $this;
-        $new->containerSuffix = Encode::create()->santizeXSS(...$values);
 
         return $new;
     }
