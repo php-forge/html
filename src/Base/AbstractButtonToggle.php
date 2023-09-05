@@ -53,6 +53,16 @@ abstract class AbstractButtonToggle extends Element
     }
 
     /**
+     * Set type toogle for dropdown component.
+     *
+     * @return static A new instance of the current class with the specified toggle for dropdown component.
+     */
+    public function dropdownLink(): static
+    {
+        return $this->type('dropdown-link');
+    }
+
+    /**
      * Set type toogle for menu component.
      *
      * @return static A new instance of the current class with the specified toggle for menu component.
@@ -82,9 +92,9 @@ abstract class AbstractButtonToggle extends Element
 
         return match ($this->type) {
             'alert' => $this->renderAlertToggle($attributes),
-            'dropdown' => $this->renderDropdownTogle($attributes),
             'menu' => $this->renderMenuToggle($attributes),
             'sidebar' => $this->renderSidebarToggle($attributes),
+            default => $this->renderDropdownTogle($attributes),
         };
     }
 
@@ -117,7 +127,7 @@ abstract class AbstractButtonToggle extends Element
 
     private function renderDropdownTogle(array $attributes): string
     {
-        $buttonToggle = ButtonLink::widget();
+        $buttonToggle = $this->type === 'dropdown' ? Button::widget() : ButtonLink::widget();
         $content = [
             PHP_EOL,
             Span::widget()->class('sr-only')->content('Toggle dropdown'),

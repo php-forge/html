@@ -175,10 +175,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a role="button" data-dropdown-toggle="id">
+            <button type="button" data-dropdown-toggle="id">
             <span class="sr-only">Toggle dropdown</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"/></svg>
-            </a>
+            </button>
             HTML,
             ButtonToggle::widget()->dropdown()->id('id')->render(),
         );
@@ -188,11 +188,36 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
+            <button type="button" data-dropdown-toggle="id">
+            test-content
+            </button>
+            HTML,
+            ButtonToggle::widget()->content('test-content')->dropdown()->id('id')->render(),
+        );
+    }
+
+    public function testToggleDropdownLink(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a role="button" data-dropdown-toggle="id">
+            <span class="sr-only">Toggle dropdown</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"><path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"/></svg>
+            </a>
+            HTML,
+            ButtonToggle::widget()->dropdownLink()->id('id')->render(),
+        );
+    }
+
+    public function testToggleDropdownLinkContent(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
             <a role="button" data-dropdown-toggle="id">
             test-content
             </a>
             HTML,
-            ButtonToggle::widget()->content('test-content')->dropdown()->id('id')->render(),
+            ButtonToggle::widget()->content('test-content')->dropdownLink()->id('id')->render(),
         );
     }
 
