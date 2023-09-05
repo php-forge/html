@@ -29,7 +29,7 @@ abstract class AbstractButtonToggle extends Element
     use Attribute\Input\HasName;
 
     protected array $attributes = [];
-    private string $type = 'menu';
+    protected string $type = 'menu';
 
     public function alert(): static
     {

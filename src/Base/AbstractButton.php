@@ -22,9 +22,9 @@ abstract class AbstractButton extends AbstractElement
     use Attribute\Input\HasType;
 
     protected array $attributes = ['type' => 'button'];
+    protected bool $container = false;
+    protected string $containerTag = 'div';
     protected string $tagName = 'button';
-    private bool $container = false;
-    private string $containerTag = 'div';
 
     /**
      * Set the button type to `submit`.

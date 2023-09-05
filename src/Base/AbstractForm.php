@@ -29,6 +29,7 @@ abstract class AbstractForm extends Block
     use Attribute\HasStyle;
     use Attribute\HasTitle;
     use Attribute\Input\HasName;
+    use Attribute\Tag\CanBeNoValidate;
     use Attribute\Tag\HasAction;
     use Attribute\Tag\HasMethod;
 

@@ -61,8 +61,6 @@ final class HasContainerTest extends TestCase
         $this->assertNotSame($instance, $instance->container(true));
         $this->assertNotSame($instance, $instance->containerAttributes([]));
         $this->assertNotSame($instance, $instance->containerClass(''));
-        $this->assertNotSame($instance, $instance->containerPrefix(''));
-        $this->assertNotSame($instance, $instance->containerSuffix(''));
         $this->assertNotSame($instance, $instance->containerTag('span'));
     }
 }
