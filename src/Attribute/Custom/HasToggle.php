@@ -24,10 +24,6 @@ trait HasToggle
     protected string $toggleClass = '';
     protected string $toggleContent = '';
     protected string $toggleId = '';
-
-    protected bool $toggleInPrefix = false;
-    protected bool $toggleInSuffix = false;
-
     protected string $toggleSvg = '';
     protected string $toggleType = 'button';
 
@@ -133,51 +129,6 @@ trait HasToggle
     {
         $new = clone $this;
         $new->toggleId = $value;
-
-        return $new;
-    }
-
-    /**
-     * Enable or disable the toggle in prefix.
-     *
-     * @param bool $value The toggle in prefix value.
-     *
-     * @return static A new instance of the current class with the specified toggle in prefix value.
-     */
-    public function toggleInPrefix(bool $value): static
-    {
-        $new = clone $this;
-        $new->toggleInPrefix = $value;
-
-        return $new;
-    }
-
-    /**
-     * Enable or disable the toggle in suffix.
-     *
-     * @param bool $value The toggle in suffix value.
-     *
-     * @return static A new instance of the current class with the specified toggle in suffix value.
-     */
-    public function toggleInSuffix(bool $value): static
-    {
-        $new = clone $this;
-        $new->toggleInSuffix = $value;
-
-        return $new;
-    }
-
-    /**
-     * Set the toggle on click event.
-     *
-     * @param string $value The toggle on click event.
-     *
-     * @return static A new instance of the current class with the specified toggle on click event.
-     */
-    public function toggleOnClick(string $value): static
-    {
-        $new = clone $this;
-        $new->toggleAttributes['onclick'] = $value;
 
         return $new;
     }
