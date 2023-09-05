@@ -45,12 +45,14 @@ trait HasToggle
     /**
      * Set the `HTML` attributes for the toggle.
      *
+     * @param array $values Attribute values indexed by attribute names.
+     *
      * @return static A new instance of the current class with the specified toggle attributes.
      */
-    public function toggleAttributes(array $value): static
+    public function toggleAttributes(array $values): static
     {
         $new = clone $this;
-        $new->toggleAttributes = array_merge($value, $new->toggleAttributes);
+        $new->toggleAttributes = array_merge($values, $new->toggleAttributes);
 
         return $new;
     }

@@ -27,6 +27,7 @@ abstract class AbstractSvg extends Element
     use Attribute\HasLang;
     use Attribute\HasTitle;
     use Attribute\Input\HasHeight;
+    use Attribute\Input\HasName;
     use Attribute\Input\HasWidth;
 
     protected array $attributes = [];
@@ -125,6 +126,7 @@ abstract class AbstractSvg extends Element
             default => Tag::widget()
                 ->attributes($this->attributes)
                 ->content(PHP_EOL, $this->content, PHP_EOL)
+                ->id($this->id)
                 ->tagName('svg')
                 ->render(),
         };
@@ -168,6 +170,7 @@ abstract class AbstractSvg extends Element
     {
         /** @psalm-var array<string, mixed> $attributes */
         $attributes = $this->attributes;
+        $attributes['id'] = $this->id;
 
         $svg = new DOMDocument();
 
@@ -175,7 +178,9 @@ abstract class AbstractSvg extends Element
 
         /** @psalm-var mixed $value */
         foreach ($attributes as $name => $value) {
-            $renderedSvg->setAttribute($name, (string) $value);
+            if ($name !== '' && $value !== '' && $value !== null) {
+                $renderedSvg->setAttribute($name, (string) $value);
+            }
         }
 
         return $svg->saveXML($renderedSvg);
