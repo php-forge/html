@@ -111,6 +111,17 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testEnctype(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <form enctype="multipart/form-data">
+            </form>
+            HTML,
+            Form::widget()->enctype('multipart/form-data')->render(),
+        );
+    }
+
     public function testEnd(): void
     {
         Form::widget()->begin();
