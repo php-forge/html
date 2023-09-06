@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Attribute\Custom;
+namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Custom\HasLi;
+use PHPForge\Html\Attribute\Component\HasLi;
 use PHPUnit\Framework\TestCase;
 
 final class HasLiTest extends TestCase

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Attribute\Custom;
+namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Custom\HasDisabledClass;
+use PHPForge\Html\Attribute\Component\HasDisabledClass;
 use PHPUnit\Framework\TestCase;
 
 final class HasDisabledClassTest extends TestCase

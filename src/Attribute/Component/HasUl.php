@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Attribute\Custom;
+namespace PHPForge\Html\Attribute\Component;
 
 use PHPForge\Html\Helper\CssClass;
 
