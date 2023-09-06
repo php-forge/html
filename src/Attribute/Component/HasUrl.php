@@ -11,7 +11,7 @@ use Closure;
  */
 trait HasUrl
 {
-    protected Closure $urlCreator;
+    protected Closure|null $urlCreator = null;
     protected array $urlQueryParameters = [];
     protected string $urlPath = '';
 
