@@ -14,21 +14,21 @@ final class HasLiTest extends TestCase
         $instance = new class() {
             use HasLi;
 
-            public function getLiAttributes(): string
+            public function getLiClass(): string
             {
                 return $this->liAttributes['class'] ?? '';
             }
         };
 
-        $this->assertEmpty($instance->getLiAttributes());
+        $this->assertEmpty($instance->getLiClass());
 
         $instance = $instance->liClass('foo');
 
-        $this->assertSame('foo', $instance->getLiAttributes());
+        $this->assertSame('foo', $instance->getLiClass());
 
         $instance = $instance->liClass('bar');
 
-        $this->assertSame('foo bar', $instance->getLiAttributes());
+        $this->assertSame('foo bar', $instance->getLiClass());
     }
 
     public function testImmutablity(): void
