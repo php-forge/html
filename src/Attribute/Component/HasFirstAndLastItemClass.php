@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Attribute\Custom;
+namespace PHPForge\Html\Attribute\Component;
 
 /**
  * Is used by widgets that implement the first and last item class method.

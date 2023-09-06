@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Attribute\Custom;
+namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Custom\HasActiveClass;
+use PHPForge\Html\Attribute\Component\HasActiveClass;
 use PHPUnit\Framework\TestCase;
 
 final class HasActiveClassTest extends TestCase

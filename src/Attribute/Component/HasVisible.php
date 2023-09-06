@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Attribute\Custom;
+namespace PHPForge\Html\Attribute\Component;
 
 /**
  * Is used by widgets which implement the visible method.

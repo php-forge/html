@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Attribute\Custom;
+namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Custom\HasToggle;
+use PHPForge\Html\Attribute\Component\HasToggle;
 use PHPForge\Html\Span;
 use PHPForge\Html\Svg;
 use PHPForge\Support\Assert;
