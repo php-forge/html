@@ -78,9 +78,9 @@ final class Encode
     /**
      * Creates a new instance of Encode.
      *
-     * @return self New instance of Encode.
+     * @return static New instance of Encode.
      */
-    public static function create(): self
+    public static function create(): static
     {
         return new self();
     }

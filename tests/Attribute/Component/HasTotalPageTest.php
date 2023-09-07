@@ -15,6 +15,6 @@ final class HasTotalPageTest extends TestCase
             use HasTotalPage;
         };
 
-        $this->assertNotSame($instance, $instance->totalPages(1));
+        $this->assertNotSame($instance, $instance->totalPage(1));
     }
 }

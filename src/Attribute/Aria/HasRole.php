@@ -19,7 +19,7 @@ trait HasRole
      *
      * @link https://www.w3.org/TR/wai-aria-1.1/#role_definitions
      */
-    public function role(string $value): self
+    public function role(string $value): static
     {
         $new = clone $this;
         $new->attributes['role'] = $value;

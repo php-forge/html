@@ -22,7 +22,7 @@ trait HasUrl
      *
      * @return static A new instance of the current class with the specified url creator.
      */
-    public function urlCreator(Closure $value): self
+    public function urlCreator(Closure $value): static
     {
         $new = clone $this;
         $new->urlCreator = $value;

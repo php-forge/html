@@ -38,7 +38,7 @@ abstract class AbstractSvg extends Element
      *
      * @param string $value The file path.
      */
-    public function filePath(string $value): self
+    public function filePath(string $value): static
     {
         $new = clone $this;
         $new->filePath = $value;
@@ -51,7 +51,7 @@ abstract class AbstractSvg extends Element
      *
      * @param string $value The fill value.
      */
-    public function fill(string $value): self
+    public function fill(string $value): static
     {
         $new = clone $this;
         $new->attributes['fill'] = $value;
@@ -64,7 +64,7 @@ abstract class AbstractSvg extends Element
      *
      * @param string $value The stroke value.
      */
-    public function stroke(string $value): self
+    public function stroke(string $value): static
     {
         $new = clone $this;
         $new->attributes['stroke'] = $value;
@@ -77,7 +77,7 @@ abstract class AbstractSvg extends Element
      *
      * @param string $value The viewBox value.
      */
-    public function viewBox(string $value): self
+    public function viewBox(string $value): static
     {
         $new = clone $this;
         $new->attributes['viewBox'] = $value;
@@ -90,7 +90,7 @@ abstract class AbstractSvg extends Element
      *
      * @param string $value The xmlns value.
      */
-    public function xmlns(string $value): self
+    public function xmlns(string $value): static
     {
         $new = clone $this;
         $new->attributes['xmlns'] = $value;
