@@ -15,7 +15,7 @@ final class HasPageTest extends TestCase
             use HasPage;
         };
 
-        $this->assertNotSame($instance, $instance->currentPage(1));
+        $this->assertNotSame($instance, $instance->page(1));
         $this->assertNotSame($instance, $instance->pageName(''));
     }
 }
