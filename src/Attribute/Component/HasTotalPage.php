@@ -9,17 +9,19 @@ namespace PHPForge\Html\Attribute\Component;
  */
 trait HasTotalPage
 {
-    protected int $totalPages = 1;
+    protected int $totalPage = 1;
 
     /**
-     * Set the total pages.
+     * Set the total page.
      *
-     * @param int $value The total pages.
+     * @param int $value The total page.
+     *
+     * @return static A new instance of the current class with the specified total page.
      */
-    public function totalPages(int $value): static
+    public function totalPage(int $value): static
     {
         $new = clone $this;
-        $new->totalPages = $value;
+        $new->totalPage = $value;
 
         return $new;
     }
