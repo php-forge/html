@@ -9,7 +9,7 @@ namespace PHPForge\Html\Attribute\Component;
  */
 trait HasPage
 {
-    protected int $currentPage = 1;
+    protected int $page = 1;
     protected string $pageName = 'page';
 
     /**
@@ -19,10 +19,10 @@ trait HasPage
      *
      * @return static A new instance of the current class with the specified current page.
      */
-    public function currentPage(int $value): static
+    public function page(int $value): static
     {
         $new = clone $this;
-        $new->currentPage = $value;
+        $new->page = $value;
 
         return $new;
     }
