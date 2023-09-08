@@ -13,11 +13,12 @@ use PHPForge\Widget\Element;
 use function trim;
 
 /**
- * Provides a foundation for creating HTML `<ul>` elements with various attributes and content.
+ * Provides a foundation for creating HTML `<ul>`, `<ol>` elements with various attributes and content.
  */
-abstract class AbstractUl extends Element
+abstract class AbstractList extends Element
 {
     use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasTagName;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasLang;
@@ -29,6 +30,7 @@ abstract class AbstractUl extends Element
 
     protected array $attributes = [];
     protected string $content = '';
+    protected string $tagName = '';
 
     /**
      * Set the `HTML` content value.
@@ -62,7 +64,7 @@ abstract class AbstractUl extends Element
             ->attributes($this->attributes)
             ->content($this->content)
             ->id($this->id)
-            ->tagName('ul')
+            ->tagName($this->tagName)
             ->render();
     }
 }

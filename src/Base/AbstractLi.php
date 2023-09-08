@@ -6,6 +6,7 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Ol;
 use PHPForge\Html\Tag;
 use PHPForge\Html\Ul;
 use PHPForge\Widget\Element;
@@ -32,11 +33,11 @@ abstract class AbstractLi extends Element
     /**
      * Set the `HTML` content value.
      *
-     * @param string|Ul|self ...$values The `HTML` content value.
+     * @param string|Ol|Ul|self ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */
-    public function content(string|Ul|self ...$values): static
+    public function content(string|Ol|Ul|self ...$values): static
     {
         $content = '';
 
