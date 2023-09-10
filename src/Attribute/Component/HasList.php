@@ -18,6 +18,7 @@ trait HasList
     protected array $listAttributes = [];
     protected bool $listContainer = false;
     protected array $listContainerAttributes = [];
+    protected string $listType = 'ul';
 
     /**
      * Set the `HTML` attributes for the `<ul>` or `<ol>` tag.
@@ -108,7 +109,7 @@ trait HasList
         }
 
         $new = clone $this;
-        $new->listAttributes['type'] = $value;
+        $new->listType = $value;
 
         return $new;
     }
