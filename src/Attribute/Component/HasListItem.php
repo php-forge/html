@@ -14,6 +14,16 @@ trait HasListItem
     protected array $listItemAttributes = [];
 
     /**
+     * Get the `HTML` attributes for tag `<li>`.
+     *
+     * @return array Attribute values indexed by attribute names.
+     */
+    public function getListItemAttributes(): array
+    {
+        return $this->listItemAttributes;
+    }
+
+    /**
      * Set the `HTML` attributes for tag `<li>`.
      *
      * @param array $values Attribute values indexed by attribute names.
