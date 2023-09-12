@@ -7,11 +7,11 @@ namespace PHPForge\Html\Attribute\Component;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Is used by widgets that implement li methods.
+ * Is used by widgets that implement list item methods.
  */
-trait HasLi
+trait HasListItem
 {
-    protected array $liAttributes = [];
+    protected array $listItemAttributes = [];
 
     /**
      * Set the `HTML` attributes for tag `<li>`.
@@ -20,10 +20,10 @@ trait HasLi
      *
      * @return static A new instance of the current class with the specified attributes for tag `<li>`.
      */
-    public function liAttributes(array $values): static
+    public function listItemAttributes(array $values): static
     {
         $new = clone $this;
-        $new->liAttributes = $values;
+        $new->listItemAttributes = $values;
 
         return $new;
     }
@@ -35,10 +35,10 @@ trait HasLi
      *
      * @return static A new instance of the current class with the specified class for tag `<li>`.
      */
-    public function liClass(string $value): static
+    public function listItemClass(string $value): static
     {
         $new = clone $this;
-        CssClass::add($new->liAttributes, $value);
+        CssClass::add($new->listItemAttributes, $value);
 
         return $new;
     }
