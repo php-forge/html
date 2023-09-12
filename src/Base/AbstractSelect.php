@@ -24,7 +24,6 @@ use function is_object;
 abstract class AbstractSelect extends Element
 {
     use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasItems;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\HasClass;
@@ -34,6 +33,8 @@ abstract class AbstractSelect extends Element
     use Attribute\Input\HasSize;
     use Attribute\Input\HasValue;
     use Attribute\Tag\HasGroup;
+    use Attribute\Tag\HasItems;
+    use Attribute\Tag\HasItemsAttributes;
     use Attribute\Tag\HasPrompt;
 
     protected array $attributes = [];

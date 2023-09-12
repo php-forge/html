@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Attribute\Custom;
+namespace PHPForge\Html\Attribute\Tag;
 
 /**
  * Is used by widgets that implement the items methods.
@@ -10,7 +10,6 @@ namespace PHPForge\Html\Attribute\Custom;
 trait HasItems
 {
     protected array $items = [];
-    protected array $itemsAttributes = [];
 
     /**
      * Set the items.
@@ -57,21 +56,6 @@ trait HasItems
     {
         $new = clone $this;
         $new->items = $value;
-
-        return $new;
-    }
-
-    /**
-     * Set the `HTML` attributes for the items.
-     *
-     * @param array $values Attribute values indexed by attribute names.
-     *
-     * @return static A new instance of the current class with the specified items attributes.
-     */
-    public function itemsAttributes(array $values = []): static
-    {
-        $new = clone $this;
-        $new->itemsAttributes = $values;
 
         return $new;
     }

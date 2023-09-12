@@ -9,18 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasClassTest extends TestCase
 {
-    public function testImmutablity(): void
-    {
-        $instance = new class() {
-            use HasClass;
-
-            protected array $attributes = [];
-        };
-
-        $this->assertNotSame($instance, $instance->class(''));
-    }
-
-    public function testRender(): void
+    public function testClass(): void
     {
         $instance = new class() {
             use HasClass;
@@ -42,5 +31,16 @@ final class HasClassTest extends TestCase
         $instance = $instance->class('bar');
 
         $this->assertSame('foo bar', $instance->getClass());
+    }
+    
+    public function testImmutablity(): void
+    {
+        $instance = new class() {
+            use HasClass;
+
+            protected array $attributes = [];
+        };
+
+        $this->assertNotSame($instance, $instance->class(''));
     }
 }
