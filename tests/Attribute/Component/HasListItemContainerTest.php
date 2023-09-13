@@ -53,7 +53,7 @@ final class HasListItemContainerTest extends TestCase
         $instance = new class() {
             use HasListItemContainer;
 
-            protected string $containerTag = 'div';
+            protected string $listContainerTag = 'div';
         };
 
         $this->assertNotSame($instance, $instance->listItemContainer(true));
