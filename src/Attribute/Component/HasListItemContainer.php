@@ -40,7 +40,7 @@ trait HasListItemContainer
     public function listItemContainerAttributes(array $values = []): static
     {
         $new = clone $this;
-        $new->listItemcontainerAttributes = $values;
+        $new->listItemContainerAttributes = $values;
 
         return $new;
     }
@@ -76,7 +76,7 @@ trait HasListItemContainer
         }
 
         $new = clone $this;
-        $new->listItemcontainerTag = $value;
+        $new->listItemContainerTag = $value;
 
         return $new;
     }
