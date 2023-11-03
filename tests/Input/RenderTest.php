@@ -32,8 +32,8 @@ final class RenderTest extends TestCase
     public function testAttributes(): void
     {
         $this->assertSame(
-            '<input class="test-class">',
-            Input::widget()->attributes(['class' => 'test-class'])->render(),
+            '<input class="test-class" id="test-id">',
+            Input::widget()->attributes(['class' => 'test-class', 'id' => 'test-id'])->render(),
         );
     }
 
