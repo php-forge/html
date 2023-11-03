@@ -181,4 +181,20 @@ final class RenderTest extends TestCase
             Input::widget()->type('radio')->render(),
         );
     }
+
+    public function testValue(): void
+    {
+        $this->assertSame(
+            '<input value="test-value">',
+            Input::widget()->value('test-value')->render(),
+        );
+    }
+
+    public function testValueEmpty(): void
+    {
+        $this->assertSame(
+            '<input>',
+            Input::widget()->value('')->render(),
+        );
+    }
 }
