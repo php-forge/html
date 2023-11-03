@@ -24,7 +24,7 @@ trait HasToggle
     protected string $toggleClass = '';
     protected string $toggleContent = '';
     protected string $toggleId = '';
-    protected string $toggleSvg = '';
+    protected string|null $toggleSvg = '';
     protected string $toggleType = 'button';
 
     /**
@@ -138,14 +138,14 @@ trait HasToggle
     /**
      * Set the svg for the toggle.
      *
-     * @param string|ElementInterface $value The svg for the toggle.
+     * @param string|ElementInterface|null $value The svg for the toggle.
      *
      * @return static A new instance of the current class with the specified svg for the toggle.
      */
-    public function toggleSvg(string|ElementInterface $value): static
+    public function toggleSvg(string|ElementInterface|null $value): static
     {
         $new = clone $this;
-        $new->toggleSvg = Encode::create()->santizeXSS($value);
+        $new->toggleSvg = $value !== null ? Encode::create()->santizeXSS($value) : null;
 
         return $new;
     }
