@@ -15,7 +15,7 @@ final class HasActiveTest extends TestCase
             use HasActive;
         };
 
-        $this->assertNotSame($instance, $instance->active());
+        $this->assertNotSame($instance, $instance->active(true));
     }
 
     public function testIsActive(): void
@@ -25,7 +25,7 @@ final class HasActiveTest extends TestCase
         };
 
         $this->assertFalse($instance->isActive());
-        $this->assertTrue($instance->active()->isActive());
+        $this->assertTrue($instance->active(true)->isActive());
     }
 
     public function testRender(): void
@@ -40,6 +40,6 @@ final class HasActiveTest extends TestCase
         };
 
         $this->assertFalse($instance->getActive());
-        $this->assertTrue($instance->active()->getActive());
+        $this->assertTrue($instance->active(true)->getActive());
     }
 }

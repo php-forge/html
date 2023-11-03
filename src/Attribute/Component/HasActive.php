@@ -14,12 +14,14 @@ trait HasActive
     /**
      * Set the active state.
      *
+     * @param bool $value Whether the menu item is active.
+     *
      * @return static A new instance of the current class with the specified active state.
      */
-    public function active(): static
+    public function active(bool $value): static
     {
         $new = clone $this;
-        $new->active = true;
+        $new->active = $value;
 
         return $new;
     }
