@@ -94,13 +94,14 @@ abstract class AbstractButtonToggle extends Element
             'alert' => $this->renderAlertToggle($attributes),
             'menu' => $this->renderMenuToggle($attributes),
             'sidebar' => $this->renderSidebarToggle($attributes),
-            default => $this->renderDropdownTogle($attributes),
+            default => $this->renderDropdownToggle($attributes),
         };
     }
 
     private function renderAlertToggle(array $attributes): string
     {
         $buttonToggle = Button::widget();
+
         $content = [
             PHP_EOL,
             Span::widget()->class('sr-only')->content('Close'),
@@ -108,6 +109,14 @@ abstract class AbstractButtonToggle extends Element
             Svg::widget()->filePath(__DIR__ . '/Svg/circle-close.svg'),
             PHP_EOL,
         ];
+
+        if (
+            isset($attributes['class']) &&
+            is_string($attributes['class']) &&
+            strpos($attributes['class'], 'btn-close') !== false
+        ) {
+            $content = [];
+        }
 
         $buttonToggle = match ($this->content) {
             '' => $buttonToggle->content(...$content),
@@ -125,7 +134,7 @@ abstract class AbstractButtonToggle extends Element
             ->render();
     }
 
-    private function renderDropdownTogle(array $attributes): string
+    private function renderDropdownToggle(array $attributes): string
     {
         $buttonToggle = $this->type === 'dropdown' ? Button::widget() : ButtonLink::widget();
         $content = [
