@@ -32,8 +32,8 @@ final class RenderTest extends TestCase
     public function testAttributes(): void
     {
         $this->assertSame(
-            '<input class="test-class">',
-            Input::widget()->attributes(['class' => 'test-class'])->render(),
+            '<input class="test-class" id="test-id">',
+            Input::widget()->attributes(['class' => 'test-class', 'id' => 'test-id'])->render(),
         );
     }
 
@@ -179,6 +179,22 @@ final class RenderTest extends TestCase
         $this->assertSame(
             '<input type="radio">',
             Input::widget()->type('radio')->render(),
+        );
+    }
+
+    public function testValue(): void
+    {
+        $this->assertSame(
+            '<input value="test-value">',
+            Input::widget()->value('test-value')->render(),
+        );
+    }
+
+    public function testValueEmpty(): void
+    {
+        $this->assertSame(
+            '<input>',
+            Input::widget()->value('')->render(),
         );
     }
 }

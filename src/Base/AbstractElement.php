@@ -38,7 +38,10 @@ abstract class AbstractElement extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $attributes['id'] = $this->id;
+
+        if (array_key_exists('id', $attributes) === false) {
+            $attributes['id'] = $this->id;
+        }
 
         /** @var string|null $type */
         $type = $this->attributes['type'] ?? null;
