@@ -130,6 +130,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testToggleAlertBootstrap5(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button class="btn-close" type="button" aria-label="Close" data-dismiss-target="id"></button>
+            HTML,
+            ButtonToggle::widget()->alert()->id('id')->class('btn-close')->render(),
+        );
+    }
+
     public function testToggleAlertContent(): void
     {
         Assert::equalsWithoutLE(
