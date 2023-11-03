@@ -19,9 +19,9 @@ trait HasStep
      *
      * @param int|string $value The value granularity of the element’s value.
      *
-     * @return static A new instance of the current class with the specified step value.
-     *
      * @throws InvalidArgumentException If the value is not numeric.
+     *
+     * @return static A new instance of the current class with the specified step value.
      */
     public function step(int|string $value): static
     {

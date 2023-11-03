@@ -116,7 +116,7 @@ abstract class AbstractForm extends Block
                         ->render();
                 } else {
                     $hiddenInputs[] = Input::widget()->attributes(['name' => urldecode($pair)])->type('hidden')->render();
-                };
+                }
             }
 
             $this->attributes['action'] = substr($action, 0, $pos);

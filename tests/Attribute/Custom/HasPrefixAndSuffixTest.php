@@ -13,7 +13,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
         };
 
@@ -31,7 +31,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefix(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             public function getPrefix(): string
@@ -47,7 +47,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefixContainerClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             public function getPrefixContainerClass(): string
@@ -69,7 +69,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefixContainerTagException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
         };
 
@@ -81,7 +81,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testPrefixWithXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             public function getPrefix(): string
@@ -92,12 +92,12 @@ final class HasPrefixAndSuffixTest extends TestCase
 
         $instance = $instance->prefix(Span::widget(), "<script>alert('Hack');</script>");
 
-        $this->assertSame("<span></span>", $instance->getPrefix());
+        $this->assertSame('<span></span>', $instance->getPrefix());
     }
 
     public function testSuffix(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             public function getSuffix(): string
@@ -113,7 +113,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffixContainerClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             public function getSuffixContainerClass(): string
@@ -135,7 +135,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffixContainerTagException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
         };
 
@@ -147,7 +147,7 @@ final class HasPrefixAndSuffixTest extends TestCase
 
     public function testSuffixWithXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffix;
 
             public function getSuffix(): string
@@ -158,6 +158,6 @@ final class HasPrefixAndSuffixTest extends TestCase
 
         $instance = $instance->suffix("<script>alert('Hack');</script>", Span::widget());
 
-        $this->assertSame("<span></span>", $instance->getSuffix());
+        $this->assertSame('<span></span>', $instance->getSuffix());
     }
 }

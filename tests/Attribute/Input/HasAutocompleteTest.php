@@ -12,7 +12,7 @@ final class HasAutocompleteTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasAutocomplete;
 
             protected array $attributes = [];
@@ -26,7 +26,7 @@ final class HasAutocompleteTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasAutocomplete;
 
             protected array $attributes = [];
@@ -37,7 +37,7 @@ final class HasAutocompleteTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasAutocomplete;
 
             protected array $attributes = [];

@@ -11,7 +11,7 @@ final class HasUrlTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasUrl;
         };
 

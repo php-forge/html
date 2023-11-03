@@ -18,7 +18,7 @@ trait HasPrefixAndSuffixItems
     /**
      * Set the `HTML` prefix items content.
      *
-     * @param string|ElementInterface ...$values The `HTML` prefix item content.
+     * @param ElementInterface|string ...$values The `HTML` prefix item content.
      *
      * @return static A new instance of the current class with the specified prefix item content.
      */
@@ -33,7 +33,7 @@ trait HasPrefixAndSuffixItems
     /**
      * Set the `HTML` suffix items content.
      *
-     * @param string|ElementInterface ...$values The `HTML` suffix item content.
+     * @param ElementInterface|string ...$values The `HTML` suffix item content.
      *
      * @return static A new instance of the current class with the specified suffix item content.
      */

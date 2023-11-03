@@ -57,7 +57,7 @@ final class RenderTest extends TestCase
                 ->render(),
         );
     }
-    
+
     public function testElement(): void
     {
         Assert::equalsWithoutLE(

@@ -18,7 +18,7 @@ trait HasContainerPrefixAndSuffix
     /**
      * Set the `HTML` container prefix content.
      *
-     * @param string|ElementInterface ...$values The `HTML` container prefix content.
+     * @param ElementInterface|string ...$values The `HTML` container prefix content.
      *
      * @return static A new instance of the current class with the specified container prefix content.
      */
@@ -33,7 +33,7 @@ trait HasContainerPrefixAndSuffix
     /**
      * Set the `HTML` container suffix content.
      *
-     * @param string|ElementInterface ...$values The `HTML` container suffix content.
+     * @param ElementInterface|string ...$values The `HTML` container suffix content.
      *
      * @return static A new instance of the current class with the specified container suffix content.
      */

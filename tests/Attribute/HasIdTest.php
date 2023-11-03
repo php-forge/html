@@ -11,7 +11,7 @@ final class HasIdTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasId;
 
             protected array $attributes = [];
@@ -22,7 +22,7 @@ final class HasIdTest extends TestCase
 
     public function testGenerateId(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasId;
 
             protected array $attributes = [];
@@ -37,7 +37,7 @@ final class HasIdTest extends TestCase
 
     public function testGenerateIdWithId(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasId;
 
             protected array $attributes = [];
@@ -51,7 +51,7 @@ final class HasIdTest extends TestCase
 
     public function testGetId(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasId;
 
             protected array $attributes = [];

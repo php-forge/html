@@ -12,7 +12,7 @@ final class HasDirnameTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasDirname;
 
             protected array $attributes = [];
@@ -26,7 +26,7 @@ final class HasDirnameTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasDirname;
 
             protected array $attributes = [];

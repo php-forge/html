@@ -11,7 +11,7 @@ final class HasBrandTest extends TestCase
 {
     public function testBrandContainerClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasBrand;
 
             public function getBrandContainerAttributes(): array
@@ -32,7 +32,7 @@ final class HasBrandTest extends TestCase
 
     public function testBrandLinkClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasBrand;
 
             public function getBrandLinkAttributes(): array
@@ -47,7 +47,7 @@ final class HasBrandTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasBrand;
         };
 

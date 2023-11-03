@@ -75,7 +75,7 @@ trait HasToggle
     /**
      * Set the `HTML` content for the toggle.
      *
-     * @param string|ElementInterface ...$values The `HTML` toggle button content.
+     * @param ElementInterface|string ...$values The `HTML` toggle button content.
      *
      * @return static A new instance of the current class with the specified toggle content.
      */
@@ -138,7 +138,7 @@ trait HasToggle
     /**
      * Set the svg for the toggle.
      *
-     * @param string|ElementInterface|null $value The svg for the toggle.
+     * @param ElementInterface|string|null $value The svg for the toggle.
      *
      * @return static A new instance of the current class with the specified svg for the toggle.
      */

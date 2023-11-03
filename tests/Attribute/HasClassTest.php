@@ -11,7 +11,7 @@ final class HasClassTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasClass;
 
             protected array $attributes = [];
@@ -32,10 +32,10 @@ final class HasClassTest extends TestCase
 
         $this->assertSame('foo bar', $instance->getClass());
     }
-    
+
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasClass;
 
             protected array $attributes = [];

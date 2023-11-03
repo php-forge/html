@@ -11,7 +11,7 @@ final class HasSummaryTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasSummary;
 
             public function getSummaryClass(): string
@@ -33,7 +33,7 @@ final class HasSummaryTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasSummary;
         };
 

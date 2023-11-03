@@ -12,7 +12,7 @@ final class HasCsrfTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasCsrf;
         };
 
@@ -21,7 +21,7 @@ final class HasCsrfTest extends TestCase
 
     public function testStringable(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasCsrf;
 
             public function getCsrfToken(): string
@@ -31,7 +31,7 @@ final class HasCsrfTest extends TestCase
         };
 
         $instance = $instance->csrf(
-            new class() implements Stringable {
+            new class () implements Stringable {
                 public function __toString(): string
                 {
                     return 'csrf_token';
@@ -44,7 +44,7 @@ final class HasCsrfTest extends TestCase
 
     public function testValue(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasCsrf;
 
             public function getCsrfName(): string

@@ -11,7 +11,7 @@ final class HasIconTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasIcon;
 
             public function getIconAttributes(): array
@@ -33,7 +33,7 @@ final class HasIconTest extends TestCase
 
     public function testContainerClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasIcon;
 
             public function getIconContainerAttributes(): array
@@ -55,7 +55,7 @@ final class HasIconTest extends TestCase
 
     public function testGetIconAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasIcon;
         };
 
@@ -68,7 +68,7 @@ final class HasIconTest extends TestCase
 
     public function testGetIconContainerAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasIcon;
         };
 
@@ -81,7 +81,7 @@ final class HasIconTest extends TestCase
 
     public function testGetIconText(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasIcon;
         };
 
@@ -94,7 +94,7 @@ final class HasIconTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasIcon;
         };
 

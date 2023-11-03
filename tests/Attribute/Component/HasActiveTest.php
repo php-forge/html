@@ -11,7 +11,7 @@ final class HasActiveTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasActive;
         };
 
@@ -20,7 +20,7 @@ final class HasActiveTest extends TestCase
 
     public function testIsActive(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasActive;
         };
 
@@ -30,7 +30,7 @@ final class HasActiveTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasActive;
 
             public function getActive(): bool

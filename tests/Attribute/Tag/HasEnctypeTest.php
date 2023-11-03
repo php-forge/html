@@ -12,7 +12,7 @@ final class HasEnctypeTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasEnctype;
 
             public array $attributes = [];
@@ -28,7 +28,7 @@ final class HasEnctypeTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasEnctype;
 
             public array $attributes = [];
@@ -39,7 +39,7 @@ final class HasEnctypeTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasEnctype;
 
             public array $attributes = [];

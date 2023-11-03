@@ -11,7 +11,7 @@ final class HasListItemTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasListItem;
 
             public function getListItemClass(): string
@@ -33,7 +33,7 @@ final class HasListItemTest extends TestCase
 
     public function testGetListItemAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasListItem;
         };
 
@@ -46,7 +46,7 @@ final class HasListItemTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasListItem;
         };
 

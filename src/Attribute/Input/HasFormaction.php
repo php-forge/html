@@ -16,9 +16,9 @@ trait HasFormaction
      *
      * @param string $value The form-submission action.
      *
-     * @return static A new instance of the current class with the specified formaction value.
-     *
      * @throws InvalidArgumentException If the provided form action value is empty.
+     *
+     * @return static A new instance of the current class with the specified formaction value.
      */
     public function formaction(string $value): static
     {

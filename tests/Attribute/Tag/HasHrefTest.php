@@ -11,7 +11,7 @@ final class HasHrefTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasHref;
 
             protected array $attributes = [];

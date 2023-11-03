@@ -11,7 +11,7 @@ final class HasItemsAttributesTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasItemsAttributes;
 
             protected array $attributes = [];
@@ -35,7 +35,7 @@ final class HasItemsAttributesTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasItemsAttributes;
         };
 

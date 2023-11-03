@@ -11,7 +11,7 @@ final class HasActivateItemsTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasActivateItems;
         };
 

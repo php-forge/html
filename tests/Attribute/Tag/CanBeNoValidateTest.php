@@ -11,7 +11,7 @@ final class CanBeNoValidateTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use TagCanBeNoValidate;
         };
 
@@ -20,7 +20,7 @@ final class CanBeNoValidateTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use TagCanBeNoValidate;
 
             public array $attributes = [];
