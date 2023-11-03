@@ -133,6 +133,7 @@ abstract class AbstractButtonToggle extends Element
             )
             ->render();
     }
+
     private function renderDropdownToggle(array $attributes): string
     {
         $buttonToggle = $this->type === 'dropdown' ? Button::widget() : ButtonLink::widget();
