@@ -22,9 +22,9 @@ trait HasCrossorigin
      *
      * @param string $value The crossorigin value.
      *
-     * @return static A new instance of the current class with the specified crossorigin value.
-     *
      * @throws InvalidArgumentException If the value is not one of: "anonymous", "use-credentials".
+     *
+     * @return static A new instance of the current class with the specified crossorigin value.
      *
      * @link https://html.spec.whatwg.org/multipage/urls-and-fetching.html#cors-settings-attributes
      */

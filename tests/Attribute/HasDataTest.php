@@ -12,7 +12,7 @@ final class HasDataTest extends TestCase
 {
     public function testClosure(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasData;
 
             protected array $attributes = [];
@@ -36,7 +36,7 @@ final class HasDataTest extends TestCase
             'The data attribute key must be a string and the value must be a string or a Closure.',
         );
 
-        $instance = new class() {
+        $instance = new class () {
             use HasData;
 
             protected array $attributes = [];
@@ -52,7 +52,7 @@ final class HasDataTest extends TestCase
             'The data attribute key must be a string and the value must be a string or a Closure.',
         );
 
-        $instance = new class() {
+        $instance = new class () {
             use HasData;
 
             protected array $attributes = [];
@@ -63,7 +63,7 @@ final class HasDataTest extends TestCase
 
     public function testImmutability(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasData;
 
             protected array $attributes = [];

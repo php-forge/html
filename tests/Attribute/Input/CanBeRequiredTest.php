@@ -11,7 +11,7 @@ final class CanBeRequiredTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use CanBeRequired;
 
             protected array $attributes = [];
@@ -22,7 +22,7 @@ final class CanBeRequiredTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use CanBeRequired;
 
             protected array $attributes = [];

@@ -20,11 +20,11 @@ trait HasRel
      *
      * @param string $value The relationship of the linked URL as space-separated link types.
      *
-     * @return static A new instance of the current class with the specified rel value.
-     *
      * @throws InvalidArgumentException If the value is not one of the allowed values. Allowed values are:
      * `alternate`, `author`, `bookmark`, `help`, `icon`, `license`, `next`, `nofollow`, `noopener`, `noreferrer`,
      * `pingback`, `preconnect`, `prefetch`, `preload`, `prerender`, `prev`, `search`, `sidebar`, `stylesheet`, `tag`.
+     *
+     * @return static A new instance of the current class with the specified rel value.
      *
      * @link https://html.spec.whatwg.org/multipage/links.html#attr-hyperlink-rel
      */

@@ -65,9 +65,9 @@ trait HasListItemContainer
      *
      * @param string $value The tag name for the container element for list items.
      *
-     * @return static A new instance of the current class with the specified container tag for list items.
-     *
      * @throws InvalidArgumentException If the container tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified container tag for list items.
      */
     public function listItemContainerTag(string $value): static
     {

@@ -21,10 +21,10 @@ trait HasFormmethod
      *
      * @param string $value The HTTP method with which a UA is meant to associate this element for form submission.
      *
-     * @return static A new instance of the current class with the specified formmethod value.
-     *
      * @throws InvalidArgumentException If the provided formmethod value is not one of the following values:
      * "get", "post".
+     *
+     * @return static A new instance of the current class with the specified formmethod value.
      */
     public function formmethod(string $value): static
     {

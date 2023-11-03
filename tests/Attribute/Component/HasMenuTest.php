@@ -11,7 +11,7 @@ final class HasMenuTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasMenu;
 
             public function getMenuClass(): string
@@ -33,7 +33,7 @@ final class HasMenuTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasMenu;
         };
 

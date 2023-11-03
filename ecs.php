@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
+use PhpCsFixer\Fixer\ClassNotation\ClassDefinitionFixer;
+use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
+use PhpCsFixer\Fixer\ClassNotation\OrderedTraitsFixer;
 use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
-use PhpCsFixer\Fixer\ClassNotation\OrderedTraitsFixer;
-use PhpCsFixer\Fixer\ClassNotation\OrderedClassElementsFixer;
 
 return function (ECSConfig $ecsConfig): void {
     $ecsConfig->paths(
@@ -34,5 +35,13 @@ return function (ECSConfig $ecsConfig): void {
             SetList::COMMENTS,
             SetList::PSR_12,
         ]
+    );
+
+    // this way configures a rule
+    $ecsConfig->ruleWithConfiguration(
+        ClassDefinitionFixer::class,
+        [
+            'space_before_parenthesis' => true,
+        ],
     );
 };

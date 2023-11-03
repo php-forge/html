@@ -29,11 +29,10 @@ abstract class AbstractLi extends Element
     protected array $attributes = [];
     protected string $content = '';
 
-
     /**
      * Set the `HTML` content value.
      *
-     * @param string|Ol|Ul|self ...$values The `HTML` content value.
+     * @param Ol|self|string|Ul ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */

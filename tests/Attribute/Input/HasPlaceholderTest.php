@@ -11,7 +11,7 @@ final class HasPlaceholderTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPlaceholder;
 
             protected array $attributes = [];

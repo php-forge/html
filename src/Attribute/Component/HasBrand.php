@@ -24,7 +24,6 @@ trait HasBrand
     protected string $brandTemplate = "\n{image}\n{text}\n";
     protected string $brandToggle = '';
 
-
     /**
      * Enable or disable the brand container tag `<div>`.
      *
@@ -89,7 +88,7 @@ trait HasBrand
     /**
      * Set the brand image.
      *
-     * @param string|ElementInterface $value The brand image.
+     * @param ElementInterface|string $value The brand image.
      *
      * @return static A new instance of the current class with the specified brand image.
      */
@@ -163,7 +162,7 @@ trait HasBrand
     /**
      * Set the brand text.
      *
-     * @param string|ElementInterface $value The brand text.
+     * @param ElementInterface|string $value The brand text.
      *
      * @return static A new instance of the current class with the specified brand text.
      */
@@ -178,7 +177,7 @@ trait HasBrand
     /**
      * Set the brand toggle.
      *
-     * @param string|ElementInterface $value The brand toggle.
+     * @param ElementInterface|string $value The brand toggle.
      *
      * @return static A new instance of the current class with the specified brand toggle.
      */

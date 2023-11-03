@@ -20,10 +20,10 @@ trait HasFormtarget
      *
      * @param string $value The browsing context name or keyword.
      *
-     * @return static A new instance of the current class with the specified formtarget value.
-     *
      * @throws InvalidArgumentException If the provided formtarget value is not one of the following values:
      * "_blank", "_self", "_parent" or "_top".
+     *
+     * @return static A new instance of the current class with the specified formtarget value.
      */
     public function formtarget(string $value): static
     {

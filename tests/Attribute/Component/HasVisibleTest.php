@@ -11,7 +11,7 @@ final class HasVisibleTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasVisible;
         };
 
@@ -20,7 +20,7 @@ final class HasVisibleTest extends TestCase
 
     public function testIsVisible(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasVisible;
         };
 

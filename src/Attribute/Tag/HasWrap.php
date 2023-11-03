@@ -23,10 +23,10 @@ trait HasWrap
      *
      * @param string $value Has the hard and soft values.
      *
-     * @return static A new instance of the current class with the specified wrap value.
-     *
      * @throws InvalidArgumentException If the wrap value is not one of the allowed values. Allowed values are:
      * `hard`, `soft`.
+     *
+     * @return static A new instance of the current class with the specified wrap value.
      *
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/textarea.html#textarea.attrs.wrap.hard
      * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/textarea.html#textarea.attrs.wrap.soft

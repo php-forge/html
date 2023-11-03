@@ -19,10 +19,10 @@ trait HasEnctype
      *
      * @param string $value The enctype attribute value.
      *
-     * @return static A new instance of the current class with the specified enctype value.
-     *
      * @throws InvalidArgumentException If the value is not one of: "multipart/form-data",
      * "application/x-www-form-urlencoded", "text/plain".
+     *
+     * @return static A new instance of the current class with the specified enctype value.
      *
      * @link https://www.w3.org/TR/html52/sec-forms.html#element-attrdef-form-enctype
      */

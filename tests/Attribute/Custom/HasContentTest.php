@@ -11,7 +11,7 @@ final class HasContentTest extends TestCase
 {
     public function testGet(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasContent;
         };
 
@@ -24,7 +24,7 @@ final class HasContentTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasContent;
 
             protected string $containerTag = 'div';
@@ -35,7 +35,7 @@ final class HasContentTest extends TestCase
 
     public function testXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasContent;
 
             public function getContent(): string

@@ -12,7 +12,7 @@ final class HasLabelTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLabel;
 
             public function getLabelClass(): string
@@ -34,7 +34,7 @@ final class HasLabelTest extends TestCase
 
     public function testContent(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLabel;
 
             public function getLabelContent(): string
@@ -50,7 +50,7 @@ final class HasLabelTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLabel;
         };
 
@@ -63,7 +63,7 @@ final class HasLabelTest extends TestCase
 
     public function testIsNotLabel(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLabel;
 
             public function getIsNotLabel(): bool
@@ -78,7 +78,7 @@ final class HasLabelTest extends TestCase
 
     public function testNotLabel(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLabel;
         };
 
@@ -88,7 +88,7 @@ final class HasLabelTest extends TestCase
 
     public function testXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLabel;
 
             public function getLabelContent(): string
@@ -99,6 +99,6 @@ final class HasLabelTest extends TestCase
 
         $instance = $instance->labelContent("<script>alert('Hack');</script>", Span::widget()->content('foo && bar'));
 
-        $this->assertSame("<span>foo && bar</span>", $instance->getLabelContent());
+        $this->assertSame('<span>foo && bar</span>', $instance->getLabelContent());
     }
 }

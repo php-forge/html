@@ -12,7 +12,7 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffixItems;
         };
 
@@ -22,7 +22,7 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
     public function testPrefixItems(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffixItems;
 
             public function getPrefixItems(): string
@@ -38,7 +38,7 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
     public function testPrefixItemsWithXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffixItems;
 
             public function getPrefixItems(): string
@@ -49,12 +49,12 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
         $instance = $instance->prefixItems(Span::widget(), "<script>alert('Hack');</script>");
 
-        $this->assertSame("<span></span>", $instance->getPrefixItems());
+        $this->assertSame('<span></span>', $instance->getPrefixItems());
     }
 
     public function testSuffixItems(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffixItems;
 
             public function getSuffixItems(): string
@@ -70,7 +70,7 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
     public function testSuffixItemsWithXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasPrefixAndSuffixItems;
 
             public function getSuffixItems(): string
@@ -81,6 +81,6 @@ final class HasPrefixAndSuffixItemsTest extends TestCase
 
         $instance = $instance->suffixItems("<script>alert('Hack');</script>", Span::widget());
 
-        $this->assertSame("<span></span>", $instance->getSuffixItems());
+        $this->assertSame('<span></span>', $instance->getSuffixItems());
     }
 }

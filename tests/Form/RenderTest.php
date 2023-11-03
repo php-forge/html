@@ -227,7 +227,7 @@ final class RenderTest extends TestCase
                 '<form action="/foo" method="POST" myToken="tokenCsrf">' . PHP_EOL .
                 '<input name="myToken" type="hidden" value="tokenCsrf">',
                 'POST',
-                new class() {
+                new class () {
                     public function __toString(): string
                     {
                         return 'tokenCsrf';

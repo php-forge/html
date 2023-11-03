@@ -11,7 +11,7 @@ final class HasWidthTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasWidth;
 
             protected array $attributes = [];

@@ -12,7 +12,7 @@ final class HasListItemContainerTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasListItemContainer;
 
             protected string $listItemContainerTag = 'div';
@@ -36,7 +36,7 @@ final class HasListItemContainerTest extends TestCase
 
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasListItemContainer;
 
             protected string $listItemContainerTag = '';
@@ -50,7 +50,7 @@ final class HasListItemContainerTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasListItemContainer;
 
             protected string $listContainerTag = 'div';

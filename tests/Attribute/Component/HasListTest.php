@@ -12,7 +12,7 @@ final class HasListTest extends TestCase
 {
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasList;
 
             public function getListClass(): string
@@ -34,7 +34,7 @@ final class HasListTest extends TestCase
 
     public function testContainerClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasList;
 
             public function getListContainerClass(): string
@@ -56,7 +56,7 @@ final class HasListTest extends TestCase
 
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasList;
         };
 
@@ -68,7 +68,7 @@ final class HasListTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasList;
         };
 

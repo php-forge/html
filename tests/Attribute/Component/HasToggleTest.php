@@ -14,7 +14,7 @@ final class HasToggleTest extends TestCase
 {
     public function testAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggleAttributes(): array
@@ -36,7 +36,7 @@ final class HasToggleTest extends TestCase
 
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggleAttributes(): array
@@ -58,7 +58,7 @@ final class HasToggleTest extends TestCase
 
     public function testContent(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggleContent(): string
@@ -74,7 +74,7 @@ final class HasToggleTest extends TestCase
 
     public function testExceptionDataAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
         };
 
@@ -88,7 +88,7 @@ final class HasToggleTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
         };
 
@@ -104,7 +104,7 @@ final class HasToggleTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggle(): bool
@@ -119,7 +119,7 @@ final class HasToggleTest extends TestCase
 
     public function testSvg(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggleSvg(): string
@@ -142,7 +142,7 @@ final class HasToggleTest extends TestCase
 
     public function testSvgWithString(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggleSvg(): string
@@ -158,7 +158,7 @@ final class HasToggleTest extends TestCase
 
     public function testSvgWithXSS(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasToggle;
 
             public function getToggleSvg(): string

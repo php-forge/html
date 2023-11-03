@@ -11,7 +11,7 @@ final class HasUnchekedTest extends TestCase
 {
     public function testAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasUnchecked;
 
             public function getUncheckAttributes(): array
@@ -28,7 +28,7 @@ final class HasUnchekedTest extends TestCase
 
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasUnchecked;
 
             public function getClass(): string
@@ -50,7 +50,7 @@ final class HasUnchekedTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasUnchecked;
         };
 

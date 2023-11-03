@@ -11,7 +11,7 @@ final class CanBeHiddenTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use CanBeHidden;
 
             protected array $attributes = [];
@@ -22,7 +22,7 @@ final class CanBeHiddenTest extends TestCase
 
     public function testRender(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use CanBeHidden;
 
             protected array $attributes = [];

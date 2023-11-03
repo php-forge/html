@@ -11,7 +11,7 @@ final class HasLinkAttributesTest extends TestCase
 {
     public function testAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLinkAttributes;
 
             public function getLinkAttributes(): array
@@ -28,7 +28,7 @@ final class HasLinkAttributesTest extends TestCase
 
     public function testClass(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLinkAttributes;
 
             public function getLinkAttributes(): array
@@ -42,7 +42,7 @@ final class HasLinkAttributesTest extends TestCase
 
     public function testGetLinkAttributes(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLinkAttributes;
         };
 
@@ -51,7 +51,7 @@ final class HasLinkAttributesTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasLinkAttributes;
         };
 

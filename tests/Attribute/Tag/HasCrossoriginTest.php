@@ -12,7 +12,7 @@ final class HasCrossoriginTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasCrossorigin;
         };
 
@@ -24,7 +24,7 @@ final class HasCrossoriginTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasCrossorigin;
         };
 

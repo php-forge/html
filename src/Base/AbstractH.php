@@ -16,7 +16,7 @@ use function in_array;
 abstract class AbstractH extends AbstractBlockElement
 {
     use Attribute\Custom\HasTagName;
-    
+
     protected string $tagName = 'h1';
 
     protected function beforeRun(): bool

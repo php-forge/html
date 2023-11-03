@@ -11,7 +11,7 @@ final class HasMaxLengthTest extends TestCase
 {
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasMaxLength;
 
             protected array $attributes = [];

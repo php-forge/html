@@ -64,9 +64,9 @@ trait HasContainer
      *
      * @param string $value The tag name for the container element.
      *
-     * @return static A new instance of the current class with the specified container tag.
-     *
      * @throws InvalidArgumentException If the container tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified container tag.
      */
     public function containerTag(string $value): static
     {

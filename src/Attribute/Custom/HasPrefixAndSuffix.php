@@ -26,7 +26,7 @@ trait HasPrefixAndSuffix
     /**
      * Set the `HTML` prefix content.
      *
-     * @param string|ElementInterface ...$values The `HTML` prefix content.
+     * @param ElementInterface|string ...$values The `HTML` prefix content.
      *
      * @return static A new instance of the current class with the specified prefix content.
      */
@@ -88,9 +88,9 @@ trait HasPrefixAndSuffix
      *
      * @param string $value The tag name for the prefix container element.
      *
-     * @return static A new instance of the current class with the specified prefix container tag.
-     *
      * @throws InvalidArgumentException If the prefix container tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified prefix container tag.
      */
     public function prefixContainerTag(string $value): static
     {
@@ -107,7 +107,7 @@ trait HasPrefixAndSuffix
     /**
      * Set the `HTML` suffix content.
      *
-     * @param string|ElementInterface ...$values The `HTML` suffix content.
+     * @param ElementInterface|string ...$values The `HTML` suffix content.
      *
      * @return static A new instance of the current class with the specified suffix content.
      */
@@ -169,9 +169,9 @@ trait HasPrefixAndSuffix
      *
      * @param string $value The tag name for the suffix container element.
      *
-     * @return static A new instance of the current class with the specified suffix container tag.
-     *
      * @throws InvalidArgumentException If the suffix container tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified suffix container tag.
      */
     public function suffixContainerTag(string $value): static
     {

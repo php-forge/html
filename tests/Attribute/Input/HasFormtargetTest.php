@@ -12,7 +12,7 @@ final class HasFormtargetTest extends TestCase
 {
     public function testException(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasFormtarget;
 
             protected array $attributes = [];
@@ -28,7 +28,7 @@ final class HasFormtargetTest extends TestCase
 
     public function testImmutablity(): void
     {
-        $instance = new class() {
+        $instance = new class () {
             use HasFormtarget;
 
             protected array $attributes = [];

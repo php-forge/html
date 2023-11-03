@@ -19,7 +19,7 @@ trait HasMenu
     /**
      * Set the menu items.
      *
-     * @param string|ElementInterface ...$values The menu items.
+     * @param ElementInterface|string ...$values The menu items.
      *
      * @return static A new instance of the current class with the specified menu items.
      */

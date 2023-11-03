@@ -20,9 +20,9 @@ trait HasLoading
      *
      * @param string $value The loading value.
      *
-     * @return static A new instance of the current class with the specified loading value.
-     *
      * @throws InvalidArgumentException If the value is not one of: "eager", "lazy".
+     *
+     * @return static A new instance of the current class with the specified loading value.
      */
     public function loading(string $value): static
     {
