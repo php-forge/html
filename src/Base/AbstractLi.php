@@ -45,7 +45,7 @@ abstract class AbstractLi extends Element
         }
 
         $new = clone $this;
-        $new->content = trim(Encode::create()->santizeXSS($content));
+        $new->content = trim(Encode::santizeXSS($content));
 
         return $new;
     }

@@ -30,7 +30,7 @@ final class Encode
      *
      * @link https://html.spec.whatwg.org/#data-state
      */
-    public function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public static function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
         return htmlspecialchars((string) $content, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
     }
@@ -49,14 +49,14 @@ final class Encode
      * @link https://html.spec.whatwg.org/#attribute-value-(single-quoted)-state
      * @link https://html.spec.whatwg.org/#attribute-value-(double-quoted)-state
      */
-    public function value(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public static function value(mixed $value, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
         $value = htmlspecialchars((string) $value, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
 
         return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
     }
 
-    public function santizeXSS(string|ElementInterface ...$values): string
+    public static function santizeXSS(string|ElementInterface ...$values): string
     {
         $cleanHtml = '';
 
@@ -66,7 +66,7 @@ final class Encode
             }
 
             /** @psalm-var string|string[] $cleanValue */
-            $cleanValue = $this->cleanXSS($value);
+            $cleanValue = self::cleanXSS($value);
             $cleanValue = is_array($cleanValue) ? implode('', $cleanValue) : $cleanValue;
 
             $cleanHtml .= $cleanValue;
@@ -75,17 +75,7 @@ final class Encode
         return $cleanHtml;
     }
 
-    /**
-     * Creates a new instance of Encode.
-     *
-     * @return static New instance of Encode.
-     */
-    public static function create(): static
-    {
-        return new self();
-    }
-
-    private function cleanXSS(string $content): string|array
+    private static function cleanXSS(string $content): string|array
     {
         $antiXss = new AntiXSS();
 

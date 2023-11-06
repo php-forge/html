@@ -82,7 +82,7 @@ trait HasToggle
     public function toggleContent(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->toggleContent = Encode::create()->santizeXSS(...$values);
+        $new->toggleContent = Encode::santizeXSS(...$values);
 
         return $new;
     }
@@ -145,7 +145,7 @@ trait HasToggle
     public function toggleSvg(string|ElementInterface|null $value): static
     {
         $new = clone $this;
-        $new->toggleSvg = $value !== null ? Encode::create()->santizeXSS($value) : null;
+        $new->toggleSvg = $value !== null ? Encode::santizeXSS($value) : null;
 
         return $new;
     }

@@ -24,8 +24,8 @@ trait HasHttpEquiv
     public function httpEquiv(string $value, string $content): static
     {
         $new = clone $this;
-        $new->attributes['http-equiv'] = Encode::create()->value($value);
-        $new->attributes['content'] = Encode::create()->content($content);
+        $new->attributes['http-equiv'] = Encode::value($value);
+        $new->attributes['content'] = Encode::content($content);
 
         return $new;
     }

@@ -25,7 +25,7 @@ trait HasAcceptCharset
     public function acceptCharset(string $value): static
     {
         $new = clone $this;
-        $new->attributes['accept-charset'] = Encode::create()->content($value);
+        $new->attributes['accept-charset'] = Encode::content($value);
 
         return $new;
     }

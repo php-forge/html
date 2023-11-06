@@ -124,7 +124,7 @@ trait HasIcon
     public function iconText(string $value): static
     {
         $new = clone $this;
-        $new->iconText = Encode::create()->santizeXSS($value);
+        $new->iconText = Encode::santizeXSS($value);
 
         return $new;
     }
