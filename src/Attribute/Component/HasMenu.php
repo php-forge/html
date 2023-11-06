@@ -26,7 +26,7 @@ trait HasMenu
     public function menu(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->menu = Encode::create()->santizeXSS(...$values);
+        $new->menu = Encode::santizeXSS(...$values);
 
         return $new;
     }

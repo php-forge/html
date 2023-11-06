@@ -25,7 +25,7 @@ trait HasContainerPrefixAndSuffix
     public function containerPrefix(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->containerPrefix = Encode::create()->santizeXSS(...$values);
+        $new->containerPrefix = Encode::santizeXSS(...$values);
 
         return $new;
     }
@@ -40,7 +40,7 @@ trait HasContainerPrefixAndSuffix
     public function containerSuffix(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->containerSuffix = Encode::create()->santizeXSS(...$values);
+        $new->containerSuffix = Encode::santizeXSS(...$values);
 
         return $new;
     }

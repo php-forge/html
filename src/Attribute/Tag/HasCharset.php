@@ -23,7 +23,7 @@ trait HasCharset
     public function charset(string $value): static
     {
         $new = clone $this;
-        $new->attributes['charset'] = Encode::create()->content($value);
+        $new->attributes['charset'] = Encode::content($value);
 
         return $new;
     }

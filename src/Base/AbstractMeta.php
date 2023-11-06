@@ -36,7 +36,7 @@ abstract class AbstractMeta extends Element
     {
         $new = clone $this;
         $new->attributes['name'] = $value;
-        $new->attributes['content'] = Encode::create()->content($content);
+        $new->attributes['content'] = Encode::content($content);
 
         return $new;
     }

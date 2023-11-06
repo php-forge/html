@@ -95,7 +95,7 @@ trait HasBrand
     public function brandImage(string|ElementInterface $value): static
     {
         $new = clone $this;
-        $new->brandImage = Encode::create()->santizeXSS($value);
+        $new->brandImage = Encode::santizeXSS($value);
 
         return $new;
     }
@@ -169,7 +169,7 @@ trait HasBrand
     public function brandText(string|ElementInterface $value): static
     {
         $new = clone $this;
-        $new->brandText = Encode::create()->santizeXSS($value);
+        $new->brandText = Encode::santizeXSS($value);
 
         return $new;
     }
@@ -184,7 +184,7 @@ trait HasBrand
     public function brandToggle(string|ElementInterface $value): static
     {
         $new = clone $this;
-        $new->brandToggle = Encode::create()->santizeXSS($value);
+        $new->brandToggle = Encode::santizeXSS($value);
 
         return $new;
     }

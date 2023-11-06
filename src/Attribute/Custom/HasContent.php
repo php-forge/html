@@ -24,7 +24,7 @@ trait HasContent
     public function content(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->content = Encode::create()->santizeXSS(...$values);
+        $new->content = Encode::santizeXSS(...$values);
 
         return $new;
     }

@@ -60,7 +60,7 @@ trait HasLabel
     public function labelContent(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->labelContent = Encode::create()->santizeXSS(...$values);
+        $new->labelContent = Encode::santizeXSS(...$values);
 
         return $new;
     }

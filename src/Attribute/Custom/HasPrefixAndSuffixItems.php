@@ -25,7 +25,7 @@ trait HasPrefixAndSuffixItems
     public function prefixItems(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->prefixItems = Encode::create()->santizeXSS(...$values);
+        $new->prefixItems = Encode::santizeXSS(...$values);
 
         return $new;
     }
@@ -40,7 +40,7 @@ trait HasPrefixAndSuffixItems
     public function suffixItems(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->suffixItems = Encode::create()->santizeXSS(...$values);
+        $new->suffixItems = Encode::santizeXSS(...$values);
 
         return $new;
     }
