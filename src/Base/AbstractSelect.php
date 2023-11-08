@@ -23,11 +23,13 @@ use function is_object;
  */
 abstract class AbstractSelect extends Element
 {
+    use Attribute\Aria\HasAriaLabel;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\HasClass;
     use Attribute\HasId;
+    use Attribute\HasTabindex;
     use Attribute\Input\CanBeMultiple;
     use Attribute\Input\HasName;
     use Attribute\Input\HasSize;

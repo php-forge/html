@@ -38,6 +38,19 @@ final class RenderTest extends TestCase
         '2' => ['label' => 'Chile'],
     ];
 
+    public function testAriaLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select aria-label="test-aria-label">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->ariaLabel('test-aria-label')->render(),
+        );
+    }
+
     public function testElement(): void
     {
         Assert::equalsWithoutLE(
@@ -247,6 +260,19 @@ final class RenderTest extends TestCase
             <span>test-suffix</span>
             HTML,
             Select::widget()->items($this->cities)->suffix(Span::widget()->content('test-suffix'))->render(),
+        );
+    }
+
+    public function testTabIndex(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select tabindex="1">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->tabIndex(1)->render(),
         );
     }
 
