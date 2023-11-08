@@ -13,6 +13,8 @@ abstract class AbstractA extends AbstractElement
 {
     use Attribute\Aria\HasAriaDisabled;
     use Attribute\Aria\HasAriaLabel;
+    use Attribute\Aria\HasAriaControls;
+    use Attribute\Aria\HasAriaExpanded;
     use Attribute\Aria\HasRole;
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
