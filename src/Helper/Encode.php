@@ -80,6 +80,7 @@ final class Encode
         $antiXss = new AntiXSS();
 
         $antiXss->removeEvilHtmlTags(['button', 'form', 'input', 'select', 'svg', 'textarea']);
+        $antiXss->removeEvilAttributes(['style']);
 
         return $antiXss->xss_clean($content);
     }

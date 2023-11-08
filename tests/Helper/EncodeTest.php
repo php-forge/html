@@ -56,6 +56,10 @@ final class EncodeTest extends TestCase
             '<textarea></textarea>',
             Encode::santizeXSS('<textarea><script>alert("XSS")</script></textarea>'),
         );
+        $this->assertSame(
+            '<input type="text" value="test" style="padding-left:20px" oinvalid=""  />',
+            Encode::santizeXSS('<input type="text" value="test" style="padding-left:20px" oinvalid="" onfocus="alert(\'XSS\')" />'),
+        );
     }
 
     /**
