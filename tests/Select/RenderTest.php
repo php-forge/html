@@ -51,6 +51,19 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testAutofocus(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select autofocus>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->autofocus()->render(),
+        );
+    }
+
     public function testElement(): void
     {
         Assert::equalsWithoutLE(

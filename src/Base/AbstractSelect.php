@@ -24,6 +24,7 @@ use function is_object;
 abstract class AbstractSelect extends Element
 {
     use Attribute\Aria\HasAriaLabel;
+    use Attribute\CanBeAutofocus;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasPrefixAndSuffix;
