@@ -19,6 +19,16 @@ final class RenderTest extends TestCase
         $this->assertSame('<a aria-disabled="true"></a>', A::widget()->ariaDisabled('true')->render());
     }
 
+    public function testAriaControls(): void
+    {
+        $this->assertSame('<a aria-controls="test-aria-controls"></a>', A::widget()->ariaControls('test-aria-controls')->render());
+    }
+
+    public function testAriaExpanded(): void
+    {
+        $this->assertSame('<a aria-expanded="true"></a>', A::widget()->ariaExpanded('true')->render());
+    }
+
     public function testAriaLabel(): void
     {
         $this->assertSame('<a aria-label="test-aria-label"></a>', A::widget()->ariaLabel('test-aria-label')->render());
