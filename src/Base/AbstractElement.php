@@ -19,6 +19,7 @@ abstract class AbstractElement extends Element
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
     use Attribute\HasClass;
+    use Attribute\HasData;
     use Attribute\HasId;
     use Attribute\HasLang;
     use Attribute\HasStyle;
