@@ -18,7 +18,6 @@ abstract class AbstractButton extends AbstractElement
     use Attribute\Aria\HasAriaLabel;
     use Attribute\Aria\HasRole;
     use Attribute\Custom\HasContainer;
-    use Attribute\HasData;
     use Attribute\Input\HasType;
 
     protected array $attributes = ['type' => 'button'];

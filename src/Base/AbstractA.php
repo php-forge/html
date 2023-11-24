@@ -18,7 +18,6 @@ abstract class AbstractA extends AbstractElement
     use Attribute\Aria\HasRole;
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
-    use Attribute\HasData;
     use Attribute\Input\HasType;
     use Attribute\Tag\HasDownload;
     use Attribute\Tag\HasHref;
