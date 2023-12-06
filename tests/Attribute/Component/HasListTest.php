@@ -77,6 +77,6 @@ final class HasListTest extends TestCase
         $this->assertNotSame($instance, $instance->listContainer(true));
         $this->assertNotSame($instance, $instance->listContainerAttributes([]));
         $this->assertNotSame($instance, $instance->listContainerClass(''));
-        $this->assertNotSame($instance, $instance->listType('ul'));
+        $this->assertNotSame($instance, $instance->listType(false));
     }
 }

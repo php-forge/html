@@ -197,11 +197,7 @@ abstract class AbstractSvg extends Element
     {
         $xpath = new DOMXPath($dom);
 
-        while ($node = $xpath->query($expression)->item(0)) {
-            if ($node instanceof DOMNode === false) {
-                break;
-            }
-
+        while (($node = $xpath->query($expression)->item(0)) instanceof DOMNode) {
             $node->parentNode?->removeChild($node);
         }
     }
