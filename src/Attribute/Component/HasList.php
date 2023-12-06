@@ -104,7 +104,7 @@ trait HasList
      */
     public function listType(string|false $value): static
     {
-        if (in_array($value, ['ul', 'ol'], true) === false) {
+        if (in_array($value, ['ul', 'ol'], true) === false && $value !== false) {
             throw new InvalidArgumentException(sprintf('Invalid list type "%s".', $value));
         }
 
