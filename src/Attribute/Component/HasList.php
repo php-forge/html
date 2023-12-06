@@ -98,7 +98,7 @@ trait HasList
     /**
      * Set list type for tag `<ul>` or `<ol>`.
      *
-     * @param string|false $value The list type. `ul` for unordered list, `ol` for ordered list, `false` to disable.
+     * @param false|string $value The list type. `ul` for unordered list, `ol` for ordered list, `false` to disable.
      *
      * @return static A new instance of the current class with the specified list type for tag `<ul>` or `<ol>`.
      */
