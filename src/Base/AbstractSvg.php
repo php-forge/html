@@ -6,6 +6,7 @@ namespace PHPForge\Html\Base;
 
 use DOMDocument;
 use DOMElement;
+use DOMNode;
 use DOMXPath;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
@@ -197,6 +198,10 @@ abstract class AbstractSvg extends Element
         $xpath = new DOMXPath($dom);
 
         while ($node = $xpath->query($expression)->item(0)) {
+            if ($node instanceof DOMNode === false) {
+                break;
+            }
+
             $node->parentNode?->removeChild($node);
         }
     }
