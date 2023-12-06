@@ -65,7 +65,7 @@ trait HasListItem
     public function listItemTag(bool $value): static
     {
         $new = clone $this;
-        $new->listItemType = $value;
+        $new->listItemTag = $value;
 
         return $new;
     }
