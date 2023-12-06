@@ -66,24 +66,6 @@ final class HasListTest extends TestCase
         $instance->listType('foo');
     }
 
-    public function testListType(): void
-    {
-        $instance = new class () {
-            use HasList;
-
-            public function getListType(): string
-            {
-                return $this->listType;
-            }
-        };
-
-        $this->assertSame('ul', $instance->getListType());
-
-        $instance = $instance->listType('ol');
-
-        $this->assertSame('ol', $instance->getListType());
-    }
-
     public function testImmutablity(): void
     {
         $instance = new class () {
@@ -96,5 +78,31 @@ final class HasListTest extends TestCase
         $this->assertNotSame($instance, $instance->listContainerAttributes([]));
         $this->assertNotSame($instance, $instance->listContainerClass(''));
         $this->assertNotSame($instance, $instance->listType(false));
+    }
+
+    public function testListType(): void
+    {
+        $instance = new class () {
+            use HasList;
+
+            public function getListType(): string|false
+            {
+                return $this->listType;
+            }
+        };
+
+        $this->assertSame('ul', $instance->getListType());
+
+        $instance = $instance->listType('ol');
+
+        $this->assertSame('ol', $instance->getListType());
+
+        $instance = $instance->listType('ul');
+
+        $this->assertSame('ul', $instance->getListType());
+
+        $instance = $instance->listType(false);
+
+        $this->assertFalse($instance->getListType());
     }
 }
