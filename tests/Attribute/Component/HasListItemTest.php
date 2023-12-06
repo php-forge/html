@@ -52,5 +52,6 @@ final class HasListItemTest extends TestCase
 
         $this->assertNotSame($instance, $instance->listItemAttributes([]));
         $this->assertNotSame($instance, $instance->listItemClass(''));
+        $this->assertNotSame($instance, $instance->listItemTag(false));
     }
 }

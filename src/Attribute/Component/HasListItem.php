@@ -12,6 +12,7 @@ use PHPForge\Html\Helper\CssClass;
 trait HasListItem
 {
     protected array $listItemAttributes = [];
+    protected bool $listItemTag = true;
 
     /**
      * Get the `HTML` attributes for tag `<li>`.
@@ -49,6 +50,22 @@ trait HasListItem
     {
         $new = clone $this;
         CssClass::add($new->listItemAttributes, $value);
+
+        return $new;
+    }
+
+    /**
+     * Disable or enable the tag `<li>`.
+     *
+     * @param bool $value Whether to use the tag name or not.
+     * Default is `true`. If `false` the tag name not will be used.
+     *
+     * @return static A new instance of the current class whether to use the tag name `<li>` or not.
+     */
+    public function listItemTag(bool $value): static
+    {
+        $new = clone $this;
+        $new->listItemType = $value;
 
         return $new;
     }
