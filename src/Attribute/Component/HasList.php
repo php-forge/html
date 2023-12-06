@@ -18,7 +18,7 @@ trait HasList
     protected array $listAttributes = [];
     protected bool $listContainer = false;
     protected array $listContainerAttributes = [];
-    protected string $listType = 'ul';
+    protected string|false $listType = 'ul';
 
     /**
      * Set the `HTML` attributes for the `<ul>` or `<ol>` tag.
@@ -98,11 +98,11 @@ trait HasList
     /**
      * Set list type for tag `<ul>` or `<ol>`.
      *
-     * @param string $value The list type.
+     * @param false|string $value The list type. `ul` for unordered list, `ol` for ordered list, `false` to disable.
      *
      * @return static A new instance of the current class with the specified list type for tag `<ul>` or `<ol>`.
      */
-    public function listType(string $value): static
+    public function listType(string|false $value): static
     {
         if (in_array($value, ['ul', 'ol'], true) === false) {
             throw new InvalidArgumentException(sprintf('Invalid list type "%s".', $value));
