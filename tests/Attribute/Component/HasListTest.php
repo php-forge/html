@@ -66,6 +66,24 @@ final class HasListTest extends TestCase
         $instance->listType('foo');
     }
 
+    public function testListType(): void
+    {
+        $instance = new class () {
+            use HasList;
+
+            public function getListType(): string
+            {
+                return $this->listType;
+            }
+        };
+
+        $this->assertSame('ul', $instance->getListType());
+
+        $instance = $instance->listType('ol');
+
+        $this->assertSame('ol', $instance->getListType());
+    }
+
     public function testImmutablity(): void
     {
         $instance = new class () {
