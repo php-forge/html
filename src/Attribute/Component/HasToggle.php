@@ -25,7 +25,7 @@ trait HasToggle
     protected string $toggleContent = '';
     protected string $toggleId = '';
     protected string|null $toggleSvg = '';
-    protected string $toggleType = 'button';
+    protected string $toggleType = 'button-toggle';
 
     /**
      * Enable or disable the toggle.
@@ -97,6 +97,8 @@ trait HasToggle
     public function toggleDataAttribute(string $name, string $value): static
     {
         $allowedDataAttributes = [
+            'bs-toggle',
+            'bs-target',
             'collapse-toggle',
             'drawer-target',
             'drawer-toggle',
