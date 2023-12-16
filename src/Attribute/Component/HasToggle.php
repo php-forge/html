@@ -25,7 +25,7 @@ trait HasToggle
     protected string $toggleContent = '';
     protected string $toggleId = '';
     protected string|null $toggleSvg = '';
-    protected string $toggleType = 'button';
+    protected string $toggleType = 'button-toggle';
 
     /**
      * Enable or disable the toggle.
