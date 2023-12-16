@@ -97,6 +97,8 @@ trait HasToggle
     public function toggleDataAttribute(string $name, string $value): static
     {
         $allowedDataAttributes = [
+            'bs-toggle',
+            'bs-target',
             'collapse-toggle',
             'drawer-target',
             'drawer-toggle',
