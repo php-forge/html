@@ -19,7 +19,7 @@ final class CssClass
      * Adds a CSS class (or several classes) to the specified options.
      *
      * If the CSS class is already in the options, it will not be added again. If class specification at given options
-     * is an array, and some class placed there with the named (string) key, overriding of such key will have no
+     * is an array, and some class placed there with the named (string) key, overriding of such a key will have no
      * effect. For example:
      *
      * ```php
@@ -50,14 +50,12 @@ final class CssClass
             $mergedClasses = self::merge($existingClasses, $newClasses);
 
             $attributes['class'] = implode(' ', $mergedClasses);
-        } else {
-            if ($class !== [] && $class !== '') {
-                $classArray = is_array($class)
-                    ? $class
-                    : preg_split('/\s+/', $class, -1, PREG_SPLIT_NO_EMPTY);
+        } else if ($class !== [] && $class !== '') {
+            $classArray = is_array($class)
+                ? $class
+                : preg_split('/\s+/', $class, -1, PREG_SPLIT_NO_EMPTY);
 
-                $attributes['class'] = implode(' ', $classArray);
-            }
+            $attributes['class'] = implode(' ', $classArray);
         }
     }
 
