@@ -38,9 +38,10 @@ final class CssClass
     public static function add(array &$attributes, array|string $class): void
     {
         if (isset($attributes['class'])) {
+            /** @psalm-var string[] $existingClasses */
             $existingClasses = is_array($attributes['class'])
                 ? $attributes['class']
-                : preg_split('/\s+/', $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
+                : preg_split('/\s+/', (string) $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
 
             $newClasses = is_array($class)
                 ? $class
