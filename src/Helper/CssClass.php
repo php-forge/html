@@ -50,7 +50,7 @@ final class CssClass
             $mergedClasses = self::merge($existingClasses, $newClasses);
 
             $attributes['class'] = implode(' ', $mergedClasses);
-        } else if ($class !== [] && $class !== '') {
+        } elseif ($class !== [] && $class !== '') {
             $classArray = is_array($class)
                 ? $class
                 : preg_split('/\s+/', $class, -1, PREG_SPLIT_NO_EMPTY);
