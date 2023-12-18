@@ -84,7 +84,7 @@ abstract class AbstractElement extends Element
         }
 
         return match ($this->suffixContainer) {
-            true => Tag::widget()
+            true => PHP_EOL . Tag::widget()
                 ->attributes($this->suffixContainerAttributes)
                 ->content($this->suffix)
                 ->tagName($this->suffixContainerTag)

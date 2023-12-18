@@ -46,7 +46,13 @@ abstract class AbstractInput extends Element
             ->attributes($attributes)
             ->id($this->id)
             ->prefix($this->prefix)
+            ->prefixContainer($this->prefixContainer)
+            ->prefixContainerAttributes($this->prefixContainerAttributes)
+            ->prefixContainerTag($this->prefixContainerTag)
             ->suffix($this->suffix)
+            ->suffixContainer($this->suffixContainer)
+            ->suffixContainerAttributes($this->suffixContainerAttributes)
+            ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('input')
             ->template($this->template)
             ->render();

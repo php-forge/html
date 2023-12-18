@@ -96,6 +96,70 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testPrefixContainer(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            prefix
+            </div>
+            <input>
+            HTML,
+            Input::widget()->prefix('prefix')->prefixContainer(true)->render(),
+        );
+    }
+
+    public function testPrefixContainerAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div class="prefix-container">
+            prefix
+            </div>
+            <input>
+            HTML,
+            Input::widget()
+                ->prefix('prefix')
+                ->prefixContainer(true)
+                ->prefixContainerAttributes(['class' => 'prefix-container'])
+                ->render(),
+        );
+    }
+
+    public function testPrefixContainerClass(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div class="prefix-container">
+            prefix
+            </div>
+            <input>
+            HTML,
+            Input::widget()
+                ->prefix('prefix')
+                ->prefixContainer(true)
+                ->prefixContainerClass('prefix-container')
+                ->render(),
+        );
+    }
+
+    public function testPrefixContainerTag(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <article>
+            prefix
+            </article>
+            <input>
+            HTML,
+            Input::widget()
+                ->prefix('prefix')
+                ->prefixContainer(true)
+                ->prefixContainerTag('article')
+                ->render(),
+        );
+    }
+
     public function testPrefixAndTypeCheckbox(): void
     {
         $this->assertSame(
@@ -128,6 +192,70 @@ final class RenderTest extends TestCase
             suffix
             HTML,
             Input::widget()->suffix('suffix')->render(),
+        );
+    }
+
+    public function testSuffixContainer(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input>
+            <div>
+            suffix
+            </div>
+            HTML,
+            Input::widget()->suffix('suffix')->suffixContainer(true)->render(),
+        );
+    }
+
+    public function testSuffixContainerAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input>
+            <div class="suffix-container">
+            suffix
+            </div>
+            HTML,
+            Input::widget()
+                ->suffix('suffix')
+                ->suffixContainer(true)
+                ->suffixContainerAttributes(['class' => 'suffix-container'])
+                ->render(),
+        );
+    }
+
+    public function testSuffixContainerClass(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input>
+            <div class="suffix-container">
+            suffix
+            </div>
+            HTML,
+            Input::widget()
+                ->suffix('suffix')
+                ->suffixContainer(true)
+                ->suffixContainerClass('suffix-container')
+                ->render(),
+        );
+    }
+
+    public function testSuffixContainerTag(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input>
+            <article>
+            suffix
+            </article>
+            HTML,
+            Input::widget()
+                ->suffix('suffix')
+                ->suffixContainer(true)
+                ->suffixContainerTag('article')
+                ->render(),
         );
     }
 

@@ -87,7 +87,8 @@ final class RenderTest extends TestCase
             <<<HTML
             <div>
             test element
-            </div><aside>
+            </div>
+            <aside>
             <span>test prefix</span>
             </aside>
             HTML,
