@@ -38,16 +38,25 @@ final class CssClass
     public static function add(array &$attributes, array|string $class): void
     {
         if (isset($attributes['class'])) {
-            if (is_array($attributes['class'])) {
-                /** @psalm-var string[] $attributes['class'] */
-                $attributes['class'] = self::merge($attributes['class'], (array) $class);
-            } elseif ('' !== $class) {
-                /** @psalm-var string $attributes['class'] */
-                $classes = preg_split('/\s+/', $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
-                $attributes['class'] = implode(' ', self::merge($classes, (array) $class));
+            $existingClasses = is_array($attributes['class'])
+                ? $attributes['class']
+                : preg_split('/\s+/', $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
+
+            $newClasses = is_array($class)
+                ? $class
+                : preg_split('/\s+/', $class, -1, PREG_SPLIT_NO_EMPTY);
+
+            $mergedClasses = self::merge($existingClasses, $newClasses);
+
+            $attributes['class'] = implode(' ', $mergedClasses);
+        } else {
+            if ($class !== [] && $class !== '') {
+                $classArray = is_array($class)
+                    ? $class
+                    : preg_split('/\s+/', $class, -1, PREG_SPLIT_NO_EMPTY);
+
+                $attributes['class'] = implode(' ', $classArray);
             }
-        } elseif ($class !== [] && $class !== '') {
-            $attributes['class'] = $class;
         }
     }
 
