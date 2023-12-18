@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use Closure;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
@@ -16,7 +15,6 @@ trait HasLabel
 {
     protected array $labelAttributes = [];
     protected string $labelClass = '';
-    protected Closure|null $labelClosure = null;
     protected string $labelContent = '';
     protected bool $notLabel = false;
 
