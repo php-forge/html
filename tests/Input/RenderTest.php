@@ -53,6 +53,30 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testDataAttributes(): void
+    {
+        $this->assertSame(
+            '<input data-test="test-value">',
+            Input::widget()->dataAttributes(['test' => 'test-value'])->render(),
+        );
+    }
+
+    public function testDisabled(): void
+    {
+        $this->assertSame(
+            '<input disabled>',
+            Input::widget()->disabled()->render(),
+        );
+    }
+
+    public function testForm(): void
+    {
+        $this->assertSame(
+            '<input form="test-form">',
+            Input::widget()->form('test-form')->render(),
+        );
+    }
+
     public function testHidden(): void
     {
         $this->assertSame(
@@ -173,6 +197,22 @@ final class RenderTest extends TestCase
         $this->assertSame(
             'prefix<input type="radio">',
             Input::widget()->prefix('prefix')->type('radio')->render(),
+        );
+    }
+
+    public function testReadonly(): void
+    {
+        $this->assertSame(
+            '<input readonly>',
+            Input::widget()->readonly()->render(),
+        );
+    }
+
+    public function testRequired(): void
+    {
+        $this->assertSame(
+            '<input required>',
+            Input::widget()->required()->render(),
         );
     }
 
