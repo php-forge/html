@@ -59,13 +59,11 @@ final class CssClass
             return;
         }
 
-        if ($class !== [] && $class !== '') {
-            $classArray = is_array($class)
-                ? $class
-                : preg_split('/\s+/', $class, flags: PREG_SPLIT_NO_EMPTY);
+        $classArray = is_array($class)
+            ? $class
+            : preg_split('/\s+/', $class, flags: PREG_SPLIT_NO_EMPTY);
 
-            $attributes['class'] = implode(' ', $classArray);
-        }
+        $attributes['class'] = implode(' ', $classArray);
     }
 
     /**
