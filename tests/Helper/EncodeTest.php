@@ -5,10 +5,25 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Helper;
 
 use PHPForge\Html\Helper\Encode;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class EncodeTest extends TestCase
 {
+    public function testInitializate(): void
+    {
+        Encode::initialize(['style'], ['button', 'form', 'input', 'select', 'svg', 'textarea']);
+
+        $this->assertSame(
+            ['style'],
+            Assert::inaccessibleProperty(new Encode(), 'removeEvilAttributes'),
+        );
+        $this->assertSame(
+            ['button', 'form', 'input', 'select', 'svg', 'textarea'],
+            Assert::inaccessibleProperty(new Encode(), 'removeEvilHtmlTags'),
+        );
+    }
+
     /**
      * @dataProvider PHPForge\Html\Tests\Provider\EncodeProvider::encode
      *

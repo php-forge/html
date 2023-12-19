@@ -18,6 +18,36 @@ final class Encode
     private const HTMLSPECIALCHARS_FLAGS = ENT_QUOTES | ENT_HTML5 | ENT_SUBSTITUTE;
 
     /**
+     * @var array<string>
+     */
+    private static array $removeEvilAttributes = [
+        'style',
+    ];
+    /**
+     * @var array<string>
+     */
+    private static array $removeEvilHtmlTags = [
+        'button',
+        'form',
+        'input',
+        'select',
+        'svg',
+        'textarea',
+    ];
+
+    /**
+     * Initialize the class with custom configuration.
+     *
+     * @psalm-param array<string> $removeEvilAttributes
+     * @psalm-param array<string> $removeEvilHtmlTags
+     */
+    public static function initialize(array $removeEvilAttributes = [], array $removeEvilHtmlTags = []): void
+    {
+        self::$removeEvilAttributes = $removeEvilAttributes;
+        self::$removeEvilHtmlTags = $removeEvilHtmlTags;
+    }
+
+    /**
      * Encodes special characters into HTML entities for use as a tag content i.e. `<div>tag content</div>`.
      *
      * Characters encoded are: &, <, >.
@@ -56,6 +86,13 @@ final class Encode
         return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
     }
 
+    /**
+     * Sanitizes HTML content to prevent XSS attacks.
+     *
+     * @param ElementInterface|string ...$values The HTML content to sanitize.
+     *
+     * @return string The sanitized HTML content.
+     */
     public static function santizeXSS(string|ElementInterface ...$values): string
     {
         $cleanHtml = '';
@@ -79,8 +116,8 @@ final class Encode
     {
         $antiXss = new AntiXSS();
 
-        $antiXss->removeEvilHtmlTags(['button', 'form', 'input', 'select', 'svg', 'textarea']);
-        $antiXss->removeEvilAttributes(['style']);
+        $antiXss->removeEvilHtmlTags(self::$removeEvilHtmlTags);
+        $antiXss->removeEvilAttributes(self::$removeEvilAttributes);
 
         return $antiXss->xss_clean($content);
     }
