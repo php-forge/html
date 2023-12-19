@@ -20,28 +20,33 @@ final class CssClass
      *
      * If the CSS class is already in the options, it will not be added again. If class specification at given options
      * is an array, and some class placed there with the named (string) key, overriding of such a key will have no
-     * effect. For example:
-     *
-     * ```php
-     * $attributes = ['class' => ['persistent' => 'initial']];
-     *
-     * // ['class' => ['persistent' => 'initial']];
-     * $cssClass = new CssClass();
-     * $cssClass->add($attributes, ['persistent' => 'override']);
-     * ```
-     *
-     * {@see removeCssClass()}
+     * effect.
      *
      * @param array $attributes The attributes to be modified.
      * @param string|string[] $class The CSS class(es) to be added.
+     * @param bool $override Whether to override existing CSS class(es) with new one.
      */
-    public static function add(array &$attributes, array|string $class): void
+    public static function add(array &$attributes, array|string $class, bool $override = false): void
     {
+        if (empty($class)) {
+            return;
+        }
+
+        if ($override) {
+            $classArray = is_array($class)
+                ? $class
+                : preg_split('/\s+/', $class, flags: PREG_SPLIT_NO_EMPTY);
+
+            $attributes['class'] = implode(' ', $classArray);
+
+            return;
+        }
+
         if (isset($attributes['class'])) {
             /** @psalm-var string[] $existingClasses */
             $existingClasses = is_array($attributes['class'])
                 ? $attributes['class']
-                : preg_split('/\s+/', (string) $attributes['class'], -1, PREG_SPLIT_NO_EMPTY);
+                : preg_split('/\s+/', (string) $attributes['class'], flags: PREG_SPLIT_NO_EMPTY);
 
             $newClasses = is_array($class)
                 ? $class
@@ -50,10 +55,14 @@ final class CssClass
             $mergedClasses = self::merge($existingClasses, $newClasses);
 
             $attributes['class'] = implode(' ', $mergedClasses);
-        } elseif ($class !== [] && $class !== '') {
+
+            return;
+        }
+
+        if ($class !== [] && $class !== '') {
             $classArray = is_array($class)
                 ? $class
-                : preg_split('/\s+/', $class, -1, PREG_SPLIT_NO_EMPTY);
+                : preg_split('/\s+/', $class, flags: PREG_SPLIT_NO_EMPTY);
 
             $attributes['class'] = implode(' ', $classArray);
         }

@@ -14,21 +14,25 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            public function getIconAttributes(): array
+            public function getIconClass(): string
             {
-                return $this->iconAttributes;
+                return $this->iconAttributes['class'] ?? '';
             }
         };
 
-        $this->assertEmpty($instance->getIconAttributes());
+        $this->assertEmpty($instance->getIconClass());
 
-        $instance = $instance->iconClass('test');
+        $instance = $instance->iconClass('test-class');
 
-        $this->assertSame(['class' => 'test'], $instance->getIconAttributes());
+        $this->assertSame('test-class', $instance->getIconClass());
 
-        $instance = $instance->iconClass('test1');
+        $instance = $instance->iconClass('test-class-1');
 
-        $this->assertSame(['class' => 'test test1'], $instance->getIconAttributes());
+        $this->assertSame('test-class test-class-1', $instance->getIconClass());
+
+        $instance = $instance->iconClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getIconClass());
     }
 
     public function testContainerClass(): void
@@ -36,21 +40,25 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            public function getIconContainerAttributes(): array
+            public function getIconContainerClass(): string
             {
-                return $this->iconContainerAttributes;
+                return $this->iconContainerAttributes['class'] ?? '';
             }
         };
 
-        $this->assertEmpty($instance->getIconContainerAttributes());
+        $this->assertEmpty($instance->getIconContainerClass());
 
         $instance = $instance->iconContainerClass('test');
 
-        $this->assertSame(['class' => 'test'], $instance->getIconContainerAttributes());
+        $this->assertSame('test', $instance->getIconContainerClass());
 
         $instance = $instance->iconContainerClass('test1');
 
-        $this->assertSame(['class' => 'test test1'], $instance->getIconContainerAttributes());
+        $this->assertSame('test test1', $instance->getIconContainerClass());
+
+        $instance = $instance->iconContainerClass('test', true);
+
+        $this->assertSame('test', $instance->getIconContainerClass());
     }
 
     public function testGetIconAttributes(): void

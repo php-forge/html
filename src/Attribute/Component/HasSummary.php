@@ -34,13 +34,14 @@ trait HasSummary
      * Set the `CSS` `HTML` class attribute for summary container.
      *
      * @param string $value The `CSS` attribute for summary container.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified class value for summary container.
      */
-    public function summaryClass(string $value): static
+    public function summaryClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->summaryAttributes, $value);
+        CssClass::add($new->summaryAttributes, $value, $override);
 
         return $new;
     }

@@ -59,13 +59,14 @@ trait HasBrand
      * Set the `CSS` class for the brand container.
      *
      * @param string $value The `CSS` class for the brand container.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified brand container class.
      */
-    public function brandContainerClass(string $value): static
+    public function brandContainerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->brandContainerAttributes, $value);
+        CssClass::add($new->brandContainerAttributes, $value, $override);
 
         return $new;
     }
@@ -132,13 +133,14 @@ trait HasBrand
      * Set the `CSS` class for the brand link.
      *
      * @param string $value The `CSS` class for the brand link.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified brand link class.
      */
-    public function brandLinkClass(string $value): static
+    public function brandLinkClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->brandLinkAttributes, $value);
+        CssClass::add($new->brandLinkAttributes, $value, $override);
 
         return $new;
     }

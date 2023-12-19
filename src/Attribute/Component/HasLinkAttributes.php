@@ -42,13 +42,14 @@ trait HasLinkAttributes
      * Set the `CSS` class for the link tag.
      *
      * @param string $value The `CSS` class for the link tag.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified link class.
      */
-    public function linkClass(string $value): static
+    public function linkClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->linkAttributes, $value);
+        CssClass::add($new->linkAttributes, $value, $override);
 
         return $new;
     }

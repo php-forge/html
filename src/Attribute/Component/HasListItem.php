@@ -43,13 +43,14 @@ trait HasListItem
      * Set the `CSS` class for tag `<li>`.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified class for tag `<li>`.
      */
-    public function listItemClass(string $value): static
+    public function listItemClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->listItemAttributes, $value);
+        CssClass::add($new->listItemAttributes, $value, $override);
 
         return $new;
     }

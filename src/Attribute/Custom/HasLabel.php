@@ -37,13 +37,14 @@ trait HasLabel
      * Set the `CSS` class for the label.
      *
      * @param string $value The value of the class attribute.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified label class.
      */
-    public function labelClass(string $value): static
+    public function labelClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->labelAttributes, $value);
+        CssClass::add($new->labelAttributes, $value, $override);
 
         return $new;
     }

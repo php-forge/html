@@ -26,13 +26,17 @@ final class HasContainerMenuTest extends TestCase
 
         $this->assertEmpty($instance->getContainerMenuClass());
 
-        $instance = $instance->containerMenuClass('foo');
+        $instance = $instance->containerMenuClass('test-class');
 
-        $this->assertSame('foo', $instance->getContainerMenuClass());
+        $this->assertSame('test-class', $instance->getContainerMenuClass());
 
-        $instance = $instance->containerMenuClass('bar');
+        $instance = $instance->containerMenuClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getContainerMenuClass());
+        $this->assertSame('test-class test-class-1', $instance->getContainerMenuClass());
+
+        $instance = $instance->containerMenuClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getContainerMenuClass());
     }
 
     public function testException(): void

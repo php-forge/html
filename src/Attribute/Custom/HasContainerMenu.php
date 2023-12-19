@@ -48,13 +48,14 @@ trait HasContainerMenu
      * Set the `CSS` class for the container menu.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified container menu class.
      */
-    public function containerMenuClass(string $value): static
+    public function containerMenuClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->containerMenuAttributes, $value);
+        CssClass::add($new->containerMenuAttributes, $value, $override);
 
         return $new;
     }

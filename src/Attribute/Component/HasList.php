@@ -39,13 +39,14 @@ trait HasList
      * Set the `CSS` class for the `<ul>` or `<ol>` tag.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified `<ul>` or `<ol>` class.
      */
-    public function listClass(string $value): static
+    public function listClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->listAttributes, $value);
+        CssClass::add($new->listAttributes, $value, $override);
 
         return $new;
     }
@@ -84,13 +85,14 @@ trait HasList
      * Set the `CSS` class for the container for tag `<ul>` or `<ol>`.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified container class for tag `<ul>` or `<ol>`.
      */
-    public function listContainerClass(string $value): static
+    public function listContainerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->listContainerAttributes, $value);
+        CssClass::add($new->listContainerAttributes, $value, $override);
 
         return $new;
     }
