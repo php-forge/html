@@ -16,13 +16,14 @@ final class EncodeTest extends TestCase
 
         $this->assertSame(
             ['style'],
-            Assert::inaccessibleProperty(New Encode(), 'removeEvilAttributes'),
+            Assert::inaccessibleProperty(new Encode(), 'removeEvilAttributes'),
         );
         $this->assertSame(
             ['button', 'form', 'input', 'select', 'svg', 'textarea'],
-            Assert::inaccessibleProperty(New Encode(), 'removeEvilHtmlTags'),
+            Assert::inaccessibleProperty(new Encode(), 'removeEvilHtmlTags'),
         );
     }
+
     /**
      * @dataProvider PHPForge\Html\Tests\Provider\EncodeProvider::encode
      *

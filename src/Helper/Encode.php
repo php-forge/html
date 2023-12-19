@@ -32,7 +32,7 @@ final class Encode
         'input',
         'select',
         'svg',
-        'textarea'
+        'textarea',
     ];
 
     /**
@@ -89,7 +89,7 @@ final class Encode
     /**
      * Sanitizes HTML content to prevent XSS attacks.
      *
-     * @param string|ElementInterface ...$values The HTML content to sanitize.
+     * @param ElementInterface|string ...$values The HTML content to sanitize.
      *
      * @return string The sanitized HTML content.
      */
