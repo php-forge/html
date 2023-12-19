@@ -22,13 +22,17 @@ final class HasListItemTest extends TestCase
 
         $this->assertEmpty($instance->getListItemClass());
 
-        $instance = $instance->listItemClass('foo');
+        $instance = $instance->listItemClass('test-class');
 
-        $this->assertSame('foo', $instance->getListItemClass());
+        $this->assertSame('test-class', $instance->getListItemClass());
 
-        $instance = $instance->listItemClass('bar');
+        $instance = $instance->listItemClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getListItemClass());
+        $this->assertSame('test-class test-class-1', $instance->getListItemClass());
+
+        $instance = $instance->listItemClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getListItemClass());
     }
 
     public function testGetListItemAttributes(): void

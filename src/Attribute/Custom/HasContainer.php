@@ -48,13 +48,14 @@ trait HasContainer
      * Set the `CSS` class for the container.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified container class.
      */
-    public function containerClass(string $value): static
+    public function containerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->containerAttributes, $value);
+        CssClass::add($new->containerAttributes, $value, $override);
 
         return $new;
     }

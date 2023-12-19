@@ -31,13 +31,25 @@ final class HasLinkAttributesTest extends TestCase
         $instance = new class () {
             use HasLinkAttributes;
 
-            public function getLinkAttributes(): array
+            public function getLinkClass(): string
             {
-                return $this->linkAttributes;
+                return $this->linkAttributes['class'] ?? '';
             }
         };
 
-        $this->assertSame(['class' => 'test-class'], $instance->linkClass('test-class')->getLinkAttributes());
+        $this->assertEmpty($instance->getLinkClass());
+
+        $instance = $instance->linkClass('test-class');
+
+        $this->assertSame('test-class', $instance->getLinkClass());
+
+        $instance = $instance->linkClass('test-class-1');
+
+        $this->assertSame('test-class test-class-1', $instance->getLinkClass());
+
+        $instance = $instance->linkClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getLinkClass());
     }
 
     public function testGetLinkAttributes(): void
@@ -46,7 +58,10 @@ final class HasLinkAttributesTest extends TestCase
             use HasLinkAttributes;
         };
 
-        $this->assertSame(['class' => 'test-class'], $instance->linkAttributes(['class' => 'test-class'])->getLinkAttributes());
+        $this->assertSame(
+            ['class' => 'test-class'],
+            $instance->linkAttributes(['class' => 'test-class'])->getLinkAttributes(),
+        );
     }
 
     public function testImmutablity(): void

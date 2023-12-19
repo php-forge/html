@@ -39,21 +39,25 @@ final class HasToggleTest extends TestCase
         $instance = new class () {
             use HasToggle;
 
-            public function getToggleAttributes(): array
+            public function getToggleClass(): string
             {
-                return $this->toggleAttributes;
+                return $this->toggleAttributes['class'] ?? '';
             }
         };
 
-        $this->assertSame([], $instance->getToggleAttributes());
+        $this->assertEmpty($instance->getToggleClass());
 
-        $instance = $instance->toggleClass('test');
+        $instance = $instance->toggleClass('test-class');
 
-        $this->assertSame(['class' => 'test'], $instance->getToggleAttributes());
+        $this->assertSame('test-class', $instance->getToggleClass());
 
-        $instance = $instance->toggleClass('test1');
+        $instance = $instance->toggleClass('test-class-1');
 
-        $this->assertSame(['class' => 'test test1'], $instance->getToggleAttributes());
+        $this->assertSame('test-class test-class-1', $instance->getToggleClass());
+
+        $instance = $instance->toggleClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getToggleClass());
     }
 
     public function testContent(): void

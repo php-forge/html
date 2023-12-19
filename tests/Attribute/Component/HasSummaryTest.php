@@ -22,13 +22,17 @@ final class HasSummaryTest extends TestCase
 
         $this->assertEmpty($instance->getSummaryClass());
 
-        $instance = $instance->summaryClass('foo');
+        $instance = $instance->summaryClass('test-class');
 
-        $this->assertSame('foo', $instance->getSummaryClass());
+        $this->assertSame('test-class', $instance->getSummaryClass());
 
-        $instance = $instance->summaryClass('bar');
+        $instance = $instance->summaryClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getSummaryClass());
+        $this->assertSame('test-class test-class-1', $instance->getSummaryClass());
+
+        $instance = $instance->summaryClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getSummaryClass());
     }
 
     public function testImmutablity(): void

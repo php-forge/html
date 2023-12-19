@@ -23,13 +23,17 @@ final class HasLabelTest extends TestCase
 
         $this->assertEmpty($instance->getLabelClass());
 
-        $instance = $instance->labelClass('foo');
+        $instance = $instance->labelClass('test-class');
 
-        $this->assertSame('foo', $instance->getLabelClass());
+        $this->assertSame('test-class', $instance->getLabelClass());
 
-        $instance = $instance->labelClass('bar');
+        $instance = $instance->labelClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getLabelClass());
+        $this->assertSame('test-class test-class-1', $instance->getLabelClass());
+
+        $instance = $instance->labelClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getLabelClass());
     }
 
     public function testContent(): void

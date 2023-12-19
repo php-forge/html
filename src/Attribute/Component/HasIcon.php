@@ -60,13 +60,14 @@ trait HasIcon
      * Set the `CSS` class for the icon.
      *
      * @param string $value The icon CSS class.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified icon CSS class.
      */
-    public function iconClass(string $value): static
+    public function iconClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->iconAttributes, $value);
+        CssClass::add($new->iconAttributes, $value, $override);
 
         return $new;
     }
@@ -103,13 +104,14 @@ trait HasIcon
      * Set the `CSS` class for the icon container.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified icon container CSS class.
      */
-    public function iconContainerClass(string $value): static
+    public function iconContainerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->iconContainerAttributes, $value);
+        CssClass::add($new->iconContainerAttributes, $value, $override);
 
         return $new;
     }

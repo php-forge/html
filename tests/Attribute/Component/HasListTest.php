@@ -23,13 +23,17 @@ final class HasListTest extends TestCase
 
         $this->assertEmpty($instance->getListClass());
 
-        $instance = $instance->listClass('foo');
+        $instance = $instance->listClass('test-class');
 
-        $this->assertSame('foo', $instance->getListClass());
+        $this->assertSame('test-class', $instance->getListClass());
 
-        $instance = $instance->listClass('bar');
+        $instance = $instance->listClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getListClass());
+        $this->assertSame('test-class test-class-1', $instance->getListClass());
+
+        $instance = $instance->listClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getListClass());
     }
 
     public function testContainerClass(): void
@@ -45,13 +49,17 @@ final class HasListTest extends TestCase
 
         $this->assertEmpty($instance->getListContainerClass());
 
-        $instance = $instance->listContainerClass('foo');
+        $instance = $instance->listContainerClass('test-class');
 
-        $this->assertSame('foo', $instance->getListContainerClass());
+        $this->assertSame('test-class', $instance->getListContainerClass());
 
-        $instance = $instance->listContainerClass('bar');
+        $instance = $instance->listContainerClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getListContainerClass());
+        $this->assertSame('test-class test-class-1', $instance->getListContainerClass());
+
+        $instance = $instance->listContainerClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getListContainerClass());
     }
 
     public function testException(): void

@@ -24,13 +24,17 @@ final class HasClassTest extends TestCase
 
         $this->assertEmpty($instance->getClass());
 
-        $instance = $instance->class('foo');
+        $instance = $instance->class('test-class');
 
-        $this->assertSame('foo', $instance->getClass());
+        $this->assertSame('test-class', $instance->getClass());
 
-        $instance = $instance->class('bar');
+        $instance = $instance->class('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getClass());
+        $this->assertSame('test-class test-class-1', $instance->getClass());
+
+        $instance = $instance->class('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getClass());
     }
 
     public function testImmutablity(): void

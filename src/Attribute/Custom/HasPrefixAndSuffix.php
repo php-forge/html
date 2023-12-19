@@ -72,13 +72,14 @@ trait HasPrefixAndSuffix
      * Set the `CSS` class for the prefix container.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified prefix container class.
      */
-    public function prefixContainerClass(string $value): static
+    public function prefixContainerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->prefixContainerAttributes, $value);
+        CssClass::add($new->prefixContainerAttributes, $value, $override);
 
         return $new;
     }
@@ -153,13 +154,14 @@ trait HasPrefixAndSuffix
      * Set the `CSS` class for the suffix container.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified suffix container class.
      */
-    public function suffixContainerClass(string $value): static
+    public function suffixContainerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->suffixContainerAttributes, $value);
+        CssClass::add($new->suffixContainerAttributes, $value, $override);
 
         return $new;
     }

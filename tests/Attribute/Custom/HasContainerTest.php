@@ -26,13 +26,17 @@ final class HasContainerTest extends TestCase
 
         $this->assertEmpty($instance->getContainerClass());
 
-        $instance = $instance->containerClass('foo');
+        $instance = $instance->containerClass('test-class');
 
-        $this->assertSame('foo', $instance->getContainerClass());
+        $this->assertSame('test-class', $instance->getContainerClass());
 
-        $instance = $instance->containerClass('bar');
+        $instance = $instance->containerClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getContainerClass());
+        $this->assertSame('test-class test-class-1', $instance->getContainerClass());
+
+        $instance = $instance->containerClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getContainerClass());
     }
 
     public function testException(): void

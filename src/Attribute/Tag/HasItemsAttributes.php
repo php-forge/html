@@ -32,13 +32,14 @@ trait HasItemsAttributes
      * Set the `CSS` `HTML` class attribute for the items.
      *
      * @param string $value The `CSS` attribute for the items.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified class value for the items.
      */
-    public function itemsClass(string $value): static
+    public function itemsClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->itemsAttributes, $value);
+        CssClass::add($new->itemsAttributes, $value, $override);
 
         return $new;
     }

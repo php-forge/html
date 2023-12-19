@@ -24,13 +24,17 @@ final class HasItemsAttributesTest extends TestCase
 
         $this->assertEmpty($instance->getItemsClass());
 
-        $instance = $instance->itemsClass('foo');
+        $instance = $instance->itemsClass('test-class');
 
-        $this->assertSame('foo', $instance->getItemsClass());
+        $this->assertSame('test-class', $instance->getItemsClass());
 
-        $instance = $instance->itemsClass('bar');
+        $instance = $instance->itemsClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getItemsClass());
+        $this->assertSame('test-class test-class-1', $instance->getItemsClass());
+
+        $instance = $instance->itemsClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getItemsClass());
     }
 
     public function testImmutablity(): void

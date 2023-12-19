@@ -34,12 +34,15 @@ trait HasUnchecked
     /**
      * Set the `CSS` class for the unchecked element.
      *
+     * @param string $class The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
+     *
      * @return static A new instance of the current class with the specified unchecked class.
      */
-    public function uncheckClass(string $class): static
+    public function uncheckClass(string $class, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->uncheckAttributes, $class);
+        CssClass::add($new->uncheckAttributes, $class, $override);
 
         return $new;
     }

@@ -49,13 +49,14 @@ trait HasListItemContainer
      * Set the `CSS` class for the container for list items.
      *
      * @param string $value The CSS class name.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified container class for list items.
      */
-    public function listItemContainerClass(string $value): static
+    public function listItemContainerClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->listItemContainerAttributes, $value);
+        CssClass::add($new->listItemContainerAttributes, $value, $override);
 
         return $new;
     }

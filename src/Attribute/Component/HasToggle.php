@@ -61,13 +61,14 @@ trait HasToggle
      * Set the `CSS` class for the toggle.
      *
      * @param string $value The `CSS` class for the toggle.
+     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified toggle class.
      */
-    public function toggleClass(string $value): static
+    public function toggleClass(string $value, bool $override = false): static
     {
         $new = clone $this;
-        CssClass::add($new->toggleAttributes, $value);
+        CssClass::add($new->toggleAttributes, $value, $override);
 
         return $new;
     }

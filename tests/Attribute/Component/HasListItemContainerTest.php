@@ -25,13 +25,17 @@ final class HasListItemContainerTest extends TestCase
 
         $this->assertEmpty($instance->getListItemContainerClass());
 
-        $instance = $instance->listItemContainerClass('foo');
+        $instance = $instance->listItemContainerClass('test-class');
 
-        $this->assertSame('foo', $instance->getListItemContainerClass());
+        $this->assertSame('test-class', $instance->getListItemContainerClass());
 
-        $instance = $instance->listItemContainerClass('bar');
+        $instance = $instance->listItemContainerClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getListItemContainerClass());
+        $this->assertSame('test-class test-class-1', $instance->getListItemContainerClass());
+
+        $instance = $instance->listItemContainerClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getListItemContainerClass());
     }
 
     public function testException(): void

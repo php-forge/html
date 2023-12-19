@@ -58,13 +58,17 @@ final class HasPrefixAndSuffixTest extends TestCase
 
         $this->assertEmpty($instance->getPrefixContainerClass());
 
-        $instance = $instance->prefixContainerClass('foo');
+        $instance = $instance->prefixContainerClass('test-class');
 
-        $this->assertSame('foo', $instance->getPrefixContainerClass());
+        $this->assertSame('test-class', $instance->getPrefixContainerClass());
 
-        $instance = $instance->prefixContainerClass('bar');
+        $instance = $instance->prefixContainerClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getPrefixContainerClass());
+        $this->assertSame('test-class test-class-1', $instance->getPrefixContainerClass());
+
+        $instance = $instance->prefixContainerClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getPrefixContainerClass());
     }
 
     public function testPrefixContainerTagException(): void
@@ -124,13 +128,17 @@ final class HasPrefixAndSuffixTest extends TestCase
 
         $this->assertEmpty($instance->getSuffixContainerClass());
 
-        $instance = $instance->suffixContainerClass('foo');
+        $instance = $instance->suffixContainerClass('test-class');
 
-        $this->assertSame('foo', $instance->getSuffixContainerClass());
+        $this->assertSame('test-class', $instance->getSuffixContainerClass());
 
-        $instance = $instance->suffixContainerClass('bar');
+        $instance = $instance->suffixContainerClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getSuffixContainerClass());
+        $this->assertSame('test-class test-class-1', $instance->getSuffixContainerClass());
+
+        $instance = $instance->suffixContainerClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getSuffixContainerClass());
     }
 
     public function testSuffixContainerTagException(): void

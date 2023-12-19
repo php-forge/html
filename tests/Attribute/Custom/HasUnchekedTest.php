@@ -39,13 +39,17 @@ final class HasUnchekedTest extends TestCase
 
         $this->assertEmpty($instance->getClass());
 
-        $instance = $instance->uncheckClass('foo');
+        $instance = $instance->uncheckClass('test-class');
 
-        $this->assertSame('foo', $instance->getClass());
+        $this->assertSame('test-class', $instance->getClass());
 
-        $instance = $instance->uncheckClass('bar');
+        $instance = $instance->uncheckClass('test-class-1');
 
-        $this->assertSame('foo bar', $instance->getClass());
+        $this->assertSame('test-class test-class-1', $instance->getClass());
+
+        $instance = $instance->uncheckClass('test-override-class', true);
+
+        $this->assertSame('test-override-class', $instance->getClass());
     }
 
     public function testImmutablity(): void
