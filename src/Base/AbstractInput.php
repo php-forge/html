@@ -27,6 +27,10 @@ abstract class AbstractInput extends Element
     use Attribute\HasStyle;
     use Attribute\HasTabindex;
     use Attribute\HasTitle;
+    use Attribute\Input\CanBeDisabled;
+    use Attribute\Input\CanBeReadonly;
+    use Attribute\Input\CanBeRequired;
+    use Attribute\Input\HasForm;
     use Attribute\Input\HasName;
     use Attribute\Input\HasType;
     use Attribute\Input\HasValue;
