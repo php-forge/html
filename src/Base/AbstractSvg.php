@@ -196,9 +196,12 @@ abstract class AbstractSvg extends Element
     private function removeDomNodes(DOMDocument $dom, string $expression): void
     {
         $xpath = new DOMXPath($dom);
+        $nodes = $xpath->query($expression);
 
-        while (($node = $xpath->query($expression)->item(0)) instanceof DOMNode) {
-            $node->parentNode?->removeChild($node);
+        foreach ($nodes as $node) {
+            if ($node instanceof DOMNode) {
+                $node->parentNode?->removeChild($node);
+            }
         }
     }
 }

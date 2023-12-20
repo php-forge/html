@@ -28,11 +28,11 @@ final class HasIdTest extends TestCase
             protected array $attributes = [];
         };
 
-        $instance = $instance->id(null);
+        $instance = $instance->id('');
 
         $this->assertNotEmpty($instance->generateId());
         $this->assertMatchesRegularExpression('/^id_[a-z0-9]{13}$/', $instance->generateId());
-        $this->assertMatchesRegularExpression('/^alert_[a-z0-9]{13}$/', $instance->id(null)->generateId('alert_'));
+        $this->assertMatchesRegularExpression('/^alert_[a-z0-9]{13}$/', $instance->id('')->generateId('alert_'));
     }
 
     public function testGenerateIdWithId(): void

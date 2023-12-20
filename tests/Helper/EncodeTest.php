@@ -12,10 +12,10 @@ final class EncodeTest extends TestCase
 {
     public function testInitializate(): void
     {
-        Encode::initialize(['style'], ['button', 'form', 'input', 'select', 'svg', 'textarea']);
+        Encode::initialize(['form', 'style'], ['button', 'form', 'input', 'select', 'svg', 'textarea']);
 
         $this->assertSame(
-            ['style'],
+            ['form', 'style'],
             Assert::inaccessibleProperty(new Encode(), 'removeEvilAttributes'),
         );
         $this->assertSame(

@@ -44,52 +44,37 @@ abstract class AbstractElement extends Element
             $attributes['id'] = $this->id;
         }
 
-        /** @var string|null $type */
-        $type = $this->attributes['type'] ?? null;
-
         return strtr(
             $this->template,
             [
-                '{prefix}' => $this->renderPrefix($type),
+                '{prefix}' => $this->renderPrefix(),
                 '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
-                '{suffix}' => $this->renderSuffix($type),
+                '{suffix}' => $this->renderSuffix(),
             ],
         );
     }
 
-    private function renderPrefix(string $type = null): string
+    private function renderPrefix(): string
     {
-        $prefix = $this->prefix;
-
-        if ($prefix !== '' && $type !== 'checkbox' && $type !== 'radio') {
-            $prefix .= PHP_EOL;
-        }
-
         return match ($this->prefixContainer) {
             true => Tag::widget()
                 ->attributes($this->prefixContainerAttributes)
                 ->content($this->prefix)
                 ->tagName($this->prefixContainerTag)
                 ->render() . PHP_EOL,
-            default => $prefix,
+            default => $this->prefix !== '' ? $this->prefix . PHP_EOL : '',
         };
     }
 
-    private function renderSuffix(string $type = null): string
+    private function renderSuffix(): string
     {
-        $suffix = $this->suffix;
-
-        if ($suffix !== '' && $type !== 'checkbox' && $type !== 'radio') {
-            $suffix = PHP_EOL . $suffix;
-        }
-
         return match ($this->suffixContainer) {
             true => PHP_EOL . Tag::widget()
                 ->attributes($this->suffixContainerAttributes)
                 ->content($this->suffix)
                 ->tagName($this->suffixContainerTag)
                 ->render(),
-            default => $suffix,
+            default => $this->suffix !== '' ? PHP_EOL . $this->suffix : '',
         };
     }
 }

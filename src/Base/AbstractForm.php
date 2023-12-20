@@ -6,7 +6,7 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Html\Input;
+use PHPForge\Html\Input\Hidden;
 use PHPForge\Widget\Block;
 
 use function explode;
@@ -91,10 +91,7 @@ abstract class AbstractForm extends Block
         $method = $this->attributes['method'] ?? '';
 
         if ($this->csrfToken !== '' && $method === 'POST') {
-            $hiddenInputs[] = Input::widget()
-                ->attributes(['name' => $this->csrfName, 'type' => 'hidden', 'value' => $this->csrfToken])
-                ->type('hidden')
-                ->render();
+            $hiddenInputs[] = Hidden::widget()->id(null)->name($this->csrfName)->value($this->csrfToken)->render();
         }
 
         if ($method === 'GET' && ($pos = strpos($action, '?')) !== false) {
@@ -105,17 +102,13 @@ abstract class AbstractForm extends Block
                 $pos1 = strpos($pair, '=');
 
                 if ($pos1 !== false) {
-                    $hiddenInputs[] = Input::widget()
-                        ->attributes(
-                            [
-                                'name' => urldecode(substr($pair, 0, $pos1)),
-                                'value' => urldecode(substr($pair, $pos1 + 1)),
-                            ],
-                        )
-                        ->type('hidden')
+                    $hiddenInputs[] = Hidden::widget()
+                        ->id(null)
+                        ->name(urldecode(substr($pair, 0, $pos1)))
+                        ->value(urldecode(substr($pair, $pos1 + 1)))
                         ->render();
                 } else {
-                    $hiddenInputs[] = Input::widget()->attributes(['name' => urldecode($pair)])->type('hidden')->render();
+                    $hiddenInputs[] = Hidden::widget()->id(null)->name(urldecode($pair))->render();
                 }
             }
 

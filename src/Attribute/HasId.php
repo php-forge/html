@@ -45,10 +45,10 @@ trait HasId
      *
      * @param string $value The value to use for the ID.
      *
-     * @return string A unique ID for the widget.
+     * @return string|null A unique ID for the widget.
      */
-    public function generateId(string $value = 'id_'): string
+    public function generateId(string $value = 'id_'): string|null
     {
-        return $this->id === '' || $this->id === null ? uniqid($value) : $this->id;
+        return $this->id === '' ? uniqid($value) : $this->id;
     }
 }
