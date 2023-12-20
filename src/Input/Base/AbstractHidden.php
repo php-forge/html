@@ -14,7 +14,7 @@ abstract class AbstractHidden extends AbstractInput
     /**
      * @var array<string>
      */
-    protected CONST NOT_ALLOWED_ATTRIBUTES = [
+    protected const NOT_ALLOWED_ATTRIBUTES = [
         'aria-describedby',
         'aria-label',
         'autofocus',

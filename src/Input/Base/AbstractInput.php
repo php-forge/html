@@ -36,7 +36,7 @@ abstract class AbstractInput extends Element
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected string $template = "{prefix}{tag}{suffix}";
+    protected string $template = '{prefix}{tag}{suffix}';
     protected string $type = 'text';
 
     protected function run(): string
