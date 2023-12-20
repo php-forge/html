@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Input;
 
-use PHPForge\Html\Input;
+use PHPForge\Html\Input\Input;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -15,97 +15,121 @@ final class RenderTest extends TestCase
 {
     public function testAriaDescribedBy(): void
     {
-        $this->assertSame(
-            '<input aria-describedby="MyWidget">',
-            Input::widget()->ariaDescribedBy('MyWidget')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" aria-describedby="MyWidget">
+            HTML,
+            Input::widget()->ariaDescribedBy('MyWidget')->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testAriaLabel(): void
     {
-        $this->assertSame(
-            '<input aria-label="MyWidget">',
-            Input::widget()->ariaLabel('MyWidget')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" aria-label="MyWidget">
+            HTML,
+            Input::widget()->ariaLabel('MyWidget')->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testAttributes(): void
     {
-        $this->assertSame(
-            '<input class="test-class" id="test-id">',
-            Input::widget()->attributes(['class' => 'test-class', 'id' => 'test-id'])->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input class="class" id="text-6582f2d099e8b" type="text">
+            HTML,
+            Input::widget()->attributes(['class' => 'class'])->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testAutofocus(): void
     {
-        $this->assertSame(
-            '<input autofocus>',
-            Input::widget()->autofocus()->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" autofocus>
+            HTML,
+            Input::widget()->autofocus()->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testClass(): void
     {
-        $this->assertSame(
-            '<input class="test-class">',
-            Input::widget()->class('test-class')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input class="class" id="text-6582f2d099e8b" type="text">
+            HTML,
+            Input::widget()->class('class')->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testDataAttributes(): void
     {
-        $this->assertSame(
-            '<input data-test="test-value">',
-            Input::widget()->dataAttributes(['test' => 'test-value'])->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" data-test="data-value">
+            HTML,
+            Input::widget()->dataAttributes(['test' => 'data-value'])->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testDisabled(): void
     {
-        $this->assertSame(
-            '<input disabled>',
-            Input::widget()->disabled()->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" disabled>
+            HTML,
+            Input::widget()->disabled()->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testForm(): void
     {
-        $this->assertSame(
-            '<input form="test-form">',
-            Input::widget()->form('test-form')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" form="form">
+            HTML,
+            Input::widget()->form('form')->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testHidden(): void
     {
-        $this->assertSame(
-            '<input hidden>',
-            Input::widget()->hidden()->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" hidden>
+            HTML,
+            Input::widget()->hidden()->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testId(): void
     {
-        $this->assertSame(
-            '<input id="test-id">',
-            Input::widget()->id('test-id')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="id" type="text">
+            HTML,
+            Input::widget()->id('id')->render()
         );
     }
 
     public function testLang(): void
     {
-        $this->assertSame(
-            '<input lang="en">',
-            Input::widget()->lang('en')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" lang="en">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->lang('en')->render()
         );
     }
 
     public function testName(): void
     {
-        $this->assertSame(
-            '<input name="test-name">',
-            Input::widget()->name('test-name')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" name="name" type="text">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->name('name')->render()
         );
     }
 
@@ -114,9 +138,9 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             prefix
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->prefix('prefix')->render(),
+            Input::widget()->id('text-6582f2d099e8b')->prefix('prefix')->render()
         );
     }
 
@@ -127,9 +151,9 @@ final class RenderTest extends TestCase
             <div>
             prefix
             </div>
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->prefix('prefix')->prefixContainer(true)->render(),
+            Input::widget()->id('text-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
         );
     }
 
@@ -137,16 +161,17 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="prefix-container">
+            <div class="class">
             prefix
             </div>
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             HTML,
             Input::widget()
+                ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'prefix-container'])
-                ->render(),
+                ->prefixContainerAttributes(['class' => 'class'])
+                ->render()
         );
     }
 
@@ -154,16 +179,17 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="prefix-container">
+            <div class="class">
             prefix
             </div>
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             HTML,
             Input::widget()
+                ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerClass('prefix-container')
-                ->render(),
+                ->prefixContainerClass('class')
+                ->render()
         );
     }
 
@@ -174,53 +200,54 @@ final class RenderTest extends TestCase
             <article>
             prefix
             </article>
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             HTML,
             Input::widget()
+                ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerTag('article')
-                ->render(),
-        );
-    }
-
-    public function testPrefixAndTypeCheckbox(): void
-    {
-        $this->assertSame(
-            'prefix<input type="checkbox">',
-            Input::widget()->prefix('prefix')->type('checkbox')->render(),
-        );
-    }
-
-    public function testPrefixAndTypeRadio(): void
-    {
-        $this->assertSame(
-            'prefix<input type="radio">',
-            Input::widget()->prefix('prefix')->type('radio')->render(),
+                ->render()
         );
     }
 
     public function testReadonly(): void
     {
-        $this->assertSame(
-            '<input readonly>',
-            Input::widget()->readonly()->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" readonly>
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->readonly()->render()
         );
     }
 
     public function testRequired(): void
     {
-        $this->assertSame(
-            '<input required>',
-            Input::widget()->required()->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" required>
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->required()->render()
+        );
+    }
+
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->render()
         );
     }
 
     public function testStyle(): void
     {
-        $this->assertSame(
-            '<input style="color:red;">',
-            Input::widget()->style('color:red;')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" style="style">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->style('style')->render()
         );
     }
 
@@ -228,10 +255,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             suffix
             HTML,
-            Input::widget()->suffix('suffix')->render(),
+            Input::widget()->id('text-6582f2d099e8b')->suffix('suffix')->render()
         );
     }
 
@@ -239,12 +266,12 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             <div>
             suffix
             </div>
             HTML,
-            Input::widget()->suffix('suffix')->suffixContainer(true)->render(),
+            Input::widget()->id('text-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
         );
     }
 
@@ -252,16 +279,17 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input>
-            <div class="suffix-container">
+            <input id="text-6582f2d099e8b" type="text">
+            <div class="class">
             suffix
             </div>
             HTML,
             Input::widget()
+                ->id('text-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'suffix-container'])
-                ->render(),
+                ->suffixContainerAttributes(['class' => 'class'])
+                ->render()
         );
     }
 
@@ -269,16 +297,17 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input>
-            <div class="suffix-container">
+            <input id="text-6582f2d099e8b" type="text">
+            <div class="class">
             suffix
             </div>
             HTML,
             Input::widget()
+                ->id('text-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerClass('suffix-container')
-                ->render(),
+                ->suffixContainerClass('class')
+                ->render()
         );
     }
 
@@ -286,40 +315,27 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             <article>
             suffix
             </article>
             HTML,
             Input::widget()
+                ->id('text-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerTag('article')
-                ->render(),
-        );
-    }
-
-    public function testSuffixAndTypeCheckbox(): void
-    {
-        $this->assertSame(
-            '<input type="checkbox">suffix',
-            Input::widget()->suffix('suffix')->type('checkbox')->render(),
-        );
-    }
-
-    public function testSuffixAndTypeRadio(): void
-    {
-        $this->assertSame(
-            '<input type="radio">suffix',
-            Input::widget()->suffix('suffix')->type('radio')->render(),
+                ->render()
         );
     }
 
     public function testTabIndex(): void
     {
-        $this->assertSame(
-            '<input tabindex="1">',
-            Input::widget()->tabIndex(1)->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" tabindex="1">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->tabIndex(1)->render()
         );
     }
 
@@ -327,42 +343,55 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input>
+            <input id="text-6582f2d099e8b" type="text">
             suffix
             HTML,
-            Input::widget()->prefix('prefix')->suffix('suffix')->template('{tag}{suffix}')->render(),
+            Input::widget()
+                ->id('text-6582f2d099e8b')
+                ->prefix('prefix')
+                ->suffix('suffix')
+                ->template('{tag}{suffix}')
+                ->render()
         );
     }
 
     public function testTitle(): void
     {
-        $this->assertSame(
-            '<input title="test-title">',
-            Input::widget()->title('test-title')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" title="title">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->title('title')->render()
         );
     }
 
     public function testType(): void
     {
-        $this->assertSame(
-            '<input type="radio">',
-            Input::widget()->type('radio')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="radio">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->type('radio')->render()
         );
     }
 
     public function testValue(): void
     {
-        $this->assertSame(
-            '<input value="test-value">',
-            Input::widget()->value('test-value')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" value="value">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->value('value')->render()
         );
     }
 
-    public function testValueEmpty(): void
+    public function testValueWithEmpty(): void
     {
-        $this->assertSame(
-            '<input>',
-            Input::widget()->value('')->render(),
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->value(null)->render()
         );
     }
 }

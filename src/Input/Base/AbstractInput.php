@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Base;
+namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Tag;
@@ -36,19 +36,16 @@ abstract class AbstractInput extends Element
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected string $template = '{prefix}{tag}{suffix}';
+    protected string $template = "{prefix}{tag}{suffix}";
+    protected string $type = 'text';
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
-
-        if (array_key_exists('value', $attributes) && $attributes['value'] === '') {
-            unset($attributes['value']);
-        }
+        $type = $this->attributes['type'] ?? $this->type;
 
         return Tag::widget()
-            ->attributes($attributes)
-            ->id($this->id)
+            ->attributes($this->attributes)
+            ->id($this->generateId("$this->type-"))
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)
@@ -59,6 +56,7 @@ abstract class AbstractInput extends Element
             ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('input')
             ->template($this->template)
+            ->type($type)
             ->render();
     }
 }

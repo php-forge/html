@@ -21,6 +21,7 @@ final class Encode
      * @var array<string>
      */
     private static array $removeEvilAttributes = [
+        'form',
         'style',
     ];
     /**
@@ -53,7 +54,7 @@ final class Encode
      * Characters encoded are: &, <, >.
      *
      * @param mixed $content The content to be encoded.
-     * @param bool $doubleEncode If already encoded entities should be encoded.
+     * @param bool $doubleEncode If already encoded, entities should be encoded.
      * @param string $encoding The encoding to use, defaults to "UTF-8".
      *
      * @return string Encoded content.
@@ -71,7 +72,7 @@ final class Encode
      * Characters encoded are: &, <, >, ", ', U+0000 (null).
      *
      * @param mixed $value The attribute value to be encoded.
-     * @param bool $doubleEncode If already encoded entities should be encoded.
+     * @param bool $doubleEncode If already encoded, entities should be encoded.
      * @param string $encoding The encoding to use, defaults to "UTF-8".
      *
      * @return string Encoded attribute value.
@@ -116,8 +117,8 @@ final class Encode
     {
         $antiXss = new AntiXSS();
 
-        $antiXss->removeEvilHtmlTags(self::$removeEvilHtmlTags);
         $antiXss->removeEvilAttributes(self::$removeEvilAttributes);
+        $antiXss->removeEvilHtmlTags(self::$removeEvilHtmlTags);
 
         return $antiXss->xss_clean($content);
     }
