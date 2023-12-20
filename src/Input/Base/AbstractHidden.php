@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use InvalidArgumentException;
+use PHPForge\Html\Helper\Encode;
 
 use function array_key_exists;
 use function is_string;
@@ -35,7 +36,7 @@ abstract class AbstractHidden extends AbstractInput
         foreach (static::NOT_ALLOWED_ATTRIBUTES as $attribute) {
             if (array_key_exists($attribute, $attributes)) {
                 throw new InvalidArgumentException(
-                    sprintf('%s::class widget must not be "%s" attribute.', static::class, $attribute)
+                    sprintf('%s::class widget must not be "%s" attribute.', static::class, Encode::content($attribute))
                 );
             }
         }
