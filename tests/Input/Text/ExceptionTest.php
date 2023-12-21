@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Input\Hidden;
+namespace PHPForge\Html\Tests\Input\Text;
 
 use InvalidArgumentException;
-use PHPForge\Html\Input\Hidden;
+use PHPForge\Html\Input\Text;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -16,8 +16,8 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Hidden::class widget must be a string or null value.');
+        $this->expectExceptionMessage('Text::class widget must be a string or null value.');
 
-        Hidden::widget()->value([])->render();
+        Text::widget()->value([])->render();
     }
 }

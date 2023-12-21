@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use InvalidArgumentException;
+use PHPForge\Html\Attribute;
 
 use function is_string;
 
 abstract class AbstractColor extends AbstractInput
 {
-    protected string $type = 'color';
+    use Attribute\Input\CanBeRequired;
 
     /**
      * @return string the generated input tag.
@@ -29,6 +30,6 @@ abstract class AbstractColor extends AbstractInput
             );
         }
 
-        return parent::run();
+        return $this->buildInputTag($attributes, 'color')->render();
     }
 }

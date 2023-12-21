@@ -6,32 +6,17 @@ namespace PHPForge\Html\Input\Base;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Input\Input;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
-use PHPForge\Widget\Element;
 
 use function array_key_exists;
 use function is_string;
 
-abstract class AbstractButton extends Element
+abstract class AbstractButton extends AbstractInput
 {
-    use Attribute\Aria\HasAriaDescribedBy;
-    use Attribute\Aria\HasAriaLabel;
-    use Attribute\CanBeHidden;
-    use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasLabel;
-    use Attribute\HasClass;
-    use Attribute\HasId;
-    use Attribute\HasStyle;
-    use Attribute\HasTabindex;
-    use Attribute\HasTitle;
-    use Attribute\Input\CanBeDisabled;
-    use Attribute\Input\HasForm;
-    use Attribute\Input\HasName;
     use Attribute\Input\HasType;
-    use Attribute\Input\HasValue;
 
     protected array $attributes = [];
     protected bool $container = true;
@@ -40,6 +25,7 @@ abstract class AbstractButton extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
+        /** @var string $type */
         $type = $this->attributes['type'] ?? 'button';
         $value = $this->attributes['value'] ?? null;
 
@@ -52,16 +38,8 @@ abstract class AbstractButton extends Element
             );
         }
 
-        $id = $this->generateId("$type-");
-
-        $ariaDescribedBy = $this->attributes['aria-describedby'] ?? null;
-
-        if ($ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$id-help";
-        }
-
-        $buttonInput = Input::widget()->attributes($attributes)->id($id)->type($type)->value($value);
-        $labelFor = $id;
+        $buttonInput = $this->buildInputTag($attributes, $type);
+        $labelFor = $buttonInput->getId();
 
         if (array_key_exists('for', $this->labelAttributes)) {
             $labelFor = (string) $this->labelAttributes['for'];

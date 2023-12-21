@@ -6,15 +6,13 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\InputInterface;
-use PHPForge\Html\Input\PlaceholderInterface;
-use PHPForge\Html\Input\RuleHtmlByAttribute;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML `input` custom elements with various attributes and content.
  */
-abstract class AbstractInput extends Element implements InputInterface, PlaceholderInterface, RuleHtmlByAttribute
+abstract class AbstractInput extends Element implements InputInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;
@@ -32,24 +30,19 @@ abstract class AbstractInput extends Element implements InputInterface, Placehol
     use Attribute\HasTitle;
     use Attribute\Input\CanBeDisabled;
     use Attribute\Input\CanBeReadonly;
-    use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasForm;
     use Attribute\Input\HasName;
-    use Attribute\Input\HasPlaceholder;
-    use Attribute\Input\HasType;
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
     protected string $template = '{prefix}{tag}{suffix}';
-    protected string $type = 'text';
 
-    protected function run(): string
+    protected function buildInputTag(array $attributes, string $type, string $prefixWidget = ''): Tag
     {
-        $attributes = $this->attributes;
-        $type = $this->attributes['type'] ?? $this->type;
+        $type = $attributes['type'] ?? $type;
 
         $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
-        $id = $this->generateId("$this->type-");
+        $id = $this->generateId("$type-");
 
         if ($ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
@@ -58,7 +51,7 @@ abstract class AbstractInput extends Element implements InputInterface, Placehol
         return Tag::widget()
             ->attributes($attributes)
             ->id($id)
-            ->prefix($this->prefix)
+            ->prefix($this->prefix, $prefixWidget)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)
             ->prefixContainerTag($this->prefixContainerTag)
@@ -68,7 +61,6 @@ abstract class AbstractInput extends Element implements InputInterface, Placehol
             ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('input')
             ->template($this->template)
-            ->type($type)
-            ->render();
+            ->type($type);
     }
 }

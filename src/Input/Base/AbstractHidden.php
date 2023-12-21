@@ -5,42 +5,30 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use InvalidArgumentException;
+use PHPForge\Html\Attribute;
+use PHPForge\Html\Input\HiddenInterface;
+use PHPForge\Html\Tag;
+use PHPForge\Widget\Element;
 
-use function array_key_exists;
 use function is_string;
+use function sprintf;
 
-abstract class AbstractHidden extends AbstractInput
+abstract class AbstractHidden extends Element implements HiddenInterface
 {
-    /**
-     * @var array<string>
-     */
-    protected const NOT_ALLOWED_ATTRIBUTES = [
-        'aria-describedby',
-        'aria-label',
-        'autofocus',
-        'disabled',
-        'hidden',
-        'placeholder',
-        'required',
-        'readonly',
-        'tabindex',
-        'title',
-    ];
+    use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasPrefixAndSuffix;
+    use Attribute\Custom\HasTemplate;
+    use Attribute\HasId;
+    use Attribute\HasStyle;
+    use Attribute\Input\HasName;
+    use Attribute\Input\HasValue;
 
-    protected string $type = 'hidden';
+    protected array $attributes = [];
+    protected string $template = '{prefix}{tag}{suffix}';
 
     protected function run(): string
     {
         $attributes = $this->attributes;
-
-        foreach (static::NOT_ALLOWED_ATTRIBUTES as $attribute) {
-            if (array_key_exists($attribute, $attributes)) {
-                throw new InvalidArgumentException(
-                    sprintf('%s::class widget must not be "%s" attribute.', static::class, $attribute)
-                );
-            }
-        }
-
         $value = $attributes['value'] ?? null;
 
         /**
@@ -52,6 +40,21 @@ abstract class AbstractHidden extends AbstractInput
             );
         }
 
-        return parent::run();
+        return Tag::widget()
+            ->attributes($attributes)
+            ->id($this->generateId('hidden-'))
+            ->prefix($this->prefix)
+            ->prefixContainer($this->prefixContainer)
+            ->prefixContainerAttributes($this->prefixContainerAttributes)
+            ->prefixContainerTag($this->prefixContainerTag)
+            ->suffix($this->suffix)
+            ->suffixContainer($this->suffixContainer)
+            ->suffixContainerAttributes($this->suffixContainerAttributes)
+            ->suffixContainerTag($this->suffixContainerTag)
+            ->tagName('input')
+            ->template($this->template)
+            ->type('hidden')
+            ->value($value)
+            ->render();
     }
 }
