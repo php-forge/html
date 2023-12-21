@@ -17,6 +17,8 @@ use function is_string;
 
 abstract class AbstractButton extends Element implements InputInterface
 {
+    use Attribute\Aria\HasAriaDescribedBy;
+    use Attribute\Aria\HasAriaLabel;
     use Attribute\CanBeHidden;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
@@ -38,7 +40,8 @@ abstract class AbstractButton extends Element implements InputInterface
 
     protected function run(): string
     {
-        $buttonInput = Input::widget()->attributes($this->attributes)->id($this->id);
+        $attributes = $this->attributes;
+        $type = $this->attributes['type'] ?? 'button';
         $value = $this->attributes['value'] ?? null;
 
         /**
@@ -50,13 +53,20 @@ abstract class AbstractButton extends Element implements InputInterface
             );
         }
 
-        if (array_key_exists('type', $this->attributes) === false) {
-            $buttonInput = $buttonInput->type('button');
+        $id = $this->generateId("$type-");
+
+        $ariaDescribedBy = $this->attributes['aria-describedby'] ?? null;
+
+        if ($ariaDescribedBy === true) {
+            $attributes['aria-describedby'] = "$id-help";
         }
 
-        $buttonInput = $buttonInput->value($value);
-        $labelFor = isset($this->labelAttributes['for']) && is_string($this->labelAttributes['for'])
-            ? $this->labelAttributes['for'] : $this->id;
+        $buttonInput = Input::widget()->attributes($attributes)->id($id)->type($type)->value($value);
+        $labelFor = $id;
+
+        if (array_key_exists('for', $this->labelAttributes)) {
+            $labelFor = (string) $this->labelAttributes['for'];
+        }
 
         $buttonTag = match ($this->labelContent !== '') {
             true => $buttonInput

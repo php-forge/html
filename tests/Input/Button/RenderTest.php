@@ -13,6 +13,30 @@ use PHPUnit\Framework\TestCase;
  */
 final class RenderTest extends TestCase
 {
+    public function testAriaDescribedBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button" aria-describedby="MyWidget">
+            </div>
+            HTML,
+            Button::widget()->ariaDescribedBy('MyWidget')->id('text-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testAriaLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button" aria-label="MyWidget">
+            </div>
+            HTML,
+            Button::widget()->ariaLabel('MyWidget')->id('text-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAttribute(): void
     {
         Assert::equalsWithoutLE(
@@ -102,6 +126,18 @@ final class RenderTest extends TestCase
             </div>
             HTML,
             Button::widget()->form('form')->id('text-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testGenerateAriaDescribeBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button" aria-describedby="text-6582f2d099e8b-help">
+            </div>
+            HTML,
+            Button::widget()->ariaDescribedBy()->id('text-6582f2d099e8b')->render()
         );
     }
 
