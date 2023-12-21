@@ -7,6 +7,7 @@ namespace PHPForge\Html\Input\Base;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Hidden;
+use PHPForge\Html\Input\InputInterface;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
@@ -15,7 +16,7 @@ use function is_bool;
 use function is_iterable;
 use function is_object;
 
-abstract class AbstractChoice extends Element
+abstract class AbstractChoice extends Element implements InputInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;

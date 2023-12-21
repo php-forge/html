@@ -7,6 +7,7 @@ namespace PHPForge\Html\Input\Base;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Input;
+use PHPForge\Html\Input\InputInterface;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
@@ -14,7 +15,7 @@ use PHPForge\Widget\Element;
 use function array_key_exists;
 use function is_string;
 
-abstract class AbstractButton extends Element
+abstract class AbstractButton extends Element implements InputInterface
 {
     use Attribute\CanBeHidden;
     use Attribute\Custom\HasAttributes;
