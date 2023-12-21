@@ -141,6 +141,18 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testGenerateAriaDescribeBywithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button">
+            </div>
+            HTML,
+            Button::widget()->ariaDescribedBy(false)->id('text-6582f2d099e8b')->render()
+        );
+    }
+
     public function testHidden(): void
     {
         Assert::equalsWithoutLE(

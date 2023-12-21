@@ -183,6 +183,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testGenerateAriaDescribeByWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->ariaDescribedBy(false)->id('text-6582f2d099e8b')->render()
+        );
+    }
+
     public function testHidden(): void
     {
         Assert::equalsWithoutLE(
