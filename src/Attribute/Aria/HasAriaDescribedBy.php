@@ -16,7 +16,7 @@ trait HasAriaDescribedBy
      * descriptive elements. This helps screen readers and other assistive technologies provide additional context
      * about the element.
      *
-     * @param string|bool $value IDs of the descriptive element(s) separated by spaces.
+     * @param bool|string $value IDs of the descriptive element(s) separated by spaces.
      *
      * @return static A new instance or clone of the current object with the aria-describedby attribute set.
      *
