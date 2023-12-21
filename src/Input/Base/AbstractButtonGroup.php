@@ -13,9 +13,11 @@ use function implode;
 
 abstract class AbstractButtonGroup extends Element
 {
-    use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
 
+    /**
+     * @psalm-var Button[]
+     */
     protected array $buttons = [];
     protected bool $container = true;
     protected string $containerTag = 'div';
@@ -26,7 +28,7 @@ abstract class AbstractButtonGroup extends Element
      *
      * @param array $values The list of buttons.
      *
-     * @psalm-param button[] $values
+     * @psalm-param Button[] $values
      */
     public function buttons(Button ...$values): static
     {
