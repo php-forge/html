@@ -27,12 +27,12 @@ abstract class AbstractHidden extends AbstractInput
         'tabindex',
         'title',
     ];
+
     protected string $type = 'hidden';
 
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $value = $attributes['value'] ?? null;
 
         foreach (static::NOT_ALLOWED_ATTRIBUTES as $attribute) {
             if (array_key_exists($attribute, $attributes)) {
@@ -41,6 +41,8 @@ abstract class AbstractHidden extends AbstractInput
                 );
             }
         }
+
+        $value = $attributes['value'] ?? null;
 
         /**
          * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.hidden.html#input.hidden.attrs.value
