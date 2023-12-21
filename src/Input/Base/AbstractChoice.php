@@ -54,7 +54,6 @@ abstract class AbstractChoice extends Element implements InputInterface, LabelIn
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $uncheckTag = '';
         $value = $attributes['value'] ?? null;
 
         /**
@@ -67,28 +66,43 @@ abstract class AbstractChoice extends Element implements InputInterface, LabelIn
         }
 
         $value = is_bool($value) ? (int) $value : $value;
-
-        unset($attributes['value']);
-
-        if ($this->uncheckValue !== null) {
-            $uncheckTag = Hidden::widget()
-                ->attributes($this->uncheckAttributes)
-                ->id(null)
-                ->value($this->uncheckValue)
-                ->render();
-        }
+        $id = $this->generateId("$this->type-");
 
         $attributes['checked'] = match (empty($this->checkedValue)) {
             true => $this->checked,
             default => $value === $this->checkedValue,
         };
 
-        $inputCheckboxTag = $this->renderInputCheckboxTag($attributes, $uncheckTag, $value);
+        $ariaDescribedBy = $this->attributes['aria-describedby'] ?? null;
+
+        if ($ariaDescribedBy === true) {
+            $attributes['aria-describedby'] = "$id-help";
+        }
+
+        $inputCheckboxTag = $this->renderInputCheckboxTag($attributes, $id, $this->generateUncheckTag(), $value);
 
         if ($this->isNotLabel() === false) {
             $inputCheckboxTag = $this->renderLabelTag($inputCheckboxTag);
         }
 
+        return $this->renderContainerTag($inputCheckboxTag);
+    }
+
+    private function generateUncheckTag(): string
+    {
+        if ($this->uncheckValue === null) {
+            return '';
+        }
+
+        return Hidden::widget()
+            ->attributes($this->uncheckAttributes)
+            ->id(null)
+            ->value($this->uncheckValue)
+            ->render();
+    }
+
+    private function renderContainerTag(Label|Tag $inputCheckboxTag): string
+    {
         return match ($this->container) {
             true => Tag::widget()
                 ->attributes($this->containerAttributes)
@@ -111,11 +125,11 @@ abstract class AbstractChoice extends Element implements InputInterface, LabelIn
             ->for($inputCheckboxTag->getId());
     }
 
-    private function renderInputCheckboxTag(array $attributes, string $uncheckTag, mixed $value): Tag
+    private function renderInputCheckboxTag(array $attributes, string $id, string $uncheckTag, mixed $value): Tag
     {
         return Tag::widget()
             ->attributes($attributes)
-            ->id($this->generateId("$this->type-"))
+            ->id($id)
             ->prefix($this->prefix, $uncheckTag)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)

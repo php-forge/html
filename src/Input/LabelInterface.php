@@ -6,6 +6,9 @@ namespace PHPForge\Html\Input;
 
 use PHPForge\Widget\ElementInterface;
 
+/**
+ * Provide methods for handling HTML label-related attributes and properties.
+ */
 interface LabelInterface
 {
     /**

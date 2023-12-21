@@ -45,11 +45,19 @@ abstract class AbstractInput extends Element implements InputInterface, Placehol
 
     protected function run(): string
     {
+        $attributes = $this->attributes;
         $type = $this->attributes['type'] ?? $this->type;
 
+        $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
+        $id = $this->generateId("$this->type-");
+
+        if ($ariaDescribedBy === true) {
+            $attributes['aria-describedby'] = "$id-help";
+        }
+
         return Tag::widget()
-            ->attributes($this->attributes)
-            ->id($this->generateId("$this->type-"))
+            ->attributes($attributes)
+            ->id($id)
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)
