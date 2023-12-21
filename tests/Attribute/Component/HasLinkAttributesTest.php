@@ -64,7 +64,7 @@ final class HasLinkAttributesTest extends TestCase
         );
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasLinkAttributes;

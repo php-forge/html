@@ -54,7 +54,7 @@ final class HasContainerTest extends TestCase
         $instance->containerTag('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasContainer;

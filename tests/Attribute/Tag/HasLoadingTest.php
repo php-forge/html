@@ -24,7 +24,7 @@ final class HasLoadingTest extends TestCase
         $instance->loading('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasLoading;

@@ -24,7 +24,7 @@ final class HasAutocompleteTest extends TestCase
         $instance->autocomplete('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasAutocomplete;

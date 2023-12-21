@@ -23,7 +23,7 @@ final class HasAttributesTest extends TestCase
         $this->assertSame(['class' => 'foo', 'disabled' => true], $instance->attributes);
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasAttributes;

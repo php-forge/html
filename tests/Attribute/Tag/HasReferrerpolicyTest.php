@@ -42,7 +42,7 @@ final class HasReferrerpolicyTest extends TestCase
         $instance->referrerpolicy('invalid');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasReferrerpolicy;

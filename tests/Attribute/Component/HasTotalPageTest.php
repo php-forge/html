@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasTotalPageTest extends TestCase
 {
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasTotalPage;

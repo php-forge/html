@@ -74,7 +74,7 @@ final class HasListTest extends TestCase
         $instance->listType('foo');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasList;

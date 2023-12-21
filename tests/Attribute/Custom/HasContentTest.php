@@ -22,7 +22,7 @@ final class HasContentTest extends TestCase
         $this->assertSame('foo', $instance->getContent());
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasContent;

@@ -26,7 +26,7 @@ final class HasEnctypeTest extends TestCase
         $instance->enctype('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasEnctype;

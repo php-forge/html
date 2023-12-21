@@ -100,7 +100,7 @@ final class HasIconTest extends TestCase
         $this->assertSame('test', $instance->getIconText());
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasIcon;

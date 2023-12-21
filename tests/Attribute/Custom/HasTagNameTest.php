@@ -24,7 +24,7 @@ final class HasTagNameTest extends TestCase
         $instance->tagName('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasTagName;
