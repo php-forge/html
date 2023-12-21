@@ -42,7 +42,7 @@ abstract class AbstractHidden extends Element implements HiddenInterface
 
         return Tag::widget()
             ->attributes($attributes)
-            ->id($this->generateId("hidden-"))
+            ->id($this->generateId('hidden-'))
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)
