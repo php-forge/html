@@ -18,8 +18,8 @@ abstract class AbstractHidden extends Element implements HiddenInterface
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
-    use Attribute\HasStyle;
     use Attribute\HasId;
+    use Attribute\HasStyle;
     use Attribute\Input\HasName;
     use Attribute\Input\HasValue;
 
