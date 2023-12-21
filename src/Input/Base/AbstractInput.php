@@ -6,13 +6,14 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\InputInterface;
+use PHPForge\Html\Input\PlaceholderInterface;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML `input` custom elements with various attributes and content.
  */
-abstract class AbstractInput extends Element implements InputInterface
+abstract class AbstractInput extends Element implements InputInterface, PlaceholderInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;
