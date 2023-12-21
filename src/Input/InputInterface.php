@@ -25,6 +25,15 @@ interface InputInterface
     public function ariaDescribedBy(string|bool $value = true): static;
 
     /**
+     * Set the `HTML` attributes.
+     *
+     * @param array $values Attribute values indexed by attribute names.
+     *
+     * @return static A new instance of the current class with the specified attributes.
+     */
+    public function attributes(array $values): static;
+
+    /**
      * Set the `CSS` `HTML` class attribute.
      *
      * @param string $value The `CSS` attribute of the widget.
