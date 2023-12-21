@@ -43,7 +43,7 @@ interface InputInterface
      *
      * @link https://html.spec.whatwg.org/#classes
      */
-    public function class(string $value): static;
+    public function class(string $value, bool $override = false): static;
 
     /**
      * Get the ID of the widget.

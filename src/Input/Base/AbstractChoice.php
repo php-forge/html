@@ -125,7 +125,7 @@ abstract class AbstractChoice extends Element implements InputInterface, LabelIn
             ->for($inputCheckboxTag->getId());
     }
 
-    private function renderInputCheckboxTag(array $attributes, string $id, string $uncheckTag, mixed $value): Tag
+    private function renderInputCheckboxTag(array $attributes, string|null $id, string $uncheckTag, mixed $value): Tag
     {
         return Tag::widget()
             ->attributes($attributes)
