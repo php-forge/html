@@ -4,6 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
-interface RuleHtmlByAttribute
+interface RuleHtmlByAttributeInterface
 {
 }

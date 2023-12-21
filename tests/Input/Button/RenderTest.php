@@ -49,6 +49,18 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testAutofocus(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button" autofocus>
+            </div>
+            HTML,
+            Button::widget()->autofocus()->id('text-6582f2d099e8b')->render()
+        );
+    }
+
     public function testClass(): void
     {
         Assert::equalsWithoutLE(
@@ -233,6 +245,18 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testLang(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button" lang="en">
+            </div>
+            HTML,
+            Button::widget()->id('text-6582f2d099e8b')->lang('en')->render()
+        );
+    }
+
     public function testName(): void
     {
         Assert::equalsWithoutLE(
@@ -254,6 +278,18 @@ final class RenderTest extends TestCase
             </div>
             HTML,
             Button::widget()->id('text-6582f2d099e8b')->notLabel()->render()
+        );
+    }
+
+    public function testReadonly(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button" readonly>
+            </div>
+            HTML,
+            Button::widget()->id('text-6582f2d099e8b')->readonly()->render()
         );
     }
 

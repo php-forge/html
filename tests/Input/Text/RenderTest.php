@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Input;
+namespace PHPForge\Html\Tests\Text;
 
-use PHPForge\Html\Input\Input;
+use PHPForge\Html\Input\Text;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +19,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" aria-describedby="MyWidget">
             HTML,
-            Input::widget()->ariaDescribedBy('MyWidget')->id('text-6582f2d099e8b')->render()
+            Text::widget()->ariaDescribedBy('MyWidget')->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -29,7 +29,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" aria-label="MyWidget">
             HTML,
-            Input::widget()->ariaLabel('MyWidget')->id('text-6582f2d099e8b')->render()
+            Text::widget()->ariaLabel('MyWidget')->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -39,7 +39,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input class="class" id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->attributes(['class' => 'class'])->id('text-6582f2d099e8b')->render()
+            Text::widget()->attributes(['class' => 'class'])->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -49,7 +49,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" autofocus>
             HTML,
-            Input::widget()->autofocus()->id('text-6582f2d099e8b')->render()
+            Text::widget()->autofocus()->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -59,7 +59,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input class="class" id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->class('class')->id('text-6582f2d099e8b')->render()
+            Text::widget()->class('class')->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +69,17 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" data-test="data-value">
             HTML,
-            Input::widget()->dataAttributes(['test' => 'data-value'])->id('text-6582f2d099e8b')->render()
+            Text::widget()->dataAttributes(['test' => 'data-value'])->id('text-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" dirname="dirname">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->dirname('dirname')->render()
         );
     }
 
@@ -79,7 +89,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" disabled>
             HTML,
-            Input::widget()->disabled()->id('text-6582f2d099e8b')->render()
+            Text::widget()->disabled()->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -89,7 +99,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" form="form">
             HTML,
-            Input::widget()->form('form')->id('text-6582f2d099e8b')->render()
+            Text::widget()->form('form')->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -99,7 +109,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" aria-describedby="text-6582f2d099e8b-help">
             HTML,
-            Input::widget()->ariaDescribedBy()->id('text-6582f2d099e8b')->render()
+            Text::widget()->ariaDescribedBy()->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -109,7 +119,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->ariaDescribedBy(false)->id('text-6582f2d099e8b')->render()
+            Text::widget()->ariaDescribedBy(false)->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -119,7 +129,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" hidden>
             HTML,
-            Input::widget()->hidden()->id('text-6582f2d099e8b')->render()
+            Text::widget()->hidden()->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -129,7 +139,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="id" type="text">
             HTML,
-            Input::widget()->id('id')->render()
+            Text::widget()->id('id')->render()
         );
     }
 
@@ -139,7 +149,27 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" lang="en">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->lang('en')->render()
+            Text::widget()->id('text-6582f2d099e8b')->lang('en')->render()
+        );
+    }
+
+    public function testMaxLength(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" maxlength="1">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->maxLength(1)->render()
+        );
+    }
+
+    public function testMinLength(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" minlength="1">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->minLength(1)->render()
         );
     }
 
@@ -149,7 +179,17 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" name="name" type="text">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->name('name')->render()
+            Text::widget()->id('text-6582f2d099e8b')->name('name')->render()
+        );
+    }
+
+    public function testPattern(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" pattern="pattern">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->pattern('pattern')->render()
         );
     }
 
@@ -159,7 +199,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" placeholder="placeholder">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->placeholder('placeholder')->render()
+            Text::widget()->id('text-6582f2d099e8b')->placeholder('placeholder')->render()
         );
     }
 
@@ -170,7 +210,7 @@ final class RenderTest extends TestCase
             prefix
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->prefix('prefix')->render()
+            Text::widget()->id('text-6582f2d099e8b')->prefix('prefix')->render()
         );
     }
 
@@ -183,7 +223,7 @@ final class RenderTest extends TestCase
             </div>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
+            Text::widget()->id('text-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
         );
     }
 
@@ -196,7 +236,7 @@ final class RenderTest extends TestCase
             </div>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
@@ -214,7 +254,7 @@ final class RenderTest extends TestCase
             </div>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
@@ -232,7 +272,7 @@ final class RenderTest extends TestCase
             </article>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
@@ -247,7 +287,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" readonly>
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->readonly()->render()
+            Text::widget()->id('text-6582f2d099e8b')->readonly()->render()
         );
     }
 
@@ -257,7 +297,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" required>
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->required()->render()
+            Text::widget()->id('text-6582f2d099e8b')->required()->render()
         );
     }
 
@@ -267,7 +307,17 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->render()
+            Text::widget()->id('text-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testSize(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" size="1">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->size(1)->render()
         );
     }
 
@@ -277,7 +327,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" style="style">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->style('style')->render()
+            Text::widget()->id('text-6582f2d099e8b')->style('style')->render()
         );
     }
 
@@ -288,7 +338,7 @@ final class RenderTest extends TestCase
             <input id="text-6582f2d099e8b" type="text">
             suffix
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->suffix('suffix')->render()
+            Text::widget()->id('text-6582f2d099e8b')->suffix('suffix')->render()
         );
     }
 
@@ -301,7 +351,7 @@ final class RenderTest extends TestCase
             suffix
             </div>
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
+            Text::widget()->id('text-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
         );
     }
 
@@ -314,7 +364,7 @@ final class RenderTest extends TestCase
             suffix
             </div>
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
@@ -332,7 +382,7 @@ final class RenderTest extends TestCase
             suffix
             </div>
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
@@ -350,7 +400,7 @@ final class RenderTest extends TestCase
             suffix
             </article>
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
@@ -365,7 +415,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" tabindex="1">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->tabIndex(1)->render()
+            Text::widget()->id('text-6582f2d099e8b')->tabIndex(1)->render()
         );
     }
 
@@ -376,7 +426,7 @@ final class RenderTest extends TestCase
             <input id="text-6582f2d099e8b" type="text">
             suffix
             HTML,
-            Input::widget()
+            Text::widget()
                 ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->suffix('suffix')
@@ -391,17 +441,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" title="title">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->title('title')->render()
-        );
-    }
-
-    public function testType(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="radio">
-            HTML,
-            Input::widget()->id('text-6582f2d099e8b')->type('radio')->render()
+            Text::widget()->id('text-6582f2d099e8b')->title('title')->render()
         );
     }
 
@@ -411,7 +451,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" value="value">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->value('value')->render()
+            Text::widget()->id('text-6582f2d099e8b')->value('value')->render()
         );
     }
 
@@ -421,7 +461,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Input::widget()->id('text-6582f2d099e8b')->value(null)->render()
+            Text::widget()->id('text-6582f2d099e8b')->value(null)->render()
         );
     }
 }

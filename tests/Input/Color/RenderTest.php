@@ -153,16 +153,6 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testPlaceholder(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="color" placeholder="placeholder">
-            HTML,
-            Color::widget()->id('text-6582f2d099e8b')->placeholder('placeholder')->render()
-        );
-    }
-
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
@@ -392,16 +382,6 @@ final class RenderTest extends TestCase
             <input id="text-6582f2d099e8b" type="color" title="title">
             HTML,
             Color::widget()->id('text-6582f2d099e8b')->title('title')->render()
-        );
-    }
-
-    public function testType(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="radio">
-            HTML,
-            Color::widget()->id('text-6582f2d099e8b')->type('radio')->render()
         );
     }
 

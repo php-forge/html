@@ -23,36 +23,6 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testClass(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input class="class" id="text-6582f2d099e8b" type="hidden">
-            HTML,
-            Hidden::widget()->class('class')->id('text-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testDataAttributes(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="hidden" data-test="data-value">
-            HTML,
-            Hidden::widget()->dataAttributes(['test' => 'data-value'])->id('text-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testForm(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="hidden" form="form">
-            HTML,
-            Hidden::widget()->form('form')->id('text-6582f2d099e8b')->render()
-        );
-    }
-
     public function testId(): void
     {
         Assert::equalsWithoutLE(
@@ -60,16 +30,6 @@ final class RenderTest extends TestCase
             <input id="id" type="hidden">
             HTML,
             Hidden::widget()->id('id')->render()
-        );
-    }
-
-    public function testLang(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="hidden" lang="en">
-            HTML,
-            Hidden::widget()->id('text-6582f2d099e8b')->lang('en')->render()
         );
     }
 
