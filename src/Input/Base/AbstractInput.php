@@ -35,6 +35,7 @@ abstract class AbstractInput extends Element implements InputInterface
     use Attribute\Input\HasName;
     use Attribute\Input\HasType;
     use Attribute\Input\HasValue;
+    use Attribute\Input\HasPlaceholder;
 
     protected array $attributes = [];
     protected string $template = '{prefix}{tag}{suffix}';

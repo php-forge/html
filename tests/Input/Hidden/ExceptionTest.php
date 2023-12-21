@@ -53,6 +53,14 @@ final class ExceptionTest extends TestCase
         Hidden::widget()->hidden()->render();
     }
 
+    public function testPlaceholder(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Hidden::class widget must not be "placeholder" attribute.');
+
+        Hidden::widget()->placeholder('test-placeholder')->render();
+    }
+
     public function testRequired(): void
     {
         $this->expectException(InvalidArgumentException::class);

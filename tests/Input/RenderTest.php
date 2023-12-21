@@ -133,6 +133,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testPlaceholder(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" placeholder="placeholder">
+            HTML,
+            Input::widget()->id('text-6582f2d099e8b')->placeholder('placeholder')->render()
+        );
+    }
+
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
