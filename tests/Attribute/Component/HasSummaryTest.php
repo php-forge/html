@@ -35,7 +35,7 @@ final class HasSummaryTest extends TestCase
         $this->assertSame('test-override-class', $instance->getSummaryClass());
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasSummary;

@@ -17,7 +17,7 @@ final class RenderTest extends TestCase
         $this->assertSame('<meta>', Meta::widget()->render());
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = Meta::widget();
 

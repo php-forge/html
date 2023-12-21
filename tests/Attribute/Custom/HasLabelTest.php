@@ -52,7 +52,7 @@ final class HasLabelTest extends TestCase
         $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabelContent());
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasLabel;

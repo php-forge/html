@@ -37,7 +37,7 @@ final class HasClassTest extends TestCase
         $this->assertSame('test-override-class', $instance->getClass());
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasClass;

@@ -24,7 +24,7 @@ final class HasFormactionTest extends TestCase
         $instance->formaction('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasFormaction;

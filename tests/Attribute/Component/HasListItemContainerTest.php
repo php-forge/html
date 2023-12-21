@@ -52,7 +52,7 @@ final class HasListItemContainerTest extends TestCase
         $instance->listItemContainerTag('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasListItemContainer;

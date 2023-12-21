@@ -24,7 +24,7 @@ final class HasStepTest extends TestCase
         $instance->step('');
     }
 
-    public function testImmutablity(): void
+    public function testImmutability(): void
     {
         $instance = new class () {
             use HasStep;
