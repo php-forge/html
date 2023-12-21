@@ -21,6 +21,7 @@ abstract class AbstractHidden extends AbstractInput
         'autofocus',
         'disabled',
         'hidden',
+        'placeholder',
         'required',
         'readonly',
         'tabindex',
