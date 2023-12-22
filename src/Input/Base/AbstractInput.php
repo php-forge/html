@@ -39,9 +39,7 @@ abstract class AbstractInput extends Element implements InputInterface
 
     protected function buildInputTag(array $attributes, string $type, string $prefixWidget = ''): Tag
     {
-        if (array_key_exists('type', $attributes)) {
-            $type = (string) $attributes['type'];
-        }
+        $type = $attributes['type'] ?? $type;
 
         $id = $this->generateId("$type-");
 
