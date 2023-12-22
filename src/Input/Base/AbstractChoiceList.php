@@ -63,7 +63,7 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
          */
         if (is_iterable($value) || is_object($value)) {
             throw new InvalidArgumentException(
-                sprintf('%s widget checked value can not be an iterable or an object.', static::class)
+                sprintf('%s::class widget must be a scalar value.', static::class)
             );
         }
 
