@@ -69,7 +69,7 @@ final class HasContainerTest extends TestCase
 
         $this->assertSame('test-id', $instance->getContainerId());
     }
-    
+
     public function testImmutability(): void
     {
         $instance = new class () {
