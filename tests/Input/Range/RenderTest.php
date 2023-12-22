@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Color;
+namespace PHPForge\Html\Tests\Range;
 
-use PHPForge\Html\Input\Color;
+use PHPForge\Html\Input\Range;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -17,9 +17,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" aria-describedby="MyWidget">
+            <input id="range-6582f2d099e8b" type="range" aria-describedby="MyWidget">
             HTML,
-            Color::widget()->ariaDescribedBy('MyWidget')->id('color-6582f2d099e8b')->render()
+            Range::widget()->ariaDescribedBy('MyWidget')->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -27,9 +27,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" aria-label="MyWidget">
+            <input id="range-6582f2d099e8b" type="range" aria-label="MyWidget">
             HTML,
-            Color::widget()->ariaLabel('MyWidget')->id('color-6582f2d099e8b')->render()
+            Range::widget()->ariaLabel('MyWidget')->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -37,9 +37,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input class="class" id="color-6582f2d099e8b" type="color">
+            <input class="class" id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->attributes(['class' => 'class'])->id('color-6582f2d099e8b')->render()
+            Range::widget()->attributes(['class' => 'class'])->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -47,9 +47,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" autofocus>
+            <input id="range-6582f2d099e8b" type="range" autofocus>
             HTML,
-            Color::widget()->autofocus()->id('color-6582f2d099e8b')->render()
+            Range::widget()->autofocus()->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -57,9 +57,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input class="class" id="color-6582f2d099e8b" type="color">
+            <input class="class" id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->class('class')->id('color-6582f2d099e8b')->render()
+            Range::widget()->class('class')->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -67,9 +67,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" data-test="data-value">
+            <input id="range-6582f2d099e8b" type="range" data-test="data-value">
             HTML,
-            Color::widget()->dataAttributes(['test' => 'data-value'])->id('color-6582f2d099e8b')->render()
+            Range::widget()->dataAttributes(['test' => 'data-value'])->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -77,9 +77,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" disabled>
+            <input id="range-6582f2d099e8b" type="range" disabled>
             HTML,
-            Color::widget()->disabled()->id('color-6582f2d099e8b')->render()
+            Range::widget()->disabled()->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -87,9 +87,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" form="form">
+            <input id="range-6582f2d099e8b" type="range" form="form">
             HTML,
-            Color::widget()->form('form')->id('color-6582f2d099e8b')->render()
+            Range::widget()->form('form')->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -97,9 +97,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" aria-describedby="color-6582f2d099e8b-help">
+            <input id="range-6582f2d099e8b" type="range" aria-describedby="range-6582f2d099e8b-help">
             HTML,
-            Color::widget()->ariaDescribedBy()->id('color-6582f2d099e8b')->render()
+            Range::widget()->ariaDescribedBy()->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -107,9 +107,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->ariaDescribedBy(false)->id('color-6582f2d099e8b')->render()
+            Range::widget()->ariaDescribedBy(false)->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -117,9 +117,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" hidden>
+            <input id="range-6582f2d099e8b" type="range" hidden>
             HTML,
-            Color::widget()->hidden()->id('color-6582f2d099e8b')->render()
+            Range::widget()->hidden()->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -127,9 +127,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="id" type="color">
+            <input id="id" type="range">
             HTML,
-            Color::widget()->id('id')->render()
+            Range::widget()->id('id')->render()
         );
     }
 
@@ -137,9 +137,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" lang="en">
+            <input id="range-6582f2d099e8b" type="range" lang="en">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->lang('en')->render()
+            Range::widget()->id('range-6582f2d099e8b')->lang('en')->render()
         );
     }
 
@@ -147,9 +147,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" name="name" type="color">
+            <input id="range-6582f2d099e8b" name="name" type="range">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->name('name')->render()
+            Range::widget()->id('range-6582f2d099e8b')->name('name')->render()
         );
     }
 
@@ -158,9 +158,9 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             prefix
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->prefix('prefix')->render()
+            Range::widget()->id('range-6582f2d099e8b')->prefix('prefix')->render()
         );
     }
 
@@ -171,9 +171,9 @@ final class RenderTest extends TestCase
             <div>
             prefix
             </div>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
+            Range::widget()->id('range-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
         );
     }
 
@@ -184,10 +184,10 @@ final class RenderTest extends TestCase
             <div class="class">
             prefix
             </div>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerAttributes(['class' => 'class'])
@@ -202,10 +202,10 @@ final class RenderTest extends TestCase
             <div class="class">
             prefix
             </div>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerClass('class')
@@ -220,10 +220,10 @@ final class RenderTest extends TestCase
             <article>
             prefix
             </article>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerTag('article')
@@ -235,19 +235,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" readonly>
+            <input id="range-6582f2d099e8b" type="range" readonly>
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="color-6582f2d099e8b" type="color" required>
-            HTML,
-            Color::widget()->id('color-6582f2d099e8b')->required()->render()
+            Range::widget()->id('range-6582f2d099e8b')->readonly()->render()
         );
     }
 
@@ -255,9 +245,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->render()
+            Range::widget()->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -265,9 +255,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" style="style">
+            <input id="range-6582f2d099e8b" type="range" style="style">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->style('style')->render()
+            Range::widget()->id('range-6582f2d099e8b')->style('style')->render()
         );
     }
 
@@ -275,10 +265,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             suffix
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->suffix('suffix')->render()
+            Range::widget()->id('range-6582f2d099e8b')->suffix('suffix')->render()
         );
     }
 
@@ -286,12 +276,12 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             <div>
             suffix
             </div>
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
+            Range::widget()->id('range-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
         );
     }
 
@@ -299,13 +289,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             <div class="class">
             suffix
             </div>
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerAttributes(['class' => 'class'])
@@ -317,13 +307,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             <div class="class">
             suffix
             </div>
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerClass('class')
@@ -335,13 +325,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             <article>
             suffix
             </article>
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerTag('article')
@@ -353,9 +343,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" tabindex="1">
+            <input id="range-6582f2d099e8b" type="range" tabindex="1">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->tabIndex(1)->render()
+            Range::widget()->id('range-6582f2d099e8b')->tabIndex(1)->render()
         );
     }
 
@@ -363,11 +353,11 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             suffix
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Range::widget()
+                ->id('range-6582f2d099e8b')
                 ->prefix('prefix')
                 ->suffix('suffix')
                 ->template('{tag}{suffix}')
@@ -379,9 +369,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" title="title">
+            <input id="range-6582f2d099e8b" type="range" title="title">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->title('title')->render()
+            Range::widget()->id('range-6582f2d099e8b')->title('title')->render()
         );
     }
 
@@ -389,9 +379,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" value="value">
+            <input id="range-6582f2d099e8b" type="range" value="1">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->value('value')->render()
+            Range::widget()->id('range-6582f2d099e8b')->value(1)->render()
         );
     }
 
@@ -399,9 +389,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="range-6582f2d099e8b" type="range">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->value(null)->render()
+            Range::widget()->id('range-6582f2d099e8b')->value(null)->render()
         );
     }
 }

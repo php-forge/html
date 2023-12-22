@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Color;
+namespace PHPForge\Html\Tests\WeeK;
 
-use PHPForge\Html\Input\Color;
+use PHPForge\Html\Input\Week;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -17,9 +17,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" aria-describedby="MyWidget">
+            <input id="week-6582f2d099e8b" type="week" aria-describedby="MyWidget">
             HTML,
-            Color::widget()->ariaDescribedBy('MyWidget')->id('color-6582f2d099e8b')->render()
+            Week::widget()->ariaDescribedBy('MyWidget')->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -27,9 +27,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" aria-label="MyWidget">
+            <input id="week-6582f2d099e8b" type="week" aria-label="MyWidget">
             HTML,
-            Color::widget()->ariaLabel('MyWidget')->id('color-6582f2d099e8b')->render()
+            Week::widget()->ariaLabel('MyWidget')->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -37,9 +37,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input class="class" id="color-6582f2d099e8b" type="color">
+            <input class="class" id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->attributes(['class' => 'class'])->id('color-6582f2d099e8b')->render()
+            Week::widget()->attributes(['class' => 'class'])->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -47,9 +47,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" autofocus>
+            <input id="week-6582f2d099e8b" type="week" autofocus>
             HTML,
-            Color::widget()->autofocus()->id('color-6582f2d099e8b')->render()
+            Week::widget()->autofocus()->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -57,9 +57,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input class="class" id="color-6582f2d099e8b" type="color">
+            <input class="class" id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->class('class')->id('color-6582f2d099e8b')->render()
+            Week::widget()->class('class')->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -67,9 +67,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" data-test="data-value">
+            <input id="week-6582f2d099e8b" type="week" data-test="data-value">
             HTML,
-            Color::widget()->dataAttributes(['test' => 'data-value'])->id('color-6582f2d099e8b')->render()
+            Week::widget()->dataAttributes(['test' => 'data-value'])->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -77,9 +77,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" disabled>
+            <input id="week-6582f2d099e8b" type="week" disabled>
             HTML,
-            Color::widget()->disabled()->id('color-6582f2d099e8b')->render()
+            Week::widget()->disabled()->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -87,9 +87,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" form="form">
+            <input id="week-6582f2d099e8b" type="week" form="form">
             HTML,
-            Color::widget()->form('form')->id('color-6582f2d099e8b')->render()
+            Week::widget()->form('form')->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -97,9 +97,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" aria-describedby="color-6582f2d099e8b-help">
+            <input id="week-6582f2d099e8b" type="week" aria-describedby="week-6582f2d099e8b-help">
             HTML,
-            Color::widget()->ariaDescribedBy()->id('color-6582f2d099e8b')->render()
+            Week::widget()->ariaDescribedBy()->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -107,9 +107,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->ariaDescribedBy(false)->id('color-6582f2d099e8b')->render()
+            Week::widget()->ariaDescribedBy(false)->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -117,9 +117,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" hidden>
+            <input id="week-6582f2d099e8b" type="week" hidden>
             HTML,
-            Color::widget()->hidden()->id('color-6582f2d099e8b')->render()
+            Week::widget()->hidden()->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -127,9 +127,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="id" type="color">
+            <input id="id" type="week">
             HTML,
-            Color::widget()->id('id')->render()
+            Week::widget()->id('id')->render()
         );
     }
 
@@ -137,9 +137,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" lang="en">
+            <input id="week-6582f2d099e8b" type="week" lang="en">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->lang('en')->render()
+            Week::widget()->id('week-6582f2d099e8b')->lang('en')->render()
         );
     }
 
@@ -147,9 +147,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" name="name" type="color">
+            <input id="week-6582f2d099e8b" name="name" type="week">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->name('name')->render()
+            Week::widget()->id('week-6582f2d099e8b')->name('name')->render()
         );
     }
 
@@ -158,9 +158,9 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             prefix
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->prefix('prefix')->render()
+            Week::widget()->id('week-6582f2d099e8b')->prefix('prefix')->render()
         );
     }
 
@@ -171,9 +171,9 @@ final class RenderTest extends TestCase
             <div>
             prefix
             </div>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
+            Week::widget()->id('week-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
         );
     }
 
@@ -184,10 +184,10 @@ final class RenderTest extends TestCase
             <div class="class">
             prefix
             </div>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerAttributes(['class' => 'class'])
@@ -202,10 +202,10 @@ final class RenderTest extends TestCase
             <div class="class">
             prefix
             </div>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerClass('class')
@@ -220,10 +220,10 @@ final class RenderTest extends TestCase
             <article>
             prefix
             </article>
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
                 ->prefixContainerTag('article')
@@ -235,19 +235,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" readonly>
+            <input id="week-6582f2d099e8b" type="week" readonly>
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="color-6582f2d099e8b" type="color" required>
-            HTML,
-            Color::widget()->id('color-6582f2d099e8b')->required()->render()
+            Week::widget()->id('week-6582f2d099e8b')->readonly()->render()
         );
     }
 
@@ -255,9 +245,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->render()
+            Week::widget()->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -265,9 +255,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" style="style">
+            <input id="week-6582f2d099e8b" type="week" style="style">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->style('style')->render()
+            Week::widget()->id('week-6582f2d099e8b')->style('style')->render()
         );
     }
 
@@ -275,10 +265,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             suffix
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->suffix('suffix')->render()
+            Week::widget()->id('week-6582f2d099e8b')->suffix('suffix')->render()
         );
     }
 
@@ -286,12 +276,12 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             <div>
             suffix
             </div>
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
+            Week::widget()->id('week-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
         );
     }
 
@@ -299,13 +289,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             <div class="class">
             suffix
             </div>
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerAttributes(['class' => 'class'])
@@ -317,13 +307,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             <div class="class">
             suffix
             </div>
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerClass('class')
@@ -335,13 +325,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             <article>
             suffix
             </article>
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
                 ->suffixContainerTag('article')
@@ -353,9 +343,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" tabindex="1">
+            <input id="week-6582f2d099e8b" type="week" tabindex="1">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->tabIndex(1)->render()
+            Week::widget()->id('week-6582f2d099e8b')->tabIndex(1)->render()
         );
     }
 
@@ -363,11 +353,11 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             suffix
             HTML,
-            Color::widget()
-                ->id('color-6582f2d099e8b')
+            Week::widget()
+                ->id('week-6582f2d099e8b')
                 ->prefix('prefix')
                 ->suffix('suffix')
                 ->template('{tag}{suffix}')
@@ -379,9 +369,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" title="title">
+            <input id="week-6582f2d099e8b" type="week" title="title">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->title('title')->render()
+            Week::widget()->id('week-6582f2d099e8b')->title('title')->render()
         );
     }
 
@@ -389,9 +379,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color" value="value">
+            <input id="week-6582f2d099e8b" type="week" value="value">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->value('value')->render()
+            Week::widget()->id('week-6582f2d099e8b')->value('value')->render()
         );
     }
 
@@ -399,9 +389,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="week-6582f2d099e8b" type="week">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->value(null)->render()
+            Week::widget()->id('week-6582f2d099e8b')->value(null)->render()
         );
     }
 }
