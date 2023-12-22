@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Date;
+namespace PHPForge\Html\Tests\Input\Date;
 
 use PHPForge\Html\Input\Date;
 use PHPForge\Support\Assert;

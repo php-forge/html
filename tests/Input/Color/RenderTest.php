@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Color;
+namespace PHPForge\Html\Tests\Input\Color;
 
 use PHPForge\Html\Input\Color;
 use PHPForge\Support\Assert;
