@@ -32,6 +32,7 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
+    protected string $choiceId = '';
     protected bool $container = true;
     protected string $containerTag = 'div';
     /**
@@ -48,14 +49,13 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
         return $new;
     }
 
+    public function getId(): string
+    {
+        return $this->choiceId;
+    }
+
     protected function run(): string
     {
-        $attributes = $this->attributes;
-        $containerAttributes = $this->containerAttributes;
-        $id = $this->generateId('choice-');
-        $items = $this->items;
-        $labelTag = '';
-        $listItems = [];
         $value = $this->getValue();
 
         /**
@@ -67,7 +67,17 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
             );
         }
 
-        unset($attributes['value']);
+        $attributes = $this->attributes;
+        $containerAttributes = $this->containerAttributes;
+        $id = $this->generateId('choice-');
+        $items = $this->items;
+        $labelTag = '';
+        $listItems = [];
+        $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
+
+        if ($ariaDescribedBy === true) {
+            $attributes['aria-describedby'] = "$id-help";
+        }
 
         if (array_key_exists('autofocus', $attributes) && is_bool($attributes['autofocus'])) {
             $containerAttributes['autofocus'] = $attributes['autofocus'];
@@ -80,6 +90,8 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
 
             unset($attributes['tabindex']);
         }
+
+        unset($attributes['value']);
 
         foreach ($items as $item) {
             $listItems[] = $item

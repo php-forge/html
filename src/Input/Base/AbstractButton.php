@@ -24,10 +24,7 @@ abstract class AbstractButton extends AbstractInput
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
-        /** @var string $type */
-        $type = $this->attributes['type'] ?? 'button';
-        $value = $this->attributes['value'] ?? null;
+        $value = $this->getValue();
 
         /**
          * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.button.html#input.button.attrs.value
@@ -36,6 +33,13 @@ abstract class AbstractButton extends AbstractInput
             throw new InvalidArgumentException(
                 sprintf('%s::class widget must be a string or null value.', static::class)
             );
+        }
+
+        $attributes = $this->attributes;
+        $type = 'button';
+
+        if (array_key_exists('type', $this->attributes)) {
+            $type = (string) $this->attributes['type'];
         }
 
         $buttonInput = $this->buildInputTag($attributes, $type);
