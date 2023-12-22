@@ -47,10 +47,11 @@ abstract class AbstractChoice extends AbstractInput implements CheckedValueInter
         }
 
         $attributes['value'] = is_bool($value) ? (int) $value : $value;
+        $checkedValue = is_bool($this->checkedValue) ? (int) $this->checkedValue : $this->checkedValue;
 
-        $attributes['checked'] = match (empty($this->checkedValue)) {
+        $attributes['checked'] = match (empty($checkedValue)) {
             true => $this->checked,
-            default => $attributes['value'] === $this->checkedValue,
+            default => $attributes['value'] === $checkedValue,
         };
 
         $inputCheckboxTag = $this->buildInputTag($attributes, $this->type, $this->generateUncheckTag());
