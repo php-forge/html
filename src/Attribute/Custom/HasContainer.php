@@ -80,4 +80,9 @@ trait HasContainer
 
         return $new;
     }
+
+    public function getContainerId(): string|null
+    {
+        return $this->containerAttributes['id'] ?? null;
+    }
 }
