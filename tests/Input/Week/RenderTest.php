@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Input\WeeK;
+namespace PHPForge\Html\Tests\Input\Week;
 
 use PHPForge\Html\Input\Week;
 use PHPForge\Support\Assert;
