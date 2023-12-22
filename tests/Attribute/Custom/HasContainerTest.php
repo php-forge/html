@@ -63,7 +63,7 @@ final class HasContainerTest extends TestCase
             protected string $containerTag = 'div';
         };
 
-        $this->assertEmpty($instance->getContainerId());
+        $this->assertNull($instance->getContainerId());
 
         $instance = $instance->containerAttributes(['id' => 'test-id']);
 

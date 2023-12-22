@@ -83,6 +83,12 @@ trait HasContainer
 
     public function getContainerId(): string|null
     {
-        return $this->containerAttributes['id'] ?? null;
+        $id = null;
+
+        if (array_key_exists('id', $this->containerAttributes)) {
+            $id = (string) $this->containerAttributes['id'];
+        }
+
+        return $id;
     }
 }
