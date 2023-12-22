@@ -6,6 +6,7 @@ namespace PHPForge\Html\Input\Base;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute;
+use PHPForge\Html\Input\CheckedValueInterface;
 use PHPForge\Html\Input\Hidden;
 use PHPForge\Html\Input\LabelInterface;
 use PHPForge\Html\Label;
@@ -15,11 +16,12 @@ use function is_bool;
 use function is_iterable;
 use function is_object;
 
-abstract class AbstractChoice extends AbstractInput implements LabelInterface
+abstract class AbstractChoice extends AbstractInput implements CheckedValueInterface, LabelInterface
 {
     use Attribute\Custom\HasCheckedValue;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasLabel;
+    use Attribute\Custom\HasSeparator;
     use Attribute\Custom\HasUnchecked;
     use Attribute\Input\CanBeChecked;
     use Attribute\Input\CanBeRequired;
@@ -28,11 +30,12 @@ abstract class AbstractChoice extends AbstractInput implements LabelInterface
     protected bool $container = false;
     protected string $containerTag = 'div';
     protected string $type = '';
+    protected string $separator = PHP_EOL;
 
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $value = $attributes['value'] ?? null;
+        $value = $this->getValue();
 
         /**
          * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.checkbox.html#input.checkbox.attrs.value
@@ -92,7 +95,13 @@ abstract class AbstractChoice extends AbstractInput implements LabelInterface
 
         return Label::widget()
             ->attributes($this->labelAttributes)
-            ->content(PHP_EOL, $inputCheckboxTag, PHP_EOL, $this->labelContent, PHP_EOL)
+            ->content(
+                $this->separator,
+                $inputCheckboxTag,
+                $this->separator,
+                $this->labelContent,
+                $this->separator,
+            )
             ->for($inputCheckboxTag->getId());
     }
 }

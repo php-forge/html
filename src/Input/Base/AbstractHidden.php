@@ -29,7 +29,7 @@ abstract class AbstractHidden extends Element implements HiddenInterface
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $value = $attributes['value'] ?? null;
+        $value = $this->getValue();
 
         /**
          * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.hidden.html#input.hidden.attrs.value
