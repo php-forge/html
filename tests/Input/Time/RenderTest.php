@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Time;
+namespace PHPForge\Html\Tests\Input\Time;
 
 use PHPForge\Html\Input\Time;
 use PHPForge\Support\Assert;

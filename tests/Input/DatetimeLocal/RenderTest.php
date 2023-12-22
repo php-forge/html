@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\DatetimeLocal;
+namespace PHPForge\Html\Tests\Input\DatetimeLocal;
 
 use PHPForge\Html\Input\DatetimeLocal;
 use PHPForge\Support\Assert;

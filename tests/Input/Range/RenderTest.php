@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Range;
+namespace PHPForge\Html\Tests\Input\Range;
 
 use PHPForge\Html\Input\Range;
 use PHPForge\Support\Assert;

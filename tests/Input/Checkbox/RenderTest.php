@@ -612,7 +612,7 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <label for="text-6582f2d099e8b">
-            <input id="text-6582f2d099e8b" type="checkbox" value="1">
+            <input id="text-6582f2d099e8b" type="checkbox" value="1" checked>
             Active
             </label>
             HTML,

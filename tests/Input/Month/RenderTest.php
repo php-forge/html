@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Month;
+namespace PHPForge\Html\Tests\Input\Month;
 
 use PHPForge\Html\Input\Month;
 use PHPForge\Support\Assert;

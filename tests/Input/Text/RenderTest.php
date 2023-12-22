@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Text;
+namespace PHPForge\Html\Tests\Input\Text;
 
 use PHPForge\Html\Input\Text;
 use PHPForge\Support\Assert;
