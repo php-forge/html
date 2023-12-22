@@ -52,7 +52,7 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     {
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
-        $id = $this->generateId("choice-");
+        $id = $this->generateId('choice-');
         $items = $this->items;
         $labelTag = '';
         $listItems = [];
