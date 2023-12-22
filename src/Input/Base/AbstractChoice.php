@@ -34,7 +34,6 @@ abstract class AbstractChoice extends AbstractInput implements CheckedValueInter
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
         $value = $this->getValue();
 
         /**
@@ -46,6 +45,7 @@ abstract class AbstractChoice extends AbstractInput implements CheckedValueInter
             );
         }
 
+        $attributes = $this->attributes;
         $attributes['value'] = is_bool($value) ? (int) $value : $value;
         $checkedValue = is_bool($this->checkedValue) ? (int) $this->checkedValue : $this->checkedValue;
 

@@ -24,7 +24,6 @@ abstract class AbstractText extends AbstractInput implements PlaceholderInterfac
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
         $value = $this->getValue();
 
         /**
@@ -36,6 +35,6 @@ abstract class AbstractText extends AbstractInput implements PlaceholderInterfac
             );
         }
 
-        return $this->buildInputTag($attributes, 'text')->render();
+        return $this->buildInputTag($this->attributes, 'text')->render();
     }
 }

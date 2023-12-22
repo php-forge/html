@@ -19,7 +19,6 @@ abstract class AbstractControl extends AbstractInput
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
         $value = $this->getValue();
 
         /**
@@ -37,6 +36,6 @@ abstract class AbstractControl extends AbstractInput
             );
         }
 
-        return $this->buildInputTag($attributes, $this->type)->render();
+        return $this->buildInputTag($this->attributes, $this->type)->render();
     }
 }

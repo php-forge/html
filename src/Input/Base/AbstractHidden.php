@@ -28,7 +28,6 @@ abstract class AbstractHidden extends Element implements HiddenInterface
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
         $value = $this->getValue();
 
         /**
@@ -41,7 +40,7 @@ abstract class AbstractHidden extends Element implements HiddenInterface
         }
 
         return Tag::widget()
-            ->attributes($attributes)
+            ->attributes($this->attributes)
             ->id($this->generateId('hidden-'))
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)

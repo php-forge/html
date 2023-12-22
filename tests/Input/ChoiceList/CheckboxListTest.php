@@ -14,6 +14,46 @@ use PHPUnit\Framework\TestCase;
  */
 final class CheckboxListTest extends TestCase
 {
+    public function testAriaDescribedBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
+            <label><input type="checkbox" value="1" aria-describedby="MyWidget">Female</label>
+            <label><input type="checkbox" value="2" aria-describedby="MyWidget">Male</label>
+            </div>
+            HTML,
+            ChoiceList::widget()
+                ->ariaDescribedBy('MyWidget')
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Female')->value(1),
+                    Checkbox::widget()->labelContent('Male')->value(2),
+                )
+                ->render(),
+        );
+    }
+
+    public function testAriaLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
+            <label><input type="checkbox" value="1" aria-label="MyWidget">Female</label>
+            <label><input type="checkbox" value="2" aria-label="MyWidget">Male</label>
+            </div>
+            HTML,
+            ChoiceList::widget()
+                ->ariaLabel('MyWidget')
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Female')->value(1),
+                    Checkbox::widget()->labelContent('Male')->value(2),
+                )
+                ->render(),
+        );
+    }
+
     public function testAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -143,6 +183,26 @@ final class CheckboxListTest extends TestCase
             HTML,
             Choicelist::widget()
                 ->container(false)
+                ->items(
+                    Checkbox::widget()->labelContent('Female')->value(1),
+                    Checkbox::widget()->labelContent('Male')->value(2),
+                )
+                ->render(),
+        );
+    }
+
+    public function testGenerateAriaDescribedBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
+            <label><input type="checkbox" value="1" aria-describedby="choice-list-65858c272ea89-help">Female</label>
+            <label><input type="checkbox" value="2" aria-describedby="choice-list-65858c272ea89-help">Male</label>
+            </div>
+            HTML,
+            ChoiceList::widget()
+                ->ariaDescribedBy(true)
+                ->id('choice-list-65858c272ea89')
                 ->items(
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),

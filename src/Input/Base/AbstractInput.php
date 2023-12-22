@@ -41,8 +41,9 @@ abstract class AbstractInput extends Element implements InputInterface
     {
         $type = $attributes['type'] ?? $type;
 
-        $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
         $id = $this->generateId("$type-");
+
+        $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
 
         if ($ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";

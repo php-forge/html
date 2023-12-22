@@ -18,7 +18,6 @@ abstract class AbstractColor extends AbstractInput
      */
     protected function run(): string
     {
-        $attributes = $this->attributes;
         $value = $this->getValue();
 
         /**
@@ -30,6 +29,6 @@ abstract class AbstractColor extends AbstractInput
             );
         }
 
-        return $this->buildInputTag($attributes, 'color')->render();
+        return $this->buildInputTag($this->attributes, 'color')->render();
     }
 }
