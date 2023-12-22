@@ -48,11 +48,11 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
         return $new;
     }
 
-    protected function renderChoiceItems(string $type): string
+    protected function run(): string
     {
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
-        $id = $this->generateId("$type-");
+        $id = $this->generateId("choice-");
         $items = $this->items;
         $labelTag = '';
         $listItems = [];

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Input\RadioList;
+namespace PHPForge\Html\Tests\Input\ChoiceList;
 
 use InvalidArgumentException;
 use PHPForge\Html\Input\Checkbox;
-use PHPForge\Html\Input\CheckboxList;
+use PHPForge\Html\Input\ChoiceList;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -17,8 +17,8 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('CheckboxList::class widget must be a scalar value.');
+        $this->expectExceptionMessage('ChoiceList::class widget must be a scalar value.');
 
-        CheckboxList::widget()->items(Checkbox::widget())->value([])->render();
+        ChoiceList::widget()->items(Checkbox::widget())->value([])->render();
     }
 }
