@@ -20,7 +20,7 @@ abstract class AbstractControl extends AbstractInput
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $value = $attributes['value'] ?? null;
+        $value = $this->getValue();
 
         /**
          * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.date.html#input.date.attrs.value

@@ -10,6 +10,18 @@ namespace PHPForge\Html\Attribute\Input;
 trait HasValue
 {
     /**
+     * Get the value content attribute gives the default value of the field.
+     *
+     * @return mixed The value of the widget.
+     *
+     * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-value
+     */
+    public function getValue(): mixed
+    {
+        return $this->attributes['value'] ?? null;
+    }
+
+    /**
      * set the value content attribute gives the default value of the field.
      *
      * @param mixed $value The value of the widget.

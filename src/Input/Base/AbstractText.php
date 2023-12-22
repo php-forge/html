@@ -25,7 +25,7 @@ abstract class AbstractText extends AbstractInput implements PlaceholderInterfac
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $value = $attributes['value'] ?? null;
+        $value = $this->getValue();
 
         /**
          * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.text.html#input.text.attrs.value

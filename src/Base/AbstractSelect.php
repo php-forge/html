@@ -47,7 +47,7 @@ abstract class AbstractSelect extends Element
         $attributes = $this->attributes;
         $multiple = false;
         /** @psalm-var array<int, \Stringable|scalar>|scalar|object|null $value */
-        $value = $attributes['value'] ?? [];
+        $value = $this->getValue();
 
         $items = match ($this->prompt) {
             '' => PHP_EOL . Tag::widget()->content('Select an option')->tagName('option')->render(),

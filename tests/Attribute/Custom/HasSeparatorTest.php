@@ -13,6 +13,8 @@ final class HasSeparatorTest extends TestCase
     {
         $instance = new class () {
             use HasSeparator;
+
+            protected string $separator = ',';
         };
 
         $this->assertNotSame($instance, $instance->separator('foo'));
