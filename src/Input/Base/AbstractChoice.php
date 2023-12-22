@@ -21,10 +21,10 @@ abstract class AbstractChoice extends AbstractInput implements CheckedValueInter
     use Attribute\Custom\HasCheckedValue;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasLabel;
+    use Attribute\Custom\HasSeparator;
     use Attribute\Custom\HasUnchecked;
     use Attribute\Input\CanBeChecked;
     use Attribute\Input\CanBeRequired;
-    use Attribute\Custom\HasSeparator;
 
     protected array $attributes = [];
     protected bool $container = false;
