@@ -91,6 +91,18 @@ trait HasData
     }
 
     /**
+     * Set the `HTML` data-collapse-toggle attribute for the toggle.
+     *
+     * @param string $value The data-collapse-toggle attribute value.
+     *
+     * @return static A new instance of the current class with the specified toggle attributes.
+     */
+    public function dataCollapseToggle(string $value): static
+    {
+        return $this->dataAttributes([DataAttributes::COLLAPSE_TOGGLE => $value]);
+    }
+
+    /**
      * Set the `HTML` data-dismiss-target attribute for the toggle.
      *
      * @param bool|string $value The data-dismiss-target attribute value. If true, the value of the id attribute will be

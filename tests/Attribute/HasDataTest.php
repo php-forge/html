@@ -82,6 +82,19 @@ final class HasDataTest extends TestCase
         $this->assertTrue($instance->getDataBsTarget());
     }
 
+    public function testDataCollapseToggle(): void
+    {
+        $instance = new class () {
+            use HasData;
+
+            public array $attributes = [];
+        };
+
+        $instance = $instance->dataCollapseToggle('id');
+
+        $this->assertSame(['data-collapse-toggle' => 'id'], $instance->attributes);
+    }
+
     public function testDataDismissTarget(): void
     {
         $instance = new class () {
