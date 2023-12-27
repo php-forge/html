@@ -32,6 +32,7 @@ trait HasAriaControls
         if ($value === true) {
             $new->ariaControls = $value;
         } else {
+            $new->ariaControls = false;
             $new->attributes['aria-controls'] = $value;
         }
 

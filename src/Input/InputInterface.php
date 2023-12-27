@@ -82,15 +82,4 @@ interface InputInterface
      * @return string The result of widget execution to be outputted.
      */
     public function render(): string;
-
-    /**
-     * set the value content attribute gives the default value of the field.
-     *
-     * @param mixed $value The value of the widget.
-     *
-     * @return static A new instance of the current class with the specified value.
-     *
-     * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-value
-     */
-    public function value(mixed $value): static;
 }

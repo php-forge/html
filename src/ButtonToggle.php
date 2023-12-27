@@ -33,6 +33,7 @@ final class ButtonToggle extends Element
     protected bool $icon = true;
     protected string $iconTag = 'svg';
     protected bool $iconContainer = false;
+    protected string $iconContainerTag = 'div';
     protected string $tagName = 'button';
     protected string $template = '{toggle}\n{icon}\n{content}';
     protected bool $toggle = true;

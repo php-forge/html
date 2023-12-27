@@ -26,7 +26,6 @@ final class Button extends Element
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTagName;
-    use Attribute\Custom\HasTagName;
     use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\HasClass;
@@ -43,6 +42,7 @@ final class Button extends Element
     protected bool $container = false;
     protected string $containerTag = 'div';
     protected string $tagName = 'button';
+    protected string $template = '{prefix}\n{tag}\n{suffix}';
     protected string $type = 'button';
 
     /**
