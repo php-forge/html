@@ -17,9 +17,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" aria-controls="button-toggle-658716145f1d9"></button>
+            <button id="button-toggle-658716145f1d9" type="button" aria-controls="id"></button>
             HTML,
-            ButtonToggle::widget()->ariaControls(true)->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->ariaControls(true)->id('button-toggle-658716145f1d9')->toggleId('id')->render()
         );
     }
 

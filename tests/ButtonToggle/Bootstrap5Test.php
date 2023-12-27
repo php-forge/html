@@ -17,7 +17,7 @@ final class Bootstrap5Test extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button class="accordion-button" id="button-toggle-658716145f1d9" type="button" aria-expanded="true" data-bs-toggle="collapse" aria-controls="button-toggle-658716145f1d9" data-bs-target="#button-toggle-658716145f1d9">
+            <button class="accordion-button" id="button-toggle-658716145f1d9" type="button" aria-expanded="true" data-bs-toggle="collapse" aria-controls="id" data-bs-target="#id">
             Accordion item #1
             </button>
             HTML,
@@ -29,6 +29,7 @@ final class Bootstrap5Test extends TestCase
                 ->dataBsToggle('collapse')
                 ->dataBsTarget(true)
                 ->id('button-toggle-658716145f1d9')
+                ->toggleId('id')
                 ->render()
         );
     }
@@ -37,12 +38,13 @@ final class Bootstrap5Test extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" aria-label="Close" data-dismiss-target="button-toggle-658716145f1d9"></button>
+            <button id="button-toggle-658716145f1d9" type="button" aria-label="Close" data-dismiss-target="id"></button>
             HTML,
             ButtonToggle::widget()
                 ->ariaLabel('Close')
                 ->dataDismissTarget(true)
                 ->id('button-toggle-658716145f1d9')
+                ->toggleId('id')
                 ->render()
         );
     }
@@ -191,7 +193,7 @@ final class Bootstrap5Test extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button class="navbar-toggler" id="button-toggle-658716145f1d9" type="button" aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse" aria-controls="button-toggle-658716145f1d9" data-bs-target="#button-toggle-658716145f1d9">
+            <button class="navbar-toggler" id="button-toggle-658716145f1d9" type="button" aria-expanded="false" aria-label="Toggle navigation" data-bs-toggle="collapse" aria-controls="id" data-bs-target="#id">
             <span class="navbar-toggler-icon"></span>
             </button>
             HTML,
@@ -204,6 +206,7 @@ final class Bootstrap5Test extends TestCase
                 ->dataBsTarget(true)
                 ->id('button-toggle-658716145f1d9')
                 ->toggleClass('navbar-toggler-icon')
+                ->toggleId('id')
                 ->render()
         );
     }

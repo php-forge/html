@@ -63,27 +63,27 @@ final class ButtonToggle extends Element
         $id = $this->generateId('button-toggle-');
 
         if ($this->ariaControls) {
-            $attributes['aria-controls'] = $id;
+            $attributes['aria-controls'] = $this->toggleId;
         }
 
         if ($this->dataBsTarget) {
-            $attributes['data-bs-target'] = "#$id";
+            $attributes['data-bs-target'] = "#$this->toggleId";
         }
 
         if ($this->dataDismissTarget === true) {
-            $attributes['data-dismiss-target'] = $id;
+            $attributes['data-dismiss-target'] = $this->toggleId;
         }
 
         if ($this->dataDrawerTarget === true) {
-            $attributes['data-drawer-target'] = $id;
+            $attributes['data-drawer-target'] = $this->toggleId;
         }
 
         if ($this->dataDropdownToggle === true) {
-            $attributes['data-dropdown-toggle'] = $id;
+            $attributes['data-dropdown-toggle'] = $this->toggleId;
         }
 
         if ($this->dataToggle === true) {
-            $attributes['data-toggle'] = $id;
+            $attributes['data-toggle'] = $this->toggleId;
         }
 
         $result = '';

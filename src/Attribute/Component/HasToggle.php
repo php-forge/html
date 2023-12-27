@@ -168,7 +168,6 @@ trait HasToggle
             ->attributes($this->toggleAttributes)
             ->class($this->toggleClass)
             ->content($this->toggleContent)
-            ->id($this->toggleId)
             ->tagName($this->toggleTag)
             ->render();
     }
