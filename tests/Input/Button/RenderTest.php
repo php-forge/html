@@ -111,9 +111,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
+            <label for="text-6582f2d099e8b">Red</label>
             <input id="text-6582f2d099e8b" type="button">
             HTML,
-            Button::widget()->container(false)->id('text-6582f2d099e8b')->render()
+            Button::widget()->container(false)->id('text-6582f2d099e8b')->labelContent('Red')->render()
         );
     }
 
@@ -189,19 +190,6 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <label for="text-6582f2d099e8b">Label</label>
-            <input id="text-6582f2d099e8b" type="button">
-            </div>
-            HTML,
-            Button::widget()->id('text-6582f2d099e8b')->labelContent('Label')->render()
-        );
-    }
-
     public function testLabelAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -229,6 +217,19 @@ final class RenderTest extends TestCase
             </div>
             HTML,
             Button::widget()->id('text-6582f2d099e8b')->labelClass('class')->labelContent('Label')->render()
+        );
+    }
+
+    public function testLabelContent(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <label for="text-6582f2d099e8b">Label</label>
+            <input id="text-6582f2d099e8b" type="button">
+            </div>
+            HTML,
+            Button::widget()->id('text-6582f2d099e8b')->labelContent('Label')->render()
         );
     }
 
@@ -277,7 +278,7 @@ final class RenderTest extends TestCase
             <input id="text-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->notLabel()->render()
+            Button::widget()->id('text-6582f2d099e8b')->labelContent('Label')->notLabel()->render()
         );
     }
 
@@ -326,6 +327,22 @@ final class RenderTest extends TestCase
             </div>
             HTML,
             Button::widget()->id('text-6582f2d099e8b')->tabIndex(1)->render()
+        );
+    }
+
+    public function testTemplate(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="text-6582f2d099e8b" type="button">
+            <label for="text-6582f2d099e8b">Red</label>
+            </div>
+            HTML,
+            Button::widget()->id('text-6582f2d099e8b')
+                ->labelContent('Red')
+                ->template('{prefix}\n{tag}\n{label}\n{suffix}')
+                ->render()
         );
     }
 

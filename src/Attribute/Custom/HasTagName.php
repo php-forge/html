@@ -21,7 +21,12 @@ trait HasTagName
     public function tagName(string $value): static
     {
         if ($value === '') {
-            throw new InvalidArgumentException('Tag name cannot be empty.');
+            throw new InvalidArgumentException(
+                sprintf(
+                    '%s::class widget must have a tag name.',
+                    static::class
+                )
+            );
         }
 
         $new = clone $this;

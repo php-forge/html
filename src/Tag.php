@@ -16,6 +16,9 @@ namespace PHPForge\Html;
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element
  */
-final class Tag extends Base\AbstractTag
+final class Tag extends Base\AbstractElement
 {
+    use Attribute\Custom\HasTagName;
+    use Attribute\Input\HasType;
+    use Attribute\Input\HasValue;
 }

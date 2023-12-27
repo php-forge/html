@@ -6,6 +6,10 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Tag;
+
+use function array_key_exists;
+use function implode;
 
 /**
  * Is used by widgets that implement container methods.
@@ -85,10 +89,22 @@ trait HasContainer
     {
         $id = null;
 
-        if (array_key_exists('id', $this->containerAttributes)) {
-            $id = (string) $this->containerAttributes['id'];
+        if (array_key_exists('id', $this->containerAttributes) && is_string($this->containerAttributes['id'])) {
+            $id = $this->containerAttributes['id'];
         }
 
         return $id;
+    }
+
+    private function renderContainerTag(string ...$content): string
+    {
+        return match ($this->container) {
+            true => Tag::widget()
+                ->attributes($this->containerAttributes)
+                ->content(...$content)
+                ->tagName($this->containerTag)
+                ->render(),
+            default => implode(PHP_EOL, $content),
+        };
     }
 }

@@ -35,24 +35,22 @@ abstract class AbstractInput extends Element implements InputInterface
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected string $template = '{prefix}{tag}{suffix}';
+    protected string $template = '{prefix}\n{tag}\n{suffix}';
 
-    protected function buildInputTag(array $attributes, string $type, string $prefixWidget = ''): Tag
+    protected function buildInputTag(array $attributes, string $type): string
     {
-        $type = $attributes['type'] ?? $type;
-
         $id = $this->generateId("$type-");
 
-        $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
-
-        if ($ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
         }
+
+        unset($attributes['type']);
 
         return Tag::widget()
             ->attributes($attributes)
             ->id($id)
-            ->prefix($this->prefix, $prefixWidget)
+            ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)
             ->prefixContainerTag($this->prefixContainerTag)
@@ -62,6 +60,7 @@ abstract class AbstractInput extends Element implements InputInterface
             ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('input')
             ->template($this->template)
-            ->type($type);
+            ->type($type)
+            ->render();
     }
 }

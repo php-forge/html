@@ -9,6 +9,8 @@ namespace PHPForge\Html\Attribute\Custom;
  */
 trait HasTemplate
 {
+    protected array $tokenValue = [];
+
     /**
      * Set the template.
      *
@@ -20,6 +22,14 @@ trait HasTemplate
     {
         $new = clone $this;
         $new->template = $value;
+
+        return $new;
+    }
+
+    public function tokenValue(string $token, string $value): static
+    {
+        $new = clone $this;
+        $new->tokenValue[$token] = $value;
 
         return $new;
     }

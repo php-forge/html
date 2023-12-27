@@ -430,7 +430,7 @@ final class RenderTest extends TestCase
                 ->id('text-6582f2d099e8b')
                 ->prefix('prefix')
                 ->suffix('suffix')
-                ->template('{tag}{suffix}')
+                ->template('{tag}\n{suffix}')
                 ->render()
         );
     }

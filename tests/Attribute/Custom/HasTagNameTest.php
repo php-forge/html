@@ -19,7 +19,7 @@ final class HasTagNameTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Tag name cannot be empty.');
+        $this->expectExceptionMessage('class widget must have a tag name.');
 
         $instance->tagName('');
     }

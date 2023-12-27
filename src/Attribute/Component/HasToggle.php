@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Tag;
 use PHPForge\Widget\ElementInterface;
 
 use function array_merge;
@@ -19,13 +19,11 @@ use function sprintf;
  */
 trait HasToggle
 {
-    protected bool $toggle = true;
     protected array $toggleAttributes = [];
     protected string $toggleClass = '';
+    protected bool $toggleClassOverride = false;
     protected string $toggleContent = '';
     protected string $toggleId = '';
-    protected string|null $toggleSvg = '';
-    protected string $toggleType = 'button-toggle';
 
     /**
      * Enable or disable the toggle.
@@ -61,14 +59,13 @@ trait HasToggle
      * Set the `CSS` class for the toggle.
      *
      * @param string $value The `CSS` class for the toggle.
-     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified toggle class.
      */
-    public function toggleClass(string $value, bool $override = false): static
+    public function toggleClass(string $value): static
     {
         $new = clone $this;
-        CssClass::add($new->toggleAttributes, $value, $override);
+        $new->toggleClass = $value;
 
         return $new;
     }
@@ -139,32 +136,40 @@ trait HasToggle
     }
 
     /**
-     * Set the svg for the toggle.
+     * Set the toggle tag name.
      *
-     * @param ElementInterface|string|null $value The svg for the toggle.
+     * @param string $value The tag name for the toggle element.
      *
-     * @return static A new instance of the current class with the specified svg for the toggle.
+     * @throws InvalidArgumentException If the toogle tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified toggle tag.
      */
-    public function toggleSvg(string|ElementInterface|null $value): static
+    public function toggleTag(string $value): static
     {
+        if ($value === '') {
+            throw new InvalidArgumentException('The toggle tag must be a non-empty string.');
+        }
+
         $new = clone $this;
-        $new->toggleSvg = $value !== null ? Encode::santizeXSS($value) : null;
+        $new->toggleTag = $value;
 
         return $new;
     }
 
-    /**
-     * Set the toggle type.
-     *
-     * @param string $value The toggle type. Default: `button`.
-     *
-     * @return static A new instance of the current class with the specified toggle type.
-     */
-    public function toggleType(string $value): static
+    private function renderToggleTag(): string
     {
-        $new = clone $this;
-        $new->toggleType = $value;
+        $toggleClass = $this->toggleAttributes['class'] ?? $this->toggleClass;
 
-        return $new;
+        if ($this->toggle === false || ($toggleClass === '' && $this->toggleContent === '')) {
+            return '';
+        }
+
+        return Tag::widget()
+            ->attributes($this->toggleAttributes)
+            ->class($this->toggleClass)
+            ->content($this->toggleContent)
+            ->id($this->toggleId)
+            ->tagName($this->toggleTag)
+            ->render();
     }
 }

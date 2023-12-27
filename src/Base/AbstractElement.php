@@ -29,7 +29,7 @@ abstract class AbstractElement extends Element
 
     protected array $attributes = [];
     protected string $tagName = '';
-    protected string $template = '{prefix}{tag}{suffix}';
+    protected string $template = '{prefix}\n{tag}\n{suffix}';
 
     /**
      * Generate the HTML representation of the element.
@@ -44,37 +44,28 @@ abstract class AbstractElement extends Element
             $attributes['id'] = $this->id;
         }
 
-        return strtr(
-            $this->template,
-            [
-                '{prefix}' => $this->renderPrefix(),
-                '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
-                '{suffix}' => $this->renderSuffix(),
-            ],
-        );
-    }
+        $result = '';
+        $tokenValues = [
+            '{prefix}' => $this->renderPrefixTag(),
+            '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
+            '{suffix}' => $this->renderSuffixTag(),
+        ];
+        $tokenValues += $this->tokenValue;
 
-    private function renderPrefix(): string
-    {
-        return match ($this->prefixContainer) {
-            true => Tag::widget()
-                ->attributes($this->prefixContainerAttributes)
-                ->content($this->prefix)
-                ->tagName($this->prefixContainerTag)
-                ->render() . PHP_EOL,
-            default => $this->prefix !== '' ? $this->prefix . PHP_EOL : '',
-        };
-    }
+        $tokens = explode('\n', $this->template);
 
-    private function renderSuffix(): string
-    {
-        return match ($this->suffixContainer) {
-            true => PHP_EOL . Tag::widget()
-                ->attributes($this->suffixContainerAttributes)
-                ->content($this->suffix)
-                ->tagName($this->suffixContainerTag)
-                ->render(),
-            default => $this->suffix !== '' ? PHP_EOL . $this->suffix : '',
-        };
+        foreach ($tokens as $key => $token) {
+            $tokenValue = strtr($token, $tokenValues);
+
+            if ($tokenValue !== '') {
+                $result .= $tokenValue;
+            }
+
+            if ($result !== '' && isset($tokens[$key + 1])) {
+                $result = strtr($tokens[$key + 1], $tokenValues) !== '' ? $result . "\n" : $result;
+            }
+        }
+
+        return $result;
     }
 }

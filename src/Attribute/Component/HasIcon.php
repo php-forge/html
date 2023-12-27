@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Component;
 
+use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Svg;
+use PHPForge\Html\Tag;
 
 /**
  * Is used by widgets that implement the icon methods.
@@ -13,17 +15,17 @@ use PHPForge\Html\Helper\Encode;
 trait HasIcon
 {
     protected array $iconAttributes = [];
-    protected bool $iconContainer = true;
+    protected string $iconClass = '';
     protected array $iconContainerAttributes = [];
-    protected string $iconText = '';
+    protected string $iconContent = '';
+    protected string $iconFilePath = '';
 
     /**
      * @return array The `HTML` attributes of the icon of the menu item.
      */
     public function getIconAttributes(): array
     {
-        return $this->iconAttributes;
-    }
+        return $this->iconAttributes;}
 
     /**
      * @return array The `HTML` attributes of the icon container of the menu item.
@@ -36,9 +38,24 @@ trait HasIcon
     /**
      * @return string The icon of the menu item.
      */
-    public function getIconText(): string
+    public function getIconContent(): string
     {
-        return $this->iconText;
+        return $this->iconContent;
+    }
+
+    /**
+     * Enable or disable the icon.
+     *
+     * @param bool $value `true` to enable the icon, `false` to disable it.
+     *
+     * @return static A new instance of the current class with the specified icon value.
+     */
+    public function icon(bool $value): static
+    {
+        $new = clone $this;
+        $new->icon = $value;
+
+        return $new;
     }
 
     /**
@@ -60,14 +77,13 @@ trait HasIcon
      * Set the `CSS` class for the icon.
      *
      * @param string $value The icon CSS class.
-     * @param bool $override If `true` the value will be overridden.
      *
      * @return static A new instance of the current class with the specified icon CSS class.
      */
-    public function iconClass(string $value, bool $override = false): static
+    public function iconClass(string $value): static
     {
         $new = clone $this;
-        CssClass::add($new->iconAttributes, $value, $override);
+        $new->iconClass = $value;
 
         return $new;
     }
@@ -123,11 +139,80 @@ trait HasIcon
      *
      * @return static A new instance of the current class with the specified icon content.
      */
-    public function iconText(string $value): static
+    public function iconContent(string $value): static
     {
         $new = clone $this;
-        $new->iconText = Encode::santizeXSS($value);
+        $new->iconContent = $value;
 
         return $new;
+    }
+
+    /**
+     * Set the icon file path.
+     *
+     * @param string $value The icon file path.
+     *
+     * @return static A new instance of the current class with the specified icon file path.
+     */
+    public function iconFilePath(string $value): static
+    {
+        $new = clone $this;
+        $new->iconFilePath = $value;
+
+        return $new;
+    }
+
+    /**
+     * Set the icon tag name.
+     *
+     * @param string $value The tag name for the icon element.
+     *
+     * @throws InvalidArgumentException If the icon tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified icon tag.
+     */
+    public function iconTag(string $value): static
+    {
+        if ($value === '') {
+            throw new InvalidArgumentException('The icon tag must be a non-empty string.');
+        }
+
+        $new = clone $this;
+        $new->iconTag = $value;
+
+        return $new;
+    }
+
+    private function renderIconTag(): string
+    {
+        if (
+            $this->icon === false ||
+            ($this->iconClass === '' && $this->iconContent === '' && $this->iconFilePath === '')
+        ) {
+            return '';
+        }
+
+        $iconTag = match ($this->iconTag) {
+            'svg' => Svg::widget()
+                ->attributes($this->iconAttributes)
+                ->content($this->iconContent)
+                ->filePath($this->iconFilePath)
+                ->render(),
+            default => Tag::widget()
+                ->attributes($this->iconAttributes)
+                ->class($this->iconClass)
+                ->content($this->iconContent)
+                ->tagName($this->iconTag)
+                ->render(),
+        };
+
+        return match ($this->iconContainer) {
+            true => Tag::widget()
+                ->attributes($this->iconContainerAttributes)
+                ->content($iconTag)
+                ->tagName($this->iconContainerTag)
+                ->render(),
+            default => $iconTag,
+        };
     }
 }

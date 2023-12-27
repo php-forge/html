@@ -6,7 +6,6 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Button;
-use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 use function implode;
@@ -53,14 +52,7 @@ abstract class AbstractButtonGroup extends Element
 
     protected function run(): string
     {
-        return match ($this->container) {
-            true => Tag::widget()
-                ->attributes($this->containerAttributes)
-                ->content($this->renderButtons())
-                ->tagName($this->containerTag)
-                ->render(),
-            false => $this->renderButtons(),
-        };
+        return $this->renderContainerTag($this->renderButtons());
     }
 
     private function renderButtons(): string

@@ -160,6 +160,29 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testEnclosedByLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label for="radio-6582f2d099e8b">
+            <input id="radio-6582f2d099e8b" type="radio">
+            Red
+            </label>
+            HTML,
+            Radio::widget()->enclosedByLabel()->id('radio-6582f2d099e8b')->labelContent('Red')->render()
+        );
+    }
+
+    public function testEnclosedByLabelWithLabelContentEmpty(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio">
+            HTML,
+            Radio::widget()->enclosedByLabel()->id('radio-6582f2d099e8b')->render()
+        );
+    }
+
     public function testForm(): void
     {
         Assert::equalsWithoutLE(
@@ -204,10 +227,8 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Active')->render()
         );
@@ -217,10 +238,8 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="class" for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
-            Active
-            </label>
+            <label class="class" for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
@@ -234,10 +253,8 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="class" for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
-            Active
-            </label>
+            <label class="class" for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelClass('class')->labelContent('Active')->render()
         );
@@ -267,11 +284,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             prefix
             <input id="radio-6582f2d099e8b" type="radio">
-            Red
-            </label>
+            <label for="radio-6582f2d099e8b">Red</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Red')->prefix('prefix')->render()
         );
@@ -282,13 +297,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <div>
             prefix
             </div>
             <input id="radio-6582f2d099e8b" type="radio">
-            Red
-            </label>
+            <label for="radio-6582f2d099e8b">Red</label>
             </div>
             HTML,
             Radio::widget()
@@ -306,13 +319,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <div class="class">
             prefix
             </div>
             <input id="radio-6582f2d099e8b" type="radio">
-            Red
-            </label>
+            <label for="radio-6582f2d099e8b">Red</label>
             </div>
             HTML,
             Radio::widget()
@@ -331,13 +342,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <div class="class">
             prefix
             </div>
             <input id="radio-6582f2d099e8b" type="radio">
-            Red
-            </label>
+            <label for="radio-6582f2d099e8b">Red</label>
             </div>
             HTML,
             Radio::widget()
@@ -356,11 +365,9 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <span>prefix</span>
             <input id="radio-6582f2d099e8b" type="radio">
-            Red
-            </label>
+            <label for="radio-6582f2d099e8b">Red</label>
             </div>
             HTML,
             Radio::widget()
@@ -418,11 +425,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
+            <label for="radio-6582f2d099e8b">Red</label>
             suffix
-            Red
-            </label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Red')->suffix('suffix')->render()
         );
@@ -433,13 +438,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
+            <label for="radio-6582f2d099e8b">Red</label>
             <div>
             suffix
             </div>
-            Red
-            </label>
             </div>
             HTML,
             Radio::widget()
@@ -457,13 +460,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
+            <label for="radio-6582f2d099e8b">Red</label>
             <div class="class">
             suffix
             </div>
-            Red
-            </label>
             </div>
             HTML,
             Radio::widget()
@@ -482,13 +483,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
+            <label for="radio-6582f2d099e8b">Red</label>
             <div class="class">
             suffix
             </div>
-            Red
-            </label>
             </div>
             HTML,
             Radio::widget()
@@ -507,11 +506,9 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
+            <label for="radio-6582f2d099e8b">Red</label>
             <span>suffix</span>
-            Red
-            </label>
             </div>
             HTML,
             Radio::widget()
@@ -546,7 +543,7 @@ final class RenderTest extends TestCase
                 ->id('radio-6582f2d099e8b')
                 ->prefix('prefix')
                 ->suffix('suffix')
-                ->template('{tag}{suffix}')
+                ->template('{tag}\n{suffix}')
                 ->render()
         );
     }
@@ -577,10 +574,8 @@ final class RenderTest extends TestCase
         // Value bool `false`.
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio" value="0">
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Active')->value(false)->render()
         );
@@ -588,10 +583,8 @@ final class RenderTest extends TestCase
         // Value bool `true`.
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()
                 ->checkedValue(true)
@@ -604,10 +597,8 @@ final class RenderTest extends TestCase
         // Value int `0`.
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio" value="0">
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Active')->value(0)->render()
         );
@@ -615,10 +606,8 @@ final class RenderTest extends TestCase
         // Value int `1`.
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->checkedValue(1)->id('radio-6582f2d099e8b')->labelContent('Active')->value(1)->render()
         );
@@ -626,10 +615,8 @@ final class RenderTest extends TestCase
         // Value string `inactive`.
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio" value="inactive">
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Active')->value('inactive')->render()
         );
@@ -637,10 +624,8 @@ final class RenderTest extends TestCase
         // Value string `active`.
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio" value="inactive" checked>
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()
                 ->checkedValue('inactive')
@@ -655,10 +640,8 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="radio-6582f2d099e8b">
             <input id="radio-6582f2d099e8b" type="radio">
-            Active
-            </label>
+            <label for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()
                 ->checkedValue(null)

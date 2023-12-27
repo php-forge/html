@@ -9,6 +9,8 @@ namespace PHPForge\Html\Attribute\Aria;
  */
 trait HasAriaDescribedBy
 {
+    protected bool|string $ariaDescribedBy = false;
+
     /**
      * Set the aria-describedby attribute, which identifies the element(s) that describe the current element.
      *
@@ -25,7 +27,12 @@ trait HasAriaDescribedBy
     public function ariaDescribedBy(string|bool $value = true): static
     {
         $new = clone $this;
-        $new->attributes['aria-describedby'] = $value;
+
+        if ($value === true) {
+            $new->ariaDescribedBy = $value;
+        } else {
+            $new->attributes['aria-describedby'] = $value;
+        }
 
         return $new;
     }

@@ -19,8 +19,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1" aria-describedby="MyWidget">Female</label>
-            <label><input type="checkbox" value="2" aria-describedby="MyWidget">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1" aria-describedby="MyWidget">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2" aria-describedby="MyWidget">
+            <label>Male</label>
             </div>
             HTML,
             ChoiceList::widget()
@@ -30,6 +32,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -39,8 +42,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1" aria-label="MyWidget">Female</label>
-            <label><input type="checkbox" value="2" aria-label="MyWidget">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1" aria-label="MyWidget">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2" aria-label="MyWidget">
+            <label>Male</label>
             </div>
             HTML,
             ChoiceList::widget()
@@ -50,6 +55,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -59,8 +65,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input class="class" type="checkbox" value="1">Female</label>
-            <label><input class="class" type="checkbox" value="2">Male</label>
+            <input class="class" name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input class="class" name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             ChoiceList::widget()
@@ -70,6 +78,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -79,8 +88,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89" autofocus>
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -90,6 +101,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -99,8 +111,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input class="class" type="checkbox" value="1">Female</label>
-            <label><input class="class" type="checkbox" value="2">Male</label>
+            <input class="class" name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input class="class" name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -110,6 +124,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -119,8 +134,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="class" id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -130,6 +147,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -139,8 +157,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="class" id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -150,6 +170,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -159,8 +180,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <article id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </article>
             HTML,
             Choicelist::widget()
@@ -170,6 +193,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -178,8 +202,10 @@ final class CheckboxListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             HTML,
             Choicelist::widget()
                 ->container(false)
@@ -187,17 +213,41 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
+
+    public function testEnclosedByLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
+            <label><input name="CheckboxForm[text]" type="checkbox" value="1">Female</label>
+            <label><input name="CheckboxForm[text]" type="checkbox" value="2">Male</label>
+            </div>
+            HTML,
+            ChoiceList::widget()
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Female')->enclosedByLabel()->value(1),
+                    Checkbox::widget()->labelContent('Male')->enclosedByLabel()->value(2),
+                )
+                ->name('CheckboxForm[text]')
+                ->render(),
+        );
+    }
+
 
     public function testGenerateAriaDescribedBy(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1" aria-describedby="choice-list-65858c272ea89-help">Female</label>
-            <label><input type="checkbox" value="2" aria-describedby="choice-list-65858c272ea89-help">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1" aria-describedby="choice-list-65858c272ea89-help">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2" aria-describedby="choice-list-65858c272ea89-help">
+            <label>Male</label>
             </div>
             HTML,
             ChoiceList::widget()
@@ -207,6 +257,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -216,8 +267,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="id">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -226,6 +279,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -236,8 +290,10 @@ final class CheckboxListTest extends TestCase
             <<<HTML
             <label for="choice-list-65858c272ea89">Select your gender?</label>
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -247,6 +303,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
                 ->labelContent('Select your gender?')
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -257,8 +314,10 @@ final class CheckboxListTest extends TestCase
             <<<HTML
             <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -269,6 +328,7 @@ final class CheckboxListTest extends TestCase
                 )
                 ->labelContent('Select your gender?')
                 ->labelAttributes(['class' => 'class'])
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -279,8 +339,10 @@ final class CheckboxListTest extends TestCase
             <<<HTML
             <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -291,6 +353,7 @@ final class CheckboxListTest extends TestCase
                 )
                 ->labelContent('Select your gender?')
                 ->labelClass('class')
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -301,8 +364,10 @@ final class CheckboxListTest extends TestCase
             <<<HTML
             <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
             <div id="choice-list-65858c272ea89">
-            <label><input name="CheckboxList" type="checkbox" value="1">Female</label>
-            <label><input name="CheckboxList" type="checkbox" value="2">Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -313,7 +378,7 @@ final class CheckboxListTest extends TestCase
                 )
                 ->labelContent('Select your gender?')
                 ->labelClass('class')
-                ->name('CheckboxList')
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -323,8 +388,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="red">Red</label>
-            <label><input type="checkbox" value="blue">Blue</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="red">
+            <label>Red</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="blue">
+            <label>Blue</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -333,6 +400,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Red')->value('red'),
                     Checkbox::widget()->labelContent('Blue')->value('blue'),
                 )
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
@@ -342,14 +410,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label>
-            <input type="checkbox" value="red">
-            Red
-            </label>
-            <label>
-            <input type="checkbox" value="blue">
-            Blue
-            </label>
+            <input name="CheckboxForm[text]" type="checkbox" value="red">
+            <label>Red</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="blue">
+            <label>Blue</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -358,6 +422,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Red')->value('red'),
                     Checkbox::widget()->labelContent('Blue')->value('blue'),
                 )
+                ->name('CheckboxForm[text]')
                 ->separator(PHP_EOL)
                 ->render(),
         );
@@ -368,8 +433,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89" tabindex="1">
-            <label><input type="checkbox" value="red">Red</label>
-            <label><input type="checkbox" value="blue">Blue</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="red">
+            <label>Red</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="blue">
+            <label>Blue</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -378,6 +445,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Red')->value('red'),
                     Checkbox::widget()->labelContent('Blue')->value('blue'),
                 )
+                ->name('CheckboxForm[text]')
                 ->tabIndex(1)
                 ->render(),
         );
@@ -388,8 +456,10 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
-            <label><input type="checkbox" value="1">Female</label>
-            <label><input type="checkbox" value="2" checked>Male</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
             </div>
             HTML,
             Choicelist::widget()
@@ -398,7 +468,7 @@ final class CheckboxListTest extends TestCase
                     Checkbox::widget()->labelContent('Female')->value(1),
                     Checkbox::widget()->labelContent('Male')->value(2),
                 )
-                ->value(2)
+                ->name('CheckboxForm[text]')
                 ->render(),
         );
     }
