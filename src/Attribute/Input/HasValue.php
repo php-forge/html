@@ -30,7 +30,7 @@ trait HasValue
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-value
      */
-     public function value(mixed $value): static
+    public function value(mixed $value): static
     {
         $new = clone $this;
         $new->attributes['value'] = $value;
