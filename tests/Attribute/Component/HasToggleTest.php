@@ -79,7 +79,7 @@ final class HasToggleTest extends TestCase
             use HasToggle;
         };
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'The data attribute `id` is not allowed. Allowed data attributes are: bs-toggle, bs-target, collapse-toggle, drawer-target, drawer-toggle, dropdown-toggle'
         );

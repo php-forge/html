@@ -25,7 +25,8 @@ trait HasIcon
      */
     public function getIconAttributes(): array
     {
-        return $this->iconAttributes;}
+        return $this->iconAttributes;
+    }
 
     /**
      * @return array The `HTML` attributes of the icon container of the menu item.

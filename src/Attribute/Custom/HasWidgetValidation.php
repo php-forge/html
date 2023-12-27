@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use InvalidArgumentException;
-use RuntimeException;
 
 /**
  * Is used by widgets which implement the validation method.
@@ -57,6 +56,7 @@ trait HasWidgetValidation
      * Validate if the value is a string or null based on the type.
      *
      * @param mixed $value The value to validate.
+     *
      * @throws InvalidArgumentException If the value is invalid.
      */
     private function validateStringValue(mixed $value): void

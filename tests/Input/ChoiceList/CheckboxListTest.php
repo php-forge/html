@@ -238,7 +238,6 @@ final class CheckboxListTest extends TestCase
         );
     }
 
-
     public function testGenerateAriaDescribedBy(): void
     {
         Assert::equalsWithoutLE(

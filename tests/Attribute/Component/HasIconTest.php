@@ -151,7 +151,6 @@ final class HasIconTest extends TestCase
             private string $iconContainerTag = 'div';
             private string $iconTag = 'i';
 
-
             public function getIconTag(): string
             {
                 return $this->iconTag;
@@ -179,7 +178,6 @@ final class HasIconTest extends TestCase
             private bool $iconContainer = false;
             private string $iconContainerTag = 'div';
             private string $iconTag = 'i';
-
 
             public function getIconTag(): string
             {
@@ -244,7 +242,6 @@ final class HasIconTest extends TestCase
             private string $iconContainerTag = 'div';
             private string $iconTag = 'i';
 
-
             public function getIconTag(): string
             {
                 return $this->iconTag;
@@ -272,7 +269,6 @@ final class HasIconTest extends TestCase
             private bool $iconContainer = false;
             private string $iconContainerTag = 'div';
             private string $iconTag = 'svg';
-
 
             public function getIconTag(): string
             {

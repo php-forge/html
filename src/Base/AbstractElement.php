@@ -6,7 +6,6 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\HtmlBuilder;
-use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**

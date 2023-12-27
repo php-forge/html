@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html;
 
-use PHPForge\Html\Attribute;
 use PHPForge\Widget\Element;
-use RuntimeException;
 
 /**
  * The `<button>` `HTML` element is an interactive element activated by a user with a mouse, keyboard, finger, voice

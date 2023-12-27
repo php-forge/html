@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Button;
 use PHPForge\Widget\Element;
 
 /**
@@ -61,7 +59,7 @@ final class ButtonToggle extends Element
     {
         $attributes = $this->attributes;
 
-        $id = $this->generateId("button-toggle-");
+        $id = $this->generateId('button-toggle-');
 
         if ($this->ariaControls) {
             $attributes['aria-controls'] = $id;

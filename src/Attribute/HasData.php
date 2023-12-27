@@ -107,6 +107,7 @@ trait HasData
 
         return $new;
     }
+
     /**
      * Set the `HTML` data drawer target attribute for the toggle.
      *
