@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Aria;
 
+use function is_string;
+
 /**
  * Is used by widgets which require an role attribute.
  */
@@ -29,7 +31,7 @@ trait HasRole
 
         if ($value === true) {
             $new->role = $value;
-        } else {
+        } elseif (is_string($value)) {
             $new->attributes['role'] = $value;
         }
 

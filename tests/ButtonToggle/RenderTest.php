@@ -83,6 +83,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testRole(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a id="button-toggle-658716145f1d9" type="button" role="button"></a>
+            HTML,
+            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->link()->role('button')->render()
+        );
+    }
+
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(
