@@ -85,7 +85,7 @@ final class Button extends Element
             $attributes['aria-describedby'] = "$id-help";
         }
 
-        if ($this->tagName === 'a' && $this->role) {
+        if ($this->tagName === 'a' && $this->role === true) {
             $attributes['role'] = 'role';
         }
 

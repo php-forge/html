@@ -303,6 +303,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testRoleWithLink(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a id="button-658716145f1d9" type="button" role="button-role"></a>
+            HTML,
+            Button::widget()->id('button-658716145f1d9')->role('button-role')->tagName('a')->render()
+        );
+    }
+
     public function testSubmit(): void
     {
         Assert::equalsWithoutLE(
