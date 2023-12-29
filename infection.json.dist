@@ -5,12 +5,29 @@
         ]
     },
     "logs": {
-        "text": "php:\/\/stderr",
+        "text": "infection.log",
         "stryker": {
             "report": "main"
         }
     },
     "mutators": {
-        "@default": true
+        "@default": true,
+        "PublicVisibility": {
+            "ignore": [
+                "PHPForge\\Html\\Attribute\\Aria\\HasAriaDescribedBy::ariaDescribedBy",
+                "PHPForge\\Html\\Attribute\\Custom\\HasAttributes::attributes",
+                "PHPForge\\Html\\Attribute\\Custom\\HasLabel::isNotLabel",
+                "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelAttributes",
+                "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelClass",
+                "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelContent",
+                "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelFor",
+                "PHPForge\\Html\\Attribute\\Custom\\HasLabel::notLabel",
+                "PHPForge\\Html\\Attribute\\HasClass::class",
+                "PHPForge\\Html\\Attribute\\HasId::getId",
+                "PHPForge\\Html\\Attribute\\HasId::id",
+                "PHPForge\\Html\\Attribute\\Input\\HasName::name",
+                "PHPForge\\Html\\Attribute\\Input\\HasValue::value",
+            ]
+        }
     }
 }

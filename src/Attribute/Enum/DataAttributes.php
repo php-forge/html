@@ -6,16 +6,21 @@ namespace PHPForge\Html\Attribute\Enum;
 
 interface DataAttributes
 {
-    public const DATA_ACTION = 'action';
-    public const DATA_CANCEL_TEXT = 'cancel-text';
-    public const DATA_COLLAPSE_TOGGLE = 'collapse-toggle';
-    public const DATA_CONFIRM_TEXT = 'confirm-text';
-    public const DATA_DISMISS_TARGET = 'dismiss-target';
-    public const DATA_DRAWER_TARGET = 'drawer-target';
-    public const DATA_DRAWER_TOGGLE = 'drawer-toggle';
-    public const DATA_DROPDOWN_TOGGLE = 'dropdown-toggle';
-    public const DATA_ICON = 'icon';
-    public const DATA_MESSAGE = 'data-message';
-    public const DATA_METHOD = 'data-method';
-    public const DATA_TITLE = 'data-title';
+    public const ACTION = 'action';
+    public const BS_AUTO_CLOSE = 'bs-auto-close';
+    public const BS_DISMISS = 'bs-dismiss';
+    public const BS_TOGGLE = 'bs-toggle';
+    public const BS_TARGET = 'bs-target';
+    public const CANCEL_TEXT = 'cancel-text';
+    public const COLLAPSE_TOGGLE = 'collapse-toggle';
+    public const CONFIRM_TEXT = 'confirm-text';
+    public const DISMISS_TARGET = 'dismiss-target';
+    public const DRAWER_TARGET = 'drawer-target';
+    public const DRAWER_TOGGLE = 'drawer-toggle';
+    public const DROPDOWN_TOGGLE = 'dropdown-toggle';
+    public const ICON = 'icon';
+    public const MESSAGE = 'message';
+    public const METHOD = 'method';
+    public const TITLE = 'title';
+    public const TOGGLE = 'toggle';
 }

@@ -6,6 +6,7 @@ namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Label;
 use PHPForge\Widget\ElementInterface;
 
 /**
@@ -16,6 +17,7 @@ trait HasLabel
     protected array $labelAttributes = [];
     protected string $labelClass = '';
     protected string $labelContent = '';
+    protected string|null $labelFor = null;
     protected bool $notLabel = false;
 
     /**
@@ -74,7 +76,7 @@ trait HasLabel
     public function labelFor(string|null $value): static
     {
         $new = clone $this;
-        $new->labelAttributes['for'] = $value;
+        $new->labelFor = $value;
 
         return $new;
     }
@@ -100,5 +102,25 @@ trait HasLabel
     public function isNotLabel(): bool
     {
         return $this->notLabel;
+    }
+
+    /**
+     * Render the label tag.
+     *
+     * @param string $labelFor The `for` attribute value.
+     *
+     * @return string The rendered label tag.
+     */
+    private function renderLabelTag(string $labelFor = null): string
+    {
+        if ($this->labelContent === '' || $this->isNotLabel()) {
+            return '';
+        }
+
+        return Label::widget()
+            ->attributes($this->labelAttributes)
+            ->content($this->labelContent)
+            ->for($labelFor)
+            ->render();
     }
 }

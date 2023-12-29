@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Component;
 
+use InvalidArgumentException;
 use PHPForge\Html\Attribute\Component\HasToggle;
 use PHPForge\Html\Span;
-use PHPForge\Html\Svg;
-use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class HasToggleTest extends TestCase
@@ -25,13 +24,13 @@ final class HasToggleTest extends TestCase
 
         $this->assertSame([], $instance->getToggleAttributes());
 
-        $instance = $instance->toggleAttributes(['class' => 'test']);
+        $instance = $instance->toggleAttributes(['class' => 'class']);
 
-        $this->assertSame(['class' => 'test'], $instance->getToggleAttributes());
+        $this->assertSame(['class' => 'class'], $instance->getToggleAttributes());
 
         $instance = $instance->toggleAttributes(['disabled' => 'true']);
 
-        $this->assertSame(['disabled' => 'true', 'class' => 'test'], $instance->getToggleAttributes());
+        $this->assertSame(['disabled' => 'true', 'class' => 'class'], $instance->getToggleAttributes());
     }
 
     public function testClass(): void
@@ -41,23 +40,21 @@ final class HasToggleTest extends TestCase
 
             public function getToggleClass(): string
             {
-                return $this->toggleAttributes['class'] ?? '';
+                return $this->toggleClass;
+            }
+
+            public function getToggleClassOverride(): bool
+            {
+                return $this->toggleClassOverride;
             }
         };
 
         $this->assertEmpty($instance->getToggleClass());
+        $this->assertFalse($instance->getToggleClassOverride());
 
-        $instance = $instance->toggleClass('test-class');
+        $instance = $instance->toggleClass('class', true);
 
-        $this->assertSame('test-class', $instance->getToggleClass());
-
-        $instance = $instance->toggleClass('test-class-1');
-
-        $this->assertSame('test-class test-class-1', $instance->getToggleClass());
-
-        $instance = $instance->toggleClass('test-override-class', true);
-
-        $this->assertSame('test-override-class', $instance->getToggleClass());
+        $this->assertSame('class', $instance->getToggleClass());
     }
 
     public function testContent(): void
@@ -82,7 +79,7 @@ final class HasToggleTest extends TestCase
             use HasToggle;
         };
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
             'The data attribute `id` is not allowed. Allowed data attributes are: bs-toggle, bs-target, collapse-toggle, drawer-target, drawer-toggle, dropdown-toggle'
         );
@@ -102,14 +99,15 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleContent(''));
         $this->assertNotSame($instance, $instance->toggleDataAttribute('drawer-target', 'id'));
         $this->assertNotSame($instance, $instance->toggleId(''));
-        $this->assertNotSame($instance, $instance->toggleSvg(''));
-        $this->assertNotSame($instance, $instance->toggletype(''));
+        $this->assertNotSame($instance, $instance->toggleTag('span'));
     }
 
     public function testRender(): void
     {
         $instance = new class () {
             use HasToggle;
+
+            protected bool $toggle = true;
 
             public function getToggle(): bool
             {
@@ -121,58 +119,37 @@ final class HasToggleTest extends TestCase
         $this->assertFalse($instance->toggle(false)->getToggle());
     }
 
-    public function testSvg(): void
+    public function testTag(): void
     {
         $instance = new class () {
             use HasToggle;
 
-            public function getToggleSvg(): string
+            protected string $toggleTag = 'span';
+
+            public function getToggleTag(): string
             {
-                return $this->toggleSvg;
+                return $this->toggleTag;
             }
         };
 
-        $instance = $instance->toggleSvg(Svg::widget()->content('x'));
+        $this->assertSame('span', $instance->getToggleTag());
 
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <svg>
-            x
-            </svg>
-            HTML,
-            $instance->getToggleSvg(),
-        );
+        $instance = $instance->toggleTag('div');
+
+        $this->assertSame('div', $instance->getToggleTag());
     }
 
-    public function testSvgWithString(): void
+    public function testTagException(): void
     {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The toggle tag must be a non-empty string.');
+
         $instance = new class () {
             use HasToggle;
 
-            public function getToggleSvg(): string
-            {
-                return $this->toggleSvg;
-            }
+            protected string $toggleTag = 'span';
         };
 
-        $instance = $instance->toggleSvg('<svg>x</svg>');
-
-        $this->assertSame('<svg>x</svg>', $instance->getToggleSvg());
-    }
-
-    public function testSvgWithXSS(): void
-    {
-        $instance = new class () {
-            use HasToggle;
-
-            public function getToggleSvg(): string
-            {
-                return $this->toggleSvg;
-            }
-        };
-
-        $instance = $instance->toggleSvg('<svg><script>alert("xss")</script>x</svg>');
-
-        $this->assertSame('<svg>x</svg>', $instance->getToggleSvg());
+        $instance->toggleTag('');
     }
 }

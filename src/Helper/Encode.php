@@ -53,7 +53,7 @@ final class Encode
      *
      * Characters encoded are: &, <, >.
      *
-     * @param mixed $content The content to be encoded.
+     * @param string $content The content to be encoded.
      * @param bool $doubleEncode If already encoded, entities should be encoded.
      * @param string $encoding The encoding to use, defaults to "UTF-8".
      *
@@ -61,9 +61,9 @@ final class Encode
      *
      * @link https://html.spec.whatwg.org/#data-state
      */
-    public static function content(mixed $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
+    public static function content(string $content, bool $doubleEncode = true, string $encoding = 'UTF-8'): string
     {
-        return htmlspecialchars((string) $content, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
+        return htmlspecialchars($content, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
     }
 
     /**

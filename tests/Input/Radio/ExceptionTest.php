@@ -17,7 +17,7 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Radio::class widget value can not be an iterable or an object.');
+        $this->expectExceptionMessage('Radio::class widget must be a scalar value.');
 
         Radio::widget()->value([])->render();
     }

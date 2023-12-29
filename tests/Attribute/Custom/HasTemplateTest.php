@@ -18,5 +18,6 @@ final class HasTemplateTest extends TestCase
         };
 
         $this->assertNotSame($instance, $instance->template(''));
+        $this->assertNotSame($instance, $instance->tokenValue('', ''));
     }
 }

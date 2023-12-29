@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
+use PHPForge\Html\Input\Hidden;
 
 use function array_merge;
 
@@ -60,5 +61,23 @@ trait HasUnchecked
         $new->uncheckValue = $value;
 
         return $new;
+    }
+
+    /**
+     * Generate the HTML representation of the unchecked element.
+     *
+     * @return string The HTML representation of the unchecked element.
+     */
+    private function renderUncheckTag(): string
+    {
+        if ($this->uncheckValue === null) {
+            return '';
+        }
+
+        return Hidden::widget()
+            ->attributes($this->uncheckAttributes)
+            ->id(null)
+            ->value($this->uncheckValue)
+            ->render();
     }
 }

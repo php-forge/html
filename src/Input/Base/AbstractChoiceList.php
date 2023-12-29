@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
-use InvalidArgumentException;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Checkbox;
 use PHPForge\Html\Input\InputInterface;
@@ -23,6 +22,7 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasSeparator;
+    use Attribute\Custom\HasWidgetValidation;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTabindex;
@@ -32,7 +32,6 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected string $choiceId = '';
     protected bool $container = true;
     protected string $containerTag = 'div';
     /**
@@ -49,23 +48,11 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
         return $new;
     }
 
-    public function getId(): string
-    {
-        return $this->choiceId;
-    }
-
     protected function run(): string
     {
         $value = $this->getValue();
 
-        /**
-         * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.checkbox.html#input.checkbox.attrs.value
-         */
-        if (is_iterable($value) || is_object($value)) {
-            throw new InvalidArgumentException(
-                sprintf('%s::class widget must be a scalar value.', static::class)
-            );
-        }
+        $this->validateScalar($value);
 
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
@@ -73,9 +60,8 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
         $items = $this->items;
         $labelTag = '';
         $listItems = [];
-        $ariaDescribedBy = $attributes['aria-describedby'] ?? null;
 
-        if ($ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
         }
 

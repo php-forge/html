@@ -7,6 +7,7 @@ namespace PHPForge\Html\Attribute\Custom;
 use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Tag;
 use PHPForge\Widget\ElementInterface;
 
 /**
@@ -185,5 +186,39 @@ trait HasPrefixAndSuffix
         $new->suffixContainerTag = $value;
 
         return $new;
+    }
+
+    /**
+     * Render the prefix container.
+     *
+     * @return string The prefix container.
+     */
+    private function renderPrefixTag(): string
+    {
+        return match ($this->prefixContainer) {
+            true => Tag::widget()
+                ->attributes($this->prefixContainerAttributes)
+                ->content($this->prefix)
+                ->tagName($this->prefixContainerTag)
+                ->render(),
+            default => $this->prefix,
+        };
+    }
+
+    /**
+     * Render the suffix container.
+     *
+     * @return string The suffix container.
+     */
+    private function renderSuffixTag(): string
+    {
+        return match ($this->suffixContainer) {
+            true => Tag::widget()
+                ->attributes($this->suffixContainerAttributes)
+                ->content($this->suffix)
+                ->tagName($this->suffixContainerTag)
+                ->render(),
+            default => $this->suffix,
+        };
     }
 }

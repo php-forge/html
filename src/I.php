@@ -10,6 +10,18 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element
  */
-final class I extends Base\AbstractI
+final class I extends Base\AbstractElement
 {
+    use Attribute\CanBeAutofocus;
+    use Attribute\CanBeHidden;
+    use Attribute\Input\HasType;
+    use Attribute\Tag\HasDownload;
+    use Attribute\Tag\HasHref;
+    use Attribute\Tag\HasHreflang;
+    use Attribute\Tag\HasPing;
+    use Attribute\Tag\HasReferrerpolicy;
+    use Attribute\Tag\HasRel;
+    use Attribute\Tag\HasTarget;
+
+    protected string $tagName = 'i';
 }

@@ -16,7 +16,6 @@ final class ImmutableTest extends TestCase
     {
         $buttonToggle = ButtonToggle::widget();
 
-        $this->assertNotSame($buttonToggle, $buttonToggle->alert());
-        $this->assertNotSame($buttonToggle, $buttonToggle->sidebar());
+        $this->assertNotSame($buttonToggle, $buttonToggle->link());
     }
 }

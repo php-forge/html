@@ -9,6 +9,10 @@ namespace PHPForge\Html;
  *
  * @link https://www.w3.org/TR/html52/sec-forms.html#the-label-element
  */
-final class Label extends Base\AbstractLabel
+final class Label extends Base\AbstractElement
 {
+    use Attribute\Input\HasForm;
+    use Attribute\Tag\HasFor;
+
+    protected string $tagName = 'label';
 }

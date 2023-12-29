@@ -10,7 +10,16 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element
  */
-final class TextArea extends Base\AbstractTextArea
+final class TextArea extends Base\AbstractElement
 {
+    use Attribute\Input\HasAutocomplete;
+    use Attribute\Input\HasDirname;
+    use Attribute\Input\HasMaxLength;
+    use Attribute\Input\HasMinLength;
+    use Attribute\Input\HasPlaceholder;
+    use Attribute\Tag\HasCols;
+    use Attribute\Tag\HasRows;
+    use Attribute\Tag\HasWrap;
+
     protected string $tagName = 'textarea';
 }
