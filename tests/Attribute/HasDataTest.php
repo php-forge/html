@@ -38,6 +38,19 @@ final class HasDataTest extends TestCase
         $this->assertSame(['data-bs-auto-close' => 'true'], $instance->attributes);
     }
 
+    public function testDataBsDismiss(): void
+    {
+        $instance = new class () {
+            use HasData;
+
+            public array $attributes = [];
+        };
+
+        $instance = $instance->dataBsDismiss('alert');
+
+        $this->assertSame(['data-bs-dismiss' => 'alert'], $instance->attributes);
+    }
+
     public function testDataBsToggle(): void
     {
         $instance = new class () {

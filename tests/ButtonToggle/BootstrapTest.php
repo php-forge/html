@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class Bootstrap5Test extends TestCase
+final class BootstrapTest extends TestCase
 {
     public function testAccordion(): void
     {

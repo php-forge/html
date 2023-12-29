@@ -8,6 +8,7 @@ interface DataAttributes
 {
     public const ACTION = 'action';
     public const BS_AUTO_CLOSE = 'bs-auto-close';
+    public const BS_DISMISS = 'bs-dismiss';
     public const BS_TOGGLE = 'bs-toggle';
     public const BS_TARGET = 'bs-target';
     public const CANCEL_TEXT = 'cancel-text';

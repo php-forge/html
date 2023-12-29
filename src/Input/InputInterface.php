@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
+use PHPForge\Widget\ElementInterface;
+
 /**
  * Provide methods for handling HTML input-related attributes and properties.
  */
-interface InputInterface
+interface InputInterface extends ElementInterface
 {
     /**
      * Set the aria-describedby attribute, which identifies the element(s) that describe the current element.
@@ -73,13 +75,4 @@ interface InputInterface
      * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name
      */
     public function name(string|null $value): static;
-
-    /**
-     * Executes the widget.
-     *
-     * This method is responsible for executing the widget and returning the result of the execution as a string.
-     *
-     * @return string The result of widget execution to be outputted.
-     */
-    public function render(): string;
 }

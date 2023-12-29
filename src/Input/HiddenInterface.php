@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
+use PHPForge\Widget\ElementInterface;
+
 /**
  * Provide methods for handling HTML input-related attributes and properties.
  */
-interface HiddenInterface
+interface HiddenInterface extends ElementInterface
 {
     /**
      * Set the `HTML` attributes.
@@ -39,15 +41,6 @@ interface HiddenInterface
      * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name
      */
     public function name(string|null $value): static;
-
-    /**
-     * Executes the widget.
-     *
-     * This method is responsible for executing the widget and returning the result of the execution as a string.
-     *
-     * @return string The result of widget execution to be outputted.
-     */
-    public function render(): string;
 
     /**
      * set the value content attribute gives the default value of the field.
