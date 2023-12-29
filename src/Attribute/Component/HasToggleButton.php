@@ -17,7 +17,7 @@ trait HasToggleButton
     /**
      * Set the button toogle for the toggle.
      *
-     * @param string|ElementInterface ...$values The button content.
+     * @param ElementInterface|string ...$values The button content.
      *
      * @return static A new instance of the current class with the specified toggle button.
      */
