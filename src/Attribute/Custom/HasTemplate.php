@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
+use function explode;
+
 /**
  * Is used by widgets that implement the template method.
  */
@@ -32,5 +34,25 @@ trait HasTemplate
         $new->tokenValue[$token] = $value;
 
         return $new;
+    }
+
+    private function renderTemplate(string $template, array $tokenValues): string
+    {
+        $result = '';
+        $tokens = explode('\n', $template);
+
+        foreach ($tokens as $key => $token) {
+            $tokenValue = strtr($token, $tokenValues);
+
+            if ($tokenValue !== '') {
+                $result .= $tokenValue;
+            }
+
+            if ($result !== '' && $key < count($tokens) - 1) {
+                $result = strtr($tokens[$key + 1], $tokenValues) !== '' ? $result . "\n" : $result;
+            }
+        }
+
+        return $result;
     }
 }

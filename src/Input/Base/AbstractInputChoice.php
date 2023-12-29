@@ -92,9 +92,22 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
             $labelTag = $this->renderLabelTag($this->getId() ?? '');
         }
 
-        $choiceTag = $this->renderTemplate($tag, $labelTag);
+        $choiceTag = $this->prepareTemplate($tag, $labelTag);
 
         return $this->renderContainerTag($choiceTag);
+    }
+
+    private function prepareTemplate(string $tag, string $labelTag): string
+    {
+        $tokenValues = [
+            '{prefix}' => $this->renderPrefixTag(),
+            '{unchecktag}' => $this->renderUncheckTag(),
+            '{tag}' => $tag,
+            '{label}' => $labelTag,
+            '{suffix}' => $this->renderSuffixTag(),
+        ];
+
+        return $this->renderTemplate($this->template, $tokenValues);
     }
 
     private function renderEnclosedByLabel(string $tag): string
@@ -114,33 +127,5 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
             )
             ->for($this->getId())
             ->render();
-    }
-
-    private function renderTemplate(string $tag, string $labelTag): string
-    {
-        $result = '';
-        $tokenValues = [
-            '{prefix}' => $this->renderPrefixTag(),
-            '{unchecktag}' => $this->renderUncheckTag(),
-            '{tag}' => $tag,
-            '{label}' => $labelTag,
-            '{suffix}' => $this->renderSuffixTag(),
-        ];
-
-        $tokens = explode('\n', $this->template);
-
-        foreach ($tokens as $key => $token) {
-            $tokenValue = strtr($token, $tokenValues);
-
-            if ($tokenValue !== '') {
-                $result .= $tokenValue;
-            }
-
-            if ($result !== '' && isset($tokens[$key + 1])) {
-                $result = strtr($tokens[$key + 1], $tokenValues) !== '' ? $result . "\n" : $result;
-            }
-        }
-
-        return $result;
     }
 }
