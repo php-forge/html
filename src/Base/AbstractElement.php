@@ -43,7 +43,6 @@ abstract class AbstractElement extends Element
             $attributes['id'] = $this->id;
         }
 
-        $result = '';
         $tokenValues = [
             '{prefix}' => $this->renderPrefixTag(),
             '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
@@ -51,20 +50,6 @@ abstract class AbstractElement extends Element
         ];
         $tokenValues += $this->tokenValue;
 
-        $tokens = explode('\n', $this->template);
-
-        foreach ($tokens as $key => $token) {
-            $tokenValue = strtr($token, $tokenValues);
-
-            if ($tokenValue !== '') {
-                $result .= $tokenValue;
-            }
-
-            if ($result !== '' && isset($tokens[$key + 1])) {
-                $result = strtr($tokens[$key + 1], $tokenValues) !== '' ? $result . "\n" : $result;
-            }
-        }
-
-        return $result;
+        return $this->renderTemplate($this->template, $tokenValues);
     }
 }

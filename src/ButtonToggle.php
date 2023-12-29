@@ -86,7 +86,6 @@ final class ButtonToggle extends Element
             $attributes['data-toggle'] = $this->toggleId;
         }
 
-        $result = '';
         $tokenValues = [
             '{toggle}' => $this->renderToggleTag(),
             '{icon}' => $this->renderIconTag(),
@@ -94,17 +93,8 @@ final class ButtonToggle extends Element
         ];
         $tokenValues += $this->tokenValue;
 
-        $tokens = explode('\n', $this->template);
-
-        foreach ($tokens as $token) {
-            $tokenValue = strtr($token, $tokenValues);
-
-            if ($tokenValue !== '') {
-                $result .= $tokenValue . "\n";
-            }
-        }
-
-        $content = $result !== '' ? PHP_EOL . $result : '';
+        $content = $this->renderTemplate($this->template, $tokenValues);
+        $content = $content !== '' ? PHP_EOL . $content . PHP_EOL : '';
 
         return Button::widget()
             ->ariaDescribedBy($this->ariaDescribedBy)
