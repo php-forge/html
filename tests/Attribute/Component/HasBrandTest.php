@@ -22,16 +22,16 @@ final class HasBrandTest extends TestCase
 
         $this->assertEmpty($instance->brandContainerClass('')->getBrandContainerClass());
 
-        $instance = $instance->brandContainerClass('test-class');
-        $this->assertSame('test-class', $instance->getBrandContainerClass());
+        $instance = $instance->brandContainerClass('class');
+        $this->assertSame('class', $instance->getBrandContainerClass());
 
-        $instance = $instance->brandContainerClass('test-class-1');
+        $instance = $instance->brandContainerClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getBrandContainerClass());
+        $this->assertSame('class class-1', $instance->getBrandContainerClass());
 
-        $instance = $instance->brandContainerClass('test-override-class', true);
+        $instance = $instance->brandContainerClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getBrandContainerClass());
+        $this->assertSame('override-class', $instance->getBrandContainerClass());
     }
 
     public function testBrandLinkClass(): void
@@ -47,23 +47,25 @@ final class HasBrandTest extends TestCase
 
         $this->assertEmpty($instance->brandLinkClass('')->getBrandLinkClass());
 
-        $instance = $instance->brandLinkClass('test-class');
+        $instance = $instance->brandLinkClass('class');
 
-        $this->assertSame('test-class', $instance->getBrandLinkClass());
+        $this->assertSame('class', $instance->getBrandLinkClass());
 
-        $instance = $instance->brandLinkClass('test-class-1');
+        $instance = $instance->brandLinkClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getBrandLinkClass());
+        $this->assertSame('class class-1', $instance->getBrandLinkClass());
 
-        $instance = $instance->brandLinkClass('test-override-class', true);
+        $instance = $instance->brandLinkClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getBrandLinkClass());
+        $this->assertSame('override-class', $instance->getBrandLinkClass());
     }
 
     public function testImmutability(): void
     {
         $instance = new class () {
             use HasBrand;
+
+            protected string $brandTemplate = '';
         };
 
         $this->assertNotSame($instance, $instance->brandContainer(false));
