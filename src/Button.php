@@ -90,6 +90,7 @@ final class Button extends Element
         }
 
         return $this->renderContainerTag(
+            null,
             Tag::widget()
                 ->attributes($attributes)
                 ->content($this->content)

@@ -56,23 +56,24 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
             $attributes['aria-describedby'] = "$id-help";
         }
 
-        $inputTag = Tag::widget()
-            ->attributes($attributes)
-            ->id($id)
-            ->prefix($this->prefix)
-            ->prefixContainer($this->prefixContainer)
-            ->prefixContainerAttributes($this->prefixContainerAttributes)
-            ->prefixContainerTag($this->prefixContainerTag)
-            ->suffix($this->suffix)
-            ->suffixContainer($this->suffixContainer)
-            ->suffixContainerAttributes($this->suffixContainerAttributes)
-            ->suffixContainerTag($this->suffixContainerTag)
-            ->tagName('input')
-            ->template($this->template)
-            ->tokenValue('{label}', $this->renderLabelTag($labelFor))
-            ->type($type)
-            ->render();
-
-        return $this->renderContainerTag($inputTag);
+        return $this->renderContainerTag(
+            null,
+            Tag::widget()
+                ->attributes($attributes)
+                ->id($id)
+                ->prefix($this->prefix)
+                ->prefixContainer($this->prefixContainer)
+                ->prefixContainerAttributes($this->prefixContainerAttributes)
+                ->prefixContainerTag($this->prefixContainerTag)
+                ->suffix($this->suffix)
+                ->suffixContainer($this->suffixContainer)
+                ->suffixContainerAttributes($this->suffixContainerAttributes)
+                ->suffixContainerTag($this->suffixContainerTag)
+                ->tagName('input')
+                ->template($this->template)
+                ->tokenValue('{label}', $this->renderLabelTag($labelFor))
+                ->type($type)
+                ->render()
+        );
     }
 }
