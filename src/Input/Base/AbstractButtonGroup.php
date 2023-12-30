@@ -52,7 +52,7 @@ abstract class AbstractButtonGroup extends Element
 
     protected function run(): string
     {
-        return $this->renderContainerTag($this->renderButtons());
+        return $this->renderContainerTag(null, $this->renderButtons());
     }
 
     private function renderButtons(): string

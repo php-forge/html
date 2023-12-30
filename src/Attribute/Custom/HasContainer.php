@@ -96,12 +96,13 @@ trait HasContainer
         return $id;
     }
 
-    private function renderContainerTag(string ...$content): string
+    private function renderContainerTag(string|null $id, string ...$content): string
     {
         return match ($this->container) {
             true => Tag::widget()
                 ->attributes($this->containerAttributes)
                 ->content(...$content)
+                ->id($id)
                 ->tagName($this->containerTag)
                 ->render(),
             default => implode(PHP_EOL, $content),

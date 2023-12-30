@@ -94,7 +94,7 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
 
         $choiceTag = $this->prepareTemplate($tag, $labelTag);
 
-        return $this->renderContainerTag($choiceTag);
+        return $this->renderContainerTag(null, $choiceTag);
     }
 
     private function prepareTemplate(string $tag, string $labelTag): string
