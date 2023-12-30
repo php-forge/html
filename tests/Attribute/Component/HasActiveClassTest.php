@@ -15,6 +15,33 @@ final class HasActiveClassTest extends TestCase
             use HasActiveClass;
         };
 
-        $this->assertNotSame($instance, $instance->activeClass(''));
+        $this->assertNotSame($instance, $instance->activeClass('', true));
+    }
+
+    public function testOverride(): void
+    {
+        $instance = new class () {
+            use HasActiveClass;
+
+            public function getActiveClass(): string
+            {
+                return $this->activeClass;
+            }
+
+            public function getOverride(): bool
+            {
+                return $this->override;
+            }
+        };
+
+        $instance = $instance->activeClass('active');
+
+        $this->assertSame('active', $instance->getActiveClass());
+        $this->assertFalse($instance->getOverride());
+
+        $instance = $instance->activeClass('active', true);
+
+        $this->assertSame('active', $instance->getActiveClass());
+        $this->assertTrue($instance->getOverride());
     }
 }
