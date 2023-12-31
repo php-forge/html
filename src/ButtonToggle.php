@@ -35,9 +35,9 @@ final class ButtonToggle extends Element
     /**
      * Set tag name to `a` for the toggle.
      *
-     * @return static A new instance of the current class with the specified tag name.
+     * @return self A new instance of the current class with the specified tag name.
      */
-    public function link(): static
+    public function link(): self
     {
         $new = clone $this;
         $new->tagName = 'a';

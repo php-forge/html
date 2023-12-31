@@ -141,12 +141,12 @@ final class Utils
 
     /**
      * This method parses an attribute expression and returns an associative array containing real attribute name,
-     * prefix and suffix.
+     * prefix, and suffix.
      *
-     * For example: `['name' => 'content', 'prefix' => '', 'suffix' => '[0]']`
+     * For example, `['name' => 'content', 'prefix' => '', 'suffix' => '[0]']`
      *
      * An attribute expression is an attribute name prefixed and/or suffixed with array indexes. It is mainly used in
-     * tabular data input and/or input of array type. Below are some examples:
+     * tabular data input and/or input of an array type. Below are some examples:
      *
      * - `[0]content` is used in tabular data input to represent the "content" attribute for the first model in tabular
      *    input;

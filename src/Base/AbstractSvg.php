@@ -102,7 +102,7 @@ abstract class AbstractSvg extends Element
     /**
      * Validates the file path and content before running the widget.
      *
-     * @throws InvalidArgumentException If both file path and content are empty.
+     * @throws InvalidArgumentException If both a file path and content are empty.
      *
      * @return bool Whether the widget should be executed.
      */

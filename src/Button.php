@@ -54,9 +54,9 @@ final class Button extends Element
     /**
      * Set the button type to `submit`.
      *
-     * @return static A new instance of the current class with the specified type value.
+     * @return self A new instance of the current class with the specified type value.
      */
-    public function submit(): static
+    public function submit(): self
     {
         return $this->type('submit');
     }
@@ -64,9 +64,9 @@ final class Button extends Element
     /**
      * Set the button type to `reset`.
      *
-     * @return static A new instance of the current class with the specified type value.
+     * @return self A new instance of the current class with the specified type value.
      */
-    public function reset(): static
+    public function reset(): self
     {
         return $this->type('reset');
     }
@@ -85,7 +85,7 @@ final class Button extends Element
 
         unset($attributes['type']);
 
-        $id = $this->generateId("{$type}-");
+        $id = $this->generateId("$type-");
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";

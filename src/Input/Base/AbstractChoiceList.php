@@ -36,7 +36,6 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
      * @psalm-var Checkbox[]|Radio[] $items
      */
     protected array $items = [];
-    protected string $separator = '';
 
     /**
      * This method is used to configure the widget with the provided default definitions.
