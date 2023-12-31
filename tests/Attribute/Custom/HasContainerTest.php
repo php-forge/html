@@ -17,6 +17,7 @@ final class HasContainerTest extends TestCase
 
             protected bool $container = true;
             protected string $containerTag = 'div';
+            protected string $containerTemplate = '';
 
             public function getContainerClass(): string
             {
@@ -26,17 +27,17 @@ final class HasContainerTest extends TestCase
 
         $this->assertEmpty($instance->getContainerClass());
 
-        $instance = $instance->containerClass('test-class');
+        $instance = $instance->containerClass('class');
 
-        $this->assertSame('test-class', $instance->getContainerClass());
+        $this->assertSame('class', $instance->getContainerClass());
 
-        $instance = $instance->containerClass('test-class-1');
+        $instance = $instance->containerClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getContainerClass());
+        $this->assertSame('class class-1', $instance->getContainerClass());
 
-        $instance = $instance->containerClass('test-override-class', true);
+        $instance = $instance->containerClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getContainerClass());
+        $this->assertSame('override-class', $instance->getContainerClass());
     }
 
     public function testException(): void
@@ -46,6 +47,7 @@ final class HasContainerTest extends TestCase
 
             protected bool $container = true;
             protected string $containerTag = '';
+            protected string $containerTemplate = '';
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -61,13 +63,14 @@ final class HasContainerTest extends TestCase
 
             protected bool $container = true;
             protected string $containerTag = 'div';
+            protected string $containerTemplate = '';
         };
 
         $this->assertNull($instance->getContainerId());
 
-        $instance = $instance->containerAttributes(['id' => 'test-id']);
+        $instance = $instance->containerAttributes(['id' => 'id']);
 
-        $this->assertSame('test-id', $instance->getContainerId());
+        $this->assertSame('id', $instance->getContainerId());
     }
 
     public function testImmutability(): void
@@ -82,5 +85,6 @@ final class HasContainerTest extends TestCase
         $this->assertNotSame($instance, $instance->containerAttributes([]));
         $this->assertNotSame($instance, $instance->containerClass(''));
         $this->assertNotSame($instance, $instance->containerTag('span'));
+        $this->assertNotSame($instance, $instance->containerTemplate(''));
     }
 }
