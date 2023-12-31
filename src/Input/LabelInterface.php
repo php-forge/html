@@ -33,7 +33,7 @@ interface LabelInterface
     /**
      * Set the `HTML` label content.
      *
-     * @param ElementInterface|string $values The `HTML` label content value.
+     * @param string|ElementInterface ...$values The `HTML` label content value.
      *
      * @return static A new instance of the current class with the specified `HTML` label content.
      */

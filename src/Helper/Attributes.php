@@ -23,7 +23,7 @@ final class Attributes
          JSON_THROW_ON_ERROR;
 
     /**
-     * @var array list of tag attributes that should be specially handled when their values are of array type.
+     * @var array list of tag attributes that should be specially handled when their values are of an array type.
      *
      * In particular, if the value of the `data` attribute is `['name' => 'xyz', 'age' => 13]`, two attributes will be
      * generated instead of one: `data-name="xyz" data-age="13"`.
@@ -93,7 +93,7 @@ final class Attributes
      * `data-params='{"id":1,"name":"yii"}'`.
      *
      * @return string The rendering result. If the attributes are not empty, they will be rendered into a string with a
-     * leading white space (so that it can be directly appended to the tag name in a tag). If there is no attribute, an
+     * leading space (so that it can be directly appended to the tag name in a tag). If there is no attribute, an
      * empty string will be returned.
      *
      * {@see addCssClass()}

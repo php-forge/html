@@ -47,8 +47,6 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected bool $container = false;
-    protected string $containerTag = 'div';
     protected string $tagName = '';
 
     /**

@@ -10,6 +10,7 @@ use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
+use Stringable;
 use function array_merge;
 use function get_debug_type;
 use function implode;
@@ -46,7 +47,7 @@ abstract class AbstractSelect extends Element
     {
         $attributes = $this->attributes;
         $multiple = false;
-        /** @psalm-var array<int, \Stringable|scalar>|scalar|object|null $value */
+        /** @psalm-var array<int, Stringable|scalar>|scalar|object|null $value */
         $value = $this->getValue();
 
         $items = match ($this->prompt) {
@@ -92,7 +93,7 @@ abstract class AbstractSelect extends Element
     /**
      * @psalm-return string[]
      *
-     * @psalm-param array<int, \Stringable|scalar>|null|scalar $formValue
+     * @psalm-param array<int, Stringable|scalar>|null|scalar $formValue
      */
     private function renderItems(mixed $formValue): array
     {
