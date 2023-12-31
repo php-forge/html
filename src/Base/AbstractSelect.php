@@ -11,6 +11,7 @@ use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 use Stringable;
+
 use function array_merge;
 use function get_debug_type;
 use function implode;
