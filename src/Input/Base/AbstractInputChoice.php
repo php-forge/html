@@ -49,7 +49,6 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
     protected array $attributes = [];
     protected bool $container = false;
     protected string $containerTag = 'div';
-    protected string $separator = PHP_EOL;
     protected string $tagName = '';
 
     /**
@@ -58,6 +57,7 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
     public function loadDefaultDefinitions(): array
     {
         return [
+            'separator()' => [PHP_EOL],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{label}\n{suffix}'],
         ];
     }

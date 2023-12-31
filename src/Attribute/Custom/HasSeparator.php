@@ -9,6 +9,8 @@ namespace PHPForge\Html\Attribute\Custom;
  */
 trait HasSeparator
 {
+    protected string $separator = '';
+
     /**
      * Set the separator.
      *
