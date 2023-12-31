@@ -35,7 +35,6 @@ final class ButtonToggle extends Element
     protected bool $iconContainer = false;
     protected string $iconContainerTag = 'div';
     protected string $tagName = 'button';
-    protected string $template = '{toggle}\n{icon}\n{content}';
     protected bool $toggle = true;
     protected string $toggleTag = 'span';
 
@@ -49,6 +48,16 @@ final class ButtonToggle extends Element
         $new = clone $this;
         $new->tagName = 'a';
         return $new;
+    }
+
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'template()' => ['{toggle}\n{icon}\n{content}'],
+        ];
     }
 
     /**

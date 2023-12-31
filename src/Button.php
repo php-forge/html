@@ -42,8 +42,17 @@ final class Button extends Element
     protected bool $container = false;
     protected string $containerTag = 'div';
     protected string $tagName = 'button';
-    protected string $template = '{prefix}\n{tag}\n{suffix}';
     protected string $type = 'button';
+
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'template()' => ['{prefix}\n{tag}\n{suffix}'],
+        ];
+    }
 
     /**
      * Set the button type to `submit`.
@@ -104,6 +113,7 @@ final class Button extends Element
                 ->suffixContainerAttributes($this->suffixContainerAttributes)
                 ->suffixContainerTag($this->suffixContainerTag)
                 ->tagName($this->tagName)
+                ->template($this->template)
                 ->type($type)
                 ->render()
         );

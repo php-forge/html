@@ -38,6 +38,9 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     protected array $items = [];
     protected string $separator = '';
 
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
     public function loadDefaultDefinitions(): array
     {
         return [
