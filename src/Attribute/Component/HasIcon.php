@@ -107,6 +107,27 @@ trait HasIcon
     }
 
     /**
+     * Set the icon container tag name.
+     *
+     * @param string $value The tag name for the icon container element.
+     *
+     * @throws InvalidArgumentException If the icon container tag is an empty string.
+     *
+     * @return static A new instance of the current class with the specified icon container tag.
+     */
+    public function iconContainerTag(string $value): static
+    {
+        if ($value === '') {
+            throw new InvalidArgumentException('The icon container tag must be a non-empty string.');
+        }
+
+        $new = clone $this;
+        $new->iconContainerTag = $value;
+
+        return $new;
+    }
+
+    /**
      * Set the `HTML` attributes for the icon container.
      *
      * @param array $values Attribute values indexed by attribute names.
