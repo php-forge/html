@@ -18,10 +18,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" aria-describedby="MyWidget">
+            <input id="button-6582f2d099e8b" type="button" aria-describedby="MyWidget">
             </div>
             HTML,
-            Button::widget()->ariaDescribedBy('MyWidget')->id('text-6582f2d099e8b')->render()
+            Button::widget()->ariaDescribedBy('MyWidget')->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -30,10 +30,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" aria-label="MyWidget">
+            <input id="button-6582f2d099e8b" type="button" aria-label="MyWidget">
             </div>
             HTML,
-            Button::widget()->ariaLabel('MyWidget')->id('text-6582f2d099e8b')->render()
+            Button::widget()->ariaLabel('MyWidget')->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -42,10 +42,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input class="class" id="text-6582f2d099e8b" type="button">
+            <input class="class" id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->attributes(['class' => 'class'])->id('text-6582f2d099e8b')->render()
+            Button::widget()->attributes(['class' => 'class'])->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -54,10 +54,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" autofocus>
+            <input id="button-6582f2d099e8b" type="button" autofocus>
             </div>
             HTML,
-            Button::widget()->autofocus()->id('text-6582f2d099e8b')->render()
+            Button::widget()->autofocus()->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -66,10 +66,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input class="class" id="text-6582f2d099e8b" type="button">
+            <input class="class" id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->class('class')->id('text-6582f2d099e8b')->render()
+            Button::widget()->class('class')->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -78,10 +78,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="class">
-            <input id="text-6582f2d099e8b" type="button">
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->containerAttributes(['class' => 'class'])->id('text-6582f2d099e8b')->render()
+            Button::widget()->containerAttributes(['class' => 'class'])->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -90,10 +90,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="class">
-            <input id="text-6582f2d099e8b" type="button">
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->containerClass('class')->id('text-6582f2d099e8b')->render()
+            Button::widget()->containerClass('class')->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -101,9 +101,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span><input id="text-6582f2d099e8b" type="button"></span>
+            <span><input id="button-6582f2d099e8b" type="button"></span>
             HTML,
-            Button::widget()->containerTag('span')->id('text-6582f2d099e8b')->render()
+            Button::widget()->containerTag('span')->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -111,10 +111,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="text-6582f2d099e8b">Red</label>
-            <input id="text-6582f2d099e8b" type="button">
+            <label for="button-6582f2d099e8b">Red</label>
+            <input id="button-6582f2d099e8b" type="button">
             HTML,
-            Button::widget()->container(false)->id('text-6582f2d099e8b')->labelContent('Red')->render()
+            Button::widget()->container(false)->id('button-6582f2d099e8b')->labelContent('Red')->render()
         );
     }
 
@@ -123,10 +123,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" disabled>
+            <input id="button-6582f2d099e8b" type="button" disabled>
             </div>
             HTML,
-            Button::widget()->disabled()->id('text-6582f2d099e8b')->render()
+            Button::widget()->disabled()->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -135,10 +135,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" form="form">
+            <input id="button-6582f2d099e8b" type="button" form="form">
             </div>
             HTML,
-            Button::widget()->form('form')->id('text-6582f2d099e8b')->render()
+            Button::widget()->form('form')->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -147,10 +147,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" aria-describedby="text-6582f2d099e8b-help">
+            <input id="button-6582f2d099e8b" type="button" aria-describedby="button-6582f2d099e8b-help">
             </div>
             HTML,
-            Button::widget()->ariaDescribedBy()->id('text-6582f2d099e8b')->render()
+            Button::widget()->ariaDescribedBy()->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -159,10 +159,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button">
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->ariaDescribedBy(false)->id('text-6582f2d099e8b')->render()
+            Button::widget()->ariaDescribedBy(false)->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -171,10 +171,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" hidden>
+            <input id="button-6582f2d099e8b" type="button" hidden>
             </div>
             HTML,
-            Button::widget()->hidden()->id('text-6582f2d099e8b')->render()
+            Button::widget()->hidden()->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -195,12 +195,12 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label class="class" for="text-6582f2d099e8b">Label</label>
-            <input id="text-6582f2d099e8b" type="button">
+            <label class="class" for="button-6582f2d099e8b">Label</label>
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
             Button::widget()
-                ->id('text-6582f2d099e8b')
+                ->id('button-6582f2d099e8b')
                 ->labelAttributes(['class' => 'class'])
                 ->labelContent('Label')
                 ->render()
@@ -212,11 +212,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label class="class" for="text-6582f2d099e8b">Label</label>
-            <input id="text-6582f2d099e8b" type="button">
+            <label class="class" for="button-6582f2d099e8b">Label</label>
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->labelClass('class')->labelContent('Label')->render()
+            Button::widget()->id('button-6582f2d099e8b')->labelClass('class')->labelContent('Label')->render()
         );
     }
 
@@ -225,11 +225,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="text-6582f2d099e8b">Label</label>
-            <input id="text-6582f2d099e8b" type="button">
+            <label for="button-6582f2d099e8b">Label</label>
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->labelContent('Label')->render()
+            Button::widget()->id('button-6582f2d099e8b')->labelContent('Label')->render()
         );
     }
 
@@ -239,10 +239,10 @@ final class RenderTest extends TestCase
             <<<HTML
             <div>
             <label for="label-for">Label</label>
-            <input id="text-6582f2d099e8b" type="button">
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->labelContent('Label')->LabelFor('label-for')->render()
+            Button::widget()->id('button-6582f2d099e8b')->labelContent('Label')->LabelFor('label-for')->render()
         );
     }
 
@@ -251,10 +251,21 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" lang="en">
+            <input id="button-6582f2d099e8b" type="button" lang="en">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->lang('en')->render()
+            Button::widget()->id('button-6582f2d099e8b')->lang('en')->render()
+        );
+    }
+
+    public function testLoadDefaultDefinitionsWithContainerWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label for="button-6582f2d099e8b">Red</label>
+            <input id="button-6582f2d099e8b" type="button">
+            HTML,
+            Button::widget(['container()' => [false]])->id('button-6582f2d099e8b')->labelContent('Red')->render()
         );
     }
 
@@ -263,10 +274,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" name="name" type="button">
+            <input id="button-6582f2d099e8b" name="name" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->name('name')->render()
+            Button::widget()->id('button-6582f2d099e8b')->name('name')->render()
         );
     }
 
@@ -275,10 +286,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button">
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->labelContent('Label')->notLabel()->render()
+            Button::widget()->id('button-6582f2d099e8b')->labelContent('Label')->notLabel()->render()
         );
     }
 
@@ -287,10 +298,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" readonly>
+            <input id="button-6582f2d099e8b" type="button" readonly>
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->readonly()->render()
+            Button::widget()->id('button-6582f2d099e8b')->readonly()->render()
         );
     }
 
@@ -299,10 +310,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button">
+            <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->render()
+            Button::widget()->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -311,10 +322,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" style="style" type="button">
+            <input id="button-6582f2d099e8b" style="style" type="button">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->style('style')->render()
+            Button::widget()->id('button-6582f2d099e8b')->style('style')->render()
         );
     }
 
@@ -323,10 +334,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" tabindex="1">
+            <input id="button-6582f2d099e8b" type="button" tabindex="1">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->tabIndex(1)->render()
+            Button::widget()->id('button-6582f2d099e8b')->tabIndex(1)->render()
         );
     }
 
@@ -335,11 +346,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button">
-            <label for="text-6582f2d099e8b">Red</label>
+            <input id="button-6582f2d099e8b" type="button">
+            <label for="button-6582f2d099e8b">Red</label>
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')
+            Button::widget()->id('button-6582f2d099e8b')
                 ->labelContent('Red')
                 ->template('{prefix}\n{tag}\n{label}\n{suffix}')
                 ->render()
@@ -351,10 +362,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" title="title">
+            <input id="button-6582f2d099e8b" type="button" title="title">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->title('title')->render()
+            Button::widget()->id('button-6582f2d099e8b')->title('title')->render()
         );
     }
 
@@ -363,10 +374,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="reset">
+            <input id="button-6582f2d099e8b" type="reset">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->type('reset')->render()
+            Button::widget()->id('button-6582f2d099e8b')->type('reset')->render()
         );
     }
 
@@ -375,10 +386,10 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8b" type="button" value="value">
+            <input id="button-6582f2d099e8b" type="button" value="value">
             </div>
             HTML,
-            Button::widget()->id('text-6582f2d099e8b')->value('value')->render()
+            Button::widget()->id('button-6582f2d099e8b')->value('value')->render()
         );
     }
 }

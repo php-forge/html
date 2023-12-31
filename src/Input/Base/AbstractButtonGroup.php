@@ -18,8 +18,6 @@ abstract class AbstractButtonGroup extends Element
      * @psalm-var Button[]
      */
     protected array $buttons = [];
-    protected bool $container = true;
-    protected string $containerTag = 'div';
     protected bool $individualContainer = false;
 
     /**
@@ -48,6 +46,13 @@ abstract class AbstractButtonGroup extends Element
         $new->individualContainer = $value;
 
         return $new;
+    }
+
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'container()' => [true],
+        ];
     }
 
     protected function run(): string

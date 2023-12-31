@@ -15,9 +15,6 @@ final class HasContainerTest extends TestCase
         $instance = new class () {
             use HasContainer;
 
-            protected bool $container = true;
-            protected string $containerTag = 'div';
-
             public function getContainerClass(): string
             {
                 return $this->containerAttributes['class'] ?? '';
@@ -43,9 +40,6 @@ final class HasContainerTest extends TestCase
     {
         $instance = new class () {
             use HasContainer;
-
-            protected bool $container = true;
-            protected string $containerTag = '';
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -58,9 +52,6 @@ final class HasContainerTest extends TestCase
     {
         $instance = new class () {
             use HasContainer;
-
-            protected bool $container = true;
-            protected string $containerTag = 'div';
         };
 
         $this->assertNull($instance->getContainerId());

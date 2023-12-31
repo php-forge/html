@@ -19,14 +19,14 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="class">
-            <input id="text-6582f2d099e8a" type="submit" value="Submit">
-            <input id="text-6582f2d099e8b" type="reset" value="Reset">
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </div>
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('text-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('text-6582f2d099e8b')->type('reset')->value('Reset')
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->containerAttributes(['class' => 'class'])
                 ->render()
@@ -38,14 +38,14 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="class">
-            <input id="text-6582f2d099e8a" type="submit" value="Submit">
-            <input id="text-6582f2d099e8b" type="reset" value="Reset">
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </div>
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('text-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('text-6582f2d099e8b')->type('reset')->value('Reset')
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->containerClass('class')
                 ->render()
@@ -57,14 +57,14 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <article>
-            <input id="text-6582f2d099e8a" type="submit" value="Submit">
-            <input id="text-6582f2d099e8b" type="reset" value="Reset">
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </article>
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('text-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('text-6582f2d099e8b')->type('reset')->value('Reset')
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->containerTag('article')
                 ->render()
@@ -75,13 +75,13 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="text-6582f2d099e8a" type="submit" value="Submit">
-            <input id="text-6582f2d099e8b" type="reset" value="Reset">
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('text-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('text-6582f2d099e8b')->type('reset')->value('Reset')
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->container(false)
                 ->render()
@@ -94,19 +94,35 @@ final class RenderTest extends TestCase
             <<<HTML
             <div>
             <div>
-            <input id="text-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
             </div>
             <div>
-            <input id="text-6582f2d099e8b" type="reset" value="Reset">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </div>
             </div>
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('text-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('text-6582f2d099e8b')->type('reset')->value('Reset')
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->individualContainer(true)
+                ->render()
+        );
+    }
+
+    public function testLoadDefaultDefinitionWithContainerWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
+            HTML,
+            ButtonGroup::widget(['container()' => [false]])
+                ->buttons(
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                )
                 ->render()
         );
     }
@@ -116,14 +132,14 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="text-6582f2d099e8a" type="submit" value="Submit">
-            <input id="text-6582f2d099e8b" type="reset" value="Reset">
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </div>
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('text-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('text-6582f2d099e8b')->type('reset')->value('Reset')
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->render()
         );

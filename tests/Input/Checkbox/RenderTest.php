@@ -143,6 +143,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testContainerWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->container(false)->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
     public function testDataAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -280,6 +290,16 @@ final class RenderTest extends TestCase
             <label class="class" for="checkbox-6582f2d099e8b">Red</label>
             HTML,
             Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelClass('class')->render()
+        );
+    }
+
+    public function testLoadDefaultDefinitionsContainerWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget(['container()' => [false]])->id('checkbox-6582f2d099e8b')->render()
         );
     }
 

@@ -32,13 +32,18 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected bool $container = true;
-    protected string $containerTag = 'div';
     /**
      * @psalm-var Checkbox[]|Radio[] $items
      */
     protected array $items = [];
     protected string $separator = '';
+
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'container()' => [true],
+        ];
+    }
 
     public function items(Checkbox|Radio ...$items): static
     {

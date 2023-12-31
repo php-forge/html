@@ -17,7 +17,9 @@ use function implode;
 trait HasContainer
 {
     protected array $containerAttributes = [];
+    protected bool $container = false;
     protected string $containerTemplate = '';
+    protected string $containerTag = 'div';
 
     /**
      * Enable or disable the container tag.
