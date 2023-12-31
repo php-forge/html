@@ -37,10 +37,13 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected bool $container = true;
-    protected string $containerTag = 'div';
     protected string $template = '{prefix}\n{label}\n{tag}\n{suffix}';
     protected string $type = 'button';
+
+    public function __construct(array $definitions = [])
+    {
+        parent::__construct($this->loadDefaultDefinitions($definitions));
+    }
 
     protected function run(): string
     {
@@ -75,5 +78,14 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
                 ->type($type)
                 ->render()
         );
+    }
+
+    private function loadDefaultDefinitions(array $definitions): array
+    {
+        if (!isset($definitions['container()']) && $this->container === false) {
+            $definitions['container()'] = [true];
+        }
+
+        return $definitions;
     }
 }

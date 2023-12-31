@@ -18,9 +18,12 @@ abstract class AbstractButtonGroup extends Element
      * @psalm-var Button[]
      */
     protected array $buttons = [];
-    protected bool $container = true;
-    protected string $containerTag = 'div';
     protected bool $individualContainer = false;
+
+    public function __construct(array $definitions = [])
+    {
+        parent::__construct($this->loadDefaultDefinitions($definitions));
+    }
 
     /**
      * Returns a new instance specifying List of buttons. Each array element represents a single input button.
@@ -53,6 +56,15 @@ abstract class AbstractButtonGroup extends Element
     protected function run(): string
     {
         return $this->renderContainerTag(null, $this->renderButtons());
+    }
+
+    private function loadDefaultDefinitions(array $definitions): array
+    {
+        if (!isset($definitions['container()']) && $this->container === false) {
+            $definitions['container()'] = [true];
+        }
+
+        return $definitions;
     }
 
     private function renderButtons(): string

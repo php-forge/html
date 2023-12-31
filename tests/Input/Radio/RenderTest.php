@@ -140,6 +140,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testContainerWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio">
+            HTML,
+            Radio::widget()->container(false)->id('radio-6582f2d099e8b')->render()
+        );
+    }
+
     public function testDataAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -257,6 +267,16 @@ final class RenderTest extends TestCase
             <label class="class" for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelClass('class')->labelContent('Active')->render()
+        );
+    }
+
+    public function testLoadDefinitionContainerWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio">
+            HTML,
+            Radio::widget(['container()' => [false]])->id('radio-6582f2d099e8b')->render()
         );
     }
 
