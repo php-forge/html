@@ -14,6 +14,7 @@ trait HasListItemContainer
 {
     protected bool $listItemContainer = false;
     protected array $listItemContainerAttributes = [];
+    protected string $listItemContainerTag = 'div';
 
     /**
      * Enable or disable the container tag for list items.

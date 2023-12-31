@@ -15,8 +15,6 @@ final class HasListItemContainerTest extends TestCase
         $instance = new class () {
             use HasListItemContainer;
 
-            protected string $listItemContainerTag = 'div';
-
             public function getListItemContainerClass(): string
             {
                 return $this->listItemContainerAttributes['class'] ?? '';
@@ -25,25 +23,23 @@ final class HasListItemContainerTest extends TestCase
 
         $this->assertEmpty($instance->getListItemContainerClass());
 
-        $instance = $instance->listItemContainerClass('test-class');
+        $instance = $instance->listItemContainerClass('class');
 
-        $this->assertSame('test-class', $instance->getListItemContainerClass());
+        $this->assertSame('class', $instance->getListItemContainerClass());
 
-        $instance = $instance->listItemContainerClass('test-class-1');
+        $instance = $instance->listItemContainerClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getListItemContainerClass());
+        $this->assertSame('class class-1', $instance->getListItemContainerClass());
 
-        $instance = $instance->listItemContainerClass('test-override-class', true);
+        $instance = $instance->listItemContainerClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getListItemContainerClass());
+        $this->assertSame('override-class', $instance->getListItemContainerClass());
     }
 
     public function testException(): void
     {
         $instance = new class () {
             use HasListItemContainer;
-
-            protected string $listItemContainerTag = '';
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -56,8 +52,6 @@ final class HasListItemContainerTest extends TestCase
     {
         $instance = new class () {
             use HasListItemContainer;
-
-            protected string $listContainerTag = 'div';
         };
 
         $this->assertNotSame($instance, $instance->listItemContainer(true));
