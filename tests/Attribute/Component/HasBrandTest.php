@@ -64,8 +64,6 @@ final class HasBrandTest extends TestCase
     {
         $instance = new class () {
             use HasBrand;
-
-            protected string $brandTemplate = '';
         };
 
         $this->assertNotSame($instance, $instance->brandContainer(false));

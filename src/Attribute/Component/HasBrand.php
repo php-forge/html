@@ -20,6 +20,7 @@ trait HasBrand
     protected string $brandImage = '';
     protected string $brandLink = '';
     protected array $brandLinkAttributes = [];
+    protected string $brandTemplate = '';
     protected string $brandText = '';
     protected string $brandToggle = '';
 
