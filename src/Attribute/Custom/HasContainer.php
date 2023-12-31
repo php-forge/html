@@ -17,6 +17,7 @@ use function implode;
 trait HasContainer
 {
     protected array $containerAttributes = [];
+    protected string $containerTemplate = '';
 
     /**
      * Enable or disable the container tag.

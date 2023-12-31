@@ -17,7 +17,6 @@ final class HasContainerTest extends TestCase
 
             protected bool $container = true;
             protected string $containerTag = 'div';
-            protected string $containerTemplate = '';
 
             public function getContainerClass(): string
             {
@@ -47,7 +46,6 @@ final class HasContainerTest extends TestCase
 
             protected bool $container = true;
             protected string $containerTag = '';
-            protected string $containerTemplate = '';
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -63,7 +61,6 @@ final class HasContainerTest extends TestCase
 
             protected bool $container = true;
             protected string $containerTag = 'div';
-            protected string $containerTemplate = '';
         };
 
         $this->assertNull($instance->getContainerId());
