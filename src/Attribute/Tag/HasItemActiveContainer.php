@@ -12,7 +12,7 @@ use PHPForge\Html\Helper\CssClass;
  */
 trait HasItemActiveContainer
 {
-    protected bool $itemActivecontainer = false;
+    protected bool $itemActiveContainer = false;
     protected array $itemActiveContainerAttributes = [];
     protected string $itemActiveContainerTag = 'span';
 
