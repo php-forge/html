@@ -38,14 +38,6 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
     protected array $items = [];
     protected string $separator = '';
 
-    public function __construct(array $definitions = [])
-    {
-        /** @psalm-var array<string, mixed> $loadDefaultDefinitions */
-        $loadDefaultDefinitions = $this->loadDefaultDefinitions($definitions);
-
-        parent::__construct($loadDefaultDefinitions);
-    }
-
     public function loadDefaultDefinitions(): array
     {
         return [
