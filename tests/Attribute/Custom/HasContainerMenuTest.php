@@ -15,9 +15,6 @@ final class HasContainerMenuTest extends TestCase
         $instance = new class () {
             use HasContainerMenu;
 
-            protected bool $containerMenu = true;
-            protected string $containerMenuTag = 'div';
-
             public function getContainerMenuClass(): string
             {
                 return $this->containerMenuAttributes['class'] ?? '';
@@ -26,26 +23,23 @@ final class HasContainerMenuTest extends TestCase
 
         $this->assertEmpty($instance->getContainerMenuClass());
 
-        $instance = $instance->containerMenuClass('test-class');
+        $instance = $instance->containerMenuClass('class');
 
-        $this->assertSame('test-class', $instance->getContainerMenuClass());
+        $this->assertSame('class', $instance->getContainerMenuClass());
 
-        $instance = $instance->containerMenuClass('test-class-1');
+        $instance = $instance->containerMenuClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getContainerMenuClass());
+        $this->assertSame('class class-1', $instance->getContainerMenuClass());
 
-        $instance = $instance->containerMenuClass('test-override-class', true);
+        $instance = $instance->containerMenuClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getContainerMenuClass());
+        $this->assertSame('override-class', $instance->getContainerMenuClass());
     }
 
     public function testException(): void
     {
         $instance = new class () {
             use HasContainerMenu;
-
-            protected bool $containerMenu = true;
-            protected string $containerMenuTag = '';
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -58,8 +52,6 @@ final class HasContainerMenuTest extends TestCase
     {
         $instance = new class () {
             use HasContainerMenu;
-
-            protected string $containerMenuTag = 'div';
         };
 
         $this->assertNotSame($instance, $instance->containerMenu(true));

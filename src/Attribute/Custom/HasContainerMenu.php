@@ -12,7 +12,9 @@ use PHPForge\Html\Helper\CssClass;
  */
 trait HasContainerMenu
 {
+    protected bool $containerMenu = true;
     protected array $containerMenuAttributes = [];
+    protected string $containerMenuTag = 'nav';
 
     /**
      * Enable or disable the container menu tag.
