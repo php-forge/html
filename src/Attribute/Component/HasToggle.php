@@ -19,10 +19,12 @@ use function sprintf;
  */
 trait HasToggle
 {
+    protected bool $toggle = true;
     protected array $toggleAttributes = [];
     protected string $toggleClass = '';
     protected bool $toggleClassOverride = false;
     protected string $toggleContent = '';
+    protected string $toggleTag = 'span';
     protected string $toggleId = '';
 
     /**
