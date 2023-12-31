@@ -14,11 +14,15 @@ use PHPForge\Html\Tag;
  */
 trait HasIcon
 {
+    protected bool $icon = true;
     protected array $iconAttributes = [];
     protected string $iconClass = '';
+    protected bool $iconContainer = false;
     protected array $iconContainerAttributes = [];
+    protected string $iconContainerTag = 'div';
     protected string $iconContent = '';
     protected string $iconFilePath = '';
+    protected string $iconTag = 'svg';
 
     /**
      * @return array The `HTML` attributes of the icon of the menu item.
@@ -196,6 +200,7 @@ trait HasIcon
         $iconTag = match ($this->iconTag) {
             'svg' => Svg::widget()
                 ->attributes($this->iconAttributes)
+                ->class($this->iconClass)
                 ->content($this->iconContent)
                 ->filePath($this->iconFilePath)
                 ->render(),

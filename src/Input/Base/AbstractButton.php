@@ -37,7 +37,6 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
     use Attribute\Input\HasValue;
 
     protected array $attributes = [];
-    protected string $type = 'button';
 
     /**
      * This method is used to configure the widget with the provided default definitions.

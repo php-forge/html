@@ -30,13 +30,7 @@ final class ButtonToggle extends Element
     use Attribute\Input\HasName;
 
     protected array $attributes = [];
-    protected bool $icon = true;
-    protected string $iconTag = 'svg';
-    protected bool $iconContainer = false;
-    protected string $iconContainerTag = 'div';
     protected string $tagName = 'button';
-    protected bool $toggle = true;
-    protected string $toggleTag = 'span';
 
     /**
      * Set tag name to `a` for the toggle.

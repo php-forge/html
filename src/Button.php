@@ -39,10 +39,7 @@ final class Button extends Element
     use Attribute\Input\HasType;
 
     protected array $attributes = [];
-    protected bool $container = false;
-    protected string $containerTag = 'div';
     protected string $tagName = 'button';
-    protected string $type = 'button';
 
     /**
      * This method is used to configure the widget with the provided default definitions.

@@ -16,11 +16,6 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
-
             public function getIconClass(): string
             {
                 return $this->iconClass;
@@ -38,11 +33,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
 
             public function getIconContainerClass(): string
             {
@@ -69,11 +59,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
         };
 
         $this->assertEmpty($instance->getIconAttributes());
@@ -87,11 +72,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
         };
 
         $this->assertEmpty($instance->getIconContainerAttributes());
@@ -105,11 +85,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
         };
 
         $this->assertEmpty($instance->getIconContent());
@@ -123,11 +98,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
         };
 
         $this->assertNotSame($instance, $instance->iconAttributes([]));
@@ -145,11 +115,6 @@ final class HasIconTest extends TestCase
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
 
             public function getIconTag(): string
             {
@@ -174,11 +139,6 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            private bool $icon = true;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
-
             public function getIconTag(): string
             {
                 return $this->iconTag;
@@ -192,9 +152,16 @@ final class HasIconTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->iconClass('class');
+        $instance = $instance->iconClass('class')->iconContent('content');
 
-        $this->assertSame('<i class="class"></i>', $instance->render());
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <svg class="class">
+            content
+            </svg>
+            HTML,
+            $instance->render()
+        );
     }
 
     public function testRenderIconTagWithContainer(): void
@@ -202,11 +169,6 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            private bool $icon = true;
-            private bool $iconContainer = true;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
-
             public function getIconTag(): string
             {
                 return $this->iconTag;
@@ -220,12 +182,14 @@ final class HasIconTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->iconClass('class');
+        $instance = $instance->iconClass('class')->iconContainer(true)->iconContent('content');
 
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <i class="class"></i>
+            <svg class="class">
+            content
+            </svg>
             </div>
             HTML,
             $instance->render()
@@ -237,11 +201,6 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            private bool $icon = true;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
-
             public function getIconTag(): string
             {
                 return $this->iconTag;
@@ -255,20 +214,20 @@ final class HasIconTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->iconContent('content');
+        $instance = $instance->iconContent('content')->iconTag('i');
 
-        $this->assertSame('<i>content</i>', $instance->render());
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <i>content</i>
+            HTML,
+            $instance->render()
+        );
     }
 
     public function testRenderIconTagWithSVG(): void
     {
         $instance = new class () {
             use HasIcon;
-
-            private bool $icon = true;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'svg';
 
             public function getIconTag(): string
             {
@@ -298,18 +257,13 @@ final class HasIconTest extends TestCase
         $instance = new class () {
             use HasIcon;
 
-            private bool $icon = false;
-            private bool $iconContainer = false;
-            private string $iconContainerTag = 'div';
-            private string $iconTag = 'i';
-
             public function getIconTag(): string
             {
                 return $this->iconTag;
             }
         };
 
-        $this->assertSame('i', $instance->getIconTag());
+        $this->assertSame('svg', $instance->getIconTag());
 
         $instance = $instance->iconTag('span');
 
@@ -323,8 +277,6 @@ final class HasIconTest extends TestCase
 
         $instance = new class () {
             use HasIcon;
-
-            protected string $iconTag = 'i';
         };
 
         $instance->iconTag('');
