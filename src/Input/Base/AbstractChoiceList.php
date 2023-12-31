@@ -40,7 +40,17 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
 
     public function __construct(array $definitions = [])
     {
-        parent::__construct($this->loadDefaultDefinitions($definitions));
+        /** @psalm-var array<string, mixed> $loadDefaultDefinitions */
+        $loadDefaultDefinitions = $this->loadDefaultDefinitions($definitions);
+
+        parent::__construct($loadDefaultDefinitions);
+    }
+
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'container()' => [true],
+        ];
     }
 
     public function items(Checkbox|Radio ...$items): static
@@ -111,14 +121,5 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
                     ->render(),
             default => $listTagItems,
         };
-    }
-
-    private function loadDefaultDefinitions(array $definitions): array
-    {
-        if (!isset($definitions['container()']) && $this->container === false) {
-            $definitions['container()'] = [true];
-        }
-
-        return $definitions;
     }
 }
