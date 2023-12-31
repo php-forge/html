@@ -48,6 +48,9 @@ abstract class AbstractButtonGroup extends Element
         return $new;
     }
 
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
     public function loadDefaultDefinitions(): array
     {
         return [

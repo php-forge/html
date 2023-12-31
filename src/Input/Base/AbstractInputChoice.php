@@ -51,7 +51,16 @@ abstract class AbstractInputChoice extends Element implements LabelInterface, In
     protected string $containerTag = 'div';
     protected string $separator = PHP_EOL;
     protected string $tagName = '';
-    protected string $template = '{prefix}\n{unchecktag}\n{tag}\n{label}\n{suffix}';
+
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{label}\n{suffix}'],
+        ];
+    }
 
     /**
      * Generate the HTML representation of the element.

@@ -426,7 +426,7 @@ final class RenderTest extends TestCase
             <button id="button-658716145f1d9" type="button"></button>
             suffix
             HTML,
-            Button::widget()->id('button-658716145f1d9')->template('{tag}{suffix}')->suffix('suffix')->render()
+            Button::widget()->id('button-658716145f1d9')->template('{tag}\n{suffix}')->suffix('suffix')->render()
         );
     }
 

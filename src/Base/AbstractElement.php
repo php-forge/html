@@ -28,7 +28,16 @@ abstract class AbstractElement extends Element
 
     protected array $attributes = [];
     protected string $tagName = '';
-    protected string $template = '{prefix}\n{tag}\n{suffix}';
+
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    public function loadDefaultDefinitions(): array
+    {
+        return [
+            'template()' => ['{prefix}\n{tag}\n{suffix}'],
+        ];
+    }
 
     /**
      * Generate the HTML representation of the element.

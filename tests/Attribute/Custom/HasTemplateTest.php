@@ -13,8 +13,6 @@ final class HasTemplateTest extends TestCase
     {
         $instance = new class () {
             use HasTemplate;
-
-            protected string $template = '{input}';
         };
 
         $this->assertNotSame($instance, $instance->template(''));
