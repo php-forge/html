@@ -23,17 +23,17 @@ final class HasListTest extends TestCase
 
         $this->assertEmpty($instance->getListClass());
 
-        $instance = $instance->listClass('test-class');
+        $instance = $instance->listClass('class');
 
-        $this->assertSame('test-class', $instance->getListClass());
+        $this->assertSame('class', $instance->getListClass());
 
-        $instance = $instance->listClass('test-class-1');
+        $instance = $instance->listClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getListClass());
+        $this->assertSame('class class-1', $instance->getListClass());
 
-        $instance = $instance->listClass('test-override-class', true);
+        $instance = $instance->listClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getListClass());
+        $this->assertSame('override-class', $instance->getListClass());
     }
 
     public function testContainerClass(): void
@@ -49,17 +49,17 @@ final class HasListTest extends TestCase
 
         $this->assertEmpty($instance->getListContainerClass());
 
-        $instance = $instance->listContainerClass('test-class');
+        $instance = $instance->listContainerClass('class');
 
-        $this->assertSame('test-class', $instance->getListContainerClass());
+        $this->assertSame('class', $instance->getListContainerClass());
 
-        $instance = $instance->listContainerClass('test-class-1');
+        $instance = $instance->listContainerClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getListContainerClass());
+        $this->assertSame('class class-1', $instance->getListContainerClass());
 
-        $instance = $instance->listContainerClass('test-override-class', true);
+        $instance = $instance->listContainerClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getListContainerClass());
+        $this->assertSame('override-class', $instance->getListContainerClass());
     }
 
     public function testException(): void
