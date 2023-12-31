@@ -17,6 +17,7 @@ use function implode;
 trait HasContainer
 {
     protected array $containerAttributes = [];
+    protected string $containerTemplate = '';
 
     /**
      * Enable or disable the container tag.
@@ -85,6 +86,26 @@ trait HasContainer
         return $new;
     }
 
+    /**
+     * Set the container template.
+     *
+     * @param string $template The template for the container.
+     *
+     * @return static A new instance of the current class with the specified container template.
+     */
+    public function containerTemplate(string $template): static
+    {
+        $new = clone $this;
+        $new->containerTemplate = $template;
+
+        return $new;
+    }
+
+    /**
+     * Get the container id.
+     *
+     * @return string The container id.
+     */
     public function getContainerId(): string|null
     {
         $id = null;
