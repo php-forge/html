@@ -55,6 +55,18 @@ final class HasIconTest extends TestCase
         $this->assertSame('class', $instance->getIconContainerClass());
     }
 
+    public function testContainerTagException(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The icon container tag must be a non-empty string.');
+
+        $instance = new class () {
+            use HasIcon;
+        };
+
+        $instance->iconContainerTag('');
+    }
+
     public function testGetIconAttributes(): void
     {
         $instance = new class () {
@@ -105,6 +117,7 @@ final class HasIconTest extends TestCase
         $this->assertNotSame($instance, $instance->iconClass(''));
         $this->assertNotSame($instance, $instance->iconContainer(true));
         $this->assertNotSame($instance, $instance->iconContainerAttributes([]));
+        $this->assertNotSame($instance, $instance->iconContainerTag('div'));
         $this->assertNotSame($instance, $instance->iconContainerClass(''));
         $this->assertNotSame($instance, $instance->iconContent(''));
         $this->assertNotSame($instance, $instance->iconFilePath(''));
