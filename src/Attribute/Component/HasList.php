@@ -18,6 +18,7 @@ trait HasList
     protected array $listAttributes = [];
     protected bool $listContainer = false;
     protected array $listContainerAttributes = [];
+    protected string $listContainerTag = 'div';
     protected string|false $listType = 'ul';
 
     /**
