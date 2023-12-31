@@ -15,10 +15,6 @@ final class HasItemActiveContainerTest extends TestCase
         $instance = new class () {
             use HasItemActiveContainer;
 
-            protected bool $itemActiveContainer = false;
-            protected array $itemActiveContainerAttributes = [];
-            protected string $itemActiveContainerTag = 'div';
-
             public function getItemActiveContainerClass(): string
             {
                 return $this->itemActiveContainerAttributes['class'] ?? '';
@@ -44,8 +40,6 @@ final class HasItemActiveContainerTest extends TestCase
     {
         $instance = new class () {
             use HasItemActiveContainer;
-
-            protected string $itemActiveContainerTag = '';
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -58,10 +52,6 @@ final class HasItemActiveContainerTest extends TestCase
     {
         $instance = new class () {
             use HasItemActiveContainer;
-
-            protected bool $itemActiveContainer = false;
-            protected array $itemActiveContainerAttributes = [];
-            protected string $itemActiveContainerTag = 'div';
         };
 
         $this->assertNotSame($instance, $instance->itemActiveContainer(false));
