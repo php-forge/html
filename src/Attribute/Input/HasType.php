@@ -9,6 +9,8 @@ namespace PHPForge\Html\Attribute\Input;
  */
 trait HasType
 {
+    protected string $type = '';
+
     /**
      * Set the type of control to render.
      *
@@ -16,16 +18,16 @@ trait HasType
      *
      * If omitted (or an unknown value is specified), the input type text is used, creating a plaintext input field.
      *
-     * @param mixed $value The type of control to render.
+     * @param string $value The type of control to render.
      *
      * @return static A new instance of the current class with the specified type.
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-type
      */
-    public function type(mixed $value): static
+    public function type(string $value): static
     {
         $new = clone $this;
-        $new->attributes['type'] = $value;
+        $new->type = $value;
 
         return $new;
     }

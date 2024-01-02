@@ -25,6 +25,7 @@ abstract class AbstractElement extends Element
     use Attribute\HasTabindex;
     use Attribute\HasTitle;
     use Attribute\Input\HasName;
+    use Attribute\Input\HasType;
 
     protected array $attributes = [];
     protected string $tagName = '';
@@ -47,10 +48,8 @@ abstract class AbstractElement extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
-
-        if (array_key_exists('id', $attributes) === false) {
-            $attributes['id'] = $this->id;
-        }
+        $attributes['id'] ??= $this->id;
+        $attributes['type'] ??= $this->type;
 
         $tokenValues = [
             '{prefix}' => $this->renderPrefixTag(),

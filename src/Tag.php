@@ -19,6 +19,5 @@ namespace PHPForge\Html;
 final class Tag extends Base\AbstractElement
 {
     use Attribute\Custom\HasTagName;
-    use Attribute\Input\HasType;
     use Attribute\Input\HasValue;
 }

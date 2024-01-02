@@ -14,7 +14,6 @@ final class I extends Base\AbstractElement
 {
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
-    use Attribute\Input\HasType;
     use Attribute\Tag\HasDownload;
     use Attribute\Tag\HasHref;
     use Attribute\Tag\HasHreflang;
