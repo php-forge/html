@@ -19,7 +19,6 @@ final class A extends Base\AbstractElement
     use Attribute\Aria\HasRole;
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
-    use Attribute\Input\HasType;
     use Attribute\Tag\HasDownload;
     use Attribute\Tag\HasHref;
     use Attribute\Tag\HasHreflang;

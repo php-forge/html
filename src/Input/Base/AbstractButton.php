@@ -45,7 +45,9 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
     {
         return [
             'container()' => [true],
+            'id()' => [$this->generateId("$this->type-")],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
+            'type()' => ['button'],
         ];
     }
 
@@ -54,20 +56,17 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
         $this->validateStringValue($this->getValue());
 
         $attributes = $this->attributes;
-        $type = $attributes['type'] ?? 'button';
-
-        $id = $this->generateId("$type-");
-        $labelFor = $this->labelFor ?? $this->getId();
+        $labelFor = $this->labelFor ?? $this->id;
 
         if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$id-help";
+            $attributes['aria-describedby'] = "$this->id-help";
         }
 
         return $this->renderContainerTag(
             null,
             Tag::widget()
                 ->attributes($attributes)
-                ->id($id)
+                ->id($this->id)
                 ->prefix($this->prefix)
                 ->prefixContainer($this->prefixContainer)
                 ->prefixContainerAttributes($this->prefixContainerAttributes)
@@ -79,7 +78,7 @@ abstract class AbstractButton extends Element implements LabelInterface, InputIn
                 ->tagName('input')
                 ->template($this->template)
                 ->tokenValue('{label}', $this->renderLabelTag($labelFor))
-                ->type($type)
+                ->type($this->type)
                 ->render()
         );
     }

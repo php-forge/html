@@ -14,15 +14,27 @@ use PHPUnit\Framework\TestCase;
  */
 final class RenderTest extends TestCase
 {
-    public function testElement(): void
+    public function testAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div>
-            test element
+            <div id="id" type="type">
+            element
             </div>
             HTML,
-            Tag::widget()->content('test element')->tagName('div')->render(),
+            Tag::widget()->attributes(['id' => 'id', 'type' => 'type'])->content('element')->tagName('div')->render()
+        );
+    }
+
+    public function testId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="id">
+            element
+            </div>
+            HTML,
+            Tag::widget()->content('element')->id('id')->tagName('div')->render()
         );
     }
 
@@ -30,16 +42,12 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>test prefix</span>
+            <span>prefix</span>
             <div>
-            test element
+            element
             </div>
             HTML,
-            Tag::widget()
-                ->content('test element')
-                ->prefix(Span::widget()->content('test prefix'))
-                ->tagName('div')
-                ->render(),
+            Tag::widget()->content('element')->prefix(Span::widget()->content('prefix'))->tagName('div')->render()
         );
     }
 
@@ -48,19 +56,31 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <aside>
-            <span>test prefix</span>
+            <span>prefix</span>
             </aside>
             <div>
-            test element
+            element
             </div>
             HTML,
             Tag::widget()
-                ->content('test element')
-                ->prefix(Span::widget()->content('test prefix'))
+                ->content('element')
+                ->prefix(Span::widget()->content('prefix'))
                 ->prefixContainer(true)
                 ->prefixContainerTag('aside')
                 ->tagName('div')
-                ->render(),
+                ->render()
+        );
+    }
+
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            element
+            </div>
+            HTML,
+            Tag::widget()->content('element')->tagName('div')->render()
         );
     }
 
@@ -69,15 +89,11 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            test element
+            element
             </div>
-            <span>test suffix</span>
+            <span>suffix</span>
             HTML,
-            Tag::widget()
-                ->content('test element')
-                ->suffix(Span::widget()->content('test suffix'))
-                ->tagName('div')
-                ->render(),
+            Tag::widget()->content('element')->suffix(Span::widget()->content('suffix'))->tagName('div')->render()
         );
     }
 
@@ -86,19 +102,31 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            test element
+            element
             </div>
             <aside>
-            <span>test prefix</span>
+            <span>prefix</span>
             </aside>
             HTML,
             Tag::widget()
-                ->content('test element')
-                ->suffix(Span::widget()->content('test prefix'))
+                ->content('element')
+                ->suffix(Span::widget()->content('prefix'))
                 ->suffixContainer(true)
                 ->suffixContainerTag('aside')
                 ->tagName('div')
-                ->render(),
+                ->render()
+        );
+    }
+
+    public function testType(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div type="type">
+            element
+            </div>
+            HTML,
+            Tag::widget()->content('element')->tagName('div')->type('type')->render()
         );
     }
 }

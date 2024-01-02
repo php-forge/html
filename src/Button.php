@@ -47,7 +47,9 @@ final class Button extends Element
     public function loadDefaultDefinitions(): array
     {
         return [
+            'id()' => [$this->generateId('button-')],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
+            'type()' => ['button'],
         ];
     }
 
@@ -81,14 +83,9 @@ final class Button extends Element
         $this->validateTagName($this->tagName, 'a', 'button');
 
         $attributes = $this->attributes;
-        $type = $attributes['type'] ?? 'button';
-
-        unset($attributes['type']);
-
-        $id = $this->generateId("$type-");
 
         if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$id-help";
+            $attributes['aria-describedby'] = "$this->id-help";
         }
 
         if ($this->tagName === 'a' && $this->role === true) {
@@ -100,7 +97,7 @@ final class Button extends Element
             Tag::widget()
                 ->attributes($attributes)
                 ->content($this->content)
-                ->id($id)
+                ->id($this->id)
                 ->prefix($this->prefix)
                 ->prefixContainer($this->prefixContainer)
                 ->prefixContainerAttributes($this->prefixContainerAttributes)
@@ -111,7 +108,7 @@ final class Button extends Element
                 ->suffixContainerTag($this->suffixContainerTag)
                 ->tagName($this->tagName)
                 ->template($this->template)
-                ->type($type)
+                ->type($this->type)
                 ->render()
         );
     }
