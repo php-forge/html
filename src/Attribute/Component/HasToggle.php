@@ -26,6 +26,9 @@ trait HasToggle
     protected string $toggleContent = '';
     protected string $toggleTag = 'span';
     protected string $toggleId = '';
+    protected string $togglePrefix = '';
+    protected string $toggleSuffix = '';
+    protected string $toggleTemplate = '{prefix}\n{tag}\n{suffix}';
 
     /**
      * Enable or disable the toggle.
@@ -138,6 +141,36 @@ trait HasToggle
     }
 
     /**
+     * Set the toggle prefix.
+     *
+     * @param string $value The toggle prefix.
+     *
+     * @return static A new instance of the current class with the specified toggle prefix.
+     */
+    public function togglePrefix(string $value): static
+    {
+        $new = clone $this;
+        $new->togglePrefix = $value;
+
+        return $new;
+    }
+
+    /**
+     * Set the toggle suffix.
+     *
+     * @param string $value The toggle suffix.
+     *
+     * @return static A new instance of the current class with the specified toggle suffix.
+     */
+    public function toggleSuffix(string $value): static
+    {
+        $new = clone $this;
+        $new->toggleSuffix = $value;
+
+        return $new;
+    }
+
+    /**
      * Set the toggle tag name.
      *
      * @param string $value The tag name for the toggle element.
@@ -170,7 +203,10 @@ trait HasToggle
             ->attributes($this->toggleAttributes)
             ->class($this->toggleClass)
             ->content($this->toggleContent)
+            ->prefix($this->togglePrefix)
+            ->suffix($this->toggleSuffix)
             ->tagName($this->toggleTag)
+            ->template($this->toggleTemplate)
             ->render();
     }
 }

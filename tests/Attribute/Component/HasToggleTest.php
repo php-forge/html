@@ -7,6 +7,7 @@ namespace PHPForge\Html\Tests\Attribute\Component;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute\Component\HasToggle;
 use PHPForge\Html\Span;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class HasToggleTest extends TestCase
@@ -52,7 +53,7 @@ final class HasToggleTest extends TestCase
         $this->assertEmpty($instance->getToggleClass());
         $this->assertFalse($instance->getToggleClassOverride());
 
-        $instance = $instance->toggleClass('class', true);
+        $instance = $instance->toggleClass('class');
 
         $this->assertSame('class', $instance->getToggleClass());
     }
@@ -99,7 +100,31 @@ final class HasToggleTest extends TestCase
         $this->assertNotSame($instance, $instance->toggleContent(''));
         $this->assertNotSame($instance, $instance->toggleDataAttribute('drawer-target', 'id'));
         $this->assertNotSame($instance, $instance->toggleId(''));
+        $this->assertNotSame($instance, $instance->togglePrefix(''));
+        $this->assertNotSame($instance, $instance->toggleSuffix(''));
         $this->assertNotSame($instance, $instance->toggleTag('span'));
+    }
+
+    public function testPrefix(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function run(): string
+            {
+                return $this->renderToggleTag();
+            }
+        };
+
+        $instance = $instance->toggleClass('sr-only')->togglePrefix('prefix');
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            prefix
+            <span class="sr-only"></span>
+            HTML,
+            $instance->run()
+        );
     }
 
     public function testRender(): void
@@ -117,6 +142,28 @@ final class HasToggleTest extends TestCase
 
         $this->assertTrue($instance->getToggle());
         $this->assertFalse($instance->toggle(false)->getToggle());
+    }
+
+    public function testSuffix(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function run(): string
+            {
+                return $this->renderToggleTag();
+            }
+        };
+
+        $instance = $instance->toggleClass('sr-only')->toggleSuffix('suffix');
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span class="sr-only"></span>
+            suffix
+            HTML,
+            $instance->run()
+        );
     }
 
     public function testTag(): void
