@@ -167,12 +167,7 @@ final class HasIconTest extends TestCase
 
         $instance = $instance->iconClass('class')->iconContent('content');
 
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <i class="class">content</i>
-            HTML,
-            $instance->render()
-        );
+        $this->assertSame('<i class="class">content</i>', $instance->render());
     }
 
     public function testRenderIconTagWithContainer(): void
@@ -225,12 +220,30 @@ final class HasIconTest extends TestCase
 
         $instance = $instance->iconContent('content')->iconTag('i');
 
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <i>content</i>
-            HTML,
-            $instance->render()
-        );
+        $this->assertSame('<i>content</i>', $instance->render());
+    }
+
+    public function testRenderIconTagWithFalse(): void
+    {
+        $instance = new class () {
+            use HasIcon;
+
+            public function getIconTag(): string
+            {
+                return $this->iconTag;
+            }
+
+            public function render(): string
+            {
+                return $this->renderIconTag();
+            }
+        };
+
+        $this->assertEmpty($instance->render());
+
+        $instance = $instance->iconContent('<svg>content</svg>')->iconTag(false);
+
+        $this->assertSame('<svg>content</svg>', $instance->render());
     }
 
     public function testRenderIconTagWithSVG(): void
