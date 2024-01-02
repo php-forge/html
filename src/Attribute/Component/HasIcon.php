@@ -22,7 +22,7 @@ trait HasIcon
     protected string $iconContainerTag = 'div';
     protected string $iconContent = '';
     protected string $iconFilePath = '';
-    protected string $iconTag = 'i';
+    protected bool|string $iconTag = 'i';
 
     /**
      * @return array The `HTML` attributes of the icon of the menu item.
@@ -191,13 +191,14 @@ trait HasIcon
     /**
      * Set the icon tag name.
      *
-     * @param string $value The tag name for the icon element.
+     * @param bool|string $value The tag name for the icon element. if `false` the icon content will be used.
      *
      * @throws InvalidArgumentException If the icon tag is an empty string.
      *
-     * @return static A new instance of the current class with the specified icon tag.
+     * @return static A new instance of the current class with the specified icon tag. If `false` the icon content
+     * will be used.
      */
-    public function iconTag(string $value): static
+    public function iconTag(bool|string $value): static
     {
         if ($value === '') {
             throw new InvalidArgumentException('The icon tag must be a non-empty string.');
@@ -219,6 +220,7 @@ trait HasIcon
         }
 
         $iconTag = match ($this->iconTag) {
+            false => $this->iconContent,
             'svg' => Svg::widget()
                 ->attributes($this->iconAttributes)
                 ->class($this->iconClass)
