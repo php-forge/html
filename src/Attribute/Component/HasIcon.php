@@ -22,7 +22,7 @@ trait HasIcon
     protected string $iconContainerTag = 'div';
     protected string $iconContent = '';
     protected string $iconFilePath = '';
-    protected string $iconTag = 'svg';
+    protected string $iconTag = 'i';
 
     /**
      * @return array The `HTML` attributes of the icon of the menu item.

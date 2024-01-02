@@ -169,9 +169,7 @@ final class HasIconTest extends TestCase
 
         Assert::equalsWithoutLE(
             <<<HTML
-            <svg class="class">
-            content
-            </svg>
+            <i class="class">content</i>
             HTML,
             $instance->render()
         );
@@ -200,9 +198,7 @@ final class HasIconTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <svg class="class">
-            content
-            </svg>
+            <i class="class">content</i>
             </div>
             HTML,
             $instance->render()
@@ -255,7 +251,7 @@ final class HasIconTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->iconFilePath(dirname(__DIR__, 3) . '/src/Base/Svg/toggle.svg');
+        $instance = $instance->iconFilePath(dirname(__DIR__, 3) . '/src/Base/Svg/toggle.svg')->iconTag('svg');
 
         Assert::assertStringContainsString(
             <<<HTML
@@ -276,7 +272,7 @@ final class HasIconTest extends TestCase
             }
         };
 
-        $this->assertSame('svg', $instance->getIconTag());
+        $this->assertSame('i', $instance->getIconTag());
 
         $instance = $instance->iconTag('span');
 
