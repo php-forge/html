@@ -47,7 +47,7 @@ final class Button extends Element
     public function loadDefaultDefinitions(): array
     {
         return [
-            'id()' => [$this->generateId("button-")],
+            'id()' => [$this->generateId('button-')],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
             'type()' => ['button'],
         ];

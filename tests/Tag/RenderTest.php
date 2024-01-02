@@ -25,6 +25,7 @@ final class RenderTest extends TestCase
             Tag::widget()->attributes(['id' => 'id', 'type' => 'type'])->content('element')->tagName('div')->render()
         );
     }
+
     public function testId(): void
     {
         Assert::equalsWithoutLE(
