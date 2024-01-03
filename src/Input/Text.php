@@ -12,7 +12,7 @@ use PHPForge\Html\Attribute;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.text.html#input.text
  */
-final class Text extends Base\AbstractInput
+final class Text extends Base\AbstractInput implements RuleHtmlByAttributeInterface, PlaceholderInterface
 {
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\Input\CanBeRequired;
