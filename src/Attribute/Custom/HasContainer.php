@@ -119,7 +119,7 @@ trait HasContainer
         return $id;
     }
 
-    private function renderContainerTag(string|null $id, string ...$content): string
+    protected function renderContainerTag(string|null $id, string ...$content): string
     {
         return match ($this->container) {
             true => Tag::widget()
