@@ -15,6 +15,7 @@ abstract class AbstractHidden extends Element implements InputInterface
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasWidgetValidation;
+    use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasStyle;
     use Attribute\Input\HasName;

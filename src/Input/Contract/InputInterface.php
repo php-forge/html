@@ -12,6 +12,18 @@ use PHPForge\Widget\ElementInterface;
 interface InputInterface extends ElementInterface
 {
     /**
+     * Set the `CSS` `HTML` class attribute.
+     *
+     * @param string $value The `CSS` attribute of the widget.
+     * @param bool $override If `true` the value will be overridden.
+     *
+     * @return static A new instance of the current class with the specified class value.
+     *
+     * @link https://html.spec.whatwg.org/#classes
+     */
+    public function class(string $value, bool $override = false): static;
+
+    /**
      * Set the `HTML` attributes.
      *
      * @param array $values Attribute values indexed by attribute names.
