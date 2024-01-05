@@ -228,10 +228,11 @@ final class CheckboxListTest extends TestCase
             </div>
             HTML,
             ChoiceList::widget()
+                ->enclosedByLabel(true)
                 ->id('choice-list-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->labelContent('Female')->enclosedByLabel()->value(1),
-                    Checkbox::widget()->labelContent('Male')->enclosedByLabel()->value(2),
+                    Checkbox::widget()->labelContent('Female')->value(1),
+                    Checkbox::widget()->labelContent('Male')->value(2),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),

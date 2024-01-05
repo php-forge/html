@@ -14,12 +14,14 @@ trait HasEnclosedByLabel
     /**
      * Set the current instance as being enclosed by a label.
      *
+     * @param bool $value The value to set.
+     *
      * @return static A new instance of of the current class with the specified enclosed by label property.
      */
-    public function enclosedByLabel(): static
+    public function enclosedByLabel(bool $value): static
     {
         $new = clone $this;
-        $new->enclosedByLabel = true;
+        $new->enclosedByLabel = $value;
 
         return $new;
     }
