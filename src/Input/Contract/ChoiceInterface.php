@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Contract;
 
-use PHPForge\Html\Input\Contract\InputInterface;
 use PHPForge\Widget\ElementInterface;
 
 /**
