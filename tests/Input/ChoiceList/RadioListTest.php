@@ -182,10 +182,11 @@ final class RadioListTest extends TestCase
             </div>
             HTML,
             ChoiceList::widget()
+                ->enclosedByLabel(true)
                 ->id('choice-list-65858c272ea89')
                 ->items(
-                    Radio::widget()->labelContent('Female')->enclosedByLabel()->value(1),
-                    Radio::widget()->labelContent('Male')->enclosedByLabel()->value(2),
+                    Radio::widget()->labelContent('Female')->value(1),
+                    Radio::widget()->labelContent('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render(),

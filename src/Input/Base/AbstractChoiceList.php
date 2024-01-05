@@ -6,20 +6,20 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Checkbox;
-use PHPForge\Html\Input\InputInterface;
-use PHPForge\Html\Input\LabelInterface;
+use PHPForge\Html\Input\ChoiceInterface;
 use PHPForge\Html\Input\Radio;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
-abstract class AbstractChoiceList extends Element implements InputInterface, LabelInterface
+abstract class AbstractChoiceList extends Element implements ChoiceInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;
     use Attribute\CanBeAutofocus;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContainer;
+    use Attribute\Custom\HasEnclosedByLabel;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasSeparator;
     use Attribute\Custom\HasWidgetValidation;
@@ -87,12 +87,18 @@ abstract class AbstractChoiceList extends Element implements InputInterface, Lab
         unset($attributes['value']);
 
         foreach ($items as $item) {
-            $listItems[] = $item
+            $listItem = $item
                 ->attributes($attributes)
                 ->checked($value === $item->getValue())
+                ->enclosedByLabel($this->enclosedByLabel)
                 ->id(null)
-                ->separator($this->separator)
-                ->labelFor(null);
+                ->separator($this->separator);
+
+            if ($this->enclosedByLabel === true) {
+                $listItem = $listItem->enclosedByLabel(true);
+            }
+
+            $listItems[] = $listItem;
         }
 
         $listTagItems = implode(PHP_EOL, $listItems);

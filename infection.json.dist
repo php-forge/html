@@ -17,6 +17,7 @@
                 "PHPForge\\Html\\Attribute\\Aria\\HasAriaDescribedBy::ariaDescribedBy",
                 "PHPForge\\Html\\Attribute\\Custom\\HasAttributes::attributes",
                 "PHPForge\\Html\\Attribute\\Custom\\HasCheckedValue::checkedValue",
+                "PHPForge\\Html\\Attribute\\Custom\\HasEnclosedByLabel::enclosedByLabel",
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::isNotLabel",
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelAttributes",
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelClass",

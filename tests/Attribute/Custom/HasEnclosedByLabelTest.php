@@ -15,6 +15,6 @@ final class HasEnclosedByLabelTest extends TestCase
             use HasEnclosedByLabel;
         };
 
-        $this->assertNotSame($instance, $instance->enclosedByLabel());
+        $this->assertNotSame($instance, $instance->enclosedByLabel(true));
     }
 }

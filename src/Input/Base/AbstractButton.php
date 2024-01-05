@@ -6,11 +6,10 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\InputInterface;
-use PHPForge\Html\Input\LabelInterface;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
-abstract class AbstractButton extends Element implements LabelInterface, InputInterface
+abstract class AbstractButton extends Element implements InputInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;

@@ -182,7 +182,7 @@ final class RenderTest extends TestCase
             Red
             </label>
             HTML,
-            Checkbox::widget()->enclosedByLabel()->id('checkbox-6582f2d099e8b')->labelContent('Red')->render()
+            Checkbox::widget()->enclosedByLabel(true)->id('checkbox-6582f2d099e8b')->labelContent('Red')->render()
         );
     }
 
@@ -192,7 +192,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget()->enclosedByLabel()->id('checkbox-6582f2d099e8b')->render()
+            Checkbox::widget()->enclosedByLabel(true)->id('checkbox-6582f2d099e8b')->render()
         );
     }
 

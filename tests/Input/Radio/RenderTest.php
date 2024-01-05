@@ -179,7 +179,7 @@ final class RenderTest extends TestCase
             Red
             </label>
             HTML,
-            Radio::widget()->enclosedByLabel()->id('radio-6582f2d099e8b')->labelContent('Red')->render()
+            Radio::widget()->enclosedByLabel(true)->id('radio-6582f2d099e8b')->labelContent('Red')->render()
         );
     }
 
@@ -189,7 +189,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->enclosedByLabel()->id('radio-6582f2d099e8b')->render()
+            Radio::widget()->enclosedByLabel(true)->id('radio-6582f2d099e8b')->render()
         );
     }
 
