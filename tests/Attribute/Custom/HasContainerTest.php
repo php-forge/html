@@ -78,7 +78,7 @@ final class HasContainerTest extends TestCase
 
     public function testRenderContainterTag(): void
     {
-        $instance = new class extends AbstractButton {
+        $instance = new class () extends AbstractButton {
             public function run(): string
             {
                 return $this->renderContainerTag(null, 'content');
