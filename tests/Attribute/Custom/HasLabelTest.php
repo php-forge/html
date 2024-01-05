@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasLabel;
+use PHPForge\Html\Input\Base\AbstractButton;
 use PHPForge\Html\Span;
 use PHPUnit\Framework\TestCase;
 
@@ -23,17 +24,17 @@ final class HasLabelTest extends TestCase
 
         $this->assertEmpty($instance->getLabelClass());
 
-        $instance = $instance->labelClass('test-class');
+        $instance = $instance->labelClass('class');
 
-        $this->assertSame('test-class', $instance->getLabelClass());
+        $this->assertSame('class', $instance->getLabelClass());
 
-        $instance = $instance->labelClass('test-class-1');
+        $instance = $instance->labelClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getLabelClass());
+        $this->assertSame('class class-1', $instance->getLabelClass());
 
-        $instance = $instance->labelClass('test-override-class', true);
+        $instance = $instance->labelClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getLabelClass());
+        $this->assertSame('override-class', $instance->getLabelClass());
     }
 
     public function testContent(): void
@@ -88,6 +89,18 @@ final class HasLabelTest extends TestCase
 
         $this->assertFalse($instance->isNotLabel());
         $this->assertTrue($instance->notLabel()->isNotLabel());
+    }
+
+    public function testRenderLabelTag(): void
+    {
+        $instance = new class () extends AbstractButton {
+            public function run(): string
+            {
+                return $this->renderLabelTag();
+            }
+        };
+
+        $this->assertSame('<label>content</label>', $instance->labelContent('content')->run());
     }
 
     public function testXSS(): void
