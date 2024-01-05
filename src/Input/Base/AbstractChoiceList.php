@@ -7,12 +7,13 @@ namespace PHPForge\Html\Input\Base;
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Checkbox;
 use PHPForge\Html\Input\ChoiceInterface;
+use PHPForge\Html\Input\Contract\ClassInterface;
 use PHPForge\Html\Input\Radio;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
-abstract class AbstractChoiceList extends Element implements ChoiceInterface
+abstract class AbstractChoiceList extends Element implements ChoiceInterface, ClassInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;

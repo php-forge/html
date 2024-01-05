@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Input;
+namespace PHPForge\Html\Input\Contract;
 
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Provide methods for handling HTML input-related attributes and properties.
+ * Provide methods for handling HTML input-related attributes.
  */
 interface InputInterface extends ElementInterface
 {

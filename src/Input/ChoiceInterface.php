@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
+use PHPForge\Html\Input\Contract\InputInterface;
 use PHPForge\Widget\ElementInterface;
 
 /**
  * Provide methods for handling HTML choice input-related attributes and properties.
  */
-interface ChoiceInterface extends ElementInterface, InputInterface
+interface ChoiceInterface extends InputInterface
 {
     /**
      * Set the current instance as being enclosed by a label.
