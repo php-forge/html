@@ -6,6 +6,8 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute\Custom\HasContainer;
+use PHPForge\Html\Input\Base\AbstractButton;
+use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 final class HasContainerTest extends TestCase
@@ -65,8 +67,6 @@ final class HasContainerTest extends TestCase
     {
         $instance = new class () {
             use HasContainer;
-
-            protected string $containerTag = 'div';
         };
 
         $this->assertNotSame($instance, $instance->container(true));
@@ -74,5 +74,24 @@ final class HasContainerTest extends TestCase
         $this->assertNotSame($instance, $instance->containerClass(''));
         $this->assertNotSame($instance, $instance->containerTag('span'));
         $this->assertNotSame($instance, $instance->containerTemplate(''));
+    }
+
+    public function testRenderContainterTag(): void
+    {
+        $instance = new class extends AbstractButton {
+            public function run(): string
+            {
+                return $this->renderContainerTag(null, 'content');
+            }
+        };
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            content
+            </div>
+            HTML,
+            $instance->container(true)->run()
+        );
     }
 }
