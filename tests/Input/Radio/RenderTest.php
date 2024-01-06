@@ -36,7 +36,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input class="class" id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->attributes(['class' => 'class'])->id('radio-6582f2d099e8b')->render()
+            Radio::widget()->attributes(['class' => 'class', 'id' => 'radio-6582f2d099e8b'])->render()
         );
     }
 
