@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Input\HiddenInterface;
+use PHPForge\Html\Input\Contract\InputInterface;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
-abstract class AbstractHidden extends Element implements HiddenInterface
+abstract class AbstractHidden extends Element implements InputInterface
 {
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasWidgetValidation;
+    use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasStyle;
     use Attribute\Input\HasName;

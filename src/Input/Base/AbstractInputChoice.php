@@ -6,7 +6,7 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\CheckedValueInterface;
-use PHPForge\Html\Input\ChoiceInterface;
+use PHPForge\Html\Input\Contract\ChoiceInterface;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;

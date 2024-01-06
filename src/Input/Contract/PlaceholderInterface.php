@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Input;
+namespace PHPForge\Html\Input\Contract;
 
 /**
- * Provide methods for handling HTML placeholder-related attributes and properties.
+ * Provide methods for handling HTML input placeholder attribute.
  */
 interface PlaceholderInterface
 {

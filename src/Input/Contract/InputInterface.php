@@ -2,15 +2,27 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Input;
+namespace PHPForge\Html\Input\Contract;
 
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Provide methods for handling HTML input-related attributes and properties.
+ * Provide methods for handling HTML input-related attributes.
  */
-interface HiddenInterface extends ElementInterface
+interface InputInterface extends ElementInterface
 {
+    /**
+     * Set the `CSS` `HTML` class attribute.
+     *
+     * @param string $value The `CSS` attribute of the widget.
+     * @param bool $override If `true` the value will be overridden.
+     *
+     * @return static A new instance of the current class with the specified class value.
+     *
+     * @link https://html.spec.whatwg.org/#classes
+     */
+    public function class(string $value, bool $override = false): static;
+
     /**
      * Set the `HTML` attributes.
      *
@@ -30,17 +42,6 @@ interface HiddenInterface extends ElementInterface
      * @link https://html.spec.whatwg.org/multipage/dom.html#the-id-attribute
      */
     public function id(string|null $value): static;
-
-    /**
-     * Set the name part of the name/value pair associated with this element for the purposes of form submission.
-     *
-     * @param string|null $value The name of the widget.
-     *
-     * @return static A new instance of the current class with the specified name.
-     *
-     * @link https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name
-     */
-    public function name(string|null $value): static;
 
     /**
      * set the value content attribute gives the default value of the field.

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input;
 
 use PHPForge\Html\Attribute;
+use PHPForge\Html\Input\Contract\PlaceholderInterface;
 
 /**
  * The input element with a type attribute whose value is "text" represents a one-line plain text edit control for the
