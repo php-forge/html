@@ -23,6 +23,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     use Attribute\Custom\HasEnclosedByLabel;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasSeparator;
+    use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\HasClass;
     use Attribute\HasId;
@@ -31,7 +32,6 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
     use Attribute\Input\HasValue;
-    use Attribute\Custom\HasTemplate;
 
     protected array $attributes = [];
     /**
