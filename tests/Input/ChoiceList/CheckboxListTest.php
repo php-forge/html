@@ -383,6 +383,31 @@ final class CheckboxListTest extends TestCase
         );
     }
 
+    public function testNotLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
+            <input name="CheckboxForm[text]" type="checkbox" value="1">
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
+            </div>
+            HTML,
+            Choicelist::widget()
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Female')->value(1),
+                    Checkbox::widget()->labelContent('Male')->value(2),
+                )
+                ->labelContent('Select your gender?')
+                ->labelClass('class')
+                ->name('CheckboxForm[text]')
+                ->notLabel()
+                ->render(),
+        );
+    }
+
     public function testRender(): void
     {
         Assert::equalsWithoutLE(
@@ -447,6 +472,32 @@ final class CheckboxListTest extends TestCase
                 )
                 ->name('CheckboxForm[text]')
                 ->tabIndex(1)
+                ->render(),
+        );
+    }
+
+    public function testTemplate(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
+            <input name="CheckboxForm[text]" type="checkbox" value="red">
+            <label>Red</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="blue">
+            <label>Blue</label>
+            </div>
+            <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
+            HTML,
+            Choicelist::widget()
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Red')->value('red'),
+                    Checkbox::widget()->labelContent('Blue')->value('blue'),
+                )
+                ->name('CheckboxForm[text]')
+                ->labelContent('Select your gender?')
+                ->labelClass('class')
+                ->template('{tag}\n{label}')
                 ->render(),
         );
     }

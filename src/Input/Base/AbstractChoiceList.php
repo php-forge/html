@@ -9,7 +9,6 @@ use PHPForge\Html\Input\Checkbox;
 use PHPForge\Html\Input\CheckedValueInterface;
 use PHPForge\Html\Input\Contract\ChoiceInterface;
 use PHPForge\Html\Input\Radio;
-use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
@@ -24,6 +23,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     use Attribute\Custom\HasEnclosedByLabel;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasSeparator;
+    use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\HasClass;
     use Attribute\HasId;
@@ -46,6 +46,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     {
         return [
             'container()' => [true],
+            'template()' => ['{label}\n{tag}'],
         ];
     }
 
@@ -101,25 +102,23 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
             $listItems[] = $listItem;
         }
 
-        $listTagItems = implode(PHP_EOL, $listItems);
-
-        if ($this->labelContent !== '') {
-            $labelTag = Label::widget()
-                ->attributes($this->labelAttributes)
-                ->content($this->labelContent)
-                ->for($id)
-                ->render() . PHP_EOL;
-        }
-
-        return match ($this->container) {
-            true => $labelTag .
-                Tag::widget()
-                    ->attributes($containerAttributes)
-                    ->content($listTagItems)
-                    ->id($id)
-                    ->tagName($this->containerTag)
-                    ->render(),
-            default => $listTagItems,
+        $choiceTag = implode(PHP_EOL, $listItems);
+        $tag = match ($this->container) {
+            true => Tag::widget()
+                ->attributes($containerAttributes)
+                ->content($choiceTag)
+                ->id($id)
+                ->tagName($this->containerTag)
+                ->render(),
+            default => $choiceTag,
         };
+
+        return $this->renderTemplate(
+            $this->template,
+            [
+                '{label}' => $this->renderLabelTag($id),
+                '{tag}' => $tag,
+            ],
+        );
     }
 }
