@@ -96,7 +96,7 @@ abstract class AbstractInputChoice extends Element implements CheckedValueInterf
         if ($this->enclosedByLabel) {
             $tag = $this->renderEnclosedByLabel($tag);
         } else {
-            $labelTag = $this->renderLabelTag($this->getId() ?? '');
+            $labelTag = $this->renderLabelTag($id);
         }
 
         $choiceTag = $this->prepareTemplate($tag, $labelTag);
