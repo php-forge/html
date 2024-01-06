@@ -32,6 +32,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
     use Attribute\Input\HasValue;
+    use Attribute\Custom\HasTemplate;
 
     protected array $attributes = [];
     /**
@@ -46,6 +47,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     {
         return [
             'container()' => [true],
+            'template()' => ['{label}\n{tag}'],
         ];
     }
 
@@ -101,25 +103,23 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
             $listItems[] = $listItem;
         }
 
-        $listTagItems = implode(PHP_EOL, $listItems);
-
-        if ($this->labelContent !== '') {
-            $labelTag = Label::widget()
-                ->attributes($this->labelAttributes)
-                ->content($this->labelContent)
-                ->for($id)
-                ->render() . PHP_EOL;
-        }
-
-        return match ($this->container) {
-            true => $labelTag .
-                Tag::widget()
-                    ->attributes($containerAttributes)
-                    ->content($listTagItems)
-                    ->id($id)
-                    ->tagName($this->containerTag)
-                    ->render(),
-            default => $listTagItems,
+        $choiceTag = implode(PHP_EOL, $listItems);
+        $tag = match ($this->container) {
+            true => Tag::widget()
+                ->attributes($containerAttributes)
+                ->content($choiceTag)
+                ->id($id)
+                ->tagName($this->containerTag)
+                ->render(),
+            default => $choiceTag,
         };
+
+        return $this->renderTemplate(
+            $this->template,
+            [
+                '{label}' => $this->renderLabelTag($id),
+                '{tag}' => $tag,
+            ],
+        );
     }
 }
