@@ -39,7 +39,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input class="class" id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget()->attributes(['class' => 'class'])->id('checkbox-6582f2d099e8b')->render()
+            Checkbox::widget()->attributes(['class' => 'class', 'id' => 'checkbox-6582f2d099e8b'])->render()
         );
     }
 

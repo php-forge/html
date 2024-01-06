@@ -22,6 +22,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasEnclosedByLabel;
     use Attribute\Custom\HasLabel;
+    use Attribute\Custom\HasLabelItemClass;
     use Attribute\Custom\HasSeparator;
     use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasWidgetValidation;
@@ -46,6 +47,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
     {
         return [
             'container()' => [true],
+            'id()' => [$this->generateId('choice-')],
             'template()' => ['{label}\n{tag}'],
         ];
     }
@@ -64,13 +66,10 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
 
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
-        $id = $this->generateId('choice-');
-        $items = $this->items;
-        $labelTag = '';
         $listItems = [];
 
         if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$id-help";
+            $attributes['aria-describedby'] = "$this->id-help";
         }
 
         if (array_key_exists('autofocus', $attributes) && is_bool($attributes['autofocus'])) {
@@ -87,12 +86,12 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
 
         unset($attributes['value']);
 
-        foreach ($items as $item) {
+        foreach ($this->items as $item) {
             $listItem = $item
                 ->attributes($attributes)
                 ->checked($this->checkedValue === $item->getValue())
                 ->enclosedByLabel($this->enclosedByLabel)
-                ->id(null)
+                ->labelClass($this->labelItemClass)
                 ->separator($this->separator);
 
             if ($this->enclosedByLabel === true) {
@@ -107,7 +106,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
             true => Tag::widget()
                 ->attributes($containerAttributes)
                 ->content($choiceTag)
-                ->id($id)
+                ->id($this->id)
                 ->tagName($this->containerTag)
                 ->render(),
             default => $choiceTag,
@@ -116,7 +115,7 @@ abstract class AbstractChoiceList extends Element implements CheckedValueInterfa
         return $this->renderTemplate(
             $this->template,
             [
-                '{label}' => $this->renderLabelTag($id),
+                '{label}' => $this->renderLabelTag($this->id),
                 '{tag}' => $tag,
             ],
         );
