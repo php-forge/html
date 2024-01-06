@@ -388,6 +388,29 @@ final class RadioListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
+            <input name="radioform[text]" type="radio" value="1" checked>
+            <label>Female</label>
+            <input name="radioform[text]" type="radio" value="2">
+            <label>Male</label>
+            </div>
+            HTML,
+            ChoiceList::widget()
+                ->checkedValue(1)
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Radio::widget()->labelContent('Female')->value(1),
+                    Radio::widget()->labelContent('Male')->value(2),
+                )
+                ->name('radioform[text]')
+                ->render(),
+        );
+    }
+
+    public function testValueWithNull(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
             <input name="radioform[text]" type="radio" value="1">
             <label>Female</label>
             <input name="radioform[text]" type="radio" value="2">
@@ -395,6 +418,7 @@ final class RadioListTest extends TestCase
             </div>
             HTML,
             ChoiceList::widget()
+                ->checkedValue(null)
                 ->id('choice-list-65858c272ea89')
                 ->items(
                     Radio::widget()->labelContent('Female')->value(1),

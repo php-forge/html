@@ -456,6 +456,29 @@ final class CheckboxListTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="choice-list-65858c272ea89">
+            <input name="CheckboxForm[text]" type="checkbox" value="1" checked>
+            <label>Female</label>
+            <input name="CheckboxForm[text]" type="checkbox" value="2">
+            <label>Male</label>
+            </div>
+            HTML,
+            Choicelist::widget()
+                ->checkedValue(1)
+                ->id('choice-list-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Female')->value(1),
+                    Checkbox::widget()->labelContent('Male')->value(2),
+                )
+                ->name('CheckboxForm[text]')
+                ->render(),
+        );
+    }
+
+    public function testValueWithNull(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="choice-list-65858c272ea89">
             <input name="CheckboxForm[text]" type="checkbox" value="1">
             <label>Female</label>
             <input name="CheckboxForm[text]" type="checkbox" value="2">
@@ -463,6 +486,7 @@ final class CheckboxListTest extends TestCase
             </div>
             HTML,
             Choicelist::widget()
+                ->checkedValue(null)
                 ->id('choice-list-65858c272ea89')
                 ->items(
                     Checkbox::widget()->labelContent('Female')->value(1),

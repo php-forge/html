@@ -18,6 +18,7 @@ abstract class AbstractChoiceList extends Element implements ChoiceInterface
     use Attribute\Aria\HasAriaLabel;
     use Attribute\CanBeAutofocus;
     use Attribute\Custom\HasAttributes;
+    use Attribute\Custom\HasCheckedValue;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasEnclosedByLabel;
     use Attribute\Custom\HasLabel;
@@ -57,9 +58,7 @@ abstract class AbstractChoiceList extends Element implements ChoiceInterface
 
     protected function run(): string
     {
-        $value = $this->getValue();
-
-        $this->validateScalar($value);
+        $this->validateScalar($this->checkedValue);
 
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
@@ -89,7 +88,7 @@ abstract class AbstractChoiceList extends Element implements ChoiceInterface
         foreach ($items as $item) {
             $listItem = $item
                 ->attributes($attributes)
-                ->checked($value === $item->getValue())
+                ->checked($this->checkedValue === $item->getValue())
                 ->enclosedByLabel($this->enclosedByLabel)
                 ->id(null)
                 ->separator($this->separator);

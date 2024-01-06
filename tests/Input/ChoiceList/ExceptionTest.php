@@ -19,6 +19,6 @@ final class ExceptionTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('ChoiceList::class widget must be a scalar value.');
 
-        ChoiceList::widget()->items(Checkbox::widget())->value([])->render();
+        ChoiceList::widget()->items(Checkbox::widget())->checkedValue([])->render();
     }
 }
