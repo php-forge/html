@@ -9,7 +9,6 @@ use PHPForge\Html\Input\Checkbox;
 use PHPForge\Html\Input\CheckedValueInterface;
 use PHPForge\Html\Input\Contract\ChoiceInterface;
 use PHPForge\Html\Input\Radio;
-use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
