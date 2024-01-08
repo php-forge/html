@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Input\CheckedValueInterface;
-use PHPForge\Html\Input\Contract\ChoiceInterface;
+use PHPForge\Html\Input\Contract;
 use PHPForge\Html\Label;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
@@ -14,7 +13,10 @@ use PHPForge\Widget\Element;
 /**
  * Provides a foundation for creating HTML elements with various attributes and content.
  */
-abstract class AbstractInputChoice extends Element implements CheckedValueInterface, ChoiceInterface
+abstract class AbstractInputChoice extends Element implements
+    Contract\CheckedValueInterface,
+    Contract\ChoiceInterface,
+    Contract\RequiredInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;

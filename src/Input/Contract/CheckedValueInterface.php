@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Input;
+namespace PHPForge\Html\Input\Contract;
 
 /**
  * Provide methods for handling HTML checked value-related attributes and properties.
