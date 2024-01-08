@@ -28,6 +28,7 @@
                 "PHPForge\\Html\\Attribute\\HasId::getId",
                 "PHPForge\\Html\\Attribute\\HasId::id",
                 "PHPForge\\Html\\Attribute\\Input\\CanBeChecked::checked",
+                "PHPForge\\Html\\Attribute\\Input\\CanBeRequired::required",
                 "PHPForge\\Html\\Attribute\\Input\\HasName::name",
                 "PHPForge\\Html\\Attribute\\Input\\HasPlaceholder::placeholder",
                 "PHPForge\\Html\\Attribute\\Input\\HasValue::value",

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Input\Contract\PlaceholderInterface;
 
 /**
  * The input element with a type attribute whose value is "text" represents a one-line plain text edit control for the
@@ -13,7 +12,10 @@ use PHPForge\Html\Input\Contract\PlaceholderInterface;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.text.html#input.text
  */
-final class Text extends Base\AbstractInput implements RuleHtmlByAttributeInterface, PlaceholderInterface
+final class Text extends Base\AbstractInput implements
+    Contract\PlaceholderInterface,
+    Contract\RequiredInterface,
+    Contract\RuleHtmlByAttributeInterface
 {
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\Input\CanBeRequired;
