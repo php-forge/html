@@ -33,7 +33,6 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\HasTabindex;
     use Attribute\Input\CanBeChecked;
     use Attribute\Input\CanBeRequired;
-    use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
     use Attribute\Input\HasValue;
 

@@ -13,9 +13,10 @@ use PHPForge\Html\Attribute;
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.text.html#input.text
  */
 final class Text extends Base\AbstractInput implements
+    Contract\LengthInterface,
+    Contract\PatternInterface,
     Contract\PlaceholderInterface,
-    Contract\RequiredInterface,
-    Contract\RuleHtmlByAttributeInterface
+    Contract\RequiredInterface
 {
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\Input\CanBeRequired;
