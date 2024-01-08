@@ -12,7 +12,7 @@ use PHPForge\Html\Attribute;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.color.html#input.color
  */
-final class Color extends Base\AbstractInput
+final class Color extends Base\AbstractInput implements Contract\RequiredInterface
 {
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\Input\CanBeRequired;

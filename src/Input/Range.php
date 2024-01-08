@@ -12,7 +12,7 @@ use PHPForge\Html\Attribute;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.range.html
  */
-final class Range extends Base\AbstractInput
+final class Range extends Base\AbstractInput implements Contract\RangeLengthInterface
 {
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\Input\HasMax;

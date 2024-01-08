@@ -12,7 +12,7 @@ use PHPForge\Html\Attribute;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.time.html#input.time
  */
-final class Time extends Base\AbstractInput implements Contract\RequiredInterface
+final class Time extends Base\AbstractInput implements Contract\RangeLengthInterface, Contract\RequiredInterface
 {
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\Input\CanBeRequired;
