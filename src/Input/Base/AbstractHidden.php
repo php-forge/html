@@ -34,7 +34,7 @@ abstract class AbstractHidden extends Element
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         return Tag::widget()
             ->attributes($this->attributes)

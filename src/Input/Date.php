@@ -22,7 +22,7 @@ final class Date extends Base\AbstractInput implements Contract\RangeLengthInter
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         return $this->buildInputTag($this->attributes, 'date');
     }

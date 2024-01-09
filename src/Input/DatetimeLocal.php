@@ -22,7 +22,7 @@ final class DatetimeLocal extends Base\AbstractInput implements Contract\RangeLe
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         return $this->buildInputTag($this->attributes, 'datetime-local');
     }

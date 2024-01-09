@@ -51,7 +51,7 @@ abstract class AbstractButton extends Element
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         $attributes = $this->attributes;
         $labelFor = $this->labelFor ?? $this->id;
