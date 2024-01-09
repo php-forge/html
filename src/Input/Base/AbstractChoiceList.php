@@ -72,7 +72,7 @@ abstract class AbstractChoiceList extends Element implements
             unset($attributes['tabindex']);
         }
 
-        if (array_key_exists('name', $attributes) && $type === 'checkbox') {
+        if (array_key_exists('name', $attributes) && is_string($attributes['name']) && $type === 'checkbox') {
             $attributes['name'] = Utils::generateArrayableName($attributes['name']);
         }
 
