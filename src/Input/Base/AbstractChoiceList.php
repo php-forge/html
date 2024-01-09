@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
+use PHPForge\Html\Helper\Utils;
 use PHPForge\Html\Input\Checkbox;
 use PHPForge\Html\Input\Contract;
 use PHPForge\Html\Input\Radio;
@@ -43,26 +44,13 @@ abstract class AbstractChoiceList extends Element implements
     protected array $items = [];
 
     /**
-     * This method is used to configure the widget with the provided default definitions.
+     * Generate the HTML representation of CheckboxList or RadioList.
+     *
+     * @param string $type The type of the list.
+     *
+     * @return string The HTML representation of the element.
      */
-    public function loadDefaultDefinitions(): array
-    {
-        return [
-            'container()' => [true],
-            'id()' => [$this->generateId('choice-')],
-            'template()' => ['{label}\n{tag}'],
-        ];
-    }
-
-    public function items(Checkbox|Radio ...$items): static
-    {
-        $new = clone $this;
-        $new->items = $items;
-
-        return $new;
-    }
-
-    protected function run(): string
+    protected function buildChoiceListTag(string $type): string
     {
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
@@ -84,12 +72,20 @@ abstract class AbstractChoiceList extends Element implements
             unset($attributes['tabindex']);
         }
 
+        if (array_key_exists('name', $attributes) && $type === 'checkbox') {
+            $attributes['name'] = Utils::generateArrayableName($attributes['name']);
+        }
+
         unset($attributes['value']);
 
         foreach ($this->items as $item) {
+            $item = match ($type) {
+                'checkbox' => $item->checked(in_array($item->getValue(), (array) $this->checkedValue)),
+                'radio' => $item->checked($item->getValue() === $this->checkedValue),
+            };
+
             $listItem = $item
                 ->attributes($attributes)
-                ->checked($this->checkedValue === $item->getValue())
                 ->enclosedByLabel($this->enclosedByLabel)
                 ->labelClass($this->labelItemClass)
                 ->separator($this->separator);

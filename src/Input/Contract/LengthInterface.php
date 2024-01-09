@@ -21,7 +21,7 @@ interface LengthInterface
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-maxlength
      */
-    public function maxlength(int $value): static;
+    public function maxLength(int $value): static;
 
     /**
      * Set the minimum number of characters (as UTF-16 code units) the user can enter into the text input.
@@ -36,5 +36,5 @@ interface LengthInterface
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-minlength
      */
-    public function minlength(int $value): static;
+    public function minLength(int $value): static;
 }
