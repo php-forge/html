@@ -19,7 +19,7 @@ final class Color extends Base\AbstractInput implements Contract\RequiredInterfa
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         return $this->buildInputTag($this->attributes, 'color');
     }

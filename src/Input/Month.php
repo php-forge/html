@@ -22,7 +22,7 @@ final class Month extends Base\AbstractInput implements Contract\RangeLengthInte
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         return $this->buildInputTag($this->attributes, 'month');
     }

@@ -29,7 +29,7 @@ final class Text extends Base\AbstractInput implements
 
     protected function run(): string
     {
-        $this->validateStringValue($this->getValue());
+        $this->validateString($this->getValue());
 
         return $this->buildInputTag($this->attributes, 'text');
     }

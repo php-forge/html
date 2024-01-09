@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Input\ChoiceList;
+namespace PHPForge\Html\Tests\Input\RadioList;
 
-use PHPForge\Html\Input\ChoiceList;
 use PHPForge\Html\Input\Radio;
+use PHPForge\Html\Input\RadioList;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RadioListTest extends TestCase
+final class RenderTest extends TestCase
 {
     public function testAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
             <input class="class" id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input class="class" id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->attributes(['class' => 'class'])
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -41,16 +41,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89" autofocus>
+            <div id="radiolist-65858c272ea89" autofocus>
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->autofocus()
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -64,16 +64,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
             <input class="class" id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input class="class" id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->class('class')
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -87,16 +87,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="class" id="choice-list-65858c272ea89">
+            <div class="class" id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->containerAttributes(['class' => 'class'])
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -110,16 +110,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="class" id="choice-list-65858c272ea89">
+            <div class="class" id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->containerClass('class')
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -133,16 +133,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <article id="choice-list-65858c272ea89">
+            <article id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </article>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->containerTag('article')
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -161,7 +161,7 @@ final class RadioListTest extends TestCase
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->container(false)
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
@@ -176,14 +176,14 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
             <label for="radio-6599b6a33dd96"><input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">Female</label>
             <label for="radio-6599b6a33dd97"><input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->enclosedByLabel(true)
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -204,7 +204,7 @@ final class RadioListTest extends TestCase
             <label for="id-radio-2">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->id('id')
                 ->items(
                     Radio::widget()->id('id-radio-1')->labelContent('Female')->value(1),
@@ -219,16 +219,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="choice-list-65858c272ea89">Select your gender?</label>
-            <div id="choice-list-65858c272ea89">
+            <label for="radiolist-65858c272ea89">Select your gender?</label>
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -243,16 +243,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
-            <div id="choice-list-65858c272ea89">
+            <label class="class" for="radiolist-65858c272ea89">Select your gender?</label>
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -268,16 +268,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
-            <div id="choice-list-65858c272ea89">
+            <label class="class" for="radiolist-65858c272ea89">Select your gender?</label>
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -293,16 +293,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="choice-list-65858c272ea89">Select your gender?</label>
-            <div id="choice-list-65858c272ea89">
+            <label for="radiolist-65858c272ea89">Select your gender?</label>
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="CheckboxForm[text]" type="radio" value="1">
             <label class="class" for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="CheckboxForm[text]" type="radio" value="2">
             <label class="class" for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            Choicelist::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -318,16 +318,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="class" for="choice-list-65858c272ea89">Select your gender?</label>
-            <div id="choice-list-65858c272ea89">
+            <label class="class" for="radiolist-65858c272ea89">Select your gender?</label>
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="RadioList" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="RadioList" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
@@ -344,15 +344,15 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red">
             <label for="radio-6599b6a33dd96">Red</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
             <label for="radio-6599b6a33dd97">Blue</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
@@ -366,15 +366,15 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red">
             <label for="radio-6599b6a33dd96">Red</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
             <label for="radio-6599b6a33dd97">Blue</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
@@ -389,15 +389,15 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89" tabindex="1">
+            <div id="radiolist-65858c272ea89" tabindex="1">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red">
             <label for="radio-6599b6a33dd96">Red</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
             <label for="radio-6599b6a33dd97">Blue</label>
             </div>
             HTML,
-            ChoiceList::widget()
-                ->id('choice-list-65858c272ea89')
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
@@ -410,21 +410,64 @@ final class RadioListTest extends TestCase
 
     public function testValue(): void
     {
+        // bool value
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
+            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="0" checked>
+            <label for="radio-6599b6a33dd96">inactive</label>
+            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="1">
+            <label for="radio-6599b6a33dd97">active</label>
+            </div>
+            HTML,
+            RadioList::widget()
+                ->checkedValue(false)
+                ->id('radiolist-65858c272ea89')
+                ->items(
+                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('inactive')->value(false),
+                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('active')->value(true),
+                )
+                ->name('radioform[text]')
+                ->render(),
+        );
+
+        // int value
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1" checked>
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->checkedValue(1)
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                )
+                ->name('radioform[text]')
+                ->render(),
+        );
+
+        // string value
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="radiolist-65858c272ea89">
+            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red" checked>
+            <label for="radio-6599b6a33dd96">Red</label>
+            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
+            <label for="radio-6599b6a33dd97">Blue</label>
+            </div>
+            HTML,
+            RadioList::widget()
+                ->checkedValue('red')
+                ->id('radiolist-65858c272ea89')
+                ->items(
+                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->render(),
@@ -435,16 +478,16 @@ final class RadioListTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="choice-list-65858c272ea89">
+            <div id="radiolist-65858c272ea89">
             <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
             <label for="radio-6599b6a33dd96">Female</label>
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             </div>
             HTML,
-            ChoiceList::widget()
+            RadioList::widget()
                 ->checkedValue(null)
-                ->id('choice-list-65858c272ea89')
+                ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),

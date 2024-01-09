@@ -21,7 +21,7 @@ final class Range extends Base\AbstractInput implements Contract\RangeLengthInte
 
     protected function run(): string
     {
-        $this->validateNumericValue($this->getValue());
+        $this->validateNumeric($this->getValue());
 
         return $this->buildInputTag($this->attributes, 'range');
     }

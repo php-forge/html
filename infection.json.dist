@@ -29,9 +29,14 @@
                 "PHPForge\\Html\\Attribute\\HasId::id",
                 "PHPForge\\Html\\Attribute\\Input\\CanBeChecked::checked",
                 "PHPForge\\Html\\Attribute\\Input\\CanBeRequired::required",
+                "PHPForge\\Html\\Attribute\\Input\\HasMaxLength::maxLength",
+                "PHPForge\\Html\\Attribute\\Input\\HasMinLength::minLength",
                 "PHPForge\\Html\\Attribute\\Input\\HasName::name",
+                "PHPForge\\Html\\Attribute\\Input\\HasPattern::pattern",
                 "PHPForge\\Html\\Attribute\\Input\\HasPlaceholder::placeholder",
                 "PHPForge\\Html\\Attribute\\Input\\HasValue::value",
+                "PHPForge\\Html\\Input\\Text::maxLength()",
+                "PHPForge\\Html\\Input\\Text::minLength()"
             ]
         }
     }

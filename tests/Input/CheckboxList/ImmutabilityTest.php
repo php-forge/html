@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Input\ChoiceList;
 
 use PHPForge\Html\Input\Checkbox;
-use PHPForge\Html\Input\ChoiceList;
+use PHPForge\Html\Input\CheckboxList;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,7 +15,7 @@ final class ImmutabilityTest extends TestCase
 {
     public function testImmutability(): void
     {
-        $widget = ChoiceList::widget();
+        $widget = CheckboxList::widget();
 
         $this->assertNotSame($widget, $widget->items(Checkbox::widget()));
     }
