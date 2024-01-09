@@ -64,8 +64,6 @@ abstract class AbstractChoiceList extends Element implements
 
     protected function run(): string
     {
-        $this->validateScalar($this->checkedValue);
-
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
         $listItems = [];
