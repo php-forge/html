@@ -445,8 +445,8 @@ final class RenderTest extends TestCase
                 ->checkedValue(1)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value('1'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value('2'),
                 )
                 ->name('radioform[text]')
                 ->render(),
