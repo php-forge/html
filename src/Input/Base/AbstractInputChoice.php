@@ -78,6 +78,7 @@ abstract class AbstractInputChoice extends Element implements
 
         /** @var string $id */
         $id = $attributes['id'] ?? $this->generateId("$type-");
+        $labelFor = $this->labelFor ?? $id;
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
@@ -95,9 +96,9 @@ abstract class AbstractInputChoice extends Element implements
         $tag = Tag::widget()->attributes($attributes)->id($id)->tagName('input')->type($type)->value($value)->render();
 
         if ($this->enclosedByLabel) {
-            $tag = $this->renderEnclosedByLabel($tag);
+            $tag = $this->renderEnclosedByLabel($tag, $labelFor);
         } else {
-            $labelTag = $this->renderLabelTag($id);
+            $labelTag = $this->renderLabelTag($labelFor);
         }
 
         $choiceTag = $this->prepareTemplate($tag, $labelTag);
@@ -118,7 +119,7 @@ abstract class AbstractInputChoice extends Element implements
         return $this->renderTemplate($this->template, $tokenValues);
     }
 
-    private function renderEnclosedByLabel(string $tag): string
+    private function renderEnclosedByLabel(string $tag, string $labelFor): string
     {
         if ($this->labelContent === '' || $this->isNotLabel()) {
             return $tag;
@@ -133,7 +134,7 @@ abstract class AbstractInputChoice extends Element implements
                 $this->labelContent,
                 $this->separator,
             )
-            ->for($this->getId())
+            ->for($labelFor)
             ->render();
     }
 }

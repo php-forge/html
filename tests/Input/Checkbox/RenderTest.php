@@ -196,6 +196,24 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testEnclosedByLabelWithLabelFor(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label for="label-for">
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            Red
+            </label>
+            HTML,
+            Checkbox::widget()
+                ->enclosedByLabel(true)
+                ->id('checkbox-6582f2d099e8b')
+                ->labelContent('Red')
+                ->labelFor('label-for')
+                ->render()
+        );
+    }
+
     public function testForm(): void
     {
         Assert::equalsWithoutLE(
@@ -290,6 +308,17 @@ final class RenderTest extends TestCase
             <label class="class" for="checkbox-6582f2d099e8b">Red</label>
             HTML,
             Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelClass('class')->render()
+        );
+    }
+
+    public function testLabelFor(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            <label for="label-for">Red</label>
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelFor('label-for')->render()
         );
     }
 

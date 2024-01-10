@@ -193,6 +193,24 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testEnclosedByLabelWithLabelFor(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label for="label-for">
+            <input id="checkbox-6582f2d099e8b" type="radio">
+            Red
+            </label>
+            HTML,
+            Radio::widget()
+                ->enclosedByLabel(true)
+                ->id('checkbox-6582f2d099e8b')
+                ->labelContent('Red')
+                ->labelFor('label-for')
+                ->render()
+        );
+    }
+
     public function testForm(): void
     {
         Assert::equalsWithoutLE(
@@ -267,6 +285,17 @@ final class RenderTest extends TestCase
             <label class="class" for="radio-6582f2d099e8b">Active</label>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->labelClass('class')->labelContent('Active')->render()
+        );
+    }
+
+    public function testLabelFor(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="radio">
+            <label for="label-for">Red</label>
+            HTML,
+            Radio::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelFor('label-for')->render()
         );
     }
 
