@@ -79,9 +79,11 @@ abstract class AbstractChoiceList extends Element implements
         unset($attributes['value']);
 
         foreach ($this->items as $item) {
+            $itemValue = $item->getValue();
+
             $item = match ($type) {
-                'checkbox' => $item->checked(in_array($item->getValue(), (array) $this->checkedValue)),
-                'radio' => $item->checked($item->getValue() === $this->checkedValue),
+                'checkbox' => $item->checked(in_array($itemValue, (array) $this->checkedValue)),
+                'radio' => $item->checked("$itemValue" === "$this->checkedValue"),
             };
 
             $listItem = $item
