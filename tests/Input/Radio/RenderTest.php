@@ -656,6 +656,22 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testValueWithDiferentTypes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
+            <label for="radio-6582f2d099e8b">Active</label>
+            HTML,
+            Radio::widget()
+                ->checkedValue(1)
+                ->id('radio-6582f2d099e8b')
+                ->labelContent('Active')
+                ->value('1')
+                ->render()
+        );
+    }
+
     public function testValueWithEmpty(): void
     {
         Assert::equalsWithoutLE(

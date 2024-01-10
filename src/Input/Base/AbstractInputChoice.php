@@ -84,11 +84,10 @@ abstract class AbstractInputChoice extends Element implements
         }
 
         $value = is_bool($value) ? (int) $value : $value;
-        $checkedValue = is_bool($this->checkedValue) ? (int) $this->checkedValue : $this->checkedValue;
 
-        $attributes['checked'] = match (empty($checkedValue)) {
+        $attributes['checked'] = match (empty($this->checkedValue)) {
             true => $this->checked,
-            default => $value === $checkedValue,
+            default => "$value" === "$this->checkedValue",
         };
 
         unset($attributes['id'], $attributes['type'], $attributes['value']);
