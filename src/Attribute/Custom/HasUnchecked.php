@@ -49,6 +49,21 @@ trait HasUnchecked
     }
 
     /**
+     * Set the `HTML` id for the unchecked element.
+     *
+     * @param string $value The name of the unchecked element.
+     *
+     * @return static A new instance of the current class with the specified unchecked name.
+     */
+    public function uncheckName(string $value): static
+    {
+        $new = clone $this;
+        $new->uncheckAttributes['name'] = $value;
+
+        return $new;
+    }
+
+    /**
      * set the value content attribute gives the default value of the unchecked field.
      *
      * @param mixed $value The value of the unchecked field.

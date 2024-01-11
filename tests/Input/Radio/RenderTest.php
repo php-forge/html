@@ -607,14 +607,14 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testUnchecked(): void
+    public function testUncheckValue(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="hidden" value="0">
-            <input id="radio-6582f2d099e8b" type="radio" value="1">
+            <input name="name" type="hidden" value="0">
+            <input id="radio-6582f2d099e8b" name="name" type="radio" value="1">
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->uncheckValue('0')->value(1)->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->name('name')->uncheckValue('0')->value(1)->render()
         );
     }
 

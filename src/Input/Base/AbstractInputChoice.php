@@ -79,6 +79,7 @@ abstract class AbstractInputChoice extends Element implements
         /** @var string $id */
         $id = $attributes['id'] ?? $this->generateId("$type-");
         $labelFor = $this->labelFor ?? $id;
+        $uncheckName = '';
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
@@ -93,6 +94,10 @@ abstract class AbstractInputChoice extends Element implements
 
         unset($attributes['id'], $attributes['type'], $attributes['value']);
 
+        if (array_key_exists('name', $attributes) && is_string($attributes['name'])) {
+            $uncheckName = $attributes['name'];
+        }
+
         $tag = Tag::widget()->attributes($attributes)->id($id)->tagName('input')->type($type)->value($value)->render();
 
         if ($this->enclosedByLabel) {
@@ -101,7 +106,7 @@ abstract class AbstractInputChoice extends Element implements
             $labelTag = $this->renderLabelTag($labelFor);
         }
 
-        $choiceTag = $this->prepareTemplate($tag, $labelTag);
+        $choiceTag = $this->uncheckName($uncheckName)->prepareTemplate($tag, $labelTag);
 
         return $this->renderContainerTag(null, $choiceTag);
     }
