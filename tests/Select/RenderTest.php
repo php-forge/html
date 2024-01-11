@@ -64,6 +64,19 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testDisabled(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select disabled>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->disabled()->render(),
+        );
+    }
+
     public function testElement(): void
     {
         Assert::equalsWithoutLE(
@@ -256,6 +269,19 @@ final class RenderTest extends TestCase
             </select>
             HTML,
             Select::widget()->items($this->cities)->prompt('Select City Birth', '0')->render(),
+        );
+    }
+
+    public function testRequired(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select required>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->required()->render(),
         );
     }
 
