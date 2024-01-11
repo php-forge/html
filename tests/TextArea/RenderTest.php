@@ -93,6 +93,11 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testGenerateId(): void
+    {
+        $this->assertStringContainsString('<textarea id="textarea-', TextArea::widget()->render());
+    }
+
     public function testId(): void
     {
         $this->assertSame(
