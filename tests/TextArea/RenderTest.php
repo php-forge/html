@@ -15,78 +15,141 @@ final class RenderTest extends TestCase
 {
     public function testAutocomplete(): void
     {
-        $this->assertSame('<textarea autocomplete="on"></textarea>', TextArea::widget()->autocomplete('on')->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" autocomplete="on"></textarea>
+            HTML,
+            TextArea::widget()->autocomplete('on')->id('textarea-659fc6087e75b')->render()
+        );
+    }
+
+    public function testAutofocus(): void
+    {
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" autofocus></textarea>
+            HTML,
+            TextArea::widget()->autofocus()->id('textarea-659fc6087e75b')->render()
+        );
     }
 
     public function testAttributes(): void
     {
         $this->assertSame(
-            '<textarea class="test-class"></textarea>',
-            TextArea::widget()->attributes(['class' => 'test-class'])->render(),
+            <<<HTML
+            <textarea class="class" id="textarea-659fc6087e75b"></textarea>
+            HTML,
+            TextArea::widget()->attributes(['class' => 'class'])->id('textarea-659fc6087e75b')->render()
         );
     }
 
     public function testClass(): void
     {
         $this->assertSame(
-            '<textarea class="test-class"></textarea>',
-            TextArea::widget()->class('test-class')->render(),
+            <<<HTML
+            <textarea class="class" id="textarea-659fc6087e75b"></textarea>
+            HTML,
+            TextArea::widget()->class('class')->id('textarea-659fc6087e75b')->render()
         );
     }
 
     public function testCols(): void
     {
-        $this->assertSame('<textarea cols="1"></textarea>', TextArea::widget()->cols(1)->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" cols="1"></textarea>
+            HTML,
+            TextArea::widget()->cols(1)->id('textarea-659fc6087e75b')->render()
+        );
     }
 
     public function testContent(): void
     {
-        $this->assertSame('<textarea>test-content</textarea>', TextArea::widget()->content('test-content')->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b">content</textarea>
+            HTML,
+            TextArea::widget()->content('content')->id('textarea-659fc6087e75b')->render()
+        );
     }
 
     public function testDirname(): void
     {
         $this->assertSame(
-            '<textarea dirname="test-dirname"></textarea>',
-            TextArea::widget()->dirname('test-dirname')->render(),
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" dirname="dirname"></textarea>
+            HTML,
+            TextArea::widget()->dirname('dirname')->id('textarea-659fc6087e75b')->render()
         );
     }
 
-    public function testElement(): void
+    public function testDisabled(): void
     {
-        $this->assertSame('<textarea></textarea>', TextArea::widget()->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" disabled></textarea>
+            HTML,
+            TextArea::widget()->disabled()->id('textarea-659fc6087e75b')->render()
+        );
     }
 
     public function testId(): void
     {
-        $this->assertSame('<textarea id="test-id"></textarea>', TextArea::widget()->id('test-id')->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="id"></textarea>
+            HTML,
+            TextArea::widget()->id('id')->render()
+        );
     }
 
     public function testLang(): void
     {
-        $this->assertSame('<textarea lang="test-lang"></textarea>', TextArea::widget()->lang('test-lang')->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" lang="lang"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->lang('lang')->render()
+        );
     }
 
     public function testMaxLength(): void
     {
-        $this->assertSame('<textarea maxlength="1"></textarea>', TextArea::widget()->maxLength(1)->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" maxlength="1"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->maxLength(1)->render()
+        );
     }
 
     public function testMinLength(): void
     {
-        $this->assertSame('<textarea minlength="1"></textarea>', TextArea::widget()->minlength(1)->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" minlength="1"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->minlength(1)->render()
+        );
     }
 
     public function testName(): void
     {
-        $this->assertSame('<textarea name="test-name"></textarea>', TextArea::widget()->name('test-name')->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" name="name"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->name('name')->render()
+        );
     }
 
     public function testPlaceholder(): void
     {
         $this->assertSame(
-            '<textarea placeholder="test-placeholder"></textarea>',
-            TextArea::widget()->placeholder('test-placeholder')->render(),
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" placeholder="placeholder"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->placeholder('placeholder')->render()
         );
     }
 
@@ -94,23 +157,60 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            test-prefix
-            <textarea></textarea>
+            prefix
+            <textarea id="textarea-659fc6087e75b"></textarea>
             HTML,
-            TextArea::widget()->prefix('test-prefix')->render(),
+            TextArea::widget()->id('textarea-659fc6087e75b')->prefix('prefix')->render()
+        );
+    }
+
+    public function testReadonly(): void
+    {
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" readonly></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->readonly()->render()
+        );
+    }
+
+    public function testRequired(): void
+    {
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" required></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->required()->render()
+        );
+    }
+
+    public function testRender(): void
+    {
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->render()
         );
     }
 
     public function testRows(): void
     {
-        $this->assertSame('<textarea rows="1"></textarea>', TextArea::widget()->rows(1)->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" rows="1"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->rows(1)->render()
+        );
     }
 
     public function testStyle(): void
     {
         $this->assertSame(
-            '<textarea style="color:red;"></textarea>',
-            TextArea::widget()->style('color:red;')->render(),
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" style="style;"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->style('style;')->render()
         );
     }
 
@@ -118,36 +218,55 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <textarea></textarea>
-            test-suffix
+            <textarea id="textarea-659fc6087e75b"></textarea>
+            suffix
             HTML,
-            TextArea::widget()->suffix('test-suffix')->render(),
+            TextArea::widget()->id('textarea-659fc6087e75b')->suffix('suffix')->render()
         );
     }
 
     public function testTabIndex(): void
     {
-        $this->assertSame('<textarea tabindex="1"></textarea>', TextArea::widget()->tabIndex(1)->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" tabindex="1"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->tabIndex(1)->render()
+        );
     }
 
     public function testTemplate(): void
     {
         $this->assertSame(
-            '<textarea></textarea>',
-            TextArea::widget()->prefix('test-prefix')->suffix('test-suffix')->template('{tag}')->render(),
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b"></textarea>
+            HTML,
+            TextArea::widget()
+                ->id('textarea-659fc6087e75b')
+                ->prefix('prefix')
+                ->suffix('suffix')
+                ->template('{tag}')
+                ->render()
         );
     }
 
     public function testTitle(): void
     {
         $this->assertSame(
-            '<textarea title="test-title"></textarea>',
-            TextArea::widget()->title('test-title')->render(),
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" title="test-title"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->title('test-title')->render()
         );
     }
 
     public function testWrap(): void
     {
-        $this->assertSame('<textarea wrap="hard"></textarea>', TextArea::widget()->wrap('hard')->render());
+        $this->assertSame(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b" wrap="hard"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->wrap('hard')->render()
+        );
     }
 }
