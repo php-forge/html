@@ -6,13 +6,14 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Helper\Utils;
 use PHPForge\Html\Input\Contract;
-use PHPForge\Html\Input\{Checkbox, Radio};
 use PHPForge\Html\{Attribute, Tag};
 use PHPForge\Widget\Element;
 
 abstract class AbstractChoiceList extends Element implements
+    Contract\AriaDescribedByInterface,
     Contract\CheckedValueInterface,
-    Contract\ChoiceInterface,
+    Contract\InputInterface,
+    Contract\LabelInterface,
     Contract\RequiredInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
@@ -37,7 +38,7 @@ abstract class AbstractChoiceList extends Element implements
 
     protected array $attributes = [];
     /**
-     * @psalm-var Checkbox[]|Radio[] $items
+     * @psalm-var \PHPForge\Html\Input\Checkbox[]|\PHPForge\Html\Input\Radio[] $items
      */
     protected array $items = [];
 
