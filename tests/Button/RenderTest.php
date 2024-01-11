@@ -169,7 +169,7 @@ final class RenderTest extends TestCase
 
     public function testGenerateId(): void
     {
-        $this->assertStringContainsString('<button id="button', Button::widget()->render());
+        $this->assertStringContainsString('<button id="button-', Button::widget()->render());
     }
 
     public function testId(): void
