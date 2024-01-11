@@ -74,7 +74,7 @@ final class RenderTest extends TestCase
 
     public function testMinLength(): void
     {
-        $this->assertSame('<textarea minlength="1"></textarea>', TextArea::widget()->minLength(1)->render());
+        $this->assertSame('<textarea minlength="1"></textarea>', TextArea::widget()->minlength(1)->render());
     }
 
     public function testName(): void

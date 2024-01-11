@@ -22,7 +22,7 @@ trait HasMinLength
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-minlength
      */
-    public function minLength(int $value): static
+    public function minlength(int $value): static
     {
         $new = clone $this;
         $new->attributes['minlength'] = $value;
