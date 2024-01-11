@@ -14,8 +14,9 @@ use PHPForge\Html\Input\Contract;
  */
 final class TextArea extends Base\AbstractElement implements
     Contract\ContentInterface,
-    Contract\PlaceholderInterface,
+    Contract\InputInterface,
     Contract\LengthInterface,
+    Contract\PlaceholderInterface,
     Contract\RequiredInterface
 {
     use Attribute\CanBeAutofocus;
