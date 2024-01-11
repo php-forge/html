@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use InvalidArgumentException;
-use PHPForge\Html\{Attribute, Label, Tag};
 use PHPForge\Html\Input\Contract\{InputInterface, RequiredInterface};
+use PHPForge\Html\{Attribute, Label, Tag};
 use PHPForge\Widget\Element;
 
 use Stringable;
