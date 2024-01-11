@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\{Attribute, Tag};
+use PHPForge\Html\Input\Contract\ValueInterface;
 use PHPForge\Widget\Element;
 
-abstract class AbstractHidden extends Element
+abstract class AbstractHidden extends Element implements ValueInterface
 {
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasPrefixAndSuffix;

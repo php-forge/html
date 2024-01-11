@@ -16,7 +16,8 @@ abstract class AbstractInputChoice extends Element implements
     Contract\CheckedValueInterface,
     Contract\InputInterface,
     Contract\LabelInterface,
-    Contract\RequiredInterface
+    Contract\RequiredInterface,
+    Contract\ValueInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;
