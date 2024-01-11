@@ -12,8 +12,10 @@ use PHPForge\Widget\Element;
  * Provides a foundation for creating HTML elements with various attributes and content.
  */
 abstract class AbstractInputChoice extends Element implements
+    Contract\AriaDescribedByInterface,
     Contract\CheckedValueInterface,
-    Contract\ChoiceInterface,
+    Contract\InputInterface,
+    Contract\LabelInterface,
     Contract\RequiredInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;

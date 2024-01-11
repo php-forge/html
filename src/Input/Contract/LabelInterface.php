@@ -9,7 +9,7 @@ use PHPForge\Widget\ElementInterface;
 /**
  * Provide methods for handling HTML choice input-related attributes and properties.
  */
-interface ChoiceInterface extends AriaDescribedByInterface, InputInterface
+interface LabelInterface
 {
     /**
      * Set the current instance as being enclosed by a label.
