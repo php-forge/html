@@ -39,17 +39,17 @@ final class HasUnchekedTest extends TestCase
 
         $this->assertEmpty($instance->getClass());
 
-        $instance = $instance->uncheckClass('test-class');
+        $instance = $instance->uncheckClass('class');
 
-        $this->assertSame('test-class', $instance->getClass());
+        $this->assertSame('class', $instance->getClass());
 
-        $instance = $instance->uncheckClass('test-class-1');
+        $instance = $instance->uncheckClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getClass());
+        $this->assertSame('class class-1', $instance->getClass());
 
-        $instance = $instance->uncheckClass('test-override-class', true);
+        $instance = $instance->uncheckClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getClass());
+        $this->assertSame('override-class', $instance->getClass());
     }
 
     public function testImmutability(): void
@@ -60,6 +60,7 @@ final class HasUnchekedTest extends TestCase
 
         $this->assertNotSame($instance, $instance->uncheckAttributes([]));
         $this->assertNotSame($instance, $instance->uncheckClass(''));
+        $this->assertNotSame($instance, $instance->uncheckName(''));
         $this->assertNotSame($instance, $instance->uncheckValue(null));
     }
 }
