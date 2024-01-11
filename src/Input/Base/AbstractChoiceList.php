@@ -14,8 +14,7 @@ abstract class AbstractChoiceList extends Element implements
     Contract\CheckedValueInterface,
     Contract\InputInterface,
     Contract\LabelInterface,
-    Contract\RequiredInterface,
-    Contract\ValueInterface
+    Contract\RequiredInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;
