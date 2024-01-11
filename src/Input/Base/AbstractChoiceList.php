@@ -27,6 +27,7 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\Custom\HasLabelItemClass;
     use Attribute\Custom\HasSeparator;
     use Attribute\Custom\HasTemplate;
+    use Attribute\Custom\HasUnchecked;
     use Attribute\Custom\HasWidgetValidation;
     use Attribute\HasClass;
     use Attribute\HasId;
@@ -54,6 +55,7 @@ abstract class AbstractChoiceList extends Element implements
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
         $listItems = [];
+        $uncheckName = '';
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -73,6 +75,10 @@ abstract class AbstractChoiceList extends Element implements
 
         if (array_key_exists('name', $attributes) && is_string($attributes['name']) && $type === 'checkbox') {
             $attributes['name'] = Utils::generateArrayableName($attributes['name']);
+        }
+
+        if (isset($attributes['name']) && is_string($attributes['name'])) {
+            $uncheckName = $attributes['name'];
         }
 
         unset($attributes['value']);
@@ -99,10 +105,16 @@ abstract class AbstractChoiceList extends Element implements
         }
 
         $choiceTag = implode(PHP_EOL, $listItems);
+        $uncheckTag = $this->uncheckName($uncheckName)->renderUncheckTag();
+
+        if ($uncheckTag !== '') {
+            $uncheckTag .= PHP_EOL;
+        }
+
         $tag = match ($this->container) {
             true => Tag::widget()
                 ->attributes($containerAttributes)
-                ->content($choiceTag)
+                ->content($uncheckTag, $choiceTag)
                 ->id($this->id)
                 ->tagName($this->containerTag)
                 ->render(),

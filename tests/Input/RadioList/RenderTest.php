@@ -408,6 +408,31 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testUncheckValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="radiolist-65858c272ea89" tabindex="1">
+            <input name="radioform[text]" type="hidden" value="none">
+            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red">
+            <label for="radio-6599b6a33dd96">Red</label>
+            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
+            <label for="radio-6599b6a33dd97">Blue</label>
+            </div>
+            HTML,
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
+                ->items(
+                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                )
+                ->name('radioform[text]')
+                ->tabIndex(1)
+                ->uncheckValue('none')
+                ->render(),
+        );
+    }
+
     public function testValue(): void
     {
         // bool value
