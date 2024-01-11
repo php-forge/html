@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Input\Contract\AriaDescribedByInterface;
-use PHPForge\Html\Input\Contract\InputInterface;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{Attribute, Tag};
+use PHPForge\Html\Input\Contract;
 use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML `input` custom elements with various attributes and content.
  */
-abstract class AbstractInput extends Element implements AriaDescribedByInterface, InputInterface
+abstract class AbstractInput extends Element implements Contract\AriaDescribedByInterface, Contract\InputInterface
 {
     use Attribute\Aria\HasAriaDescribedBy;
     use Attribute\Aria\HasAriaLabel;
