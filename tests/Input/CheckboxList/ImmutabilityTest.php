@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Input\ChoiceList;
+namespace PHPForge\Html\Tests\Input\CheckboxList;
 
 use PHPForge\Html\Input\Checkbox;
 use PHPForge\Html\Input\CheckboxList;

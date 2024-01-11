@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
-use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Contract;
-use PHPForge\Html\Label;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{Attribute, Label, Tag};
 use PHPForge\Widget\Element;
 
 /**
