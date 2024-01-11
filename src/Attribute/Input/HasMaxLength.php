@@ -21,7 +21,7 @@ trait HasMaxLength
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-maxlength
      */
-    public function maxLength(int $value): static
+    public function maxlength(int $value): static
     {
         $new = clone $this;
         $new->attributes['maxlength'] = $value;

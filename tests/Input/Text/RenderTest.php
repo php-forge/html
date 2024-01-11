@@ -159,7 +159,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" maxlength="1">
             HTML,
-            Text::widget()->id('text-6582f2d099e8b')->maxLength(1)->render()
+            Text::widget()->id('text-6582f2d099e8b')->maxlength(1)->render()
         );
     }
 
@@ -169,7 +169,7 @@ final class RenderTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" minlength="1">
             HTML,
-            Text::widget()->id('text-6582f2d099e8b')->minLength(1)->render()
+            Text::widget()->id('text-6582f2d099e8b')->minlength(1)->render()
         );
     }
 

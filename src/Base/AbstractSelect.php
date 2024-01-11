@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Input\Contract\InputInterface;
-use PHPForge\Html\Label;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{Attribute, Label, Tag};
+use PHPForge\Html\Input\Contract\{InputInterface, RequiredInterface};
 use PHPForge\Widget\Element;
 
 use Stringable;
@@ -24,9 +22,10 @@ use function is_object;
 /**
  * Provides a foundation for creating HTML `select` elements with various attributes and content.
  */
-abstract class AbstractSelect extends Element implements InputInterface
+abstract class AbstractSelect extends Element implements InputInterface, RequiredInterface
 {
     use Attribute\Aria\HasAriaLabel;
+    use Attribute\CanBeAutofocus;
     use Attribute\CanBeAutofocus;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasLabel;
@@ -34,7 +33,9 @@ abstract class AbstractSelect extends Element implements InputInterface
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTabindex;
+    use Attribute\Input\CanBeDisabled;
     use Attribute\Input\CanBeMultiple;
+    use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
     use Attribute\Input\HasSize;
     use Attribute\Input\HasValue;
