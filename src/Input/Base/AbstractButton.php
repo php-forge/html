@@ -38,7 +38,7 @@ abstract class AbstractButton extends Element
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
-    public function loadDefaultDefinitions(): array
+    protected function loadDefaultDefinitions(): array
     {
         return [
             'container()' => [true],
