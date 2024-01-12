@@ -38,7 +38,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
-    public function loadDefaultDefinitions(): array
+    protected function loadDefaultDefinitions(): array
     {
         return [
             'template()' => ['{prefix}\n{tag}\n{suffix}'],

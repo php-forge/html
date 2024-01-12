@@ -38,7 +38,7 @@ final class TextArea extends Base\AbstractElement implements
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
-    public function loadDefaultDefinitions(): array
+    protected function loadDefaultDefinitions(): array
     {
         $loadDefaultDefinitions = parent::loadDefaultDefinitions();
         $loadDefaultDefinitions += ['id()' => [$this->generateId('textarea-')]];

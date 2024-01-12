@@ -42,18 +42,6 @@ final class Button extends Element
     protected string $tagName = 'button';
 
     /**
-     * This method is used to configure the widget with the provided default definitions.
-     */
-    public function loadDefaultDefinitions(): array
-    {
-        return [
-            'id()' => [$this->generateId('button-')],
-            'template()' => ['{prefix}\n{tag}\n{suffix}'],
-            'type()' => ['button'],
-        ];
-    }
-
-    /**
      * Set the button type to `submit`.
      *
      * @return self A new instance of the current class with the specified type value.
@@ -71,6 +59,18 @@ final class Button extends Element
     public function reset(): self
     {
         return $this->type('reset');
+    }
+
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    protected function loadDefaultDefinitions(): array
+    {
+        return [
+            'id()' => [$this->generateId('button-')],
+            'template()' => ['{prefix}\n{tag}\n{suffix}'],
+            'type()' => ['button'],
+        ];
     }
 
     /**
