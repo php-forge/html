@@ -8,7 +8,7 @@ use PHPForge\Html\Attribute\Custom\HasDataBsAutoClose;
 use PHPForge\Html\Attribute\HasData;
 use PHPUnit\Framework\TestCase;
 
-final class HasDataBsAutoClose extends TestCase
+final class HasDataBsAutoCloseTest extends TestCase
 {
     public function testDataBsAutoClose(): void
     {
