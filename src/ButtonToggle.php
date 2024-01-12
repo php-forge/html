@@ -103,7 +103,6 @@ final class ButtonToggle extends Element
             '{icon}' => $this->renderIconTag(),
             '{content}' => $this->content,
         ];
-        $tokenValues += $this->tokenValue;
 
         $content = $this->renderTemplate($this->template, $tokenValues);
         $content = $content !== '' ? PHP_EOL . $content . PHP_EOL : '';
