@@ -87,22 +87,6 @@ trait HasContainer
         return $new;
     }
 
-    /**
-     * Get the container id.
-     *
-     * @return string The container id.
-     */
-    public function getContainerId(): string|null
-    {
-        $id = null;
-
-        if (array_key_exists('id', $this->containerAttributes) && is_string($this->containerAttributes['id'])) {
-            $id = $this->containerAttributes['id'];
-        }
-
-        return $id;
-    }
-
     protected function renderContainerTag(string|null $id, string ...$content): string
     {
         return match ($this->container) {
