@@ -7,7 +7,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 use PHPForge\Html\Attribute\Custom\HasContainerTemplate;
 use PHPUnit\Framework\TestCase;
 
-final class HasContainerTest extends TestCase
+final class HasContainerTemplateTest extends TestCase
 {
     public function testImmutability(): void
     {
