@@ -8,7 +8,6 @@ use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
 use PHPForge\Html\Tag;
 
-use function array_key_exists;
 use function implode;
 
 /**
