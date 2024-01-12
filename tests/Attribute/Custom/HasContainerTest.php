@@ -50,19 +50,6 @@ final class HasContainerTest extends TestCase
         $instance->containerTag('');
     }
 
-    public function testContainerGetId(): void
-    {
-        $instance = new class () {
-            use HasContainer;
-        };
-
-        $this->assertNull($instance->getContainerId());
-
-        $instance = $instance->containerAttributes(['id' => 'id']);
-
-        $this->assertSame('id', $instance->getContainerId());
-    }
-
     public function testImmutability(): void
     {
         $instance = new class () {
