@@ -37,7 +37,7 @@ trait HasId
      *
      * @return string|null A unique ID for the widget.
      */
-    public function generateId(string $value = 'id_'): string|null
+    protected function generateId(string $value = 'id_'): string|null
     {
         return $this->id === '' ? uniqid($value) : $this->id;
     }
