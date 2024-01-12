@@ -14,16 +14,6 @@ trait HasId
     protected string|null $id = '';
 
     /**
-     * Get the ID of the widget.
-     *
-     * @return string|null The ID of the widget.
-     */
-    public function getId(): string|null
-    {
-        return $this->id;
-    }
-
-    /**
      * Set the ID of the widget.
      *
      * @param string|null $value The ID of the widget.

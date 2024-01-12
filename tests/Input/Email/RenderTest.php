@@ -88,11 +88,6 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString('id="email-', Email::widget()->render());
     }
 
-    public function testGetId(): void
-    {
-        $this->assertSame('email-65a15e0439570', Email::widget()->id('email-65a15e0439570')->getId());
-    }
-
     public function testGetValue(): void
     {
         $this->assertSame('value', Email::widget()->value('value')->getValue());
