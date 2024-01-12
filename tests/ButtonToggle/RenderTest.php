@@ -117,6 +117,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testDataCollapseToggle(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="button-toggle-658716145f1d9" type="button" data-collapse-toggle="value"></button>
+            HTML,
+            ButtonToggle::widget()->dataCollapseToggle('value')->id('button-toggle-658716145f1d9')->render()
+        );
+    }
+
     public function testDataDismissTarget(): void
     {
         Assert::equalsWithoutLE(
