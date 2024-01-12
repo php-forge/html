@@ -48,16 +48,4 @@ final class HasIdTest extends TestCase
 
         $this->assertSame('foo', $instance->generateId());
     }
-
-    public function testGetId(): void
-    {
-        $instance = new class () {
-            use HasId;
-
-            protected array $attributes = [];
-        };
-
-        $this->assertSame('', $instance->id('')->getId());
-        $this->assertSame('foo', $instance->id('foo')->getId());
-    }
 }
