@@ -6,7 +6,6 @@ namespace PHPForge\Html\Attribute;
 
 use Closure;
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Enum\DataAttributes;
 
 /**
  * Is used by widgets that implement the dataAttributes method.
