@@ -21,13 +21,6 @@ interface LabelInterface
     public function enclosedByLabel(bool $value): static;
 
     /**
-     * Determine if the label is disabled or not.
-     *
-     * @return bool `true` if the label is disabled, `false` otherwise.
-     */
-    public function isNotLabel(): bool;
-
-    /**
      * Set the `HTML` attributes for the label.
      *
      * @param array $values Attribute values indexed by attribute names.

@@ -95,16 +95,6 @@ trait HasLabel
     }
 
     /**
-     * Determine if the label is disabled or not.
-     *
-     * @return bool `true` if the label is disabled, `false` otherwise.
-     */
-    public function isNotLabel(): bool
-    {
-        return $this->notLabel;
-    }
-
-    /**
      * Render the label tag.
      *
      * @param string $labelFor The `for` attribute value.
@@ -113,7 +103,7 @@ trait HasLabel
      */
     protected function renderLabelTag(string $labelFor = null): string
     {
-        if ($this->labelContent === '' || $this->isNotLabel()) {
+        if ($this->labelContent === '' || $this->notLabel) {
             return '';
         }
 

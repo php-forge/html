@@ -66,25 +66,15 @@ final class HasLabelTest extends TestCase
         $this->assertNotSame($instance, $instance->notLabel());
     }
 
-    public function testIsNotLabel(): void
-    {
-        $instance = new class () {
-            use HasLabel;
-
-            public function getIsNotLabel(): bool
-            {
-                return $this->isNotLabel();
-            }
-        };
-
-        $this->assertTrue($instance->notLabel()->getIsNotLabel());
-        $this->assertFalse($instance->getIsNotLabel());
-    }
-
     public function testNotLabel(): void
     {
         $instance = new class () {
             use HasLabel;
+
+            public function isNotLabel(): bool
+            {
+                return $this->notLabel;
+            }
         };
 
         $this->assertFalse($instance->isNotLabel());

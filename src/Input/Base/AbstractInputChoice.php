@@ -126,7 +126,7 @@ abstract class AbstractInputChoice extends Element implements
 
     private function renderEnclosedByLabel(string $tag, string $labelFor): string
     {
-        if ($this->labelContent === '' || $this->isNotLabel()) {
+        if ($this->labelContent === '' || $this->notLabel) {
             return $tag;
         }
 
