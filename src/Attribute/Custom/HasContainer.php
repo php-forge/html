@@ -18,7 +18,6 @@ trait HasContainer
 {
     protected array $containerAttributes = [];
     protected bool $container = false;
-    protected string $containerTemplate = '';
     protected string $containerTag = 'div';
 
     /**
@@ -84,21 +83,6 @@ trait HasContainer
 
         $new = clone $this;
         $new->containerTag = $value;
-
-        return $new;
-    }
-
-    /**
-     * Set the container template.
-     *
-     * @param string $template The template for the container.
-     *
-     * @return static A new instance of the current class with the specified container template.
-     */
-    public function containerTemplate(string $template): static
-    {
-        $new = clone $this;
-        $new->containerTemplate = $template;
 
         return $new;
     }
