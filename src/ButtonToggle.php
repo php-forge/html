@@ -26,6 +26,7 @@ final class ButtonToggle extends Element
     use Attribute\Custom\HasDataBsDismiss;
     use Attribute\Custom\HasDataBsTarget;
     use Attribute\Custom\HasDataBsToggle;
+    use Attribute\Custom\HasDataCollapseToggle;
     use Attribute\Custom\HasDataDismissTarget;
     use Attribute\Custom\HasDataDrawerTarget;
     use Attribute\Custom\HasDataDropdownToggle;
