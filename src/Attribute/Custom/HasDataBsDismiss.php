@@ -12,17 +12,6 @@ use PHPForge\Html\Attribute\Enum\DataAttributes;
 trait HasDataBsDismiss
 {
     /**
-     * Set the data attribute.
-     *
-     * @param array $values The data attribute values.
-     *
-     * @return static A new instance of the current class with the specified data attribute values.
-     *
-     * @link https://html.spec.whatwg.org/multipage/dom.html#attr-data-*
-     */
-    abstract public function dataAttributes(array $values): static;
-
-    /**
      * Set the `HTML` data-bs-dismiss attribute for the toggle.
      *
      * @param string $value The data-bs-dismiss attribute value.

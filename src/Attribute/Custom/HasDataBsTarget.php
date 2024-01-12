@@ -11,16 +11,7 @@ use PHPForge\Html\Attribute\Enum\DataAttributes;
  */
 trait HasDataBsTarget
 {
-    /**
-     * Set the data attribute.
-     *
-     * @param array $values The data attribute values.
-     *
-     * @return static A new instance of the current class with the specified data attribute values.
-     *
-     * @link https://html.spec.whatwg.org/multipage/dom.html#attr-data-*
-     */
-    abstract public function dataAttributes(array $values): static;
+    protected bool|string $dataBsTarget = false;
 
     /**
      * Set the `HTML` data-bs-target attribute for the toggle.

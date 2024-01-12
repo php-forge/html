@@ -13,12 +13,6 @@ use PHPForge\Html\Attribute\Enum\DataAttributes;
  */
 trait HasData
 {
-    protected bool|string $dataBsTarget = false;
-    protected bool|string $dataDismissTarget = false;
-    protected bool|string $dataDrawerTarget = false;
-    protected bool|string $dataDropdownToggle = false;
-    protected bool|string $dataToggle = false;
-
     /**
      * Set the data attribute.
      *
