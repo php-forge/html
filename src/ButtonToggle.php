@@ -22,6 +22,13 @@ final class ButtonToggle extends Element
     use Attribute\Component\HasToggle;
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasContent;
+    use Attribute\Custom\HasDataBsAutoClose;
+    use Attribute\Custom\HasDataBsTarget;
+    use Attribute\Custom\HasDataBsToggle;
+    use Attribute\Custom\HasDataDismissTarget;
+    use Attribute\Custom\HasDataDrawerTarget;
+    use Attribute\Custom\HasDataDropdownToggle;
+    use Attribute\Custom\HasDataToggle;
     use Attribute\Custom\HasTemplate;
     use Attribute\HasClass;
     use Attribute\HasData;
