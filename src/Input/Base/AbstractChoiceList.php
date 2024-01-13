@@ -55,7 +55,8 @@ abstract class AbstractChoiceList extends Element implements
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
         $listItems = [];
-        $name = $attributes['name'] ?? $this->uncheckName;
+        /** @var string $name */
+        $name = $attributes['name'] ?? '';
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -73,9 +74,8 @@ abstract class AbstractChoiceList extends Element implements
             unset($attributes['tabindex']);
         }
 
-        if (array_key_exists('name', $attributes) && is_string($attributes['name']) && $type === 'checkbox') {
-            $attributes['name'] = Utils::generateArrayableName($attributes['name']);
-            $name = $attributes['name'];
+        if (array_key_exists('name', $attributes) && $name !== '' && $type === 'checkbox') {
+            $name = Utils::generateArrayableName($name);
         }
 
         unset($attributes['value']);
@@ -92,6 +92,7 @@ abstract class AbstractChoiceList extends Element implements
                 ->attributes($attributes)
                 ->enclosedByLabel($this->enclosedByLabel)
                 ->labelClass($this->labelItemClass)
+                ->name($name)
                 ->separator($this->separator);
 
             if ($this->enclosedByLabel === true) {

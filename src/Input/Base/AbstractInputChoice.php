@@ -79,7 +79,8 @@ abstract class AbstractInputChoice extends Element implements
         /** @var string $id */
         $id = $attributes['id'] ?? $this->generateId("$type-");
         $labelFor = $this->labelFor ?? $id;
-        $name = $attributes['name'] ?? $this->uncheckName;
+        /** @var string $name */
+        $name = $attributes['name'] ?? '';
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";

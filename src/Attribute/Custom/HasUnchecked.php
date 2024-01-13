@@ -15,7 +15,6 @@ use function array_merge;
 trait HasUnchecked
 {
     protected array $uncheckAttributes = [];
-    protected string $uncheckName = '';
     protected mixed $uncheckValue = null;
 
     /**
@@ -45,21 +44,6 @@ trait HasUnchecked
     {
         $new = clone $this;
         CssClass::add($new->uncheckAttributes, $class, $override);
-
-        return $new;
-    }
-
-    /**
-     * Set the `HTML` id for the unchecked element.
-     *
-     * @param string $value The name of the unchecked element.
-     *
-     * @return static A new instance of the current class with the specified unchecked name.
-     */
-    public function uncheckName(string $value): static
-    {
-        $new = clone $this;
-        $new->uncheckName = $value;
 
         return $new;
     }

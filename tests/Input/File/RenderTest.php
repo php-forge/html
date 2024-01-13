@@ -393,17 +393,6 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testUncheckName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input name="value" type="hidden" value="0">
-            <input id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->uncheckName('value')->uncheckValue('0')->render()
-        );
-    }
-
     public function testUncheckValue(): void
     {
         Assert::equalsWithoutLE(

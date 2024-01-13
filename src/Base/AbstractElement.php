@@ -17,7 +17,7 @@ abstract class AbstractElement extends Element
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
-    use Attribute\Custom\HasTokenValue;
+    use Attribute\Custom\HasTokenValues;
     use Attribute\HasClass;
     use Attribute\HasData;
     use Attribute\HasId;
@@ -57,7 +57,7 @@ abstract class AbstractElement extends Element
             '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
             '{suffix}' => $this->renderSuffixTag(),
         ];
-        $tokenValues += $this->tokenValue;
+        $tokenValues += $this->tokenValues;
 
         return $this->renderTemplate($this->template, $tokenValues);
     }

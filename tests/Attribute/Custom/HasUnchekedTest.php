@@ -60,7 +60,6 @@ final class HasUnchekedTest extends TestCase
 
         $this->assertNotSame($instance, $instance->uncheckAttributes([]));
         $this->assertNotSame($instance, $instance->uncheckClass(''));
-        $this->assertNotSame($instance, $instance->uncheckName(''));
         $this->assertNotSame($instance, $instance->uncheckValue(null));
     }
 }

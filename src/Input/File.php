@@ -30,21 +30,21 @@ final class File extends Base\AbstractInput
     {
         $attributes = $this->attributes;
         $multiple = $attributes['multiple'] ?? false;
-        $name = $attributes['name'] ?? $this->uncheckName;
-        $uncheckedTag = '';
+        /** @var string $name */
+        $name = $attributes['name'] ?? '';
 
-        if ($multiple === true && array_key_exists('name', $attributes) && is_string($attributes['name'])) {
-            $attributes['name'] = Utils::generateArrayableName($attributes['name']);
-            $name = $attributes['name'];
-        }
-
-        if ($this->uncheckValue !== null) {
-            $uncheckedTag = $this->renderUncheckTag($name);
+        if ($multiple && $name !== '') {
+            $name = Utils::generateArrayableName($name);
         }
 
         // input type="file" not supported value attribute.
         unset($attributes['value']);
 
-        return $this->buildInputTag($attributes, 'file', '{unchecktag}', $uncheckedTag);
+        return $this->buildInputTag(
+            $attributes,
+            'file',
+            ['{unchecktag}' => $this->renderUncheckTag($name)],
+            $name
+        );
     }
 }
