@@ -12,6 +12,13 @@ namespace PHPForge\Html\Input;
  */
 final class RadioList extends Base\AbstractChoiceList
 {
+    /**
+     * Sets the items for the RadioList.
+     *
+     * @param Radio ...$items An array of Radio objects representing the items for the RadioList.
+     *
+     * @return static A new instance or clone of the current object with the items set.
+     */
     public function items(Radio ...$items): static
     {
         $new = clone $this;
