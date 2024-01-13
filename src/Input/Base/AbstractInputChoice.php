@@ -79,7 +79,7 @@ abstract class AbstractInputChoice extends Element implements
         /** @var string $id */
         $id = $attributes['id'] ?? $this->generateId("$type-");
         $labelFor = $this->labelFor ?? $id;
-        $uncheckName = '';
+        $name = $attributes['name'] ?? $this->uncheckName;
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
@@ -94,10 +94,6 @@ abstract class AbstractInputChoice extends Element implements
 
         unset($attributes['id'], $attributes['type'], $attributes['value']);
 
-        if (array_key_exists('name', $attributes) && is_string($attributes['name'])) {
-            $uncheckName = $attributes['name'];
-        }
-
         $tag = Tag::widget()->attributes($attributes)->id($id)->tagName('input')->type($type)->value($value)->render();
 
         if ($this->enclosedByLabel) {
@@ -106,16 +102,16 @@ abstract class AbstractInputChoice extends Element implements
             $labelTag = $this->renderLabelTag($labelFor);
         }
 
-        $choiceTag = $this->uncheckName($uncheckName)->prepareTemplate($tag, $labelTag);
+        $choiceTag = $this->prepareTemplate($tag, $labelTag, $name);
 
         return $this->renderContainerTag(null, $choiceTag);
     }
 
-    private function prepareTemplate(string $tag, string $labelTag): string
+    private function prepareTemplate(string $tag, string $labelTag, string $name): string
     {
         $tokenValues = [
             '{prefix}' => $this->renderPrefixTag(),
-            '{unchecktag}' => $this->renderUncheckTag(),
+            '{unchecktag}' => $this->renderUncheckTag($name),
             '{tag}' => $tag,
             '{label}' => $labelTag,
             '{suffix}' => $this->renderSuffixTag(),

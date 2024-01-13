@@ -15,6 +15,7 @@ use function array_merge;
 trait HasUnchecked
 {
     protected array $uncheckAttributes = [];
+    protected string $uncheckName = '';
     protected mixed $uncheckValue = null;
 
     /**
@@ -58,7 +59,7 @@ trait HasUnchecked
     public function uncheckName(string $value): static
     {
         $new = clone $this;
-        $new->uncheckAttributes['name'] = $value;
+        $new->uncheckName = $value;
 
         return $new;
     }
@@ -81,9 +82,11 @@ trait HasUnchecked
     /**
      * Generate the HTML representation of the unchecked element.
      *
+     * @param string $uncheckName The name of the unchecked element.
+     *
      * @return string The HTML representation of the unchecked element.
      */
-    private function renderUncheckTag(): string
+    private function renderUncheckTag(string $uncheckName = ''): string
     {
         if ($this->uncheckValue === null) {
             return '';
@@ -92,6 +95,7 @@ trait HasUnchecked
         return Hidden::widget()
             ->attributes($this->uncheckAttributes)
             ->id(null)
+            ->name($uncheckName)
             ->value($this->uncheckValue)
             ->render();
     }

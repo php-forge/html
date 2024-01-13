@@ -55,7 +55,7 @@ abstract class AbstractChoiceList extends Element implements
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
         $listItems = [];
-        $uncheckName = '';
+        $name = $attributes['name'] ?? $this->uncheckName;
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -75,10 +75,7 @@ abstract class AbstractChoiceList extends Element implements
 
         if (array_key_exists('name', $attributes) && is_string($attributes['name']) && $type === 'checkbox') {
             $attributes['name'] = Utils::generateArrayableName($attributes['name']);
-        }
-
-        if (isset($attributes['name']) && is_string($attributes['name'])) {
-            $uncheckName = $attributes['name'];
+            $name = $attributes['name'];
         }
 
         unset($attributes['value']);
@@ -105,7 +102,7 @@ abstract class AbstractChoiceList extends Element implements
         }
 
         $choiceTag = implode(PHP_EOL, $listItems);
-        $uncheckTag = $this->uncheckName($uncheckName)->renderUncheckTag();
+        $uncheckTag = $this->renderUncheckTag($name);
 
         if ($uncheckTag !== '') {
             $uncheckTag .= PHP_EOL;
