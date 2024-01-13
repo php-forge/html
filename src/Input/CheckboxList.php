@@ -12,6 +12,13 @@ namespace PHPForge\Html\Input;
  */
 final class CheckboxList extends Base\AbstractChoiceList
 {
+    /**
+     * Sets the items for the CheckboxList.
+     *
+     * @param Checkbox ...$items An array of Checkbox objects representing the items for the CheckboxList.
+     *
+     * @return static A new instance or clone of the current object with the items set.
+     */
     public function items(Checkbox ...$items): static
     {
         $new = clone $this;

@@ -45,8 +45,12 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
         ];
     }
 
-    protected function buildInputTag(array $attributes, string $type): string
-    {
+    protected function buildInputTag(
+        array $attributes,
+        string $type,
+        array $tokenValues = [],
+        string $name = ''
+    ): string {
         $id = $this->generateId("$type-");
 
         if ($this->ariaDescribedBy === true) {
@@ -55,7 +59,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
 
         unset($attributes['type']);
 
-        return Tag::widget()
+        $tag = Tag::widget()
             ->attributes($attributes)
             ->id($id)
             ->prefix($this->prefix)
@@ -68,7 +72,13 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
             ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('input')
             ->template($this->template)
-            ->type($type)
-            ->render();
+            ->tokenValues($tokenValues)
+            ->type($type);
+
+        if ($name !== '') {
+            $tag = $tag->name($name);
+        }
+
+        return $tag->render();
     }
 }

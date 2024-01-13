@@ -55,7 +55,8 @@ abstract class AbstractChoiceList extends Element implements
         $attributes = $this->attributes;
         $containerAttributes = $this->containerAttributes;
         $listItems = [];
-        $uncheckName = '';
+        /** @var string $name */
+        $name = $attributes['name'] ?? '';
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -63,25 +64,17 @@ abstract class AbstractChoiceList extends Element implements
 
         if (array_key_exists('autofocus', $attributes) && is_bool($attributes['autofocus'])) {
             $containerAttributes['autofocus'] = $attributes['autofocus'];
-
-            unset($attributes['autofocus']);
         }
 
         if (array_key_exists('tabindex', $attributes) && is_int($attributes['tabindex'])) {
             $containerAttributes['tabindex'] = $attributes['tabindex'];
-
-            unset($attributes['tabindex']);
         }
 
-        if (array_key_exists('name', $attributes) && is_string($attributes['name']) && $type === 'checkbox') {
-            $attributes['name'] = Utils::generateArrayableName($attributes['name']);
+        if ($name !== '' && $type === 'checkbox') {
+            $name = Utils::generateArrayableName($name);
         }
 
-        if (isset($attributes['name']) && is_string($attributes['name'])) {
-            $uncheckName = $attributes['name'];
-        }
-
-        unset($attributes['value']);
+        unset($attributes['autofocus'], $attributes['tabindex'], $attributes['value']);
 
         foreach ($this->items as $item) {
             $itemValue = $item->getValue();
@@ -95,6 +88,7 @@ abstract class AbstractChoiceList extends Element implements
                 ->attributes($attributes)
                 ->enclosedByLabel($this->enclosedByLabel)
                 ->labelClass($this->labelItemClass)
+                ->name($name)
                 ->separator($this->separator);
 
             if ($this->enclosedByLabel === true) {
@@ -105,7 +99,7 @@ abstract class AbstractChoiceList extends Element implements
         }
 
         $choiceTag = implode(PHP_EOL, $listItems);
-        $uncheckTag = $this->uncheckName($uncheckName)->renderUncheckTag();
+        $uncheckTag = $this->renderUncheckTag($name);
 
         if ($uncheckTag !== '') {
             $uncheckTag .= PHP_EOL;

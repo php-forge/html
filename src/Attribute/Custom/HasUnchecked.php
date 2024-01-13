@@ -49,21 +49,6 @@ trait HasUnchecked
     }
 
     /**
-     * Set the `HTML` id for the unchecked element.
-     *
-     * @param string $value The name of the unchecked element.
-     *
-     * @return static A new instance of the current class with the specified unchecked name.
-     */
-    public function uncheckName(string $value): static
-    {
-        $new = clone $this;
-        $new->uncheckAttributes['name'] = $value;
-
-        return $new;
-    }
-
-    /**
      * set the value content attribute gives the default value of the unchecked field.
      *
      * @param mixed $value The value of the unchecked field.
@@ -81,9 +66,11 @@ trait HasUnchecked
     /**
      * Generate the HTML representation of the unchecked element.
      *
+     * @param string $uncheckName The name of the unchecked element.
+     *
      * @return string The HTML representation of the unchecked element.
      */
-    private function renderUncheckTag(): string
+    private function renderUncheckTag(string $uncheckName = ''): string
     {
         if ($this->uncheckValue === null) {
             return '';
@@ -92,6 +79,7 @@ trait HasUnchecked
         return Hidden::widget()
             ->attributes($this->uncheckAttributes)
             ->id(null)
+            ->name($uncheckName)
             ->value($this->uncheckValue)
             ->render();
     }
