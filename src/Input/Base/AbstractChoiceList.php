@@ -64,21 +64,17 @@ abstract class AbstractChoiceList extends Element implements
 
         if (array_key_exists('autofocus', $attributes) && is_bool($attributes['autofocus'])) {
             $containerAttributes['autofocus'] = $attributes['autofocus'];
-
-            unset($attributes['autofocus']);
         }
 
         if (array_key_exists('tabindex', $attributes) && is_int($attributes['tabindex'])) {
             $containerAttributes['tabindex'] = $attributes['tabindex'];
-
-            unset($attributes['tabindex']);
         }
 
-        if (array_key_exists('name', $attributes) && $name !== '' && $type === 'checkbox') {
+        if ($name !== '' && $type === 'checkbox') {
             $name = Utils::generateArrayableName($name);
         }
 
-        unset($attributes['value']);
+        unset($attributes['autofocus'], $attributes['tabindex'], $attributes['value']);
 
         foreach ($this->items as $item) {
             $itemValue = $item->getValue();
