@@ -249,6 +249,16 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testRequired(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="file-65a15e0439570" type="file" required>
+            HTML,
+            File::widget()->id('file-65a15e0439570')->required()->render()
+        );
+    }
+
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(
@@ -335,7 +345,7 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function tabIndex(): void
+    public function testTabIndex(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
