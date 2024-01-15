@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class AttributesTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function testAriaDescribedBy(): void
     {
@@ -210,7 +210,7 @@ final class AttributesTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->ariaDescribedBy(true)
+                ->ariaDescribedBy()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),

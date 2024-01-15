@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class CustomAttributesTest extends TestCase
+final class CustomMethodTest extends TestCase
 {
     public function testContainerAttributes(): void
     {

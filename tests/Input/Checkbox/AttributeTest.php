@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class AttributesTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function testAriaDescribedBy(): void
     {
