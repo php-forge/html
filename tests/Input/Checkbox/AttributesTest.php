@@ -1,0 +1,345 @@
+<?php
+
+declare(strict_types=1);
+
+namespace PHPForge\Html\Tests\Input\Checkbox;
+
+use PHPForge\Html\Input\Checkbox;
+use PHPForge\Support\Assert;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
+final class AttributesTest extends TestCase
+{
+    public function testAriaDescribedBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" aria-describedby="value">
+            HTML,
+            Checkbox::widget()->ariaDescribedBy('value')->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testAriaLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" aria-label="value">
+            HTML,
+            Checkbox::widget()->ariaLabel('value')->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input class="value" id="value" type="checkbox">
+            HTML,
+            Checkbox::widget()->attributes(['class' => 'value', 'id' => 'value'])->render()
+        );
+    }
+
+    public function testAutofocus(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" autofocus>
+            HTML,
+            Checkbox::widget()->autofocus()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testChecked(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
+            HTML,
+            Checkbox::widget()->checked(true)->id('checkbox-6582f2d099e8b')->value(1)->render()
+        );
+    }
+
+    public function testCheckedWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1">
+            HTML,
+            Checkbox::widget()->checked(false)->id('checkbox-6582f2d099e8b')->value(1)->render()
+        );
+    }
+
+    public function testCheckedValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->checkedValue(1)->value(1)->render()
+        );
+    }
+
+    public function testCheckedValuewithNull(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->checkedValue(null)->value(1)->render()
+        );
+    }
+
+    public function testClass(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input class="value" id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->class('value')->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+    public function testDataAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" data-value="value">
+            HTML,
+            Checkbox::widget()->dataAttributes(['value' => 'value'])->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testDisabled(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" disabled>
+            HTML,
+            Checkbox::widget()->disabled()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testForm(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" form="form">
+            HTML,
+            Checkbox::widget()->form('form')->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testGenerateAriaDescribeBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" aria-describedby="checkbox-6582f2d099e8b-help">
+            HTML,
+            Checkbox::widget()->ariaDescribedBy()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testGenerateAriaDescribeByWithFalse(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->ariaDescribedBy(false)->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testHidden(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" hidden>
+            HTML,
+            Checkbox::widget()->hidden()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="value" type="checkbox">
+            HTML,
+            Checkbox::widget()->id('value')->render()
+        );
+    }
+
+    public function testLang(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" lang="value">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->lang('value')->render()
+        );
+    }
+
+    public function testName(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" name="name" type="checkbox">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->name('name')->render()
+        );
+    }
+
+    public function testReadonly(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" readonly>
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->readonly()->render()
+        );
+    }
+
+    public function testRequired(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" required>
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->required()->render()
+        );
+    }
+
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testStyle(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" style="value">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->style('value')->render()
+        );
+    }
+
+    public function testTabIndex(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" tabindex="1">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->tabIndex(1)->render()
+        );
+    }
+
+    public function testTitle(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" title="value">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->title('value')->render()
+        );
+    }
+
+    public function testValue(): void
+    {
+        // Value bool `false`.
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="0">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->value(false)->render()
+        );
+
+        // Value bool `true`.
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
+            HTML,
+            Checkbox::widget()->checkedValue(true)->id('checkbox-6582f2d099e8b')->value(true)->render()
+        );
+
+        // Value int `0`.
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="0">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->value(0)->render()
+        );
+
+        // Value int `1`.
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
+            HTML,
+            Checkbox::widget()->checkedValue(1)->id('checkbox-6582f2d099e8b')->value(1)->render()
+        );
+
+        // Value string `inactive`.
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="inactive">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->value('inactive')->render()
+        );
+
+        // Value string `active`.
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="inactive" checked>
+            HTML,
+            Checkbox::widget()->checkedValue('inactive')->id('checkbox-6582f2d099e8b')->value('inactive')->render()
+        );
+    }
+
+    public function testValueWithDiferentTypes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
+            HTML,
+            Checkbox::widget()->checkedValue(1)->id('checkbox-6582f2d099e8b')->value('1')->render()
+        );
+    }
+
+    public function testValueWithEmpty(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->checkedValue(null)->id('checkbox-6582f2d099e8b')->value(null)->render()
+        );
+    }
+
+    public function testWithoutId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input type="checkbox">
+            HTML,
+            Checkbox::widget()->id(null)->render()
+        );
+    }
+
+    public function testWithoutName(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->name(null)->render()
+        );
+    }
+}
