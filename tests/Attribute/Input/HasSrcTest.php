@@ -17,6 +17,6 @@ final class HasSrcTest extends TestCase
             protected array $attributes = [];
         };
 
-        $this->assertNotSame($instance, $instance->src(''));
+        $this->assertNotSame($instance, $instance->src(null));
     }
 }
