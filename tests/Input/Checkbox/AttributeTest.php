@@ -203,16 +203,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox" required>
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->required()->render()
-        );
-    }
-
     public function testRender(): void
     {
         Assert::equalsWithoutLE(
@@ -220,6 +210,16 @@ final class AttributeTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
             Checkbox::widget()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testRequired(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" required>
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->required()->render()
         );
     }
 

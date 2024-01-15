@@ -163,16 +163,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
-            HTML,
-            Color::widget()->id('color-6582f2d099e8b')->render()
-        );
-    }
-
     public function testRequired(): void
     {
         Assert::equalsWithoutLE(
@@ -180,6 +170,16 @@ final class AttributeTest extends TestCase
             <input id="color-6582f2d099e8b" type="color" required>
             HTML,
             Color::widget()->id('color-6582f2d099e8b')->required()->render()
+        );
+    }
+
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="color-6582f2d099e8b" type="color">
+            HTML,
+            Color::widget()->id('color-6582f2d099e8b')->render()
         );
     }
 

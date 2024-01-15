@@ -298,33 +298,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testNotLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div id="checkboxlist-65858c272ea89">
-            <input id="checkbox-6599b6a33dd96" name="CheckboxForm[text][]" type="checkbox" value="1">
-            <label for="checkbox-6599b6a33dd96">Apple</label>
-            <input id="checkbox-6599b6a33dd98" name="CheckboxForm[text][]" type="checkbox" value="2">
-            <label for="checkbox-6599b6a33dd98">Banana</label>
-            <input id="checkbox-6599b6a33dd97" name="CheckboxForm[text][]" type="checkbox" value="3">
-            <label for="checkbox-6599b6a33dd97">Orange</label>
-            </div>
-            HTML,
-            CheckboxList::widget()
-                ->id('checkboxlist-65858c272ea89')
-                ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
-                )
-                ->labelContent('Select your gender?')
-                ->name('CheckboxForm[text]')
-                ->notLabel()
-                ->render(),
-        );
-    }
-
     public function testRender(): void
     {
         Assert::equalsWithoutLE(
@@ -344,6 +317,32 @@ final class AttributeTest extends TestCase
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
                     Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
                     Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                )
+                ->name('CheckboxForm[text]')
+                ->render(),
+        );
+    }
+
+    public function testRequired(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="checkboxlist-65858c272ea89">
+            <input id="checkbox-6599b6a33dd96" name="CheckboxForm[text][]" type="checkbox" value="1" required>
+            <label for="checkbox-6599b6a33dd96">Apple</label>
+            <input id="checkbox-6599b6a33dd98" name="CheckboxForm[text][]" type="checkbox" value="2" required>
+            <label for="checkbox-6599b6a33dd98">Banana</label>
+            <input id="checkbox-6599b6a33dd97" name="CheckboxForm[text][]" type="checkbox" value="3" required>
+            <label for="checkbox-6599b6a33dd97">Orange</label>
+            </div>
+            HTML,
+            CheckboxList::widget()
+                ->required()
+                ->id('checkboxlist-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->required()->labelContent('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->required()->labelContent('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->required()->labelContent('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
