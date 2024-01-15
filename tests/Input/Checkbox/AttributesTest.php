@@ -102,6 +102,7 @@ final class AttributesTest extends TestCase
             Checkbox::widget()->class('value')->id('checkbox-6582f2d099e8b')->render()
         );
     }
+
     public function testDataAttributes(): void
     {
         Assert::equalsWithoutLE(

@@ -222,7 +222,6 @@ final class AttributesTest extends TestCase
         );
     }
 
-
     public function testGenerateAriaDescribedByWithFalse(): void
     {
         Assert::equalsWithoutLE(
