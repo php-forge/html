@@ -11,38 +11,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class CustomMethodTest extends TestCase
 {
-    public function testAttributes(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input class="class" id="hidden-6582f2d099e8b" type="hidden">
-            HTML,
-            Hidden::widget()->attributes(['class' => 'class'])->id('hidden-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="id" type="hidden">
-            HTML,
-            Hidden::widget()->id('id')->render()
-        );
-    }
-
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="hidden-6582f2d099e8b" name="name" type="hidden">
-            HTML,
-            Hidden::widget()->id('hidden-6582f2d099e8b')->name('name')->render()
-        );
-    }
-
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
@@ -71,7 +41,7 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="class">
+            <div class="value">
             prefix
             </div>
             <input id="hidden-6582f2d099e8b" type="hidden">
@@ -80,7 +50,7 @@ final class RenderTest extends TestCase
                 ->id('hidden-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'class'])
+                ->prefixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -89,7 +59,7 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="class">
+            <div class="value">
             prefix
             </div>
             <input id="hidden-6582f2d099e8b" type="hidden">
@@ -98,7 +68,7 @@ final class RenderTest extends TestCase
                 ->id('hidden-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerClass('class')
+                ->prefixContainerClass('value')
                 ->render()
         );
     }
@@ -118,26 +88,6 @@ final class RenderTest extends TestCase
                 ->prefixContainer(true)
                 ->prefixContainerTag('article')
                 ->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="hidden-6582f2d099e8b" type="hidden">
-            HTML,
-            Hidden::widget()->id('hidden-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testStyle(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="hidden-6582f2d099e8b" type="hidden" style="style">
-            HTML,
-            Hidden::widget()->id('hidden-6582f2d099e8b')->style('style')->render()
         );
     }
 
@@ -170,7 +120,7 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="hidden-6582f2d099e8b" type="hidden">
-            <div class="class">
+            <div class="value">
             suffix
             </div>
             HTML,
@@ -178,7 +128,7 @@ final class RenderTest extends TestCase
                 ->id('hidden-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'class'])
+                ->suffixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -188,7 +138,7 @@ final class RenderTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="hidden-6582f2d099e8b" type="hidden">
-            <div class="class">
+            <div class="value">
             suffix
             </div>
             HTML,
@@ -196,7 +146,7 @@ final class RenderTest extends TestCase
                 ->id('hidden-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerClass('class')
+                ->suffixContainerClass('value')
                 ->render()
         );
     }
@@ -223,35 +173,11 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
+            <div>
             <input id="hidden-6582f2d099e8b" type="hidden">
-            suffix
+            </div>
             HTML,
-            Hidden::widget()
-                ->id('hidden-6582f2d099e8b')
-                ->prefix('prefix')
-                ->suffix('suffix')
-                ->template('{tag}\n{suffix}')
-                ->render()
-        );
-    }
-
-    public function testValue(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="hidden-6582f2d099e8b" type="hidden" value="value">
-            HTML,
-            Hidden::widget()->id('hidden-6582f2d099e8b')->value('value')->render()
-        );
-    }
-
-    public function testValueEmpty(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="hidden-6582f2d099e8b" type="hidden">
-            HTML,
-            Hidden::widget()->id('hidden-6582f2d099e8b')->value(null)->render()
+            Hidden::widget()->id('hidden-6582f2d099e8b')->template('<div>\n{tag}\n</div>')->render()
         );
     }
 }

@@ -91,6 +91,17 @@ final class LabelTest extends TestCase
         );
     }
 
+    public function testLabelContent(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            <label for="checkbox-6582f2d099e8b">Red</label>
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->render()
+        );
+    }
+
     public function testLabelFor(): void
     {
         Assert::equalsWithoutLE(

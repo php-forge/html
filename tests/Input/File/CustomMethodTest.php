@@ -11,158 +11,8 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class CustomMethodTest extends TestCase
 {
-    public function testAccept(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" accept="value">
-            HTML,
-            File::widget()->accept('value')->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testAriaDescribedBy(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" aria-describedby="value">
-            HTML,
-            File::widget()->ariaDescribedBy('value')->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testAriaLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" aria-label="value">
-            HTML,
-            File::widget()->ariaLabel('value')->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testAttributes(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input class="value" id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->attributes(['class' => 'value'])->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testAutofocus(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" autofocus>
-            HTML,
-            File::widget()->autofocus()->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testClass(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input class="value" id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->class('value')->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testDataAttributes(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" data-test="value">
-            HTML,
-            File::widget()->dataAttributes(['test' => 'value'])->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testDisabled(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" disabled>
-            HTML,
-            File::widget()->disabled()->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testForm(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" form="value">
-            HTML,
-            File::widget()->form('value')->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testHidden(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" hidden>
-            HTML,
-            File::widget()->hidden()->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="value" type="file">
-            HTML,
-            File::widget()->id('value')->render()
-        );
-    }
-
-    public function testLang(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" lang="value">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->lang('value')->render()
-        );
-    }
-
-    public function testMultiple(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" multiple>
-            HTML,
-            File::widget()->id('file-65a15e0439570')->multiple()->render()
-        );
-    }
-
-    public function testMutipleWithName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" name="value[]" type="file" multiple>
-            HTML,
-            File::widget()->id('file-65a15e0439570')->multiple()->name('value')->render()
-        );
-    }
-
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" name="value" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->name('value')->render()
-        );
-    }
-
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
@@ -236,36 +86,6 @@ final class RenderTest extends TestCase
                 ->prefixContainer(true)
                 ->prefixContainerTag('span')
                 ->render()
-        );
-    }
-
-    public function testReadonly(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" readonly>
-            HTML,
-            File::widget()->id('file-65a15e0439570')->readonly()->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" required>
-            HTML,
-            File::widget()->id('file-65a15e0439570')->required()->render()
-        );
-    }
-
-    public function testStyle(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" style="value">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->style('value')->render()
         );
     }
 
@@ -345,16 +165,6 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testTabIndex(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" tabindex="1">
-            HTML,
-            File::widget()->tabIndex(1)->id('file-65a15e0439570')->render()
-        );
-    }
-
     public function testTemplate(): void
     {
         Assert::equalsWithoutLE(
@@ -364,16 +174,6 @@ final class RenderTest extends TestCase
             </div>
             HTML,
             File::widget()->id('file-65a15e0439570')->template('<div>\n{tag}\n</div>')->render()
-        );
-    }
-
-    public function testTitle(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" title="value">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->title('value')->render()
         );
     }
 
@@ -433,16 +233,6 @@ final class RenderTest extends TestCase
             <input id="file-65a15e0439570" name="value[]" type="file" multiple>
             HTML,
             File::widget()->id('file-65a15e0439570')->name('value')->multiple()->uncheckValue('0')->render()
-        );
-    }
-
-    public function testValue(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->value('value')->render()
         );
     }
 }

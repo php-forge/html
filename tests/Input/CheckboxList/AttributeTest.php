@@ -248,6 +248,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testGenerateId(): void
+    {
+        $this->assertStringContainsString('id="checkboxlist-', CheckboxList::widget()->render());
+    }
+
+    public function testGetValue(): void
+    {
+        $this->assertSame('value', CheckboxList::widget()->value('value')->getValue());
+    }
+
     public function testId(): void
     {
         Assert::equalsWithoutLE(

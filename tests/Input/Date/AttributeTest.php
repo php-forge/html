@@ -113,6 +113,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testGenerateId(): void
+    {
+        $this->assertStringContainsString('id="date-', Date::widget()->render());
+    }
+
+    public function testGetValue(): void
+    {
+        $this->assertSame('value', Date::widget()->value('value')->getValue());
+    }
+
     public function testHidden(): void
     {
         Assert::equalsWithoutLE(
