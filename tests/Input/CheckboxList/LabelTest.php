@@ -223,7 +223,6 @@ final class LabelTest extends TestCase
                     Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
                     Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
                 )
-                ->labelClass('class')
                 ->labelContent('Select your gender?')
                 ->name('CheckboxForm[text]')
                 ->notLabel()
