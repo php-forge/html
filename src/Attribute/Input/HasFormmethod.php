@@ -40,7 +40,7 @@ trait HasFormmethod
         }
 
         $new = clone $this;
-        $new->attributes['formn-method'] = $value;
+        $new->attributes['formmethod'] = $value;
 
         return $new;
     }
