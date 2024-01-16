@@ -42,7 +42,7 @@ abstract class AbstractButton extends Element
     {
         return [
             'container()' => [true],
-            'id()' => [$this->generateId("$this->type-")],
+            'id()' => [$this->generateId('button-')],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
             'type()' => ['button'],
         ];

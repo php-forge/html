@@ -32,7 +32,6 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTabindex;
-    use Attribute\Input\CanBeChecked;
     use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
     use Attribute\Input\HasValue;
@@ -115,10 +114,12 @@ abstract class AbstractChoiceList extends Element implements
             default => $choiceTag,
         };
 
+        $labelFor = $this->labelFor ?? $this->id;
+
         return $this->renderTemplate(
             $this->template,
             [
-                '{label}' => $this->renderLabelTag($this->id),
+                '{label}' => $this->renderLabelTag($labelFor),
                 '{tag}' => $tag,
             ],
         );

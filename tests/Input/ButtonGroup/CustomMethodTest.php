@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class CustomMethodTest extends TestCase
 {
     public function testContainerAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="class">
+            <div class="value">
             <input id="button-6582f2d099e8a" type="submit" value="Submit">
             <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </div>
@@ -28,7 +28,7 @@ final class RenderTest extends TestCase
                     Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
                     Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
-                ->containerAttributes(['class' => 'class'])
+                ->containerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -37,7 +37,7 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="class">
+            <div class="value">
             <input id="button-6582f2d099e8a" type="submit" value="Submit">
             <input id="button-6582f2d099e8b" type="reset" value="Reset">
             </div>
@@ -47,7 +47,7 @@ final class RenderTest extends TestCase
                     Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
                     Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
-                ->containerClass('class')
+                ->containerClass('value')
                 ->render()
         );
     }
@@ -88,6 +88,22 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testContainerWithFalseWithDefinitions(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="button-6582f2d099e8a" type="submit" value="Submit">
+            <input id="button-6582f2d099e8b" type="reset" value="Reset">
+            HTML,
+            ButtonGroup::widget(['container()' => [false]])
+                ->buttons(
+                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
+                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                )
+                ->render()
+        );
+    }
+
     public function testIndividualContainer(): void
     {
         Assert::equalsWithoutLE(
@@ -107,40 +123,6 @@ final class RenderTest extends TestCase
                     Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
                 ->individualContainer(true)
-                ->render()
-        );
-    }
-
-    public function testLoadDefaultDefinitionWithContainerWithFalse(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="button-6582f2d099e8a" type="submit" value="Submit">
-            <input id="button-6582f2d099e8b" type="reset" value="Reset">
-            HTML,
-            ButtonGroup::widget(['container()' => [false]])
-                ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
-                )
-                ->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <input id="button-6582f2d099e8a" type="submit" value="Submit">
-            <input id="button-6582f2d099e8b" type="reset" value="Reset">
-            </div>
-            HTML,
-            ButtonGroup::widget()
-                ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
-                )
                 ->render()
         );
     }
