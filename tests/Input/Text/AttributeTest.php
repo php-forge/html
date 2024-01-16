@@ -263,7 +263,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-
     public function testTabIndex(): void
     {
         Assert::equalsWithoutLE(
