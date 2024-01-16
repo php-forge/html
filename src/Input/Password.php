@@ -6,7 +6,6 @@ namespace PHPForge\Html\Input;
 
 use PHPForge\Html\Attribute;
 
-
 /**
  * The input element with a type attribute whose value is "password" represents a one-line plain-text edit control for
  * entering a password.
