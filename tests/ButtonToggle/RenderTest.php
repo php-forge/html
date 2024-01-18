@@ -263,6 +263,26 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testTabIndex(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="button-toggle-658716145f1d9" type="button" tabindex="1"></button>
+            HTML,
+            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->tabIndex(1)->render()
+        );
+    }
+
+    public function testTitle(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="button-toggle-658716145f1d9" type="button" title="value"></button>
+            HTML,
+            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->title('value')->render()
+        );
+    }
+
     public function testToggleAttributes(): void
     {
         Assert::equalsWithoutLE(

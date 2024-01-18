@@ -36,6 +36,8 @@ final class ButtonToggle extends Element
     use Attribute\HasData;
     use Attribute\HasId;
     use Attribute\HasStyle;
+    use Attribute\HasTabindex;
+    use Attribute\HasTitle;
     use Attribute\Input\HasName;
 
     protected array $attributes = [];
