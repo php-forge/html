@@ -22,4 +22,5 @@ namespace PHPForge\Html\Input;
  * Pressing on the button should be handled via JavaScript. See the following for details:
  */
 final class ButtonGroup extends Base\AbstractButtonGroup
-{}
+{
+}

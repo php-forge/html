@@ -11,4 +11,5 @@ namespace PHPForge\Html\Input;
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.hidden.html#input.hidden.attrs.value
  */
 final class Hidden extends Base\AbstractHidden
-{}
+{
+}

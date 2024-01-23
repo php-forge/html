@@ -13,4 +13,5 @@ namespace PHPForge\Html;
  * @link https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg
  */
 final class Svg extends Base\AbstractSvg
-{}
+{
+}

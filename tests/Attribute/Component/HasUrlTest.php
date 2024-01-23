@@ -15,7 +15,7 @@ final class HasUrlTest extends TestCase
             use HasUrl;
         };
 
-        $this->assertNotSame($instance, $instance->urlCreator(fn() => ''));
+        $this->assertNotSame($instance, $instance->urlCreator(fn () => ''));
         $this->assertNotSame($instance, $instance->urlQueryParameters([]));
         $this->assertNotSame($instance, $instance->urlPath(''));
     }

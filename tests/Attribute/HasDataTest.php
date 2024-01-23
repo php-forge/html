@@ -19,7 +19,7 @@ final class HasDataTest extends TestCase
             public array $attributes = [];
         };
 
-        $closure = fn() => 'test-action';
+        $closure = fn () => 'test-action';
         $instance = $instance->dataAttributes([
             DataAttributes::ACTION => $closure,
         ]);
