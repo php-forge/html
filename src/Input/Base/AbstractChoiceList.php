@@ -79,7 +79,7 @@ abstract class AbstractChoiceList extends Element implements
             $itemValue = $item->getValue();
 
             $item = match ($type) {
-                'checkbox' => $item->checked(in_array($itemValue, (array) $this->checkedValue, true)),
+                'checkbox' => $item->checked(in_array($itemValue, (array) $this->checkedValue)),
                 'radio' => $item->checked("$itemValue" === "$this->checkedValue"),
             };
 

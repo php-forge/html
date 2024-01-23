@@ -122,7 +122,7 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
                             array_merge(
                                 $itemsAttributes[$v],
                                 [
-                                    'selected' => in_array($v, $formValue, true),
+                                    'selected' => in_array($v, $formValue),
                                     'value' => $v,
                                 ],
                             )
@@ -145,7 +145,7 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
                         array_merge(
                             $itemsAttributes[$value],
                             [
-                                'selected' => in_array($value, $formValue, true),
+                                'selected' => in_array($value, $formValue),
                                 'value' => $value,
                             ],
                         )
