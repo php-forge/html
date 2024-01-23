@@ -76,11 +76,11 @@ final class ButtonToggle extends Element
 
         $id = $this->generateId('button-toggle-');
 
-        if ($this->ariaControls) {
+        if ($this->ariaControls === true) {
             $attributes['aria-controls'] = $this->toggleId;
         }
 
-        if ($this->dataBsTarget) {
+        if ($this->dataBsTarget === true) {
             $attributes['data-bs-target'] = "#$this->toggleId";
         }
 

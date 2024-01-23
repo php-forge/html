@@ -28,7 +28,7 @@ final class CssClass
      */
     public static function add(array &$attributes, array|string $class, bool $override = false): void
     {
-        if (empty($class)) {
+        if ($class === '' || $class === []) {
             return;
         }
 

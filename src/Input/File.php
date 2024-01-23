@@ -35,7 +35,7 @@ final class File extends Base\AbstractInput implements RequiredInterface
         /** @var string $name */
         $name = $attributes['name'] ?? '';
 
-        if ($multiple && $name !== '') {
+        if ($multiple === true && $name !== '') {
             $name = Utils::generateArrayableName($name);
         }
 
