@@ -11,6 +11,4 @@ namespace PHPForge\Html;
  *
  * @link https://developer.mozilla.org/en-US/docs/Glossary/Element
  */
-final class HtmlBuilder extends Base\AbstractHtmlBuilder
-{
-}
+final class HtmlBuilder extends Base\AbstractHtmlBuilder {}
