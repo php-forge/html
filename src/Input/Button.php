@@ -9,6 +9,4 @@ namespace PHPForge\Html\Input;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.button.html#input.button
  */
-final class Button extends Base\AbstractButton
-{
-}
+final class Button extends Base\AbstractButton {}
