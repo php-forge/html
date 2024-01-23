@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="email-65a15e0439570" type="email">
             HTML,
-            Email::widget()->attributes(['class' => 'value'])->id('email-65a15e0439570')->render()
+            Email::widget()->attributes([
+                'class' => 'value',
+            ])->id('email-65a15e0439570')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="email-65a15e0439570" type="email" data-value="value">
             HTML,
-            Email::widget()->dataAttributes(['value' => 'value'])->id('email-65a15e0439570')->render()
+            Email::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('email-65a15e0439570')->render()
         );
     }
 

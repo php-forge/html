@@ -70,7 +70,9 @@ final class RenderTest extends TestCase
             <<<HTML
             <button class="class" id="button-658716145f1d9" type="button"></button>
             HTML,
-            Button::widget()->attributes(['class' => 'class'])->id('button-658716145f1d9')->render()
+            Button::widget()->attributes([
+                'class' => 'class',
+            ])->id('button-658716145f1d9')->render()
         );
     }
 
@@ -106,7 +108,9 @@ final class RenderTest extends TestCase
             HTML,
             Button::widget()
                 ->container(true)
-                ->containerAttributes(['class' => 'class'])
+                ->containerAttributes([
+                    'class' => 'class',
+                ])
                 ->id('button-658716145f1d9')
                 ->render()
         );
@@ -151,7 +155,9 @@ final class RenderTest extends TestCase
             <button id="button-658716145f1d9" type="button" data-collapse-toggle="MyWidget"></button>
             HTML,
             Button::widget()
-                ->dataAttributes([DataAttributes::COLLAPSE_TOGGLE => 'MyWidget'])
+                ->dataAttributes([
+                    DataAttributes::COLLAPSE_TOGGLE => 'MyWidget',
+                ])
                 ->id('button-658716145f1d9')
                 ->render()
         );
@@ -239,7 +245,9 @@ final class RenderTest extends TestCase
                 ->id('button-658716145f1d9')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'class'])
+                ->prefixContainerAttributes([
+                    'class' => 'class',
+                ])
                 ->render()
         );
     }
@@ -365,7 +373,9 @@ final class RenderTest extends TestCase
                 ->id('button-658716145f1d9')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'class'])
+                ->suffixContainerAttributes([
+                    'class' => 'class',
+                ])
                 ->render()
         );
     }

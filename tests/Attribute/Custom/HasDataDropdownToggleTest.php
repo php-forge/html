@@ -21,7 +21,9 @@ final class HasDataDropdownToggleTest extends TestCase
 
         $instance = $instance->dataDropdownToggle('id');
 
-        $this->assertSame(['data-dropdown-toggle' => 'id'], $instance->attributes);
+        $this->assertSame([
+            'data-dropdown-toggle' => 'id',
+        ], $instance->attributes);
     }
 
     public function testDataDropdownToggleWithTrue(): void

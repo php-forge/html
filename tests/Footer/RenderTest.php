@@ -20,7 +20,9 @@ final class RenderTest extends TestCase
             <footer class="test-class">
             </footer>
             HTML,
-            Footer::widget()->attributes(['class' => 'test-class'])->render(),
+            Footer::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 

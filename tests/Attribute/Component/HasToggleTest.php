@@ -25,13 +25,22 @@ final class HasToggleTest extends TestCase
 
         $this->assertSame([], $instance->getToggleAttributes());
 
-        $instance = $instance->toggleAttributes(['class' => 'class']);
+        $instance = $instance->toggleAttributes([
+            'class' => 'class',
+        ]);
 
-        $this->assertSame(['class' => 'class'], $instance->getToggleAttributes());
+        $this->assertSame([
+            'class' => 'class',
+        ], $instance->getToggleAttributes());
 
-        $instance = $instance->toggleAttributes(['disabled' => 'true']);
+        $instance = $instance->toggleAttributes([
+            'disabled' => 'true',
+        ]);
 
-        $this->assertSame(['disabled' => 'true', 'class' => 'class'], $instance->getToggleAttributes());
+        $this->assertSame([
+            'disabled' => 'true',
+            'class' => 'class',
+        ], $instance->getToggleAttributes());
     }
 
     public function testClass(): void

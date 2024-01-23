@@ -50,7 +50,9 @@ final class CustomMethodTest extends TestCase
                 ->id('number-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -128,7 +130,9 @@ final class CustomMethodTest extends TestCase
                 ->id('number-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }

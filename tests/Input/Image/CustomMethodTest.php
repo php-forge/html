@@ -49,7 +49,9 @@ final class CustomMethodTest extends TestCase
             Image::widget()->id('image-65a15e0439570')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -122,7 +124,9 @@ final class CustomMethodTest extends TestCase
             Image::widget()->id('image-65a15e0439570')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }

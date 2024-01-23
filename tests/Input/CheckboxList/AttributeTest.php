@@ -80,7 +80,9 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->attributes(['class' => 'value'])
+                ->attributes([
+                    'class' => 'value',
+                ])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),

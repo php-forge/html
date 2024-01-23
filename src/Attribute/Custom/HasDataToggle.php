@@ -24,7 +24,9 @@ trait HasDataToggle
     public function dataToggle(bool|string $value): static
     {
         if (is_string($value)) {
-            return $this->dataAttributes([DataAttributes::TOGGLE => $value]);
+            return $this->dataAttributes([
+                DataAttributes::TOGGLE => $value,
+            ]);
         }
 
         $new = clone $this;

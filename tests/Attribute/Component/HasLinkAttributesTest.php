@@ -20,10 +20,17 @@ final class HasLinkAttributesTest extends TestCase
             }
         };
 
-        $instance = $instance->linkAttributes(['class' => 'foo']);
-        $instance = $instance->linkAttributes(['disabled' => true]);
+        $instance = $instance->linkAttributes([
+            'class' => 'foo',
+        ]);
+        $instance = $instance->linkAttributes([
+            'disabled' => true,
+        ]);
 
-        $this->assertSame(['class' => 'foo', 'disabled' => true], $instance->getLinkAttributes());
+        $this->assertSame([
+            'class' => 'foo',
+            'disabled' => true,
+        ], $instance->getLinkAttributes());
     }
 
     public function testClass(): void
@@ -59,8 +66,12 @@ final class HasLinkAttributesTest extends TestCase
         };
 
         $this->assertSame(
-            ['class' => 'test-class'],
-            $instance->linkAttributes(['class' => 'test-class'])->getLinkAttributes(),
+            [
+                'class' => 'test-class',
+            ],
+            $instance->linkAttributes([
+                'class' => 'test-class',
+            ])->getLinkAttributes(),
         );
     }
 

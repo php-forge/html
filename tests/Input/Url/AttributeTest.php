@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="url-6582f2d099e8b" type="url">
             HTML,
-            Url::widget()->attributes(['class' => 'value'])->id('url-6582f2d099e8b')->render()
+            Url::widget()->attributes([
+                'class' => 'value',
+            ])->id('url-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="url-6582f2d099e8b" type="url" data-value="value">
             HTML,
-            Url::widget()->dataAttributes(['value' => 'value'])->id('url-6582f2d099e8b')->render()
+            Url::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('url-6582f2d099e8b')->render()
         );
     }
 

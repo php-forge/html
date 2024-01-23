@@ -43,9 +43,13 @@ final class HasListItemTest extends TestCase
 
         $this->assertEmpty($instance->getListItemAttributes());
 
-        $instance = $instance->listItemAttributes(['foo' => 'bar']);
+        $instance = $instance->listItemAttributes([
+            'foo' => 'bar',
+        ]);
 
-        $this->assertSame(['foo' => 'bar'], $instance->getListItemAttributes());
+        $this->assertSame([
+            'foo' => 'bar',
+        ], $instance->getListItemAttributes());
     }
 
     public function testImmutability(): void

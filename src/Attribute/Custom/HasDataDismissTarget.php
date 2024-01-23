@@ -22,7 +22,9 @@ trait HasDataDismissTarget
     public function dataDismissTarget(bool|string $value): static
     {
         if (is_string($value)) {
-            return $this->dataAttributes([DataAttributes::DISMISS_TARGET => $value]);
+            return $this->dataAttributes([
+                DataAttributes::DISMISS_TARGET => $value,
+            ]);
         }
 
         $new = clone $this;

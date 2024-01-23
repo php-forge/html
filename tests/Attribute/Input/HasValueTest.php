@@ -14,7 +14,9 @@ final class HasValueTest extends TestCase
         $instance = new class () {
             use HasValue;
 
-            protected array $attributes = ['value' => 'foo'];
+            protected array $attributes = [
+                'value' => 'foo',
+            ];
         };
 
         $this->assertSame('foo', $instance->getValue());

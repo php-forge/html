@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="number-6582f2d099e8b" type="number">
             HTML,
-            Number::widget()->attributes(['class' => 'value'])->id('number-6582f2d099e8b')->render()
+            Number::widget()->attributes([
+                'class' => 'value',
+            ])->id('number-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="number-6582f2d099e8b" type="number" data-value="value">
             HTML,
-            Number::widget()->dataAttributes(['value' => 'value'])->id('number-6582f2d099e8b')->render()
+            Number::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('number-6582f2d099e8b')->render()
         );
     }
 

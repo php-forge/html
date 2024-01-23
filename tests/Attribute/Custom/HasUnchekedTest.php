@@ -20,10 +20,17 @@ final class HasUnchekedTest extends TestCase
             }
         };
 
-        $instance = $instance->uncheckAttributes(['class' => 'foo']);
-        $instance = $instance->uncheckAttributes(['disabled' => true]);
+        $instance = $instance->uncheckAttributes([
+            'class' => 'foo',
+        ]);
+        $instance = $instance->uncheckAttributes([
+            'disabled' => true,
+        ]);
 
-        $this->assertSame(['class' => 'foo', 'disabled' => true], $instance->getUncheckAttributes());
+        $this->assertSame([
+            'class' => 'foo',
+            'disabled' => true,
+        ], $instance->getUncheckAttributes());
     }
 
     public function testClass(): void

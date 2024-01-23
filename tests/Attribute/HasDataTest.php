@@ -19,10 +19,14 @@ final class HasDataTest extends TestCase
             public array $attributes = [];
         };
 
-        $closure = fn () => 'test-action';
-        $instance = $instance->dataAttributes([DataAttributes::ACTION => $closure]);
+        $closure = fn() => 'test-action';
+        $instance = $instance->dataAttributes([
+            DataAttributes::ACTION => $closure,
+        ]);
 
-        $this->assertSame(['data-action' => $closure], $instance->attributes);
+        $this->assertSame([
+            'data-action' => $closure,
+        ], $instance->attributes);
     }
 
     public function testExceptionKey(): void
@@ -38,7 +42,9 @@ final class HasDataTest extends TestCase
             protected array $attributes = [];
         };
 
-        $instance->dataAttributes([1 => '']);
+        $instance->dataAttributes([
+            1 => '',
+        ]);
     }
 
     public function testExceptionValue(): void
@@ -54,7 +60,9 @@ final class HasDataTest extends TestCase
             protected array $attributes = [];
         };
 
-        $instance->dataAttributes(['' => 1]);
+        $instance->dataAttributes([
+            '' => 1,
+        ]);
     }
 
     public function testImmutability(): void
@@ -65,6 +73,8 @@ final class HasDataTest extends TestCase
             protected array $attributes = [];
         };
 
-        $this->assertNotSame($instance, $instance->dataAttributes([DataAttributes::ACTION => 'test-action']));
+        $this->assertNotSame($instance, $instance->dataAttributes([
+            DataAttributes::ACTION => 'test-action',
+        ]));
     }
 }

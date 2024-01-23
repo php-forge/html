@@ -21,6 +21,8 @@ final class HasDataBsAutoCloseTest extends TestCase
 
         $instance = $instance->dataBsAutoClose('true');
 
-        $this->assertSame(['data-bs-auto-close' => 'true'], $instance->attributes);
+        $this->assertSame([
+            'data-bs-auto-close' => 'true',
+        ], $instance->attributes);
     }
 }

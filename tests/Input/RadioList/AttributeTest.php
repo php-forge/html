@@ -72,7 +72,9 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->attributes(['class' => 'value'])
+                ->attributes([
+                    'class' => 'value',
+                ])
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),

@@ -45,7 +45,9 @@ final class AttributeTest extends TestCase
             <input class="value" id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()->attributes(['class' => 'value'])->id('submit-6582f2d099e8b')->render()
+            Submit::widget()->attributes([
+                'class' => 'value',
+            ])->id('submit-6582f2d099e8b')->render()
         );
     }
 
@@ -81,7 +83,9 @@ final class AttributeTest extends TestCase
             <input id="submit-6582f2d099e8b" type="submit" data-value="value">
             </div>
             HTML,
-            Submit::widget()->dataAttributes(['value' => 'value'])->id('submit-6582f2d099e8b')->render()
+            Submit::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('submit-6582f2d099e8b')->render()
         );
     }
 

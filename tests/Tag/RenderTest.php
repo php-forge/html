@@ -22,7 +22,10 @@ final class RenderTest extends TestCase
             element
             </div>
             HTML,
-            Tag::widget()->attributes(['id' => 'id', 'type' => 'type'])->content('element')->tagName('div')->render()
+            Tag::widget()->attributes([
+                'id' => 'id',
+                'type' => 'type',
+            ])->content('element')->tagName('div')->render()
         );
     }
 

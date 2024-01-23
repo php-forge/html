@@ -21,6 +21,8 @@ final class HasDataBsToggleTest extends TestCase
 
         $instance = $instance->dataBsToggle('collapse');
 
-        $this->assertSame(['data-bs-toggle' => 'collapse'], $instance->attributes);
+        $this->assertSame([
+            'data-bs-toggle' => 'collapse',
+        ], $instance->attributes);
     }
 }

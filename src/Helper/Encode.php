@@ -84,7 +84,9 @@ final class Encode
     {
         $value = htmlspecialchars((string) $value, self::HTMLSPECIALCHARS_FLAGS, $encoding, $doubleEncode);
 
-        return strtr($value, ['\u{0000}' => '&#0;']); // U+0000 NULL
+        return strtr($value, [
+            '\u{0000}' => '&#0;',
+        ]); // U+0000 NULL
     }
 
     /**

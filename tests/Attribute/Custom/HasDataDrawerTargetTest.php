@@ -21,7 +21,9 @@ final class HasDataDrawerTargetTest extends TestCase
 
         $instance = $instance->dataDrawerTarget('id');
 
-        $this->assertSame(['data-drawer-target' => 'id'], $instance->attributes);
+        $this->assertSame([
+            'data-drawer-target' => 'id',
+        ], $instance->attributes);
     }
 
     public function testDataDrawerTargetWithTrue(): void

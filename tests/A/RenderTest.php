@@ -60,7 +60,9 @@ final class RenderTest extends TestCase
             <<<HTML
             <a class="class"></a>
             HTML,
-            A::widget()->attributes(['class' => 'class'])->render()
+            A::widget()->attributes([
+                'class' => 'class',
+            ])->render()
         );
     }
 
@@ -100,7 +102,9 @@ final class RenderTest extends TestCase
             <<<HTML
             <a data-action="action"></a>
             HTML,
-            A::widget()->dataAttributes([DataAttributes::ACTION => 'action'])->render()
+            A::widget()->dataAttributes([
+                DataAttributes::ACTION => 'action',
+            ])->render()
         );
     }
 

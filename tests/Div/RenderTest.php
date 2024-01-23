@@ -20,7 +20,9 @@ final class RenderTest extends TestCase
             <div class="test-class">
             </div>
             HTML,
-            Div::widget()->attributes(['class' => 'test-class'])->render(),
+            Div::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 

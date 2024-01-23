@@ -29,6 +29,8 @@ final class HasIsmapTest extends TestCase
         };
 
         $this->assertSame([], $instance->attributes);
-        $this->assertSame(['ismap' => true], $instance->ismap()->attributes);
+        $this->assertSame([
+            'ismap' => true,
+        ], $instance->ismap()->attributes);
     }
 }

@@ -24,7 +24,9 @@ trait HasDataBsTarget
     public function dataBsTarget(bool|string $value): static
     {
         if (is_string($value)) {
-            return $this->dataAttributes([DataAttributes::BS_TARGET => $value]);
+            return $this->dataAttributes([
+                DataAttributes::BS_TARGET => $value,
+            ]);
         }
 
         $new = clone $this;

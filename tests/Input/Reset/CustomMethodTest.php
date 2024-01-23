@@ -21,7 +21,9 @@ final class CustomMethodTest extends TestCase
             <input id="reset-6582f2d099e8b" type="reset">
             </div>
             HTML,
-            Reset::widget()->containerAttributes(['class' => 'value'])->id('reset-6582f2d099e8b')->render()
+            Reset::widget()->containerAttributes([
+                'class' => 'value',
+            ])->id('reset-6582f2d099e8b')->render()
         );
     }
 
@@ -63,7 +65,9 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <input id="reset-6582f2d099e8b" type="reset">
             HTML,
-            Reset::widget(['container()' => [false]])->id('reset-6582f2d099e8b')->render()
+            Reset::widget([
+                'container()' => [false],
+            ])->id('reset-6582f2d099e8b')->render()
         );
     }
 
@@ -110,7 +114,9 @@ final class CustomMethodTest extends TestCase
                 ->id('reset-6582f2d099e8b')
                 ->prefix('Prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -176,7 +182,9 @@ final class CustomMethodTest extends TestCase
                 ->id('reset-6582f2d099e8b')
                 ->suffix('Suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }

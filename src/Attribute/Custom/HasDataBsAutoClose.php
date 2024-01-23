@@ -20,6 +20,8 @@ trait HasDataBsAutoClose
      */
     public function dataBsAutoClose(string $value): static
     {
-        return $this->dataAttributes([DataAttributes::BS_AUTO_CLOSE => $value]);
+        return $this->dataAttributes([
+            DataAttributes::BS_AUTO_CLOSE => $value,
+        ]);
     }
 }

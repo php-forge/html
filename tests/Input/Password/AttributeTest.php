@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="password-6582f2d099e8b" type="password">
             HTML,
-            Password::widget()->attributes(['class' => 'value'])->id('password-6582f2d099e8b')->render()
+            Password::widget()->attributes([
+                'class' => 'value',
+            ])->id('password-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="password-6582f2d099e8b" type="password" data-value="value">
             HTML,
-            Password::widget()->dataAttributes(['value' => 'value'])->id('password-6582f2d099e8b')->render()
+            Password::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('password-6582f2d099e8b')->render()
         );
     }
 

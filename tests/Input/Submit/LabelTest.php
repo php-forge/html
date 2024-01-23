@@ -24,7 +24,9 @@ final class LabelTest extends TestCase
             HTML,
             Submit::widget()
                 ->id('submit-6582f2d099e8b')
-                ->labelAttributes(['class' => 'value'])
+                ->labelAttributes([
+                    'class' => 'value',
+                ])
                 ->labelContent('Label')
                 ->render()
         );

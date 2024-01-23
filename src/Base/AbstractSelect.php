@@ -115,13 +115,16 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
                 $options = [];
 
                 foreach ($content as $v => $c) {
-                    /** @psalm-var array */
+                    /** @psalm-var array $itemsAttributes */
                     $itemsAttributes[$v] ??= [];
                     $options[] = Tag::widget()
                         ->attributes(
                             array_merge(
                                 $itemsAttributes[$v],
-                                ['selected' => in_array($v, $formValue), 'value' => $v],
+                                [
+                                    'selected' => in_array($v, $formValue, true),
+                                    'value' => $v,
+                                ],
                             )
                         )
                         ->content($c)
@@ -135,13 +138,16 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
                     ->tagName('optgroup')
                     ->render();
             } else {
-                /** @psalm-var array */
+                /** @psalm-var array $itemsAttributes */
                 $itemsAttributes[$value] ??= [];
                 $items[] = Tag::widget()
                     ->attributes(
                         array_merge(
                             $itemsAttributes[$value],
-                            ['selected' => in_array($value, $formValue), 'value' => $value],
+                            [
+                                'selected' => in_array($value, $formValue, true),
+                                'value' => $value,
+                            ],
                         )
                     )
                     ->content($content)

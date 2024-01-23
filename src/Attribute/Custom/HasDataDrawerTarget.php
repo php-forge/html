@@ -24,7 +24,9 @@ trait HasDataDrawerTarget
     public function dataDrawerTarget(bool|string $value): static
     {
         if (is_string($value)) {
-            return $this->dataAttributes([DataAttributes::DRAWER_TARGET => $value]);
+            return $this->dataAttributes([
+                DataAttributes::DRAWER_TARGET => $value,
+            ]);
         }
 
         $new = clone $this;

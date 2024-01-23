@@ -20,6 +20,8 @@ trait HasDataBsToggle
      */
     public function dataBsToggle(string $value): static
     {
-        return $this->dataAttributes([DataAttributes::BS_TOGGLE => $value]);
+        return $this->dataAttributes([
+            DataAttributes::BS_TOGGLE => $value,
+        ]);
     }
 }

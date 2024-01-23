@@ -45,7 +45,9 @@ final class File extends Base\AbstractInput implements RequiredInterface
         return $this->buildInputTag(
             $attributes,
             'file',
-            ['{unchecktag}' => $this->renderUncheckTag($name)],
+            [
+                '{unchecktag}' => $this->renderUncheckTag($name),
+            ],
             $name
         );
     }

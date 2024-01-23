@@ -49,7 +49,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="file-65a15e0439570" type="file">
             HTML,
-            File::widget()->attributes(['class' => 'value'])->id('file-65a15e0439570')->render()
+            File::widget()->attributes([
+                'class' => 'value',
+            ])->id('file-65a15e0439570')->render()
         );
     }
 
@@ -79,7 +81,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="file-65a15e0439570" type="file" data-test="value">
             HTML,
-            File::widget()->dataAttributes(['test' => 'value'])->id('file-65a15e0439570')->render()
+            File::widget()->dataAttributes([
+                'test' => 'value',
+            ])->id('file-65a15e0439570')->render()
         );
     }
 

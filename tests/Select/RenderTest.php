@@ -34,8 +34,12 @@ final class RenderTest extends TestCase
         ],
     ];
     private array $groups = [
-        '1' => ['label' => 'Russia'],
-        '2' => ['label' => 'Chile'],
+        '1' => [
+            'label' => 'Russia',
+        ],
+        '2' => [
+            'label' => 'Chile',
+        ],
     ];
 
     public function testAriaLabel(): void
@@ -47,7 +51,9 @@ final class RenderTest extends TestCase
             <option value="1">Moscu</option>
             </select>
             HTML,
-            Select::widget()->items([1 => 'Moscu'])->ariaLabel('test-aria-label')->render(),
+            Select::widget()->items([
+                1 => 'Moscu',
+            ])->ariaLabel('test-aria-label')->render(),
         );
     }
 
@@ -60,7 +66,9 @@ final class RenderTest extends TestCase
             <option value="1">Moscu</option>
             </select>
             HTML,
-            Select::widget()->items([1 => 'Moscu'])->autofocus()->render(),
+            Select::widget()->items([
+                1 => 'Moscu',
+            ])->autofocus()->render(),
         );
     }
 
@@ -73,7 +81,9 @@ final class RenderTest extends TestCase
             <option value="1">Moscu</option>
             </select>
             HTML,
-            Select::widget()->items([1 => 'Moscu'])->disabled()->render(),
+            Select::widget()->items([
+                1 => 'Moscu',
+            ])->disabled()->render(),
         );
     }
 
@@ -138,7 +148,11 @@ final class RenderTest extends TestCase
             Select::widget()
                 ->groups($this->groups)
                 ->items($this->citiesGroups)
-                ->itemsAttributes(['2' => ['disabled' => true]])
+                ->itemsAttributes([
+                    '2' => [
+                        'disabled' => true,
+                    ],
+                ])
                 ->value(8)
                 ->render(),
         );
@@ -170,8 +184,14 @@ final class RenderTest extends TestCase
             </select>
             HTML,
             Select::widget()
-                ->items([1 => 'Moscu'])
-                ->itemsAttributes([1 => ['class' => 'test-class']])
+                ->items([
+                    1 => 'Moscu',
+                ])
+                ->itemsAttributes([
+                    1 => [
+                        'class' => 'test-class',
+                    ],
+                ])
                 ->render(),
         );
     }
@@ -281,7 +301,9 @@ final class RenderTest extends TestCase
             <option value="1">Moscu</option>
             </select>
             HTML,
-            Select::widget()->items([1 => 'Moscu'])->required()->render(),
+            Select::widget()->items([
+                1 => 'Moscu',
+            ])->required()->render(),
         );
     }
 
@@ -311,7 +333,9 @@ final class RenderTest extends TestCase
             <option value="1">Moscu</option>
             </select>
             HTML,
-            Select::widget()->items([1 => 'Moscu'])->tabIndex(1)->render(),
+            Select::widget()->items([
+                1 => 'Moscu',
+            ])->tabIndex(1)->render(),
         );
     }
 

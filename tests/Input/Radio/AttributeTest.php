@@ -36,7 +36,10 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->attributes(['class' => 'value', 'id' => 'radio-6582f2d099e8b'])->render()
+            Radio::widget()->attributes([
+                'class' => 'value',
+                'id' => 'radio-6582f2d099e8b',
+            ])->render()
         );
     }
 
@@ -96,7 +99,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" data-value="value">
             HTML,
-            Radio::widget()->dataAttributes(['value' => 'value'])->id('radio-6582f2d099e8b')->render()
+            Radio::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('radio-6582f2d099e8b')->render()
         );
     }
 

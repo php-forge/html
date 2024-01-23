@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="color-6582f2d099e8b" type="color">
             HTML,
-            Color::widget()->attributes(['class' => 'value'])->id('color-6582f2d099e8b')->render()
+            Color::widget()->attributes([
+                'class' => 'value',
+            ])->id('color-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="color-6582f2d099e8b" type="color" data-value="value">
             HTML,
-            Color::widget()->dataAttributes(['value' => 'value'])->id('color-6582f2d099e8b')->render()
+            Color::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('color-6582f2d099e8b')->render()
         );
     }
 

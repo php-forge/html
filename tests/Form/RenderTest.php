@@ -23,7 +23,9 @@ final class RenderTest extends TestCase
             <form class="test-class">
             </form>
             HTML,
-            Form::widget()->attributes(['class' => 'test-class'])->render(),
+            Form::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 

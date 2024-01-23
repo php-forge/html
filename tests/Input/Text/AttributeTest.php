@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="text-6582f2d099e8b" type="text">
             HTML,
-            Text::widget()->attributes(['class' => 'value'])->id('text-6582f2d099e8b')->render()
+            Text::widget()->attributes([
+                'class' => 'value',
+            ])->id('text-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="text-6582f2d099e8b" type="text" data-value="value">
             HTML,
-            Text::widget()->dataAttributes(['value' => 'value'])->id('text-6582f2d099e8b')->render()
+            Text::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('text-6582f2d099e8b')->render()
         );
     }
 

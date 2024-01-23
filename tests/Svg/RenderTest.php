@@ -24,7 +24,11 @@ final class RenderTest extends TestCase
             </svg>
             HTML,
             Svg::widget()
-                ->content(Tag::widget()->attributes(['cx' => 50, 'cy' => 50, 'r' => 40])->tagName('circle'))
+                ->content(Tag::widget()->attributes([
+                    'cx' => 50,
+                    'cy' => 50,
+                    'r' => 40,
+                ])->tagName('circle'))
                 ->fill('grey')
                 ->stroke('red')
                 ->viewBox('0 0 300 100')

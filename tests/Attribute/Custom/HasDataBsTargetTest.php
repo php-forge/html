@@ -21,7 +21,9 @@ final class HasDataBsTargetTest extends TestCase
 
         $instance = $instance->dataBsTarget('id');
 
-        $this->assertSame(['data-bs-target' => 'id'], $instance->attributes);
+        $this->assertSame([
+            'data-bs-target' => 'id',
+        ], $instance->attributes);
     }
 
     public function testDataBsTargetWithTrue(): void

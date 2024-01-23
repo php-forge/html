@@ -21,6 +21,8 @@ final class HasDataBsDismissTest extends TestCase
 
         $instance = $instance->dataBsDismiss('alert');
 
-        $this->assertSame(['data-bs-dismiss' => 'alert'], $instance->attributes);
+        $this->assertSame([
+            'data-bs-dismiss' => 'alert',
+        ], $instance->attributes);
     }
 }

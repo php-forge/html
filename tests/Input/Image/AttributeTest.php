@@ -49,7 +49,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="image-65a15e0439570" type="image">
             HTML,
-            Image::widget()->attributes(['class' => 'value'])->id('image-65a15e0439570')->render()
+            Image::widget()->attributes([
+                'class' => 'value',
+            ])->id('image-65a15e0439570')->render()
         );
     }
 
@@ -79,7 +81,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="image-65a15e0439570" type="image" data-test="value">
             HTML,
-            Image::widget()->dataAttributes(['test' => 'value'])->id('image-65a15e0439570')->render()
+            Image::widget()->dataAttributes([
+                'test' => 'value',
+            ])->id('image-65a15e0439570')->render()
         );
     }
 

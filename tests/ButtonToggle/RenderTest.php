@@ -49,7 +49,9 @@ final class RenderTest extends TestCase
             <<<HTML
             <button class="class" id="button-toggle-658716145f1d9" type="button"></button>
             HTML,
-            ButtonToggle::widget()->attributes(['class' => 'class'])->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->attributes([
+                'class' => 'class',
+            ])->id('button-toggle-658716145f1d9')->render()
         );
     }
 
@@ -291,7 +293,9 @@ final class RenderTest extends TestCase
             <span class="class"></span>
             </button>
             HTML,
-            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->toggleAttributes(['class' => 'class'])->render()
+            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->toggleAttributes([
+                'class' => 'class',
+            ])->render()
         );
     }
 

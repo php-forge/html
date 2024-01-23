@@ -24,7 +24,9 @@ trait HasDataDropdownToggle
     public function dataDropdownToggle(bool|string $value): static
     {
         if (is_string($value)) {
-            return $this->dataAttributes([DataAttributes::DROPDOWN_TOGGLE => $value]);
+            return $this->dataAttributes([
+                DataAttributes::DROPDOWN_TOGGLE => $value,
+            ]);
         }
 
         $new = clone $this;
