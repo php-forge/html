@@ -9,4 +9,5 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/forms.html#the-form-element
  */
-final class Form extends Base\AbstractForm {}
+final class Form extends Base\AbstractForm
+{}
