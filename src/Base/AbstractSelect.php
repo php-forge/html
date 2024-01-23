@@ -115,7 +115,7 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
                 $options = [];
 
                 foreach ($content as $v => $c) {
-                    /** @psalm-var array $itemsAttributes */
+                    /** @psalm-var array[] $itemsAttributes */
                     $itemsAttributes[$v] ??= [];
                     $options[] = Tag::widget()
                         ->attributes(
@@ -138,7 +138,7 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
                     ->tagName('optgroup')
                     ->render();
             } else {
-                /** @psalm-var array $itemsAttributes */
+                /** @psalm-var array[] $itemsAttributes */
                 $itemsAttributes[$value] ??= [];
                 $items[] = Tag::widget()
                     ->attributes(
