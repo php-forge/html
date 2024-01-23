@@ -41,7 +41,9 @@ final class TextArea extends Base\AbstractElement implements
     protected function loadDefaultDefinitions(): array
     {
         $loadDefaultDefinitions = parent::loadDefaultDefinitions();
-        $loadDefaultDefinitions += ['id()' => [$this->generateId('textarea-')]];
+        $loadDefaultDefinitions += [
+            'id()' => [$this->generateId('textarea-')],
+        ];
 
         return $loadDefaultDefinitions;
     }

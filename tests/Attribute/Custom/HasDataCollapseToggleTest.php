@@ -21,6 +21,8 @@ final class HasDataCollapseToggleTest extends TestCase
 
         $instance = $instance->dataCollapseToggle('id');
 
-        $this->assertSame(['data-collapse-toggle' => 'id'], $instance->attributes);
+        $this->assertSame([
+            'data-collapse-toggle' => 'id',
+        ], $instance->attributes);
     }
 }

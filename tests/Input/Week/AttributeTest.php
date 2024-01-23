@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="week-6582f2d099e8b" type="week">
             HTML,
-            Week::widget()->attributes(['class' => 'value'])->id('week-6582f2d099e8b')->render()
+            Week::widget()->attributes([
+                'class' => 'value',
+            ])->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="week-6582f2d099e8b" type="week" data-value="value">
             HTML,
-            Week::widget()->dataAttributes(['value' => 'value'])->id('week-6582f2d099e8b')->render()
+            Week::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('week-6582f2d099e8b')->render()
         );
     }
 

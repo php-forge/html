@@ -21,7 +21,9 @@ final class RenderTest extends TestCase
             <ol class="test-class">
             </ol>
             HTML,
-            Ol::widget()->attributes(['class' => 'test-class'])->render(),
+            Ol::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 
@@ -32,7 +34,9 @@ final class RenderTest extends TestCase
             <ol class="test-class test-class-1">
             </ol>
             HTML,
-            Ol::widget()->attributes(['class' => 'test-class'])->class('test-class-1')->render(),
+            Ol::widget()->attributes([
+                'class' => 'test-class',
+            ])->class('test-class-1')->render(),
         );
     }
 

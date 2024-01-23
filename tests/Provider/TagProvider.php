@@ -12,7 +12,10 @@ final class TagProvider
             [
                 'article',
                 '',
-                ['id' => 'id-1', 'class' => 'class'],
+                [
+                    'id' => 'id-1',
+                    'class' => 'class',
+                ],
                 '<article class="class" id="id-1">' . PHP_EOL . '</article>',
             ],
             ['br', '', [], '<br>'],
@@ -23,11 +26,17 @@ final class TagProvider
             [
                 'input',
                 '',
-                ['type' => 'text', 'name' => 'test', 'value' => '<>'],
+                [
+                    'type' => 'text',
+                    'name' => 'test',
+                    'value' => '<>',
+                ],
                 '<input name="test" type="text" value="&lt;&gt;">',
             ],
             ['span', '', [], '<span></span>'],
-            ['span', '', ['disabled' => true], '<span disabled></span>'],
+            ['span', '', [
+                'disabled' => true,
+            ], '<span disabled></span>'],
         ];
     }
 }

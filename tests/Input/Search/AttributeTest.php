@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="search-6582f2d099e8b" type="search">
             HTML,
-            Search::widget()->attributes(['class' => 'value'])->id('search-6582f2d099e8b')->render()
+            Search::widget()->attributes([
+                'class' => 'value',
+            ])->id('search-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="search-6582f2d099e8b" type="search" data-value="value">
             HTML,
-            Search::widget()->dataAttributes(['value' => 'value'])->id('search-6582f2d099e8b')->render()
+            Search::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('search-6582f2d099e8b')->render()
         );
     }
 

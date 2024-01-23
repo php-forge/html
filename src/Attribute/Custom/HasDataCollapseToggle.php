@@ -20,6 +20,8 @@ trait HasDataCollapseToggle
      */
     public function dataCollapseToggle(string $value): static
     {
-        return $this->dataAttributes([DataAttributes::COLLAPSE_TOGGLE => $value]);
+        return $this->dataAttributes([
+            DataAttributes::COLLAPSE_TOGGLE => $value,
+        ]);
     }
 }

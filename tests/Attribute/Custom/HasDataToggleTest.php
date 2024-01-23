@@ -21,7 +21,9 @@ final class HasDataToggleTest extends TestCase
 
         $instance = $instance->dataToggle('id');
 
-        $this->assertSame(['data-toggle' => 'id'], $instance->attributes);
+        $this->assertSame([
+            'data-toggle' => 'id',
+        ], $instance->attributes);
     }
 
     public function testDataDataToggleWithTrue(): void

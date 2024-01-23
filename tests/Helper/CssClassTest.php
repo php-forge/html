@@ -18,34 +18,50 @@ final class CssClassTest extends TestCase
         $this->assertSame([], $attributes);
 
         CssClass::add($attributes, ['test-class']);
-        $this->assertSame(['class' => 'test-class'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class',
+        ], $attributes);
 
         CssClass::add($attributes, ['test-class']);
-        $this->assertSame(['class' => 'test-class'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class',
+        ], $attributes);
 
         CssClass::add($attributes, ['test-class-1']);
-        $this->assertSame(['class' => 'test-class test-class-1'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class test-class-1',
+        ], $attributes);
 
         CssClass::add($attributes, ['test-class', 'test-class-1']);
-        $this->assertSame(['class' => 'test-class test-class-1'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class test-class-1',
+        ], $attributes);
 
         CssClass::add($attributes, ['test-class-2']);
-        $this->assertSame(['class' => 'test-class test-class-1 test-class-2'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class test-class-1 test-class-2',
+        ], $attributes);
 
         CssClass::add($attributes, ['test-override-class'], true);
 
-        $this->assertSame(['class' => 'test-override-class'], $attributes);
+        $this->assertSame([
+            'class' => 'test-override-class',
+        ], $attributes);
     }
 
     public function testAddMethodWithArrayClasses()
     {
-        $attributes = ['class' => ['existing-class-1', 'existing-class-2']];
+        $attributes = [
+            'class' => ['existing-class-1', 'existing-class-2'],
+        ];
 
         CssClass::add($attributes, 'new-class');
 
         $this->assertSame('existing-class-1 existing-class-2 new-class', $attributes['class']);
 
-        $attributes = ['class' => 'existing-class-1 existing-class-2'];
+        $attributes = [
+            'class' => 'existing-class-1 existing-class-2',
+        ];
 
         CssClass::add($attributes, 'new-class');
 
@@ -69,7 +85,9 @@ final class CssClassTest extends TestCase
 
     public function testAddDefaultValueAttributeExistClass(): void
     {
-        $attributes = ['class' => 'existing-class'];
+        $attributes = [
+            'class' => 'existing-class',
+        ];
 
         CssClass::add($attributes, 'new-class');
 
@@ -84,29 +102,43 @@ final class CssClassTest extends TestCase
         $this->assertEmpty($attributes);
 
         CssClass::add($attributes, 'test-class');
-        $this->assertSame(['class' => 'test-class'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class',
+        ], $attributes);
 
         CssClass::add($attributes, 'test-class');
-        $this->assertSame(['class' => 'test-class'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class',
+        ], $attributes);
 
         CssClass::add($attributes, 'test-class-1');
-        $this->assertSame(['class' => 'test-class test-class-1'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class test-class-1',
+        ], $attributes);
 
         CssClass::add($attributes, 'test-class test-class-1');
-        $this->assertSame(['class' => 'test-class test-class-1'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class test-class-1',
+        ], $attributes);
 
         CssClass::add($attributes, 'test-class-2');
-        $this->assertSame(['class' => 'test-class test-class-1 test-class-2'], $attributes);
+        $this->assertSame([
+            'class' => 'test-class test-class-1 test-class-2',
+        ], $attributes);
 
         CssClass::add($attributes, 'test-override-class', true);
 
-        $this->assertSame(['class' => 'test-override-class'], $attributes);
+        $this->assertSame([
+            'class' => 'test-override-class',
+        ], $attributes);
     }
 
     public function testMergeMethodAssignToKey()
     {
         $existingClasses = ['existing-class-1', 'existing-class-2'];
-        $additionalClasses = ['keyed-class' => 'new-class'];
+        $additionalClasses = [
+            'keyed-class' => 'new-class',
+        ];
 
         $merged = Assert::invokeMethod(new CssClass(), 'merge', [$existingClasses, $additionalClasses]);
 

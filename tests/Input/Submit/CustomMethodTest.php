@@ -21,7 +21,9 @@ final class CustomMethodTest extends TestCase
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()->containerAttributes(['class' => 'value'])->id('submit-6582f2d099e8b')->render()
+            Submit::widget()->containerAttributes([
+                'class' => 'value',
+            ])->id('submit-6582f2d099e8b')->render()
         );
     }
 
@@ -63,7 +65,9 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <input id="submit-6582f2d099e8b" type="submit">
             HTML,
-            Submit::widget(['container()' => [false]])->id('submit-6582f2d099e8b')->render()
+            Submit::widget([
+                'container()' => [false],
+            ])->id('submit-6582f2d099e8b')->render()
         );
     }
 
@@ -110,7 +114,9 @@ final class CustomMethodTest extends TestCase
                 ->id('submit-6582f2d099e8b')
                 ->prefix('Prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -176,7 +182,9 @@ final class CustomMethodTest extends TestCase
                 ->id('submit-6582f2d099e8b')
                 ->suffix('Suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }

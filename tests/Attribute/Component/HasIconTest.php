@@ -75,9 +75,13 @@ final class HasIconTest extends TestCase
 
         $this->assertEmpty($instance->getIconAttributes());
 
-        $instance = $instance->iconAttributes(['class' => 'class']);
+        $instance = $instance->iconAttributes([
+            'class' => 'class',
+        ]);
 
-        $this->assertSame(['class' => 'class'], $instance->getIconAttributes());
+        $this->assertSame([
+            'class' => 'class',
+        ], $instance->getIconAttributes());
     }
 
     public function testGetIconContainerAttributes(): void
@@ -88,9 +92,13 @@ final class HasIconTest extends TestCase
 
         $this->assertEmpty($instance->getIconContainerAttributes());
 
-        $instance = $instance->iconContainerAttributes(['class' => 'class']);
+        $instance = $instance->iconContainerAttributes([
+            'class' => 'class',
+        ]);
 
-        $this->assertSame(['class' => 'class'], $instance->getIconContainerAttributes());
+        $this->assertSame([
+            'class' => 'class',
+        ], $instance->getIconContainerAttributes());
     }
 
     public function testGetIconContent(): void

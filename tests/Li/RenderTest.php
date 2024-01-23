@@ -21,7 +21,9 @@ final class RenderTest extends TestCase
             <li class="test-class">
             </li>
             HTML,
-            Li::widget()->attributes(['class' => 'test-class'])->render(),
+            Li::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 
@@ -32,7 +34,9 @@ final class RenderTest extends TestCase
             <li class="test-class test-class-1">
             </li>
             HTML,
-            Li::widget()->attributes(['class' => 'test-class'])->class('test-class-1')->render(),
+            Li::widget()->attributes([
+                'class' => 'test-class',
+            ])->class('test-class-1')->render(),
         );
     }
 

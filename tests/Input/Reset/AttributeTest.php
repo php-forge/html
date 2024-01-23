@@ -45,7 +45,9 @@ final class AttributeTest extends TestCase
             <input class="value" id="reset-6582f2d099e8b" type="reset">
             </div>
             HTML,
-            Reset::widget()->attributes(['class' => 'value'])->id('reset-6582f2d099e8b')->render()
+            Reset::widget()->attributes([
+                'class' => 'value',
+            ])->id('reset-6582f2d099e8b')->render()
         );
     }
 
@@ -81,7 +83,9 @@ final class AttributeTest extends TestCase
             <input id="reset-6582f2d099e8b" type="reset" data-value="value">
             </div>
             HTML,
-            Reset::widget()->dataAttributes(['value' => 'value'])->id('reset-6582f2d099e8b')->render()
+            Reset::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('reset-6582f2d099e8b')->render()
         );
     }
 

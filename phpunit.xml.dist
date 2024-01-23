@@ -1,19 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" bootstrap="vendor/autoload.php" colors="true" stopOnFailure="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd" cacheDirectory=".phpunit.cache">
-  <php>
-    <ini name="error_reporting" value="-1"/>
-  </php>
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd"
+  bootstrap="vendor/autoload.php"
+  cacheDirectory=".phpunit.cache"
+  colors="true"
+  executionOrder="depends,defects"
+  failOnRisky="true"
+  failOnWarning="true"
+  stopOnFailure="false"
+>
   <testsuites>
     <testsuite name="Html">
-      <directory>./tests</directory>
+      <directory>tests</directory>
     </testsuite>
   </testsuites>
+
   <source>
     <include>
-      <directory>./src</directory>
+      <directory suffix=".php">./src</directory>
     </include>
-    <exclude>
-      <directory>./vendor</directory>
-    </exclude>
   </source>
 </phpunit>

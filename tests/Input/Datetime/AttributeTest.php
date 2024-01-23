@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="datetime-6582f2d099e8b" type="datetime">
             HTML,
-            Datetime::widget()->attributes(['class' => 'value'])->id('datetime-6582f2d099e8b')->render()
+            Datetime::widget()->attributes([
+                'class' => 'value',
+            ])->id('datetime-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="datetime-6582f2d099e8b" type="datetime" data-value="value">
             HTML,
-            Datetime::widget()->dataAttributes(['value' => 'value'])->id('datetime-6582f2d099e8b')->render()
+            Datetime::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('datetime-6582f2d099e8b')->render()
         );
     }
 

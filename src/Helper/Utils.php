@@ -166,6 +166,10 @@ final class Utils
             throw new InvalidArgumentException('Attribute name must contain word characters only.');
         }
 
-        return ['name' => $matches[2], 'prefix' => $matches[1], 'suffix' => $matches[3]];
+        return [
+            'name' => $matches[2],
+            'prefix' => $matches[1],
+            'suffix' => $matches[3],
+        ];
     }
 }

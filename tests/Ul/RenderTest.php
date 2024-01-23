@@ -21,7 +21,9 @@ final class RenderTest extends TestCase
             <ul class="test-class">
             </ul>
             HTML,
-            Ul::widget()->attributes(['class' => 'test-class'])->render(),
+            Ul::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 
@@ -32,7 +34,9 @@ final class RenderTest extends TestCase
             <ul class="test-class test-class-1">
             </ul>
             HTML,
-            Ul::widget()->attributes(['class' => 'test-class'])->class('test-class-1')->render(),
+            Ul::widget()->attributes([
+                'class' => 'test-class',
+            ])->class('test-class-1')->render(),
         );
     }
 

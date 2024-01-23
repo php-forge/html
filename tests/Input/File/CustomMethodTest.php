@@ -50,7 +50,9 @@ final class CustomMethodTest extends TestCase
                 ->id('file-65a15e0439570')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -126,7 +128,9 @@ final class CustomMethodTest extends TestCase
                 ->id('file-65a15e0439570')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -186,7 +190,9 @@ final class CustomMethodTest extends TestCase
             HTML,
             File::widget()
                 ->id('file-65a15e0439570')
-                ->uncheckAttributes(['class' => 'value'])
+                ->uncheckAttributes([
+                    'class' => 'value',
+                ])
                 ->uncheckValue('0')
                 ->render()
         );

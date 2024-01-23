@@ -39,7 +39,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="month-6582f2d099e8b" type="month">
             HTML,
-            Month::widget()->attributes(['class' => 'value'])->id('month-6582f2d099e8b')->render()
+            Month::widget()->attributes([
+                'class' => 'value',
+            ])->id('month-6582f2d099e8b')->render()
         );
     }
 
@@ -69,7 +71,9 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="month-6582f2d099e8b" type="month" data-value="value">
             HTML,
-            Month::widget()->dataAttributes(['value' => 'value'])->id('month-6582f2d099e8b')->render()
+            Month::widget()->dataAttributes([
+                'value' => 'value',
+            ])->id('month-6582f2d099e8b')->render()
         );
     }
 

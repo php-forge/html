@@ -14,7 +14,9 @@ final class HtmlBuilderTest extends TestCase
     public function testBegin(): void
     {
         $this->assertSame('<div>', HtmlBuilder::begin('div'));
-        $this->assertSame('<div class="class">', HtmlBuilder::begin('div', ['class' => 'class']));
+        $this->assertSame('<div class="class">', HtmlBuilder::begin('div', [
+            'class' => 'class',
+        ]));
     }
 
     /**

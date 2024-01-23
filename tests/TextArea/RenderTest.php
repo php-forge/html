@@ -39,7 +39,9 @@ final class RenderTest extends TestCase
             <<<HTML
             <textarea class="class" id="textarea-659fc6087e75b"></textarea>
             HTML,
-            TextArea::widget()->attributes(['class' => 'class'])->id('textarea-659fc6087e75b')->render()
+            TextArea::widget()->attributes([
+                'class' => 'class',
+            ])->id('textarea-659fc6087e75b')->render()
         );
     }
 

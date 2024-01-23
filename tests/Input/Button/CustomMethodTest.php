@@ -21,7 +21,9 @@ final class CustomMethodTest extends TestCase
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->containerAttributes(['class' => 'value'])->id('button-6582f2d099e8b')->render()
+            Button::widget()->containerAttributes([
+                'class' => 'value',
+            ])->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -63,7 +65,9 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <input id="button-6582f2d099e8b" type="button">
             HTML,
-            Button::widget(['container()' => [false]])->id('button-6582f2d099e8b')->render()
+            Button::widget([
+                'container()' => [false],
+            ])->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -110,7 +114,9 @@ final class CustomMethodTest extends TestCase
                 ->id('button-6582f2d099e8b')
                 ->prefix('Prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }
@@ -176,7 +182,9 @@ final class CustomMethodTest extends TestCase
                 ->id('button-6582f2d099e8b')
                 ->suffix('Suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixContainerAttributes([
+                    'class' => 'value',
+                ])
                 ->render()
         );
     }

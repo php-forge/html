@@ -9,6 +9,7 @@ finder:
     - vendor
 
 enabled:
+  - alpha_ordered_traits
   - array_indentation
   - array_push
   - combine_consecutive_issets
@@ -19,6 +20,7 @@ enabled:
   - fully_qualified_strict_types
   - function_to_constant
   - hash_to_slash_comment
+  - integer_literal_case
   - is_null
   - logical_operators
   - magic_constant_casing
@@ -55,7 +57,6 @@ enabled:
   - phpdoc_order
   - phpdoc_property
   - phpdoc_scalar
-  - phpdoc_separation
   - phpdoc_singular_inheritdoc
   - phpdoc_trim
   - phpdoc_trim_consecutive_blank_line_separation
@@ -77,9 +78,8 @@ enabled:
   - trailing_comma_in_multiline_array
   - unalign_double_arrow
   - unalign_equals
-  - empty_loop_body_braces
-  - integer_literal_case
   - union_type_without_spaces
 
 disabled:
   - function_declaration
+  - psr12_braces

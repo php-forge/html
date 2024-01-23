@@ -20,7 +20,9 @@ final class RenderTest extends TestCase
             <body class="test-class">
             </body>
             HTML,
-            Body::widget()->attributes(['class' => 'test-class'])->render(),
+            Body::widget()->attributes([
+                'class' => 'test-class',
+            ])->render(),
         );
     }
 

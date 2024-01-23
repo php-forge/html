@@ -21,7 +21,9 @@ final class HasDataDismissTargetTest extends TestCase
 
         $instance = $instance->dataDismissTarget('id');
 
-        $this->assertSame(['data-dismiss-target' => 'id'], $instance->attributes);
+        $this->assertSame([
+            'data-dismiss-target' => 'id',
+        ], $instance->attributes);
     }
 
     public function testImmutability(): void

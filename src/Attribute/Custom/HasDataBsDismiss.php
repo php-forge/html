@@ -20,6 +20,8 @@ trait HasDataBsDismiss
      */
     public function dataBsDismiss(string $value): static
     {
-        return $this->dataAttributes([DataAttributes::BS_DISMISS => $value]);
+        return $this->dataAttributes([
+            DataAttributes::BS_DISMISS => $value,
+        ]);
     }
 }
