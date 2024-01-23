@@ -29,8 +29,7 @@ return ECSConfig::configure()
         comments:true,
         docblocks: true,
         namespaces: true,
-        psr12: true,
-        strict: true
+        psr12: true
     )
     ->withRules(
         [
