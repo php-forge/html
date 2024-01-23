@@ -83,4 +83,5 @@ enabled:
 
 disabled:
   - function_declaration
+  - psr2_braces
   - psr12_braces

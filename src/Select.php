@@ -9,5 +9,4 @@ namespace PHPForge\Html;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/select.html
  */
-final class Select extends Base\AbstractSelect
-{}
+final class Select extends Base\AbstractSelect {}
