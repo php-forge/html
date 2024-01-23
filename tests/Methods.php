@@ -7,7 +7,7 @@ namespace PHPForge\Html\Tests;
 use PHPForge\Html\Input\Url;
 use PHPUnit\Framework\TestCase;
 
-final class MethodsTest extends TestCase
+final class Methods extends TestCase
 {
     public function testPrintMethods(): void
     {
