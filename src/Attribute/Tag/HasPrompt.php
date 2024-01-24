@@ -17,7 +17,7 @@ trait HasPrompt
      * list widget.
      *
      * @param string $content The prompt content.
-     * @param string $value The value for the prompt.
+     * @param string|null $value The value for the prompt.
      *
      * @return static A new instance of the current class with the specified prompt option.
      */

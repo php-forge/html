@@ -16,7 +16,7 @@ trait CanBeChecked
      *
      * If present on a radio type, it indicates that the radio button is the currently selected one in the group of
      * same-named radio buttons. If present on a checkbox type, it indicates that the checkbox is checked by default
-     * (when the page loads). It does not indicate whether this checkbox is currently checked: if the checkbox's state
+     * (when the page loads). It does not indicate whether this checkbox is currently checked: if the checkbox state
      * is changed, this content attribute does not reflect the change.
      *
      * @param bool $value The value of the checked attribute.

@@ -7,7 +7,7 @@ namespace PHPForge\Html\Attribute\Aria;
 use function is_string;
 
 /**
- * Is used by widgets which require an role attribute.
+ * Is used by widgets which require a role attribute.
  */
 trait HasRole
 {
@@ -30,7 +30,7 @@ trait HasRole
         $new = clone $this;
 
         if ($value === true) {
-            $new->role = $value;
+            $new->role = true;
         } elseif (is_string($value)) {
             $new->attributes['role'] = $value;
         }

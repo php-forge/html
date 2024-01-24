@@ -7,7 +7,7 @@ namespace PHPForge\Html\Attribute\Tag;
 use function strtoupper;
 
 /**
- * Is used by widgets that implement the method method.
+ * Is used by widgets that implement the method.
  */
 trait HasMethod
 {

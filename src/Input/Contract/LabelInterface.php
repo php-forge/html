@@ -16,7 +16,7 @@ interface LabelInterface
      *
      * @param bool $value The value to set.
      *
-     * @return static A new instance of of the current class with the specified enclosed by label property.
+     * @return static A new instance of the current class with the specified enclosed by label property.
      */
     public function enclosedByLabel(bool $value): static;
 

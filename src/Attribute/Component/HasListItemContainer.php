@@ -23,7 +23,7 @@ trait HasListItemContainer
      *
      * @return static A new instance of the current class with the specified container for list items.
      */
-    public function listItemcontainer(bool $value): static
+    public function listItemContainer(bool $value): static
     {
         $new = clone $this;
         $new->listItemContainer = $value;

@@ -90,7 +90,7 @@ abstract class AbstractInputChoice extends Element implements
 
         $attributes['checked'] = match (empty($this->checkedValue)) {
             true => $this->checked,
-            default => "$value" === "$this->checkedValue",
+            default => (string) $value === (string) $this->checkedValue,
         };
 
         unset($attributes['id'], $attributes['type'], $attributes['value']);

@@ -15,8 +15,8 @@ trait HasItems
      * Set the items.
      *
      * The array keys are option values, and the array values are the corresponding option labels. The array can also
-     * be nested (for example, some array values are arrays too). For each sub-array, an option group will be generated
-     * whose label is the key associated with the sub-array.
+     * be nested (for example, some array values are arrays too). For each subarray, an option group will be generated
+     * whose label is the key associated with the subarray.
      *
      * Example:
      * ```php

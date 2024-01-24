@@ -20,17 +20,18 @@ final class WordFormatter
      * Converts a string to words with capitalized first letters.
      *
      * This function takes a string as input and converts it into words with the first letter of each word capitalized.
-     * The input string can be in different formats, such as camelCase or snake_case, and the function will handle them properly.
-     * If the input string is in all uppercase, it will be treated as a single word and capitalized accordingly.
+     * The input string can be in different formats, such as camelCase or snake_case, and the function will handle them
+     * properly.
+     * If the input string is in all uppercases, it will be treated as a single word and capitalized accordingly.
      *
-     * @param string $string The input string to be converted.
+     * @param string $value The input string to be converted.
      *
      * @return string The string with words having capitalized first letters separated by spaces.
      */
-    public static function capitalizeToWords(string $string): string
+    public static function capitalizeToWords(string $value): string
     {
-        if (preg_match('/^[A-Z][^_]*(_[A-Z][^_]*)*/', $string)) {
-            $strings = explode('_', $string);
+        if (preg_match('/^[A-Z][^_]*(_[A-Z][^_]*)*/', $value)) {
+            $strings = explode('_', $value);
             $word = '';
 
             foreach ($strings as $index => $string) {
@@ -44,7 +45,7 @@ final class WordFormatter
         }
 
         $capitalizedWords = [];
-        $words = preg_split('/(?=[A-Z])|_/', $string);
+        $words = preg_split('/(?=[A-Z])|_/', $value);
 
         foreach ($words as $word) {
             $capitalizedWords[] = ucfirst($word);

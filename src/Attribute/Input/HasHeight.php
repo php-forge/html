@@ -11,9 +11,9 @@ trait HasHeight
 {
     /**
      * Set the height attribute valid for the image input button or img only, the height of the image file to display to
-     * represent the graphical submit button.
+     * represent the graphical submitted button.
      *
-     * Must be an integer without a unit or a percentage value, i.e. a number followed immediately by "%".
+     * Must be an integer without a unit or a percentage value, i.e., a number followed immediately by "%".
      *
      * @param int|string $value The width of the widget.
      *

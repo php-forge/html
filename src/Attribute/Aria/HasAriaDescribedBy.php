@@ -12,7 +12,7 @@ trait HasAriaDescribedBy
     protected bool|string $ariaDescribedBy = false;
 
     /**
-     * Set the aria-describedby attribute, which identifies the element(s) that describe the current element.
+     * Set the aria-describedby attribute, which identifies the element(s) that describes the current element.
      *
      * The aria-describedby attribute is used in WAI-ARIA to provide a relationship between an element and its
      * descriptive elements. This helps screen readers and other assistive technologies provide additional context
@@ -29,7 +29,7 @@ trait HasAriaDescribedBy
         $new = clone $this;
 
         if ($value === true) {
-            $new->ariaDescribedBy = $value;
+            $new->ariaDescribedBy = true;
         } else {
             $new->attributes['aria-describedby'] = $value;
         }

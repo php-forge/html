@@ -12,8 +12,8 @@ trait HasAriaControls
     protected bool|string $ariaControls = false;
 
     /**
-     * Set the aria-controls attribute, which identifies the element(s) whose contents or presence are controlled
-     * by the current element.
+     * Set the aria-controls attribute, which identifies the element(s) whose contents or presence is controlled by the
+     * current element.
      *
      * The aria-controls attribute is used in WAI-ARIA to define a relationship between a controller element and
      * controlled elements, typically used for accessibility in web applications.
@@ -30,7 +30,7 @@ trait HasAriaControls
         $new = clone $this;
 
         if ($value === true) {
-            $new->ariaControls = $value;
+            $new->ariaControls = true;
         } else {
             $new->ariaControls = false;
             $new->attributes['aria-controls'] = $value;

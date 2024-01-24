@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Input;
 
 /*
- * Generates a list of checkboxes buttons.
+ * Generates a list of checkbox buttons.
  *
  * A checkbox is a graphical control element that allows the user to choose one or more options from a predefined set of
  * mutually exclusive options.
@@ -17,9 +17,9 @@ final class CheckboxList extends Base\AbstractChoiceList
      *
      * @param Checkbox ...$items An array of Checkbox objects representing the items for the CheckboxList.
      *
-     * @return static A new instance or clone of the current object with the items set.
+     * @return self A new instance or clone of the current object with the items set.
      */
-    public function items(Checkbox ...$items): static
+    public function items(Checkbox ...$items): self
     {
         $new = clone $this;
         $new->items = $items;

@@ -17,9 +17,9 @@ final class RadioList extends Base\AbstractChoiceList
      *
      * @param Radio ...$items An array of Radio objects representing the items for the RadioList.
      *
-     * @return static A new instance or clone of the current object with the items set.
+     * @return self A new instance or clone of the current object with the items set.
      */
-    public function items(Radio ...$items): static
+    public function items(Radio ...$items): self
     {
         $new = clone $this;
         $new->items = $items;

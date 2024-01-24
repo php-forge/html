@@ -11,11 +11,11 @@ trait HasWidth
 {
     /**
      * Set the width attribute valid for the image input button or img only, the width of the image file to display to
-     * represent the graphical submit button.
+     * represent the graphical submitted button.
      *
-     * Must be an integer without a unit or a percentage value, i.e. a number followed immediately by "%".
+     * Must be an integer without a unit or a percentage value, i.e., a number followed immediately by "%".
      *
-     * @param int $value The width of the widget.
+     * @param int|string $value The width of the widget.
      *
      * @return static A new instance of the current class with the specified width value.
      *

@@ -41,39 +41,39 @@ final class EncodeTest extends TestCase
     {
         $this->assertSame(
             '<a >click</a>',
-            Encode::santizeXSS('<a href=&#x2000;javascript:alert(1)>click</a>'),
+            Encode::sanitizeXSS('<a href=&#x2000;javascript:alert(1)>click</a>'),
         );
         $this->assertSame(
             '<button><img src="http://fakeurl.com/fake.jpg" /></button>',
-            Encode::santizeXSS('<button><img src="http://fakeurl.com/fake.jpg" onerror="alert(\'XSS\')"/></button>'),
+            Encode::sanitizeXSS('<button><img src="http://fakeurl.com/fake.jpg" onerror="alert(\'XSS\')"/></button>'),
         );
         $this->assertSame(
             '<form><input type="text" value="test" /></form>',
-            Encode::santizeXSS('<form><input type="text" value="test" onfocus="alert(\'XSS\')"/></form>'),
+            Encode::sanitizeXSS('<form><input type="text" value="test" onfocus="alert(\'XSS\')"/></form>'),
         );
         $this->assertSame(
             '<img >',
-            Encode::santizeXSS('<img src=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>'),
+            Encode::sanitizeXSS('<img src=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>'),
         );
         $this->assertSame(
             '<input type="text" value="test"  />',
-            Encode::santizeXSS('<input type="text" value="test" onfocus="alert(\'XSS\')" />'),
+            Encode::sanitizeXSS('<input type="text" value="test" onfocus="alert(\'XSS\')" />'),
         );
         $this->assertSame(
             '<select><option value="test">test</option></select>',
-            Encode::santizeXSS('<select><option value="test">test</option></select>'),
+            Encode::sanitizeXSS('<select><option value="test">test</option></select>'),
         );
         $this->assertSame(
             '<svg></svg>',
-            Encode::santizeXSS('<svg><script>alert("XSS")</script></svg>'),
+            Encode::sanitizeXSS('<svg><script>alert("XSS")</script></svg>'),
         );
         $this->assertSame(
             '<textarea></textarea>',
-            Encode::santizeXSS('<textarea><script>alert("XSS")</script></textarea>'),
+            Encode::sanitizeXSS('<textarea><script>alert("XSS")</script></textarea>'),
         );
         $this->assertSame(
             '<input type="text" value="test" style="padding-left:20px" oinvalid=""  />',
-            Encode::santizeXSS('<input type="text" value="test" style="padding-left:20px" oinvalid="" onfocus="alert(\'XSS\')" />'),
+            Encode::sanitizeXSS('<input type="text" value="test" style="padding-left:20px" oinvalid="" onfocus="alert(\'XSS\')" />'),
         );
     }
 

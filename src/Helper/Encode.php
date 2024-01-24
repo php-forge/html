@@ -96,7 +96,7 @@ final class Encode
      *
      * @return string The sanitized HTML content.
      */
-    public static function santizeXSS(string|ElementInterface ...$values): string
+    public static function sanitizeXSS(string|ElementInterface ...$values): string
     {
         $cleanHtml = '';
 

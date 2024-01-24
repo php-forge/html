@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 /**
- * Is used by widgets that implement the cols method.
+ * Is used by widgets that implement the col method.
  */
 trait HasCols
 {

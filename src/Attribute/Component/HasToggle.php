@@ -85,7 +85,7 @@ trait HasToggle
     public function toggleContent(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->toggleContent = Encode::santizeXSS(...$values);
+        $new->toggleContent = Encode::sanitizeXSS(...$values);
 
         return $new;
     }
@@ -175,7 +175,7 @@ trait HasToggle
      *
      * @param string $value The tag name for the toggle element.
      *
-     * @throws InvalidArgumentException If the toogle tag is an empty string.
+     * @throws InvalidArgumentException If the toggle tag is an empty string.
      *
      * @return static A new instance of the current class with the specified toggle tag.
      */
