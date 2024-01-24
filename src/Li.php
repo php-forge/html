@@ -12,4 +12,5 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-li-element
  */
-final class Li extends Base\AbstractLi {}
+final class Li extends Base\AbstractLi {
+}
