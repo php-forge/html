@@ -57,10 +57,7 @@ Below are examples of common use cases:
 $anchor->class('external')->href('/external/link')->content('External Link');
 
 // Example: Using data attributes
-$anchor->dataAttributes(['target' => '_blank', 'analytics' => 'trackClick']);
-
-// Example: Applying a custom template
-$anchor->template('<span>{tag}</span>')->class('styled-link')->content('Styled Link');
+$anchor->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `autofocus`, `hidden`, `download`, etc.
@@ -74,7 +71,7 @@ Use `prefix` and `suffix` methods to add text before and after the `anchor` tag,
 
 ```php
 // Example: Adding a prefix
-$html = $anchor->prefix('Go to: ')->render();
+$html = $anchor->content('Home')->prefix('Go to: ')->render();
 
 // Example: Adding a suffix
 $html = $anchor->content('Home')->suffix(' | Welcome')->render();
@@ -97,7 +94,7 @@ The following template tags are available:
 
 ```php
 // Example: Using a custom template
-$a->template('<span>{tag}</span>')->class('styled-link')->content('Styled Link');
+$a->template('<span>{tag}</span>');
 ```
 
 Examples of `template` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/A/CustomMethodTest.php)
@@ -160,6 +157,3 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Sets the class attribute for the suffix container.                                    |
 | `suffixContainerTag()`       | Sets the tag for the suffix container.                                                |
 | `template()`                 | Sets the template for the a element.                                                  |
-
-
-
