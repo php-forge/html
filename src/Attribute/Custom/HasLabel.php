@@ -58,7 +58,7 @@ trait HasLabel
      *
      * @return static A new instance of the current class with the specified `HTML` label content.
      */
-    public function labelContent(string|ElementInterface ...$values): static
+    public function labelContent(ElementInterface|string ...$values): static
     {
         $new = clone $this;
         $new->labelContent = Encode::sanitizeXSS(...$values);
