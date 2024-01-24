@@ -191,7 +191,7 @@ trait HasIcon
     /**
      * Set the icon tag name.
      *
-     * @param false|string $value The tag name for the icon element. if `false` the icon content will be used.
+     * @param false|string $value The tag name for the icon element. If `false` the icon content will be used.
      *
      * @throws InvalidArgumentException If the icon tag is an empty string.
      *

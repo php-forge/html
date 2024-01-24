@@ -64,7 +64,7 @@ trait HasSummary
     /**
      * Set the separator text for summary current page.
      *
-     * @param string $value The separator text for summary current page. Default value is ` of `.
+     * @param string $value The separator text for summary current page. The default value is ` of `.
      *
      * @return static A new instance of the current class with the specified separator text for summary current page.
      */

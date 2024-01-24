@@ -15,7 +15,7 @@ trait HasCsrf
     protected string $csrfToken = '';
 
     /**
-     * Set the CSRF-token attribute token that is known to be safe to use.
+     * Set the CSRF-token attribute token known to be safe to use.
      *
      * @param string|Stringable $csrfToken The CSRF-token attribute value.
      * @param string $csrfName The CSRF-token attribute name.

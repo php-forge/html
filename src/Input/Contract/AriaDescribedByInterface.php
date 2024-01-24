@@ -10,7 +10,7 @@ namespace PHPForge\Html\Input\Contract;
 interface AriaDescribedByInterface
 {
     /**
-     * Set the aria-describedby attribute, which identifies the element(s) that describe the current element.
+     * Set the aria-describedby attribute, which identifies the element(s) that describes the current element.
      *
      * The aria-describedby attribute is used in WAI-ARIA to provide a relationship between an element and its
      * descriptive elements. This helps screen readers and other assistive technologies provide additional context

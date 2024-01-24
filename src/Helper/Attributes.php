@@ -105,7 +105,7 @@ final class Attributes
 
         foreach ($this->order as $name) {
             if (isset($attributes[$name])) {
-                /** @psalm-var string[] */
+                /** @psalm-var string[] $sorted */
                 $sorted[$name] = $attributes[$name];
             }
         }

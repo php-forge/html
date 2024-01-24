@@ -14,7 +14,7 @@ trait HasPing
      *
      * When the link is followed, the browser will send POST requests with the body PING to the URLs.
      *
-     * Typically for tracking.
+     * Typically, for tracking.
      *
      * @param string $value A space-separated list of URLs.
      *

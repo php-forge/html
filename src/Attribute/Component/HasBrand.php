@@ -27,7 +27,7 @@ trait HasBrand
     /**
      * Enable or disable the brand container tag `<div>`.
      *
-     * @param bool $value If enabled or disabled the item container tag `<div>`.
+     * @param bool $value If enabled or disabled, the item container tag `<div>`.
      * Default is `false`.
      *
      * @return static A new instance of the current class with the specified brand container.
@@ -96,7 +96,7 @@ trait HasBrand
     public function brandImage(string|ElementInterface $value): static
     {
         $new = clone $this;
-        $new->brandImage = Encode::santizeXSS($value);
+        $new->brandImage = Encode::sanitizeXSS($value);
 
         return $new;
     }
@@ -117,7 +117,7 @@ trait HasBrand
     }
 
     /**
-     * Set the the `HTML` attributes for the brand link.
+     * Set the `HTML` attributes for the brand link.
      *
      * @return static A new instance of the current class with the specified brand link attributes.
      */
@@ -171,7 +171,7 @@ trait HasBrand
     public function brandText(string|ElementInterface $value): static
     {
         $new = clone $this;
-        $new->brandText = Encode::santizeXSS($value);
+        $new->brandText = Encode::sanitizeXSS($value);
 
         return $new;
     }
@@ -186,7 +186,7 @@ trait HasBrand
     public function brandToggle(string|ElementInterface $value): static
     {
         $new = clone $this;
-        $new->brandToggle = Encode::santizeXSS($value);
+        $new->brandToggle = Encode::sanitizeXSS($value);
 
         return $new;
     }

@@ -34,7 +34,7 @@ trait HasPrefixAndSuffix
     public function prefix(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->prefix = Encode::santizeXSS(...$values);
+        $new->prefix = Encode::sanitizeXSS(...$values);
 
         return $new;
     }
@@ -116,7 +116,7 @@ trait HasPrefixAndSuffix
     public function suffix(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->suffix = Encode::santizeXSS(...$values);
+        $new->suffix = Encode::sanitizeXSS(...$values);
 
         return $new;
     }

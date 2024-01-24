@@ -12,7 +12,7 @@ use InvalidArgumentException;
 trait HasWidgetValidation
 {
     /**
-     * Validate if the value is a iterable or null based on the type.
+     * Validate if the value is an iterable or null based on the type.
      *
      * @param mixed $value The value to validate.
      *

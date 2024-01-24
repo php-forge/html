@@ -16,7 +16,7 @@ use function sprintf;
 trait HasWrap
 {
     /**
-     * Set the wrap attribute is an enumerated attribute with two keywords and states: the soft keyword which maps to
+     * Set the wrap attribute is an enumerated attribute with two keywords and states: the soft keyword, which maps to
      * the Soft state, and the hard keyword which maps to the Hard state.
      *
      * The missing value default and invalid value default are the Soft state.

@@ -11,7 +11,7 @@ trait HasSrc
 {
     /**
      * Set the source attribute valid for the image input button or img only, the src is string specifying the URL of
-     * the image file to display to represent the graphical submit button.
+     * the image file to display to represent the graphical submitted button.
      *
      * @param string|null $value The source of the widget.
      *

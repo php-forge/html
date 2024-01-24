@@ -15,7 +15,7 @@ trait HasToggleButton
     protected string $toggleButton = '';
 
     /**
-     * Set the button toogle for the toggle.
+     * Set the button toggle for the toggle.
      *
      * @param ElementInterface|string ...$values The button content.
      *
@@ -24,7 +24,7 @@ trait HasToggleButton
     public function toggleButton(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->toggleButton = Encode::santizeXSS(...$values);
+        $new->toggleButton = Encode::sanitizeXSS(...$values);
 
         return $new;
     }

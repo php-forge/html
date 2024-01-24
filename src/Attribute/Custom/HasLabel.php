@@ -54,14 +54,14 @@ trait HasLabel
     /**
      * Set the `HTML` label content.
      *
-     * @param ElementInterface|string $values The `HTML` label content value.
+     * @param string|ElementInterface ...$values The `HTML` label content value.
      *
      * @return static A new instance of the current class with the specified `HTML` label content.
      */
     public function labelContent(string|ElementInterface ...$values): static
     {
         $new = clone $this;
-        $new->labelContent = Encode::santizeXSS(...$values);
+        $new->labelContent = Encode::sanitizeXSS(...$values);
 
         return $new;
     }
@@ -97,7 +97,7 @@ trait HasLabel
     /**
      * Render the label tag.
      *
-     * @param string $labelFor The `for` attribute value.
+     * @param string|null $labelFor The `for` attribute value.
      *
      * @return string The rendered label tag.
      */

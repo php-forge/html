@@ -101,13 +101,14 @@ trait HasList
     /**
      * Set list type for tag `<ul>` or `<ol>`.
      *
-     * @param false|string $value The list type. `ul` for unordered list, `ol` for ordered list, `false` to disable.
+     * @param false|string $value The list type. `ul` for an unordered list, `ol` for an ordered list, `false` to
+     * disable.
      *
      * @return static A new instance of the current class with the specified list type for tag `<ul>` or `<ol>`.
      */
     public function listType(string|false $value): static
     {
-        if (in_array($value, ['ul', 'ol'], true) === false && $value !== false) {
+        if ($value !== false && in_array($value, ['ul', 'ol'], true) === false) {
             throw new InvalidArgumentException(sprintf('Invalid list type "%s".', $value));
         }
 
