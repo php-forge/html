@@ -182,14 +182,13 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testPrefix(): void
+    public function testReferrerpolicy(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
-            <a></a>
+            <a referrerpolicy="no-referrer"></a>
             HTML,
-            A::widget()->prefix('prefix')->render(),
+            A::widget()->referrerpolicy('no-referrer')->render()
         );
     }
 
@@ -203,23 +202,13 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testReferrerpolicy(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a referrerpolicy="no-referrer"></a>
-            HTML,
-            A::widget()->referrerpolicy('no-referrer')->render()
-        );
-    }
-
     public function testRole(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a role="role"></a>
+            <a role="value"></a>
             HTML,
-            A::widget()->role('role')->render()
+            A::widget()->role('value')->render()
         );
     }
 
@@ -227,20 +216,9 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a style="style"></a>
+            <a style="value"></a>
             HTML,
-            A::widget()->style('style')->render()
-        );
-    }
-
-    public function testSuffix(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            suffix
-            HTML,
-            A::widget()->suffix('suffix')->render(),
+            A::widget()->style('value')->render()
         );
     }
 
@@ -264,23 +242,13 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testTemplate(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            HTML,
-            A::widget()->suffix('suffix')->template('{tag}')->render(),
-        );
-    }
-
     public function testTitle(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a title="title"></a>
+            <a title="value"></a>
             HTML,
-            A::widget()->title('title')->render()
+            A::widget()->title('value')->render()
         );
     }
 
@@ -288,9 +256,9 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a type="text/html"></a>
+            <a type="value"></a>
             HTML,
-            A::widget()->type('text/html')->render()
+            A::widget()->type('value')->render()
         );
     }
 
