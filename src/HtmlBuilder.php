@@ -13,5 +13,4 @@ namespace PHPForge\Html;
  */
 final class HtmlBuilder extends Base\AbstractHtmlBuilder
 {
-    
 }
