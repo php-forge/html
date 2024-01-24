@@ -1,3 +1,5 @@
+# HTML
+
 The **HTML** repository is a powerful tool for generating `HTML` code using `PHP`.
 
 It provides a wide range of functionalities, including:
