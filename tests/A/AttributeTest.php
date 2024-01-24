@@ -5,32 +5,30 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\A;
 
 use PHPForge\Html\A;
-use PHPForge\Html\Attribute\Enum\DataAttributes;
 use PHPForge\Support\Assert;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class AttributeTest extends \PHPUnit\Framework\TestCase
 {
-    public function testAriaDisabled(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a aria-disabled="true"></a>
-            HTML,
-            A::widget()->ariaDisabled('true')->render()
-        );
-    }
-
     public function testAriaControls(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a aria-controls="aria-controls"></a>
+            <a aria-controls="value"></a>
             HTML,
-            A::widget()->ariaControls('aria-controls')->render()
+            A::widget()->ariaControls('value')->render()
+        );
+    }
+
+    public function testAriaDisabled(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a aria-disabled="value"></a>
+            HTML,
+            A::widget()->ariaDisabled('value')->render()
         );
     }
 
@@ -38,9 +36,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a aria-expanded="true"></a>
+            <a aria-expanded="value"></a>
             HTML,
-            A::widget()->ariaExpanded('true')->render()
+            A::widget()->ariaExpanded('value')->render()
         );
     }
 
@@ -48,9 +46,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a aria-label="aria-label"></a>
+            <a aria-label="value"></a>
             HTML,
-            A::widget()->ariaLabel('aria-label')->render()
+            A::widget()->ariaLabel('value')->render()
         );
     }
 
@@ -58,11 +56,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a class="class"></a>
+            <a class="value"></a>
             HTML,
-            A::widget()->attributes([
-                'class' => 'class',
-            ])->render()
+            A::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -80,9 +76,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a class="class"></a>
+            <a class="value"></a>
             HTML,
-            A::widget()->class('class')->render()
+            A::widget()->class('value')->render()
         );
     }
 
@@ -90,9 +86,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a>content</a>
+            <a>value</a>
             HTML,
-            A::widget()->content('content')->render()
+            A::widget()->content('value')->render()
         );
     }
 
@@ -100,11 +96,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a data-action="action"></a>
+            <a data-value="value"></a>
             HTML,
-            A::widget()->dataAttributes([
-                DataAttributes::ACTION => 'action',
-            ])->render()
+            A::widget()->dataAttributes(['value' => 'value'])->render()
         );
     }
 
@@ -115,16 +109,6 @@ final class RenderTest extends TestCase
             <a download></a>
             HTML,
             A::widget()->download()->render()
-        );
-    }
-
-    public function testElement(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            HTML,
-            A::widget()->render()
         );
     }
 
@@ -142,9 +126,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a href="href"></a>
+            <a href="value"></a>
             HTML,
-            A::widget()->href('href')->render()
+            A::widget()->href('value')->render()
         );
     }
 
@@ -152,9 +136,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a hreflang="hreflang"></a>
+            <a hreflang="value"></a>
             HTML,
-            A::widget()->hreflang('hreflang')->render()
+            A::widget()->hreflang('value')->render()
         );
     }
 
@@ -162,9 +146,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a id="id"></a>
+            <a id="value"></a>
             HTML,
-            A::widget()->id('id')->render()
+            A::widget()->id('value')->render()
         );
     }
 
@@ -172,9 +156,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a lang="lang"></a>
+            <a lang="value"></a>
             HTML,
-            A::widget()->lang('lang')->render()
+            A::widget()->lang('value')->render()
         );
     }
 
@@ -182,9 +166,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a name="name"></a>
+            <a name="value"></a>
             HTML,
-            A::widget()->name('name')->render()
+            A::widget()->name('value')->render()
         );
     }
 
@@ -192,30 +176,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a ping="ping"></a>
+            <a ping="value"></a>
             HTML,
-            A::widget()->ping('ping')->render()
-        );
-    }
-
-    public function testPrefix(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            prefix
-            <a></a>
-            HTML,
-            A::widget()->prefix('prefix')->render(),
-        );
-    }
-
-    public function testRel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a rel="preload"></a>
-            HTML,
-            A::widget()->rel('preload')->render()
+            A::widget()->ping('value')->render()
         );
     }
 
@@ -229,13 +192,23 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testRel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a rel="preload"></a>
+            HTML,
+            A::widget()->rel('preload')->render()
+        );
+    }
+
     public function testRole(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a role="role"></a>
+            <a role="value"></a>
             HTML,
-            A::widget()->role('role')->render()
+            A::widget()->role('value')->render()
         );
     }
 
@@ -243,20 +216,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a style="style"></a>
+            <a style="value"></a>
             HTML,
-            A::widget()->style('style')->render()
-        );
-    }
-
-    public function testSuffix(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            suffix
-            HTML,
-            A::widget()->suffix('suffix')->render(),
+            A::widget()->style('value')->render()
         );
     }
 
@@ -280,23 +242,13 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testTemplate(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            HTML,
-            A::widget()->suffix('suffix')->template('{tag}')->render(),
-        );
-    }
-
     public function testTitle(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a title="title"></a>
+            <a title="value"></a>
             HTML,
-            A::widget()->title('title')->render()
+            A::widget()->title('value')->render()
         );
     }
 
@@ -304,9 +256,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a type="text/html"></a>
+            <a type="value"></a>
             HTML,
-            A::widget()->type('text/html')->render()
+            A::widget()->type('value')->render()
         );
     }
 
