@@ -81,6 +81,7 @@ final class Button extends Element
     protected function run(): string
     {
         $this->validateTagName($this->tagName, 'a', 'button');
+        $this->validateType($this->type, 'button', 'reset', 'submit');
 
         $attributes = $this->attributes;
 
