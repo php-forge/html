@@ -157,3 +157,4 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Sets the class attribute for the suffix container.                                    |
 | `suffixContainerTag()`       | Sets the tag for the suffix container.                                                |
 | `template()`                 | Sets the template for the a element.                                                  |
+| `widget()`                   | Instantiates the A class.                                                             |

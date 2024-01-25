@@ -179,3 +179,4 @@ The following methods are available for customizing the `HTML` output:
 | `template()`                 | Sets the template for the a element.                                                  |
 | `type()`                     | Sets the type attribute.                                                              |
 |                              | Allowed values: `button`, `submit`, `reset`.                                          |
+| `widget()`                   | Instantiates the button class.                                                        |
