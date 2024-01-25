@@ -77,6 +77,16 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a></a>
+            HTML,
+            A::widget()->render(),
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
