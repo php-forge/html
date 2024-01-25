@@ -7,7 +7,7 @@ namespace PHPForge\Html\Tests;
 use PHPForge\Html\Button;
 use PHPUnit\Framework\TestCase;
 
-final class MethodTest extends TestCase
+final class Method extends TestCase
 {
     public function testPrintMethods(): void
     {
