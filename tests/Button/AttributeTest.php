@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Button;
 
-use PHPForge\Html\Attribute\Enum\DataAttributes;
 use PHPForge\Html\Button;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
