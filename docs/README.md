@@ -10,7 +10,8 @@ The repository can generate basic `HTML` tags, allowing you to create `HTML` ele
 
 The following tags are currently supported:
 
-- [a](/docs/A.md)
+- [a](/docs/tag/A.md)
+- [button](/docs/tag/Button.md)
 
 ## Input Tags
 

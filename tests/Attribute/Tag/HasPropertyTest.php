@@ -13,6 +13,8 @@ final class HasPropertyTest extends TestCase
     {
         $instance = new class () {
             use HasProperty;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->property('test', 'test'));

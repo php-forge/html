@@ -42,6 +42,8 @@ final class HasAriaControlsTest extends TestCase
     {
         $instance = new class () {
             use HasAriaControls;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->ariaControls(''));

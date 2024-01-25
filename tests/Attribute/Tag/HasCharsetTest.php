@@ -13,6 +13,8 @@ final class HasCharsetTest extends TestCase
     {
         $instance = new class () {
             use HasCharset;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->charset(''));

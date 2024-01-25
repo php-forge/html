@@ -13,6 +13,8 @@ final class HasAriaDisabledTest extends TestCase
     {
         $instance = new class () {
             use HasAriaDisabled;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->ariaDisabled(''));

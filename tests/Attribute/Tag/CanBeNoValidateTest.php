@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Tag;
 
-use PHPForge\Html\Attribute\Tag\CanBeNoValidate as TagCanBeNoValidate;
+use PHPForge\Html\Attribute\Tag\CanBeNoValidate;
 use PHPUnit\Framework\TestCase;
 
 final class CanBeNoValidateTest extends TestCase
@@ -12,7 +12,9 @@ final class CanBeNoValidateTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use TagCanBeNoValidate;
+            use CanBeNoValidate;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->noValidate());
@@ -21,7 +23,7 @@ final class CanBeNoValidateTest extends TestCase
     public function testRender(): void
     {
         $instance = new class () {
-            use TagCanBeNoValidate;
+            use CanBeNoValidate;
 
             public array $attributes = [];
         };

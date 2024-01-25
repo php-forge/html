@@ -13,6 +13,8 @@ final class HasActionTest extends TestCase
     {
         $instance = new class () {
             use HasAction;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->action(''));
