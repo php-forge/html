@@ -13,6 +13,8 @@ final class HasRoleTest extends TestCase
     {
         $instance = new class () {
             use HasRole;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->role(''));

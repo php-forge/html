@@ -13,6 +13,8 @@ final class HasMethodTest extends TestCase
     {
         $instance = new class () {
             use HasMethod;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->method(''));
@@ -23,7 +25,7 @@ final class HasMethodTest extends TestCase
         $instance = new class () {
             use HasMethod;
 
-            protected array $attributes = [];
+            public array $attributes = [];
 
             public function getMethod(): string
             {

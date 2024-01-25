@@ -13,6 +13,8 @@ final class HasColsTest extends TestCase
     {
         $instance = new class () {
             use HasCols;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->cols(0));

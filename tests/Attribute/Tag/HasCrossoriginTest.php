@@ -14,6 +14,8 @@ final class HasCrossoriginTest extends TestCase
     {
         $instance = new class () {
             use HasCrossorigin;
+
+            public array $attributes = [];
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -26,6 +28,8 @@ final class HasCrossoriginTest extends TestCase
     {
         $instance = new class () {
             use HasCrossorigin;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->crossorigin('anonymous'));

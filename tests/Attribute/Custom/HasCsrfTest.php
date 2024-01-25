@@ -14,6 +14,8 @@ final class HasCsrfTest extends TestCase
     {
         $instance = new class () {
             use HasCsrf;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->csrf('', ''));
@@ -23,6 +25,8 @@ final class HasCsrfTest extends TestCase
     {
         $instance = new class () {
             use HasCsrf;
+
+            public array $attributes = [];
 
             public function getCsrfToken(): string
             {
@@ -46,6 +50,8 @@ final class HasCsrfTest extends TestCase
     {
         $instance = new class () {
             use HasCsrf;
+
+            public array $attributes = [];
 
             public function getCsrfName(): string
             {

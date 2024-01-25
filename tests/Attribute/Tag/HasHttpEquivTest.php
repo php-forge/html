@@ -13,6 +13,8 @@ final class HasHttpEquivTest extends TestCase
     {
         $instance = new class () {
             use HasHttpEquiv;
+
+            public array $attributes = [];
         };
 
         $this->assertNotSame($instance, $instance->httpEquiv('test', 'test'));
