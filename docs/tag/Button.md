@@ -14,14 +14,14 @@ $button = Button::widget();
 
 ## Setting Attributes
 
-Use the provided methods to set specific attributes for the a element.
+Use the provided methods to set specific `attribute` for the `button` element.
 
 ```php
 // Example: Setting the title attribute
 $button->title('Click me');
 ```
 
-Or, use the `attributes` method to set multiple attributes at once.
+Or, use the `attributes` method to set multiple `attributes` at once.
 
 ```php
 $button->attributes(['title' => 'Click me', 'class' => 'btn btn-primary']);
@@ -61,14 +61,14 @@ $button->class('external')->content('Click me')->title('Click me');
 $button->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
 ```
 
-Explore additional methods for setting various attributes such as `ariaControls`, `tabIndex`, `role`, etc.
+Explore additional methods for setting various `attributes` such as `ariaControls`, `tabIndex`, `role`, etc.
 
 Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Button/AttributeTest.php) for comprehensive
 examples.
 
 ## Container
 
-Use the `container()` method to add a container around the `button` tag.
+Use the `container()` method to add a `container` around the `button` tag.
 
 ```php
 // Example: Adding a container
@@ -106,15 +106,15 @@ $button = $button->content('Reset')->reset()->render();
 
 ## Template
 
-The `template` method allows you to customize the `HTML` output of the a element.
+The `template` method allows you to customize the `HTML` output of the `button` element.
 
 The following template tags are available:
 
-| Tag        | Description      |
-| ---------- | ---------------- |
-| `{prefix}` | The prefix text. |
-| `{tag}`    | The a element.   |
-| `{suffix}` | The suffix text. |
+| Tag        | Description             |
+| ---------- | ----------------------- |
+| `{prefix}` | The prefix text.        |
+| `{tag}`    | The `button` element.   |
+| `{suffix}` | The suffix text.        |
 
 ```php
 // Example: Using a custom template
@@ -130,26 +130,24 @@ The following methods are available for setting attributes:
 
 | Method             | Description                                                                                     |
 | ------------------ | ------------------------------------------------------------------------------------------------|
-| `ariaControls()`   | Sets the `aria-controls` attribute.                                                             |
-| `ariaDescribedby()`| Sets the `aria-describedby` attribute.                                                          |
-| `ariaDisabled()`   | Sets the `aria-disabled` attribute.                                                             |
-| `ariaExpanded()`   | Sets the `aria-expanded` attribute.                                                             |
-| `ariaLabel()`      | Sets the `aria-label` attribute.                                                                |
-| `attributes()`     | Sets multiple attributes at once.                                                               |
-| `autofocus()`      | Sets the `autofocus` attribute.                                                                 |
-| `attributes()`     | Sets multiple attributes at once.                                                               |
-| `class()`          | Sets the `class` attribute.                                                                     |
-| `content()`        | Sets the content within the a element.                                                          |
-| `dataAttributes()` | Sets multiple data attributes at once.                                                          |
-| `id()`             | Sets the `id` attribute.                                                                        |
-| `lang()`           | Sets the `lang` attribute.                                                                      |
-| `name()`           | Sets the `name` attribute.                                                                      |
-| `render()`         | Generates the `HTML` output.                                                                    |
-| `role()`           | Sets the `role` attribute.                                                                      |
-| `style()`          | Sets the `style` attribute.                                                                     |
-| `tabindex()`       | Sets the `tabindex` attribute.                                                                  |
-| `title()`          | Sets the `title` attribute.                                                                     |
-| `type()`           | Sets the `type` attribute.                                                                      |
+| `ariaControls()`   | Set the `aria-controls` attribute.                                                              |
+| `ariaDescribedby()`| Set the `aria-describedby` attribute.                                                           |
+| `ariaDisabled()`   | Set the `aria-disabled` attribute.                                                              |
+| `ariaExpanded()`   | Set the `aria-expanded` attribute.                                                              |
+| `ariaLabel()`      | Set the `aria-label` attribute.                                                                 |
+| `attributes()`     | Set multiple `attributes` at once.                                                              |
+| `autofocus()`      | Set the `autofocus` attribute.                                                                  |
+| `class()`          | Set the `class` attribute.                                                                      |
+| `content()`        | Set the `content` within the `button` element.                                                  |
+| `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
+| `id()`             | Set the `id` attribute.                                                                         |
+| `lang()`           | Set the `lang` attribute.                                                                       |
+| `name()`           | Set the `name` attribute.                                                                       |
+| `role()`           | Set the `role` attribute.                                                                       |
+| `style()`          | Set the `style` attribute.                                                                      |
+| `tabindex()`       | Set the `tabindex` attribute.                                                                   |
+| `title()`          | Set the `title` attribute.                                                                      |
+| `type()`           | Set the `type` attribute.                                                                       |
 |                    | Allowed values: `button`, `submit`, `reset`.                                                    |
 
 ## Custom methods
@@ -158,25 +156,26 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `container()`                | Adds a container around the a element.                                                |
-| `containerAttributes()`      | Sets attributes for the container.                                                    |
-| `containerClass()`           | Sets the class attribute for the container.                                           |
-| `containerTag()`             | Sets the tag for the container.                                                       |
-| `prefix()`                   | Adds text before the a element.                                                       |
-| `prefixContainer()`          | Adds a container before the a element.                                                |
-| `prefixContainerAttributes()`| Sets attributes for the prefix container.                                             |
-| `prefixContainerClass()`     | Sets the class attribute for the prefix container.                                    |
-| `prefixContainerTag()`       | Sets the tag for the prefix container.                                                |
-| `reset()`                    | Sets the type attribute to reset.                                                     |
-| `submit()`                   | Sets the type attribute to submit.                                                    |
-| `suffix()`                   | Adds text after the a element.                                                        |
-| `suffixContainer()`          | Adds a container after the a element.                                                 |
-| `suffixContainerAttributes()`| Sets attributes for the suffix container.                                             |
-| `suffixContainerClass()`     | Sets the class attribute for the suffix container.                                    |
-| `suffixContainerTag()`       | Sets the tag for the suffix container.                                                |
-| `tagName()`                  | Sets the tag for the a element.                                                       |
+| `container()`                | Add a `container` around the `button` element.                                        |
+| `containerAttributes()`      | Set `attributes` for the `container`.                                                 |
+| `containerClass()`           | Set the `class` attribute for the `container`.                                        |
+| `containerTag()`             | Set the `tag` for the `container`.                                                    |
+| `prefix()`                   | Add text before the `button` element.                                                 |
+| `prefixContainer()`          | Add a `container` before the `button` element.                                        |
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container`.                                          |
+| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container`.                                 |
+| `prefixContainerTag()`       | Set the `tag` for the `prefix-container`.                                             |
+| `render()`                   | Generates the `HTML` output.                                                          |
+| `reset()`                    | Set the `type` attribute to `reset`.                                                  |
+| `submit()`                   | Set the `type` attribute to `submit`.                                                 |
+| `suffix()`                   | Add text after the `button` element.                                                  |
+| `suffixContainer()`          | Add a `container` after the `button` element.                                         |
+| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container`.                                          |
+| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container`.                                 |
+| `suffixContainerTag()`       | Set the `tag` for the `suffix-container`.                                             |
+| `tagName()`                  | Set the `tag` for the `button` element.                                               |
 |                              | Allowed values: `a`, `button`.                                                        |
-| `template()`                 | Sets the template for the a element.                                                  |
-| `type()`                     | Sets the type attribute.                                                              |
+| `template()`                 | Set the `template` for the `button` element.                                          |
+| `type()`                     | Set the `type` attribute.                                                             |
 |                              | Allowed values: `button`, `submit`, `reset`.                                          |
-| `widget()`                   | Instantiates the button class.                                                        |
+| `widget()`                   | Instantiates the `Button::class`.                                                     |

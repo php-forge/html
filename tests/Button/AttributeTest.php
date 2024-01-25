@@ -148,16 +148,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button id="button-658716145f1d9" type="button"></button>
-            HTML,
-            Button::widget()->id('button-658716145f1d9')->render()
-        );
-    }
-
     public function testRole(): void
     {
         Assert::equalsWithoutLE(

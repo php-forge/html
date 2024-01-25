@@ -106,39 +106,37 @@ The following methods are available for setting attributes:
 
 | Method            | Description                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `ariaControls()`  | Sets the `aria-controls` attribute.                                                              |
-| `ariaDisabled()`  | Sets the `aria-disabled` attribute.                                                              |
-| `ariaExpanded()`  | Sets the `aria-expanded` attribute.                                                              |
-| `ariaLabel()`     | Sets the `aria-label` attribute.                                                                 |
-| `attributes()`    | Sets multiple attributes at once.                                                                |
-| `autofocus()`     | Sets the `autofocus` attribute.                                                                  |
-| `attributes()`    | Sets multiple attributes at once.                                                                |
-| `class()`         | Sets the `class` attribute.                                                                      |
-| `content()`       | Sets the content within the a element.                                                           |
-| `dataAttributes()`| Sets multiple data attributes at once.                                                           |
-| `download()`      | Sets the `download` attribute.                                                                   |
-| `hidden()`        | Sets the `hidden` attribute.                                                                     |
-| `href()`          | Sets the `href` attribute.                                                                       |
-| `hreflang()`      | Sets the `hreflang` attribute.                                                                   |
-| `id()`            | Sets the `id` attribute.                                                                         |
-| `lang()`          | Sets the `lang` attribute.                                                                       |
-| `name()`          | Sets the `name` attribute.                                                                       |
-| `ping()`          | Sets the `ping` attribute.                                                                       |
-| `referrerpolicy()`| Sets the `referrerpolicy` attribute.                                                             |
+| `ariaControls()`  | Set the `aria-controls` attribute.                                                               |
+| `ariaDisabled()`  | Set the `aria-disabled` attribute.                                                               |
+| `ariaExpanded()`  | Set the `aria-expanded` attribute.                                                               |
+| `ariaLabel()`     | Set the `aria-label` attribute.                                                                  |
+| `attributes()`    | Set multiple `attributes` at once.                                                               |
+| `autofocus()`     | Set the `autofocus` attribute.                                                                   |
+| `class()`         | Set the `class` attribute.                                                                       |
+| `content()`       | Set the `content` within the `a` element.                                                        |
+| `dataAttributes()`| Set multiple `data-attributes` at once.                                                          |
+| `download()`      | Set the `download` attribute.                                                                   |
+| `hidden()`        | Set the `hidden` attribute.                                                                     |
+| `href()`          | Set the `href` attribute.                                                                       |
+| `hreflang()`      | Set the `hreflang` attribute.                                                                   |
+| `id()`            | Set the `id` attribute.                                                                         |
+| `lang()`          | Set the `lang` attribute.                                                                       |
+| `name()`          | Set the `name` attribute.                                                                       |
+| `ping()`          | Set the `ping` attribute.                                                                       |
+| `referrerpolicy()`| Set the `referrerpolicy` attribute.                                                             |
 |                   | Allowed values: `no-referrer`, `no-referrer-when-downgrade`, `origin`, `origin-when-cross-origin`|
 |                   | `same-origin`, `strict-origin`, `strict-origin-when-cross-origin`, `unsafe-url`                  |
-| `rel()`           | Sets the `rel` attribute.                                                                        |
+| `rel()`           | Set the `rel` attribute.                                                                         |
 |                   | Allowed values: 'alternate', 'author', 'bookmark', 'help', 'icon', 'license', 'next', 'nofollow' |
 |                   | 'noopener', 'noreferrer', 'pingback', 'preconnect', 'prefetch', 'preload', 'prerender', 'prev'   |
 |                   | 'search', 'sidebar', 'stylesheet', 'tag'                                                         |
-| `render()`        | Generates the `HTML` output.                                                                     |
-| `role()`          | Sets the `role` attribute.                                                                       |
-| `style()`         | Sets the `style` attribute.                                                                      |
-| `target()`        | Sets the `target` attribute.                                                                     |
+| `role()`          | Set the `role` attribute.                                                                        |
+| `style()`         | Set the `style` attribute.                                                                       |
+| `target()`        | Set the `target` attribute.                                                                      |
 |                   | Allowed values: `_blank`, `_parent`, `_self`, `_top`                                             |
-| `tabindex()`      | Sets the `tabindex` attribute.                                                                   |
-| `title()`         | Sets the `title` attribute.                                                                      |
-| `type()`          | Sets the `type` attribute.                                                                       |
+| `tabindex()`      | Set the `tabindex` attribute.                                                                    |
+| `title()`         | Set the `title` attribute.                                                                       |
+| `type()`          | Set the `type` attribute.                                                                        |
 
 ## Custom methods
 
@@ -146,15 +144,16 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `prefix()`                   | Adds text before the a element.                                                       |
-| `prefixContainer()`          | Adds a container before the a element.                                                |
-| `prefixContainerAttributes()`| Sets attributes for the prefix container.                                             |
-| `prefixContainerClass()`     | Sets the class attribute for the prefix container.                                    |
-| `prefixContainerTag()`       | Sets the tag for the prefix container.                                                |
-| `suffix()`                   | Adds text after the a element.                                                        |
-| `suffixContainer()`          | Adds a container after the a element.                                                 |
-| `suffixContainerAttributes()`| Sets attributes for the suffix container.                                             |
-| `suffixContainerClass()`     | Sets the class attribute for the suffix container.                                    |
-| `suffixContainerTag()`       | Sets the tag for the suffix container.                                                |
-| `template()`                 | Sets the template for the a element.                                                  |
-| `widget()`                   | Instantiates the A class.                                                             |
+| `prefix()`                   | Add text before the `a` element.                                                      |
+| `prefixContainer()`          | Add a `container` before the `a` element.                                             |
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container`.                                          |                                            
+| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container`.                                 |
+| `prefixContainerTag()`       | Set the `tag` for the `prefix-container`.                                             |
+| `render()`                   | Generates the `HTML` output.                                                          |
+| `suffix()`                   | Add text after the `a` element.                                                       |
+| `suffixContainer()`          | Add a `container` after the `a` element.                                              |
+| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container`.                                          |
+| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container`.                                 |
+| `suffixContainerTag()`       | Set the `tag` for the `suffix-container`.                                             |
+| `template()`                 | Set the `template` for the `a` element.                                               |
+| `widget()`                   | Instantiates the `A::class`.                                                          |
