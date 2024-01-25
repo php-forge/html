@@ -4,7 +4,7 @@ The `<button>` `HTML` element is an interactive element activated by a user with
 command, or other assistive technology. Once activated, it then performs an action, such as submitting a form or
 opening a dialog.
 
-# Basic Usage
+## Basic Usage
 
 Instantiate the `Button` class using `Button::widget()`.
 
@@ -104,7 +104,7 @@ $button = $button->content('Submit')->submit()->render();
 $button = $button->content('Reset')->reset()->render();
 ```
 
-# Template
+## Template
 
 The `template` method allows you to customize the `HTML` output of the a element.
 
@@ -124,7 +124,7 @@ $a->template('<span>{tag}</span>');
 Examples of `template` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/Button/CustomMethodTest.php)
 for comprehensive examples.
 
-# Attributes
+## Attributes
 
 The following methods are available for setting attributes:
 

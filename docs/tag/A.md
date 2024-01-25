@@ -3,7 +3,7 @@
 The `<a>` `HTML` element (or `anchor` element), with its `href` attribute, creates a hyperlink to web pages, files,
 email addresses, locations in the same page, or anything else a `URL` can address.
 
-# Basic Usage
+## Basic Usage
 
 Instantiate the `A` class using `A::widget()`.
 
@@ -80,7 +80,7 @@ $html = $anchor->content('Home')->suffix(' | Welcome')->render();
 Examples of `prefix` and `suffix` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/A/CustomMethodTest.php)
 for comprehensive examples.
 
-# Template
+## Template
 
 The `template` method allows you to customize the `HTML` output of the a element.
 
@@ -100,7 +100,7 @@ $a->template('<span>{tag}</span>');
 Examples of `template` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/A/CustomMethodTest.php)
 for comprehensive examples.
 
-# Attributes
+## Attributes
 
 The following methods are available for setting attributes:
 
