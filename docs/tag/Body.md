@@ -15,9 +15,9 @@ $body = Body::widget();
 Or, block style instantiation.
 
 ```php
-Body::begin();
-// ... content to be wrapped by body element
-Body::end();
+<?= Body::begin() ?>
+    // ... content to be wrapped by body element
+<?= Body::end() ?>
 ```
 
 ## Setting Attributes
@@ -46,9 +46,9 @@ $body->content('My content');
 Or, use `begin()` and `end()` methods to wrap content.
 
 ```php
-Body::begin();
-echo 'Click me';
-Body::end();
+<?= Body::begin() ?>
+    My content
+<?= Body::end() ?>
 ```
 
 ## Rendering
