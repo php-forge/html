@@ -31,6 +31,7 @@ final class ButtonToggle extends Element
     use Attribute\Custom\HasDataDrawerTarget;
     use Attribute\Custom\HasDataDropdownToggle;
     use Attribute\Custom\HasDataToggle;
+    use Attribute\Custom\HasDataValue;
     use Attribute\Custom\HasTemplate;
     use Attribute\HasClass;
     use Attribute\HasData;
@@ -61,6 +62,7 @@ final class ButtonToggle extends Element
     protected function loadDefaultDefinitions(): array
     {
         return [
+            'id()' => [$this->generateId('button-toggle-')],
             'template()' => ['{toggle}\n{icon}\n{content}'],
         ];
     }
@@ -74,30 +76,28 @@ final class ButtonToggle extends Element
     {
         $attributes = $this->attributes;
 
-        $id = $this->generateId('button-toggle-');
-
-        if ($this->ariaControls === true) {
-            $attributes['aria-controls'] = $this->toggleId;
+        if ($this->ariaControls === true && $this->dataValue !== '') {
+            $attributes['aria-controls'] = $this->dataValue;
         }
 
-        if ($this->dataBsTarget === true) {
-            $attributes['data-bs-target'] = "#$this->toggleId";
+        if ($this->dataBsTarget === true && $this->dataValue !== '') {
+            $attributes['data-bs-target'] = "#$this->dataValue";
         }
 
         if ($this->dataDismissTarget === true) {
-            $attributes['data-dismiss-target'] = $this->toggleId;
+            $attributes['data-dismiss-target'] = $this->dataValue;
         }
 
         if ($this->dataDrawerTarget === true) {
-            $attributes['data-drawer-target'] = $this->toggleId;
+            $attributes['data-drawer-target'] = $this->dataValue;
         }
 
         if ($this->dataDropdownToggle === true) {
-            $attributes['data-dropdown-toggle'] = $this->toggleId;
+            $attributes['data-dropdown-toggle'] = $this->dataValue;
         }
 
         if ($this->dataToggle === true) {
-            $attributes['data-toggle'] = $this->toggleId;
+            $attributes['data-toggle'] = $this->dataValue;
         }
 
         $tokenValues = [
@@ -113,7 +113,7 @@ final class ButtonToggle extends Element
             ->ariaDescribedBy($this->ariaDescribedBy)
             ->attributes($attributes)
             ->content($content)
-            ->id($id)
+            ->id($this->id)
             ->role($this->role)
             ->tagName($this->tagName)
             ->render();

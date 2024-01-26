@@ -203,6 +203,7 @@ trait HasToggle
             ->attributes($this->toggleAttributes)
             ->class($this->toggleClass)
             ->content($this->toggleContent)
+            ->id($this->toggleId)
             ->prefix($this->togglePrefix)
             ->suffix($this->toggleSuffix)
             ->tagName($this->toggleTag)
