@@ -228,6 +228,11 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testGenerateId(): void
+    {
+        $this->assertStringContainsString('<button id="button-toggle', ButtonToggle::widget()->render());
+    }
+
     public function testName(): void
     {
         Assert::equalsWithoutLE(
