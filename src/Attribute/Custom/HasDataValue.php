@@ -9,7 +9,7 @@ namespace PHPForge\Html\Attribute\Custom;
  */
 trait HasDataValue
 {
-    protected string $dataValue = '';
+    protected string|null $dataValue = null;
 
     /**
      * Set the `HTML` data-value attribute for the toggle.

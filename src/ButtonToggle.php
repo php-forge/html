@@ -76,11 +76,11 @@ final class ButtonToggle extends Element
     {
         $attributes = $this->attributes;
 
-        if ($this->ariaControls === true && $this->dataValue !== '') {
+        if ($this->ariaControls === true) {
             $attributes['aria-controls'] = $this->dataValue;
         }
 
-        if ($this->dataBsTarget === true && $this->dataValue !== '') {
+        if ($this->dataBsTarget === true) {
             $attributes['data-bs-target'] = "#$this->dataValue";
         }
 
