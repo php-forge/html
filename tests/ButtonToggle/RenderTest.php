@@ -17,9 +17,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" aria-controls="id"></button>
+            <button id="button-toggle-658716145f1d9" type="button" aria-controls="value"></button>
             HTML,
-            ButtonToggle::widget()->ariaControls(true)->id('button-toggle-658716145f1d9')->toggleId('id')->render()
+            ButtonToggle::widget()->ariaControls(true)->dataValue('value')->id('button-toggle-658716145f1d9')->render()
         );
     }
 
@@ -99,12 +99,12 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" data-bs-target="#toggle-id"></button>
+            <button id="button-toggle-658716145f1d9" type="button" data-bs-target="#value"></button>
             HTML,
             ButtonToggle::widget()
                 ->dataBsTarget(true)
+                ->dataValue('value')
                 ->id('button-toggle-658716145f1d9')
-                ->toggleId('toggle-id')
                 ->render()
         );
     }
@@ -143,12 +143,12 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" data-dismiss-target="toggle-id"></button>
+            <button id="button-toggle-658716145f1d9" type="button" data-dismiss-target="value"></button>
             HTML,
             ButtonToggle::widget()
                 ->dataDismissTarget(true)
+                ->dataValue('value')
                 ->id('button-toggle-658716145f1d9')
-                ->toggleId('toggle-id')
                 ->render()
         );
     }
@@ -167,10 +167,11 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" data-drawer-target="toggle-id"></button>
+            <button id="button-toggle-658716145f1d9" type="button" data-drawer-target="value"></button>
             HTML,
             ButtonToggle::widget()
                 ->dataDrawerTarget(true)
+                ->dataValue('value')
                 ->id('button-toggle-658716145f1d9')
                 ->toggleId('toggle-id')
                 ->render()
@@ -191,10 +192,11 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" data-dropdown-toggle="toggle-id"></button>
+            <button id="button-toggle-658716145f1d9" type="button" data-dropdown-toggle="value"></button>
             HTML,
             ButtonToggle::widget()
                 ->dataDropdownToggle(true)
+                ->dataValue('value')
                 ->id('button-toggle-658716145f1d9')
                 ->toggleId('toggle-id')
                 ->render()
@@ -215,10 +217,11 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" data-toggle="toggle-id"></button>
+            <button id="button-toggle-658716145f1d9" type="button" data-toggle="value"></button>
             HTML,
             ButtonToggle::widget()
                 ->dataToggle(true)
+                ->dataValue('value')
                 ->id('button-toggle-658716145f1d9')
                 ->toggleId('toggle-id')
                 ->render()
