@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Enum\DataAttributes;
-
 /**
  * Is used by widgets that implement the data value method.
  */
