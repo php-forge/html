@@ -13,6 +13,7 @@ The following tags are currently supported:
 - [a](/docs/tag/A.md)
 - [body](/docs/tag/Body.md)
 - [button](/docs/tag/Button.md)
+- [button toggle](/docs/tag/ButtonToggle.md)
 
 ## Input Tags
 
