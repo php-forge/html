@@ -193,9 +193,7 @@ trait HasToggle
 
     private function renderToggleTag(): string
     {
-        $toggleClass = $this->toggleAttributes['class'] ?? $this->toggleClass;
-
-        if ($this->toggle === false || ($toggleClass === '' && $this->toggleContent === '')) {
+        if ($this->toggle === false || ($this->toggleClass === '' && $this->toggleContent === '')) {
             return '';
         }
 

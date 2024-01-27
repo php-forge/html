@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function testAriaControls(): void
     {
@@ -23,13 +23,23 @@ final class RenderTest extends TestCase
         );
     }
 
+    public function testAriaDescribedBy(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="button-toggle-658716145f1d9" type="button" aria-describedby="value"></button>
+            HTML,
+            ButtonToggle::widget()->ariaDescribedBy('value')->id('button-toggle-658716145f1d9')->render()
+        );
+    }
+
     public function testAriaExpanded(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" aria-expanded="false"></button>
+            <button id="button-toggle-658716145f1d9" type="button" aria-expanded="value"></button>
             HTML,
-            ButtonToggle::widget()->ariaExpanded('false')->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->ariaExpanded('value')->id('button-toggle-658716145f1d9')->render()
         );
     }
 
@@ -37,9 +47,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" aria-label="label"></button>
+            <button id="button-toggle-658716145f1d9" type="button" aria-label="value"></button>
             HTML,
-            ButtonToggle::widget()->ariaLabel('label')->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->ariaLabel('value')->id('button-toggle-658716145f1d9')->render()
         );
     }
 
@@ -47,11 +57,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button class="class" id="button-toggle-658716145f1d9" type="button"></button>
+            <button class="value" id="button-toggle-658716145f1d9" type="button"></button>
             HTML,
-            ButtonToggle::widget()->attributes([
-                'class' => 'class',
-            ])->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->attributes(['class' => 'value'])->id('button-toggle-658716145f1d9')->render()
         );
     }
 
@@ -59,9 +67,31 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button class="class" id="button-toggle-658716145f1d9" type="button"></button>
+            <button class="value" id="button-toggle-658716145f1d9" type="button"></button>
             HTML,
-            ButtonToggle::widget()->class('class')->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->class('value')->id('button-toggle-658716145f1d9')->render()
+        );
+    }
+
+    public function testContent(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="button-toggle-658716145f1d9" type="button">
+            value
+            </button>
+            HTML,
+            ButtonToggle::widget()->content('value')->id('button-toggle-658716145f1d9')->render()
+        );
+    }
+
+    public function testDataAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="button-toggle-658716145f1d9" type="button" data-value="value"></button>
+            HTML,
+            ButtonToggle::widget()->dataAttributes(['value' => 'value'])->id('button-toggle-658716145f1d9')->render()
         );
     }
 
@@ -233,23 +263,23 @@ final class RenderTest extends TestCase
         $this->assertStringContainsString('<button id="button-toggle', ButtonToggle::widget()->render());
     }
 
+    public function testId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <button id="value" type="button"></button>
+            HTML,
+            ButtonToggle::widget()->id('value')->render()
+        );
+    }
+
     public function testName(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" name="name" type="button"></button>
+            <button id="button-toggle-658716145f1d9" name="value" type="button"></button>
             HTML,
-            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->name('name')->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button"></button>
-            HTML,
-            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->render()
+            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->name('value')->render()
         );
     }
 
@@ -267,9 +297,9 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button" style="style"></button>
+            <button id="button-toggle-658716145f1d9" type="button" style="value"></button>
             HTML,
-            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->style('style')->render()
+            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->style('value')->render()
         );
     }
 
@@ -293,29 +323,13 @@ final class RenderTest extends TestCase
         );
     }
 
-    public function testToggleAttributes(): void
+    public function testWithoutId(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button">
-            <span class="class"></span>
-            </button>
+            <button type="button"></button>
             HTML,
-            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->toggleAttributes([
-                'class' => 'class',
-            ])->render()
-        );
-    }
-
-    public function testToggleContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button id="button-toggle-658716145f1d9" type="button">
-            <span>content</span>
-            </button>
-            HTML,
-            ButtonToggle::widget()->id('button-toggle-658716145f1d9')->toggleContent('content')->render()
+            ButtonToggle::widget()->id(null)->render()
         );
     }
 
