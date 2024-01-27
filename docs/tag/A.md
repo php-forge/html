@@ -62,9 +62,6 @@ $anchor->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal',
 
 Explore additional methods for setting various attributes such as `autofocus`, `hidden`, `download`, etc.
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/A/AttributeTest.php) for comprehensive
-examples.
-
 ## Prefix and Suffix
 
 Use `prefix` and `suffix` methods to add text before and after the `anchor` tag, respectively.
@@ -76,9 +73,6 @@ $html = $anchor->content('Home')->prefix('Go to: ')->render();
 // Example: Adding a suffix
 $html = $anchor->content('Home')->suffix(' | Welcome')->render();
 ```
-
-Examples of `prefix` and `suffix` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/A/CustomMethodTest.php)
-for comprehensive examples.
 
 ## Template
 
@@ -97,10 +91,10 @@ The following template tags are available:
 $a->template('<span>{tag}</span>');
 ```
 
-Examples of `template` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/A/CustomMethodTest.php)
-for comprehensive examples.
-
 ## Attributes
+
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/A/AttributeTest.php) for comprehensive
+examples.
 
 The following methods are available for setting attributes:
 
@@ -140,20 +134,23 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
+Refer to the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/A/CustomMethodTest.php) for
+comprehensive examples.
+
 The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
 | `prefix()`                   | Add text before the `a` element.                                                      |
-| `prefixContainer()`          | Add a `container` before the `a` element.                                             |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container`.                                          |                                            
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container`.                                 |
-| `prefixContainerTag()`       | Set the `tag` for the `prefix-container`.                                             |
+| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
+| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
+| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
 | `render()`                   | Generates the `HTML` output.                                                          |
 | `suffix()`                   | Add text after the `a` element.                                                       |
-| `suffixContainer()`          | Add a `container` after the `a` element.                                              |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container`.                                          |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container`.                                 |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container`.                                             |
+| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
+| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
+| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
+| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the `template` for the `a` element.                                               |
 | `widget()`                   | Instantiates the `A::class`.                                                          |

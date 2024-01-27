@@ -63,9 +63,6 @@ $button->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal',
 
 Explore additional methods for setting various `attributes` such as `ariaControls`, `tabIndex`, `role`, etc.
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Button/AttributeTest.php) for comprehensive
-examples.
-
 ## Container
 
 Use the `container()` method to add a `container` around the `button` tag.
@@ -86,9 +83,6 @@ $button = $button->content('Home')->prefix('Go to: ')->render();
 // Example: Adding a suffix
 $button = $button->content('Home')->suffix(' | Welcome')->render();
 ```
-
-Examples of `prefix` and `suffix` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/Button/CustomMethodTest.php)
-for comprehensive examples.
 
 ## Submit and reset
 
@@ -118,13 +112,13 @@ The following template tags are available:
 
 ```php
 // Example: Using a custom template
-$a->template('<span>{tag}</span>');
+$button->template('<span>{tag}</span>');
 ```
 
-Examples of `template` usage can be found in the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/Button/CustomMethodTest.php)
-for comprehensive examples.
-
 ## Attributes
+
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Button/AttributeTest.php) for comprehensive
+examples.
 
 The following methods are available for setting attributes:
 
@@ -152,27 +146,30 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
+Refer to the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/Button/CustomMethodTest.php) for
+comprehensive examples.
+
 The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `container()`                | Add a `container` around the `button` element.                                        |
-| `containerAttributes()`      | Set `attributes` for the `container`.                                                 |
-| `containerClass()`           | Set the `class` attribute for the `container`.                                        |
-| `containerTag()`             | Set the `tag` for the `container`.                                                    |
+| `container()`                | Set enabled or disabled for the `container` element.                                  |
+| `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
+| `containerClass()`           | Set the `class` attribute for the `container` element.                                |
+| `containerTag()`             | Set the `tag` for the `container` element.                                            |
 | `prefix()`                   | Add text before the `button` element.                                                 |
-| `prefixContainer()`          | Add a `container` before the `button` element.                                        |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container`.                                          |
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container`.                                 |
+| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |
+| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
 | `prefixContainerTag()`       | Set the `tag` for the `prefix-container`.                                             |
 | `render()`                   | Generates the `HTML` output.                                                          |
 | `reset()`                    | Set the `type` attribute to `reset`.                                                  |
 | `submit()`                   | Set the `type` attribute to `submit`.                                                 |
 | `suffix()`                   | Add text after the `button` element.                                                  |
-| `suffixContainer()`          | Add a `container` after the `button` element.                                         |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container`.                                          |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container`.                                 |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container`.                                             |
+| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
+| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
+| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
+| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `tagName()`                  | Set the `tag` for the `button` element.                                               |
 |                              | Allowed values: `a`, `button`.                                                        |
 | `template()`                 | Set the `template` for the `button` element.                                          |
