@@ -257,7 +257,7 @@ final class AttributeTest extends TestCase
                 ->render()
         );
     }
-    
+
     public function testGenerateId(): void
     {
         $this->assertStringContainsString('<button id="button-toggle', ButtonToggle::widget()->render());
