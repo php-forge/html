@@ -11,18 +11,16 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function testAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="test-class">
+            <div class="value">
             </div>
             HTML,
-            Div::widget()->attributes([
-                'class' => 'test-class',
-            ])->render(),
+            Div::widget()->attributes(['class' => 'value'])->render(),
         );
     }
 
@@ -30,27 +28,33 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="test-class">
+            <div class="value">
             </div>
             HTML,
-            Div::widget()->class('test-class')->render(),
+            Div::widget()->class('value')->render(),
         );
     }
 
-    public function testBlockLevelElements(): void
-    {
-        $this->assertSame('<div>test block</div>', Div::widget()->begin() . 'test block' . Div::end());
-    }
-
-    public function testElement(): void
+    public function testContent(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            test element
+            value
             </div>
             HTML,
-            Div::widget()->content('test element')->render(),
+            Div::widget()->content('value')->render(),
+        );
+    }
+
+    public function testDataAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div data-value="value">
+            </div>
+            HTML,
+            Div::widget()->dataAttributes(['value' => 'value'])->render(),
         );
     }
 
@@ -58,10 +62,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="test-id">
+            <div id="value">
             </div>
             HTML,
-            Div::widget()->id('test-id')->render(),
+            Div::widget()->id('value')->render(),
         );
     }
 
@@ -69,10 +73,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div lang="en">
+            <div lang="value">
             </div>
             HTML,
-            Div::widget()->lang('en')->render(),
+            Div::widget()->lang('value')->render(),
         );
     }
 
@@ -80,10 +84,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div name="test-name">
+            <div name="value">
             </div>
             HTML,
-            Div::widget()->name('test-name')->render(),
+            Div::widget()->name('value')->render(),
         );
     }
 
@@ -91,10 +95,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div style="color: red;">
+            <div style="value">
             </div>
             HTML,
-            Div::widget()->style('color: red;')->render(),
+            Div::widget()->style('value')->render(),
         );
     }
 
@@ -102,10 +106,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div title="test-title">
+            <div title="value">
             </div>
             HTML,
-            Div::widget()->title('test-title')->render(),
+            Div::widget()->title('value')->render(),
         );
     }
 

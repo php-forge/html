@@ -17,7 +17,7 @@ $button = Button::widget();
 Use the provided methods to set specific `attribute` for the `button` element.
 
 ```php
-// Example: Setting the title attribute
+// setting the title attribute
 $button->title('Click me');
 ```
 
@@ -54,10 +54,10 @@ $html = (string) $button;
 Below are examples of common use cases:
 
 ```php
-// Example: Adding multiple attributes
+// adding multiple attributes
 $button->class('external')->content('Click me')->title('Click me');
 
-// Example: Using data attributes
+// using data attributes
 $button->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
 ```
 
@@ -68,7 +68,7 @@ Explore additional methods for setting various `attributes` such as `ariaControl
 Use the `container()` method to add a `container` around the `button` tag.
 
 ```php
-// Example: Adding a container
+// adding a container
 $button->content('Click me')->container()->render();
 ```
 
@@ -77,10 +77,10 @@ $button->content('Click me')->container()->render();
 Use `prefix` and `suffix` methods to add text before and after the `button` tag, respectively.
 
 ```php
-// Example: Adding a prefix
+// adding a prefix
 $button = $button->content('Home')->prefix('Go to: ')->render();
 
-// Example: Adding a suffix
+// adding a suffix
 $button = $button->content('Home')->suffix(' | Welcome')->render();
 ```
 
@@ -89,12 +89,12 @@ $button = $button->content('Home')->suffix(' | Welcome')->render();
 Use the `submit` and `reset` methods to set the `type` attribute to `submit` and `reset`, respectively.
 
 ```php
-// Example: Setting the type attribute to submit
+// setting the type attribute to submit
 $button = $button->content('Submit')->submit()->render();
 ```
 
 ```php
-// Example: Setting the type attribute to reset
+// setting the type attribute to reset
 $button = $button->content('Reset')->reset()->render();
 ```
 
@@ -111,7 +111,7 @@ The following template tags are available:
 | `{suffix}` | The suffix text.        |
 
 ```php
-// Example: Using a custom template
+// using a custom template
 $button->template('<span>{tag}</span>');
 ```
 

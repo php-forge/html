@@ -16,7 +16,7 @@ $anchor = A::widget();
 Use the provided methods to set specific attributes for the a element.
 
 ```php
-// Example: Setting href attribute
+// setting href attribute
 $anchor->href('/path/to/page');
 ```
 
@@ -53,10 +53,10 @@ $html = (string) $anchor;
 Below are examples of common use cases:
 
 ```php
-// Example: Adding multiple attributes
+// adding multiple attributes
 $anchor->class('external')->href('/external/link')->content('External Link');
 
-// Example: Using data attributes
+// using data attributes
 $anchor->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
 ```
 
@@ -67,10 +67,10 @@ Explore additional methods for setting various attributes such as `autofocus`, `
 Use `prefix` and `suffix` methods to add text before and after the `anchor` tag, respectively.
 
 ```php
-// Example: Adding a prefix
+// adding a prefix
 $html = $anchor->content('Home')->prefix('Go to: ')->render();
 
-// Example: Adding a suffix
+// adding a suffix
 $html = $anchor->content('Home')->suffix(' | Welcome')->render();
 ```
 
@@ -87,7 +87,7 @@ The following template tags are available:
 | `{suffix}` | The suffix text. |
 
 ```php
-// Example: Using a custom template
+// using a custom template
 $a->template('<span>{tag}</span>');
 ```
 
