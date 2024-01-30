@@ -15,7 +15,7 @@ $buttonToggle = ButtonToggle::widget();
 Use the provided methods to set specific `attribute` for the `buttonToggle` element.
 
 ```php
-// Example: Setting the title attribute
+// setting the title attribute
 $buttonToggle->title('Click me');
 ```
 
@@ -52,10 +52,10 @@ $html = (string) $button;
 Below are examples of common use cases:
 
 ```php
-// Example: Adding multiple attributes
+// adding multiple attributes
 $buttonToggle->class('external')->content('Click me')->title('Click me');
 
-// Example: Using data attributes
+// using data attributes
 $buttonToggle->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
 ```
 
@@ -74,7 +74,7 @@ The following template tags are available:
 | `{content}`| The `content` element.  |
 
 ```php
-// Example: Using a custom template
+// using a custom template
 $buttonToggle->template('<span>{toggle}</span>');
 ```
 
