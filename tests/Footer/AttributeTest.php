@@ -11,18 +11,16 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function testAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <footer class="test-class">
+            <footer class="value">
             </footer>
             HTML,
-            Footer::widget()->attributes([
-                'class' => 'test-class',
-            ])->render(),
+            Footer::widget()->attributes(['class' => 'value'])->render(),
         );
     }
 
@@ -30,27 +28,33 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <footer class="test-class">
+            <footer class="value">
             </footer>
             HTML,
-            Footer::widget()->class('test-class')->render(),
+            Footer::widget()->class('value')->render(),
         );
     }
 
-    public function testBlockLevelElements(): void
-    {
-        $this->assertSame('<footer>test block</footer>', Footer::widget()->begin() . 'test block' . Footer::end());
-    }
-
-    public function testElement(): void
+    public function testContent(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <footer>
-            test element
+            value
             </footer>
             HTML,
-            Footer::widget()->content('test element')->render(),
+            Footer::widget()->content('value')->render(),
+        );
+    }
+
+    public function testDataAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <footer data-value="value">
+            </footer>
+            HTML,
+            Footer::widget()->dataAttributes(['value' => 'value'])->render(),
         );
     }
 
@@ -58,10 +62,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <footer id="test-id">
+            <footer id="value">
             </footer>
             HTML,
-            Footer::widget()->id('test-id')->render(),
+            Footer::widget()->id('value')->render(),
         );
     }
 
@@ -69,10 +73,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <footer lang="en">
+            <footer lang="value">
             </footer>
             HTML,
-            Footer::widget()->lang('en')->render(),
+            Footer::widget()->lang('value')->render(),
         );
     }
 
@@ -91,10 +95,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <footer style="color: red;">
+            <footer style="value">
             </footer>
             HTML,
-            Footer::widget()->style('color: red;')->render(),
+            Footer::widget()->style('value')->render(),
         );
     }
 
@@ -102,10 +106,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <footer title="test-title">
+            <footer title="value">
             </footer>
             HTML,
-            Footer::widget()->title('test-title')->render(),
+            Footer::widget()->title('value')->render(),
         );
     }
 
