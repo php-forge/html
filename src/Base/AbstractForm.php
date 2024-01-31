@@ -28,11 +28,14 @@ abstract class AbstractForm extends Block
     use Attribute\HasLang;
     use Attribute\HasStyle;
     use Attribute\HasTitle;
+    use Attribute\Input\HasAccept;
+    use Attribute\Input\HasAutocomplete;
     use Attribute\Input\HasName;
     use Attribute\Tag\CanBeNoValidate;
     use Attribute\Tag\HasAction;
     use Attribute\Tag\HasEnctype;
     use Attribute\Tag\HasMethod;
+    use Attribute\Tag\HasRel;
 
     protected array $attributes = [];
 
