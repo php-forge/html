@@ -17,6 +17,7 @@ The following tags are currently supported:
 - [div](/docs/tag/Div.md)
 - [footer](/docs/tag/Footer.md)
 - [form](/docs/tag/Form.md)
+- [h](/docs/tag/H.md)
 
 ## Input Tags
 
