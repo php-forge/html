@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Form;
 
 use PHPForge\Html\Form;
-use PHPForge\Html\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
