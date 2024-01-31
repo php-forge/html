@@ -15,6 +15,7 @@ The following tags are currently supported:
 - [button](/docs/tag/Button.md)
 - [button toggle](/docs/tag/ButtonToggle.md)
 - [div](/docs/tag/Div.md)
+- [footer](/docs/tag/Footer.md)
 
 ## Input Tags
 
