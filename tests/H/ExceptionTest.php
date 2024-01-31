@@ -13,7 +13,7 @@ final class ExceptionTest extends TestCase
     public function testBeginInlineElement(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid tag name, only h1 to h6 are allowed.');
+        $this->expectExceptionMessage('H::class widget must have a tag name of h1, h2, h3, h4, h5, h6.');
 
         H::widget()->tagName('span')->render();
     }
