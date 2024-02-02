@@ -19,6 +19,7 @@ The following tags are currently supported:
 - [form](/docs/tag/Form.md)
 - [h](/docs/tag/H.md)
 - [head](/docs/tag/Head.md)
+- [header](/docs/tag/Header.md)
 
 ## Input Tags
 
