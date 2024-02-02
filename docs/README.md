@@ -20,6 +20,7 @@ The following tags are currently supported:
 - [h](/docs/tag/H.md)
 - [head](/docs/tag/Head.md)
 - [header](/docs/tag/Header.md)
+- [html](/docs/tag/Html.md)
 
 ## Input Tags
 
