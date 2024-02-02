@@ -12,7 +12,8 @@ use PHPUnit\Framework\TestCase;
  * @psalm-suppress PropertyNotSetInConstructor
  */
 final class CustomMethodTest extends TestCase
-{    public function testBeginEnd(): void
+{
+    public function testBeginEnd(): void
     {
         $this->assertSame('<header>value</header>', Header::widget()->begin() . 'value' . Header::end());
     }
