@@ -11,6 +11,8 @@ use InvalidArgumentException;
  */
 trait HasTagName
 {
+    protected string $tagName = '';
+
     /**
      * Set the tag name.
      *

@@ -15,7 +15,15 @@ final class H extends Base\AbstractBlockElement
     use Attribute\Custom\HasTagName;
     use Attribute\Custom\HasWidgetValidation;
 
-    protected string $tagName = 'h1';
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    protected function loadDefaultDefinitions(): array
+    {
+        return [
+            'tagName()' => ['h1'],
+        ];
+    }
 
     protected function run(): string
     {

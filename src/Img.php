@@ -22,5 +22,8 @@ final class Img extends Base\AbstractElement
     use Attribute\Tag\HasSizes;
     use Attribute\Tag\HasSrcset;
 
-    protected string $tagName = 'img';
+    protected function run(): string
+    {
+        return $this->buildElement('img');
+    }
 }

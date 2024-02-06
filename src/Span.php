@@ -16,5 +16,8 @@ namespace PHPForge\Html;
  */
 final class Span extends Base\AbstractElement
 {
-    protected string $tagName = 'span';
+    protected function run(): string
+    {
+        return $this->buildElement('span');
+    }
 }
