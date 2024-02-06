@@ -23,6 +23,7 @@ The following tags are currently supported:
 - [html](/docs/tag/Html.md)
 - [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
+- [label](/docs/tag/Label.md)
 
 ## Input Tags
 
