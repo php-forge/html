@@ -17,7 +17,6 @@ abstract class AbstractElement extends Element
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
-    use Attribute\Custom\HasTokenValues;
     use Attribute\HasClass;
     use Attribute\HasData;
     use Attribute\HasId;
@@ -27,7 +26,6 @@ abstract class AbstractElement extends Element
     use Attribute\Input\HasName;
 
     protected array $attributes = [];
-    protected string $tagName = '';
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -42,20 +40,23 @@ abstract class AbstractElement extends Element
     /**
      * Generate the HTML representation of the element.
      *
+     * @param string $tagName The tag name of the element.
+     * @param array $tokenValues The token values to be used in the template.
+     *
      * @return string The HTML representation of the element.
      */
-    protected function run(): string
+    protected function buildElement(string $tagName, array $tokenValues = []): string
     {
         $attributes = $this->attributes;
         $attributes['id'] ??= $this->id;
 
-        $tokenValues = [
+        $tokenTemplateValues = [
             '{prefix}' => $this->renderPrefixTag(),
-            '{tag}' => HtmlBuilder::create($this->tagName, $this->content, $attributes),
+            '{tag}' => HtmlBuilder::create($tagName, $this->content, $attributes),
             '{suffix}' => $this->renderSuffixTag(),
         ];
-        $tokenValues += $this->tokenValues;
+        $tokenTemplateValues += $tokenValues;
 
-        return $this->renderTemplate($this->template, $tokenValues);
+        return $this->renderTemplate($this->template, $tokenTemplateValues);
     }
 }

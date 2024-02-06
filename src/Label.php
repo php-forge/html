@@ -14,5 +14,8 @@ final class Label extends Base\AbstractElement
     use Attribute\Input\HasForm;
     use Attribute\Tag\HasFor;
 
-    protected string $tagName = 'label';
+    protected function run(): string
+    {
+        return $this->buildElement('label');
+    }
 }

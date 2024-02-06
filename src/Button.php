@@ -39,7 +39,6 @@ final class Button extends Element
     use Attribute\Input\HasType;
 
     protected array $attributes = [];
-    protected string $tagName = 'button';
 
     /**
      * Set the button type to `submit`.
@@ -69,6 +68,7 @@ final class Button extends Element
         return [
             'id()' => [$this->generateId('button-')],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
+            'tagName()' => ['button'],
             'type()' => ['button'],
         ];
     }

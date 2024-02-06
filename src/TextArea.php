@@ -34,18 +34,19 @@ final class TextArea extends Base\AbstractElement implements
     use Attribute\Tag\HasRows;
     use Attribute\Tag\HasWrap;
 
-    protected string $tagName = 'textarea';
-
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
     protected function loadDefaultDefinitions(): array
     {
-        $loadDefaultDefinitions = parent::loadDefaultDefinitions();
-        $loadDefaultDefinitions += [
+        return [
             'id()' => [$this->generateId('textarea-')],
+            'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
+    }
 
-        return $loadDefaultDefinitions;
+    protected function run(): string
+    {
+        return $this->buildElement('textarea');
     }
 }
