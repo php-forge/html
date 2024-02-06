@@ -21,6 +21,7 @@ The following tags are currently supported:
 - [head](/docs/tag/Head.md)
 - [header](/docs/tag/Header.md)
 - [html](/docs/tag/Html.md)
+- [i](/docs/tag/I.md)
 
 ## Input Tags
 

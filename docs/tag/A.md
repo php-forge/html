@@ -88,7 +88,7 @@ The following template tags are available:
 
 ```php
 // using a custom template
-$a->template('<span>{tag}</span>');
+$anchor->template('<span>{tag}</span>');
 ```
 
 ## Attributes

@@ -20,6 +20,7 @@ final class TextArea extends Base\AbstractElement implements
     Contract\RequiredInterface
 {
     use Attribute\CanBeAutofocus;
+    use Attribute\HasTabindex;
     use Attribute\Input\CanBeDisabled;
     use Attribute\Input\CanBeReadonly;
     use Attribute\Input\CanBeRequired;

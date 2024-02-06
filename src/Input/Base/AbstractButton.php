@@ -74,10 +74,7 @@ abstract class AbstractButton extends Element
                 ->suffixContainerTag($this->suffixContainerTag)
                 ->tagName('input')
                 ->template($this->template)
-                ->tokenValues([
-                    '{label}' => $this->renderLabelTag($labelFor),
-                ])
-                ->type($this->type)
+                ->tokenValues(['{label}' => $this->renderLabelTag($labelFor)])
                 ->render()
         );
     }

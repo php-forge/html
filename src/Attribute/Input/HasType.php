@@ -9,8 +9,6 @@ namespace PHPForge\Html\Attribute\Input;
  */
 trait HasType
 {
-    protected string $type = '';
-
     /**
      * Set the type of control to render.
      *
@@ -27,7 +25,7 @@ trait HasType
     public function type(string $value): static
     {
         $new = clone $this;
-        $new->type = $value;
+        $new->attributes['type'] = $value;
 
         return $new;
     }
