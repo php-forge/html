@@ -65,7 +65,6 @@ abstract class AbstractList extends Element
             ->content($this->content)
             ->id($this->id)
             ->tagName($this->tagName)
-            ->type($this->type)
             ->render();
     }
 }

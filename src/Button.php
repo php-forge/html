@@ -80,10 +80,12 @@ final class Button extends Element
      */
     protected function run(): string
     {
-        $this->validateTagName($this->tagName, 'a', 'button');
-        $this->validateType($this->type, 'button', 'reset', 'submit');
-
         $attributes = $this->attributes;
+        /** @var string $type */
+        $type = $attributes['type'] ?? 'button';
+
+        $this->validateTagName($this->tagName, 'a', 'button');
+        $this->validateType($type, 'button', 'reset', 'submit');
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -109,7 +111,6 @@ final class Button extends Element
                 ->suffixContainerTag($this->suffixContainerTag)
                 ->tagName($this->tagName)
                 ->template($this->template)
-                ->type($this->type)
                 ->render()
         );
     }

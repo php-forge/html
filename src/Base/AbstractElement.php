@@ -23,10 +23,8 @@ abstract class AbstractElement extends Element
     use Attribute\HasId;
     use Attribute\HasLang;
     use Attribute\HasStyle;
-    use Attribute\HasTabindex;
     use Attribute\HasTitle;
     use Attribute\Input\HasName;
-    use Attribute\Input\HasType;
 
     protected array $attributes = [];
     protected string $tagName = '';
@@ -50,7 +48,6 @@ abstract class AbstractElement extends Element
     {
         $attributes = $this->attributes;
         $attributes['id'] ??= $this->id;
-        $attributes['type'] ??= $this->type;
 
         $tokenValues = [
             '{prefix}' => $this->renderPrefixTag(),
