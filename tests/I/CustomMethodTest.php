@@ -12,7 +12,8 @@ use PHPUnit\Framework\TestCase;
  * @psalm-suppress PropertyNotSetInConstructor
  */
 final class CustomMethodTest extends TestCase
-{    public function testPrefix(): void
+{
+    public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -163,5 +164,4 @@ final class CustomMethodTest extends TestCase
             I::widget()->content('value')->template('<div>\n{tag}\n</div>')->render(),
         );
     }
-
 }
