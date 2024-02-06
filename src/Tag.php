@@ -18,6 +18,7 @@ namespace PHPForge\Html;
  */
 final class Tag extends Base\AbstractElement
 {
+    use Attribute\Custom\HasContent;
     use Attribute\Custom\HasTagName;
     use Attribute\Custom\HasTokenValues;
     use Attribute\HasTabindex;
@@ -26,6 +27,6 @@ final class Tag extends Base\AbstractElement
 
     protected function run(): string
     {
-        return $this->buildElement($this->tagName, $this->tokenValues);
+        return $this->buildElement($this->tagName, $this->content, $this->tokenValues);
     }
 }

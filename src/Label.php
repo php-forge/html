@@ -11,11 +11,12 @@ namespace PHPForge\Html;
  */
 final class Label extends Base\AbstractElement
 {
+    use Attribute\Custom\HasContent;
     use Attribute\Input\HasForm;
     use Attribute\Tag\HasFor;
 
     protected function run(): string
     {
-        return $this->buildElement('label');
+        return $this->buildElement('label', $this->content);
     }
 }

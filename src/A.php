@@ -19,6 +19,7 @@ final class A extends Base\AbstractElement
     use Attribute\Aria\HasRole;
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
+    use Attribute\Custom\HasContent;
     use Attribute\HasTabindex;
     use Attribute\Input\HasType;
     use Attribute\Tag\HasDownload;
@@ -31,6 +32,6 @@ final class A extends Base\AbstractElement
 
     protected function run(): string
     {
-        return $this->buildElement('a');
+        return $this->buildElement('a', $this->content);
     }
 }

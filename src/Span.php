@@ -16,8 +16,10 @@ namespace PHPForge\Html;
  */
 final class Span extends Base\AbstractElement
 {
+    use Attribute\Custom\HasContent;
+
     protected function run(): string
     {
-        return $this->buildElement('span');
+        return $this->buildElement('span', $this->content);
     }
 }

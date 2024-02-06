@@ -14,7 +14,6 @@ use PHPForge\Widget\Element;
 abstract class AbstractElement extends Element
 {
     use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
     use Attribute\HasClass;
@@ -41,18 +40,19 @@ abstract class AbstractElement extends Element
      * Generate the HTML representation of the element.
      *
      * @param string $tagName The tag name of the element.
+     * @param string $content The content of the element.
      * @param array $tokenValues The token values to be used in the template.
      *
      * @return string The HTML representation of the element.
      */
-    protected function buildElement(string $tagName, array $tokenValues = []): string
+    protected function buildElement(string $tagName, string $content = '', array $tokenValues = []): string
     {
         $attributes = $this->attributes;
         $attributes['id'] ??= $this->id;
 
         $tokenTemplateValues = [
             '{prefix}' => $this->renderPrefixTag(),
-            '{tag}' => HtmlBuilder::create($tagName, $this->content, $attributes),
+            '{tag}' => HtmlBuilder::create($tagName, $content, $attributes),
             '{suffix}' => $this->renderSuffixTag(),
         ];
         $tokenTemplateValues += $tokenValues;

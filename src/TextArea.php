@@ -20,6 +20,7 @@ final class TextArea extends Base\AbstractElement implements
     Contract\RequiredInterface
 {
     use Attribute\CanBeAutofocus;
+    use Attribute\Custom\HasContent;
     use Attribute\HasTabindex;
     use Attribute\Input\CanBeDisabled;
     use Attribute\Input\CanBeReadonly;
@@ -47,6 +48,6 @@ final class TextArea extends Base\AbstractElement implements
 
     protected function run(): string
     {
-        return $this->buildElement('textarea');
+        return $this->buildElement('textarea', $this->content);
     }
 }

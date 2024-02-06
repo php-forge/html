@@ -12,8 +12,10 @@ namespace PHPForge\Html;
  */
 final class I extends Base\AbstractElement
 {
+    use Attribute\Custom\HasContent;
+
     protected function run(): string
     {
-        return $this->buildElement('i');
+        return $this->buildElement('i', $this->content);
     }
 }
