@@ -34,7 +34,7 @@ abstract class AbstractList extends Element
     /**
      * Set the `HTML` content value.
      *
-     * @param string|ElementInterface ...$values The `HTML` content value.
+     * @param ElementInterface|string ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */
