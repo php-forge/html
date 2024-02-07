@@ -26,7 +26,7 @@ Or, block style instantiation.
 Use the provided methods to set specific attributes for the a element.
 
 ```php
-// setting href attribute
+// setting class attribute
 $div->class('container');
 ```
 

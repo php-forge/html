@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Head;
+namespace PHPForge\Html\Tests\Nav;
 
-use PHPForge\Html\Head;
+use PHPForge\Html\Nav;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -17,10 +17,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head class="value">
-            </head>
+            <nav class="value">
+            </nav>
             HTML,
-            Head::widget()->attributes(['class' => 'value'])->render()
+            Nav::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -28,10 +28,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head class="value">
-            </head>
+            <nav class="value">
+            </nav>
             HTML,
-            Head::widget()->class('value')->render()
+            Nav::widget()->class('value')->render()
         );
     }
 
@@ -39,11 +39,11 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head>
-            test content
-            </head>
+            <nav>
+            value
+            </nav>
             HTML,
-            Head::widget()->content('test content')->render()
+            Nav::widget()->content('value')->render()
         );
     }
 
@@ -51,10 +51,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head data-value="value">
-            </head>
+            <nav data-value="value">
+            </nav>
             HTML,
-            Head::widget()->dataAttributes(['value' => 'value'])->render()
+            Nav::widget()->dataAttributes(['value' => 'value'])->render()
         );
     }
 
@@ -62,10 +62,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head id="value">
-            </head>
+            <nav id="value">
+            </nav>
             HTML,
-            Head::widget()->id('value')->render()
+            Nav::widget()->id('value')->render()
         );
     }
 
@@ -73,10 +73,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head lang="value">
-            </head>
+            <nav lang="value">
+            </nav>
             HTML,
-            Head::widget()->lang('value')->render()
+            Nav::widget()->lang('value')->render()
         );
     }
 
@@ -84,10 +84,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head name="value">
-            </head>
+            <nav name="value">
+            </nav>
             HTML,
-            Head::widget()->name('value')->render()
+            Nav::widget()->name('value')->render()
         );
     }
 
@@ -95,10 +95,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head style="value">
-            </head>
+            <nav style="value">
+            </nav>
             HTML,
-            Head::widget()->style('value')->render()
+            Nav::widget()->style('value')->render()
         );
     }
 
@@ -106,10 +106,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <head title="value">
-            </head>
+            <nav title="value">
+            </nav>
             HTML,
-            Head::widget()->title('value')->render()
+            Nav::widget()->title('value')->render()
         );
     }
 }

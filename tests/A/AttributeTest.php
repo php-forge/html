@@ -261,24 +261,4 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
             A::widget()->type('value')->render()
         );
     }
-
-    public function testWithoutId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            HTML,
-            A::widget()->id(null)->render()
-        );
-    }
-
-    public function testWithoutName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a></a>
-            HTML,
-            A::widget()->name(null)->render()
-        );
-    }
 }

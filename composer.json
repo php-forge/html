@@ -16,7 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
-        "php-forge/awesome-widget": "^0.1",
+        "php-forge/awesome-widget": "^0.1.2",
         "voku/anti-xss": "^4.1"
     },
     "require-dev": {
