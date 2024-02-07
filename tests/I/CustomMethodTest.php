@@ -20,7 +20,7 @@ final class CustomMethodTest extends TestCase
             value
             <i></i>
             HTML,
-            I::widget()->prefix('value')->render(),
+            I::widget()->prefix('value')->render()
         );
     }
 
@@ -33,7 +33,7 @@ final class CustomMethodTest extends TestCase
             </div>
             <i></i>
             HTML,
-            I::widget()->prefixContainer(true)->prefix('value')->render(),
+            I::widget()->prefixContainer(true)->prefix('value')->render()
         );
     }
 
@@ -50,7 +50,7 @@ final class CustomMethodTest extends TestCase
                 ->prefixContainer(true)
                 ->prefix('value')
                 ->prefixContainerAttributes(['class' => 'value'])
-                ->render(),
+                ->render()
         );
     }
 
@@ -63,7 +63,7 @@ final class CustomMethodTest extends TestCase
             </div>
             <i></i>
             HTML,
-            I::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render(),
+            I::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
         );
     }
 
@@ -74,7 +74,7 @@ final class CustomMethodTest extends TestCase
             <span>value</span>
             <i></i>
             HTML,
-            I::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render(),
+            I::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
         );
     }
 
@@ -84,7 +84,7 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <i></i>
             HTML,
-            I::widget()->render(),
+            I::widget()->render()
         );
     }
 
@@ -95,7 +95,7 @@ final class CustomMethodTest extends TestCase
             <i></i>
             value
             HTML,
-            I::widget()->suffix('value')->render(),
+            I::widget()->suffix('value')->render()
         );
     }
 
@@ -108,7 +108,7 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            I::widget()->suffixContainer(true)->suffix('value')->render(),
+            I::widget()->suffixContainer(true)->suffix('value')->render()
         );
     }
 
@@ -125,7 +125,7 @@ final class CustomMethodTest extends TestCase
                 ->suffixContainer(true)
                 ->suffix('value')
                 ->suffixContainerAttributes(['class' => 'value'])
-                ->render(),
+                ->render()
         );
     }
 
@@ -138,7 +138,7 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            I::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render(),
+            I::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
         );
     }
 
@@ -149,7 +149,7 @@ final class CustomMethodTest extends TestCase
             <i></i>
             <span>value</span>
             HTML,
-            I::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render(),
+            I::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
         );
     }
 
@@ -161,7 +161,7 @@ final class CustomMethodTest extends TestCase
             <i>value</i>
             </div>
             HTML,
-            I::widget()->content('value')->template('<div>\n{tag}\n</div>')->render(),
+            I::widget()->content('value')->template('<div>\n{tag}\n</div>')->render()
         );
     }
 }

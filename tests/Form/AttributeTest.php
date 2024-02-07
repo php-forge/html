@@ -21,7 +21,7 @@ final class AttributeTest extends TestCase
             <form accept="value">
             </form>
             HTML,
-            Form::widget()->accept('value')->render(),
+            Form::widget()->accept('value')->render()
         );
     }
 
@@ -32,7 +32,7 @@ final class AttributeTest extends TestCase
             <form action="value">
             </form>
             HTML,
-            Form::widget()->action('value')->render(),
+            Form::widget()->action('value')->render()
         );
     }
 
@@ -43,7 +43,7 @@ final class AttributeTest extends TestCase
             <form class="value">
             </form>
             HTML,
-            Form::widget()->attributes(['class' => 'value'])->render(),
+            Form::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -54,7 +54,7 @@ final class AttributeTest extends TestCase
             <form autocomplete="on">
             </form>
             HTML,
-            Form::widget()->autocomplete('on')->render(),
+            Form::widget()->autocomplete('on')->render()
         );
     }
 
@@ -65,7 +65,7 @@ final class AttributeTest extends TestCase
             <form class="value">
             </form>
             HTML,
-            Form::widget()->class('value')->render(),
+            Form::widget()->class('value')->render()
         );
     }
 
@@ -84,7 +84,7 @@ final class AttributeTest extends TestCase
                 ->content('value', PHP_EOL, Span::widget()->content('value'))
                 ->csrf('csrf-token')
                 ->method('POST')
-                ->render(),
+                ->render()
         );
     }
 
@@ -95,7 +95,7 @@ final class AttributeTest extends TestCase
             <form enctype="multipart/form-data">
             </form>
             HTML,
-            Form::widget()->enctype('multipart/form-data')->render(),
+            Form::widget()->enctype('multipart/form-data')->render()
         );
     }
 
@@ -106,7 +106,7 @@ final class AttributeTest extends TestCase
             <form id="value">
             </form>
             HTML,
-            Form::widget()->id('value')->render(),
+            Form::widget()->id('value')->render()
         );
     }
 
@@ -117,7 +117,7 @@ final class AttributeTest extends TestCase
             <form lang="value">
             </form>
             HTML,
-            Form::widget()->lang('value')->render(),
+            Form::widget()->lang('value')->render()
         );
     }
 
@@ -128,7 +128,7 @@ final class AttributeTest extends TestCase
             <form method="GET">
             </form>
             HTML,
-            Form::widget()->method('GET')->render(),
+            Form::widget()->method('GET')->render()
         );
     }
 
@@ -139,7 +139,7 @@ final class AttributeTest extends TestCase
             <form name="value">
             </form>
             HTML,
-            Form::widget()->name('value')->render(),
+            Form::widget()->name('value')->render()
         );
     }
 
@@ -150,7 +150,7 @@ final class AttributeTest extends TestCase
             <form novalidate>
             </form>
             HTML,
-            Form::widget()->novalidate()->render(),
+            Form::widget()->novalidate()->render()
         );
     }
 
@@ -161,7 +161,7 @@ final class AttributeTest extends TestCase
             <form rel="alternate">
             </form>
             HTML,
-            Form::widget()->rel('alternate')->render(),
+            Form::widget()->rel('alternate')->render()
         );
     }
 
@@ -172,7 +172,7 @@ final class AttributeTest extends TestCase
             <form style="value">
             </form>
             HTML,
-            Form::widget()->style('value')->render(),
+            Form::widget()->style('value')->render()
         );
     }
 
@@ -183,7 +183,7 @@ final class AttributeTest extends TestCase
             <form title="value">
             </form>
             HTML,
-            Form::widget()->title('value')->render(),
+            Form::widget()->title('value')->render()
         );
     }
 
@@ -194,7 +194,7 @@ final class AttributeTest extends TestCase
             <form>
             </form>
             HTML,
-            Form::widget()->id(null)->render(),
+            Form::widget()->id(null)->render()
         );
     }
 
@@ -205,7 +205,7 @@ final class AttributeTest extends TestCase
             <form>
             </form>
             HTML,
-            Form::widget()->name(null)->render(),
+            Form::widget()->name(null)->render()
         );
     }
 }

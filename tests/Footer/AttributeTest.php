@@ -20,7 +20,7 @@ final class AttributeTest extends TestCase
             <footer class="value">
             </footer>
             HTML,
-            Footer::widget()->attributes(['class' => 'value'])->render(),
+            Footer::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -31,7 +31,7 @@ final class AttributeTest extends TestCase
             <footer class="value">
             </footer>
             HTML,
-            Footer::widget()->class('value')->render(),
+            Footer::widget()->class('value')->render()
         );
     }
 
@@ -43,7 +43,7 @@ final class AttributeTest extends TestCase
             value
             </footer>
             HTML,
-            Footer::widget()->content('value')->render(),
+            Footer::widget()->content('value')->render()
         );
     }
 
@@ -54,7 +54,7 @@ final class AttributeTest extends TestCase
             <footer data-value="value">
             </footer>
             HTML,
-            Footer::widget()->dataAttributes(['value' => 'value'])->render(),
+            Footer::widget()->dataAttributes(['value' => 'value'])->render()
         );
     }
 
@@ -65,7 +65,7 @@ final class AttributeTest extends TestCase
             <footer id="value">
             </footer>
             HTML,
-            Footer::widget()->id('value')->render(),
+            Footer::widget()->id('value')->render()
         );
     }
 
@@ -76,7 +76,7 @@ final class AttributeTest extends TestCase
             <footer lang="value">
             </footer>
             HTML,
-            Footer::widget()->lang('value')->render(),
+            Footer::widget()->lang('value')->render()
         );
     }
 
@@ -87,7 +87,7 @@ final class AttributeTest extends TestCase
             <footer name="test-name">
             </footer>
             HTML,
-            Footer::widget()->name('test-name')->render(),
+            Footer::widget()->name('test-name')->render()
         );
     }
 
@@ -98,7 +98,7 @@ final class AttributeTest extends TestCase
             <footer style="value">
             </footer>
             HTML,
-            Footer::widget()->style('value')->render(),
+            Footer::widget()->style('value')->render()
         );
     }
 
@@ -109,7 +109,7 @@ final class AttributeTest extends TestCase
             <footer title="value">
             </footer>
             HTML,
-            Footer::widget()->title('value')->render(),
+            Footer::widget()->title('value')->render()
         );
     }
 
@@ -120,7 +120,7 @@ final class AttributeTest extends TestCase
             <footer>
             </footer>
             HTML,
-            Footer::widget()->id(null)->render(),
+            Footer::widget()->id(null)->render()
         );
     }
 
@@ -131,7 +131,7 @@ final class AttributeTest extends TestCase
             <footer>
             </footer>
             HTML,
-            Footer::widget()->name(null)->render(),
+            Footer::widget()->name(null)->render()
         );
     }
 }

@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\Li;
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
+use PHPForge\Widget\ElementInterface;
 
 use function trim;
 
@@ -35,20 +34,17 @@ abstract class AbstractList extends Element
     /**
      * Set the `HTML` content value.
      *
-     * @param Li|self|string ...$values The `HTML` content value.
+     * @param string|ElementInterface ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */
-    public function content(string|Li|self ...$values): static
+    public function content(string|ElementInterface ...$values): static
     {
-        $content = '';
+        $new = clone $this;
 
         foreach ($values as $value) {
-            $content .= "$value\n";
+            $new->content .= "$value\n";
         }
-
-        $new = clone $this;
-        $new->content = trim(Encode::sanitizeXSS($content));
 
         return $new;
     }
@@ -62,7 +58,7 @@ abstract class AbstractList extends Element
     {
         return Tag::widget()
             ->attributes($this->attributes)
-            ->content($this->content)
+            ->content(trim($this->content))
             ->id($this->id)
             ->tagName($this->tagName)
             ->render();

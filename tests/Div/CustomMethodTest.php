@@ -15,7 +15,12 @@ final class CustomMethodTest extends TestCase
 {
     public function testBeginEnd(): void
     {
-        $this->assertSame('<div>value</div>', Div::widget()->begin() . 'value' . Div::end());
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>value</div>
+            HTML,
+            Div::widget()->begin() . 'value' . Div::end()
+        );
     }
 
     public function testRender(): void

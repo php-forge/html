@@ -20,7 +20,7 @@ final class CustomMethodTest extends TestCase
             value
             <img>
             HTML,
-            Img::widget()->prefix('value')->render(),
+            Img::widget()->prefix('value')->render()
         );
     }
 
@@ -33,7 +33,7 @@ final class CustomMethodTest extends TestCase
             </div>
             <img>
             HTML,
-            Img::widget()->prefixContainer(true)->prefix('value')->render(),
+            Img::widget()->prefixContainer(true)->prefix('value')->render()
         );
     }
 
@@ -50,7 +50,7 @@ final class CustomMethodTest extends TestCase
                 ->prefixContainer(true)
                 ->prefix('value')
                 ->prefixContainerAttributes(['class' => 'value'])
-                ->render(),
+                ->render()
         );
     }
 
@@ -63,7 +63,7 @@ final class CustomMethodTest extends TestCase
             </div>
             <img>
             HTML,
-            Img::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render(),
+            Img::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
         );
     }
 
@@ -74,7 +74,7 @@ final class CustomMethodTest extends TestCase
             <span>value</span>
             <img>
             HTML,
-            Img::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render(),
+            Img::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
         );
     }
 
@@ -84,7 +84,7 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <img>
             HTML,
-            Img::widget()->render(),
+            Img::widget()->render()
         );
     }
 
@@ -95,7 +95,7 @@ final class CustomMethodTest extends TestCase
             <img>
             value
             HTML,
-            Img::widget()->suffix('value')->render(),
+            Img::widget()->suffix('value')->render()
         );
     }
 
@@ -108,7 +108,7 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Img::widget()->suffixContainer(true)->suffix('value')->render(),
+            Img::widget()->suffixContainer(true)->suffix('value')->render()
         );
     }
 
@@ -125,7 +125,7 @@ final class CustomMethodTest extends TestCase
                 ->suffixContainer(true)
                 ->suffix('value')
                 ->suffixContainerAttributes(['class' => 'value'])
-                ->render(),
+                ->render()
         );
     }
 
@@ -138,7 +138,7 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Img::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render(),
+            Img::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
         );
     }
 
@@ -149,7 +149,7 @@ final class CustomMethodTest extends TestCase
             <img>
             <span>value</span>
             HTML,
-            Img::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render(),
+            Img::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
         );
     }
 
@@ -161,7 +161,7 @@ final class CustomMethodTest extends TestCase
             <img src="value">
             </div>
             HTML,
-            Img::widget()->src('value')->template('<div>\n{tag}\n</div>')->render(),
+            Img::widget()->src('value')->template('<div>\n{tag}\n</div>')->render()
         );
     }
 }
