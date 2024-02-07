@@ -12,5 +12,4 @@ namespace PHPForge\Html;
  */
 final class Meta extends Base\AbstractMeta
 {
-    protected string $tagName = 'meta';
 }
