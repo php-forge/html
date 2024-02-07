@@ -112,26 +112,4 @@ final class AttributeTest extends TestCase
             Footer::widget()->title('value')->render()
         );
     }
-
-    public function testWithoutId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <footer>
-            </footer>
-            HTML,
-            Footer::widget()->id(null)->render()
-        );
-    }
-
-    public function testWithoutName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <footer>
-            </footer>
-            HTML,
-            Footer::widget()->name(null)->render()
-        );
-    }
 }

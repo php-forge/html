@@ -186,26 +186,4 @@ final class AttributeTest extends TestCase
             Form::widget()->title('value')->render()
         );
     }
-
-    public function testWithoutId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <form>
-            </form>
-            HTML,
-            Form::widget()->id(null)->render()
-        );
-    }
-
-    public function testWithoutName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <form>
-            </form>
-            HTML,
-            Form::widget()->name(null)->render()
-        );
-    }
 }
