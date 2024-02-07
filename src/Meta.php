@@ -10,6 +10,4 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element
  */
-final class Meta extends Base\AbstractMeta
-{
-}
+final class Meta extends Base\AbstractMeta {}
