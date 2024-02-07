@@ -22,7 +22,7 @@ final class AttributeTest extends TestCase
             Meta::widget()->attributes(['class' => 'value'])->render()
         );
     }
-    
+
     public function testCharset(): void
     {
         Assert::equalsWithoutLE(
