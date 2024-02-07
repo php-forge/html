@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\H;
+namespace PHPForge\Html\Tests\Li;
 
-use PHPForge\Html\H;
+use PHPForge\Html\Li;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -17,10 +17,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 class="value">
-            </h1>
+            <li class="value">
+            </li>
             HTML,
-            H::widget()->attributes(['class' => 'value'])->render()
+            Li::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -28,10 +28,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 class="value">
-            </h1>
+            <li class="value">
+            </li>
             HTML,
-            H::widget()->class('value')->render()
+            Li::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -39,22 +39,11 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1>
+            <li>
             value
-            </h1>
+            </li>
             HTML,
-            H::widget()->content('value')->render()
-        );
-    }
-
-    public function testDataAttributes(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <h1 data-value="value">
-            </h1>
-            HTML,
-            H::widget()->dataAttributes(['value' => 'value'])->render()
+            Li::widget()->content('value')->render()
         );
     }
 
@@ -62,10 +51,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 id="value">
-            </h1>
+            <li id="value">
+            </li>
             HTML,
-            H::widget()->id('value')->render()
+            Li::widget()->id('value')->render()
         );
     }
 
@@ -73,10 +62,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 lang="value">
-            </h1>
+            <li lang="value">
+            </li>
             HTML,
-            H::widget()->lang('value')->render()
+            Li::widget()->lang('value')->render()
         );
     }
 
@@ -84,10 +73,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 name="value">
-            </h1>
+            <li name="value">
+            </li>
             HTML,
-            H::widget()->name('value')->render()
+            Li::widget()->name('value')->render()
         );
     }
 
@@ -95,10 +84,21 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 style="value">
-            </h1>
+            <li style="value">
+            </li>
             HTML,
-            H::widget()->style('value')->render()
+            Li::widget()->style('value')->render()
+        );
+    }
+
+    public function testTabIndex(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <li tabindex="1">
+            </li>
+            HTML,
+            Li::widget()->tabIndex(1)->render()
         );
     }
 
@@ -106,32 +106,21 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1 title="value">
-            </h1>
+            <li title="value">
+            </li>
             HTML,
-            H::widget()->title('value')->render()
+            Li::widget()->title('value')->render()
         );
     }
 
-    public function testWithoutId(): void
+    public function testValue(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <h1>
-            </h1>
+            <li value="value">
+            </li>
             HTML,
-            H::widget()->id(null)->render()
-        );
-    }
-
-    public function testWithoutName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <h1>
-            </h1>
-            HTML,
-            H::widget()->name(null)->render()
+            Li::widget()->value('value')->render()
         );
     }
 }

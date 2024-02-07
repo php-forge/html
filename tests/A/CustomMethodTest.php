@@ -19,7 +19,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             value
             <a></a>
             HTML,
-            A::widget()->prefix('value')->render(),
+            A::widget()->prefix('value')->render()
         );
     }
 
@@ -32,7 +32,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             </div>
             <a></a>
             HTML,
-            A::widget()->prefixContainer(true)->prefix('value')->render(),
+            A::widget()->prefixContainer(true)->prefix('value')->render()
         );
     }
 
@@ -49,7 +49,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
                 ->prefixContainer(true)
                 ->prefix('value')
                 ->prefixContainerAttributes(['class' => 'value'])
-                ->render(),
+                ->render()
         );
     }
 
@@ -62,7 +62,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             </div>
             <a></a>
             HTML,
-            A::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render(),
+            A::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
         );
     }
 
@@ -73,7 +73,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <span>value</span>
             <a></a>
             HTML,
-            A::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render(),
+            A::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
         );
     }
 
@@ -83,7 +83,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <<<HTML
             <a></a>
             HTML,
-            A::widget()->render(),
+            A::widget()->render()
         );
     }
 
@@ -94,7 +94,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <a></a>
             value
             HTML,
-            A::widget()->suffix('value')->render(),
+            A::widget()->suffix('value')->render()
         );
     }
 
@@ -107,7 +107,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             value
             </div>
             HTML,
-            A::widget()->suffixContainer(true)->suffix('value')->render(),
+            A::widget()->suffixContainer(true)->suffix('value')->render()
         );
     }
 
@@ -124,7 +124,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
                 ->suffixContainer(true)
                 ->suffix('value')
                 ->suffixContainerAttributes(['class' => 'value'])
-                ->render(),
+                ->render()
         );
     }
 
@@ -137,7 +137,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             value
             </div>
             HTML,
-            A::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render(),
+            A::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
         );
     }
 
@@ -148,7 +148,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <a></a>
             <span>value</span>
             HTML,
-            A::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render(),
+            A::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
         );
     }
 
@@ -160,7 +160,7 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <a>value</a>
             </div>
             HTML,
-            A::widget()->content('value')->template('<div>\n{tag}\n</div>')->render(),
+            A::widget()->content('value')->template('<div>\n{tag}\n</div>')->render()
         );
     }
 }

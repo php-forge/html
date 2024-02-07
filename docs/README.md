@@ -24,6 +24,7 @@ The following tags are currently supported:
 - [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
 - [label](/docs/tag/Label.md)
+- [li](/docs/tag/Li.md)
 
 ## Input Tags
 

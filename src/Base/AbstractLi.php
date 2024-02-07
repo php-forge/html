@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\Attribute;
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\Ol;
 use PHPForge\Html\Tag;
-use PHPForge\Html\Ul;
 use PHPForge\Widget\Element;
+use PHPForge\Widget\ElementInterface;
 
 /**
  * Provides a foundation for creating HTML `<li>` elements with various attributes and content.
@@ -32,20 +30,17 @@ abstract class AbstractLi extends Element
     /**
      * Set the `HTML` content value.
      *
-     * @param Ol|self|string|Ul ...$values The `HTML` content value.
+     * @param ElementInterface|string ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */
-    public function content(string|Ol|Ul|self ...$values): static
+    public function content(string|ElementInterface ...$values): static
     {
-        $content = '';
+        $new = clone $this;
 
         foreach ($values as $value) {
-            $content .= "$value\n";
+            $new->content .= "$value\n";
         }
-
-        $new = clone $this;
-        $new->content = trim(Encode::sanitizeXSS($content));
 
         return $new;
     }
@@ -59,7 +54,7 @@ abstract class AbstractLi extends Element
     {
         return Tag::widget()
             ->attributes($this->attributes)
-            ->content($this->content)
+            ->content(trim($this->content))
             ->id($this->id)
             ->tagName('li')
             ->render();

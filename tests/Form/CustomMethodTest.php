@@ -21,7 +21,7 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <form>
             HTML,
-            Form::widget()->begin(),
+            Form::widget()->begin()
         );
 
         Assert::equalsWithoutLE(
@@ -30,7 +30,7 @@ final class CustomMethodTest extends TestCase
             <input name="id" type="hidden" value="1">
             <input name="title" type="hidden" value="&lt;">
             HTML,
-            Form::widget()->action('/example?id=1&title=%3C')->method('GET')->begin(),
+            Form::widget()->action('/example?id=1&title=%3C')->method('GET')->begin()
         );
 
         Assert::equalsWithoutLE(
@@ -38,7 +38,7 @@ final class CustomMethodTest extends TestCase
             <form action="/foo" method="GET">
             <input name="p" type="hidden">
             HTML,
-            Form::widget()->action('/foo?p')->method('GET')->begin(),
+            Form::widget()->action('/foo?p')->method('GET')->begin()
         );
     }
 
@@ -65,7 +65,7 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             </form>
             HTML,
-            Form::end(),
+            Form::end()
         );
     }
 
@@ -76,7 +76,7 @@ final class CustomMethodTest extends TestCase
             <form>
             </form>
             HTML,
-            Form::widget()->render(),
+            Form::widget()->render()
         );
     }
 

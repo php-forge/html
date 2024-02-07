@@ -20,7 +20,7 @@ final class AttributeTest extends TestCase
             <head class="value">
             </head>
             HTML,
-            Head::widget()->attributes(['class' => 'value'])->render(),
+            Head::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -31,7 +31,7 @@ final class AttributeTest extends TestCase
             <head class="value">
             </head>
             HTML,
-            Head::widget()->class('value')->render(),
+            Head::widget()->class('value')->render()
         );
     }
 
@@ -43,7 +43,7 @@ final class AttributeTest extends TestCase
             test content
             </head>
             HTML,
-            Head::widget()->content('test content')->render(),
+            Head::widget()->content('test content')->render()
         );
     }
 
@@ -54,7 +54,7 @@ final class AttributeTest extends TestCase
             <head data-value="value">
             </head>
             HTML,
-            Head::widget()->dataAttributes(['value' => 'value'])->render(),
+            Head::widget()->dataAttributes(['value' => 'value'])->render()
         );
     }
 
@@ -65,7 +65,7 @@ final class AttributeTest extends TestCase
             <head id="value">
             </head>
             HTML,
-            Head::widget()->id('value')->render(),
+            Head::widget()->id('value')->render()
         );
     }
 
@@ -76,7 +76,7 @@ final class AttributeTest extends TestCase
             <head lang="value">
             </head>
             HTML,
-            Head::widget()->lang('value')->render(),
+            Head::widget()->lang('value')->render()
         );
     }
 
@@ -87,7 +87,7 @@ final class AttributeTest extends TestCase
             <head name="value">
             </head>
             HTML,
-            Head::widget()->name('value')->render(),
+            Head::widget()->name('value')->render()
         );
     }
 
@@ -98,7 +98,7 @@ final class AttributeTest extends TestCase
             <head style="value">
             </head>
             HTML,
-            Head::widget()->style('value')->render(),
+            Head::widget()->style('value')->render()
         );
     }
 
@@ -109,7 +109,7 @@ final class AttributeTest extends TestCase
             <head title="value">
             </head>
             HTML,
-            Head::widget()->title('value')->render(),
+            Head::widget()->title('value')->render()
         );
     }
 
@@ -120,7 +120,7 @@ final class AttributeTest extends TestCase
             <head>
             </head>
             HTML,
-            Head::widget()->id(null)->render(),
+            Head::widget()->id(null)->render()
         );
     }
 
@@ -131,7 +131,7 @@ final class AttributeTest extends TestCase
             <head>
             </head>
             HTML,
-            Head::widget()->name(null)->render(),
+            Head::widget()->name(null)->render()
         );
     }
 }
