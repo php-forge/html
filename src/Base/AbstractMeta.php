@@ -18,9 +18,9 @@ abstract class AbstractMeta extends Element
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasLang;
+    use Attribute\HasStyle;
     use Attribute\Tag\HasCharset;
     use Attribute\Tag\HasHttpEquiv;
-    use Attribute\Tag\HasProperty;
 
     protected array $attributes = [];
 
@@ -48,6 +48,6 @@ abstract class AbstractMeta extends Element
      */
     protected function run(): string
     {
-        return Tag::widget()->attributes($this->attributes)->tagName('meta')->render();
+        return Tag::widget()->attributes($this->attributes)->id($this->id)->tagName('meta')->render();
     }
 }
