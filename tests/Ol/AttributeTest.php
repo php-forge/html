@@ -12,18 +12,16 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class AttributeTest extends TestCase
 {
     public function testAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol class="test-class">
+            <ol class="value">
             </ol>
             HTML,
-            Ol::widget()->attributes([
-                'class' => 'test-class',
-            ])->render(),
+            Ol::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -31,12 +29,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol class="test-class test-class-1">
+            <ol class="value">
             </ol>
             HTML,
-            Ol::widget()->attributes([
-                'class' => 'test-class',
-            ])->class('test-class-1')->render(),
+            Ol::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -53,23 +49,7 @@ final class RenderTest extends TestCase
             </li>
             </ol>
             HTML,
-            Ol::widget()
-                ->content(
-                    Li::widget()->content('Item 1'),
-                    Li::widget()->content('Item 2'),
-                )
-                ->render(),
-        );
-    }
-
-    public function testElement(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <ol>
-            </ol>
-            HTML,
-            Ol::widget()->render(),
+            Ol::widget()->content(Li::widget()->content('Item 1'), Li::widget()->content('Item 2'))->render()
         );
     }
 
@@ -77,10 +57,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol id="test-id">
+            <ol id="value">
             </ol>
             HTML,
-            Ol::widget()->id('test-id')->render(),
+            Ol::widget()->id('value')->render(),
         );
     }
 
@@ -88,10 +68,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol lang="en">
+            <ol lang="value">
             </ol>
             HTML,
-            Ol::widget()->lang('en')->render(),
+            Ol::widget()->lang('value')->render()
         );
     }
 
@@ -99,48 +79,32 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol name="test-name">
+            <ol name="value">
             </ol>
             HTML,
-            Ol::widget()->name('test-name')->render(),
+            Ol::widget()->name('value')->render(),
         );
     }
 
-    public function testNested(): void
+    public function testReversed(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol>
-            <li>
-            Item 1
-            <ol>
-            <li>
-            Item 1.1
-            </li>
-            <li>
-            Item 1.2
-            </li>
-            </ol>
-            </li>
-            <li>
-            Item 2
-            </li>
+            <ol reversed>
             </ol>
             HTML,
-            Ol::widget()
-                ->content(
-                    Li::widget()
-                        ->content(
-                            'Item 1',
-                            Ol::widget()
-                                ->content(
-                                    Li::widget()->content('Item 1.1'),
-                                    Li::widget()->content('Item 1.2'),
-                                ),
-                        ),
-                    Li::widget()->content('Item 2'),
-                )
-                ->render(),
+            Ol::widget()->reversed()->render(),
+        );
+    }
+
+    public function testStart(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <ol start="1">
+            </ol>
+            HTML,
+            Ol::widget()->start(1)->render(),
         );
     }
 
@@ -148,10 +112,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol style="color:red;">
+            <ol style="value">
             </ol>
             HTML,
-            Ol::widget()->style('color:red;')->render(),
+            Ol::widget()->style('value')->render(),
         );
     }
 
@@ -170,10 +134,10 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <ol title="test-title">
+            <ol title="value">
             </ol>
             HTML,
-            Ol::widget()->title('test-title')->render(),
+            Ol::widget()->title('value')->render(),
         );
     }
 
