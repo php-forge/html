@@ -14,6 +14,6 @@ final class Method extends \PHPUnit\Framework\TestCase
 
         sort($methods);
         var_dump(implode("\n", $methods));
-        die();
+        die;
     }
 }

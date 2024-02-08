@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Tag;
 
-use PHPForge\Html\Helper\CssClass;
-
 /**
  * Is used by widgets that implement the items attributes methods.
  */
