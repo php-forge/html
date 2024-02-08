@@ -142,10 +142,10 @@ final class AttributeTest extends TestCase
             <option value="1">Moscu</option>
             <option value="2">San Petersburgo</option>
             <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
+            <option value="4" selected>Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->items($this->cities)->prompt('Select City Birth')->render()
+            Select::widget()->items($this->cities)->prompt('Select City Birth')->value(4)->render()
         );
 
         Assert::equalsWithoutLE(
@@ -153,12 +153,12 @@ final class AttributeTest extends TestCase
             <select>
             <option value="0">Select City Birth</option>
             <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
+            <option value="2" selected>San Petersburgo</option>
             <option value="3">Novosibirsk</option>
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->items($this->cities)->prompt('Select City Birth', '0')->render()
+            Select::widget()->items($this->cities)->prompt('Select City Birth', '0')->value(2)->render()
         );
     }
 

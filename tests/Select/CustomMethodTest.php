@@ -110,10 +110,10 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <select>
             <option>Select an option</option>
-            <option class="value" value="1" selected>Moscu</option>
+            <option class="value" value="1">Moscu</option>
             </select>
             HTML,
-            Select::widget()->items([1 => 'Moscu'])->itemsAttributes([1 => ['class' => 'value']])->value(1)->render()
+            Select::widget()->items([1 => 'Moscu'])->itemsAttributes([1 => ['class' => 'value']])->render()
         );
     }
 
