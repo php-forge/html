@@ -30,6 +30,7 @@ The following tags are currently supported:
 - [ol](/docs/tag/Ol.md)
 - [p](/docs/tag/P.md)
 - [section](/docs/tag/Section.md)
+- [select](/docs/tag/Select.md)
 
 ## Input Tags
 

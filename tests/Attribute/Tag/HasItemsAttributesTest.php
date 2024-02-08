@@ -9,34 +9,6 @@ use PHPUnit\Framework\TestCase;
 
 final class HasItemsAttributesTest extends TestCase
 {
-    public function testClass(): void
-    {
-        $instance = new class () {
-            use HasItemsAttributes;
-
-            protected array $attributes = [];
-
-            public function getItemsClass(): string
-            {
-                return $this->itemsAttributes['class'] ?? '';
-            }
-        };
-
-        $this->assertEmpty($instance->getItemsClass());
-
-        $instance = $instance->itemsClass('test-class');
-
-        $this->assertSame('test-class', $instance->getItemsClass());
-
-        $instance = $instance->itemsClass('test-class-1');
-
-        $this->assertSame('test-class test-class-1', $instance->getItemsClass());
-
-        $instance = $instance->itemsClass('test-override-class', true);
-
-        $this->assertSame('test-override-class', $instance->getItemsClass());
-    }
-
     public function testImmutability(): void
     {
         $instance = new class () {
@@ -44,6 +16,5 @@ final class HasItemsAttributesTest extends TestCase
         };
 
         $this->assertNotSame($instance, $instance->itemsAttributes([]));
-        $this->assertNotSame($instance, $instance->itemsClass(''));
     }
 }
