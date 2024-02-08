@@ -79,7 +79,7 @@ final class CustomMethodTest extends TestCase
             <optgroup label="Chile">
             <option value="6">Santiago</option>
             <option value="7">Concepcion</option>
-            <option value="8">Chillan</option>
+            <option value="8" selected>Chillan</option>
             </optgroup>
             </select>
             HTML,
@@ -87,6 +87,7 @@ final class CustomMethodTest extends TestCase
                 ->groups($this->groups)
                 ->items($this->citiesGroups)
                 ->itemsAttributes([2 => ['disabled' => true]])
+                ->value(8)
                 ->render()
         );
     }
