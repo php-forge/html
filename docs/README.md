@@ -28,6 +28,7 @@ The following tags are currently supported:
 - [meta](/docs/tag/Meta.md)
 - [nav](/docs/tag/Nav.md)
 - [ol](/docs/tag/Ol.md)
+- [p](/docs/tag/P.md)
 
 ## Input Tags
 
