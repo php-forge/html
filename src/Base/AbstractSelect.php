@@ -31,6 +31,7 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\HasClass;
     use Attribute\HasId;
+    use Attribute\HasStyle;
     use Attribute\HasTabindex;
     use Attribute\Input\CanBeDisabled;
     use Attribute\Input\CanBeMultiple;
@@ -54,7 +55,11 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
 
         $items = match ($this->prompt) {
             '' => PHP_EOL . Tag::widget()->content('Select an option')->tagName('option')->render(),
-            default => PHP_EOL . Tag::widget()->content($this->prompt)->tagName('option')->value($this->promptValue)->render(),
+            default => PHP_EOL . Tag::widget()
+                ->content($this->prompt)
+                ->tagName('option')
+                ->value($this->promptValue)
+                ->render(),
         };
 
         if (is_object($value)) {
@@ -80,16 +85,24 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
             ->content($items)
             ->id($this->id)
             ->prefix($this->prefix)
+            ->prefixContainer($this->prefixContainer)
+            ->prefixContainerAttributes($this->prefixContainerAttributes)
+            ->prefixContainerTag($this->prefixContainerTag)
             ->suffix($this->suffix)
+            ->suffixContainer($this->suffixContainer)
+            ->suffixContainerAttributes($this->suffixContainerAttributes)
+            ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('select');
 
-        return match ($this->labelContent) {
-            '' => $selectTag->render(),
-            default => Label::widget()
-                ->attributes($this->labelAttributes)
-                ->content($this->labelContent, PHP_EOL, $selectTag, PHP_EOL)
-                ->render(),
-        };
+        if ($this->notLabel === true || $this->labelContent === '') {
+            return $selectTag->render();
+        }
+
+        return Label::widget()
+            ->attributes($this->labelAttributes)
+            ->content($this->labelContent, PHP_EOL, $selectTag, PHP_EOL)
+            ->for($this->labelFor)
+            ->render();
     }
 
     /**

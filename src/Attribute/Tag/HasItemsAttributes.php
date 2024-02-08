@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Tag;
 
-use PHPForge\Html\Helper\CssClass;
-
 /**
  * Is used by widgets that implement the items attributes methods.
  */
@@ -24,22 +22,6 @@ trait HasItemsAttributes
     {
         $new = clone $this;
         $new->itemsAttributes = $values;
-
-        return $new;
-    }
-
-    /**
-     * Set the `CSS` `HTML` class attribute for the items.
-     *
-     * @param string $value The `CSS` attribute for the items.
-     * @param bool $override If `true` the value will be overridden.
-     *
-     * @return static A new instance of the current class with the specified class value for the items.
-     */
-    public function itemsClass(string $value, bool $override = false): static
-    {
-        $new = clone $this;
-        CssClass::add($new->itemsAttributes, $value, $override);
 
         return $new;
     }

@@ -5,103 +5,41 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Select;
 
 use PHPForge\Html\Select;
-use PHPForge\Html\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class CustomMethodTest extends TestCase
 {
     private array $cities = [
-        '1' => 'Moscu',
-        '2' => 'San Petersburgo',
-        '3' => 'Novosibirsk',
-        '4' => 'Ekaterinburgo',
+        1 => 'Moscu',
+        2 => 'San Petersburgo',
+        3 => 'Novosibirsk',
+        4 => 'Ekaterinburgo',
     ];
     private array $citiesGroups = [
-        '1' => [
-            '2' => ' Moscu',
-            '3' => ' San Petersburgo',
-            '4' => ' Novosibirsk',
-            '5' => ' Ekaterinburgo',
+        1 => [
+            2 => ' Moscu',
+            3 => ' San Petersburgo',
+            4 => ' Novosibirsk',
+            5 => ' Ekaterinburgo',
         ],
-        '2' => [
-            '6' => 'Santiago',
-            '7' => 'Concepcion',
-            '8' => 'Chillan',
+        2 => [
+            6 => 'Santiago',
+            7 => 'Concepcion',
+            8 => 'Chillan',
         ],
     ];
     private array $groups = [
-        '1' => [
+        1 => [
             'label' => 'Russia',
         ],
-        '2' => [
+        2 => [
             'label' => 'Chile',
         ],
     ];
-
-    public function testAriaLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select aria-label="test-aria-label">
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            </select>
-            HTML,
-            Select::widget()->items([
-                1 => 'Moscu',
-            ])->ariaLabel('test-aria-label')->render(),
-        );
-    }
-
-    public function testAutofocus(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select autofocus>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            </select>
-            HTML,
-            Select::widget()->items([
-                1 => 'Moscu',
-            ])->autofocus()->render(),
-        );
-    }
-
-    public function testDisabled(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select disabled>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            </select>
-            HTML,
-            Select::widget()->items([
-                1 => 'Moscu',
-            ])->disabled()->render(),
-        );
-    }
-
-    public function testElement(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->render(),
-        );
-    }
 
     public function testGroups(): void
     {
@@ -122,11 +60,11 @@ final class RenderTest extends TestCase
             </optgroup>
             </select>
             HTML,
-            Select::widget()->groups($this->groups)->items($this->citiesGroups)->render(),
+            Select::widget()->groups($this->groups)->items($this->citiesGroups)->render()
         );
     }
 
-    public function testGroupsItemsAttributes(): void
+    public function testGroupsWithItemsAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -148,29 +86,9 @@ final class RenderTest extends TestCase
             Select::widget()
                 ->groups($this->groups)
                 ->items($this->citiesGroups)
-                ->itemsAttributes([
-                    '2' => [
-                        'disabled' => true,
-                    ],
-                ])
+                ->itemsAttributes([2 => ['disabled' => true]])
                 ->value(8)
-                ->render(),
-        );
-    }
-
-    public function testId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select id="test-id">
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->id('test-id')->items($this->cities)->render(),
+                ->render()
         );
     }
 
@@ -180,60 +98,32 @@ final class RenderTest extends TestCase
             <<<HTML
             <select>
             <option>Select an option</option>
-            <option class="test-class" value="1">Moscu</option>
-            </select>
-            HTML,
-            Select::widget()
-                ->items([
-                    1 => 'Moscu',
-                ])
-                ->itemsAttributes([
-                    1 => [
-                        'class' => 'test-class',
-                    ],
-                ])
-                ->render(),
-        );
-    }
-
-    public function testMultiple(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select multiple>
-            <option>Select an option</option>
-            <option value="1" selected>Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4" selected>Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->multiple()->items($this->cities)->value([1, 4])->render(),
-        );
-    }
-
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select name="test-name">
-            <option>Select an option</option>
             <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->name('test-name')->items($this->cities)->render(),
+            Select::widget()->items([1 => 'Moscu'])->render()
         );
     }
 
-    public function testLabel(): void
+    public function testItemsAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label>Cities:
-            <select name="test-name">
+            <select>
+            <option>Select an option</option>
+            <option class="value" value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->itemsAttributes([1 => ['class' => 'value']])->render()
+        );
+    }
+
+    public function testLabelAttributes(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label class="value">Cities:
+            <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
             <option value="2">San Petersburgo</option>
@@ -242,7 +132,81 @@ final class RenderTest extends TestCase
             </select>
             </label>
             HTML,
-            Select::widget()->name('test-name')->items($this->cities)->labelContent('Cities:')->render(),
+            Select::widget()
+                ->items($this->cities)
+                ->labelAttributes(['class' => 'value'])
+                ->labelContent('Cities:')
+                ->render()
+        );
+    }
+
+    public function testLabelClass(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label class="value">Cities:
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            </label>
+            HTML,
+            Select::widget()->items($this->cities)->labelClass('value')->labelContent('Cities:')->render()
+        );
+    }
+
+    public function testLabelContent(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label>Cities:
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            </label>
+            HTML,
+            Select::widget()->items($this->cities)->labelContent('Cities:')->render()
+        );
+    }
+
+    public function testLabelFor(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label for="value">Cities:
+            <select id="value">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            </label>
+            HTML,
+            Select::widget()->id('value')->items($this->cities)->labelContent('Cities:')->labelFor('value')->render()
+        );
+    }
+
+    public function testNotLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->items($this->cities)->labelContent('Cities:')->notLabel()->render()
         );
     }
 
@@ -250,7 +214,7 @@ final class RenderTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>test-prefix</span>
+            prefix
             <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
@@ -259,51 +223,72 @@ final class RenderTest extends TestCase
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->items($this->cities)->prefix(Span::widget()->content('test-prefix'))->render(),
+            Select::widget()->items($this->cities)->prefix('prefix')->render()
         );
     }
 
-    public function testPrompt(): void
+    public function testPrefixContainer(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
+            <div>
+            prefix
+            </div>
             <select>
-            <option>Select City Birth</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->prompt('Select City Birth')->render(),
-        );
-
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select>
-            <option value="0">Select City Birth</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->prompt('Select City Birth', '0')->render(),
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select required>
             <option>Select an option</option>
             <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->items([
-                1 => 'Moscu',
-            ])->required()->render(),
+            Select::widget()->items($this->cities)->prefixContainer(true)->prefix('prefix')->render()
+        );
+    }
+
+    public function testPrefixContainerClass(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div class="value">
+            prefix
+            </div>
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()
+                ->items($this->cities)
+                ->prefixContainer(true)
+                ->prefix('prefix')
+                ->prefixContainerClass('value')
+                ->render()
+        );
+    }
+
+    public function testPrefixContainerTag(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span>prefix</span>
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()
+                ->items($this->cities)
+                ->prefixContainer(true)
+                ->prefix('prefix')
+                ->prefixContainerTag('span')
+                ->render()
         );
     }
 
@@ -318,111 +303,89 @@ final class RenderTest extends TestCase
             <option value="3">Novosibirsk</option>
             <option value="4">Ekaterinburgo</option>
             </select>
-            <span>test-suffix</span>
+            value
             HTML,
-            Select::widget()->items($this->cities)->suffix(Span::widget()->content('test-suffix'))->render(),
+            Select::widget()->items($this->cities)->suffix('value')->render()
         );
     }
 
-    public function testTabIndex(): void
+    public function testSuffixContainer(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <select tabindex="1">
+            <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
             </select>
+            <div>
+            value
+            </div>
             HTML,
-            Select::widget()->items([
-                1 => 'Moscu',
-            ])->tabIndex(1)->render(),
+            Select::widget()->items($this->cities)->suffixContainer(true)->suffix('value')->render()
         );
     }
 
-    public function testValue(): void
+    public function testSuffixContainerAttributes(): void
     {
-        // Value int `1`.
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select>
-            <option>Select an option</option>
-            <option value="1" selected>Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->value(1)->render(),
-        );
-
-        // Value int `2`.
         Assert::equalsWithoutLE(
             <<<HTML
             <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
-            <option value="2" selected>San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
             </select>
+            <div class="value">
+            value
+            </div>
             HTML,
-            Select::widget()->items($this->cities)->value(2)->render(),
+            Select::widget()
+                ->items([1 => 'Moscu'])
+                ->suffixContainer(true)
+                ->suffix('value')
+                ->suffixContainerAttributes(['class' => 'value'])
+                ->render()
         );
+    }
 
-        // Value iterable `[2, 3]`.
+    public function testSuffixContainerClass(): void
+    {
         Assert::equalsWithoutLE(
             <<<HTML
             <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
-            <option value="2" selected>San Petersburgo</option>
-            <option value="3" selected>Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
             </select>
+            <div class="value">
+            value
+            </div>
             HTML,
-            Select::widget()->items($this->cities)->value([2, 3])->render(),
+            Select::widget()
+                ->items([1 => 'Moscu'])
+                ->suffixContainer(true)
+                ->suffix('value')
+                ->suffixContainerClass('value')
+                ->render()
         );
+    }
 
-        // Value string `1`.
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select>
-            <option>Select an option</option>
-            <option value="1" selected>Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->value('1')->render(),
-        );
-
-        // Value string `2`.
+    public function testSuffixContainerTag(): void
+    {
         Assert::equalsWithoutLE(
             <<<HTML
             <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
-            <option value="2" selected>San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
             </select>
+            <span>value</span>
             HTML,
-            Select::widget()->items($this->cities)->value('2')->render(),
-        );
-
-        // Value `null`.
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->value(null)->render(),
+            Select::widget()
+                ->items([1 => 'Moscu'])
+                ->suffixContainer(true)
+                ->suffix('value')
+                ->suffixContainerTag('span')
+                ->render()
         );
     }
 }
