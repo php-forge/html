@@ -27,7 +27,7 @@ $li->class('external');
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$li->attributes(['class' => 'external', 'title' => 'External Link']);
+$li->attributes(['class' => 'external', 'title' => 'MyTitle']);
 ```
 
 ## Adding Content
@@ -58,7 +58,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$li->class('external')->content('myContent')->title('External Link');
+$li->class('external')->content('myContent')->title('MyTitle');
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `tabindex`, `title`, `value` and more.

@@ -53,7 +53,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$ol->class('external')->content('myContent')->title('External Link');
+$ol->class('external')->content('myContent')->title('MyTitle');
 ```
 
 ```php
