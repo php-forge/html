@@ -56,6 +56,21 @@ Below are examples of common use cases:
 $ol->class('external')->content('myContent')->title('External Link');
 ```
 
+```php
+// setting the `start` attribute
+$ol->start(5);
+```
+
+```php
+// setting the `reversed` attribute
+$ol->reversed();
+```
+
+```php
+// setting the `type` attribute
+$ol->type('A');
+```
+
 Explore additional methods for setting various attributes such as `lang`, `tabindex`, `title`, `value` and more.
 
 ## Attributes
