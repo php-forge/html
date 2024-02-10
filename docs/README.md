@@ -31,6 +31,7 @@ The following tags are currently supported:
 - [p](/docs/tag/P.md)
 - [section](/docs/tag/Section.md)
 - [select](/docs/tag/Select.md)
+- [span](/docs/tag/Span.md)
 
 ## Input Tags
 
