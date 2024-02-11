@@ -14,8 +14,6 @@ use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 use RuntimeException;
 
-use function array_key_exists;
-
 /**
  * Provides a foundation for creating HTML `svg` elements with various attributes and content.
  */
