@@ -14,8 +14,6 @@ use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 use RuntimeException;
 
-use function array_key_exists;
-
 /**
  * Provides a foundation for creating HTML `svg` elements with various attributes and content.
  */
@@ -153,10 +151,6 @@ abstract class AbstractSvg extends Element
 
         if (!$svgElement) {
             throw new RuntimeException('Failed to load SVG file: ' . $this->filePath);
-        }
-
-        if (array_key_exists('height', $this->attributes) && array_key_exists('width', $this->attributes)) {
-            $svgElement->removeAttribute('viewBox');
         }
 
         return $svgElement;
