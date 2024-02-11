@@ -155,10 +155,6 @@ abstract class AbstractSvg extends Element
             throw new RuntimeException('Failed to load SVG file: ' . $this->filePath);
         }
 
-        if (array_key_exists('height', $this->attributes) && array_key_exists('width', $this->attributes)) {
-            $svgElement->removeAttribute('viewBox');
-        }
-
         return $svgElement;
     }
 
