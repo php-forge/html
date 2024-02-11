@@ -40,33 +40,20 @@ In addition to basic `HTML` tags, the repository also supports the generation of
 
 This is particularly useful for creating forms and other interactive elements on a webpage.
 
-## Creating Custom Widgets
+## Creating Widgets
 
-One of the standout features of the `HTML` repository is its utilization of `PHP` traits.
+The HTML repository leverages the power of PHP traits to enable you to create custom widgets with ease.
 
-Traits serve as a mechanism for code reuse in single inheritance languages like `PHP`, enabling the grouping of specific
-functionalities in a coherent manner.
+Traits are a way of reusing code in single inheritance languages like PHP, allowing you to group related functionalities
+in a consistent way.
 
-The `HTML` repository provides traits that can be employed to assemble custom widgets, offering the flexibility to
-create `HTML` elements tailored to specific needs.
+The HTML repository provides a set of traits that you can use to compose custom widgets, giving you the flexibility to
+create HTML elements that suit your specific needs.
 
-To use the repository, you would typically import the necessary classes and traits into your `PHP` script.
+## Helper Classes
 
-Subsequently, you would invoke the appropriate methods to generate `HTML` code. The generated code can then be sent to
-the browser or used in other parts of your application.
+- [HtmlBuilder](/docs/helper/HtmlBuilder.md)
 
-It's important to note that the exact usage may vary depending on the specific classes and traits you are utilizing.
+## Generic tags
 
-Be sure to review the tests and traits in the repository for more detailed examples and usage instructions.
-
-Furthermore, the repository supplies various abstract classes that can be utilized to craft custom widgets.
-
-These classes provide a fundamental implementation of the `HTML` interface and can be extended to develop more
-intricate widgets.
-
-Additionally, the repository furnishes several interfaces that can be used to create personalized widgets.
-
-These interfaces offer a basic implementation of the `HTML` interface and can be extended to construct more complex
-widgets.
-
-This enhances the extensibility of the repository, empowering you to design personalized `HTML` elements efficiently.
+- [Tag](/docs/tag/Tag.md)
