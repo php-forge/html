@@ -17,9 +17,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span class="value"></span>
+            <span id="value"></span>
             HTML,
-            Tag::widget()->attributes(['class' => 'value'])->tagName('span')->render()
+            Tag::widget()->attributes(['id' => 'value'])->tagName('span')->render()
         );
     }
 
