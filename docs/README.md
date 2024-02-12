@@ -23,16 +23,23 @@ The following tags are currently supported:
 - [html](/docs/tag/Html.md)
 - [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
-- [label](/docs/tag/Label.md)
 - [li](/docs/tag/Li.md)
 - [meta](/docs/tag/Meta.md)
 - [nav](/docs/tag/Nav.md)
 - [ol](/docs/tag/Ol.md)
 - [p](/docs/tag/P.md)
 - [section](/docs/tag/Section.md)
-- [select](/docs/tag/Select.md)
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
+
+## Forms 
+
+The repository also provides a set of classes for creating forms, including:
+
+- [form](/docs/form/Form.md)
+- [label](/docs/form/Label.md)
+- [select](/docs/form/Select.md)
+- [textarea](/docs/form/Textarea.md)
 
 ## Input Tags
 
