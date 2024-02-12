@@ -57,10 +57,10 @@ in a consistent way.
 The HTML repository provides a set of traits that you can use to compose custom widgets, giving you the flexibility to
 create HTML elements that suit your specific needs.
 
-## Helper Classes
-
-- [HtmlBuilder](/docs/helper/HtmlBuilder.md)
-
 ## Generic tags
 
 - [Tag](/docs/tag/Tag.md)
+
+## Helper Classes
+
+- [HtmlBuilder](/docs/helper/HtmlBuilder.md)
