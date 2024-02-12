@@ -39,7 +39,7 @@ The repository also provides a set of classes for creating forms, including:
 - [form](/docs/form/Form.md)
 - [label](/docs/form/Label.md)
 - [select](/docs/form/Select.md)
-- [textarea](/docs/form/Textarea.md)
+- [textarea](/docs/form/TextArea.md)
 
 ## Input Tags
 
