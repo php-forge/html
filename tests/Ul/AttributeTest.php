@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Ul;
 
-use PHPForge\Html\Li;
 use PHPForge\Html\Ul;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
