@@ -11,22 +11,26 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class RenderTest extends TestCase
+final class CustomMethodTest extends TestCase
 {
-    public function testBlockLevelElements(): void
+    public function testBeginEnd(): void
     {
-        $this->assertSame('<title>test block</title>', Title::widget()->begin() . 'test block' . Title::end());
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <title>value</title>
+            HTML,
+            Title::widget()->begin() . 'value' . Title::end()
+        );
     }
 
-    public function testElement(): void
+    public function testRender(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <title>
-            test element
             </title>
             HTML,
-            Title::widget()->content('test element')->render(),
+            Title::widget()->render(),
         );
     }
 }

@@ -117,4 +117,4 @@ The following methods are available for customizing the `HTML` output:
 | `begin() `| Start the `div` element.                                                                                 |
 | `end()`   | End the `div` element, and generate the `HTML` output.                                                   |
 | `render()`| Generates the `HTML` output.                                                                             |
-| `widget()`| Instantiates the `Body::class`.                                                                          |
+| `widget()`| Instantiates the `Div::class`.                                                                           |

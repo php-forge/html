@@ -101,4 +101,4 @@ The following methods are available for customizing the `HTML` output:
 | `tagName()`    | Set the tag name for the `HTML` output.                                                             |
 | `template()`   | Set the template for the `HTML` output.                                                             |
 | `tokenValues()`| Set the token values for the `HTML` output.                                                         |
-| `widget()`     | Instantiates the `Body::class`.                                                                     |
+| `widget()`     | Instantiates the `Tag::class`.                                                                      |

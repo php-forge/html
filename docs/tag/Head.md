@@ -115,4 +115,4 @@ The following methods are available for customizing the `HTML` output:
 | `begin() `| Start the `head` element.                                                                                |
 | `end()`   | End the `head` element, and generate the `HTML` output.                                                  |
 | `render()`| Generates the `HTML` output.                                                                             |
-| `widget()`| Instantiates the `Body::class`.                                                                          |
+| `widget()`| Instantiates the `Head::class`.                                                                          |
