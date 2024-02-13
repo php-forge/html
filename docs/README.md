@@ -32,6 +32,7 @@ The following tags are currently supported:
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
 - [title](/docs/tag/Title.md)
+- [ul](/docs/tag/Ul.md)
 
 ## Forms 
 

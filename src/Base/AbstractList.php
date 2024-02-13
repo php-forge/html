@@ -25,7 +25,6 @@ abstract class AbstractList extends Element
     use Attribute\HasTabindex;
     use Attribute\HasTitle;
     use Attribute\Input\HasName;
-    use Attribute\Input\HasType;
 
     protected array $attributes = [];
     protected string $content = '';
