@@ -1,22 +1,23 @@
-# Section
+# Title
 
-The `<section>` `HTML` element represents a generic standalone section of a document, which doesn't have a more specific
-semantic element to represent it. Sections should always have a heading, with very few exceptions.
+The `<title>` `HTML` element defines the document's title shown in a browser's title bar or a page's tab.
+
+It only contains text; tags within the element are ignored.
 
 ## Basic Usage
 
-Instantiate the `Section` class using `Section::widget()`.
+Instantiate the `Title` class using `Title::widget()`.
 
 ```php
-$section = Section::widget();
+$title = Title::widget();
 ```
 
 Or, block style instantiation.
 
 ```php
-<?= Section::begin() ?>
-    // ... content to be wrapped by `section` element
-<?= Section::end() ?>
+<?= Title::begin() ?>
+    // ... content to be wrapped by `div` element
+<?= Title::end() ?>
 ```
 
 ## Setting Attributes
@@ -25,29 +26,29 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$section->class('container');
+$title->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$section->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
+$title->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding Content
 
-If you want to include content within the `section` tag, use the `content` method.
+If you want to include content within the `div` tag, use the `content` method.
 
 ```php
-$section->content('My content');
+$title->content('My content');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
 
 ```php
-<?= Section::begin() ?>
+<?= Title::begin() ?>
     My content
-<?= Section::end() ?>
+<?= Title::end() ?>
 ```
 
 ## Rendering
@@ -55,19 +56,13 @@ Or, use `begin()` and `end()` methods to wrap content.
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $section->render();
-```
-
-For block style instantiation, use the `end()` method, which returns the `HTML` output.
-
-```php
-$html = Section::end();
+$html = $title->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $section;
+$html = (string) $title;
 ```
 
 ## Common Use Cases
@@ -76,17 +71,17 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$section->class('external')->content('My content');
+$title->class('external')->content('My content');
 
 // using data attributes
-$section->dataAttributes(['analytics' => 'trackClick']);
+$title->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Section/AttributeTest.php) for
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Title/AttributeTest.php) for
 comprehensive examples.
 
 The following methods are available for setting attributes:
@@ -95,7 +90,7 @@ The following methods are available for setting attributes:
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `attributes()`    | Set multiple `attributes` at once.                                                               |
 | `class()`         | Set the `class` attribute.                                                                       |
-| `content()`       | Set the `content` within the `section` element.                                                  |
+| `content()`       | Set the `content` within the `div` element.                                                      |
 | `dataAttributes()`| Set multiple `data-attributes` at once.                                                          |
 | `id()`            | Set the `id` attribute.                                                                          |
 | `lang()`          | Set the `lang` attribute.                                                                        |
@@ -105,14 +100,14 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Section/CustomMethodTest.php) for
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Title/CustomMethodTest.php) for
 comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
 | Method    | Description                                                                                              |
 | --------- | -------------------------------------------------------------------------------------------------------- |
-| `begin() `| Start the `section` element.                                                                             |
-| `end()`   | End the `section` element, and generate the `HTML` output.                                               |
+| `begin()` | Initializes the `Title` widget.                                                                          |
+| `end()`   | Finalizes the `Title` widget.                                                                            |
 | `render()`| Generates the `HTML` output.                                                                             |
-| `widget()`| Instantiates the `Section::class`.                                                                       |
+| `widget()`| Instantiates the `Title::class`.                                                                         |

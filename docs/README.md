@@ -31,6 +31,7 @@ The following tags are currently supported:
 - [section](/docs/tag/Section.md)
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
+- [title](/docs/tag/Title.md)
 
 ## Forms 
 

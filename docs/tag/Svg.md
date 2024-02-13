@@ -100,4 +100,4 @@ The following methods are available for customizing the `HTML` output:
 | ----------- | ------------------------------------------------------------------------------------------------------ |
 | `filePath()`| Set the file path for the `HTML` output.                                                               |
 | `render()`  | Generates the `HTML` output.                                                                           |
-| `widget()`  | Instantiates the `Body::class`.                                                                        |
+| `widget()`  | Instantiates the `Svg::class`.                                                                         |

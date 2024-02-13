@@ -121,4 +121,4 @@ The following methods are available for customizing the `HTML` output:
 | `render()` | Generates the `HTML` output.                                                                            |
 | `tagName()`| Set the `tag` name.                                                                                     |
 |            | Alowed values: `h1`, `h2`, `h3`, `h4`, `h5`, `h6`. For default value its `h1`.                          |
-| `widget()` | Instantiates the `Body::class`.                                                                         |
+| `widget()` | Instantiates the `H::class`.                                                                            |

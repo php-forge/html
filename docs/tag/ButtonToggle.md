@@ -135,6 +135,7 @@ The following methods are available for customizing the `HTML` output:
 | `iconContent()`              | Set the `content` for the `icon` element.                                             |
 | `iconFilePath()`             | Set the `file path` for the `icon` element.                                           |
 | `iconTag()`                  | Set the `tag` for the `icon` element.                                                 |
+| `render()`                   | Generates the `HTML` output.                                                          |
 | `template()`                 | Set the `template` for the `button-toggle` element.                                   |
 | `toggle()`                   | Set enable or disable the `toggle`.                                                   |
 | `toggleAttributes()`         | Set multiple `attributes` for the `toggle` element.                                   |
@@ -145,3 +146,4 @@ The following methods are available for customizing the `HTML` output:
 | `togglePrefix()`             | Set the `prefix` for the `toggle` element.                                            |
 | `toggleSuffix()`             | Set the `suffix` for the `toggle` element.                                            |
 | `toggleTag()`                | Set the `tag` for the `toggle` element.                                               |
+| `widget()`                   | Instantiates the `ButtonToggle::class`.                                               |

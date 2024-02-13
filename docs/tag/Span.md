@@ -1,9 +1,9 @@
 # Span
 
- The `<span>` `HTML` element represents a generic inline container for phrasing content, which doesn't inherently
- represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or
- because they share attribute values, such as lang. It should be used only when no other semantic element is
- appropriate.
+The `<span>` `HTML` element represents a generic inline container for phrasing content, which doesn't inherently
+represent anything. It can be used to group elements for styling purposes (using the class or id attributes), or
+because they share attribute values, such as lang. It should be used only when no other semantic element is
+appropriate.
  
 `<span>` is very much like a `<div>` element, but `<div>` is a block-level element whereas a `<span>` is an inline 
 element.
@@ -14,14 +14,6 @@ Instantiate the `Span` class using `Span::widget()`.
 
 ```php
 $span = Span::widget();
-```
-
-Or, block style instantiation.
-
-```php
-<?= Span::begin() ?>
-    // ... content to be wrapped by `div` element
-<?= Span::end() ?>
 ```
 
 ## Setting Attributes
@@ -45,14 +37,6 @@ If you want to include content within the `div` tag, use the `content` method.
 
 ```php
 $span->content('My content');
-```
-
-Or, use `begin()` and `end()` methods to wrap content.
-
-```php
-<?= Span::begin() ?>
-    My content
-<?= Span::end() ?>
 ```
 
 ## Rendering
@@ -109,8 +93,18 @@ comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
-| Method      | Description                                                                                            |
-| ----------- | ------------------------------------------------------------------------------------------------------ |
-| `render()`  | Generates the `HTML` output.                                                                           |
-| `template()`| Set the template for the `HTML` output.                                                                |
-| `widget()`  | Instantiates the `Body::class`.                                                                        |
+| Method                       | Description                                                                           |
+| ---------------------------- | ------------------------------------------------------------------------------------- |
+| `prefix()`                   | Add text before the `a` element.                                                      |
+| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
+| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
+| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
+| `render()`                   | Generates the `HTML` output.                                                          |
+| `suffix()`                   | Add text after the `a` element.                                                       |
+| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
+| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
+| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
+| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
+| `template()`                 | Set the template for the `HTML` output.                                               |
+| `widget()`                   | Instantiates the `Span::class`.                                                       |

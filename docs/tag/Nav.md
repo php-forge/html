@@ -116,4 +116,4 @@ The following methods are available for customizing the `HTML` output:
 | `begin() `| Start the `nav` element.                                                                                 |
 | `end()`   | End the `nav` element, and generate the `HTML` output.                                                   |
 | `render()`| Generates the `HTML` output.                                                                             |
-| `widget()`| Instantiates the `Body::class`.                                                                          |
+| `widget()`| Instantiates the `Nav::class`.                                                                           |
