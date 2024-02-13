@@ -11,6 +11,7 @@ namespace PHPForge\Html;
  */
 final class Ol extends Base\AbstractList
 {
+    use Attribute\Input\HasType;
     use Attribute\Tag\HasReversed;
     use Attribute\Tag\HasStart;
 
