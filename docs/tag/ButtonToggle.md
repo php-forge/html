@@ -16,13 +16,13 @@ Use the provided methods to set specific `attribute` for the `buttonToggle` elem
 
 ```php
 // setting the title attribute
-$buttonToggle->title('Click me');
+$buttonToggle->title('MyTitle');
 ```
 
 Or, use the `attributes` method to set multiple `attributes` at once.
 
 ```php
-$buttonToggle->attributes(['title' => 'Click me', 'class' => 'btn btn-primary']);
+$buttonToggle->attributes(['title' => 'MyTitle', 'class' => 'btn btn-primary']);
 ```
 
 ## Adding Content
@@ -30,7 +30,7 @@ $buttonToggle->attributes(['title' => 'Click me', 'class' => 'btn btn-primary'])
 If you want to include content within the `buttonToggle` tag, use the `content` method.
 
 ```php
-$buttonToggle->content('Click me');
+$buttonToggle->content('MyContent');
 ```
 
 ## Rendering
@@ -53,7 +53,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$buttonToggle->class('external')->content('Click me')->title('Click me');
+$buttonToggle->class('external')->content('MyContent')->title('MyTitle');
 
 // using data attributes
 $buttonToggle->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);

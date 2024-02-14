@@ -30,7 +30,7 @@ $ol->attributes(['class' => 'external', 'title' => 'External Link']);
 If you want to include content within the `ol` tag, use the `content` method.
 
 ```php
-$ol->content('myContent');
+$ol->content('MyContent');
 ```
 
 ## Rendering
@@ -53,7 +53,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$ol->class('external')->content('myContent')->title('MyTitle');
+$ol->class('external')->content('MyContent')->title('MyTitle');
 ```
 
 ```php

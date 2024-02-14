@@ -18,13 +18,13 @@ Use the provided methods to set specific `attribute` for the `button` element.
 
 ```php
 // setting the title attribute
-$button->title('Click me');
+$button->title('MyTitle');
 ```
 
 Or, use the `attributes` method to set multiple `attributes` at once.
 
 ```php
-$button->attributes(['title' => 'Click me', 'class' => 'btn btn-primary']);
+$button->attributes(['title' => 'MyTitle', 'class' => 'btn btn-primary']);
 ```
 
 ## Adding Content
@@ -32,7 +32,7 @@ $button->attributes(['title' => 'Click me', 'class' => 'btn btn-primary']);
 If you want to include content within the `button` tag, use the `content` method.
 
 ```php
-$button->content('Click me');
+$button->content('MyContent');
 ```
 
 ## Rendering
@@ -55,7 +55,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$button->class('external')->content('Click me')->title('Click me');
+$button->class('external')->content('MyContent')->title('Mytitle');
 
 // using data attributes
 $button->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
@@ -69,7 +69,7 @@ Use the `container()` method to add a `container` around the `button` tag.
 
 ```php
 // adding a container
-$button->content('Click me')->container()->render();
+$button->content('MyContent')->container()->render();
 ```
 
 ## Prefix and Suffix
@@ -78,10 +78,10 @@ Use `prefix` and `suffix` methods to add text before and after the `button` tag,
 
 ```php
 // adding a prefix
-$button = $button->content('Home')->prefix('Go to: ')->render();
+$button = $button->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$button = $button->content('Home')->suffix(' | Welcome')->render();
+$button = $button->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Submit and reset

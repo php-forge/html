@@ -40,7 +40,7 @@ $header->attributes(['class' => 'container', 'style' => 'background-color: #eee;
 If you want to include content within the `header` tag, use the `content` method.
 
 ```php
-$header->content('My content');
+$header->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -77,7 +77,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$header->class('external')->content('My content');
+$header->class('external')->content('MyContent');
 
 // using data attributes
 $header->dataAttributes(['analytics' => 'trackClick']);

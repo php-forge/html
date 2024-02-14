@@ -35,7 +35,7 @@ $tag->attributes(['class' => 'container', 'style' => 'background-color: #eee;'])
 If you want to include content within the `div` tag, use the `content` method.
 
 ```php
-$tag->content('My content');
+$tag->content('MyContent');
 ```
 
 ## Rendering
@@ -58,7 +58,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$tag->class('external')->content('My content');
+$tag->class('external')->content('MyContent');
 
 // using data attributes
 $tag->dataAttributes(['analytics' => 'trackClick']);

@@ -11,6 +11,21 @@ Instantiate the `TextArea` class using `TextArea::widget()`.
 $textArea = TextArea::widget();
 ```
 
+## Generate field id and name
+
+The `generateField` method is used to generate the field id and name for the `HTML` output.
+
+Allowed arguments are:
+
+- `modelName` - The name of the model.
+- `fieldName` - The name of the field.
+- `arrayable` - Whether the field is an array. For default, it is `false`.
+
+```php
+// generate field id and name
+$textArea->generateField('model', 'field');
+```
+
 ## Setting Attributes
 
 Use the provided methods to set specific attributes for the a element.
@@ -31,7 +46,7 @@ $textArea->attributes(['class' => 'container', 'style' => 'background-color: #ee
 If you want to include content within the `textarea` tag, use the `content` method.
 
 ```php
-$textArea->content('My content');
+$textArea->content('MyContent');
 ```
 
 ## Rendering
@@ -54,13 +69,42 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$textArea->class('external')->content('My content');
+$textArea->class('external')->content('MyContent');
 
 // using data attributes
 $textArea->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
+
+## Prefix and Suffix
+
+Use `prefix` and `suffix` methods to add text before and after the `textarea` tag, respectively.
+
+```php
+// adding a prefix
+$html = $textArea->content('MyContent')->prefix('MyPrefix')->render();
+
+// adding a suffix
+$html = $textArea->content('MyContent')->suffix('MySuffix')->render();
+```
+
+## Template
+
+The `template` method allows you to customize the `HTML` output of the a element.
+
+The following template tags are available:
+
+| Tag        | Description      |
+| ---------- | ---------------- |
+| `{prefix}` | The prefix text. |
+| `{tag}`    | The a element.   |
+| `{suffix}` | The suffix text. |
+
+```php
+// using a custom template
+$textArea->template('<div>{tag}</div>');
+```
 
 ## Attributes
 
@@ -103,19 +147,25 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
+| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
 | `prefix()`                   | Add text before the `textarea` element.                                               |
 | `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
 | `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
 | `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
 | `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
 | `render()`                   | Generates the `HTML` output.                                                          |
+| `suffix()`                   | Add text after the `label` element.                                                   |
+| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
+| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
+| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
+| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
 | `tokenValues()`              | Set the token values for the `HTML` output.                                           |
 | `widget()`                   | Instantiates the `TextArea::class`.                                                   |
 
 ## Validate methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/TextArea/ValidateTest.php) for
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/TextArea/ValidateTest.php) for 
 comprehensive examples.
 
 | Method         | Description                                                                                         |

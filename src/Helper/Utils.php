@@ -65,14 +65,23 @@ final class Utils
      * form name of the `Post` form is `Post`, then the input name generated for the `content` attribute would be
      * `Post[content]`.
      *
+     * If the attribute is an array, or a model attribute that is an array, the arrayable input name can be generated
+     * by setting the `$arrayable` parameter to `true`. For example, if the form name of the `Post` form is `Post`, then
+     * the input name generated for the `tags[]` attribute would be `Post[tags][]`.
+     *
      * @param string $formName The form name.
      * @param string $attribute The attribute name or expression.
+     * @param bool $arrayable Whether to generate an arrayable input name. This is mainly used in tabular data input.
      *
      * @throws InvalidArgumentException If the attribute name contains non-word characters or empty form name for
      * tabular inputs
      */
-    public static function generateInputName(string $formName, string $attribute): string
+    public static function generateInputName(string $formName, string $attribute, bool $arrayable = false): string
     {
+        if ($arrayable === true) {
+            $attribute = self::generateArrayableName($attribute);
+        }
+
         $data = self::parseAttribute($attribute);
 
         if ($formName === '' && $data['prefix'] === '') {

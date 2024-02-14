@@ -31,7 +31,7 @@ $anchor->attributes(['href' => '/path/to/page']);
 If you want to include content within the `anchor` tag, use the `content` method.
 
 ```php
-$anchor->content('Click me');
+$anchor->content('MyContent');
 ```
 
 ## Rendering
@@ -54,7 +54,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$anchor->class('external')->href('/external/link')->content('External Link');
+$anchor->class('external')->href('/external/link')->content('MyContent');
 
 // using data attributes
 $anchor->dataAttributes(['bs-toggle' => 'modal', 'bs-target' => '#exampleModal', 'analytics' => 'trackClick']);
@@ -68,10 +68,10 @@ Use `prefix` and `suffix` methods to add text before and after the `anchor` tag,
 
 ```php
 // adding a prefix
-$html = $anchor->content('Home')->prefix('Go to: ')->render();
+$html = $anchor->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $anchor->content('Home')->suffix(' | Welcome')->render();
+$html = $anchor->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Template

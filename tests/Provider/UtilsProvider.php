@@ -9,12 +9,20 @@ final class UtilsProvider
     public static function dataGetInputName(): array
     {
         return [
-            ['TestForm', '[0]content', 'TestForm[0][content]'],
-            ['TestForm', 'dates[0]', 'TestForm[dates][0]'],
-            ['TestForm', '[0]dates[0]', 'TestForm[0][dates][0]'],
-            ['TestForm', 'age', 'TestForm[age]'],
-            ['', 'dates[0]', 'dates[0]'],
-            ['', 'age', 'age'],
+            // arrayable false
+            ['TestForm', '[0]content', false, 'TestForm[0][content]'],
+            ['TestForm', 'dates[0]', false, 'TestForm[dates][0]'],
+            ['TestForm', '[0]dates[0]', false, 'TestForm[0][dates][0]'],
+            ['TestForm', 'age', false, 'TestForm[age]'],
+            ['', 'dates[0]', false, 'dates[0]'],
+            ['', 'age', false, 'age'],
+            // arrayable true
+            ['TestForm', 'content', true, 'TestForm[content][]'],
+            ['TestForm', 'dates[0]', true, 'TestForm[dates][0][]'],
+            ['TestForm', '[0]dates[0]', true, 'TestForm[0][dates][0][]'],
+            ['TestForm', 'age', true, 'TestForm[age][]'],
+            ['', 'dates[0]', true, 'dates[0][]'],
+            ['', 'age', true, 'age[]'],
         ];
     }
 

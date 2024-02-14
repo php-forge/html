@@ -39,7 +39,7 @@ $section->attributes(['class' => 'container', 'style' => 'background-color: #eee
 If you want to include content within the `section` tag, use the `content` method.
 
 ```php
-$section->content('My content');
+$section->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -76,7 +76,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$section->class('external')->content('My content');
+$section->class('external')->content('MyContent');
 
 // using data attributes
 $section->dataAttributes(['analytics' => 'trackClick']);
