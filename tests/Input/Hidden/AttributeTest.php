@@ -19,9 +19,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="hidden-6582f2d099e8b" type="hidden">
             HTML,
-            Hidden::widget()->attributes([
-                'class' => 'value',
-            ])->id('hidden-6582f2d099e8b')->render()
+            Hidden::widget()->attributes(['class' => 'value'])->id('hidden-6582f2d099e8b')->render()
         );
     }
 

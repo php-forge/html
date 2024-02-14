@@ -79,6 +79,11 @@ abstract class AbstractInputChoice extends Element implements
 
         /** @var string $id */
         $id = $attributes['id'] ?? $this->generateId("$type-");
+
+        if ($this->id === null) {
+            $id = null;
+        }
+
         $labelFor = $this->labelFor ?? $id;
         /** @var string $name */
         $name = $attributes['name'] ?? '';
@@ -122,7 +127,7 @@ abstract class AbstractInputChoice extends Element implements
         return $this->renderTemplate($this->template, $tokenValues);
     }
 
-    private function renderEnclosedByLabel(string $tag, string $labelFor): string
+    private function renderEnclosedByLabel(string $tag, string|null $labelFor): string
     {
         if ($this->labelContent === '' || $this->notLabel) {
             return $tag;

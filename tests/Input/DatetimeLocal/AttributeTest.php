@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="datetime-local-6582f2d099e8b" type="datetime-local">
             HTML,
-            DatetimeLocal::widget()->attributes([
-                'class' => 'value',
-            ])->id('datetime-local-6582f2d099e8b')->render()
+            DatetimeLocal::widget()->attributes(['class' => 'value'])->id('datetime-local-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="datetime-local-6582f2d099e8b" type="datetime-local" data-value="value">
             HTML,
-            DatetimeLocal::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('datetime-local-6582f2d099e8b')->render()
+            DatetimeLocal::widget()->dataAttributes(['value' => 'value'])->id('datetime-local-6582f2d099e8b')->render()
         );
     }
 
@@ -281,9 +277,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="datetime-local">
+            <input name="ModelName[fieldName]" type="datetime-local">
             HTML,
-            DatetimeLocal::widget()->id(null)->render()
+            DatetimeLocal::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -291,9 +287,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="datetime-local-6582f2d099e8b" type="datetime-local">
+            <input id="modelname-fieldname" type="datetime-local">
             HTML,
-            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->name(null)->render()
+            DatetimeLocal::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

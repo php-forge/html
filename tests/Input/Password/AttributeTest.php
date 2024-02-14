@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="password-6582f2d099e8b" type="password">
             HTML,
-            Password::widget()->attributes([
-                'class' => 'value',
-            ])->id('password-6582f2d099e8b')->render()
+            Password::widget()->attributes(['class' => 'value'])->id('password-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="password-6582f2d099e8b" type="password" data-value="value">
             HTML,
-            Password::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('password-6582f2d099e8b')->render()
+            Password::widget()->dataAttributes(['value' => 'value'])->id('password-6582f2d099e8b')->render()
         );
     }
 
@@ -301,9 +297,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="password">
+            <input name="ModelName[fieldName]" type="password">
             HTML,
-            Password::widget()->id(null)->render()
+            Password::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -311,9 +307,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="password-6582f2d099e8b" type="password">
+            <input id="modelname-fieldname" type="password">
             HTML,
-            Password::widget()->id('password-6582f2d099e8b')->name(null)->render()
+            Password::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

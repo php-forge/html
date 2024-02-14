@@ -24,9 +24,7 @@ final class LabelTest extends TestCase
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
-                ->labelAttributes([
-                    'class' => 'value',
-                ])
+                ->labelAttributes(['class' => 'value'])
                 ->labelContent('Label')
                 ->render()
         );

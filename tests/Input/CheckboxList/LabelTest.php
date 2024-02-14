@@ -85,9 +85,7 @@ final class LabelTest extends TestCase
                     Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
                     Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
                 )
-                ->labelAttributes([
-                    'class' => 'value',
-                ])
+                ->labelAttributes(['class' => 'value'])
                 ->labelContent('Select your fruits?')
                 ->name('CheckboxForm[text]')
                 ->render(),

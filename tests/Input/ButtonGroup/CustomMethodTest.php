@@ -28,9 +28,7 @@ final class CustomMethodTest extends TestCase
                     Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
                     Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
                 )
-                ->containerAttributes([
-                    'class' => 'value',
-                ])
+                ->containerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -97,9 +95,7 @@ final class CustomMethodTest extends TestCase
             <input id="button-6582f2d099e8a" type="submit" value="Submit">
             <input id="button-6582f2d099e8b" type="reset" value="Reset">
             HTML,
-            ButtonGroup::widget([
-                'container()' => [false],
-            ])
+            ButtonGroup::widget(['container()' => [false]])
                 ->buttons(
                     Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
                     Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')

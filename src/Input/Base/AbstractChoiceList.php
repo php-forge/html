@@ -58,6 +58,10 @@ abstract class AbstractChoiceList extends Element implements
         /** @var string $name */
         $name = $attributes['name'] ?? '';
 
+        if ($this->id === null) {
+            unset($attributes['id']);
+        }
+
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
         }
@@ -90,6 +94,10 @@ abstract class AbstractChoiceList extends Element implements
                 ->labelClass($this->labelItemClass)
                 ->name($name)
                 ->separator($this->separator);
+
+            if ($this->id === null) {
+                $listItem = $listItem->id(null);
+            }
 
             if ($this->enclosedByLabel === true) {
                 $listItem = $listItem->enclosedByLabel(true);

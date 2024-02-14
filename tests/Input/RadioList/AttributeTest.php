@@ -72,9 +72,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->attributes([
-                    'class' => 'value',
-                ])
+                ->attributes(['class' => 'value'])
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
@@ -464,17 +462,18 @@ final class AttributeTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
-            <label for="radio-6599b6a33dd96">Female</label>
-            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
-            <label for="radio-6599b6a33dd97">Male</label>
+            <input name="radioform[text]" type="radio" value="1">
+            <label>Female</label>
+            <input name="radioform[text]" type="radio" value="2">
+            <label>Male</label>
             </div>
             HTML,
             RadioList::widget()
+                ->generateField('ModelName', 'fieldName')
                 ->id(null)
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->labelContent('Female')->value(1),
+                    Radio::widget()->labelContent('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -486,17 +485,18 @@ final class AttributeTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="radiolist-65858c272ea89">
-            <input id="radio-6599b6a33dd96" type="radio" value="1">
-            <label for="radio-6599b6a33dd96">Female</label>
-            <input id="radio-6599b6a33dd97" type="radio" value="2">
-            <label for="radio-6599b6a33dd97">Male</label>
+            <input id="modelname-fieldname" type="radio" value="1">
+            <label for="modelname-fieldname">Female</label>
+            <input id="modelname-fieldname" type="radio" value="2">
+            <label for="modelname-fieldname">Male</label>
             </div>
             HTML,
             RadioList::widget()
+                ->generateField('ModelName', 'fieldName')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->labelContent('Female')->value(1),
+                    Radio::widget()->labelContent('Male')->value(2),
                 )
                 ->name(null)
                 ->render()

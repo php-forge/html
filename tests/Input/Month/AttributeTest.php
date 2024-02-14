@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="month-6582f2d099e8b" type="month">
             HTML,
-            Month::widget()->attributes([
-                'class' => 'value',
-            ])->id('month-6582f2d099e8b')->render()
+            Month::widget()->attributes(['class' => 'value'])->id('month-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="month-6582f2d099e8b" type="month" data-value="value">
             HTML,
-            Month::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('month-6582f2d099e8b')->render()
+            Month::widget()->dataAttributes(['value' => 'value'])->id('month-6582f2d099e8b')->render()
         );
     }
 
@@ -281,9 +277,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="month">
+            <input name="ModelName[fieldName]" type="month">
             HTML,
-            Month::widget()->id(null)->render()
+            Month::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -291,9 +287,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="month-6582f2d099e8b" type="month">
+            <input id="modelname-fieldname" type="month">
             HTML,
-            Month::widget()->id('month-6582f2d099e8b')->name(null)->render()
+            Month::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

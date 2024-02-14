@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="week-6582f2d099e8b" type="week">
             HTML,
-            Week::widget()->attributes([
-                'class' => 'value',
-            ])->id('week-6582f2d099e8b')->render()
+            Week::widget()->attributes(['class' => 'value'])->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="week-6582f2d099e8b" type="week" data-value="value">
             HTML,
-            Week::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('week-6582f2d099e8b')->render()
+            Week::widget()->dataAttributes(['value' => 'value'])->id('week-6582f2d099e8b')->render()
         );
     }
 
@@ -281,9 +277,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="week">
+            <input name="ModelName[fieldName]" type="week">
             HTML,
-            Week::widget()->id(null)->render()
+            Week::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -291,9 +287,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="week-6582f2d099e8b" type="week">
+            <input id="modelname-fieldname" type="week">
             HTML,
-            Week::widget()->id('week-6582f2d099e8b')->name(null)->render()
+            Week::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

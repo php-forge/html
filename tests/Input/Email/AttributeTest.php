@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="email-65a15e0439570" type="email">
             HTML,
-            Email::widget()->attributes([
-                'class' => 'value',
-            ])->id('email-65a15e0439570')->render()
+            Email::widget()->attributes(['class' => 'value'])->id('email-65a15e0439570')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="email-65a15e0439570" type="email" data-value="value">
             HTML,
-            Email::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('email-65a15e0439570')->render()
+            Email::widget()->dataAttributes(['value' => 'value'])->id('email-65a15e0439570')->render()
         );
     }
 
@@ -311,9 +307,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="email">
+            <input name="ModelName[fieldName]" type="email">
             HTML,
-            Email::widget()->id(null)->render()
+            Email::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -321,9 +317,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="email-65a15e0439570" type="email">
+            <input id="modelname-fieldname" type="email">
             HTML,
-            Email::widget()->id('email-65a15e0439570')->name(null)->render()
+            Email::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

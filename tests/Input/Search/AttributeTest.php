@@ -311,9 +311,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="search">
+            <input name="ModelName[fieldName]" type="search">
             HTML,
-            Search::widget()->id(null)->render()
+            Search::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -321,9 +321,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="search-6582f2d099e8b" type="search">
+            <input id="modelname-fieldname" type="search">
             HTML,
-            Search::widget()->id('search-6582f2d099e8b')->name(null)->render()
+            Search::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

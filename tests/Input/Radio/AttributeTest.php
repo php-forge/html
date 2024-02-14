@@ -36,10 +36,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->attributes([
-                'class' => 'value',
-                'id' => 'radio-6582f2d099e8b',
-            ])->render()
+            Radio::widget()->attributes(['class' => 'value', 'id' => 'radio-6582f2d099e8b'])->render()
         );
     }
 
@@ -99,9 +96,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" data-value="value">
             HTML,
-            Radio::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('radio-6582f2d099e8b')->render()
+            Radio::widget()->dataAttributes(['value' => 'value'])->id('radio-6582f2d099e8b')->render()
         );
     }
 
@@ -330,9 +325,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="radio">
+            <input name="ModelName[fieldName]" type="radio">
             HTML,
-            Radio::widget()->id(null)->render()
+            Radio::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -340,9 +335,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio">
+            <input id="modelname-fieldname" type="radio">
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->name(null)->render()
+            Radio::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

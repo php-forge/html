@@ -71,9 +71,7 @@ final class LabelTest extends TestCase
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
-                ->labelAttributes([
-                    'class' => 'class',
-                ])
+                ->labelAttributes(['class' => 'class'])
                 ->labelContent('Active')
                 ->render()
         );

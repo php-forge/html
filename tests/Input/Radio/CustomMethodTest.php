@@ -32,9 +32,7 @@ final class CustomMethodTest extends TestCase
             HTML,
             Radio::widget()
                 ->container(true)
-                ->containerAttributes([
-                    'class' => 'value',
-                ])
+                ->containerAttributes(['class' => 'value'])
                 ->id('radio-6582f2d099e8b')
                 ->render()
         );
@@ -78,9 +76,17 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget([
-                'container()' => [false],
-            ])->id('radio-6582f2d099e8b')->render()
+            Radio::widget(['container()' => [false]])->id('radio-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="modelname-fieldname" name="ModelName[fieldName]" type="radio">
+            HTML,
+            Radio::widget()->generateField('ModelName', 'fieldName')->render()
         );
     }
 
@@ -121,9 +127,7 @@ final class CustomMethodTest extends TestCase
                 ->id('radio-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->prefixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -199,9 +203,7 @@ final class CustomMethodTest extends TestCase
                 ->id('radio-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->suffixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -262,9 +264,7 @@ final class CustomMethodTest extends TestCase
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
                 ->name('name')
-                ->uncheckAttributes([
-                    'class' => 'value',
-                ])
+                ->uncheckAttributes(['class' => 'value'])
                 ->uncheckValue('0')
                 ->render()
         );
