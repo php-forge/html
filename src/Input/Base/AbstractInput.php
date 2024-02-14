@@ -55,7 +55,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
         $id = $this->generateId("$type-");
 
         if ($id === null) {
-            unset ($attributes['id']);
+            unset($attributes['id']);
         }
 
         if ($this->ariaDescribedBy === true) {
