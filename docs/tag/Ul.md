@@ -30,7 +30,7 @@ $ul->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 If you want to include content within the `div` tag, use the `content` method.
 
 ```php
-$ul->content('My content');
+$ul->content('MyContent');
 ```
 
 ## Rendering
@@ -53,7 +53,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$ul->class('external')->content('My content');
+$ul->class('external')->content('MyContent');
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, `type`, etc.

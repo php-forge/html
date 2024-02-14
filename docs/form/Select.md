@@ -10,19 +10,34 @@ Instantiate the `Select` class using `Select::widget()`.
 $select = Select::widget();
 ```
 
+## Generate field id and name
+
+The `generateField` method is used to generate the field id and name for the `HTML` output.
+
+Allowed arguments are:
+
+- `modelName` - The name of the model.
+- `fieldName` - The name of the field.
+- `arrayable` - Whether the field is an array. For default, it is `false`.
+
+```php
+// generate field id and name
+$select->generateField('model', 'field');
+```
+
 ## Setting Attributes
 
 Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$select->class('myClass');
+$select->class('MyClass');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$select->attributes(['class' => 'myClass', 'id' => 'myId']);
+$select->attributes(['class' => 'MyClass', 'id' => 'myId']);
 ```
 
 ## Add items
@@ -151,7 +166,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$select->class('myClass')->required();
+$select->class('MyClass')->required();
 ```
 
 ```php
@@ -173,10 +188,10 @@ Use `prefix` and `suffix` methods to add text before and after the `select` tag,
 
 ```php
 // adding a prefix
-$html = $select->prefix('myPrefix')->render();
+$html = $select->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $select->suffix('mySuffix')->render();
+$html = $select->suffix('MySuffix')->render();
 ```
 
 ## Attributes

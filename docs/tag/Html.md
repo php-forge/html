@@ -39,7 +39,7 @@ $html->attributes(['class' => 'container', 'style' => 'background-color: #eee;']
 If you want to include content within the `html` tag, use the `content` method.
 
 ```php
-$html->content('My content');
+$html->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -76,7 +76,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$html->class('external')->content('My content');
+$html->class('external')->content('MyContent');
 
 // using data attributes
 $html->dataAttributes(['analytics' => 'trackClick']);

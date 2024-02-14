@@ -40,7 +40,7 @@ $p->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 If you want to include content within the `p` tag, use the `content` method.
 
 ```php
-$p->content('My content');
+$p->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -77,7 +77,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$p->class('external')->content('My content');
+$p->class('external')->content('MyContent');
 
 // using data attributes
 $p->dataAttributes(['analytics' => 'trackClick']);

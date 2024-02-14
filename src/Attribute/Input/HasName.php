@@ -20,6 +20,10 @@ trait HasName
      */
     public function name(string|null $value): static
     {
+        if ($value === '') {
+            return $this;
+        }
+
         $new = clone $this;
         $new->attributes['name'] = $value;
 

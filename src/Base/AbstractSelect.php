@@ -29,6 +29,7 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasLabel;
     use Attribute\Custom\HasPrefixAndSuffix;
+    use Attribute\Field\HasGenerateField;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasStyle;

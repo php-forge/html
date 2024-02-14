@@ -38,7 +38,7 @@ $form->attributes(['class' => 'container', 'style' => 'background-color: #eee;']
 If you want to include content within the `form` tag, use the `content` method.
 
 ```php
-$form->content('My content');
+$form->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -75,7 +75,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$form->class('external')->content('My content');
+$form->class('external')->content('MyContent');
 
 // using data attributes
 $form->dataAttributes(['analytics' => 'trackClick']);

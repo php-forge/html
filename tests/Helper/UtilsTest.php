@@ -20,12 +20,22 @@ final class UtilsTest extends TestCase
         $this->assertSame('utilstest-string', Utils::generateInputId('UtilsTest', 'string'));
     }
 
+    public function testGenerateInputName(): void
+    {
+        $this->assertSame('TestForm[content][body]', Utils::generateInputName('TestForm', 'content[body]'));
+    }
+
     /**
      * @dataProvider PHPForge\Html\Tests\Provider\UtilsProvider::dataGetInputName
      */
-    public function testGetInputName(string $formName, string $attribute, string $expected): void
+    public function testGetInputNameDataProvider(string $formName, string $attribute, bool $arrayable, string $expected): void
     {
-        $this->assertSame($expected, Utils::generateInputName($formName, $attribute));
+        $this->assertSame($expected, Utils::generateInputName($formName, $attribute, $arrayable));
+    }
+
+    public function testGetInputNameWithArrayableTrue(): void
+    {
+        $this->assertSame('TestForm[content][body][]', Utils::generateInputName('TestForm', 'content[body]', true));
     }
 
     public function testGetInputNamewithOnlyCharacters(): void

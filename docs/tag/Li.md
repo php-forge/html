@@ -35,7 +35,7 @@ $li->attributes(['class' => 'external', 'title' => 'MyTitle']);
 If you want to include content within the `li` tag, use the `content` method.
 
 ```php
-$li->content('myContent');
+$li->content('MyContent');
 ```
 
 ## Rendering
@@ -58,7 +58,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$li->class('external')->content('myContent')->title('MyTitle');
+$li->class('external')->content('MyContent')->title('MyTitle');
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `tabindex`, `title`, `value` and more.

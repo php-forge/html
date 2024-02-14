@@ -40,7 +40,7 @@ $footer->attributes(['class' => 'container', 'style' => 'background-color: #eee;
 If you want to include content within the `footer` tag, use the `content` method.
 
 ```php
-$footer->content('My content');
+$footer->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -77,7 +77,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$footer->class('external')->content('My content');
+$footer->class('external')->content('MyContent');
 
 // using data attributes
 $footer->dataAttributes(['analytics' => 'trackClick']);

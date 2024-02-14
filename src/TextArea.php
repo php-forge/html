@@ -21,6 +21,7 @@ final class TextArea extends Base\AbstractElement implements
 {
     use Attribute\CanBeAutofocus;
     use Attribute\Custom\HasContent;
+    use Attribute\Field\HasGenerateField;
     use Attribute\HasTabindex;
     use Attribute\Input\CanBeDisabled;
     use Attribute\Input\CanBeReadonly;

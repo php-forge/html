@@ -33,7 +33,7 @@ $svg->attributes(['class' => 'container', 'style' => 'background-color: #eee;'])
 If you want to include content within the `svg` tag, use the `content` method.
 
 ```php
-$svg->content('My content');
+$svg->content('MyContent');
 ```
 
 ## Rendering
@@ -56,7 +56,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$svg->class('external')->content('My content');
+$svg->class('external')->content('MyContent');
 
 // setting the file path for the `HTML` output
 $svg->filePath('/path/to/file')->render();

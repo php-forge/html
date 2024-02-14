@@ -40,7 +40,7 @@ $body->attributes(['class' => 'container', 'style' => 'background-color: #eee;']
 If you want to include content within the `body` tag, use the `content` method.
 
 ```php
-$body->content('My content');
+$body->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -77,7 +77,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$body->class('external')->content('My content');
+$body->class('external')->content('MyContent');
 
 // using data attributes
 $body->dataAttributes(['analytics' => 'trackClick']);

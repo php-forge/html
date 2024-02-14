@@ -30,7 +30,7 @@ $label->attributes(['class' => 'text-primary', 'title' => 'Home']);
 If you want to include content within the `label` tag, use the `content` method.
 
 ```php
-$label->content('Home');
+$label->content('MyContent');
 ```
 
 ## Rendering
@@ -67,10 +67,10 @@ Use `prefix` and `suffix` methods to add text before and after the `label` tag, 
 
 ```php
 // adding a prefix
-$html = $label->content('home')->prefix('Welcome')->render();
+$html = $label->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $label->content('home')->suffix('Welcome')->render();
+$html = $label->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Template

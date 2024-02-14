@@ -36,7 +36,7 @@ $span->attributes(['class' => 'container', 'style' => 'background-color: #eee;']
 If you want to include content within the `div` tag, use the `content` method.
 
 ```php
-$span->content('My content');
+$span->content('MyContent');
 ```
 
 ## Rendering
@@ -59,7 +59,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$span->class('external')->content('My content');
+$span->class('external')->content('MyContent');
 
 // using data attributes
 $span->dataAttributes(['analytics' => 'trackClick']);

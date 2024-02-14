@@ -13,6 +13,16 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <textarea id="modelname-fieldname" name="ModelName[fieldName]"></textarea>
+            HTML,
+            TextArea::widget()->generateField('ModelName', 'fieldName')->render()
+        );
+    }
+
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(

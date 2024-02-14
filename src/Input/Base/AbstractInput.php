@@ -20,6 +20,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use Attribute\Custom\HasAttributes;
     use Attribute\Custom\HasPrefixAndSuffix;
     use Attribute\Custom\HasTemplate;
+    use Attribute\Field\HasGenerateField;
     use Attribute\HasClass;
     use Attribute\HasData;
     use Attribute\HasId;
@@ -53,15 +54,20 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     ): string {
         $id = $this->generateId("$type-");
 
+        if ($id === null) {
+            unset($attributes['id']);
+        }
+
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$id-help";
         }
 
         unset($attributes['type']);
 
-        $tag = Tag::widget()
+        return Tag::widget()
             ->attributes($attributes)
             ->id($id)
+            ->name($name)
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)
@@ -73,12 +79,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
             ->tagName('input')
             ->template($this->template)
             ->tokenValues($tokenValues)
-            ->type($type);
-
-        if ($name !== '') {
-            $tag = $tag->name($name);
-        }
-
-        return $tag->render();
+            ->type($type)
+            ->render();
     }
 }

@@ -40,7 +40,7 @@ $h->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 If you want to include content within the `h` tag, use the `content` method.
 
 ```php
-$h->content('My content');
+$h->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -77,13 +77,13 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$h->class('external')->content('My content');
+$h->class('external')->content('MyContent');
 
 // using data attributes
 $h->dataAttributes(['analytics' => 'trackClick']);
 
 // specifying the tag name h2
-H::widget()->tagName('h2')->content('value')->render()
+H::widget()->tagName('h2')->content('MyContent')->render()
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.

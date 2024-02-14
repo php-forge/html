@@ -41,6 +41,22 @@ final class CustomMethodTest extends TestCase
         ],
     ];
 
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select id="modelname-fieldname" name="ModelName[fieldName]">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->generateField('ModelName', 'fieldName')->items($this->cities)->render()
+        );
+    }
+
     public function testGroups(): void
     {
         Assert::equalsWithoutLE(

@@ -39,7 +39,7 @@ $head->attributes(['class' => 'container', 'style' => 'background-color: #eee;']
 If you want to include content within the `head` tag, use the `content` method.
 
 ```php
-$head->content('My content');
+$head->content('MyContent');
 ```
 
 Or, use `begin()` and `end()` methods to wrap content.
@@ -76,7 +76,7 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$head->class('external')->content('My content');
+$head->class('external')->content('MyContent');
 
 // using data attributes
 $head->dataAttributes(['analytics' => 'trackClick']);
