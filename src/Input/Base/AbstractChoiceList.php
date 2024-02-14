@@ -29,6 +29,7 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasUnchecked;
     use Attribute\Custom\HasWidgetValidation;
+    use Attribute\Field\HasGenerateField;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTabindex;
