@@ -43,11 +43,13 @@ The repository also provides a set of classes for creating forms, including:
 - [select](/docs/form/Select.md)
 - [textarea](/docs/form/TextArea.md)
 
-## Input Tags
+### Input Tags
 
 In addition to basic `HTML` tags, the repository also supports the generation of input tags.
 
 This is particularly useful for creating forms and other interactive elements on a webpage.
+
+- [text](/docs/form/input/Text.md)
 
 ## Creating Widgets
 
