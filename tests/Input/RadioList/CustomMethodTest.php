@@ -26,9 +26,7 @@ final class CustomMethodTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->containerAttributes([
-                    'class' => 'value',
-                ])
+                ->containerAttributes(['class' => 'value'])
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
@@ -114,14 +112,34 @@ final class CustomMethodTest extends TestCase
             <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
             <label for="radio-6599b6a33dd97">Male</label>
             HTML,
-            RadioList::widget([
-                'container()' => [false],
-            ])
+            RadioList::widget(['container()' => [false]])
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
                 )
                 ->name('radioform[text]')
+                ->render()
+        );
+    }
+
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="radiolist-65858c272ea89">
+            <input id="modelname-fieldname" name="ModelName[fieldName]" type="radio" value="1">
+            <label for="modelname-fieldname">Female</label>
+            <input id="modelname-fieldname" name="ModelName[fieldName]" type="radio" value="2">
+            <label for="modelname-fieldname">Male</label>
+            </div>
+            HTML,
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
+                ->generateField('ModelName', 'fieldName')
+                ->items(
+                    Radio::widget()->labelContent('Female')->value(1),
+                    Radio::widget()->labelContent('Male')->value(2),
+                )
                 ->render()
         );
     }
@@ -172,9 +190,7 @@ final class CustomMethodTest extends TestCase
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
-                ->uncheckAttributes([
-                    'class' => 'value',
-                ])
+                ->uncheckAttributes(['class' => 'value'])
                 ->uncheckValue('none')
                 ->render(),
         );

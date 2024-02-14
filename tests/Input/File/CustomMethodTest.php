@@ -13,6 +13,26 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="modelname-fieldname" name="ModelName[fieldName]" type="file">
+            HTML,
+            File::widget()->generateField('ModelName', 'fieldName')->render()
+        );
+    }
+
+    public function testGenerateFieldWithMultiple(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="modelname-fieldname" name="ModelName[fieldName][]" type="file" multiple>
+            HTML,
+            File::widget()->generateField('ModelName', 'fieldName')->multiple()->render()
+        );
+    }
+
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
@@ -50,9 +70,7 @@ final class CustomMethodTest extends TestCase
                 ->id('file-65a15e0439570')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->prefixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -128,9 +146,7 @@ final class CustomMethodTest extends TestCase
                 ->id('file-65a15e0439570')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->suffixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -190,9 +206,7 @@ final class CustomMethodTest extends TestCase
             HTML,
             File::widget()
                 ->id('file-65a15e0439570')
-                ->uncheckAttributes([
-                    'class' => 'value',
-                ])
+                ->uncheckAttributes(['class' => 'value'])
                 ->uncheckValue('0')
                 ->render()
         );

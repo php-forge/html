@@ -49,9 +49,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="image-65a15e0439570" type="image">
             HTML,
-            Image::widget()->attributes([
-                'class' => 'value',
-            ])->id('image-65a15e0439570')->render()
+            Image::widget()->attributes(['class' => 'value'])->id('image-65a15e0439570')->render()
         );
     }
 
@@ -79,11 +77,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="image-65a15e0439570" type="image" data-test="value">
+            <input id="image-65a15e0439570" type="image" data-value="value">
             HTML,
-            Image::widget()->dataAttributes([
-                'test' => 'value',
-            ])->id('image-65a15e0439570')->render()
+            Image::widget()->dataAttributes(['value' => 'value'])->id('image-65a15e0439570')->render()
         );
     }
 
@@ -301,9 +297,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="image">
+            <input name="ModelName[fieldName]" type="image">
             HTML,
-            Image::widget()->id(null)->render()
+            Image::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -311,9 +307,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="image-65a15e0439570" type="image">
+            <input id="modelname-fieldname" type="image">
             HTML,
-            Image::widget()->id('image-65a15e0439570')->name(null)->render()
+            Image::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

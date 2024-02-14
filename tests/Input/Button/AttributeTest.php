@@ -45,9 +45,7 @@ final class AttributeTest extends TestCase
             <input class="value" id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->attributes([
-                'class' => 'value',
-            ])->id('button-6582f2d099e8b')->render()
+            Button::widget()->attributes(['class' => 'value'])->id('button-6582f2d099e8b')->render()
         );
     }
 
@@ -83,9 +81,7 @@ final class AttributeTest extends TestCase
             <input id="button-6582f2d099e8b" type="button" data-value="value">
             </div>
             HTML,
-            Button::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('button-6582f2d099e8b')->render()
+            Button::widget()->dataAttributes(['value' => 'value'])->id('button-6582f2d099e8b')->render()
         );
     }
 

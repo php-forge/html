@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="number-6582f2d099e8b" type="number">
             HTML,
-            Number::widget()->attributes([
-                'class' => 'value',
-            ])->id('number-6582f2d099e8b')->render()
+            Number::widget()->attributes(['class' => 'value'])->id('number-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="number-6582f2d099e8b" type="number" data-value="value">
             HTML,
-            Number::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('number-6582f2d099e8b')->render()
+            Number::widget()->dataAttributes(['value' => 'value'])->id('number-6582f2d099e8b')->render()
         );
     }
 
@@ -291,9 +287,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="number">
+            <input name="ModelName[fieldName]" type="number">
             HTML,
-            Number::widget()->id(null)->render()
+            Number::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -301,9 +297,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="number-6582f2d099e8b" type="number">
+            <input id="modelname-fieldname" type="number">
             HTML,
-            Number::widget()->id('number-6582f2d099e8b')->name(null)->render()
+            Number::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

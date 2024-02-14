@@ -35,9 +35,7 @@ final class CustomMethodTest extends TestCase
             HTML,
             Checkbox::widget()
                 ->container(true)
-                ->containerAttributes([
-                    'class' => 'value',
-                ])
+                ->containerAttributes(['class' => 'value'])
                 ->id('checkbox-6582f2d099e8b')
                 ->render()
         );
@@ -81,9 +79,17 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget([
-                'container()' => [false],
-            ])->id('checkbox-6582f2d099e8b')->render()
+            Checkbox::widget(['container()' => [false]])->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testGenerateFieldId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="modelname-fieldname" name="ModelName[fieldName]" type="checkbox">
+            HTML,
+            Checkbox::widget()->generateField('ModelName', 'fieldName')->render()
         );
     }
 
@@ -124,9 +130,7 @@ final class CustomMethodTest extends TestCase
                 ->id('checkbox-6582f2d099e8b')
                 ->prefix('prefix')
                 ->prefixContainer(true)
-                ->prefixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->prefixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -202,9 +206,7 @@ final class CustomMethodTest extends TestCase
                 ->id('checkbox-6582f2d099e8b')
                 ->suffix('suffix')
                 ->suffixContainer(true)
-                ->suffixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->suffixContainerAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -265,9 +267,7 @@ final class CustomMethodTest extends TestCase
             Checkbox::widget()
                 ->id('checkbox-6582f2d099e8b')
                 ->name('value')
-                ->uncheckAttributes([
-                    'class' => 'value',
-                ])
+                ->uncheckAttributes(['class' => 'value'])
                 ->uncheckValue('0')
                 ->value(1)
                 ->render()

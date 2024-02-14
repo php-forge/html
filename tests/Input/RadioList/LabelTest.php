@@ -77,9 +77,7 @@ final class LabelTest extends TestCase
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
                     Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
                 )
-                ->labelAttributes([
-                    'class' => 'value',
-                ])
+                ->labelAttributes(['class' => 'value'])
                 ->labelContent('Select your gender?')
                 ->name('radioform[text]')
                 ->render(),

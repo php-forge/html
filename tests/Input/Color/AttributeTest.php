@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="color-6582f2d099e8b" type="color">
             HTML,
-            Color::widget()->attributes([
-                'class' => 'value',
-            ])->id('color-6582f2d099e8b')->render()
+            Color::widget()->attributes(['class' => 'value'])->id('color-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="color-6582f2d099e8b" type="color" data-value="value">
             HTML,
-            Color::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('color-6582f2d099e8b')->render()
+            Color::widget()->dataAttributes(['value' => 'value'])->id('color-6582f2d099e8b')->render()
         );
     }
 
@@ -251,9 +247,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="color">
+            <input name="ModelName[fieldName]" type="color">
             HTML,
-            Color::widget()->id(null)->render()
+            Color::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -261,9 +257,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="color-6582f2d099e8b" type="color">
+            <input id="modelname-fieldname" type="color">
             HTML,
-            Color::widget()->id('color-6582f2d099e8b')->name(null)->render()
+            Color::widget()->generateField('ModelName', 'fieldName')->id('color-6582f2d099e8b')->name(null)->render()
         );
     }
 }

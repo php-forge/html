@@ -29,6 +29,7 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\Custom\HasTemplate;
     use Attribute\Custom\HasUnchecked;
     use Attribute\Custom\HasWidgetValidation;
+    use Attribute\Field\HasGenerateField;
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTabindex;
@@ -56,6 +57,10 @@ abstract class AbstractChoiceList extends Element implements
         $listItems = [];
         /** @var string $name */
         $name = $attributes['name'] ?? '';
+
+        if ($this->id === null) {
+            unset($attributes['id']);
+        }
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -89,6 +94,10 @@ abstract class AbstractChoiceList extends Element implements
                 ->labelClass($this->labelItemClass)
                 ->name($name)
                 ->separator($this->separator);
+
+            if ($this->id === null) {
+                $listItem = $listItem->id(null);
+            }
 
             if ($this->enclosedByLabel === true) {
                 $listItem = $listItem->enclosedByLabel(true);

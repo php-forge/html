@@ -49,9 +49,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="file-65a15e0439570" type="file">
             HTML,
-            File::widget()->attributes([
-                'class' => 'value',
-            ])->id('file-65a15e0439570')->render()
+            File::widget()->attributes(['class' => 'value'])->id('file-65a15e0439570')->render()
         );
     }
 
@@ -81,9 +79,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="file-65a15e0439570" type="file" data-test="value">
             HTML,
-            File::widget()->dataAttributes([
-                'test' => 'value',
-            ])->id('file-65a15e0439570')->render()
+            File::widget()->dataAttributes(['test' => 'value'])->id('file-65a15e0439570')->render()
         );
     }
 
@@ -261,9 +257,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="file">
+            <input name="ModelName[fieldName]" type="file">
             HTML,
-            File::widget()->id(null)->render()
+            File::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -271,9 +267,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="file-65a15e0439570" type="file">
+            <input id="modelname-fieldname" type="file">
             HTML,
-            File::widget()->id('file-65a15e0439570')->name(null)->render()
+            File::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="url-6582f2d099e8b" type="url">
             HTML,
-            Url::widget()->attributes([
-                'class' => 'value',
-            ])->id('url-6582f2d099e8b')->render()
+            Url::widget()->attributes(['class' => 'value'])->id('url-6582f2d099e8b')->render()
         );
     }
 
@@ -71,9 +69,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="url-6582f2d099e8b" type="url" data-value="value">
             HTML,
-            Url::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('url-6582f2d099e8b')->render()
+            Url::widget()->dataAttributes(['value' => 'value'])->id('url-6582f2d099e8b')->render()
         );
     }
 
@@ -301,9 +297,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="url">
+            <input name="ModelName[fieldName]" type="url">
             HTML,
-            Url::widget()->id(null)->render()
+            Url::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -311,9 +307,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="url-6582f2d099e8b" type="url">
+            <input id="modelname-fieldname" type="url">
             HTML,
-            Url::widget()->id('url-6582f2d099e8b')->name(null)->render()
+            Url::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

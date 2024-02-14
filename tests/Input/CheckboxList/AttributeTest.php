@@ -80,9 +80,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->attributes([
-                    'class' => 'value',
-                ])
+                ->attributes(['class' => 'value'])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -543,20 +541,21 @@ final class AttributeTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <input id="checkbox-6599b6a33dd96" type="checkbox" value="1">
-            <label for="checkbox-6599b6a33dd96">Apple</label>
-            <input id="checkbox-6599b6a33dd98" type="checkbox" value="2">
-            <label for="checkbox-6599b6a33dd98">Banana</label>
-            <input id="checkbox-6599b6a33dd97" type="checkbox" value="3">
-            <label for="checkbox-6599b6a33dd97">Orange</label>
+            <input name="ModelName[fieldName][]" type="checkbox" value="1">
+            <label>Apple</label>
+            <input name="ModelName[fieldName][]" type="checkbox" value="2">
+            <label>Banana</label>
+            <input name="ModelName[fieldName][]" type="checkbox" value="3">
+            <label>Orange</label>
             </div>
             HTML,
             CheckboxList::widget()
+                ->generateField('ModelName', 'fieldName')
                 ->id(null)
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->labelContent('Apple')->value(1),
+                    Checkbox::widget()->labelContent('Banana')->value(2),
+                    Checkbox::widget()->labelContent('Orange')->value(3),
                 )
                 ->render(),
         );
@@ -567,20 +566,21 @@ final class AttributeTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div id="checkboxlist-65858c272ea89">
-            <input id="checkbox-6599b6a33dd96" type="checkbox" value="1">
-            <label for="checkbox-6599b6a33dd96">Apple</label>
-            <input id="checkbox-6599b6a33dd98" type="checkbox" value="2">
-            <label for="checkbox-6599b6a33dd98">Banana</label>
-            <input id="checkbox-6599b6a33dd97" type="checkbox" value="3">
-            <label for="checkbox-6599b6a33dd97">Orange</label>
+            <input id="modelname-fieldname" type="checkbox" value="1">
+            <label for="modelname-fieldname">Apple</label>
+            <input id="modelname-fieldname" type="checkbox" value="2">
+            <label for="modelname-fieldname">Banana</label>
+            <input id="modelname-fieldname" type="checkbox" value="3">
+            <label for="modelname-fieldname">Orange</label>
             </div>
             HTML,
             CheckboxList::widget()
+                ->generateField('ModelName', 'fieldName')
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->labelContent('Apple')->value(1),
+                    Checkbox::widget()->labelContent('Banana')->value(2),
+                    Checkbox::widget()->labelContent('Orange')->value(3),
                 )
                 ->name(null)
                 ->render(),

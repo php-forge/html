@@ -39,10 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="value" type="checkbox">
             HTML,
-            Checkbox::widget()->attributes([
-                'class' => 'value',
-                'id' => 'value',
-            ])->render()
+            Checkbox::widget()->attributes(['class' => 'value', 'id' => 'value'])->render()
         );
     }
 
@@ -112,9 +109,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" data-value="value">
             HTML,
-            Checkbox::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('checkbox-6582f2d099e8b')->render()
+            Checkbox::widget()->dataAttributes(['value' => 'value'])->id('checkbox-6582f2d099e8b')->render()
         );
     }
 
@@ -343,9 +338,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="checkbox">
+            <input name="ModelName[fieldName]" type="checkbox">
             HTML,
-            Checkbox::widget()->id(null)->render()
+            Checkbox::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -353,9 +348,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            <input id="modelname-fieldname" type="checkbox">
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->name(null)->render()
+            Checkbox::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

@@ -39,9 +39,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="date-6582f2d099e8b" type="date">
             HTML,
-            Date::widget()->attributes([
-                'class' => 'value',
-            ])->id('date-6582f2d099e8b')->render()
+            Date::widget()->attributes(['class' => 'value'])->id('date-6582f2d099e8b')->render()
         );
     }
 
@@ -281,9 +279,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input type="date">
+            <input name="ModelName[fieldName]" type="date">
             HTML,
-            Date::widget()->id(null)->render()
+            Date::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
         );
     }
 
@@ -291,9 +289,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="date-6582f2d099e8b" type="date">
+            <input id="modelname-fieldname" type="date">
             HTML,
-            Date::widget()->id('date-6582f2d099e8b')->name(null)->render()
+            Date::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
         );
     }
 }

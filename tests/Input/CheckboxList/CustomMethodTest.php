@@ -28,9 +28,7 @@ final class CustomMethodTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->containerAttributes([
-                    'class' => 'value',
-                ])
+                ->containerAttributes(['class' => 'value'])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -128,15 +126,38 @@ final class CustomMethodTest extends TestCase
             <input id="checkbox-6599b6a33dd97" name="CheckboxForm[text][]" type="checkbox" value="3">
             <label for="checkbox-6599b6a33dd97">Orange</label>
             HTML,
-            CheckboxList::widget([
-                'container()' => [false],
-            ])
+            CheckboxList::widget(['container()' => [false]])
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
                     Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
                     Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
+                ->render()
+        );
+    }
+
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="checkboxlist-65858c272ea89">
+            <input id="modelname-fieldname" name="ModelName[fieldName][]" type="checkbox" value="1">
+            <label for="modelname-fieldname">Apple</label>
+            <input id="modelname-fieldname" name="ModelName[fieldName][]" type="checkbox" value="2">
+            <label for="modelname-fieldname">Banana</label>
+            <input id="modelname-fieldname" name="ModelName[fieldName][]" type="checkbox" value="3">
+            <label for="modelname-fieldname">Orange</label>
+            </div>
+            HTML,
+            CheckboxList::widget()
+                ->generateField('ModelName', 'fieldName')
+                ->id('checkboxlist-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->labelContent('Apple')->value(1),
+                    Checkbox::widget()->labelContent('Banana')->value(2),
+                    Checkbox::widget()->labelContent('Orange')->value(3),
+                )
                 ->render()
         );
     }
@@ -194,9 +215,7 @@ final class CustomMethodTest extends TestCase
                     Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
-                ->uncheckAttributes([
-                    'class' => 'value',
-                ])
+                ->uncheckAttributes(['class' => 'value'])
                 ->uncheckValue('0')
                 ->render()
         );
