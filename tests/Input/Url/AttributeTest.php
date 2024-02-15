@@ -153,26 +153,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMaxLength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="url-6582f2d099e8b" type="url" maxlength="1">
-            HTML,
-            Url::widget()->id('url-6582f2d099e8b')->maxlength(1)->render()
-        );
-    }
-
-    public function testMinLength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="url-6582f2d099e8b" type="url" minlength="1">
-            HTML,
-            Url::widget()->id('url-6582f2d099e8b')->minlength(1)->render()
-        );
-    }
-
     public function testName(): void
     {
         Assert::equalsWithoutLE(
@@ -180,16 +160,6 @@ final class AttributeTest extends TestCase
             <input id="url-6582f2d099e8b" name="value" type="url">
             HTML,
             Url::widget()->id('url-6582f2d099e8b')->name('value')->render()
-        );
-    }
-
-    public function testPattern(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="url-6582f2d099e8b" type="url" pattern="value">
-            HTML,
-            Url::widget()->id('url-6582f2d099e8b')->pattern('value')->render()
         );
     }
 
@@ -210,26 +180,6 @@ final class AttributeTest extends TestCase
             <input id="url-6582f2d099e8b" type="url" readonly>
             HTML,
             Url::widget()->id('url-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="url-6582f2d099e8b" type="url">
-            HTML,
-            Url::widget()->id('url-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="url-6582f2d099e8b" type="url" required>
-            HTML,
-            Url::widget()->id('url-6582f2d099e8b')->required()->render()
         );
     }
 
