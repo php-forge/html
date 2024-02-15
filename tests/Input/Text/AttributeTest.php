@@ -167,26 +167,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMaxLength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="text" maxlength="1">
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->maxlength(1)->render()
-        );
-    }
-
-    public function testMinLength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="text" minlength="1">
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->minlength(1)->render()
-        );
-    }
-
     public function testName(): void
     {
         Assert::equalsWithoutLE(
@@ -194,16 +174,6 @@ final class AttributeTest extends TestCase
             <input id="text-6582f2d099e8b" name="value" type="text">
             HTML,
             Text::widget()->id('text-6582f2d099e8b')->name('value')->render()
-        );
-    }
-
-    public function testPattern(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="text" pattern="value">
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->pattern('value')->render()
         );
     }
 
@@ -224,26 +194,6 @@ final class AttributeTest extends TestCase
             <input id="text-6582f2d099e8b" type="text" readonly>
             HTML,
             Text::widget()->id('text-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="text">
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="text" required>
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->required()->render()
         );
     }
 
