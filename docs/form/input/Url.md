@@ -1,14 +1,14 @@
-# Week
+# Url
 
-The input element with a type attribute whose value is `week` represents a control for setting the element’s value to
-a string representing a week.
+The input element with a type attribute whose value is `url` represents a control for editing an absolute URL given
+in the element’s value.
 
 ## Basic Usage
 
-Instantiate the `Week` class using `Week::widget()`.
+Instantiate the `Url` class using `Url::widget()`.
 
 ```php
-$week = Week::widget();
+$url = Url::widget();
 ```
 
 ## Generate field id and name
@@ -23,7 +23,7 @@ Allowed arguments are:
 
 ```php
 // generate field id and name
-$week->generateField('model', 'field');
+$url->generateField('model', 'field');
 ```
 
 ## Setting Attributes
@@ -32,21 +32,21 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$week->class('container');
+$url->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$week->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
+$url->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding value
 
-If you want to include value in the `week` element, use the `value` method.
+If you want to include value in the `url` element, use the `value` method.
 
 ```php
-$week->value('MyValue');
+$url->value('MyValue');
 ```
 
 ## Rendering
@@ -54,13 +54,13 @@ $week->value('MyValue');
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $week->render();
+$html = $url->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $week;
+$html = (string) $url;
 ```
 
 ## Common use cases
@@ -69,24 +69,24 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$week->class('external')->value('Myvalue');
+$url->class('external')->value('Myvalue');
 
 // using data attributes
-$week->dataAttributes(['analytics' => 'trackClick']);
+$url->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
 
 ## Prefix and Suffix
 
-Use `prefix` and `suffix` methods to add text before and after the `week` tag, respectively.
+Use `prefix` and `suffix` methods to add text before and after the `url` tag, respectively.
 
 ```php
 // adding a prefix
-$html = $week->content('MyContent')->prefix('MyPrefix')->render();
+$html = $url->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $week->content('MyContent')->suffix('MySuffix')->render();
+$html = $url->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Template
@@ -103,12 +103,12 @@ The following template tags are available:
 
 ```php
 // using a custom template
-$week->template('<div>{tag}</div>');
+$url->template('<div>{tag}</div>');
 ```
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Week/AttributeTest.php) for 
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Url/AttributeTest.php) for 
 comprehensive examples.
 
 The following methods are available for setting attributes:
@@ -121,15 +121,15 @@ The following methods are available for setting attributes:
 | `autofocus()`      | Set the `autofocus` attribute.                                                                  |
 | `class()`          | Set the `class` attribute.                                                                      |
 | `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
-| `dirName()`        | Set the `dirname` attribute.                                                                    |
 | `disabled()`       | Set the `disabled` attribute.                                                                   |
 | `form()`           | Set the `form` attribute.                                                                       |
 | `hidden()`         | Set the `hidden` attribute.                                                                     |
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
+| `placeholder()`    | Set the `placeholder` attribute.                                                                |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `step()`           | Set the `step` attribute.                                                                       |
+| `size()`           | Set the `size` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |
@@ -137,7 +137,7 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Week/CustomMethodTest.php) 
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Url/CustomMethodTest.php)
 for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -157,15 +157,16 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Week::class`.                                                       |
+| `widget()`                   | Instantiates the `Url::class`.                                                       |
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Week/ValidateTest.php) for
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Url/ValidateTest.php) for
 comprehensive examples.
 
 | Method         | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |
-| `max()`        | Set the `max` attribute.                                                                            |
-| `min()`        | Set the `min` attribute.                                                                            |
+| `maxLength()`  | Set the `maxlength` attribute.                                                                      |
+| `minLength()`  | Set the `minlength` attribute.                                                                      |
+| `pattern()`    | Set the `pattern` attribute.                                                                        |
 | `required()`   | Set the `required` attribute.                                                                       |
