@@ -1,14 +1,14 @@
-# Url
+# DatetimeLocal
 
-The input element with a type attribute whose value is `url` represents a control for editing an absolute URL given
-in the element’s value.
+The input element with a type attribute whose value is `datetime-local` represents a control for setting the element’s
+value to a string representing a local date and time (with no timezone information).
 
 ## Basic Usage
 
-Instantiate the `Url` class using `Url::widget()`.
+Instantiate the `DatetimeLocal` class using `DatetimeLocal::widget()`.
 
 ```php
-$url = Url::widget();
+$datetimeLocal = DatetimeLocal::widget();
 ```
 
 ## Generate field id and name
@@ -23,7 +23,7 @@ Allowed arguments are:
 
 ```php
 // generate field id and name
-$url->generateField('model', 'field');
+$datetimeLocal->generateField('model', 'field');
 ```
 
 ## Setting Attributes
@@ -32,21 +32,21 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$url->class('container');
+$datetimeLocal->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$url->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
+$datetimeLocal->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding value
 
-If you want to include value in the `url` element, use the `value` method.
+If you want to include value in the `time` element, use the `value` method.
 
 ```php
-$url->value('MyValue');
+$datetimeLocal->value('MyValue');
 ```
 
 ## Rendering
@@ -54,13 +54,13 @@ $url->value('MyValue');
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $url->render();
+$html = $datetimeLocal->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $url;
+$html = (string) $datetimeLocal;
 ```
 
 ## Common use cases
@@ -69,24 +69,24 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$url->class('external')->value('Myvalue');
+$datetimeLocal->class('external')->value('Myvalue');
 
 // using data attributes
-$url->dataAttributes(['analytics' => 'trackClick']);
+$datetimeLocal->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
 
 ## Prefix and Suffix
 
-Use `prefix` and `suffix` methods to add text before and after the `url` tag, respectively.
+Use `prefix` and `suffix` methods to add text before and after the `datetime-local` tag, respectively.
 
 ```php
 // adding a prefix
-$html = $url->content('MyContent')->prefix('MyPrefix')->render();
+$html = $datetimeLocal->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $url->content('MyContent')->suffix('MySuffix')->render();
+$html = $datetimeLocal->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Template
@@ -103,13 +103,13 @@ The following template tags are available:
 
 ```php
 // using a custom template
-$url->template('<div>{tag}</div>');
+$datetimeLocal->template('<div>{tag}</div>');
 ```
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Url/AttributeTest.php) for 
-comprehensive examples.
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/DatetimeLocal/AttributeTest.php)
+for comprehensive examples.
 
 The following methods are available for setting attributes:
 
@@ -127,9 +127,8 @@ The following methods are available for setting attributes:
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
-| `placeholder()`    | Set the `placeholder` attribute.                                                                |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `size()`           | Set the `size` attribute.                                                                       |
+| `step()`           | Set the `step` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |
@@ -137,7 +136,7 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Url/CustomMethodTest.php)
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/DatetimeLocal/CustomMethodTest.php) 
 for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -157,16 +156,15 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Url::class`.                                                        |
+| `widget()`                   | Instantiates the `DatetimeLocal::class`.                                              |
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Url/ValidateTest.php) for
-comprehensive examples.
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/DatetimeLocal/ValidateTest.php)
+for comprehensive examples.
 
 | Method         | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |
-| `maxLength()`  | Set the `maxlength` attribute.                                                                      |
-| `minLength()`  | Set the `minlength` attribute.                                                                      |
-| `pattern()`    | Set the `pattern` attribute.                                                                        |
+| `max()`        | Set the `max` attribute.                                                                            |
+| `min()`        | Set the `min` attribute.                                                                            |
 | `required()`   | Set the `required` attribute.                                                                       |
