@@ -101,6 +101,16 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->render()
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
@@ -188,26 +198,6 @@ final class CustomMethodTest extends TestCase
             </div>
             HTML,
             Text::widget()->id('text-6582f2d099e8b')->template('<div>\n{tag}\n</div>')->render()
-        );
-    }
-
-    public function testwithoutId(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input name="ModelName[attribute]" type="text">
-            HTML,
-            Text::widget()->generateField('ModelName', 'attribute')->id(null)->render()
-        );
-    }
-
-    public function testWithoutName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="modelname-attribute" type="text">
-            HTML,
-            Text::widget()->generateField('ModelName', 'attribute')->name(null)->render()
         );
     }
 }

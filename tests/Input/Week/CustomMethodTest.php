@@ -13,6 +13,16 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
+    public function testGenerateField(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="modelname-fieldname" name="ModelName[fieldName]" type="week">
+            HTML,
+            Week::widget()->generateField('ModelName', 'fieldName')->render()
+        );
+    }
+
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
@@ -88,6 +98,16 @@ final class CustomMethodTest extends TestCase
                 ->prefixContainer(true)
                 ->prefixContainerTag('article')
                 ->render()
+        );
+    }
+
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="week-6582f2d099e8b" type="week">
+            HTML,
+            Week::widget()->id('week-6582f2d099e8b')->render()
         );
     }
 

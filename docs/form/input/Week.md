@@ -1,14 +1,14 @@
-# Text
+# Week
 
-The input element with a type attribute whose value is `text` represents a one-line plain text edit control for the
-input element’s value.
+The input element with a type attribute whose value is `week` represents a control for setting the element’s value to
+a string representing a week.
 
 ## Basic Usage
 
-Instantiate the `Text` class using `Text::widget()`.
+Instantiate the `Week` class using `Week::widget()`.
 
 ```php
-$text = Text::widget();
+$week = Week::widget();
 ```
 
 ## Generate field id and name
@@ -23,7 +23,7 @@ Allowed arguments are:
 
 ```php
 // generate field id and name
-$text->generateField('model', 'field');
+$week->generateField('model', 'field');
 ```
 
 ## Setting Attributes
@@ -32,13 +32,13 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$text->class('container');
+$week->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$text->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
+$week->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding value
@@ -46,7 +46,7 @@ $text->attributes(['class' => 'container', 'style' => 'background-color: #eee;']
 If you want to include value in the `text` element, use the `value` method.
 
 ```php
-$text->value('MyValue');
+$week->value('MyValue');
 ```
 
 ## Rendering
@@ -54,13 +54,13 @@ $text->value('MyValue');
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $text->render();
+$html = $week->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $text;
+$html = (string) $week;
 ```
 
 ## Common use cases
@@ -69,10 +69,10 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$text->class('external')->value('Myvalue');
+$week->class('external')->value('Myvalue');
 
 // using data attributes
-$text->dataAttributes(['analytics' => 'trackClick']);
+$week->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `text` tag, r
 
 ```php
 // adding a prefix
-$html = $text->content('MyContent')->prefix('MyPrefix')->render();
+$html = $week->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $text->content('MyContent')->suffix('MySuffix')->render();
+$html = $week->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Template
@@ -108,7 +108,7 @@ $week->template('<div>{tag}</div>');
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Text/AttributeTest.php) for 
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Week/AttributeTest.php) for 
 comprehensive examples.
 
 The following methods are available for setting attributes:
@@ -128,9 +128,8 @@ The following methods are available for setting attributes:
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
-| `placeholder()`    | Set the `placeholder` attribute.                                                                |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `size()`           | Set the `size` attribute.                                                                       |
+| `step()`           | Set the `step` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |
@@ -138,7 +137,7 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Text/CustomMethodTest.php) for
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Week/CustomMethodTest.php) for
 comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -158,16 +157,15 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Text::class`.                                                       |
+| `widget()`                   | Instantiates the `Week::class`.                                                       |
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Text/ValidateTest.php) for comprehensive
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Week/ValidateTest.php) for comprehensive
 examples.
 
 | Method         | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |
-| `maxLength()`  | Set the `maxlength` attribute.                                                                      |
-| `minLength()`  | Set the `minlength` attribute.                                                                      |
-| `pattern()`    | Set the `pattern` attribute.                                                                        |
+| `max()`        | Set the `max` attribute.                                                                            |
+| `min()`        | Set the `min` attribute.                                                                            |
 | `required()`   | Set the `required` attribute.                                                                       |
