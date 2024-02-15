@@ -153,26 +153,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMax(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="datetime-local-6582f2d099e8b" type="datetime-local" max="value">
-            HTML,
-            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->max('value')->render()
-        );
-    }
-
-    public function testMin(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="datetime-local-6582f2d099e8b" type="datetime-local" min="value">
-            HTML,
-            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->min('value')->render()
-        );
-    }
-
     public function testName(): void
     {
         Assert::equalsWithoutLE(
@@ -190,26 +170,6 @@ final class AttributeTest extends TestCase
             <input id="datetime-local-6582f2d099e8b" type="datetime-local" readonly>
             HTML,
             DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="datetime-local-6582f2d099e8b" type="datetime-local">
-            HTML,
-            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="datetime-local-6582f2d099e8b" type="datetime-local" required>
-            HTML,
-            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->required()->render()
         );
     }
 

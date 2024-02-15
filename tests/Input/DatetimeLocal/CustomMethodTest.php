@@ -107,6 +107,16 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="datetime-local-6582f2d099e8b" type="datetime-local">
+            HTML,
+            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->render()
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
