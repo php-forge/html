@@ -49,6 +49,7 @@ In addition to basic `HTML` tags, the repository also supports the generation of
 
 This is particularly useful for creating forms and other interactive elements on a webpage.
 
+- [date](/docs/form/input/Date.md)
 - [datetime-local](/docs/form/input/DatetimeLocal.md)
 - [text](/docs/form/input/Text.md)
 - [time](/docs/form/input/Time.md)

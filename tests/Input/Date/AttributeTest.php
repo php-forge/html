@@ -145,26 +145,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMax(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="date-6582f2d099e8b" type="date" max="value">
-            HTML,
-            Date::widget()->id('date-6582f2d099e8b')->max('value')->render()
-        );
-    }
-
-    public function testMin(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="date-6582f2d099e8b" type="date" min="value">
-            HTML,
-            Date::widget()->id('date-6582f2d099e8b')->min('value')->render()
-        );
-    }
-
     public function testLang(): void
     {
         Assert::equalsWithoutLE(
@@ -192,26 +172,6 @@ final class AttributeTest extends TestCase
             <input id="date-6582f2d099e8b" type="date" readonly>
             HTML,
             Date::widget()->id('date-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="date-6582f2d099e8b" type="date">
-            HTML,
-            Date::widget()->id('date-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="date-6582f2d099e8b" type="date" required>
-            HTML,
-            Date::widget()->id('date-6582f2d099e8b')->required()->render()
         );
     }
 

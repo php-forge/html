@@ -1,14 +1,14 @@
-# DatetimeLocal
+# Date
 
-The input element with a type attribute whose value is `datetime-local` represents a control for setting the element’s
-value to a string representing a local date and time (with no timezone information).
+The input element with a type attribute whose value is `date` represents a control for setting the element’s value to
+a string representing a date.
 
 ## Basic Usage
 
-Instantiate the `DatetimeLocal` class using `DatetimeLocal::widget()`.
+Instantiate the `Date` class using `Date::widget()`.
 
 ```php
-$datetimeLocal = DatetimeLocal::widget();
+$date = Date::widget();
 ```
 
 ## Generate field id and name
@@ -23,7 +23,7 @@ Allowed arguments are:
 
 ```php
 // generate field id and name
-$datetimeLocal->generateField('model', 'field');
+$date->generateField('model', 'field');
 ```
 
 ## Setting Attributes
@@ -32,21 +32,21 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$datetimeLocal->class('container');
+$date->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$datetimeLocal->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
+$date->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding value
 
-If you want to include value in the `datetime-local` element, use the `value` method.
+If you want to include value in the `date` element, use the `value` method.
 
 ```php
-$datetimeLocal->value('MyValue');
+$date->value('MyValue');
 ```
 
 ## Rendering
@@ -54,13 +54,13 @@ $datetimeLocal->value('MyValue');
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $datetimeLocal->render();
+$html = $date->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $datetimeLocal;
+$html = (string) $date;
 ```
 
 ## Common use cases
@@ -69,10 +69,10 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$datetimeLocal->class('external')->value('Myvalue');
+$date->class('external')->value('Myvalue');
 
 // using data attributes
-$datetimeLocal->dataAttributes(['analytics' => 'trackClick']);
+$date->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `datetime-loc
 
 ```php
 // adding a prefix
-$html = $datetimeLocal->content('MyContent')->prefix('MyPrefix')->render();
+$html = $date->content('MyContent')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $datetimeLocal->content('MyContent')->suffix('MySuffix')->render();
+$html = $date->content('MyContent')->suffix('MySuffix')->render();
 ```
 
 ## Template
@@ -103,12 +103,12 @@ The following template tags are available:
 
 ```php
 // using a custom template
-$datetimeLocal->template('<div>{tag}</div>');
+$date->template('<div>{tag}</div>');
 ```
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/DatetimeLocal/AttributeTest.php)
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Date/AttributeTest.php)
 for comprehensive examples.
 
 The following methods are available for setting attributes:
@@ -136,7 +136,7 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/DatetimeLocal/CustomMethodTest.php) 
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Date/CustomMethodTest.php) 
 for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -156,11 +156,11 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `DatetimeLocal::class`.                                              |
+| `widget()`                   | Instantiates the `Date::class`.                                                       |
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/DatetimeLocal/ValidateTest.php)
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Date/ValidateTest.php)
 for comprehensive examples.
 
 | Method         | Description                                                                                         |
