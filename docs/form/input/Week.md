@@ -108,7 +108,7 @@ $week->template('<div>{tag}</div>');
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Week/AttributeTest.php) for 
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Week/AttributeTest.php) for 
 comprehensive examples.
 
 The following methods are available for setting attributes:
@@ -137,8 +137,8 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Week/CustomMethodTest.php) for
-comprehensive examples.
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Week/CustomMethodTest.php) 
+for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
@@ -161,8 +161,8 @@ The following methods are available for customizing the `HTML` output:
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Week/ValidateTest.php) for comprehensive
-examples.
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Week/ValidateTest.php) for
+comprehensive examples.
 
 | Method         | Description                                                                                         |
 | -------------- | --------------------------------------------------------------------------------------------------- |
