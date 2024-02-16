@@ -88,10 +88,12 @@ abstract class AbstractChoiceList extends Element implements
         foreach ($this->items as $item) {
             $itemValue = $item->getValue();
 
-            if (is_scalar($this->checked)) {
+            if (is_scalar($this->checked) && $itemValue !== null) {
                 $attributes['checked'] = (string) $itemValue === (string) $this->checked;
-            } else {
-                $attributes['checked'] = in_array($itemValue, (array) $this->checked);
+            }
+
+            if (is_array($this->checked) && $itemValue !== null) {
+                $attributes['checked'] = in_array($itemValue, $this->checked);
             }
 
             $listItem = $item

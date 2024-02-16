@@ -93,9 +93,7 @@ abstract class AbstractInputChoice extends Element implements
 
         $value = is_bool($value) ? (int) $value : $value;
 
-        if ($value === null) {
-            $attributes['checked'] = $this->checked;
-        } elseif (is_scalar($this->checked)) {
+        if (is_scalar($this->checked) && $value !== null) {
             $attributes['checked'] = (string) $value === (string) $this->checked;
         }
 
