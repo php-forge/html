@@ -13,8 +13,8 @@ namespace PHPForge\Html\Input;
  * <?=
  *     ButtonGroup::create()
  *         ->buttons(
- *             Button::widget()->label('Submit')->type('submit'),
- *             Button::widget()->label('Reset')->type('reset')
+ *             Button::widget()->labelContent('Submit')->type('submit'),
+ *             Button::widget()->labelContent('Reset')->type('reset')
  *         );
  * ?>
  * ```
