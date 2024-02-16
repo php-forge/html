@@ -17,9 +17,9 @@ final class ValidateTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="url-6582f2d099e8b" type="checkbox" required>
+            <input id="checkbox-6582f2d099e8b" type="checkbox" required>
             HTML,
-            Checkbox::widget()->id('url-6582f2d099e8b')->required()->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->required()->render()
         );
     }
 }

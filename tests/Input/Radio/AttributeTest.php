@@ -56,7 +56,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
             HTML,
-            Radio::widget()->checked(true)->id('radio-6582f2d099e8b')->value(1)->render()
+            Radio::widget()->checked(1)->id('radio-6582f2d099e8b')->value(1)->render()
         );
     }
 
@@ -74,9 +74,19 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="radio" value="1">
+            <input id="radio-6582f2d099e8b" type="radio" value="1">
             HTML,
-            Radio::widget()->id('checkbox-6582f2d099e8b')->checked(null)->value(1)->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->checked(null)->value(1)->render()
+        );
+    }
+
+    public function testCheckedWithTrue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio" checked>
+            HTML,
+            Radio::widget()->checked(true)->id('radio-6582f2d099e8b')->render()
         );
     }
 
@@ -197,26 +207,6 @@ final class AttributeTest extends TestCase
             <input id="radio-6582f2d099e8b" type="radio" readonly>
             HTML,
             Radio::widget()->id('radio-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio">
-            HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio" required>
-            HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->required()->render()
         );
     }
 
