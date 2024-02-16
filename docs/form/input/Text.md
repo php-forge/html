@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `text` tag, r
 
 ```php
 // adding a prefix
-$html = $text->content('MyContent')->prefix('MyPrefix')->render();
+$html = $text->value('MyValue')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $text->content('MyContent')->suffix('MySuffix')->render();
+$html = $text->value('MyValue')->suffix('MySuffix')->render();
 ```
 
 ## Template

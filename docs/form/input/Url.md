@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `url` tag, re
 
 ```php
 // adding a prefix
-$html = $url->content('MyContent')->prefix('MyPrefix')->render();
+$html = $url->value('MyValue')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $url->content('MyContent')->suffix('MySuffix')->render();
+$html = $url->value('MyValue')->suffix('MySuffix')->render();
 ```
 
 ## Template

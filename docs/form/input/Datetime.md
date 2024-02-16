@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `datetime` ta
 
 ```php
 // adding a prefix
-$html = $datetime->content('MyContent')->prefix('MyPrefix')->render();
+$html = $datetime->value('MyValue')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $datetime->content('MyContent')->suffix('MySuffix')->render();
+$html = $datetime->value('MyValue')->suffix('MySuffix')->render();
 ```
 
 ## Template

@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `week` tag, r
 
 ```php
 // adding a prefix
-$html = $week->content('MyContent')->prefix('MyPrefix')->render();
+$html = $week->value('MyValue')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $week->content('MyContent')->suffix('MySuffix')->render();
+$html = $week->value('MyValue')->suffix('MySuffix')->render();
 ```
 
 ## Template

@@ -83,10 +83,10 @@ Use `prefix` and `suffix` methods to add text before and after the `datetime-loc
 
 ```php
 // adding a prefix
-$html = $datetimeLocal->content('MyContent')->prefix('MyPrefix')->render();
+$html = $datetimeLocal->value('MyValue')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $datetimeLocal->content('MyContent')->suffix('MySuffix')->render();
+$html = $datetimeLocal->valye('MyValue')->suffix('MySuffix')->render();
 ```
 
 ## Template
