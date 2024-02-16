@@ -1,13 +1,16 @@
-# Checkbox
+# CheckboxList
 
-The input element with a type attribute whose value is `checkbox` represents a state or option that can be toggled.
+Generates a list of checkbox buttons.
+
+A checkbox is a graphical control element that allows the user to choose one or more options from a predefined set of
+mutually exclusive options.
 
 ## Basic Usage
 
-Instantiate the `Checkbox` class using `Checkbox::widget()`.
+Instantiate the `CheckboxList` class using `CheckboxList::widget()`.
 
 ```php
-$checkbox = Checkbox::widget();
+$checkboxList = CheckboxList::widget();
 ```
 
 ## Generate field id and name
@@ -22,7 +25,19 @@ Allowed arguments are:
 
 ```php
 // generate field id and name
-$checkbox->generateField('model', 'field');
+$checkboxList->generateField('model', 'field');
+```
+
+## Adding items
+
+Use the `items` method to add items to the checkbox list.
+
+```php
+$checkboxList->items(
+    Checkbox::widget()->labelContent('Apple')->value(1),
+    Checkbox::widget()->labelContent('Banana')->value(2),
+    Checkbox::widget()->labelContent('Orange')->value(3),
+);
 ```
 
 ## Setting Attributes
@@ -31,21 +46,13 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$checkbox->class('container');
+$checkboxList->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$checkbox->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
-```
-
-## Adding value
-
-If you want to include value in the `checkbox` element, use the `value` method.
-
-```php
-$checkbox->value('MyValue');
+$checkboxList->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding checked
@@ -53,13 +60,19 @@ $checkbox->value('MyValue');
 if you want to include the `checked` attribute, use the `checked` method.
 
 ```php
-$checkbox->checked(true);
+$checkboxList->checked(true);
 ```
 
 Or add value for matching with the `checkbox` value attribute.
 
 ```php
-$checkbox->checked('MyValue')->value('MyValue');
+$checkboxList->checked('MyValue')->value('MyValue');
+```
+
+For multiple checkboxes, use the `checked` method with the value to be checked.
+
+```php
+$checkboxList->checked([1, 3]);
 ```
 
 ## Adding label
@@ -67,7 +80,7 @@ $checkbox->checked('MyValue')->value('MyValue');
 if you want to include a label, use the `labelContent` method.
 
 ```php
-$checkbox->labelContent('MyLabel');
+$checkboxList->labelContent('MyLabel');
 ```
 
 ## Adding enclosed by label
@@ -75,7 +88,7 @@ $checkbox->labelContent('MyLabel');
 if you want to include the `checkbox` enclosed by the `label` element, use the `enclosedByLabel` method.
 
 ```php
-$checkbox->enclosedByLabel(true);
+$checkboxList->enclosedByLabel(true);
 ```
 
 ## Adding hidden input
@@ -83,7 +96,7 @@ $checkbox->enclosedByLabel(true);
 if you want to include a hidden input, use the `uncheckValue` method.
 
 ```php
-$checkbox->uncheckValue('MyValue');
+$checkboxList->uncheckValue('MyValue');
 ```
 
 ## Rendering
@@ -91,13 +104,13 @@ $checkbox->uncheckValue('MyValue');
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $checkbox->render();
+$html = $checkboxList->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $checkbox;
+$html = (string) $checkboxList;
 ```
 
 ## Common use cases
@@ -106,25 +119,10 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$checkbox->class('external')->value('Myvalue');
-
-// using data attributes
-$checkbox->dataAttributes(['analytics' => 'trackClick']);
+$checkboxList->class('external')->value('Myvalue');
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
-
-## Prefix and Suffix
-
-Use `prefix` and `suffix` methods to add text before and after the `text` tag, respectively.
-
-```php
-// adding a prefix
-$html = $checkbox->value('MyValue')->prefix('MyPrefix')->render();
-
-// adding a suffix
-$html = $checkbox->value('MyValue')->suffix('MySuffix')->render();
-```
 
 ## Template
 
@@ -132,21 +130,20 @@ The `template` method allows you to customize the `HTML` output of the a element
 
 The following template tags are available:
 
-| Tag        | Description      |
-| ---------- | ---------------- |
-| `{prefix}` | The prefix text. |
-| `{tag}`    | The a element.   |
-| `{suffix}` | The suffix text. |
+| Tag       | Description        |
+| --------- | ------------------ |
+| `{label}` | The label element. |
+| `{tag}`   | The a element.     |
 
 ```php
 // using a custom template
-$checkbox->template('<div>{tag}</div>');
+$checkboxList->template('<div>{tag}</div>');
 ```
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Checkbox/AttributeTest.php) for 
-comprehensive examples.
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/CheckboxList/AttributeTest.php)
+for comprehensive examples.
 
 The following methods are available for setting attributes:
 
@@ -158,22 +155,14 @@ The following methods are available for setting attributes:
 | `autofocus()`      | Set the `autofocus` attribute.                                                                  |
 | `checked()`        | Set the `checked` attribute.                                                                    |
 | `class()`          | Set the `class` attribute.                                                                      |
-| `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
-| `disabled()`       | Set the `disabled` attribute.                                                                   |
-| `form()`           | Set the `form` attribute.                                                                       |
-| `hidden()`         | Set the `hidden` attribute.                                                                     |
 | `id()`             | Set the `id` attribute.                                                                         |
-| `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
-| `readOnly()`       | Set the `readonly` attribute.                                                                   |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
-| `title()`          | Set the `title` attribute.                                                                      |
-| `value()`          | Set the `value` attribute.                                                                      |
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Checkbox/CustomMethodTest.php)
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/CheckboxList/CustomMethodTest.php)
 for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -186,27 +175,18 @@ The following methods are available for customizing the `HTML` output:
 | `containerTag()`             | Set the `tag` for the `container` element.                                            |
 | `enclosedByLabel()`          | Set enabled or disabled for the `enclosed-by-label` element.                          |
 | `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
-| `prefix()`                   | Add text before the `textarea` element.                                               |
-| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
-| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
+| `items()`                    | Set the `items` for the `HTML` output.                                                |
 | `render()`                   | Generates the `HTML` output.                                                          |
 | `separator()`                | Set the `separator` for the `HTML` output.                                            |
-| `suffix()`                   | Add text after the `label` element.                                                   |
-| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
 | `uncheckAttributes()`        | Set the attributes for the hidden input tag.                                          |
 | `uncheckClass()`             | Set the `class` attribute for the hidden input tag.                                   |
 | `uncheckValue()`             | Set the `value` attribute for the hidden input tag.                                   |
-| `widget()`                   | Instantiates the `Checkbox::class`.                                                   |
+| `widget()`                   | Instantiates the `CheckboxList::class`.                                               |
 
 ## Label methods
 
-Refer to the [Label Tests](https://github.com/php-forge/html/blob/main/tests/Input/Checkbox/LabelTest.php) for
+Refer to the [Label Tests](https://github.com/php-forge/html/blob/main/tests/Input/CheckboxList/LabelTest.php) for
 comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -221,7 +201,7 @@ The following methods are available for customizing the `HTML` output:
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Checkbox/ValidateTest.php) for
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/CheckboxList/ValidateTest.php) for
 comprehensive examples.
 
 | Method         | Description                                                                                         |

@@ -40,7 +40,6 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\Input\CanBeChecked;
     use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
-    use Attribute\Input\HasValue;
 
     protected array $attributes = [];
     /**

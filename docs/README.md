@@ -52,6 +52,7 @@ This is particularly useful for creating forms and other interactive elements on
 - [button](/docs/form/input/Button.md)
 - [button-group](/docs/form/input/ButtonGroup.md)
 - [checkbox](/docs/form/input/Checkbox.md)
+- [checkbox-list](/docs/form/input/CheckboxList.md)
 - [date](/docs/form/input/Date.md)
 - [datetime](/docs/form/input/Datetime.md)
 - [datetime-local](/docs/form/input/DatetimeLocal.md)

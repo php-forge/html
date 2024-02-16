@@ -71,6 +71,22 @@ if you want to include a label, use the `labelContent` method.
 $radio->labelContent('MyLabel');
 ```
 
+## Adding enclosed by label
+
+If you want to include the `radio` element enclosed by the `label` element, use the `enclosedByLabel` method.
+
+```php
+$radio->enclosedByLabel(true);
+```
+
+## Adding hidden input
+
+If you want to include a hidden input, use the `uncheckValue` method.
+
+```php
+$radio->uncheckValue('MyValue');
+```
+
 ## Rendering
 
 Generate the `HTML` output using the `render` method, for simple instantiation. 
@@ -150,9 +166,7 @@ The following methods are available for setting attributes:
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
-| `placeholder()`    | Set the `placeholder` attribute.                                                                |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `size()`           | Set the `size` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |
