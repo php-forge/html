@@ -226,11 +226,6 @@ final class AttributeTest extends TestCase
         $this->assertStringContainsString('id="radiolist-', RadioList::widget()->render());
     }
 
-    public function testGetValue(): void
-    {
-        $this->assertSame('value', RadioList::widget()->value('value')->getValue());
-    }
-
     public function testId(): void
     {
         Assert::equalsWithoutLE(

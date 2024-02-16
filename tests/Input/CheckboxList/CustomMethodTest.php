@@ -162,6 +162,57 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="checkboxlist-65858c272ea89">
+            <input id="checkbox-6599b6a33dd96" name="CheckboxForm[text][]" type="checkbox" value="1">
+            <label for="checkbox-6599b6a33dd96">Apple</label>
+            <input id="checkbox-6599b6a33dd98" name="CheckboxForm[text][]" type="checkbox" value="2">
+            <label for="checkbox-6599b6a33dd98">Banana</label>
+            <input id="checkbox-6599b6a33dd97" name="CheckboxForm[text][]" type="checkbox" value="3">
+            <label for="checkbox-6599b6a33dd97">Orange</label>
+            </div>
+            HTML,
+            CheckboxList::widget()
+                ->id('checkboxlist-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                )
+                ->name('CheckboxForm[text]')
+                ->render(),
+        );
+    }
+
+    public function testSeparator(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="checkboxlist-65858c272ea89">
+            <input id="checkbox-6599b6a33dd96" name="CheckboxForm[text][]" type="checkbox" value="1">
+            <label for="checkbox-6599b6a33dd96">Apple</label>
+            <input id="checkbox-6599b6a33dd98" name="CheckboxForm[text][]" type="checkbox" value="2">
+            <label for="checkbox-6599b6a33dd98">Banana</label>
+            <input id="checkbox-6599b6a33dd97" name="CheckboxForm[text][]" type="checkbox" value="3">
+            <label for="checkbox-6599b6a33dd97">Orange</label>
+            </div>
+            HTML,
+            CheckboxList::widget()
+                ->id('checkboxlist-65858c272ea89')
+                ->items(
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                )
+                ->name('CheckboxForm[text]')
+                ->separator(PHP_EOL)
+                ->render(),
+        );
+    }
+
     public function testTemplate(): void
     {
         Assert::equalsWithoutLE(
