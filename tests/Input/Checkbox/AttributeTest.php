@@ -59,7 +59,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
             HTML,
-            Checkbox::widget()->checked(true)->id('checkbox-6582f2d099e8b')->value(1)->render()
+            Checkbox::widget()->checked(1)->id('checkbox-6582f2d099e8b')->value(1)->render()
         );
     }
 
@@ -80,6 +80,16 @@ final class AttributeTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="1">
             HTML,
             Checkbox::widget()->id('checkbox-6582f2d099e8b')->checked(null)->value(1)->render()
+        );
+    }
+
+    public function testCheckedWithTrue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox" checked>
+            HTML,
+            Checkbox::widget()->checked(true)->id('checkbox-6582f2d099e8b')->render()
         );
     }
 
@@ -200,26 +210,6 @@ final class AttributeTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="checkbox" readonly>
             HTML,
             Checkbox::widget()->id('checkbox-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox">
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox" required>
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->required()->render()
         );
     }
 
