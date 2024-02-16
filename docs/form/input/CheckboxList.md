@@ -173,7 +173,6 @@ The following methods are available for customizing the `HTML` output:
 | `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
 | `containerClass()`           | Set the `class` attribute for the `container` element.                                |
 | `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `enclosedByLabel()`          | Set enabled or disabled for the `enclosed-by-label` element.                          |
 | `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
 | `items()`                    | Set the `items` for the `HTML` output.                                                |
 | `render()`                   | Generates the `HTML` output.                                                          |
@@ -193,6 +192,7 @@ The following methods are available for customizing the `HTML` output:
 
 | Method             | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
+| `enclosedByLabel()`| Set enabled or disabled for the `enclosed-by-label` element.                                    |
 | `labelAttributes()`| Set `attributes` for the `label` element.                                                       |
 | `labelClass()`     | Set the `class` attribute for the `label` element.                                              |
 | `labelContent()`   | Set the `content` within the `label` element.                                                   |
