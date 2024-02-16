@@ -144,6 +144,51 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="radiolist-65858c272ea89">
+            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red">
+            <label for="radio-6599b6a33dd96">Red</label>
+            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
+            <label for="radio-6599b6a33dd97">Blue</label>
+            </div>
+            HTML,
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
+                ->items(
+                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                )
+                ->name('radioform[text]')
+                ->render()
+        );
+    }
+
+    public function testSeparator(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div id="radiolist-65858c272ea89">
+            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="red">
+            <label for="radio-6599b6a33dd96">Red</label>
+            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="blue">
+            <label for="radio-6599b6a33dd97">Blue</label>
+            </div>
+            HTML,
+            RadioList::widget()
+                ->id('radiolist-65858c272ea89')
+                ->items(
+                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                )
+                ->name('radioform[text]')
+                ->separator(PHP_EOL)
+                ->render()
+        );
+    }
+
     public function testTemplate(): void
     {
         Assert::equalsWithoutLE(
