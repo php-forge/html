@@ -19,6 +19,6 @@ final class ExceptionTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('CheckboxList::class widget must be an iterable or null value.');
 
-        CheckboxList::widget()->checkedValue(1)->render();
+        CheckboxList::widget()->checked(1)->render();
     }
 }

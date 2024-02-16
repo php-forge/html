@@ -41,7 +41,7 @@ final class RadioList extends Base\AbstractChoiceList
 
     protected function run(): string
     {
-        $this->validateScalar($this->checkedValue);
+        $this->validateScalar($this->checked);
 
         return $this->buildChoiceListTag('radio');
     }

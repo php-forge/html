@@ -19,6 +19,6 @@ final class ExceptionTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('RadioList::class widget must be a scalar value.');
 
-        RadioList::widget()->checkedValue([])->render();
+        RadioList::widget()->checked([])->render();
     }
 }

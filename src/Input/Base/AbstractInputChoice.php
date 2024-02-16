@@ -13,7 +13,7 @@ use PHPForge\Widget\Element;
  */
 abstract class AbstractInputChoice extends Element implements
     Contract\AriaDescribedByInterface,
-    Contract\CheckedValueInterface,
+    Contract\CheckedInterface,
     Contract\InputInterface,
     Contract\LabelInterface,
     Contract\RequiredInterface
@@ -23,7 +23,6 @@ abstract class AbstractInputChoice extends Element implements
     use Attribute\CanBeAutofocus;
     use Attribute\CanBeHidden;
     use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasCheckedValue;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasContent;
     use Attribute\Custom\HasEnclosedByLabel;
@@ -72,7 +71,7 @@ abstract class AbstractInputChoice extends Element implements
     {
         $value = $this->getValue();
 
-        $this->validateScalar($value, $this->checkedValue);
+        $this->validateScalar($value, $this->checked);
 
         $attributes = $this->attributes;
         $labelTag = '';
@@ -94,10 +93,11 @@ abstract class AbstractInputChoice extends Element implements
 
         $value = is_bool($value) ? (int) $value : $value;
 
-        $attributes['checked'] = match (empty($this->checkedValue)) {
-            true => $this->checked,
-            default => (string) $value === (string) $this->checkedValue,
-        };
+        if ($value === null) {
+            $attributes['checked'] = $this->checked;
+        } elseif (is_scalar($this->checked)) {
+            $attributes['checked'] = (string) $value === (string) $this->checked;
+        }
 
         unset($attributes['id'], $attributes['type'], $attributes['value']);
 

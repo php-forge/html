@@ -2,15 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Attribute\Input;
+namespace PHPForge\Html\Input\Contract;
 
 /**
- * Is used by widgets that implement the checked method.
+ * Provide methods for handling HTML checked value-related attributes and properties.
  */
-trait CanBeChecked
+interface CheckedInterface
 {
-    protected array|bool|int|float|null|string $checked = null;
-
     /**
      * Set the checked attribute valid for both radio and checkbox types, checked is a Boolean attribute.
      *
@@ -26,11 +24,5 @@ trait CanBeChecked
      *
      * @return static A new instance of the current class with the specified checked value.
      */
-    public function checked(array|bool|int|float|null|string $value): static
-    {
-        $new = clone $this;
-        $new->checked = $value;
-
-        return $new;
-    }
+    public function checked(array|bool|int|float|null|string $value): static;
 }
