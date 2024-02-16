@@ -19,7 +19,7 @@ trait CanBeChecked
      * (when the page loads). It does not indicate whether this checkbox is currently checked: if the checkbox state
      * is changed, this content attribute does not reflect the change.
      *
-     * @param array|bool|int|float|string $value The value of the checked attribute, for matching the value of the
+     * @param array|bool|float|int|string $value The value of the checked attribute, for matching the value of the
      * checkbox or radio input element.
      *
      * @link https://html.spec.whatwg.org/multipage/input.html#attr-input-checked
