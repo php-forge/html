@@ -106,7 +106,7 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testCheckedValue(): void
+    public function testChecked(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -118,7 +118,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->checkedValue(2)
+                ->checked(2)
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
@@ -129,7 +129,7 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testCheckedValueWithNull(): void
+    public function testCheckedWithNull(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -141,7 +141,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->checkedValue(null)
+                ->checked(null)
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
@@ -381,7 +381,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->checkedValue(false)
+                ->checked(false)
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('inactive')->value(false),
@@ -402,7 +402,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->checkedValue(1)
+                ->checked(1)
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value('1'),
@@ -423,7 +423,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->checkedValue('red')
+                ->checked('red')
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
@@ -446,7 +446,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             RadioList::widget()
-                ->checkedValue(null)
+                ->checked(null)
                 ->id('radiolist-65858c272ea89')
                 ->items(
                     Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),

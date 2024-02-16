@@ -73,23 +73,13 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testCheckedValue(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->checkedValue(1)->value(1)->render()
-        );
-    }
-
-    public function testCheckedValuewithNull(): void
+    public function testCheckedWithNull(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="1">
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->checkedValue(null)->value(1)->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->checked(null)->value(1)->render()
         );
     }
 
@@ -278,7 +268,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
             HTML,
-            Checkbox::widget()->checkedValue(true)->id('checkbox-6582f2d099e8b')->value(true)->render()
+            Checkbox::widget()->checked(true)->id('checkbox-6582f2d099e8b')->value(true)->render()
         );
 
         // Value int `0`.
@@ -294,7 +284,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
             HTML,
-            Checkbox::widget()->checkedValue(1)->id('checkbox-6582f2d099e8b')->value(1)->render()
+            Checkbox::widget()->checked(1)->id('checkbox-6582f2d099e8b')->value(1)->render()
         );
 
         // Value string `inactive`.
@@ -310,7 +300,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="inactive" checked>
             HTML,
-            Checkbox::widget()->checkedValue('inactive')->id('checkbox-6582f2d099e8b')->value('inactive')->render()
+            Checkbox::widget()->checked('inactive')->id('checkbox-6582f2d099e8b')->value('inactive')->render()
         );
     }
 
@@ -320,7 +310,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox" value="1" checked>
             HTML,
-            Checkbox::widget()->checkedValue(1)->id('checkbox-6582f2d099e8b')->value('1')->render()
+            Checkbox::widget()->checked(1)->id('checkbox-6582f2d099e8b')->value('1')->render()
         );
     }
 
@@ -330,7 +320,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget()->checkedValue(null)->id('checkbox-6582f2d099e8b')->value(null)->render()
+            Checkbox::widget()->checked(null)->id('checkbox-6582f2d099e8b')->value(null)->render()
         );
     }
 

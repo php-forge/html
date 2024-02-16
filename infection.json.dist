@@ -16,7 +16,6 @@
             "ignore": [
                 "PHPForge\\Html\\Attribute\\Aria\\HasAriaDescribedBy::ariaDescribedBy",
                 "PHPForge\\Html\\Attribute\\Custom\\HasAttributes::attributes",
-                "PHPForge\\Html\\Attribute\\Custom\\HasCheckedValue::checkedValue",
                 "PHPForge\\Html\\Attribute\\Custom\\HasContent::content",
                 "PHPForge\\Html\\Attribute\\Custom\\HasEnclosedByLabel::enclosedByLabel",
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::isNotLabel",
@@ -25,6 +24,7 @@
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelContent",
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::labelFor",
                 "PHPForge\\Html\\Attribute\\Custom\\HasLabel::notLabel",
+                "PHPForge\\Html\\Attribute\\Field\\HasGenerateField::generateField",
                 "PHPForge\\Html\\Attribute\\HasClass::class",
                 "PHPForge\\Html\\Attribute\\HasId::getId",
                 "PHPForge\\Html\\Attribute\\HasId::id",

@@ -41,7 +41,7 @@ final class CheckboxList extends Base\AbstractChoiceList
 
     protected function run(): string
     {
-        $this->validateIterable($this->checkedValue);
+        $this->validateIterable($this->checked);
 
         return $this->buildChoiceListTag('checkbox');
     }

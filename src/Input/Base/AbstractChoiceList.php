@@ -9,9 +9,14 @@ use PHPForge\Html\Input\Contract;
 use PHPForge\Html\{Attribute, Tag};
 use PHPForge\Widget\Element;
 
+use function in_array;
+use function is_bool;
+use function is_int;
+use function is_scalar;
+
 abstract class AbstractChoiceList extends Element implements
     Contract\AriaDescribedByInterface,
-    Contract\CheckedValueInterface,
+    Contract\CheckedInterface,
     Contract\InputInterface,
     Contract\LabelInterface,
     Contract\RequiredInterface
@@ -20,7 +25,6 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\Aria\HasAriaLabel;
     use Attribute\CanBeAutofocus;
     use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasCheckedValue;
     use Attribute\Custom\HasContainer;
     use Attribute\Custom\HasEnclosedByLabel;
     use Attribute\Custom\HasLabel;
@@ -33,6 +37,7 @@ abstract class AbstractChoiceList extends Element implements
     use Attribute\HasClass;
     use Attribute\HasId;
     use Attribute\HasTabindex;
+    use Attribute\Input\CanBeChecked;
     use Attribute\Input\CanBeRequired;
     use Attribute\Input\HasName;
     use Attribute\Input\HasValue;
@@ -83,10 +88,13 @@ abstract class AbstractChoiceList extends Element implements
         foreach ($this->items as $item) {
             $itemValue = $item->getValue();
 
-            $item = match ($type) {
-                'checkbox' => $item->checked(in_array($itemValue, (array) $this->checkedValue)),
-                'radio' => $item->checked((string) $itemValue === (string) $this->checkedValue),
-            };
+            if (is_scalar($this->checked) && $itemValue !== null) {
+                $attributes['checked'] = (string) $itemValue === (string) $this->checked;
+            }
+
+            if (is_array($this->checked) && $itemValue !== null) {
+                $attributes['checked'] = in_array($itemValue, $this->checked);
+            }
 
             $listItem = $item
                 ->attributes($attributes)

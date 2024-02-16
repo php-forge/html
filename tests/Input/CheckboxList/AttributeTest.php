@@ -118,7 +118,7 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testCheckedValue(): void
+    public function testChecked(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -132,7 +132,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue([1, 2])
+                ->checked([1, 2])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -144,7 +144,7 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testCheckedValueWithNull(): void
+    public function testCheckedWithNull(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -158,7 +158,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue(null)
+                ->checked(null)
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -426,7 +426,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue([1, 3])
+                ->checked([1, 3])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value('1'),
@@ -450,7 +450,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue(['1', '2'])
+                ->checked(['1', '2'])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -474,7 +474,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue([7])
+                ->checked([7])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -498,7 +498,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue([])
+                ->checked([])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
@@ -524,7 +524,7 @@ final class AttributeTest extends TestCase
             </div>
             HTML,
             CheckboxList::widget()
-                ->checkedValue(null)
+                ->checked(null)
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
                     Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),

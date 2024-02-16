@@ -70,13 +70,13 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testCheckedValue(): void
+    public function testCheckedWithNull(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
+            <input id="checkbox-6582f2d099e8b" type="radio" value="1">
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->checkedValue(1)->value(1)->render()
+            Radio::widget()->id('checkbox-6582f2d099e8b')->checked(null)->value(1)->render()
         );
     }
 
@@ -265,7 +265,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
             HTML,
-            Radio::widget()->checkedValue(true)->id('radio-6582f2d099e8b')->value(true)->render()
+            Radio::widget()->checked(true)->id('radio-6582f2d099e8b')->value(true)->render()
         );
 
         // Value int `0`.
@@ -281,7 +281,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
             HTML,
-            Radio::widget()->checkedValue(1)->id('radio-6582f2d099e8b')->value(1)->render()
+            Radio::widget()->checked(1)->id('radio-6582f2d099e8b')->value(1)->render()
         );
 
         // Value string `inactive`.
@@ -297,7 +297,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" value="inactive" checked>
             HTML,
-            Radio::widget()->checkedValue('inactive')->id('radio-6582f2d099e8b')->value('inactive')->render()
+            Radio::widget()->checked('inactive')->id('radio-6582f2d099e8b')->value('inactive')->render()
         );
     }
 
@@ -307,7 +307,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio" value="1" checked>
             HTML,
-            Radio::widget()->checkedValue(1)->id('radio-6582f2d099e8b')->value('1')->render()
+            Radio::widget()->checked(1)->id('radio-6582f2d099e8b')->value('1')->render()
         );
     }
 
@@ -317,7 +317,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->checkedValue(null)->id('radio-6582f2d099e8b')->value(null)->render()
+            Radio::widget()->checked(null)->id('radio-6582f2d099e8b')->value(null)->render()
         );
     }
 
