@@ -57,6 +57,7 @@ This is particularly useful for creating forms and other interactive elements on
 - [datetime](/docs/form/input/Datetime.md)
 - [datetime-local](/docs/form/input/DatetimeLocal.md)
 - [radio](/docs/form/input/Radio.md)
+- [radio-list](/docs/form/input/RadioList.md)
 - [text](/docs/form/input/Text.md)
 - [time](/docs/form/input/Time.md)
 - [url](/docs/form/input/Url.md)
