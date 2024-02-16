@@ -103,7 +103,7 @@ The following template tags are available:
 
 ```php
 // using a custom template
-$week->template('<div>{tag}</div>');
+$text->template('<div>{tag}</div>');
 ```
 
 ## Attributes
