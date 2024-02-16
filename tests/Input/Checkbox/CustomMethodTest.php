@@ -169,6 +169,16 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->render()
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
