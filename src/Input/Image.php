@@ -44,8 +44,6 @@ final class Image extends Base\AbstractInput
         /** @var string|null $src */
         $src = $this->attributes['src'] ?? null;
 
-        $this->validateString($src);
-
         // The value attribute is not allowed for the input type `image`.
         unset($this->attributes['value']);
 
