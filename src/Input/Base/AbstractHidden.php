@@ -4,21 +4,24 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
+use PHPForge\Html\Attribute\Custom\{HasAttributes, HasPrefixAndSuffix, HasTemplate, HasWidgetValidation};
+use PHPForge\Html\Attribute\Input\{HasName, HasValue};
+use PHPForge\Html\Attribute\{HasClass, HasId, HasStyle};
 use PHPForge\Html\Input\Contract\ValueInterface;
-use PHPForge\Html\{Attribute, Tag};
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 abstract class AbstractHidden extends Element implements ValueInterface
 {
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasPrefixAndSuffix;
-    use Attribute\Custom\HasTemplate;
-    use Attribute\Custom\HasWidgetValidation;
-    use Attribute\HasClass;
-    use Attribute\HasId;
-    use Attribute\HasStyle;
-    use Attribute\Input\HasName;
-    use Attribute\Input\HasValue;
+    use HasAttributes;
+    use HasClass;
+    use HasId;
+    use HasName;
+    use HasPrefixAndSuffix;
+    use HasStyle;
+    use HasTemplate;
+    use HasValue;
+    use HasWidgetValidation;
 
     protected array $attributes = [];
 

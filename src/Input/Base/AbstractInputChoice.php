@@ -4,49 +4,89 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
-use PHPForge\Html\Input\Contract;
-use PHPForge\Html\{Attribute, Label, Tag};
+use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
+use PHPForge\Html\Attribute\Custom\{
+    HasAttributes,
+    HasContainer,
+    HasContent,
+    HasEnclosedByLabel,
+    HasLabel,
+    HasPrefixAndSuffix,
+    HasSeparator,
+    HasTemplate,
+    HasUnchecked,
+    HasWidgetValidation
+};
+use PHPForge\Html\Attribute\Field\HasGenerateField;
+use PHPForge\Html\Attribute\Input\{
+    CanBeChecked,
+    CanBeDisabled,
+    CanBeReadonly,
+    CanBeRequired,
+    HasForm,
+    HasName,
+    HasValue
+};
+use PHPForge\Html\Attribute\{
+    CanBeAutofocus,
+    CanBeHidden,
+    HasClass,
+    HasData,
+    HasId,
+    HasLang,
+    HasStyle,
+    HasTabindex,
+    HasTitle
+};
+use PHPForge\Html\Input\Contract\{
+    AriaDescribedByInterface,
+    CheckedInterface,
+    InputInterface,
+    LabelInterface,
+    RequiredInterface
+};
+use PHPForge\Html\{Label, Tag};
 use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML elements with various attributes and content.
  */
 abstract class AbstractInputChoice extends Element implements
-    Contract\AriaDescribedByInterface,
-    Contract\CheckedInterface,
-    Contract\InputInterface,
-    Contract\LabelInterface,
-    Contract\RequiredInterface
+    AriaDescribedByInterface,
+    CheckedInterface,
+    InputInterface,
+    LabelInterface,
+    RequiredInterface
 {
-    use Attribute\Aria\HasAriaDescribedBy;
-    use Attribute\Aria\HasAriaLabel;
-    use Attribute\CanBeAutofocus;
-    use Attribute\CanBeHidden;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContainer;
-    use Attribute\Custom\HasContent;
-    use Attribute\Custom\HasEnclosedByLabel;
-    use Attribute\Custom\HasLabel;
-    use Attribute\Custom\HasPrefixAndSuffix;
-    use Attribute\Custom\HasSeparator;
-    use Attribute\Custom\HasTemplate;
-    use Attribute\Custom\HasUnchecked;
-    use Attribute\Custom\HasWidgetValidation;
-    use Attribute\Field\HasGenerateField;
-    use Attribute\HasClass;
-    use Attribute\HasData;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasStyle;
-    use Attribute\HasTabindex;
-    use Attribute\HasTitle;
-    use Attribute\Input\CanBeChecked;
-    use Attribute\Input\CanBeDisabled;
-    use Attribute\Input\CanBeReadonly;
-    use Attribute\Input\CanBeRequired;
-    use Attribute\Input\HasForm;
-    use Attribute\Input\HasName;
-    use Attribute\Input\HasValue;
+    use CanBeAutofocus;
+    use CanBeChecked;
+    use CanBeDisabled;
+    use CanBeHidden;
+    use CanBeReadonly;
+    use CanBeRequired;
+    use HasAriaDescribedBy;
+    use HasAriaLabel;
+    use HasAttributes;
+    use HasClass;
+    use HasContainer;
+    use HasContent;
+    use HasData;
+    use HasEnclosedByLabel;
+    use HasForm;
+    use HasGenerateField;
+    use HasId;
+    use HasLabel;
+    use HasLang;
+    use HasName;
+    use HasPrefixAndSuffix;
+    use HasSeparator;
+    use HasStyle;
+    use HasTabindex;
+    use HasTemplate;
+    use HasTitle;
+    use HasUnchecked;
+    use HasValue;
+    use HasWidgetValidation;
 
     protected array $attributes = [];
     protected string $tagName = '';

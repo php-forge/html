@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
-use PHPForge\Html\Attribute;
+use PHPForge\Html\Attribute\Custom\HasUnchecked;
+use PHPForge\Html\Attribute\Input\{CanBeMultiple,CanBeRequired, HasAccept};
 use PHPForge\Html\Helper\Utils;
 use PHPForge\Html\Input\Contract\RequiredInterface;
 
@@ -16,10 +17,10 @@ use PHPForge\Html\Input\Contract\RequiredInterface;
  */
 final class File extends Base\AbstractInput implements RequiredInterface
 {
-    use Attribute\Custom\HasUnchecked;
-    use Attribute\Input\CanBeMultiple;
-    use Attribute\Input\CanBeRequired;
-    use Attribute\Input\HasAccept;
+    use CanBeMultiple;
+    use CanBeRequired;
+    use HasAccept;
+    use HasUnchecked;
 
     protected function loadDefaultDefinitions(): array
     {
@@ -39,7 +40,7 @@ final class File extends Base\AbstractInput implements RequiredInterface
             $name = Utils::generateArrayableName($name);
         }
 
-        // input type="file" not supported value attribute.
+        // The value attribute is not allowed for the input type `file`.
         unset($attributes['value']);
 
         return $this->buildInputTag(
