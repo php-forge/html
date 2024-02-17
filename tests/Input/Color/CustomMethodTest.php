@@ -101,6 +101,16 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="color-6582f2d099e8b" type="color">
+            HTML,
+            Color::widget()->id('color-6582f2d099e8b')->render()
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
