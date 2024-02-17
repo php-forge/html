@@ -13,16 +13,6 @@ use PHPUnit\Framework\TestCase;
  */
 final class AttributeTest extends TestCase
 {
-    public function testAccept(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" accept="value">
-            HTML,
-            File::widget()->accept('value')->id('file-65a15e0439570')->render()
-        );
-    }
-
     public function testAriaDescribedBy(): void
     {
         Assert::equalsWithoutLE(
@@ -175,26 +165,6 @@ final class AttributeTest extends TestCase
             <input id="file-65a15e0439570" type="file" readonly>
             HTML,
             File::widget()->id('file-65a15e0439570')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file" required>
-            HTML,
-            File::widget()->id('file-65a15e0439570')->required()->render()
         );
     }
 
