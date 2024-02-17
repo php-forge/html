@@ -17,6 +17,7 @@ use PHPForge\Html\Attribute\Input\{
     HasValue,
     HasWidth
 };
+use PHPForge\Html\Input\Contract\SrcInterface;
 
 /**
  * The input element with a type attribute whose value is "image" represents either an image from which the UA enables a
@@ -25,7 +26,7 @@ use PHPForge\Html\Attribute\Input\{
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.image.html#input.image
  */
-final class Image extends Base\AbstractInput
+final class Image extends Base\AbstractInput implements SrcInterface
 {
     use HasAlt;
     use HasFormaction;
