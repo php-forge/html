@@ -30,29 +30,29 @@ use PHPForge\Widget\Element;
 
 abstract class AbstractButton extends Element
 {
+    use CanBeAutofocus;
+    use CanBeDisabled;
+    use CanBeHidden;
+    use CanBeReadonly;
     use HasAriaDescribedBy;
     use HasAriaLabel;
-    use CanBeAutofocus;
-    use CanBeHidden;
+    use HasAttributes;
     use HasClass;
+    use HasContainer;
     use HasData;
+    use HasForm;
     use HasId;
+    use HasLabel;
     use HasLang;
+    use HasName;
+    use HasPrefixAndSuffix;
     use HasStyle;
     use HasTabindex;
-    use HasTitle;
-    use HasAttributes;
-    use HasContainer;
-    use HasLabel;
-    use HasPrefixAndSuffix;
     use HasTemplate;
-    use HasWidgetValidation;
-    use CanBeDisabled;
-    use CanBeReadonly;
-    use HasForm;
-    use HasName;
+    use HasTitle;
     use HasType;
     use HasValue;
+    use HasWidgetValidation;
 
     protected array $attributes = [];
 
