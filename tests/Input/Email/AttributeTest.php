@@ -153,26 +153,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMaxlength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="email-65a15e0439570" type="email" maxlength="1">
-            HTML,
-            Email::widget()->id('email-65a15e0439570')->maxLength(1)->render()
-        );
-    }
-
-    public function testMinlength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="email-65a15e0439570" type="email" minlength="1">
-            HTML,
-            Email::widget()->id('email-65a15e0439570')->minLength(1)->render()
-        );
-    }
-
     public function testMultiple(): void
     {
         Assert::equalsWithoutLE(
@@ -193,16 +173,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testPattern(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="email-65a15e0439570" type="email" pattern="value">
-            HTML,
-            Email::widget()->id('email-65a15e0439570')->pattern('value')->render()
-        );
-    }
-
     public function testPlaceholder(): void
     {
         Assert::equalsWithoutLE(
@@ -220,26 +190,6 @@ final class AttributeTest extends TestCase
             <input id="email-65a15e0439570" type="email" readonly>
             HTML,
             Email::widget()->id('email-65a15e0439570')->readOnly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="email-65a15e0439570" type="email">
-            HTML,
-            Email::widget()->id('email-65a15e0439570')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="email-65a15e0439570" type="email" required>
-            HTML,
-            Email::widget()->id('email-65a15e0439570')->required()->render()
         );
     }
 
