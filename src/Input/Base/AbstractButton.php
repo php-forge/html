@@ -4,34 +4,55 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
-use PHPForge\Html\{Attribute, Tag};
+use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
+use PHPForge\Html\Attribute\Custom\{
+    HasAttributes,
+    HasContainer,
+    HasLabel,
+    HasPrefixAndSuffix,
+    HasTemplate,
+    HasWidgetValidation
+};
+use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeReadonly, HasForm, HasName, HasType, HasValue};
+use PHPForge\Html\Attribute\{
+    CanBeAutofocus,
+    CanBeHidden,
+    HasClass,
+    HasData,
+    HasId,
+    HasLang,
+    HasStyle,
+    HasTabindex,
+    HasTitle
+};
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 abstract class AbstractButton extends Element
 {
-    use Attribute\Aria\HasAriaDescribedBy;
-    use Attribute\Aria\HasAriaLabel;
-    use Attribute\CanBeAutofocus;
-    use Attribute\CanBeHidden;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContainer;
-    use Attribute\Custom\HasLabel;
-    use Attribute\Custom\HasPrefixAndSuffix;
-    use Attribute\Custom\HasTemplate;
-    use Attribute\Custom\HasWidgetValidation;
-    use Attribute\HasClass;
-    use Attribute\HasData;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasStyle;
-    use Attribute\HasTabindex;
-    use Attribute\HasTitle;
-    use Attribute\Input\CanBeDisabled;
-    use Attribute\Input\CanBeReadonly;
-    use Attribute\Input\HasForm;
-    use Attribute\Input\HasName;
-    use Attribute\Input\HasType;
-    use Attribute\Input\HasValue;
+    use CanBeAutofocus;
+    use CanBeDisabled;
+    use CanBeHidden;
+    use CanBeReadonly;
+    use HasAriaDescribedBy;
+    use HasAriaLabel;
+    use HasAttributes;
+    use HasClass;
+    use HasContainer;
+    use HasData;
+    use HasForm;
+    use HasId;
+    use HasLabel;
+    use HasLang;
+    use HasName;
+    use HasPrefixAndSuffix;
+    use HasStyle;
+    use HasTabindex;
+    use HasTemplate;
+    use HasTitle;
+    use HasType;
+    use HasValue;
+    use HasWidgetValidation;
 
     protected array $attributes = [];
 

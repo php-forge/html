@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
-use PHPForge\Html\Attribute;
+use PHPForge\Html\Attribute\Custom\HasWidgetValidation;
+use PHPForge\Html\Attribute\Input\{CanBeRequired, HasMax, HasMin, HasStep, HasValue};
+use PHPForge\Html\Input\Contract\{RangeLengthInterface, RequiredInterface, ValueInterface};
 
 /**
  * The input element with a type attribute whose value is "month" represents a control for setting the element’s value
@@ -12,13 +14,14 @@ use PHPForge\Html\Attribute;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.month.html#input.month
  */
-final class Month extends Base\AbstractInput implements Contract\RangeLengthInterface, Contract\RequiredInterface
+final class Month extends Base\AbstractInput implements RangeLengthInterface, RequiredInterface, ValueInterface
 {
-    use Attribute\Custom\HasWidgetValidation;
-    use Attribute\Input\CanBeRequired;
-    use Attribute\Input\HasMax;
-    use Attribute\Input\HasMin;
-    use Attribute\Input\HasStep;
+    use CanBeRequired;
+    use HasMax;
+    use HasMin;
+    use HasStep;
+    use HasValue;
+    use HasWidgetValidation;
 
     protected function run(): string
     {

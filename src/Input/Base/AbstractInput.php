@@ -4,35 +4,49 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Base;
 
-use PHPForge\Html\Input\Contract\{AriaDescribedByInterface, InputInterface, ValueInterface};
-use PHPForge\Html\{Attribute, Tag};
+use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
+use PHPForge\Html\Attribute\Custom\{HasAttributes, HasPrefixAndSuffix, HasTemplate};
+use PHPForge\Html\Attribute\Field\HasGenerateField;
+use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeReadonly, HasForm, HasName};
+use PHPForge\Html\Attribute\{
+    CanBeAutofocus,
+    CanBeHidden,
+    HasClass,
+    HasData,
+    HasId,
+    HasLang,
+    HasStyle,
+    HasTabindex,
+    HasTitle
+};
+use PHPForge\Html\Input\Contract\{AriaDescribedByInterface, InputInterface};
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML `input` custom elements with various attributes and content.
  */
-abstract class AbstractInput extends Element implements AriaDescribedByInterface, InputInterface, ValueInterface
+abstract class AbstractInput extends Element implements AriaDescribedByInterface, InputInterface
 {
-    use Attribute\Aria\HasAriaDescribedBy;
-    use Attribute\Aria\HasAriaLabel;
-    use Attribute\CanBeAutofocus;
-    use Attribute\CanBeHidden;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasPrefixAndSuffix;
-    use Attribute\Custom\HasTemplate;
-    use Attribute\Field\HasGenerateField;
-    use Attribute\HasClass;
-    use Attribute\HasData;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasStyle;
-    use Attribute\HasTabindex;
-    use Attribute\HasTitle;
-    use Attribute\Input\CanBeDisabled;
-    use Attribute\Input\CanBeReadonly;
-    use Attribute\Input\HasForm;
-    use Attribute\Input\HasName;
-    use Attribute\Input\HasValue;
+    use CanBeAutofocus;
+    use CanBeDisabled;
+    use CanBeHidden;
+    use CanBeReadonly;
+    use HasAriaDescribedBy;
+    use HasAriaLabel;
+    use HasAttributes;
+    use HasClass;
+    use HasData;
+    use HasForm;
+    use HasGenerateField;
+    use HasId;
+    use HasLang;
+    use HasName;
+    use HasPrefixAndSuffix;
+    use HasStyle;
+    use HasTabindex;
+    use HasTemplate;
+    use HasTitle;
 
     protected array $attributes = [];
 

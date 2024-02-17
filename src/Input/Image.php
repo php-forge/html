@@ -4,7 +4,19 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input;
 
-use PHPForge\Html\Attribute;
+use PHPForge\Html\Attribute\Custom\HasWidgetValidation;
+use PHPForge\Html\Attribute\Input\{
+    HasAlt,
+    HasFormaction,
+    HasFormenctype,
+    HasFormmethod,
+    HasFormnovalidate,
+    HasFormtarget,
+    HasHeight,
+    HasSrc,
+    HasValue,
+    HasWidth
+};
 
 /**
  * The input element with a type attribute whose value is "image" represents either an image from which the UA enables a
@@ -15,27 +27,26 @@ use PHPForge\Html\Attribute;
  */
 final class Image extends Base\AbstractInput
 {
-    use Attribute\Custom\HasWidgetValidation;
-    use Attribute\Input\HasAlt;
-    use Attribute\Input\HasFormaction;
-    use Attribute\Input\HasFormenctype;
-    use Attribute\Input\HasFormmethod;
-    use Attribute\Input\HasFormnovalidate;
-    use Attribute\Input\HasFormtarget;
-    use Attribute\Input\HasHeight;
-    use Attribute\Input\HasSrc;
-    use Attribute\Input\HasWidth;
+    use HasAlt;
+    use HasFormaction;
+    use HasFormenctype;
+    use HasFormmethod;
+    use HasFormnovalidate;
+    use HasFormtarget;
+    use HasHeight;
+    use HasSrc;
+    use HasValue;
+    use HasWidgetValidation;
+    use HasWidth;
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
-        $value = $attributes['src'] ?? $this->getValue();
-        $this->validateString($value);
+        /** @var string|null $src */
+        $src = $this->attributes['src'] ?? null;
 
-        unset($attributes['value']);
+        // The value attribute is not allowed for the input type `image`.
+        unset($this->attributes['value']);
 
-        $attributes['src'] = $value;
-
-        return $this->buildInputTag($attributes, 'image');
+        return $this->buildInputTag($this->attributes, 'image');
     }
 }

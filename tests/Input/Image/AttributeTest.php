@@ -273,16 +273,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testValue(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="image-65a15e0439570" type="image" src="value">
-            HTML,
-            Image::widget()->id('image-65a15e0439570')->value('value')->render()
-        );
-    }
-
     public function testValuewithNull(): void
     {
         Assert::equalsWithoutLE(

@@ -108,11 +108,6 @@ final class AttributeTest extends TestCase
         $this->assertStringContainsString('id="file-', File::widget()->render());
     }
 
-    public function testGetValue(): void
-    {
-        $this->assertSame('value', File::widget()->value('value')->getValue());
-    }
-
     public function testHidden(): void
     {
         Assert::equalsWithoutLE(
@@ -230,26 +225,6 @@ final class AttributeTest extends TestCase
             <input id="file-65a15e0439570" type="file" title="value">
             HTML,
             File::widget()->id('file-65a15e0439570')->title('value')->render()
-        );
-    }
-
-    public function testValue(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->value('value')->render()
-        );
-    }
-
-    public function testValueWithNull(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->value(null)->render()
         );
     }
 
