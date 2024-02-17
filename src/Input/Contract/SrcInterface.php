@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Input\Contract;
 
-use PHPForge\Widget\ElementInterface;
-
 /**
  * Provide methods for handling HTML src attributes.
  */
