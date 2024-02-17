@@ -37,6 +37,7 @@
                 "PHPForge\\Html\\Attribute\\Input\\HasName::name",
                 "PHPForge\\Html\\Attribute\\Input\\HasPattern::pattern",
                 "PHPForge\\Html\\Attribute\\Input\\HasPlaceholder::placeholder",
+                "PHPForge\\Html\\Attribute\\Input\\HasSrc::src",
                 "PHPForge\\Html\\Attribute\\Input\\HasValue::value"
             ]
         }
