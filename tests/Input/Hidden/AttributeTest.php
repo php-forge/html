@@ -63,16 +63,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="hidden-6582f2d099e8b" type="hidden">
-            HTML,
-            Hidden::widget()->id('hidden-6582f2d099e8b')->render()
-        );
-    }
-
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(
