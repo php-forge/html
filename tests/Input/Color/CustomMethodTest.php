@@ -110,7 +110,7 @@ final class CustomMethodTest extends TestCase
             Color::widget()->id('color-6582f2d099e8b')->render()
         );
     }
-    
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
