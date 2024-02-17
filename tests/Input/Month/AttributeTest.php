@@ -153,26 +153,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMax(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="month-6582f2d099e8b" type="month" max="value">
-            HTML,
-            Month::widget()->id('month-6582f2d099e8b')->max('value')->render()
-        );
-    }
-
-    public function testMin(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="month-6582f2d099e8b" type="month" min="value">
-            HTML,
-            Month::widget()->id('month-6582f2d099e8b')->min('value')->render()
-        );
-    }
-
     public function testName(): void
     {
         Assert::equalsWithoutLE(
@@ -190,36 +170,6 @@ final class AttributeTest extends TestCase
             <input id="month-6582f2d099e8b" type="month" readonly>
             HTML,
             Month::widget()->id('month-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="month-6582f2d099e8b" type="month">
-            HTML,
-            Month::widget()->id('month-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="month-6582f2d099e8b" type="month" required>
-            HTML,
-            Month::widget()->id('month-6582f2d099e8b')->required()->render()
-        );
-    }
-
-    public function testStep(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="month-6582f2d099e8b" type="month" step="1">
-            HTML,
-            Month::widget()->id('month-6582f2d099e8b')->step(1)->render()
         );
     }
 

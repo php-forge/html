@@ -128,7 +128,6 @@ The following methods are available for setting attributes:
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `step()`           | Set the `step` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |
@@ -156,15 +155,16 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Datetime::class`.                                              |
+| `widget()`                   | Instantiates the `Datetime::class`.                                                   |
 
 ## Validate methods
 
 Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Datetime/ValidateTest.php)
 for comprehensive examples.
 
-| Method         | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| `max()`        | Set the `max` attribute.                                                                            |
-| `min()`        | Set the `min` attribute.                                                                            |
-| `required()`   | Set the `required` attribute.                                                                       |
+| Method      | Description                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------------ |
+| `max()`     | Set the `max` attribute.                                                                               |
+| `min()`     | Set the `min` attribute.                                                                               |
+| `step()`    | Set the `step` attribute.                                                                              |
+| `required()`| Set the `required` attribute.                                                                          |

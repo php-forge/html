@@ -33,6 +33,16 @@ final class ValidateTest extends TestCase
         );
     }
 
+    public function testStep(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="week-6582f2d099e8b" type="week" step="1">
+            HTML,
+            Week::widget()->id('week-6582f2d099e8b')->step(1)->render()
+        );
+    }
+
     public function testRequired(): void
     {
         Assert::equalsWithoutLE(
