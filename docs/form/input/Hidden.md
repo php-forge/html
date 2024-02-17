@@ -62,7 +62,6 @@ The following methods are available for setting attributes:
 | ------------------ | ----------------------------------------------------------------------------------------------- |
 | `attributes()`     | Set multiple `attributes` at once.                                                              |
 | `class()`          | Set the `class` attribute.                                                                      |
-| `disabled()`       | Set the `disabled` attribute.                                                                   |
 | `id()`             | Set the `id` attribute.                                                                         |
 | `name()`           | Set the `name` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
