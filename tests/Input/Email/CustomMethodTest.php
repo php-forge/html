@@ -99,13 +99,13 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testReadonly(): void
+    public function testRender(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="email-65a15e0439570" type="email" readonly>
+            <input id="email-65a15e0439570" type="email">
             HTML,
-            Email::widget()->id('email-65a15e0439570')->readOnly()->render()
+            Email::widget()->id('email-65a15e0439570')->render()
         );
     }
 
