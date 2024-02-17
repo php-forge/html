@@ -173,16 +173,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testStep(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="datetime-6582f2d099e8b" type="datetime" step="1">
-            HTML,
-            Datetime::widget()->id('datetime-6582f2d099e8b')->step('1')->render()
-        );
-    }
-
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(

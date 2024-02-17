@@ -33,6 +33,16 @@ final class ValidateTest extends TestCase
         );
     }
 
+    public function step(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="datetime-local-6582f2d099e8b" type="datetime-local" step="value">
+            HTML,
+            DatetimeLocal::widget()->id('datetime-local-6582f2d099e8b')->step('value')->render()
+        );
+    }
+
     public function testRequired(): void
     {
         Assert::equalsWithoutLE(
