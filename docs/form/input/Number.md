@@ -1,14 +1,14 @@
-# Date
+# Number
 
-The input element with a type attribute whose value is `date` represents a control for setting the element’s value to
-a string representing a date.
+The input element with a type attribute whose value is `range` represents an imprecise control for setting the
+element’s value to a string representing a number.
 
 ## Basic Usage
 
-Instantiate the `Date` class using `Date::widget()`.
+Instantiate the `Number` class using `Number::widget()`.
 
 ```php
-$date = Date::widget();
+$number = Number::widget();
 ```
 
 ## Generate field id and name
@@ -23,7 +23,7 @@ Allowed arguments are:
 
 ```php
 // generate field id and name
-$date->generateField('model', 'field');
+$number->generateField('model', 'field');
 ```
 
 ## Setting Attributes
@@ -32,21 +32,21 @@ Use the provided methods to set specific attributes for the a element.
 
 ```php
 // setting class attribute
-$date->class('container');
+$number->class('container');
 ```
 
 Or, use the `attributes` method to set multiple attributes at once.
 
 ```php
-$date->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
+$number->attributes(['class' => 'container', 'style' => 'background-color: #eee;']);
 ```
 
 ## Adding value
 
-If you want to include value in the `date` element, use the `value` method.
+If you want to include value in the `number` element, use the `value` method.
 
 ```php
-$date->value('MyValue');
+$number->value('MyValue');
 ```
 
 ## Rendering
@@ -54,13 +54,13 @@ $date->value('MyValue');
 Generate the `HTML` output using the `render` method, for simple instantiation. 
 
 ```php
-$html = $date->render();
+$html = $number->render();
 ```
 
 Or, use the magic `__toString` method.
 
 ```php
-$html = (string) $date;
+$html = (string) $number;
 ```
 
 ## Common use cases
@@ -69,24 +69,24 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$date->class('external')->value('Myvalue');
+$number->class('external')->value('Myvalue');
 
 // using data attributes
-$date->dataAttributes(['analytics' => 'trackClick']);
+$number->dataAttributes(['analytics' => 'trackClick']);
 ```
 
 Explore additional methods for setting various attributes such as `lang`, `name`, `style`, `title`, etc.
 
 ## Prefix and Suffix
 
-Use `prefix` and `suffix` methods to add text before and after the `datetime` tag, respectively.
+Use `prefix` and `suffix` methods to add text before and after the `number` tag, respectively.
 
 ```php
 // adding a prefix
-$html = $date->value('MyValue')->prefix('MyPrefix')->render();
+$html = $number->value('MyValue')->prefix('MyPrefix')->render();
 
 // adding a suffix
-$html = $date->value('MyValue')->suffix('MySuffix')->render();
+$html = $number->value('MyValue')->suffix('MySuffix')->render();
 ```
 
 ## Template
@@ -103,13 +103,13 @@ The following template tags are available:
 
 ```php
 // using a custom template
-$date->template('<div>{tag}</div>');
+$number->template('<div>{tag}</div>');
 ```
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Date/AttributeTest.php)
-for comprehensive examples.
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Input/Number/AttributeTest.php) for
+comprehensive examples.
 
 The following methods are available for setting attributes:
 
@@ -127,6 +127,7 @@ The following methods are available for setting attributes:
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
+| `placeholder()`    | Set the `placeholder` attribute.                                                                |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
@@ -135,7 +136,7 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Date/CustomMethodTest.php) 
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Input/Number/CustomMethodTest.php) 
 for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
@@ -155,11 +156,11 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Date::class`.                                                       |
+| `widget()`                   | Instantiates the `Number::class`.                                                      |
 
 ## Validate methods
 
-Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Date/ValidateTest.php)
+Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Number/ValidateTest.php)
 for comprehensive examples.
 
 | Method      | Description                                                                                            |

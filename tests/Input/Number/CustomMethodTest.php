@@ -101,6 +101,16 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="number-6582f2d099e8b" type="number">
+            HTML,
+            Number::widget()->id('number-6582f2d099e8b')->render()
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
