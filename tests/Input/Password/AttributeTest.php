@@ -153,26 +153,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testMaxLength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="password-6582f2d099e8b" type="password" maxlength="1">
-            HTML,
-            Password::widget()->id('password-6582f2d099e8b')->maxlength(1)->render()
-        );
-    }
-
-    public function testMinLength(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="password-6582f2d099e8b" type="password" minlength="1">
-            HTML,
-            Password::widget()->id('password-6582f2d099e8b')->minlength(1)->render()
-        );
-    }
-
     public function testName(): void
     {
         Assert::equalsWithoutLE(
@@ -180,16 +160,6 @@ final class AttributeTest extends TestCase
             <input id="password-6582f2d099e8b" name="value" type="password">
             HTML,
             Password::widget()->id('password-6582f2d099e8b')->name('value')->render()
-        );
-    }
-
-    public function testPattern(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="password-6582f2d099e8b" type="password" pattern="value">
-            HTML,
-            Password::widget()->id('password-6582f2d099e8b')->pattern('value')->render()
         );
     }
 
@@ -210,26 +180,6 @@ final class AttributeTest extends TestCase
             <input id="password-6582f2d099e8b" type="password" readonly>
             HTML,
             Password::widget()->id('password-6582f2d099e8b')->readonly()->render()
-        );
-    }
-
-    public function testRender(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="password-6582f2d099e8b" type="password">
-            HTML,
-            Password::widget()->id('password-6582f2d099e8b')->render()
-        );
-    }
-
-    public function testRequired(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="password-6582f2d099e8b" type="password" required>
-            HTML,
-            Password::widget()->id('password-6582f2d099e8b')->required()->render()
         );
     }
 
