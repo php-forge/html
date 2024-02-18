@@ -182,7 +182,7 @@ final class AttributeTest extends TestCase
             Number::widget()->id('number-6582f2d099e8b')->readonly()->render()
         );
     }
-    
+
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(
