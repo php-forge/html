@@ -79,7 +79,7 @@ Explore additional methods for setting various attributes such as `lang`, `name`
 
 ## Prefix and Suffix
 
-Use `prefix` and `suffix` methods to add text before and after the `week` tag, respectively.
+Use `prefix` and `suffix` methods to add text before and after the `time` tag, respectively.
 
 ```php
 // adding a prefix

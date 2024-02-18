@@ -79,7 +79,7 @@ Explore additional methods for setting various attributes such as `lang`, `name`
 
 ## Prefix and Suffix
 
-Use `prefix` and `suffix` methods to add text before and after the `datetime-local` tag, respectively.
+Use `prefix` and `suffix` methods to add text before and after the `month` tag, respectively.
 
 ```php
 // adding a prefix
@@ -128,7 +128,6 @@ The following methods are available for setting attributes:
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `step()`           | Set the `step` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |

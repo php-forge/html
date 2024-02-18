@@ -62,6 +62,7 @@ This is particularly useful for creating forms and other interactive elements on
 - [hidden](/docs/form/input/Hidden.md)
 - [image](/docs/form/input/Image.md)
 - [month](/docs/form/input/Month.md)
+- [number](/docs/form/input/Number.md)
 - [radio](/docs/form/input/Radio.md)
 - [radio-list](/docs/form/input/RadioList.md)
 - [text](/docs/form/input/Text.md)
