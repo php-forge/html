@@ -32,9 +32,10 @@ final class ExceptionTest extends TestCase
 
     public function testFileSvgFailedToRead(): void
     {
+        $filePath = __DIR__ . '/Stub/svg-failed.svg';
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Failed to sanitize SVG file:');
+        $this->expectExceptionMessage('Failed to sanitize SVG file: ' . $filePath);
 
-        Svg::widget()->filePath(__DIR__ . '/Stub/svg-failed.svg')->render();
+        Svg::widget()->filePath($filePath)->render();
     }
 }
