@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Input\ButtonGroup;
 
-use PHPForge\Html\Input\Button;
 use PHPForge\Html\Input\ButtonGroup;
 use PHPForge\Html\Input\Reset;
 use PHPForge\Html\Input\Submit;
