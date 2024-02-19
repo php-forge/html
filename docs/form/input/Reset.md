@@ -142,7 +142,7 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Reset::class`.                                                     |
+| `widget()`                   | Instantiates the `Reset::class`.                                                      |
                                                                 |
 ## Label methods
 
