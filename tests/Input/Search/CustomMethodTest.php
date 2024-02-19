@@ -101,6 +101,16 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testRender(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="search-6582f2d099e8b" type="search">
+            HTML,
+            Search::widget()->id('search-6582f2d099e8b')->render()
+        );
+    }
+
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
