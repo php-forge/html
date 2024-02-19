@@ -6,8 +6,6 @@ namespace PHPForge\Html\Base;
 
 use DOMDocument;
 use DOMElement;
-use DOMNode;
-use DOMXPath;
 use enshrined\svgSanitize\Sanitizer;
 use InvalidArgumentException;
 use PHPForge\Html\Attribute\Custom\{HasAttributes, HasContent};
