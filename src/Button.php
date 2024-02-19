@@ -81,7 +81,6 @@ final class Button extends Element
         $attributes = $this->attributes;
 
         $this->validateTagName($this->tagName, 'a', 'button');
-        $this->validateType($this->type, 'button', 'reset', 'submit');
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";

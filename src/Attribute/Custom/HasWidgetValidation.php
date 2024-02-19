@@ -97,19 +97,6 @@ trait HasWidgetValidation
     }
 
     /**
-     * Validate if the value is valid type.
-     *
-     * @param string $type The type to validate.
-     * @param string ...$compare The types to compare.
-     *
-     * @throws InvalidArgumentException If the value is invalid.
-     */
-    private function validateType(string $type, string ...$compare): void
-    {
-        $this->validateInList($type, '%s::class widget must have a type of %s.', ...$compare);
-    }
-
-    /**
      * Validate if the value is in a valid list.
      *
      * @param string $value The value to validate.
