@@ -6,6 +6,8 @@ namespace PHPForge\Html\Input\Base;
 
 use PHPForge\Html\Attribute;
 use PHPForge\Html\Input\Button;
+use PHPForge\Html\Input\Reset;
+use PHPForge\Html\Input\Submit;
 use PHPForge\Widget\Element;
 
 use function implode;
@@ -25,9 +27,9 @@ abstract class AbstractButtonGroup extends Element
      *
      * @param array $values The list of buttons.
      *
-     * @psalm-param Button[] $values
+     * @psalm-param Button|Reset|Submit[] $values
      */
-    public function buttons(Button ...$values): static
+    public function buttons(Button|Reset|Submit ...$values): static
     {
         $new = clone $this;
         $new->buttons = $values;

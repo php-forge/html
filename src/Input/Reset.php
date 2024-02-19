@@ -11,6 +11,8 @@ namespace PHPForge\Html\Input;
  */
 final class Reset extends Base\AbstractButton
 {
+    protected string $type = 'reset';
+
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
@@ -20,7 +22,6 @@ final class Reset extends Base\AbstractButton
             'container()' => [true],
             'id()' => [$this->generateId('reset-')],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-            'type()' => ['reset'],
         ];
     }
 }

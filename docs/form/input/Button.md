@@ -112,7 +112,6 @@ The following methods are available for setting attributes:
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
 | `readOnly()`       | Set the `readonly` attribute.                                                                   |
-| `step()`           | Set the `step` attribute.                                                                       |
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |

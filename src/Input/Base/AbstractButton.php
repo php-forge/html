@@ -13,7 +13,7 @@ use PHPForge\Html\Attribute\Custom\{
     HasTemplate,
     HasWidgetValidation
 };
-use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeReadonly, HasForm, HasName, HasType, HasValue};
+use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeReadonly, HasForm, HasName, HasValue};
 use PHPForge\Html\Attribute\{
     CanBeAutofocus,
     CanBeHidden,
@@ -50,11 +50,11 @@ abstract class AbstractButton extends Element
     use HasTabindex;
     use HasTemplate;
     use HasTitle;
-    use HasType;
     use HasValue;
     use HasWidgetValidation;
 
     protected array $attributes = [];
+    protected string $type = 'button';
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -65,7 +65,6 @@ abstract class AbstractButton extends Element
             'container()' => [true],
             'id()' => [$this->generateId('button-')],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-            'type()' => ['button'],
         ];
     }
 
@@ -95,6 +94,7 @@ abstract class AbstractButton extends Element
                 ->suffixContainerTag($this->suffixContainerTag)
                 ->tagName('input')
                 ->template($this->template)
+                ->type($this->type)
                 ->tokenValues(['{label}' => $this->renderLabelTag($labelFor)])
                 ->render()
         );

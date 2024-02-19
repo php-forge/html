@@ -11,6 +11,8 @@ namespace PHPForge\Html\Input;
  */
 final class Submit extends Base\AbstractButton
 {
+    protected string $type = 'submit';
+
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
@@ -20,7 +22,6 @@ final class Submit extends Base\AbstractButton
             'container()' => [true],
             'id()' => [$this->generateId('submit-')],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-            'type()' => ['submit'],
         ];
     }
 }

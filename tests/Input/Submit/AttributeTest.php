@@ -255,18 +255,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testType(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <input id="submit-6582f2d099e8b" type="submit">
-            </div>
-            HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->type('submit')->render()
-        );
-    }
-
     public function testValue(): void
     {
         Assert::equalsWithoutLE(
