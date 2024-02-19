@@ -16,8 +16,8 @@ Add buttons to the `ButtonGroup` widget using the `buttons` method.
 
 ```php
 $buttonGroup->buttons(
-    Submit::widget()->value('Submit'),
-    Reset::widget()->value('Reset'),
+    Submit::widget(),
+    Reset::widget(),
 );
 ```
 
