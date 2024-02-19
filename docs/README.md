@@ -68,6 +68,7 @@ This is particularly useful for creating forms and other interactive elements on
 - [radio-list](/docs/form/input/RadioList.md)
 - [range](/docs/form/input/Range.md)
 - [reset](/docs/form/input/Reset.md)
+- [submit](/docs/form/input/Submit.md)
 - [text](/docs/form/input/Text.md)
 - [time](/docs/form/input/Time.md)
 - [url](/docs/form/input/Url.md)
