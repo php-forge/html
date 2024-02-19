@@ -84,20 +84,6 @@ $button = $button->content('MyContent')->prefix('MyPrefix')->render();
 $button = $button->content('MyContent')->suffix('MySuffix')->render();
 ```
 
-## Submit and reset
-
-Use the `submit` and `reset` methods to set the `type` attribute to `submit` and `reset`, respectively.
-
-```php
-// setting the type attribute to submit
-$button = $button->content('Submit')->submit()->render();
-```
-
-```php
-// setting the type attribute to reset
-$button = $button->content('Reset')->reset()->render();
-```
-
 ## Template
 
 The `template` method allows you to customize the `HTML` output of the `button` element.
@@ -163,8 +149,6 @@ The following methods are available for customizing the `HTML` output:
 | `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
 | `prefixContainerTag()`       | Set the `tag` for the `prefix-container`.                                             |
 | `render()`                   | Generates the `HTML` output.                                                          |
-| `reset()`                    | Set the `type` attribute to `reset`.                                                  |
-| `submit()`                   | Set the `type` attribute to `submit`.                                                 |
 | `suffix()`                   | Add text after the `button` element.                                                  |
 | `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
 | `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
@@ -173,6 +157,4 @@ The following methods are available for customizing the `HTML` output:
 | `tagName()`                  | Set the `tag` for the `button` element.                                               |
 |                              | Allowed values: `a`, `button`.                                                        |
 | `template()`                 | Set the `template` for the `button` element.                                          |
-| `type()`                     | Set the `type` attribute.                                                             |
-|                              | Allowed values: `button`, `submit`, `reset`.                                          |
 | `widget()`                   | Instantiates the `Button::class`.                                                     |
