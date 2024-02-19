@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class ValidatorTest extends TestCase
+final class ValidateTest extends TestCase
 {
     public function testMax(): void
     {
