@@ -6,28 +6,31 @@ namespace PHPForge\Html\Base;
 
 use DOMDocument;
 use DOMElement;
-use DOMNode;
-use DOMXPath;
+use enshrined\svgSanitize\Sanitizer;
 use InvalidArgumentException;
-use PHPForge\Html\Attribute;
+use PHPForge\Html\Attribute\Custom\{HasAttributes, HasContent};
+use PHPForge\Html\Attribute\Input\{HasHeight, HasName, HasWidth};
+use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasTitle};
 use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 use RuntimeException;
+
+use function file_get_contents;
 
 /**
  * Provides a foundation for creating HTML `svg` elements with various attributes and content.
  */
 abstract class AbstractSvg extends Element
 {
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
-    use Attribute\HasClass;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasTitle;
-    use Attribute\Input\HasHeight;
-    use Attribute\Input\HasName;
-    use Attribute\Input\HasWidth;
+    use HasAttributes;
+    use HasClass;
+    use HasContent;
+    use HasHeight;
+    use HasId;
+    use HasLang;
+    use HasName;
+    use HasTitle;
+    use HasWidth;
 
     protected array $attributes = [];
     private string $filePath = '';
@@ -142,18 +145,23 @@ abstract class AbstractSvg extends Element
      */
     private function loadSvgFile(DOMDocument $svg): DOMElement
     {
-        @$svg->load($this->filePath, LIBXML_NOBLANKS);
+        $sanitizer = new Sanitizer();
 
-        $this->removeDomNodes($svg, '//comment()');
+        $fileSvg = @file_get_contents($this->filePath);
 
-        /** @var DOMElement|null $svgElement */
-        $svgElement = $svg->getElementsByTagName('svg')->item(0);
-
-        if (!$svgElement) {
-            throw new RuntimeException('Failed to load SVG file: ' . $this->filePath);
+        if ($fileSvg === false) {
+            throw new RuntimeException('Failed to read SVG file: ' . $this->filePath);
         }
 
-        return $svgElement;
+        $cleanedSvg = $sanitizer->sanitize($fileSvg);
+
+        if ($cleanedSvg === false || $cleanedSvg === '') {
+            throw new RuntimeException('Failed to sanitize SVG file: ' . $this->filePath);
+        }
+
+        $svg->loadXML($cleanedSvg, LIBXML_NOBLANKS);
+
+        return $svg->getElementsByTagName('svg')->item(0);
     }
 
     /**
@@ -179,23 +187,5 @@ abstract class AbstractSvg extends Element
         }
 
         return $svg->saveXML($renderedSvg);
-    }
-
-    /**
-     * Removes DOM nodes that match the given XPath expression.
-     *
-     * @param DOMDocument $dom The DOMDocument instance.
-     * @param string $expression The XPath expression.
-     */
-    private function removeDomNodes(DOMDocument $dom, string $expression): void
-    {
-        $xpath = new DOMXPath($dom);
-        $nodes = $xpath->query($expression);
-
-        foreach ($nodes as $node) {
-            if ($node instanceof DOMNode) {
-                $node->parentNode?->removeChild($node);
-            }
-        }
     }
 }

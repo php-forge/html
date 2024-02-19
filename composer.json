@@ -16,6 +16,7 @@
         "ext-dom": "*",
         "ext-libxml": "*",
         "ext-mbstring": "*",
+        "enshrined/svg-sanitize": "^0.17.0",
         "php-forge/awesome-widget": "^0.1.2",
         "voku/anti-xss": "^4.1"
     },

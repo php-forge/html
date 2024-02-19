@@ -25,8 +25,17 @@ final class ExceptionTest extends TestCase
     public function testFilePathInvalidPath(): void
     {
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Failed to load SVG file: php.svg');
+        $this->expectExceptionMessage('Failed to read SVG file: php.svg');
 
         Svg::widget()->filePath('php.svg')->render();
+    }
+
+    public function testFileSvgFailedToRead(): void
+    {
+        $filePath = __DIR__ . '/Stub/svg-failed.svg';
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('Failed to sanitize SVG file: ' . $filePath);
+
+        Svg::widget()->filePath($filePath)->render();
     }
 }
