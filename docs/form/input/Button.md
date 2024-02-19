@@ -115,7 +115,6 @@ The following methods are available for setting attributes:
 | `style()`          | Set the `style` attribute.                                                                      |
 | `tabIndex()`       | Set the `tabindex` attribute.                                                                   |
 | `title()`          | Set the `title` attribute.                                                                      |
-| `type()`           | Set the `type` attribute.                                                                       |
 | `value()`          | Set the `value` attribute.                                                                      |
 
 ## Custom methods
