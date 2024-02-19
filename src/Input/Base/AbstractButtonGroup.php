@@ -17,7 +17,7 @@ abstract class AbstractButtonGroup extends Element
     use Attribute\Custom\HasContainer;
 
     /**
-     * @psalm-var Button[]
+     * @psalm-var Button[]|Reset[]|Submit[]
      */
     protected array $buttons = [];
     protected bool $individualContainer = false;
@@ -27,7 +27,7 @@ abstract class AbstractButtonGroup extends Element
      *
      * @param array $values The list of buttons.
      *
-     * @psalm-param Button|Reset|Submit[] $values
+     * @psalm-param Button[]|Reset[]|Submit[] $values
      */
     public function buttons(Button|Reset|Submit ...$values): static
     {
