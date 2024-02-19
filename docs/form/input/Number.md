@@ -143,7 +143,7 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `generateField()`           | Generate the field id and name for the `HTML` output.                                  |
+| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
 | `prefix()`                   | Add text before the `textarea` element.                                               |
 | `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
 | `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
@@ -156,7 +156,7 @@ The following methods are available for customizing the `HTML` output:
 | `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
 | `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
 | `template()`                 | Set the template for the `HTML` output.                                               |
-| `widget()`                   | Instantiates the `Number::class`.                                                      |
+| `widget()`                   | Instantiates the `Number::class`.                                                     |
 
 ## Validate methods
 

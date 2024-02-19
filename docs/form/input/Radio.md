@@ -225,6 +225,6 @@ The following methods are available for customizing the `HTML` output:
 Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Radio/ValidateTest.php) for
 comprehensive examples.
 
-| Method         | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| `required()`   | Set the `required` attribute.                                                                       |
+| Method      | Description                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------------ |
+| `required()`| Set the `required` attribute.                                                                          |

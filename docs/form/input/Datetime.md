@@ -142,7 +142,7 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `generateField()`           | Generate the field id and name for the `HTML` output.                                  |
+| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
 | `prefix()`                   | Add text before the `textarea` element.                                               |
 | `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
 | `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            

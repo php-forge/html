@@ -51,13 +51,13 @@ for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
-| Method                       | Description                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| `buttons()`                  | Set the `buttons` for the `ButtonGroup` widget.                                       |
-| `container()`                | Set enabled or disabled for the `container` element.                                  |
-| `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
-| `containerClass()`           | Set the `class` attribute for the `container` element.                                |
-| `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `individualContainer()`      | Set enabled or disabled for the `individualContainer` for each button.                |
-| `render()`                   | Generates the `HTML` output.                                                          |
-| `widget()`                   | Instantiates the `ButtonGroup::class`.                                                |
+| Method                 | Description                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| `buttons()`            | Set the `buttons` for the `ButtonGroup` widget.                                             |
+| `container()`          | Set enabled or disabled for the `container` element.                                        |
+| `containerAttributes()`| Set `attributes` for the `container` element.                                               |
+| `containerClass()`     | Set the `class` attribute for the `container` element.                                      |
+| `containerTag()`       | Set the `tag` for the `container` element.                                                  |
+| `individualContainer()`| Set enabled or disabled for the `individualContainer` for each button.                      |
+| `render()`             | Generates the `HTML` output.                                                                |
+| `widget()`             | Instantiates the `ButtonGroup::class`.                                                      |

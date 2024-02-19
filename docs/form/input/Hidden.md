@@ -58,14 +58,14 @@ comprehensive examples.
 
 The following methods are available for setting attributes:
 
-| Method             | Description                                                                                     |
-| ------------------ | ----------------------------------------------------------------------------------------------- |
-| `attributes()`     | Set multiple `attributes` at once.                                                              |
-| `class()`          | Set the `class` attribute.                                                                      |
-| `id()`             | Set the `id` attribute.                                                                         |
-| `name()`           | Set the `name` attribute.                                                                       |
-| `style()`          | Set the `style` attribute.                                                                      |
-| `value()`          | Set the `value` attribute.                                                                      |
+| Method        | Description                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------- |
+| `attributes()`| Set multiple `attributes` at once.                                                                   |
+| `class()`     | Set the `class` attribute.                                                                           |
+| `id()`        | Set the `id` attribute.                                                                              |
+| `name()`      | Set the `name` attribute.                                                                            |
+| `style()`     | Set the `style` attribute.                                                                           |
+| `value()`     | Set the `value` attribute.                                                                           |
 
 ## Custom methods
 
@@ -74,7 +74,7 @@ for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
-| Method                       | Description                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| `render()`                   | Generates the `HTML` output.                                                          |
-| `widget()`                   | Instantiates the `Hidden::class`.                                                     |
+| Method    | Description                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------- |
+| `render()`| Generates the `HTML` output.                                                                             |
+| `widget()`| Instantiates the `Hidden::class`.                                                                        |

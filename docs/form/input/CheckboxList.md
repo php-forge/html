@@ -167,21 +167,21 @@ for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
-| Method                       | Description                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| `container()`                | Set enabled or disabled for the `container` element.                                  |
-| `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
-| `containerClass()`           | Set the `class` attribute for the `container` element.                                |
-| `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
-| `items()`                    | Set the `items` for the `HTML` output.                                                |
-| `render()`                   | Generates the `HTML` output.                                                          |
-| `separator()`                | Set the `separator` for the `HTML` output.                                            |
-| `template()`                 | Set the template for the `HTML` output.                                               |
-| `uncheckAttributes()`        | Set the attributes for the hidden input tag.                                          |
-| `uncheckClass()`             | Set the `class` attribute for the hidden input tag.                                   |
-| `uncheckValue()`             | Set the `value` attribute for the hidden input tag.                                   |
-| `widget()`                   | Instantiates the `CheckboxList::class`.                                               |
+| Method                 | Description                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| `container()`          | Set enabled or disabled for the `container` element.                                        |
+| `containerAttributes()`| Set `attributes` for the `container` element.                                               |
+| `containerClass()`     | Set the `class` attribute for the `container` element.                                      |
+| `containerTag()`       | Set the `tag` for the `container` element.                                                  |
+| `generateField()`      | Generate the field id and name for the `HTML` output.                                       |
+| `items()`              | Set the `items` for the `HTML` output.                                                      |
+| `render()`             | Generates the `HTML` output.                                                                |
+| `separator()`          | Set the `separator` for the `HTML` output.                                                  |
+| `template()`           | Set the template for the `HTML` output.                                                     |
+| `uncheckAttributes()`  | Set the attributes for the hidden input tag.                                                |
+| `uncheckClass()`       | Set the `class` attribute for the hidden input tag.                                         |
+| `uncheckValue()`       | Set the `value` attribute for the hidden input tag.                                         |
+| `widget()`             | Instantiates the `CheckboxList::class`.                                                     |
 
 ## Label methods
 

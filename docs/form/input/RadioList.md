@@ -123,10 +123,10 @@ The `template` method allows you to customize the `HTML` output of the a element
 
 The following template tags are available:
 
-| Tag       | Description        |
-| --------- | ------------------ |
-| `{label}` | The label element. |
-| `{tag}`   | The a element.     |
+| Tag      | Description        |
+| -------- | ------------------ |
+| `{label}`| The label element. |
+| `{tag}`  | The a element.     |
 
 ```php
 // using a custom template
@@ -160,21 +160,21 @@ for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
-| Method                       | Description                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| `container()`                | Set enabled or disabled for the `container` element.                                  |
-| `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
-| `containerClass()`           | Set the `class` attribute for the `container` element.                                |
-| `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
-| `items()`                    | Set the `items` for the `HTML` output.                                                |
-| `render()`                   | Generates the `HTML` output.                                                          |
-| `separator()`                | Set the `separator` for the `HTML` output.                                            |
-| `template()`                 | Set the template for the `HTML` output.                                               |
-| `uncheckAttributes()`        | Set the attributes for the hidden input tag.                                          |
-| `uncheckClass()`             | Set the `class` attribute for the hidden input tag.                                   |
-| `uncheckValue()`             | Set the `value` attribute for the hidden input tag.                                   |
-| `widget()`                   | Instantiates the `RadioList::class`.                                                  |
+| Method                 | Description                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| `container()`          | Set enabled or disabled for the `container` element.                                        |
+| `containerAttributes()`| Set `attributes` for the `container` element.                                               |
+| `containerClass()`     | Set the `class` attribute for the `container` element.                                      |
+| `containerTag()`       | Set the `tag` for the `container` element.                                                  |
+| `generateField()`      | Generate the field id and name for the `HTML` output.                                       |
+| `items()`              | Set the `items` for the `HTML` output.                                                      |
+| `render()`             | Generates the `HTML` output.                                                                |
+| `separator()`          | Set the `separator` for the `HTML` output.                                                  |
+| `template()`           | Set the template for the `HTML` output.                                                     |
+| `uncheckAttributes()`  | Set the attributes for the hidden input tag.                                                |
+| `uncheckClass()`       | Set the `class` attribute for the hidden input tag.                                         |
+| `uncheckValue()`       | Set the `value` attribute for the hidden input tag.                                         |
+| `widget()`             | Instantiates the `RadioList::class`.                                                        |
 
 ## Label methods
 
@@ -197,6 +197,6 @@ The following methods are available for customizing the `HTML` output:
 Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/RadioList/ValidateTest.php) for
 comprehensive examples.
 
-| Method         | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| `required()`   | Set the `required` attribute.                                                                       |
+| Method      | Description                                                                                            |
+| ----------- | ------------------------------------------------------------------------------------------------------ |
+| `required()`| Set the `required` attribute.                                                                          |

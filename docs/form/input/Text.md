@@ -145,7 +145,7 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `generateField()`           | Generate the field id and name for the `HTML` output.                                  |
+| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
 | `prefix()`                   | Add text before the `textarea` element.                                               |
 | `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
 | `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
@@ -165,9 +165,9 @@ The following methods are available for customizing the `HTML` output:
 Refer to the [Validate Tests](https://github.com/php-forge/html/blob/main/tests/Input/Text/ValidateTest.php) for
 comprehensive examples.
 
-| Method         | Description                                                                                         |
-| -------------- | --------------------------------------------------------------------------------------------------- |
-| `maxLength()`  | Set the `maxlength` attribute.                                                                      |
-| `minLength()`  | Set the `minlength` attribute.                                                                      |
-| `pattern()`    | Set the `pattern` attribute.                                                                        |
-| `required()`   | Set the `required` attribute.                                                                       |
+| Method       | Description                                                                                           |
+| ------------ | ----------------------------------------------------------------------------------------------------- |
+| `maxLength()`| Set the `maxlength` attribute.                                                                        |
+| `minLength()`| Set the `minlength` attribute.                                                                        |
+| `pattern()`  | Set the `pattern` attribute.                                                                          |
+| `required()` | Set the `required` attribute.                                                                         |
