@@ -4,6 +4,25 @@ declare(strict_types=1);
 
 namespace PHPForge\Html;
 
+use PHPForge\Html\Attribute\Aria\{
+    HasAriaControls,
+    HasAriaDescribedBy,
+    HasAriaDisabled,
+    HasAriaExpanded,
+    HasAriaLabel,
+    HasRole
+};
+use PHPForge\Html\Attribute\Custom\{
+    HasAttributes,
+    HasContainer,
+    HasContent,
+    HasPrefixAndSuffix,
+    HasTagName,
+    HasTemplate,
+    HasWidgetValidation
+};
+use PHPForge\Html\Attribute\Input\HasName;
+use PHPForge\Html\Attribute\{HasClass, HasData, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
 use PHPForge\Widget\Element;
 
 /**
@@ -15,50 +34,30 @@ use PHPForge\Widget\Element;
  */
 final class Button extends Element
 {
-    use Attribute\Aria\HasAriaControls;
-    use Attribute\Aria\HasAriaDescribedBy;
-    use Attribute\Aria\HasAriaDisabled;
-    use Attribute\Aria\HasAriaExpanded;
-    use Attribute\Aria\HasAriaLabel;
-    use Attribute\Aria\HasRole;
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContainer;
-    use Attribute\Custom\HasContent;
-    use Attribute\Custom\HasPrefixAndSuffix;
-    use Attribute\Custom\HasTagName;
-    use Attribute\Custom\HasTemplate;
-    use Attribute\Custom\HasWidgetValidation;
-    use Attribute\HasClass;
-    use Attribute\HasData;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasStyle;
-    use Attribute\HasTabindex;
-    use Attribute\HasTitle;
-    use Attribute\Input\HasName;
-    use Attribute\Input\HasType;
+    use HasAriaControls;
+    use HasAriaDescribedBy;
+    use HasAriaDisabled;
+    use HasAriaExpanded;
+    use HasAriaLabel;
+    use HasAttributes;
+    use HasClass;
+    use HasContainer;
+    use HasContent;
+    use HasData;
+    use HasId;
+    use HasLang;
+    use HasName;
+    use HasPrefixAndSuffix;
+    use HasRole;
+    use HasStyle;
+    use HasTabindex;
+    use HasTagName;
+    use HasTemplate;
+    use HasTitle;
+    use HasWidgetValidation;
 
     protected array $attributes = [];
-
-    /**
-     * Set the button type to `submit`.
-     *
-     * @return self A new instance of the current class with the specified type value.
-     */
-    public function submit(): self
-    {
-        return $this->type('submit');
-    }
-
-    /**
-     * Set the button type to `reset`.
-     *
-     * @return self A new instance of the current class with the specified type value.
-     */
-    public function reset(): self
-    {
-        return $this->type('reset');
-    }
+    protected string $type = 'button';
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -69,7 +68,6 @@ final class Button extends Element
             'id()' => [$this->generateId('button-')],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
             'tagName()' => ['button'],
-            'type()' => ['button'],
         ];
     }
 
@@ -81,11 +79,8 @@ final class Button extends Element
     protected function run(): string
     {
         $attributes = $this->attributes;
-        /** @var string $type */
-        $type = $attributes['type'] ?? 'button';
 
         $this->validateTagName($this->tagName, 'a', 'button');
-        $this->validateType($type, 'button', 'reset', 'submit');
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
@@ -111,6 +106,7 @@ final class Button extends Element
                 ->suffixContainerTag($this->suffixContainerTag)
                 ->tagName($this->tagName)
                 ->template($this->template)
+                ->type($this->type)
                 ->render()
         );
     }

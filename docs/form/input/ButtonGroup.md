@@ -16,8 +16,8 @@ Add buttons to the `ButtonGroup` widget using the `buttons` method.
 
 ```php
 $buttonGroup->buttons(
-    ButtonGroup::widget()->labelContent('Submit')->type('submit'),
-    ButtonGroup::widget()->labelContent('Reset')->type('reset')
+    Submit::widget()->value('Submit'),
+    Reset::widget()->value('Reset'),
 );
 ```
 
@@ -53,7 +53,7 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                 | Description                                                                                 |
 | ---------------------- | ------------------------------------------------------------------------------------------- |
-| `buttons()`            | Set the `buttons` for the `ButtonGroup` widget.                                             |
+| `buttons()`            | Set the `button` for the `ButtonGroup` widget.                                              |
 | `container()`          | Set enabled or disabled for the `container` element.                                        |
 | `containerAttributes()`| Set `attributes` for the `container` element.                                               |
 | `containerClass()`     | Set the `class` attribute for the `container` element.                                      |

@@ -149,26 +149,6 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testReset(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button id="button-658716145f1d9" type="reset"></button>
-            HTML,
-            Button::widget()->id('button-658716145f1d9')->reset()->render()
-        );
-    }
-
-    public function testSubmit(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <button id="button-658716145f1d9" type="submit"></button>
-            HTML,
-            Button::widget()->id('button-658716145f1d9')->submit()->render()
-        );
-    }
-
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(

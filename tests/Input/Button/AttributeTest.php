@@ -239,18 +239,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testType(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <input id="button-6582f2d099e8b" type="reset">
-            </div>
-            HTML,
-            Button::widget()->id('button-6582f2d099e8b')->type('reset')->render()
-        );
-    }
-
     public function testValue(): void
     {
         Assert::equalsWithoutLE(

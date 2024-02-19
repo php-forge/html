@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Input\ButtonGroup;
 
-use PHPForge\Html\Input\Button;
 use PHPForge\Html\Input\ButtonGroup;
+use PHPForge\Html\Input\Reset;
+use PHPForge\Html\Input\Submit;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -25,8 +26,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->containerAttributes(['class' => 'value'])
                 ->render()
@@ -44,8 +45,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->containerClass('value')
                 ->render()
@@ -63,8 +64,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->containerTag('article')
                 ->render()
@@ -80,8 +81,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->container(false)
                 ->render()
@@ -97,8 +98,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget(['container()' => [false]])
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->render()
         );
@@ -119,8 +120,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->individualContainer(true)
                 ->render()
@@ -138,8 +139,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             ButtonGroup::widget()
                 ->buttons(
-                    Button::widget()->id('button-6582f2d099e8a')->type('submit')->value('Submit'),
-                    Button::widget()->id('button-6582f2d099e8b')->type('reset')->value('Reset')
+                    Submit::widget()->id('button-6582f2d099e8a')->value('Submit'),
+                    Reset::widget()->id('button-6582f2d099e8b')->value('Reset'),
                 )
                 ->render()
         );
