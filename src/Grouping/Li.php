@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\Grouping;
+
+use PHPForge\Html\Attribute\Input\HasType;
 
 /**
  * The `<li>` HTML element is used to represent an item in a list.
@@ -14,5 +16,5 @@ namespace PHPForge\Html;
  */
 final class Li extends Base\AbstractLi
 {
-    use Attribute\Input\HasType;
+    use HasType;
 }

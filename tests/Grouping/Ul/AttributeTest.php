@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Div;
+namespace PHPForge\Html\Tests\Grouping\Ul;
 
-use PHPForge\Html\Div;
+use PHPForge\Html\Grouping\Ul;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -17,10 +17,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="value">
-            </div>
+            <ul class="value">
+            </ul>
             HTML,
-            Div::widget()->attributes(['class' => 'value'])->render()
+            Ul::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -28,10 +28,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div class="value">
-            </div>
+            <ul class="value">
+            </ul>
             HTML,
-            Div::widget()->class('value')->render()
+            Ul::widget()->attributes(['class' => 'value'])->render()
         );
     }
 
@@ -39,22 +39,11 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div>
+            <ul>
             value
-            </div>
+            </ul>
             HTML,
-            Div::widget()->content('value')->render()
-        );
-    }
-
-    public function testDataAttributes(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div data-value="value">
-            </div>
-            HTML,
-            Div::widget()->dataAttributes(['value' => 'value'])->render()
+            Ul::widget()->content('value')->render()
         );
     }
 
@@ -62,10 +51,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div id="value">
-            </div>
+            <ul id="value">
+            </ul>
             HTML,
-            Div::widget()->id('value')->render()
+            Ul::widget()->id('value')->render()
         );
     }
 
@@ -73,10 +62,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div lang="value">
-            </div>
+            <ul lang="value">
+            </ul>
             HTML,
-            Div::widget()->lang('value')->render()
+            Ul::widget()->lang('value')->render()
         );
     }
 
@@ -84,10 +73,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div name="value">
-            </div>
+            <ul name="value">
+            </ul>
             HTML,
-            Div::widget()->name('value')->render()
+            Ul::widget()->name('value')->render()
         );
     }
 
@@ -95,10 +84,21 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div style="value">
-            </div>
+            <ul style="value">
+            </ul>
             HTML,
-            Div::widget()->style('value')->render()
+            Ul::widget()->style('value')->render(),
+        );
+    }
+
+    public function testTabIndex(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <ul tabindex="1">
+            </ul>
+            HTML,
+            Ul::widget()->tabIndex(1)->render(),
         );
     }
 
@@ -106,10 +106,10 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <div title="value">
-            </div>
+            <ul title="value">
+            </ul>
             HTML,
-            Div::widget()->title('value')->render()
+            Ul::widget()->title('value')->render(),
         );
     }
 }

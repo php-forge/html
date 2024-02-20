@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Div;
+namespace PHPForge\Html\Tests\Grouping\Div;
 
-use PHPForge\Html\Div;
+use PHPForge\Html\Grouping\Div;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
