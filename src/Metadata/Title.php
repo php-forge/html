@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Layout;
+namespace PHPForge\Html\Metadata;
 
 use PHPForge\Html\Base\AbstractBlockElement;
 
