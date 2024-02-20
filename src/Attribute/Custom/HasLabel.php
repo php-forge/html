@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\Label;
+use PHPForge\Html\FormControl\Label;
+use PHPForge\Html\Helper\{CssClass, Encode};
 use PHPForge\Widget\ElementInterface;
 
 /**

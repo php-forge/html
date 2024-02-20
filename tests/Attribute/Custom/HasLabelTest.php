@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasLabel;
-use PHPForge\Html\Input\Base\AbstractButton;
+use PHPForge\Html\FormControl\Input\Base\AbstractButton;
 use PHPForge\Html\Span;
 use PHPUnit\Framework\TestCase;
 

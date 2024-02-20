@@ -52,10 +52,10 @@ Provide a comprehensive set of `form` elements and components for building user-
 These form controls include various `input` types, such as `text`, `checkbox`, `radio`, and components like `select`,
 `textarea`, as well as `form`, `label`, `legend`, `fieldset`, and other related components.
 
-- [form](/docs/form/Form.md)
-- [label](/docs/form/Label.md)
-- [select](/docs/form/Select.md)
-- [textarea](/docs/form/TextArea.md)
+- [form](/docs/form-control/Form.md)
+- [label](/docs/form-control/Label.md)
+- [select](/docs/form-control/Select.md)
+- [textarea](/docs/form-control/TextArea.md)
 
 ### Input Tags
 
@@ -63,31 +63,31 @@ In addition to basic `HTML` tags, the repository also supports the generation of
 
 This is particularly useful for creating forms and other interactive elements on a webpage.
 
-- [button](/docs/form/input/Button.md)
-- [button-group](/docs/form/input/ButtonGroup.md)
-- [checkbox](/docs/form/input/Checkbox.md)
-- [checkbox-list](/docs/form/input/CheckboxList.md)
-- [color](/docs/form/input/Color.md)
-- [date](/docs/form/input/Date.md)
-- [datetime](/docs/form/input/Datetime.md)
-- [datetime-local](/docs/form/input/DatetimeLocal.md)
-- [email](/docs/form/input/Email.md)
-- [file](/docs/form/input/File.md)
-- [hidden](/docs/form/input/Hidden.md)
-- [image](/docs/form/input/Image.md)
-- [month](/docs/form/input/Month.md)
-- [number](/docs/form/input/Number.md)
-- [password](/docs/form/input/Password.md)
-- [radio](/docs/form/input/Radio.md)
-- [radio-list](/docs/form/input/RadioList.md)
-- [range](/docs/form/input/Range.md)
-- [reset](/docs/form/input/Reset.md)
-- [search](/docs/form/input/Search.md)
-- [submit](/docs/form/input/Submit.md)
-- [text](/docs/form/input/Text.md)
-- [time](/docs/form/input/Time.md)
-- [url](/docs/form/input/Url.md)
-- [week](/docs/form/input/Week.md)
+- [button](/docs/form-control/input/Button.md)
+- [button-group](/docs/form-control/input/ButtonGroup.md)
+- [checkbox](/docs/form-control/input/Checkbox.md)
+- [checkbox-list](/docs/form-control/input/CheckboxList.md)
+- [color](/docs/form-control/input/Color.md)
+- [date](/docs/form-control/input/Date.md)
+- [datetime](/docs/form-control/input/Datetime.md)
+- [datetime-local](/docs/form-control/input/DatetimeLocal.md)
+- [email](/docs/form-control/input/Email.md)
+- [file](/docs/form-control/input/File.md)
+- [hidden](/docs/form-control/input/Hidden.md)
+- [image](/docs/form-control/input/Image.md)
+- [month](/docs/form-control/input/Month.md)
+- [number](/docs/form-control/input/Number.md)
+- [password](/docs/form-control/input/Password.md)
+- [radio](/docs/form-control/input/Radio.md)
+- [radio-list](/docs/form-control/input/RadioList.md)
+- [range](/docs/form-control/input/Range.md)
+- [reset](/docs/form-control/input/Reset.md)
+- [search](/docs/form-control/input/Search.md)
+- [submit](/docs/form-control/input/Submit.md)
+- [text](/docs/form-control/input/Text.md)
+- [time](/docs/form-control/input/Time.md)
+- [url](/docs/form-control/input/Url.md)
+- [week](/docs/form-control/input/Week.md)
 
 ## Creating Widgets
 
