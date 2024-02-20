@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Input\Hidden;
+use PHPForge\Html\FormControl\Input\Hidden;
 
 use function array_merge;
 

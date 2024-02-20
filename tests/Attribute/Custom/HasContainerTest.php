@@ -6,7 +6,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute\Custom\HasContainer;
-use PHPForge\Html\Input\Base\AbstractButton;
+use PHPForge\Html\FormControl\Input\Base\AbstractButton;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
