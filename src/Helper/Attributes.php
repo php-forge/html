@@ -41,6 +41,7 @@ final class Attributes
         'id',
         'name',
         'type',
+        'http-equiv',
         'value',
         'href',
         'src',
