@@ -61,7 +61,7 @@ These form controls include various `input` types, such as `text`, `checkbox`, `
 
 In addition to basic `HTML` tags, the repository also supports the generation of input tags.
 
-This is particularly useful for creating forms and other interactive elements on a webpage.
+The following input tags are currently supported:
 
 - [button](/docs/form-control/input/Button.md)
 - [button-group](/docs/form-control/input/ButtonGroup.md)
