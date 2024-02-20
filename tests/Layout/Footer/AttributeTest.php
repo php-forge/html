@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Footer;
+namespace PHPForge\Html\Tests\Layout\Footer;
 
 use PHPForge\Html\Layout\Footer;
 use PHPForge\Support\Assert;

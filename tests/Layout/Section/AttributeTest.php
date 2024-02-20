@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Section;
+namespace PHPForge\Html\Tests\Layout\Section;
 
 use PHPForge\Html\Layout\Section;
 use PHPForge\Support\Assert;

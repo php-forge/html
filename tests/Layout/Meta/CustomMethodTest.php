@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Meta;
+namespace PHPForge\Html\Tests\Layout\Meta;
 
 use PHPForge\Html\Layout\Meta;
 use PHPForge\Support\Assert;

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Nav;
+namespace PHPForge\Html\Tests\Layout\Nav;
 
 use PHPForge\Html\Layout\Nav;
 use PHPForge\Support\Assert;

@@ -28,7 +28,7 @@ The following tags are currently supported:
 
 In web design, the `Layout` section typically refers to a collection of files or components that define the overall
 structure and arrangement of a web page. This includes elements such as headers, footers, navigation bars, sidebars, and
-other structural components that help organize and present content on the page. The 'Layout' section is essential for
+other structural components that help organize and present content on the page. The `Layout` section is essential for
 creating consistent and visually appealing designs across the entire website, as it establishes the framework
 within which individual pages are constructed.
 
