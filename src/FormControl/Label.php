@@ -15,8 +15,8 @@ use PHPForge\Html\Base\AbstractElement;
 final class Label extends AbstractElement
 {
     use HasContent;
-    use HasForm;
     use HasFor;
+    use HasForm;
 
     protected function run(): string
     {
