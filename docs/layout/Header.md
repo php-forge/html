@@ -87,7 +87,7 @@ Explore additional methods for setting various attributes such as `lang`, `name`
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Header/AttributeTest.php) for
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Layout/Header/AttributeTest.php) for
 comprehensive examples.
 
 The following methods are available for setting attributes:
@@ -106,8 +106,8 @@ The following methods are available for setting attributes:
 
 ## Custom methods
 
-Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Header/CustomMethodTest.php) for
-comprehensive examples.
+Refer to the [Custom Methods Tests](https://github.com/php-forge/html/blob/main/tests/Layout/Header/CustomMethodTest.php)
+for comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 

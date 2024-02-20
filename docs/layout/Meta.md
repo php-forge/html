@@ -28,22 +28,18 @@ $meta->attributes(['class' => 'external', 'id' => 'MyId']);
 
 ## Adding Content
 
-If you want to include content within the `meta` tag, use the `content` method.
-
-The first parameter is the `name` attribute and the second parameter is the `content` value.
+If you want to include content within the `meta` tag, use the `content` and `name` methods.
 
 ```php
-$meta->content('csrf', 'value');
+$meta->content('value')->name('csfr');
 ```
 
 ### Adding HTTP-Equiv
 
-If you want to include `http-equiv` within the `meta` tag, use the `httpEquiv` method.
-
-The first parameter is the `http-equiv` attribute and the second parameter is the `content` value.
+If you want to include `http-equiv` within the `meta` tag, use the `httpEquiv` y `content` methods.
 
 ```php
-$meta->httpEquiv('refresh', '30');
+$meta->httpEquiv('refresh')->content('30');
 ```
 
 ## Rendering
@@ -66,38 +62,38 @@ Below are examples of common use cases:
 
 ```php
 // adding multiple attributes
-$meta->class('external')->content('viewport', 'width=device-width, initial-scale=1');
+$meta->class('external')->name('viewport')->content('width=device-width, initial-scale=1');
 ```
 
-Explore additional methods for setting various attributes such as `httpEquiv`, `id`, `lang` and more.
+Explore additional methods for setting various attributes such as `content`, `httpEquiv`, `id`, `name`, `lang` and more.
 
 ## Attributes
 
-Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Meta/AttributeTest.php) for comprehensive
-examples.
+Refer to the [Attribute Tests](https://github.com/php-forge/html/blob/main/tests/Layout/Meta/AttributeTest.php) for
+comprehensive examples.
 
 The following methods are available for setting attributes:
 
-| Method            | Description                                                                                      |
-| ----------------- | ------------------------------------------------------------------------------------------------ |
-| `attributes()`    | Set multiple `attributes` at once.                                                               |
-| `charset()`       | Set the `charset` attribute.                                                                     |
-| `class()`         | Set the `class` attribute.                                                                       |
-| `content()`       | Set the `content` within the `meta` element.                                                     |
-| `httpEquiv()`     | Set the `http-equiv` attribute.                                                                  |
-| `id()`            | Set the `id` attribute.                                                                          |
-| `lang()`          | Set the `lang` attribute.                                                                        |
-| `name()`          | Set the `name` attribute.                                                                        |
-| `style()`         | Set the `style` attribute.                                                                       |
+| Method        | Description                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------- |
+| `attributes()`| Set multiple `attributes` at once.                                                                   |
+| `charset()`   | Set the `charset` attribute.                                                                         |
+| `class()`     | Set the `class` attribute.                                                                           |
+| `content()`   | Set the `content` within the `meta` element.                                                         | 
+| `httpEquiv()` | Set the `http-equiv` attribute.                                                                      |
+| `id()`        | Set the `id` attribute.                                                                              |
+| `lang()`      | Set the `lang` attribute.                                                                            |
+| `name()`      | Set the `name` attribute.                                                                            |
+| `style()`     | Set the `style` attribute.                                                                           |
 
 ## Custom methods
 
-Refer to the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/Meta/CustomMethodTest.php) for 
+Refer to the [Custom Method Test](https://github.com/php-forge/html/blob/main/tests/Layout/Meta/CustomMethodTest.php) for 
 comprehensive examples.
 
 The following methods are available for customizing the `HTML` output:
 
-| Method                       | Description                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------- |
-| `render()`                   | Generates the `HTML` output.                                                          |
-| `widget()`                   | Instantiates the `Meta::class`.                                                       |
+| Method    | Description                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------- |
+| `render()`| Generates the `HTML` output.                                                                             |
+| `widget()`| Instantiates the `Meta::class`.                                                                          |

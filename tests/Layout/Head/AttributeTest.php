@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Head;
+namespace PHPForge\Html\Tests\Layout\Head;
 
 use PHPForge\Html\Layout\Head;
 use PHPForge\Support\Assert;
