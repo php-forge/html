@@ -11,8 +11,8 @@ use PHPForge\Html\Attribute\Input\{
     HasAutocomplete,
     HasDirname,
     HasForm,
-    HasMaxlength,
-    HasMinlength,
+    HasMaxLength,
+    HasMinLength,
     HasPlaceholder
 };
 use PHPForge\Html\Attribute\Tag\{HasCols, HasRows, HasWrap};

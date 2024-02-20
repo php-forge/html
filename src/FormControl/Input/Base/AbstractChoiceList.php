@@ -64,7 +64,7 @@ abstract class AbstractChoiceList extends Element implements
 
     protected array $attributes = [];
     /**
-     * @psalm-var \PHPForge\Html\Input\Checkbox[]|\PHPForge\Html\Input\Radio[] $items
+     * @psalm-var \PHPForge\Html\FormControl\Input\Checkbox[]|\PHPForge\Html\FormControl\Input\Radio[] $items
      */
     protected array $items = [];
 
