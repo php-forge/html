@@ -14,7 +14,7 @@ use PHPForge\Html\Helper\Utils;
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.file.html#input.file
  */
-final class File extends Base\AbstractInput implements COntract\RequiredInterface
+final class File extends Base\AbstractInput implements Contract\RequiredInterface
 {
     use CanBeMultiple;
     use CanBeRequired;
