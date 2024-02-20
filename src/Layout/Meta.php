@@ -18,7 +18,8 @@ use PHPForge\Widget\Element;
  *
  * @link https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element
  */
-final class Meta extends Element {
+final class Meta extends Element
+{
     use HasAttributes;
     use HasCharset;
     use HasClass;
