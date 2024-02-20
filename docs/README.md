@@ -24,6 +24,15 @@ The following tags are currently supported:
 - [svg](/docs/tag/Svg.md)
 - [ul](/docs/tag/Ul.md)
 
+## Metadata
+
+The `Metadata` section of a web page contains information about the page, such as its title, description, and keywords.
+
+The repository provides a set of classes for creating metadata, including:
+
+- [meta](/docs/metadata/Meta.md)
+- [title](/docs/metadata/Title.md)
+
 ## Layout
 
 In web design, the `Layout` section typically refers to a collection of files or components that define the overall
@@ -40,10 +49,8 @@ The repository provides a set of classes for creating layouts, including:
 - [header](/docs/layout/Header.md)
 - [html](/docs/layout/Html.md)
 - [main](/docs/layout/Main.md)
-- [meta](/docs/layout/Meta.md)
 - [nav](/docs/layout/Nav.md)
 - [section](/docs/layout/Section.md)
-- [title](/docs/layout/Title.md)
 
 ## Form control
 

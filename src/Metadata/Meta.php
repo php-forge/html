@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Layout;
+namespace PHPForge\Html\Metadata;
 
 use PHPForge\Html\Attribute\Custom\HasAttributes;
 use PHPForge\Html\Attribute\Custom\HasContentAttribute;
