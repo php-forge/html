@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Grouping\Base;
 
 use PHPForge\Html\Attribute\{Custom\HasAttributes, Input\HasName, Input\HasValue};
-use PHPforge\Html\Attribute\{HasClass, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
+use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
 use PHPForge\Html\Tag;
 use PHPForge\Widget\{Element, ElementInterface};
 
