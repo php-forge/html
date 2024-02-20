@@ -11,28 +11,39 @@ The repository can generate basic `HTML` tags, allowing you to create `HTML` ele
 The following tags are currently supported:
 
 - [a](/docs/tag/A.md)
-- [body](/docs/tag/Body.md)
 - [button](/docs/tag/Button.md)
 - [button toggle](/docs/tag/ButtonToggle.md)
 - [div](/docs/tag/Div.md)
-- [footer](/docs/tag/Footer.md)
-- [form](/docs/tag/Form.md)
 - [h](/docs/tag/H.md)
-- [head](/docs/tag/Head.md)
-- [header](/docs/tag/Header.md)
-- [html](/docs/tag/Html.md)
 - [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
 - [li](/docs/tag/Li.md)
-- [meta](/docs/tag/Meta.md)
-- [nav](/docs/tag/Nav.md)
 - [ol](/docs/tag/Ol.md)
 - [p](/docs/tag/P.md)
-- [section](/docs/tag/Section.md)
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
-- [title](/docs/tag/Title.md)
 - [ul](/docs/tag/Ul.md)
+
+## Layout
+
+In web design, the `Layout` section typically refers to a collection of files or components that define the overall
+structure and arrangement of a web page. This includes elements such as headers, footers, navigation bars, sidebars, and
+other structural components that help organize and present content on the page. The 'Layout' section is essential for
+creating consistent and visually appealing designs across the entire website, as it establishes the framework
+within which individual pages are constructed.
+
+The repository provides a set of classes for creating layouts, including:
+
+- [body](/docs/layout/Body.md)
+- [footer](/docs/layout/Footer.md)
+- [head](/docs/layout/Head.md)
+- [header](/docs/layout/Header.md)
+- [html](/docs/layout/Html.md)
+- [main](/docs/layout/Main.md)
+- [meta](/docs/layout/Meta.md)
+- [nav](/docs/layout/Nav.md)
+- [section](/docs/layout/Section.md)
+- [title](/docs/layout/Title.md)
 
 ## Forms 
 
