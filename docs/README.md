@@ -45,9 +45,12 @@ The repository provides a set of classes for creating layouts, including:
 - [section](/docs/layout/Section.md)
 - [title](/docs/layout/Title.md)
 
-## Forms 
+## Form control
 
-The repository also provides a set of classes for creating forms, including:
+Provide a comprehensive set of `form` elements and components for building user-friendly and accessible web forms.
+
+These form controls include various `input` types, such as `text`, `checkbox`, `radio`, and components like `select`,
+`textarea`, as well as `form`, `label`, `legend`, `fieldset`, and other related components.
 
 - [form](/docs/form/Form.md)
 - [label](/docs/form/Label.md)
