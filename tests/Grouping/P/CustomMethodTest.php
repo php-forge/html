@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\P;
+namespace PHPForge\Html\Tests\Grouping\P;
 
-use PHPForge\Html\P;
+use PHPForge\Html\Grouping\P;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 

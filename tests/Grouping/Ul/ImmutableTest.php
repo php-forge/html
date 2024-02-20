@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Ul;
+namespace PHPForge\Html\Tests\Grouping\Ul;
 
-use PHPForge\Html\Ul;
+use PHPForge\Html\Grouping\Ul;
 use PHPUnit\Framework\TestCase;
 
 /**

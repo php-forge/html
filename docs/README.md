@@ -13,16 +13,21 @@ The following tags are currently supported:
 - [a](/docs/tag/A.md)
 - [button](/docs/tag/Button.md)
 - [button toggle](/docs/tag/ButtonToggle.md)
-- [div](/docs/tag/Div.md)
 - [h](/docs/tag/H.md)
 - [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
-- [li](/docs/tag/Li.md)
-- [ol](/docs/tag/Ol.md)
-- [p](/docs/tag/P.md)
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
-- [ul](/docs/tag/Ul.md)
+
+## Grouping
+
+The repository provides a set of classes for creating groups of elements, including:
+
+- [div](/docs/grouping/Div.md)
+- [li](/docs/grouping/Li.md)
+- [ol](/docs/grouping/Ol.md)
+- [p](/docs/grouping/P.md)
+- [ul](/docs/grouping/Ul.md)
 
 ## Metadata
 
@@ -48,7 +53,7 @@ The repository provides a set of classes for creating layouts, including:
 - [head](/docs/layout/Head.md)
 - [header](/docs/layout/Header.md)
 - [html](/docs/layout/Html.md)
-- [main](/docs/layout/Main.md)
+- [main](/docs/grouping/Main.md)
 - [nav](/docs/layout/Nav.md)
 - [section](/docs/layout/Section.md)
 

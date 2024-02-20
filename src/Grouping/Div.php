@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\Grouping;
+
+use PHPForge\Html\Base\AbstractBlockElement;
 
 /**
  * The `<div>` `HTML` element is the generic container for flow content.
@@ -12,7 +14,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-div-element
  */
-final class Div extends Base\AbstractBlockElement
+final class Div extends AbstractBlockElement
 {
     protected string $tagName = 'div';
 }

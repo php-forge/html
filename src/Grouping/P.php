@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\Grouping;
+
+use PHPForge\Html\Base\AbstractBlockElement;
 
 /**
  * The `<p>` HTML element represents a paragraph. Paragraphs are usually represented in visual media as blocks of text
@@ -11,7 +13,7 @@ namespace PHPForge\Html;
  *
  * @link https://html.spec.whatwg.org/multipage/grouping-content.html#the-p-element
  */
-final class P extends Base\AbstractBlockElement
+final class P extends AbstractBlockElement
 {
     protected string $tagName = 'p';
 }

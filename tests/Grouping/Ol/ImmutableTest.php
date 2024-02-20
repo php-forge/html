@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Ol;
+namespace PHPForge\Html\Tests\Grouping\Ol;
 
-use PHPForge\Html\Ol;
+use PHPForge\Html\Grouping\Ol;
 use PHPUnit\Framework\TestCase;
 
 /**
