@@ -24,8 +24,6 @@ create HTML elements that suit your specific needs.
 
 The repository can generate basic `HTML` tags, allowing you to create `HTML` elements programmatically using `PHP`.
 
-The following tags are currently supported:
-
 - [a](/docs/tag/A.md)
 - [button](/docs/tag/Button.md)
 - [button toggle](/docs/tag/ButtonToggle.md)
@@ -50,8 +48,6 @@ These form controls include various `input` types, such as `text`, `checkbox`, `
 ### Input Tags
 
 In addition to basic `HTML` tags, the repository also supports the generation of input tags.
-
-The following input tags are currently supported:
 
 - [button](/docs/form-control/input/Button.md)
 - [button-group](/docs/form-control/input/ButtonGroup.md)
@@ -81,7 +77,9 @@ The following input tags are currently supported:
 
 ## Group
 
-The repository provides a set of classes for creating groups of elements, including:
+The `Group` section of a web page contains elements that are used to group related content together. This can include
+elements such as lists, tables, and other types of containers that help organize and present information in a structured
+way.
 
 - [div](/docs/group/Div.md)
 - [li](/docs/group/Li.md)
@@ -93,8 +91,6 @@ The repository provides a set of classes for creating groups of elements, includ
 
 The `Metadata` section of a web page contains information about the page, such as its title, description, and keywords.
 
-The repository provides a set of classes for creating metadata, including:
-
 - [meta](/docs/metadata/Meta.md)
 - [title](/docs/metadata/Title.md)
 
@@ -105,8 +101,6 @@ structure and arrangement of a web page. This includes elements such as headers,
 other structural components that help organize and present content on the page. The `Layout` section is essential for
 creating consistent and visually appealing designs across the entire website, as it establishes the framework
 within which individual pages are constructed.
-
-The repository provides a set of classes for creating layouts, including:
 
 - [body](/docs/layout/Body.md)
 - [footer](/docs/layout/Footer.md)
