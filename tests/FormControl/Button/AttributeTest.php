@@ -168,6 +168,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testRoleTrueWithLink(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a id="button-658716145f1d9" type="button" role="role"></a>
+            HTML,
+            Button::widget()->id('button-658716145f1d9')->role(true)->tagName('a')->render()
+        );
+    }
+
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(
