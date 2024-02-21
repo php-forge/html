@@ -153,6 +153,58 @@ final class HasToggleTest extends TestCase
         $this->assertFalse($instance->toggle(false)->getToggle());
     }
 
+    public function testRenderToggleTag(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function run(): string
+            {
+                return $this->toggleContent('value')->renderToggleTag();
+            }
+        };
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span>value</span>
+            HTML,
+            $instance->run()
+        );
+    }
+
+    public function testRenderToggleTagWithToggleClass(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function run(): string
+            {
+                return $this->toggleClass('value')->renderToggleTag();
+            }
+        };
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span class="value"></span>
+            HTML,
+            $instance->run()
+        );
+    }
+
+    public function testRenderToggleTagWithToggleFalse(): void
+    {
+        $instance = new class () {
+            use HasToggle;
+
+            public function run(): string
+            {
+                return $this->toggle(false)->renderToggleTag();
+            }
+        };
+
+        $this->assertEmpty($instance->run());
+    }
+
     public function testSuffix(): void
     {
         $instance = new class () {

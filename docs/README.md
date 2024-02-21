@@ -30,7 +30,6 @@ The repository can generate basic `HTML` tags, allowing you to create `HTML` ele
 
 The `Document` section of a web page contains elements that are used to define the structure and content of the page.
 
-- [button](/docs/form-control/Button.md)
 - [body](/docs/document/Body.md)
 - [head](/docs/document/Head.md)
 - [html](/docs/document/Html.md)
@@ -42,6 +41,7 @@ Provide a comprehensive set of `form` elements and components for building user-
 These form controls include various `input` types, such as `text`, `checkbox`, `radio`, and components like `select`,
 `textarea`, as well as `form`, `label`, `legend`, `fieldset`, and other related components.
 
+- [button](/docs/form-control/Button.md)
 - [form](/docs/form-control/Form.md)
 - [label](/docs/form-control/Label.md)
 - [select](/docs/form-control/Select.md)
