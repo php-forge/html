@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Grouping\P;
+namespace PHPForge\Html\Tests\Group\Div;
 
-use PHPForge\Html\Grouping\P;
+use PHPForge\Html\Group\Div;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -17,9 +17,9 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <p>value</p>
+            <div>value</div>
             HTML,
-            P::widget()->begin() . 'value' . P::end()
+            Div::widget()->begin() . 'value' . Div::end()
         );
     }
 
@@ -27,10 +27,10 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <p>
-            </p>
+            <div>
+            </div>
             HTML,
-            P::widget()->render(),
+            Div::widget()->render(),
         );
     }
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Grouping\Ul;
+namespace PHPForge\Html\Tests\Group\Ul;
 
-use PHPForge\Html\Grouping\{Li, Ul};
+use PHPForge\Html\Group\{Li, Ul};
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 

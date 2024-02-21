@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Grouping\Ol;
+namespace PHPForge\Html\Tests\Group\Ul;
 
-use PHPForge\Html\Grouping\Ol;
+use PHPForge\Html\Group\Ul;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -14,7 +14,7 @@ final class ImmutableTest extends TestCase
 {
     public function testImmutable(): void
     {
-        $ul = Ol::widget();
+        $ul = Ul::widget();
 
         $this->assertNotSame($ul, $ul->content(''));
     }

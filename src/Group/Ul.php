@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Grouping;
+namespace PHPForge\Html\Group;
 
 /**
  * The `<ul>` HTML element represents an unordered list of items, typically rendered as a bulleted list.

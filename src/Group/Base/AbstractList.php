@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Grouping\Base;
+namespace PHPForge\Html\Group\Base;
 
-use PHPForge\Html\Attribute\{Custom\HasAttributes, Input\HasName, Input\HasValue};
+use PHPForge\Html\Attribute\{Custom\HasAttributes, Custom\HasTagName, Input\HasName};
 use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
 use PHPForge\Html\Tag;
 use PHPForge\Widget\{Element, ElementInterface};
@@ -12,9 +12,9 @@ use PHPForge\Widget\{Element, ElementInterface};
 use function trim;
 
 /**
- * Provides a foundation for creating HTML `<li>` elements with various attributes and content.
+ * Provides a foundation for creating HTML `<ul>`, `<ol>` elements with various attributes and content.
  */
-abstract class AbstractLi extends Element
+abstract class AbstractList extends Element
 {
     use HasAttributes;
     use HasClass;
@@ -23,8 +23,8 @@ abstract class AbstractLi extends Element
     use HasName;
     use HasStyle;
     use HasTabindex;
+    use HasTagName;
     use HasTitle;
-    use HasValue;
 
     protected array $attributes = [];
     protected string $content = '';
@@ -58,7 +58,7 @@ abstract class AbstractLi extends Element
             ->attributes($this->attributes)
             ->content(trim($this->content))
             ->id($this->id)
-            ->tagName('li')
+            ->tagName($this->tagName)
             ->render();
     }
 }
