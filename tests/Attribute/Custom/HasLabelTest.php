@@ -6,7 +6,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasLabel;
 use PHPForge\Html\FormControl\Input\Base\AbstractButton;
-use PHPForge\Html\Span;
+use PHPForge\Html\Textual\Span;
 use PHPUnit\Framework\TestCase;
 
 final class HasLabelTest extends TestCase

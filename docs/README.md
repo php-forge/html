@@ -24,12 +24,9 @@ create HTML elements that suit your specific needs.
 
 The repository can generate basic `HTML` tags, allowing you to create `HTML` elements programmatically using `PHP`.
 
-- [a](/docs/tag/A.md)
 - [button](/docs/tag/Button.md)
 - [button toggle](/docs/tag/ButtonToggle.md)
-- [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
-- [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
 
 ## Document
@@ -112,3 +109,11 @@ The `Metadata` section of a web page contains information about the page, such a
 - [header](/docs/semantic/Header.md)
 - [nav](/docs/semantic/Nav.md)
 - [section](/docs/semantic/Section.md)
+
+## Textual
+
+The `Textual` section of a web page contains elements that are used to display text and other types of content.
+
+- [a](/docs/textual/A.md)
+- [i](/docs/textual/I.md)
+- [span](/docs/textual/Span.md)

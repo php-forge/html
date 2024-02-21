@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use PHPForge\Html\Attribute\Custom\HasPrefixAndSuffixItems;
-use PHPForge\Html\Span;
+use PHPForge\Html\Textual\Span;
 use PHPUnit\Framework\TestCase;
 
 final class HasPrefixAndSuffixItemsTest extends TestCase
