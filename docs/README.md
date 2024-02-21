@@ -27,11 +27,18 @@ The repository can generate basic `HTML` tags, allowing you to create `HTML` ele
 - [a](/docs/tag/A.md)
 - [button](/docs/tag/Button.md)
 - [button toggle](/docs/tag/ButtonToggle.md)
-- [h](/docs/tag/H.md)
 - [i](/docs/tag/I.md)
 - [img](/docs/tag/Img.md)
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
+
+## Document
+
+The `Document` section of a web page contains elements that are used to define the structure and content of the page.
+
+- [body](/docs/document/Body.md)
+- [head](/docs/document/Head.md)
+- [html](/docs/document/Html.md)
 
 ## Form control
 
@@ -83,6 +90,7 @@ way.
 
 - [div](/docs/group/Div.md)
 - [li](/docs/group/Li.md)
+- [main](/docs/group/Main.md)
 - [ol](/docs/group/Ol.md)
 - [p](/docs/group/P.md)
 - [ul](/docs/group/Ul.md)
@@ -94,19 +102,13 @@ The `Metadata` section of a web page contains information about the page, such a
 - [meta](/docs/metadata/Meta.md)
 - [title](/docs/metadata/Title.md)
 
-## Layout
+## Semantic 
 
-In web design, the `Layout` section typically refers to a collection of files or components that define the overall
-structure and arrangement of a web page. This includes elements such as headers, footers, navigation bars, sidebars, and
-other structural components that help organize and present content on the page. The `Layout` section is essential for
-creating consistent and visually appealing designs across the entire website, as it establishes the framework
-within which individual pages are constructed.
+ A `semantic` tag is an element that clearly describes its meaning to both the browser and the developer. These tags
+ make it easier for search engines and browsers to understand the structure and content of web pages.
 
-- [body](/docs/layout/Body.md)
-- [footer](/docs/layout/Footer.md)
-- [head](/docs/layout/Head.md)
-- [header](/docs/layout/Header.md)
-- [html](/docs/layout/Html.md)
-- [main](/docs/group/Main.md)
-- [nav](/docs/layout/Nav.md)
-- [section](/docs/layout/Section.md)
+- [footer](/docs/semantic/Footer.md)
+- [h](/docs/semantic/H.md)
+- [header](/docs/semantic/Header.md)
+- [nav](/docs/semantic/Nav.md)
+- [section](/docs/semantic/Section.md)
