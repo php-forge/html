@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Li;
+namespace PHPForge\Html\Tests\Group\Li;
 
-use PHPForge\Html\Grouping\Li;
+use PHPForge\Html\Group\Li;
 use PHPUnit\Framework\TestCase;
 
 /**

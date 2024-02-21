@@ -2,7 +2,23 @@
 
 The **HTML** repository is a powerful tool for generating `HTML` code using `PHP`.
 
-It provides a wide range of functionalities, including:
+## Creating Widgets
+
+The HTML repository leverages the power of PHP traits to enable you to create custom widgets with ease.
+
+Traits are a way of reusing code in single inheritance languages like PHP, allowing you to group related functionalities
+in a consistent way.
+
+The HTML repository provides a set of traits that you can use to compose custom widgets, giving you the flexibility to
+create HTML elements that suit your specific needs.
+
+## Generic tags
+
+- [Tag](/docs/tag/Tag.md)
+
+## Builder Class
+
+- [HtmlBuilder](/docs/builder/HtmlBuilder.md)
 
 ## Basic HTML Tags
 
@@ -18,44 +34,6 @@ The following tags are currently supported:
 - [img](/docs/tag/Img.md)
 - [span](/docs/tag/Span.md)
 - [svg](/docs/tag/Svg.md)
-
-## Grouping
-
-The repository provides a set of classes for creating groups of elements, including:
-
-- [div](/docs/grouping/Div.md)
-- [li](/docs/grouping/Li.md)
-- [ol](/docs/grouping/Ol.md)
-- [p](/docs/grouping/P.md)
-- [ul](/docs/grouping/Ul.md)
-
-## Metadata
-
-The `Metadata` section of a web page contains information about the page, such as its title, description, and keywords.
-
-The repository provides a set of classes for creating metadata, including:
-
-- [meta](/docs/metadata/Meta.md)
-- [title](/docs/metadata/Title.md)
-
-## Layout
-
-In web design, the `Layout` section typically refers to a collection of files or components that define the overall
-structure and arrangement of a web page. This includes elements such as headers, footers, navigation bars, sidebars, and
-other structural components that help organize and present content on the page. The `Layout` section is essential for
-creating consistent and visually appealing designs across the entire website, as it establishes the framework
-within which individual pages are constructed.
-
-The repository provides a set of classes for creating layouts, including:
-
-- [body](/docs/layout/Body.md)
-- [footer](/docs/layout/Footer.md)
-- [head](/docs/layout/Head.md)
-- [header](/docs/layout/Header.md)
-- [html](/docs/layout/Html.md)
-- [main](/docs/grouping/Main.md)
-- [nav](/docs/layout/Nav.md)
-- [section](/docs/layout/Section.md)
 
 ## Form control
 
@@ -101,20 +79,40 @@ The following input tags are currently supported:
 - [url](/docs/form-control/input/Url.md)
 - [week](/docs/form-control/input/Week.md)
 
-## Creating Widgets
+## Group
 
-The HTML repository leverages the power of PHP traits to enable you to create custom widgets with ease.
+The repository provides a set of classes for creating groups of elements, including:
 
-Traits are a way of reusing code in single inheritance languages like PHP, allowing you to group related functionalities
-in a consistent way.
+- [div](/docs/group/Div.md)
+- [li](/docs/group/Li.md)
+- [ol](/docs/group/Ol.md)
+- [p](/docs/group/P.md)
+- [ul](/docs/group/Ul.md)
 
-The HTML repository provides a set of traits that you can use to compose custom widgets, giving you the flexibility to
-create HTML elements that suit your specific needs.
+## Metadata
 
-## Generic tags
+The `Metadata` section of a web page contains information about the page, such as its title, description, and keywords.
 
-- [Tag](/docs/tag/Tag.md)
+The repository provides a set of classes for creating metadata, including:
 
-## Helper Classes
+- [meta](/docs/metadata/Meta.md)
+- [title](/docs/metadata/Title.md)
 
-- [HtmlBuilder](/docs/helper/HtmlBuilder.md)
+## Layout
+
+In web design, the `Layout` section typically refers to a collection of files or components that define the overall
+structure and arrangement of a web page. This includes elements such as headers, footers, navigation bars, sidebars, and
+other structural components that help organize and present content on the page. The `Layout` section is essential for
+creating consistent and visually appealing designs across the entire website, as it establishes the framework
+within which individual pages are constructed.
+
+The repository provides a set of classes for creating layouts, including:
+
+- [body](/docs/layout/Body.md)
+- [footer](/docs/layout/Footer.md)
+- [head](/docs/layout/Head.md)
+- [header](/docs/layout/Header.md)
+- [html](/docs/layout/Html.md)
+- [main](/docs/group/Main.md)
+- [nav](/docs/layout/Nav.md)
+- [section](/docs/layout/Section.md)

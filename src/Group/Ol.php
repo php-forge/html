@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Grouping;
+namespace PHPForge\Html\Group;
 
 use PHPForge\Html\Attribute\{Input\HasType, Tag\HasReversed, Tag\HasStart};
 
