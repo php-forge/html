@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Button;
+namespace PHPForge\Html\Tests\FormControl\Button;
 
 use InvalidArgumentException;
-use PHPForge\Html\Button;
+use PHPForge\Html\FormControl\Button;
 use PHPUnit\Framework\TestCase;
 
 /**

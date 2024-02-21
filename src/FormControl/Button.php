@@ -2,27 +2,24 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\Attribute\Aria\{
-    HasAriaControls,
+use PHPForge\Html\Attribute\{HasClass, HasData, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
+use PHPForge\Html\Attribute\Aria\{HasAriaControls,
     HasAriaDescribedBy,
     HasAriaDisabled,
     HasAriaExpanded,
     HasAriaLabel,
-    HasRole
-};
-use PHPForge\Html\Attribute\Custom\{
-    HasAttributes,
+    HasRole};
+use PHPForge\Html\Attribute\Custom\{HasAttributes,
     HasContainer,
     HasContent,
     HasPrefixAndSuffix,
     HasTagName,
     HasTemplate,
-    HasWidgetValidation
-};
+    HasWidgetValidation};
 use PHPForge\Html\Attribute\Input\HasName;
-use PHPForge\Html\Attribute\{HasClass, HasData, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
+use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Button;
+namespace PHPForge\Html\Tests\FormControl\Button;
 
-use PHPForge\Html\Button;
+use PHPForge\Html\FormControl\Button;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
