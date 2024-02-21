@@ -191,7 +191,6 @@ final class HasToggleTest extends TestCase
         );
     }
 
-
     public function testRenderToggleTagWithToggleContent(): void
     {
         $instance = new class () {
