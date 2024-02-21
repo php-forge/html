@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\Textual;
+
+use PHPForge\Html\Attribute;
+use PHPForge\Html\Base;
 
 /**
  * The `<i>` HTML element represents a range of text that's set off from the normal text for some reason, such as

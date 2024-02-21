@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\Textual;
+
+use PHPForge\Html\Attribute;
+use PHPForge\Html\Base;
 
 /**
  * The `<span>` HTML element represents a generic inline container for phrasing content, which doesn't inherently

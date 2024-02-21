@@ -2,24 +2,25 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\A;
+namespace PHPForge\Html\Tests\Textual\I;
 
-use PHPForge\Html\A;
+use PHPForge\Html\Textual\I;
 use PHPForge\Support\Assert;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class CustomMethodTest extends \PHPUnit\Framework\TestCase
+final class CustomMethodTest extends TestCase
 {
     public function testPrefix(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             value
-            <a></a>
+            <i></i>
             HTML,
-            A::widget()->prefix('value')->render()
+            I::widget()->prefix('value')->render()
         );
     }
 
@@ -30,9 +31,9 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <div>
             value
             </div>
-            <a></a>
+            <i></i>
             HTML,
-            A::widget()->prefixContainer(true)->prefix('value')->render()
+            I::widget()->prefixContainer(true)->prefix('value')->render()
         );
     }
 
@@ -43,9 +44,9 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <div class="value">
             value
             </div>
-            <a></a>
+            <i></i>
             HTML,
-            A::widget()
+            I::widget()
                 ->prefixContainer(true)
                 ->prefix('value')
                 ->prefixContainerAttributes(['class' => 'value'])
@@ -60,9 +61,9 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
             <div class="value">
             value
             </div>
-            <a></a>
+            <i></i>
             HTML,
-            A::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
+            I::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
         );
     }
 
@@ -71,9 +72,9 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <span>value</span>
-            <a></a>
+            <i></i>
             HTML,
-            A::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
+            I::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
         );
     }
 
@@ -81,9 +82,9 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a></a>
+            <i></i>
             HTML,
-            A::widget()->render()
+            I::widget()->render()
         );
     }
 
@@ -91,10 +92,10 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a></a>
+            <i></i>
             value
             HTML,
-            A::widget()->suffix('value')->render()
+            I::widget()->suffix('value')->render()
         );
     }
 
@@ -102,12 +103,12 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a></a>
+            <i></i>
             <div>
             value
             </div>
             HTML,
-            A::widget()->suffixContainer(true)->suffix('value')->render()
+            I::widget()->suffixContainer(true)->suffix('value')->render()
         );
     }
 
@@ -115,12 +116,12 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a></a>
+            <i></i>
             <div class="value">
             value
             </div>
             HTML,
-            A::widget()
+            I::widget()
                 ->suffixContainer(true)
                 ->suffix('value')
                 ->suffixContainerAttributes(['class' => 'value'])
@@ -132,12 +133,12 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a></a>
+            <i></i>
             <div class="value">
             value
             </div>
             HTML,
-            A::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
+            I::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
         );
     }
 
@@ -145,10 +146,10 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <a></a>
+            <i></i>
             <span>value</span>
             HTML,
-            A::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
+            I::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
         );
     }
 
@@ -157,10 +158,10 @@ final class CustomMethodTest extends \PHPUnit\Framework\TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <a>value</a>
+            <i>value</i>
             </div>
             HTML,
-            A::widget()->content('value')->template('<div>\n{tag}\n</div>')->render()
+            I::widget()->content('value')->template('<div>\n{tag}\n</div>')->render()
         );
     }
 }

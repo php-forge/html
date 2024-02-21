@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Component\Tests\I;
+namespace PHPForge\Html\Tests\Textual\I;
 
-use PHPForge\Html\I;
+use PHPForge\Html\Textual\I;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 

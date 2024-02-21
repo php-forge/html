@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Span;
+namespace PHPForge\Html\Tests\Textual\Span;
 
-use PHPForge\Html\Span;
+use PHPForge\Html\Textual\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 

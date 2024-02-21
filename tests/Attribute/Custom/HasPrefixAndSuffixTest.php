@@ -6,7 +6,7 @@ namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute\Custom\HasPrefixAndSuffix;
-use PHPForge\Html\Span;
+use PHPForge\Html\Textual\Span;
 use PHPUnit\Framework\TestCase;
 
 final class HasPrefixAndSuffixTest extends TestCase

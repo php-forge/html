@@ -6,7 +6,7 @@ namespace PHPForge\Html\Tests\Attribute\Component;
 
 use InvalidArgumentException;
 use PHPForge\Html\Attribute\Component\HasToggle;
-use PHPForge\Html\Span;
+use PHPForge\Html\Textual\Span;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
