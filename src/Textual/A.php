@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Textual;
 
 use PHPForge\Html\Attribute\Aria\{HasAriaControls, HasAriaDisabled, HasAriaExpanded, HasAriaLabel, HasRole};
-use PHPForge\HTml\Attribute\Tag\{HasDownload, HasHref, HasHreflang, HasPing, HasReferrerpolicy, HasRel, HasTarget};
+use PHPForge\Html\Attribute\Tag\{HasDownload, HasHref, HasHreflang, HasPing, HasReferrerpolicy, HasRel, HasTarget};
 use PHPForge\Html\Attribute\{CanBeAutofocus, CanBeHidden, Custom\HasContent, Input\HasType, HasTabindex};
 use PHPForge\Html\Base;
 
