@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html;
+namespace PHPForge\Html\Multimedia;
+
+use PHPForge\Html\Attribute;
+use PHPForge\Html\Base;
 
 /**
  * The `<img>` HTML element embeds an image into the document.

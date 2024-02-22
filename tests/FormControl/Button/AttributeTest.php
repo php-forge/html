@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PHPForge\Html\Tests\Button;
+namespace PHPForge\Html\Tests\FormControl\Button;
 
-use PHPForge\Html\Button;
+use PHPForge\Html\FormControl\Button;
 use PHPForge\Support\Assert;
 use PHPUnit\Framework\TestCase;
 
@@ -165,6 +165,16 @@ final class AttributeTest extends TestCase
             <a id="button-658716145f1d9" type="button" role="value"></a>
             HTML,
             Button::widget()->id('button-658716145f1d9')->role('value')->tagName('a')->render()
+        );
+    }
+
+    public function testRoleTrueWithLink(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <a id="button-658716145f1d9" type="button" role="role"></a>
+            HTML,
+            Button::widget()->id('button-658716145f1d9')->role(true)->tagName('a')->render()
         );
     }
 

@@ -24,9 +24,6 @@ create HTML elements that suit your specific needs.
 
 The repository can generate basic `HTML` tags, allowing you to create `HTML` elements programmatically using `PHP`.
 
-- [button](/docs/tag/Button.md)
-- [button toggle](/docs/tag/ButtonToggle.md)
-- [img](/docs/tag/Img.md)
 - [svg](/docs/tag/Svg.md)
 
 ## Document
@@ -44,6 +41,7 @@ Provide a comprehensive set of `form` elements and components for building user-
 These form controls include various `input` types, such as `text`, `checkbox`, `radio`, and components like `select`,
 `textarea`, as well as `form`, `label`, `legend`, `fieldset`, and other related components.
 
+- [button](/docs/form-control/Button.md)
 - [form](/docs/form-control/Form.md)
 - [label](/docs/form-control/Label.md)
 - [select](/docs/form-control/Select.md)
@@ -98,6 +96,13 @@ The `Metadata` section of a web page contains information about the page, such a
 
 - [meta](/docs/metadata/Meta.md)
 - [title](/docs/metadata/Title.md)
+
+## Multimedia
+
+The `Multimedia` section of a web page contains elements that are used to display images, videos, and other types of
+media.
+
+- [img](/docs/multimedia/Img.md)
 
 ## Semantic 
 
