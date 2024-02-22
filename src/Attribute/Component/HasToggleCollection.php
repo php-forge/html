@@ -33,8 +33,6 @@ trait HasToggleCollection
     /**
      * Disable the toggle.
      *
-     * @param bool $value `true` to enable the toggle, `false` to disable it.
-     *
      * @return static A new instance of the current class with the specified toggle value.
      */
     public function notToggle(): static

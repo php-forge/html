@@ -120,15 +120,16 @@ final class HasIconCollectionTest extends TestCase
             use HasIconCollection;
         };
 
-        $this->assertNotSame($instance, $instance->iconAttributes([]));
         $this->assertNotSame($instance, $instance->icon(''));
+        $this->assertNotSame($instance, $instance->iconAttributes([]));
         $this->assertNotSame($instance, $instance->iconClass(''));
         $this->assertNotSame($instance, $instance->iconContainer(true));
         $this->assertNotSame($instance, $instance->iconContainerAttributes([]));
-        $this->assertNotSame($instance, $instance->iconContainerTag('div'));
         $this->assertNotSame($instance, $instance->iconContainerClass(''));
+        $this->assertNotSame($instance, $instance->iconContainerTag('div'));
         $this->assertNotSame($instance, $instance->iconFilePath(''));
         $this->assertNotSame($instance, $instance->iconTag('i'));
+        $this->assertNotSame($instance, $instance->notIcon());
     }
 
     public function testRenderIconTag(): void
