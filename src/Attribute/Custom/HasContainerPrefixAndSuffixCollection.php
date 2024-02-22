@@ -8,9 +8,9 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Is used by widgets that implement container prefix and suffix methods.
+ * Is used by widgets that implement container prefix and suffix collection.
  */
-trait HasContainerPrefixAndSuffix
+trait HasContainerPrefixAndSuffixCollection
 {
     protected string $containerPrefix = '';
     protected string $containerSuffix = '';

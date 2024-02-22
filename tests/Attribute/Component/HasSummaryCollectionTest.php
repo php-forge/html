@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Component\HasSummary;
+use PHPForge\Html\Attribute\Component\HasSummaryCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasSummaryTest extends TestCase
+final class HasSummaryCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasSummary;
+            use HasSummaryCollection;
 
             public function getSummaryClass(): string
             {
@@ -38,7 +38,7 @@ final class HasSummaryTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasSummary;
+            use HasSummaryCollection;
         };
 
         $this->assertNotSame($instance, $instance->summaryAttributes([]));

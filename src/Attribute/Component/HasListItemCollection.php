@@ -7,9 +7,9 @@ namespace PHPForge\Html\Attribute\Component;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Is used by widgets that implement list item methods.
+ * Is used by widgets that implement list item collection.
  */
-trait HasListItem
+trait HasListItemCollection
 {
     protected array $listItemAttributes = [];
     protected bool $listItemTag = true;

@@ -4,9 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Attribute\Custom\HasUnchecked;
-use PHPForge\Html\Attribute\Input\{CanBeMultiple,CanBeRequired, HasAccept};
-use PHPForge\Html\Helper\Utils;
+use PHPForge\Html\{
+    Attribute\Custom\HasUnchecked,
+    Attribute\Input\CanBeMultiple,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasAccept,
+    Helper\Utils
+};
 
 /**
  * The input element with a type attribute whose value is "file" represents a list of file items, each consisting of a

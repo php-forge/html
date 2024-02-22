@@ -21,6 +21,15 @@ interface LabelInterface
     public function enclosedByLabel(bool $value): static;
 
     /**
+     * Set the `HTML` label content.
+     *
+     * @param ElementInterface|string ...$values The `HTML` label content value.
+     *
+     * @return static A new instance of the current class with the specified `HTML` label content.
+     */
+    public function label(string|ElementInterface ...$values): static;
+
+    /**
      * Set the `HTML` attributes for the label.
      *
      * @param array $values Attribute values indexed by attribute names.
@@ -38,15 +47,6 @@ interface LabelInterface
      * @return static A new instance of the current class with the specified label class.
      */
     public function labelClass(string $value, bool $override = false): static;
-
-    /**
-     * Set the `HTML` label content.
-     *
-     * @param ElementInterface|string ...$values The `HTML` label content value.
-     *
-     * @return static A new instance of the current class with the specified `HTML` label content.
-     */
-    public function labelContent(string|ElementInterface ...$values): static;
 
     /**
      * Set the `for` attribute for the label.

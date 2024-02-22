@@ -4,22 +4,30 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\Attribute\{HasClass, HasData, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
-use PHPForge\Html\Attribute\Aria\{HasAriaControls,
-    HasAriaDescribedBy,
-    HasAriaDisabled,
-    HasAriaExpanded,
-    HasAriaLabel,
-    HasRole};
-use PHPForge\Html\Attribute\Custom\{HasAttributes,
-    HasContainer,
-    HasContent,
-    HasPrefixAndSuffix,
-    HasTagName,
-    HasTemplate,
-    HasWidgetValidation};
-use PHPForge\Html\Attribute\Input\HasName;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaControls,
+    Attribute\Aria\HasAriaDescribedBy,
+    Attribute\Aria\HasAriaDisabled,
+    Attribute\Aria\HasAriaExpanded,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\Aria\HasRole,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasContent,
+    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasTagName,
+    Attribute\Custom\HasTemplate,
+    Attribute\Custom\HasWidgetValidation,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\HasTitle,
+    Attribute\Input\HasName,
+    Tag
+};
 use PHPForge\Widget\Element;
 
 /**
@@ -44,7 +52,7 @@ final class Button extends Element
     use HasId;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffix;
+    use HasPrefixAndSuffixCollection;
     use HasRole;
     use HasStyle;
     use HasTabindex;

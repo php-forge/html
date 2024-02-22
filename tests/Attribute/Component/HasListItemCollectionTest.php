@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Component\HasListItem;
+use PHPForge\Html\Attribute\Component\HasListItemCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasListItemTest extends TestCase
+final class HasListItemCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasListItem;
+            use HasListItemCollection;
 
             public function getListItemClass(): string
             {
@@ -38,7 +38,7 @@ final class HasListItemTest extends TestCase
     public function testGetListItemAttributes(): void
     {
         $instance = new class () {
-            use HasListItem;
+            use HasListItemCollection;
         };
 
         $this->assertEmpty($instance->getListItemAttributes());
@@ -55,7 +55,7 @@ final class HasListItemTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasListItem;
+            use HasListItemCollection;
         };
 
         $this->assertNotSame($instance, $instance->listItemAttributes([]));

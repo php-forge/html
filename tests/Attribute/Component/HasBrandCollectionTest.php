@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Component\HasBrand;
+use PHPForge\Html\Attribute\Component\HasBrandCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasBrandTest extends TestCase
+final class HasBrandCollectionTest extends TestCase
 {
     public function testBrandContainerClass(): void
     {
         $instance = new class () {
-            use HasBrand;
+            use HasBrandCollection;
 
             public function getBrandContainerClass(): string
             {
@@ -37,7 +37,7 @@ final class HasBrandTest extends TestCase
     public function testBrandLinkClass(): void
     {
         $instance = new class () {
-            use HasBrand;
+            use HasBrandCollection;
 
             public function getBrandLinkClass(): string
             {
@@ -63,7 +63,7 @@ final class HasBrandTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasBrand;
+            use HasBrandCollection;
         };
 
         $this->assertNotSame($instance, $instance->brandContainer(false));

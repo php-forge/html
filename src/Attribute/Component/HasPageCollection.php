@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 /**
- * Is used by widgets which implement the page methods.
+ * Is used by widgets which implement the page collection.
  */
-trait HasPage
+trait HasPageCollection
 {
     protected int $page = 1;
     protected string $pageName = 'page';

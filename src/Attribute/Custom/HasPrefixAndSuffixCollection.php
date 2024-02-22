@@ -13,7 +13,7 @@ use PHPForge\Widget\ElementInterface;
 /**
  * Is used by widgets that implement the prefix and suffix methods.
  */
-trait HasPrefixAndSuffix
+trait HasPrefixAndSuffixCollection
 {
     protected bool $prefixContainer = false;
     protected array $prefixContainerAttributes = [];

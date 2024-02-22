@@ -4,12 +4,18 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Metadata;
 
-use PHPForge\Html\Attribute\Custom\HasAttributes;
-use PHPForge\Html\Attribute\Custom\HasContentAttribute;
-use PHPForge\Html\Attribute\Input\HasName;
-use PHPForge\Html\Attribute\Tag\{HasCharset, HasHttpEquiv};
-use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasStyle};
-use PHPForge\Html\Tag;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContentAttribute,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\Input\HasName,
+    Attribute\Tag\HasCharset,
+    Attribute\Tag\HasHttpEquiv,
+    Tag
+};
 use PHPForge\Widget\Element;
 
 /**

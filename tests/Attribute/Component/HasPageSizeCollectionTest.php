@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Component;
 
-use PHPForge\Html\Attribute\Component\HasPageSize;
+use PHPForge\Html\Attribute\Component\HasPageSizeCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasPageSizeTest extends TestCase
+final class HasPageSizeCollectionTest extends TestCase
 {
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasPageSize;
+            use HasPageSizeCollection;
         };
 
         $this->assertNotSame($instance, $instance->pageSize(0));

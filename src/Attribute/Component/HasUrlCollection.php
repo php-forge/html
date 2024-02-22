@@ -7,9 +7,9 @@ namespace PHPForge\Html\Attribute\Component;
 use Closure;
 
 /**
- * Is used by widgets which implement the url methods.
+ * Is used by widgets which implement the url collection.
  */
-trait HasUrl
+trait HasUrlCollection
 {
     protected Closure|null $urlCreator = null;
     protected array $urlQueryParameters = [];

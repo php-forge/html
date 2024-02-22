@@ -4,30 +4,34 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
-use PHPForge\Html\Attribute\Custom\{
-    HasAttributes,
-    HasContainer,
-    HasEnclosedByLabel,
-    HasLabel,
-    HasLabelItemClass,
-    HasSeparator,
-    HasTemplate,
-    HasUnchecked,
-    HasWidgetValidation
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaDescribedBy,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\CanBeAutofocus,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasEnclosedByLabel,
+    Attribute\Custom\HasLabelCollection,
+    Attribute\Custom\HasLabelItemClass,
+    Attribute\Custom\HasSeparator,
+    Attribute\Custom\HasTemplate,
+    Attribute\Custom\HasUnchecked,
+    Attribute\Custom\HasWidgetValidation,
+    Attribute\Field\HasGenerateField,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasTabindex,
+    Attribute\Input\CanBeChecked,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasName,
+    FormControl\Input\Contract\AriaDescribedByInterface,
+    FormControl\Input\Contract\CheckedInterface,
+    FormControl\Input\Contract\InputInterface,
+    FormControl\Input\Contract\LabelInterface,
+    FormControl\Input\Contract\RequiredInterface,
+    Helper\Utils,
+    Tag
 };
-use PHPForge\Html\Attribute\Field\HasGenerateField;
-use PHPForge\Html\Attribute\Input\{CanBeChecked, CanBeRequired, HasName};
-use PHPForge\Html\Attribute\{CanBeAutofocus, HasClass, HasId, HasTabindex};
-use PHPForge\Html\FormControl\Input\Contract\{
-    AriaDescribedByInterface,
-    CheckedInterface,
-    InputInterface,
-    LabelInterface,
-    RequiredInterface
-};
-use PHPForge\Html\Helper\Utils;
-use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 use function in_array;
@@ -53,7 +57,7 @@ abstract class AbstractChoiceList extends Element implements
     use HasEnclosedByLabel;
     use HasGenerateField;
     use HasId;
-    use HasLabel;
+    use HasLabelCollection;
     use HasLabelItemClass;
     use HasName;
     use HasSeparator;

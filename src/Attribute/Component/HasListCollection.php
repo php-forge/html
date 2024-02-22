@@ -11,9 +11,9 @@ use function in_array;
 use function sprintf;
 
 /**
- * Is used by widgets that implement list methods.
+ * Is used by widgets that implement list collection.
  */
-trait HasList
+trait HasListCollection
 {
     protected array $listAttributes = [];
     protected bool $listContainer = false;

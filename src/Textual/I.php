@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Textual;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Base;
+use PHPForge\Html\{Attribute\Custom\HasContent, Base\AbstractElement};
 
 /**
  * The `<i>` HTML element represents a range of text that's set off from the normal text for some reason, such as
@@ -13,9 +12,9 @@ use PHPForge\Html\Base;
  *
  * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-i-element
  */
-final class I extends Base\AbstractElement
+final class I extends AbstractElement
 {
-    use Attribute\Custom\HasContent;
+    use HasContent;
 
     protected function run(): string
     {

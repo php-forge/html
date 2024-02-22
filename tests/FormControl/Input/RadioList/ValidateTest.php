@@ -27,8 +27,8 @@ final class ValidateTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->required()

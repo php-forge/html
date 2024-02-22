@@ -27,9 +27,9 @@ final class LabelTest extends TestCase
                 ->enclosedByLabel(true)
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -53,11 +53,11 @@ final class LabelTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
-                ->labelContent('Select your fruits?')
+                ->label('Select your fruits?')
                 ->name('CheckboxForm[text]')
                 ->render(),
         );
@@ -80,12 +80,12 @@ final class LabelTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->labelAttributes(['class' => 'value'])
-                ->labelContent('Select your fruits?')
+                ->label('Select your fruits?')
                 ->name('CheckboxForm[text]')
                 ->render(),
         );
@@ -108,39 +108,12 @@ final class LabelTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->labelClass('value')
-                ->labelContent('Select your fruits?')
-                ->name('CheckboxForm[text]')
-                ->render(),
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <label for="checkboxlist-65858c272ea89">Select your fruits?</label>
-            <div id="checkboxlist-65858c272ea89">
-            <input id="checkbox-6599b6a33dd96" name="CheckboxForm[text][]" type="checkbox" value="1">
-            <label for="checkbox-6599b6a33dd96">Apple</label>
-            <input id="checkbox-6599b6a33dd98" name="CheckboxForm[text][]" type="checkbox" value="2">
-            <label for="checkbox-6599b6a33dd98">Banana</label>
-            <input id="checkbox-6599b6a33dd97" name="CheckboxForm[text][]" type="checkbox" value="3">
-            <label for="checkbox-6599b6a33dd97">Orange</label>
-            </div>
-            HTML,
-            CheckboxList::widget()
-                ->id('checkboxlist-65858c272ea89')
-                ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
-                )
-                ->labelContent('Select your fruits?')
+                ->label('Select your fruits?')
                 ->name('CheckboxForm[text]')
                 ->render(),
         );
@@ -163,11 +136,11 @@ final class LabelTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
-                ->labelContent('Select your fruits?')
+                ->label('Select your fruits?')
                 ->labelFor('value')
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -191,11 +164,11 @@ final class LabelTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
-                ->labelContent('Select your fruits?')
+                ->label('Select your fruits?')
                 ->labelItemClass('value')
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -218,11 +191,11 @@ final class LabelTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->name('CheckboxForm[text]')
                 ->notLabel()
                 ->render(),

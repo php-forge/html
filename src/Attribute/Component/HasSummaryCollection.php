@@ -7,9 +7,9 @@ namespace PHPForge\Html\Attribute\Component;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Is used by widgets which implement the summary methods.
+ * Is used by widgets which implement the summary collection.
  */
-trait HasSummary
+trait HasSummaryCollection
 {
     protected array $summaryAttributes = [];
     protected string $summaryLabel = 'Page ';

@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasPrefixAndSuffix;
+use PHPForge\Html\Attribute\Custom\HasPrefixAndSuffixCollection;
 use PHPForge\Html\Textual\Span;
 use PHPUnit\Framework\TestCase;
 
-final class HasPrefixAndSuffixTest extends TestCase
+final class HasPrefixAndSuffixCollectionTest extends TestCase
 {
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
         };
 
         $this->assertNotSame($instance, $instance->prefix(''));
@@ -32,7 +32,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testPrefix(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
 
             public function getPrefix(): string
             {
@@ -48,7 +48,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testPrefixContainerClass(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
 
             public function getPrefixContainerClass(): string
             {
@@ -74,7 +74,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testPrefixContainerTagException(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -86,7 +86,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testPrefixWithXSS(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
 
             public function getPrefix(): string
             {
@@ -102,7 +102,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testSuffix(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
 
             public function getSuffix(): string
             {
@@ -118,7 +118,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testSuffixContainerClass(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
 
             public function getSuffixContainerClass(): string
             {
@@ -144,7 +144,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testSuffixContainerTagException(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -156,7 +156,7 @@ final class HasPrefixAndSuffixTest extends TestCase
     public function testSuffixWithXSS(): void
     {
         $instance = new class () {
-            use HasPrefixAndSuffix;
+            use HasPrefixAndSuffixCollection;
 
             public function getSuffix(): string
             {

@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasLabel;
+use PHPForge\Html\Attribute\Custom\HasLabelCollection;
 use PHPForge\Html\FormControl\Input\Base\AbstractButton;
 use PHPForge\Html\Textual\Span;
 use PHPUnit\Framework\TestCase;
 
-final class HasLabelTest extends TestCase
+final class HasLabelCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasLabel;
+            use HasLabelCollection;
 
             public function getLabelClass(): string
             {
@@ -40,28 +40,28 @@ final class HasLabelTest extends TestCase
     public function testContent(): void
     {
         $instance = new class () {
-            use HasLabel;
+            use HasLabelCollection;
 
-            public function getLabelContent(): string
+            public function getLabel(): string
             {
-                return $this->labelContent;
+                return $this->label;
             }
         };
 
-        $instance = $instance->labelContent('foo && bar', Span::widget()->content('foo && bar'));
+        $instance = $instance->label('foo && bar', Span::widget()->content('foo && bar'));
 
-        $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabelContent());
+        $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabel());
     }
 
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasLabel;
+            use HasLabelCollection;
         };
 
+        $this->assertNotSame($instance, $instance->label(''));
         $this->assertNotSame($instance, $instance->labelAttributes([]));
         $this->assertNotSame($instance, $instance->labelClass(''));
-        $this->assertNotSame($instance, $instance->labelContent(''));
         $this->assertNotSame($instance, $instance->labelFor(''));
         $this->assertNotSame($instance, $instance->notLabel());
     }
@@ -69,16 +69,16 @@ final class HasLabelTest extends TestCase
     public function testNotLabel(): void
     {
         $instance = new class () {
-            use HasLabel;
+            use HasLabelCollection;
 
-            public function isNotLabel(): bool
+            public function isLabel(): bool
             {
-                return $this->notLabel;
+                return $this->isLabel;
             }
         };
 
-        $this->assertFalse($instance->isNotLabel());
-        $this->assertTrue($instance->notLabel()->isNotLabel());
+        $this->assertTrue($instance->isLabel());
+        $this->assertFalse($instance->notLabel()->isLabel());
     }
 
     public function testRenderLabelTag(): void
@@ -90,22 +90,22 @@ final class HasLabelTest extends TestCase
             }
         };
 
-        $this->assertSame('<label>content</label>', $instance->labelContent('content')->run());
+        $this->assertSame('<label>content</label>', $instance->label('content')->run());
     }
 
     public function testXSS(): void
     {
         $instance = new class () {
-            use HasLabel;
+            use HasLabelCollection;
 
-            public function getLabelContent(): string
+            public function getLabel(): string
             {
-                return $this->labelContent;
+                return $this->label;
             }
         };
 
-        $instance = $instance->labelContent("<script>alert('Hack');</script>", Span::widget()->content('foo && bar'));
+        $instance = $instance->label("<script>alert('Hack');</script>", Span::widget()->content('foo && bar'));
 
-        $this->assertSame('<span>foo && bar</span>', $instance->getLabelContent());
+        $this->assertSame('<span>foo && bar</span>', $instance->getLabel());
     }
 }

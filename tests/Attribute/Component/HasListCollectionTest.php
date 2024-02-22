@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Component\HasList;
+use PHPForge\Html\Attribute\Component\HasListCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasListTest extends TestCase
+final class HasListCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasList;
+            use HasListCollection;
 
             public function getListClass(): string
             {
@@ -39,7 +39,7 @@ final class HasListTest extends TestCase
     public function testContainerClass(): void
     {
         $instance = new class () {
-            use HasList;
+            use HasListCollection;
 
             public function getListContainerClass(): string
             {
@@ -65,7 +65,7 @@ final class HasListTest extends TestCase
     public function testException(): void
     {
         $instance = new class () {
-            use HasList;
+            use HasListCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -77,7 +77,7 @@ final class HasListTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasList;
+            use HasListCollection;
         };
 
         $this->assertNotSame($instance, $instance->listAttributes([]));
@@ -91,7 +91,7 @@ final class HasListTest extends TestCase
     public function testListType(): void
     {
         $instance = new class () {
-            use HasList;
+            use HasListCollection;
 
             public function getListType(): string|false
             {

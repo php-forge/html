@@ -8,10 +8,18 @@ use DOMDocument;
 use DOMElement;
 use enshrined\svgSanitize\Sanitizer;
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\{HasAttributes, HasContent};
-use PHPForge\Html\Attribute\Input\{HasHeight, HasName, HasWidth};
-use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasTitle};
-use PHPForge\Html\Tag;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContent,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasTitle,
+    Attribute\Input\HasHeight,
+    Attribute\Input\HasName,
+    Attribute\Input\HasWidth,
+    Tag
+};
 use PHPForge\Widget\Element;
 use RuntimeException;
 

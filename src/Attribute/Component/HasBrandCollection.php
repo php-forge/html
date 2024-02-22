@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Component;
 
-use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Helper\Encode;
+use PHPForge\Html\Helper\{CssClass, Encode};
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Is used by widgets that implement brand methods.
+ * Is used by widgets that implement brand collection.
  */
-trait HasBrand
+trait HasBrandCollection
 {
     protected bool $brandContainer = false;
     protected array $brandContainerAttributes = [];

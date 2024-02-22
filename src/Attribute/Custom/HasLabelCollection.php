@@ -11,13 +11,28 @@ use PHPForge\Widget\ElementInterface;
 /**
  * Is used by widgets that implement the label methods.
  */
-trait HasLabel
+trait HasLabelCollection
 {
+    protected bool $isLabel = true;
+    protected string $label = '';
     protected array $labelAttributes = [];
     protected string $labelClass = '';
-    protected string $labelContent = '';
     protected string|null $labelFor = null;
-    protected bool $notLabel = false;
+
+    /**
+     * Set the `HTML` label content.
+     *
+     * @param ElementInterface|string ...$values The `HTML` label content value.
+     *
+     * @return static A new instance of the current class with the specified `HTML` label content.
+     */
+    public function label(ElementInterface|string ...$values): static
+    {
+        $new = clone $this;
+        $new->label = Encode::sanitizeXSS(...$values);
+
+        return $new;
+    }
 
     /**
      * Set the `HTML` attributes for the label.
@@ -51,21 +66,6 @@ trait HasLabel
     }
 
     /**
-     * Set the `HTML` label content.
-     *
-     * @param ElementInterface|string ...$values The `HTML` label content value.
-     *
-     * @return static A new instance of the current class with the specified `HTML` label content.
-     */
-    public function labelContent(ElementInterface|string ...$values): static
-    {
-        $new = clone $this;
-        $new->labelContent = Encode::sanitizeXSS(...$values);
-
-        return $new;
-    }
-
-    /**
      * Set the `for` attribute for the label.
      *
      * @param string|null $value The value for the `for` attribute.
@@ -88,7 +88,7 @@ trait HasLabel
     public function notLabel(): static
     {
         $new = clone $this;
-        $new->notLabel = true;
+        $new->isLabel = false;
 
         return $new;
     }
@@ -102,14 +102,10 @@ trait HasLabel
      */
     protected function renderLabelTag(string $labelFor = null): string
     {
-        if ($this->labelContent === '' || $this->notLabel) {
+        if ($this->isLabel === false || $this->label === '') {
             return '';
         }
 
-        return Label::widget()
-            ->attributes($this->labelAttributes)
-            ->content($this->labelContent)
-            ->for($labelFor)
-            ->render();
+        return Label::widget()->attributes($this->labelAttributes)->content($this->label)->for($labelFor)->render();
     }
 }

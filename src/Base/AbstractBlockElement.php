@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Base;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContent,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTitle,
+    Attribute\Input\HasName,
+    HtmlBuilder
+};
 use PHPForge\Widget\Block;
 
 /**
@@ -13,15 +23,15 @@ use PHPForge\Widget\Block;
  */
 abstract class AbstractBlockElement extends Block
 {
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasContent;
-    use Attribute\HasClass;
-    use Attribute\HasData;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasStyle;
-    use Attribute\HasTitle;
-    use Attribute\Input\HasName;
+    use HasAttributes;
+    use HasClass;
+    use HasContent;
+    use HasData;
+    use HasId;
+    use HasLang;
+    use HasName;
+    use HasStyle;
+    use HasTitle;
 
     protected array $attributes = [];
     protected string $tagName = '';

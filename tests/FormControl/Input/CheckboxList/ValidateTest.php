@@ -30,9 +30,9 @@ final class ValidateTest extends TestCase
                 ->required()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->required()->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->required()->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->required()->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->required()->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->required()->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->required()->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),

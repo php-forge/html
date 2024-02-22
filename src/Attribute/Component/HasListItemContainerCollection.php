@@ -8,9 +8,9 @@ use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Is used by widgets that implement container methods.
+ * Is used by widgets that implement container for list items collection.
  */
-trait HasListItemContainer
+trait HasListItemContainerCollection
 {
     protected bool $listItemContainer = false;
     protected array $listItemContainerAttributes = [];

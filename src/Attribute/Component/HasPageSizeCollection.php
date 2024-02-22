@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 /**
- * Is used by widgets which implement the page size methods.
+ * Is used by widgets which implement the page size collection.
  */
-trait HasPageSize
+trait HasPageSizeCollection
 {
     protected int $pageSize = 10;
     protected string $pageSizeName = 'page-size';

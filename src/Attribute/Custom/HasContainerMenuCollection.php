@@ -8,9 +8,9 @@ use InvalidArgumentException;
 use PHPForge\Html\Helper\CssClass;
 
 /**
- * Is used by widgets that implement container menu methods.
+ * Is used by widgets that implement container menu collection.
  */
-trait HasContainerMenu
+trait HasContainerMenuCollection
 {
     protected bool $containerMenu = true;
     protected array $containerMenuAttributes = [];

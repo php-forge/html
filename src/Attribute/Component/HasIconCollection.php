@@ -5,24 +5,31 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Svg;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{Helper\CssClass, Svg, Tag};
 
 /**
- * Is used by widgets that implement the icon methods.
+ * Is used by widgets that implement the icon collection.
  */
-trait HasIcon
+trait HasIconCollection
 {
-    protected bool $icon = true;
+
+    protected string $icon = '';
     protected array $iconAttributes = [];
     protected string $iconClass = '';
     protected bool $iconContainer = false;
     protected array $iconContainerAttributes = [];
     protected string $iconContainerTag = 'div';
-    protected string $iconContent = '';
     protected string $iconFilePath = '';
     protected false|string $iconTag = 'i';
+    protected bool $isIcon = true;
+
+    /**
+     * @return string The icon of the menu item.
+     */
+    public function getIcon(): string
+    {
+        return $this->icon;
+    }
 
     /**
      * @return array The `HTML` attributes of the icon of the menu item.
@@ -41,27 +48,20 @@ trait HasIcon
     }
 
     /**
-     * @return string The icon of the menu item.
-     */
-    public function getIconContent(): string
-    {
-        return $this->iconContent;
-    }
-
-    /**
-     * Enable or disable the icon.
+     * Set the icon `HTML` content.
      *
-     * @param bool $value `true` to enable the icon, `false` to disable it.
+     * @param string $value The icon `HTML` content.
      *
-     * @return static A new instance of the current class with the specified icon value.
+     * @return static A new instance of the current class with the specified icon content.
      */
-    public function icon(bool $value): static
+    public function icon(string $value): static
     {
         $new = clone $this;
         $new->icon = $value;
 
         return $new;
     }
+
 
     /**
      * Set the `HTML` attributes for the icon.
@@ -159,21 +159,6 @@ trait HasIcon
     }
 
     /**
-     * Set the icon `HTML` content.
-     *
-     * @param string $value The icon `HTML` content.
-     *
-     * @return static A new instance of the current class with the specified icon content.
-     */
-    public function iconContent(string $value): static
-    {
-        $new = clone $this;
-        $new->iconContent = $value;
-
-        return $new;
-    }
-
-    /**
      * Set the icon file path.
      *
      * @param string $value The icon file path.
@@ -210,27 +195,40 @@ trait HasIcon
         return $new;
     }
 
+    /**
+     * Disable the icon.
+     *
+     * @return static A new instance of the current class with the icon disabled.
+     */
+    public function notIcon(): static
+    {
+        $new = clone $this;
+        $new->isIcon = false;
+
+        return $new;
+    }
+
     private function renderIconTag(): string
     {
         if (
-            $this->icon === false ||
-            ($this->iconClass === '' && $this->iconContent === '' && $this->iconFilePath === '')
+            $this->isIcon === false ||
+            ($this->icon === '' && $this->iconClass === '' && $this->iconFilePath === '')
         ) {
             return '';
         }
 
         $iconTag = match ($this->iconTag) {
-            false => $this->iconContent,
+            false => $this->icon,
             'svg' => Svg::widget()
                 ->attributes($this->iconAttributes)
                 ->class($this->iconClass)
-                ->content($this->iconContent)
+                ->content($this->icon)
                 ->filePath($this->iconFilePath)
                 ->render(),
             default => Tag::widget()
                 ->attributes($this->iconAttributes)
                 ->class($this->iconClass)
-                ->content($this->iconContent)
+                ->content($this->icon)
                 ->tagName($this->iconTag)
                 ->render(),
         };

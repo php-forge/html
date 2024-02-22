@@ -28,8 +28,8 @@ final class AttributeTest extends TestCase
                 ->ariaDescribedBy('value')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -51,8 +51,8 @@ final class AttributeTest extends TestCase
                 ->ariaLabel('value')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -74,8 +74,8 @@ final class AttributeTest extends TestCase
                 ->attributes(['class' => 'value'])
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -97,8 +97,8 @@ final class AttributeTest extends TestCase
                 ->autofocus()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -120,8 +120,8 @@ final class AttributeTest extends TestCase
                 ->checked(2)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -143,8 +143,8 @@ final class AttributeTest extends TestCase
                 ->checked(null)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -166,8 +166,8 @@ final class AttributeTest extends TestCase
                 ->class('value')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -189,8 +189,8 @@ final class AttributeTest extends TestCase
                 ->ariaDescribedBy()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -212,8 +212,8 @@ final class AttributeTest extends TestCase
                 ->ariaDescribedBy(false)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -239,8 +239,8 @@ final class AttributeTest extends TestCase
             RadioList::widget()
                 ->id('value')
                 ->items(
-                    Radio::widget()->id('id-radio-1')->labelContent('Female')->value(1),
-                    Radio::widget()->id('id-radio-2')->labelContent('Male')->value(2),
+                    Radio::widget()->id('id-radio-1')->label('Female')->value(1),
+                    Radio::widget()->id('id-radio-2')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -262,10 +262,10 @@ final class AttributeTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->name('value')
                 ->render()
         );
@@ -285,8 +285,8 @@ final class AttributeTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->tabIndex(1)
@@ -310,8 +310,8 @@ final class AttributeTest extends TestCase
                 ->checked(false)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('inactive')->value(false),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('active')->value(true),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('inactive')->value(false),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('active')->value(true),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -331,8 +331,8 @@ final class AttributeTest extends TestCase
                 ->checked(1)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value('1'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value('2'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value('1'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value('2'),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -352,8 +352,8 @@ final class AttributeTest extends TestCase
                 ->checked('red')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -375,8 +375,8 @@ final class AttributeTest extends TestCase
                 ->checked(null)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -398,8 +398,8 @@ final class AttributeTest extends TestCase
                 ->generateField('ModelName', 'fieldName')
                 ->id(null)
                 ->items(
-                    Radio::widget()->labelContent('Female')->value(1),
-                    Radio::widget()->labelContent('Male')->value(2),
+                    Radio::widget()->label('Female')->value(1),
+                    Radio::widget()->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -421,8 +421,8 @@ final class AttributeTest extends TestCase
                 ->generateField('ModelName', 'fieldName')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->labelContent('Female')->value(1),
-                    Radio::widget()->labelContent('Male')->value(2),
+                    Radio::widget()->label('Female')->value(1),
+                    Radio::widget()->label('Male')->value(2),
                 )
                 ->name(null)
                 ->render()

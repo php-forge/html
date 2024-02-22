@@ -4,12 +4,26 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Base;
 
-use PHPForge\Html\Attribute\Custom\{HasAttributes, HasContent, HasCsrf};
-use PHPForge\Html\Attribute\Input\{HasAccept, HasAutocomplete, HasName};
-use PHPForge\Html\Attribute\Tag\{CanBeNoValidate, HasAction, HasEnctype, HasMethod, HasRel};
-use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasStyle, HasTitle};
-use PHPForge\Html\FormControl\Input\Hidden;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContent,
+    Attribute\Custom\HasCsrf,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTitle,
+    Attribute\Input\HasAccept,
+    Attribute\Input\HasAutocomplete,
+    Attribute\Input\HasName,
+    Attribute\Tag\CanBeNoValidate,
+    Attribute\Tag\HasAction,
+    Attribute\Tag\HasEnctype,
+    Attribute\Tag\HasMethod,
+    Attribute\Tag\HasRel,
+    FormControl\Input\Hidden,
+    HtmlBuilder
+};
 use PHPForge\Widget\Block;
 
 use function explode;

@@ -4,48 +4,44 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
-use PHPForge\Html\Attribute\Custom\{
-    HasAttributes,
-    HasContainer,
-    HasContent,
-    HasEnclosedByLabel,
-    HasLabel,
-    HasPrefixAndSuffix,
-    HasSeparator,
-    HasTemplate,
-    HasUnchecked,
-    HasWidgetValidation
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaDescribedBy,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\CanBeAutofocus,
+    Attribute\CanBeHidden,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasContent,
+    Attribute\Custom\HasEnclosedByLabel,
+    Attribute\Custom\HasLabelCollection,
+    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasSeparator,
+    Attribute\Custom\HasTemplate,
+    Attribute\Custom\HasUnchecked,
+    Attribute\Custom\HasWidgetValidation,
+    Attribute\Field\HasGenerateField,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\HasTitle,
+    Attribute\Input\CanBeChecked,
+    Attribute\Input\CanBeDisabled,
+    Attribute\Input\CanBeReadonly,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasForm,
+    Attribute\Input\HasName,
+    Attribute\Input\HasValue,
+    FormControl\Input\Contract\AriaDescribedByInterface,
+    FormControl\Input\Contract\CheckedInterface,
+    FormControl\Input\Contract\InputInterface,
+    FormControl\Input\Contract\LabelInterface,
+    FormControl\Input\Contract\RequiredInterface,
+    FormControl\Label,
+    Tag
 };
-use PHPForge\Html\Attribute\Field\HasGenerateField;
-use PHPForge\Html\Attribute\Input\{
-    CanBeChecked,
-    CanBeDisabled,
-    CanBeReadonly,
-    CanBeRequired,
-    HasForm,
-    HasName,
-    HasValue
-};
-use PHPForge\Html\Attribute\{
-    CanBeAutofocus,
-    CanBeHidden,
-    HasClass,
-    HasData,
-    HasId,
-    HasLang,
-    HasStyle,
-    HasTabindex,
-    HasTitle
-};
-use PHPForge\Html\FormControl\Input\Contract\{
-    AriaDescribedByInterface,
-    CheckedInterface,
-    InputInterface,
-    LabelInterface,
-    RequiredInterface
-};
-use PHPForge\Html\{Tag, FormControl\Label};
 use PHPForge\Widget\Element;
 
 /**
@@ -75,10 +71,10 @@ abstract class AbstractInputChoice extends Element implements
     use HasForm;
     use HasGenerateField;
     use HasId;
-    use HasLabel;
+    use HasLabelCollection;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffix;
+    use HasPrefixAndSuffixCollection;
     use HasSeparator;
     use HasStyle;
     use HasTabindex;
@@ -171,7 +167,7 @@ abstract class AbstractInputChoice extends Element implements
 
     private function renderEnclosedByLabel(string $tag, string|null $labelFor): string
     {
-        if ($this->labelContent === '' || $this->notLabel) {
+        if ($this->isLabel === false || $this->label === '') {
             return $tag;
         }
 
@@ -181,7 +177,7 @@ abstract class AbstractInputChoice extends Element implements
                 $this->separator,
                 $tag,
                 $this->separator,
-                $this->labelContent,
+                $this->label,
                 $this->separator,
             )
             ->for($labelFor)

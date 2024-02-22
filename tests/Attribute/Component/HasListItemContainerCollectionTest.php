@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Component\HasListItemContainer;
+use PHPForge\Html\Attribute\Component\HasListItemContainerCollection;
 use PHPUnit\Framework\TestCase;
 
 final class HasListItemContainerTest extends TestCase
@@ -13,7 +13,7 @@ final class HasListItemContainerTest extends TestCase
     public function testClass(): void
     {
         $instance = new class () {
-            use HasListItemContainer;
+            use HasListItemContainerCollection;
 
             public function getListItemContainerClass(): string
             {
@@ -39,7 +39,7 @@ final class HasListItemContainerTest extends TestCase
     public function testException(): void
     {
         $instance = new class () {
-            use HasListItemContainer;
+            use HasListItemContainerCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -51,7 +51,7 @@ final class HasListItemContainerTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasListItemContainer;
+            use HasListItemContainerCollection;
         };
 
         $this->assertNotSame($instance, $instance->listItemContainer(true));

@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Semantic;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Base;
+use PHPForge\Html\{
+    Attribute\Custom\HasTagName,
+    Attribute\Custom\HasWidgetValidation,
+    Base\AbstractBlockElement
+};
 
 /**
  * The `<h1>` to `<h6>` HTML elements represent six levels of section headings.
@@ -13,10 +16,10 @@ use PHPForge\Html\Base;
  *
  * @link https://html.spec.whatwg.org/multipage/sections.html#the-h1,-h2,-h3,-h4,-h5,-and-h6-elements
  */
-final class H extends Base\AbstractBlockElement
+final class H extends AbstractBlockElement
 {
-    use Attribute\Custom\HasTagName;
-    use Attribute\Custom\HasWidgetValidation;
+    use HasTagName;
+    use HasWidgetValidation;
 
     /**
      * This method is used to configure the widget with the provided default definitions.

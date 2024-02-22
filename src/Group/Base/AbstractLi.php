@@ -4,9 +4,18 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Group\Base;
 
-use PHPForge\Html\Attribute\{Custom\HasAttributes, Input\HasName, Input\HasValue};
-use PHPForge\Html\Attribute\{HasClass, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
-use PHPForge\Html\Tag;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\HasTitle,
+    Attribute\Input\HasName,
+    Attribute\Input\HasValue,
+    Tag
+};
 use PHPForge\Widget\{Element, ElementInterface};
 
 use function trim;

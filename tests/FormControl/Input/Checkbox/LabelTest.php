@@ -22,7 +22,7 @@ final class LabelTest extends TestCase
             Red
             </label>
             HTML,
-            Checkbox::widget()->enclosedByLabel(true)->id('checkbox-6582f2d099e8b')->labelContent('Red')->render()
+            Checkbox::widget()->enclosedByLabel(true)->id('checkbox-6582f2d099e8b')->label('Red')->render()
         );
     }
 
@@ -48,7 +48,7 @@ final class LabelTest extends TestCase
             Checkbox::widget()
                 ->enclosedByLabel(true)
                 ->id('checkbox-6582f2d099e8b')
-                ->labelContent('Red')
+                ->label('Red')
                 ->labelFor('label-for')
                 ->render()
         );
@@ -61,7 +61,7 @@ final class LabelTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             <label for="checkbox-6582f2d099e8b">Red</label>
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->label('Red')->render()
         );
     }
 
@@ -74,10 +74,8 @@ final class LabelTest extends TestCase
             HTML,
             Checkbox::widget()
                 ->id('checkbox-6582f2d099e8b')
-                ->labelAttributes([
-                    'class' => 'value',
-                ])
-                ->labelContent('Red')
+                ->label('Red')
+                ->labelAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -89,18 +87,7 @@ final class LabelTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             <label class="value" for="checkbox-6582f2d099e8b">Red</label>
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelClass('value')->render()
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox">
-            <label for="checkbox-6582f2d099e8b">Red</label>
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->label('Red')->labelClass('value')->render()
         );
     }
 
@@ -111,7 +98,7 @@ final class LabelTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             <label for="value">Red</label>
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelFor('value')->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->label('Red')->labelFor('value')->render()
         );
     }
 
@@ -121,7 +108,7 @@ final class LabelTest extends TestCase
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->notLabel()->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->label('Red')->notLabel()->render()
         );
     }
 }

@@ -28,8 +28,8 @@ final class CustomMethodTest extends TestCase
                 ->containerAttributes(['class' => 'value'])
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -51,8 +51,8 @@ final class CustomMethodTest extends TestCase
                 ->containerClass('value')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -74,8 +74,8 @@ final class CustomMethodTest extends TestCase
                 ->containerTag('article')
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -94,8 +94,8 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->container(false)
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -113,8 +113,8 @@ final class CustomMethodTest extends TestCase
             HTML,
             RadioList::widget(['container()' => [false]])
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -136,8 +136,8 @@ final class CustomMethodTest extends TestCase
                 ->id('radiolist-65858c272ea89')
                 ->generateField('ModelName', 'fieldName')
                 ->items(
-                    Radio::widget()->labelContent('Female')->value(1),
-                    Radio::widget()->labelContent('Male')->value(2),
+                    Radio::widget()->label('Female')->value(1),
+                    Radio::widget()->label('Male')->value(2),
                 )
                 ->render()
         );
@@ -157,8 +157,8 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->render()
@@ -179,8 +179,8 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->separator(PHP_EOL)
@@ -205,10 +205,10 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
-                ->labelContent('Select your fruits?')
+                ->label('Select your fruits?')
                 ->name('radioform[text]')
                 ->template('<div>\n{tag}\n{label}\n</div>')
                 ->render()
@@ -230,8 +230,8 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->uncheckAttributes(['class' => 'value'])
@@ -255,8 +255,8 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->uncheckClass('value')
@@ -280,8 +280,8 @@ final class CustomMethodTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->uncheckValue('none')

@@ -4,15 +4,21 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Attribute\Custom\HasWidgetValidation;
-use PHPForge\Html\Attribute\Input\{
-    CanBeRequired,
-    HasMaxLength,
-    HasMinLength,
-    HasPattern,
-    HasPlaceholder,
-    HasSize,
-    HasValue
+use PHPForge\Html\{
+    Attribute\Custom\HasWidgetValidation,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasMaxLength,
+    Attribute\Input\HasMinLength,
+    Attribute\Input\HasPattern,
+    Attribute\Input\HasPlaceholder,
+    Attribute\Input\HasSize,
+    Attribute\Input\HasValue,
+    FormControl\Input\Base\AbstractInput,
+    FormControl\Input\Contract\LengthInterface,
+    FormControl\Input\Contract\PatternInterface,
+    FormControl\Input\Contract\PlaceholderInterface,
+    FormControl\Input\Contract\RequiredInterface,
+    FormControl\Input\Contract\ValueInterface
 };
 
 /**
@@ -21,12 +27,12 @@ use PHPForge\Html\Attribute\Input\{
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.url.html
  */
-final class Url extends Base\AbstractInput implements
-    Contract\LengthInterface,
-    Contract\PatternInterface,
-    Contract\PlaceholderInterface,
-    Contract\RequiredInterface,
-    Contract\ValueInterface
+final class Url extends AbstractInput implements
+    LengthInterface,
+    PatternInterface,
+    PlaceholderInterface,
+    RequiredInterface,
+    ValueInterface
 {
     use CanBeRequired;
     use HasMaxLength;

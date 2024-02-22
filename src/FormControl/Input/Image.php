@@ -4,18 +4,20 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Attribute\Custom\HasWidgetValidation;
-use PHPForge\Html\Attribute\Input\{
-    HasAlt,
-    HasFormaction,
-    HasFormenctype,
-    HasFormmethod,
-    HasFormnovalidate,
-    HasFormtarget,
-    HasHeight,
-    HasSrc,
-    HasValue,
-    HasWidth
+use PHPForge\Html\{
+    Attribute\Custom\HasWidgetValidation,
+    Attribute\Input\HasAlt,
+    Attribute\Input\HasFormaction,
+    Attribute\Input\HasFormenctype,
+    Attribute\Input\HasFormmethod,
+    Attribute\Input\HasFormnovalidate,
+    Attribute\Input\HasFormtarget,
+    Attribute\Input\HasHeight,
+    Attribute\Input\HasSrc,
+    Attribute\Input\HasValue,
+    Attribute\Input\HasWidth,
+    FormControl\Input\Base\AbstractInput,
+    FormControl\Input\Contract\SrcInterface
 };
 
 /**
@@ -25,7 +27,7 @@ use PHPForge\Html\Attribute\Input\{
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.image.html#input.image
  */
-final class Image extends Base\AbstractInput implements Contract\SrcInterface
+final class Image extends AbstractInput implements SrcInterface
 {
     use HasAlt;
     use HasFormaction;

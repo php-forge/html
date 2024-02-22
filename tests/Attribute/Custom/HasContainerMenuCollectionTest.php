@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasContainerMenu;
+use PHPForge\Html\Attribute\Custom\HasContainerMenuCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasContainerMenuTest extends TestCase
+final class HasContainerMenuCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasContainerMenu;
+            use HasContainerMenuCollection;
 
             public function getContainerMenuClass(): string
             {
@@ -39,7 +39,7 @@ final class HasContainerMenuTest extends TestCase
     public function testException(): void
     {
         $instance = new class () {
-            use HasContainerMenu;
+            use HasContainerMenuCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -51,7 +51,7 @@ final class HasContainerMenuTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasContainerMenu;
+            use HasContainerMenuCollection;
         };
 
         $this->assertNotSame($instance, $instance->containerMenu(true));
