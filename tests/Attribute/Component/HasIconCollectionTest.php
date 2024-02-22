@@ -142,16 +142,23 @@ final class HasIconCollectionTest extends TestCase
                 return $this->iconTag;
             }
 
+            public function isIcon(): bool
+            {
+                return $this->isIcon;
+            }
+
             public function render(): string
             {
                 return $this->renderIconTag();
             }
         };
 
+        $this->assertTrue($instance->isIcon());
         $this->assertEmpty($instance->render());
 
         $instance = $instance->notIcon();
 
+        $this->assertFalse($instance->isIcon());
         $this->assertEmpty($instance->render());
     }
 
