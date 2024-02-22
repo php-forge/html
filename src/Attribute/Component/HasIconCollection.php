@@ -12,7 +12,6 @@ use PHPForge\Html\{Helper\CssClass, Svg, Tag};
  */
 trait HasIconCollection
 {
-
     protected string $icon = '';
     protected array $iconAttributes = [];
     protected string $iconClass = '';
@@ -61,7 +60,6 @@ trait HasIconCollection
 
         return $new;
     }
-
 
     /**
      * Set the `HTML` attributes for the icon.

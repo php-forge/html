@@ -8,7 +8,7 @@ use InvalidArgumentException;
 use PHPForge\Html\Attribute\Component\HasListItemContainerCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasListItemContainerTest extends TestCase
+final class HasListItemContainerCollectionTest extends TestCase
 {
     public function testClass(): void
     {

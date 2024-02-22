@@ -29,9 +29,9 @@ use PHPForge\Html\{
 final class Tag extends AbstractElement
 {
     use HasContent;
+    use HasTabindex;
     use HasTagName;
     use HasTokenValues;
-    use HasTabindex;
     use HasType;
     use HasValue;
 
