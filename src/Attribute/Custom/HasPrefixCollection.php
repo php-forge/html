@@ -112,7 +112,7 @@ trait HasPrefixCollection
                 ->content($this->prefix)
                 ->tagName($this->prefixContainerTag)
                 ->render(),
-            default => $this->prefix,
+            false => $this->prefix,
         };
     }
 }

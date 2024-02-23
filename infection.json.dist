@@ -39,6 +39,12 @@
                 "PHPForge\\Html\\Attribute\\Input\\HasSrc::src",
                 "PHPForge\\Html\\Attribute\\Input\\HasValue::value"
             ]
+        },
+        "TrueValue": {
+            "ignore": [
+                "PHPForge\\Html\\Attribute\\Custom\\HasPrefixCollection::renderPrefixTag",
+                "PHPForge\\Html\\Attribute\\Custom\\HasSuffixCollection::renderSuffixTag"
+            ]
         }
     }
 }

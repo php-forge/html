@@ -66,10 +66,27 @@ final class HasSuffixCollectionTest extends TestCase
         $instance = new class () {
             use HasSuffixCollection;
 
-            public function getSuffix(): string
+            public function run(): string
             {
-                return $this->suffix;
+                return $this->renderSuffixTag();
             }
+        };
+
+        $instance = $instance->suffix('suffix')->suffixContainer(false);
+
+        $this->assertStringNotContainsString('<div>', $instance->run());
+        Assert::equalsWithoutLE(
+            <<<HTML
+            suffix
+            HTML,
+            $instance->run()
+        );
+    }
+
+    public function testRenderWithContainerTrue(): void
+    {
+        $instance = new class () {
+            use HasSuffixCollection;
 
             public function run(): string
             {
@@ -77,13 +94,14 @@ final class HasSuffixCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->suffix('suffix', Span::widget());
+        $instance = $instance->suffix('suffix')->suffixContainer(true);
 
-        $this->assertSame('suffix<span></span>', $instance->getSuffix());
-
+        $this->assertStringContainsString('<div>', $instance->run());
         Assert::equalsWithoutLE(
             <<<HTML
-            suffix<span></span>
+            <div>
+            suffix
+            </div>
             HTML,
             $instance->run()
         );

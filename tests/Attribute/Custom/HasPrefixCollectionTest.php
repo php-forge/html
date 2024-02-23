@@ -66,10 +66,26 @@ final class HasPrefixCollectionTest extends TestCase
         $instance = new class () {
             use HasPrefixCollection;
 
-            public function getPrefix(): string
+            public function run(): string
             {
-                return $this->prefix;
+                return $this->renderPrefixTag();
             }
+        };
+
+        $instance = $instance->prefix('prefix')->prefixContainer(false);
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            prefix
+            HTML,
+            $instance->run()
+        );
+    }
+
+    public function testRenderWithContainerTrue(): void
+    {
+        $instance = new class () {
+            use HasPrefixCollection;
 
             public function run(): string
             {
@@ -77,13 +93,13 @@ final class HasPrefixCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->prefix(Span::widget(), 'prefix');
-
-        $this->assertSame('<span></span>prefix', $instance->getPrefix());
+        $instance = $instance->prefix('prefix')->prefixContainer(true);
 
         Assert::equalsWithoutLE(
             <<<HTML
-            <span></span>prefix
+            <div>
+            prefix
+            </div>
             HTML,
             $instance->run()
         );
