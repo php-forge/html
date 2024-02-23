@@ -8,9 +8,7 @@
         "html",
         "php"
     ],
-    "license": "MIT",
     "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^8.1",
         "ext-dom": "*",
