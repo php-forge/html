@@ -10,7 +10,6 @@
             "report": "main"
         }
     },
-    "timeout": 20,
     "mutators": {
         "@default": true,
         "PublicVisibility": {
@@ -39,6 +38,12 @@
                 "PHPForge\\Html\\Attribute\\Input\\HasPlaceholder::placeholder",
                 "PHPForge\\Html\\Attribute\\Input\\HasSrc::src",
                 "PHPForge\\Html\\Attribute\\Input\\HasValue::value"
+            ]
+        },
+        "TrueValue": {
+            "ignore": [
+                "PHPForge\\Html\\Attribute\\Custom\\HasPrefixCollection::renderPrefixTag",
+                "PHPForge\\Html\\Attribute\\Custom\\HasSuffixCollection::renderSuffixTag"
             ]
         }
     }

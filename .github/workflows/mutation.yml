@@ -22,14 +22,12 @@ name: mutation test
 
 jobs:
   mutation:
-    uses: php-forge/actions/.github/workflows/infection.yml@main
+    uses: php-forge/actions/.github/workflows/roave-infection.yml@main
     secrets:
       AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
     with:
-      debug: true
       os: >-
         ['ubuntu-latest']
-      options: -s --log-verbosity=all --threads=2
       php: >-
         ['8.1']
