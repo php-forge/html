@@ -90,7 +90,8 @@ final class Button extends Element
         $this->validateInList(
             $this->tagName,
             'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
-            'a', 'button'
+            'a',
+            'button'
         );
 
         if ($this->ariaDescribedBy === true) {

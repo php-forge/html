@@ -31,7 +31,10 @@ trait HasTarget
         $this->validateInList(
             $value,
             'Invalid value "%s" for the target attribute. Allowed values are: "%s".',
-            '_blank', '_self', '_parent', '_top',
+            '_blank',
+            '_self',
+            '_parent',
+            '_top',
         );
 
         $new = clone $this;

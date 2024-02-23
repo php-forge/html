@@ -31,7 +31,9 @@ trait HasEnctype
         $this->validateInList(
             $value,
             'Invalid value "%s" for the enctype attribute. Allowed values are: "%s".',
-            'multipart/form-data', 'application/x-www-form-urlencoded', 'text/plain'
+            'multipart/form-data',
+            'application/x-www-form-urlencoded',
+            'text/plain'
         );
 
         $new = clone $this;

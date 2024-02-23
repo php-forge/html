@@ -31,7 +31,8 @@ trait HasFormmethod
         $this->validateInList(
             strtoupper($value),
             'Invalid value "%s" for the formmethod attribute. Allowed values are: "%s".',
-            'GET', 'POST'
+            'GET',
+            'POST'
         );
 
         $new = clone $this;

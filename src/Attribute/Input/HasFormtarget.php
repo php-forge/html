@@ -30,7 +30,10 @@ trait HasFormtarget
         $this->validateInList(
             $value,
             'Invalid value "%s" for the formtarget attribute. Allowed values are: "%s".',
-            '_blank', '_self', '_parent', '_top'
+            '_blank',
+            '_self',
+            '_parent',
+            '_top'
         );
 
 

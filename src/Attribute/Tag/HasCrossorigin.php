@@ -34,7 +34,8 @@ trait HasCrossorigin
         $this->validateInList(
             $value,
             'Invalid value "%s" for the crossorigin attribute. Allowed values are: "%s".',
-            'anonymous', 'use-credentials'
+            'anonymous',
+            'use-credentials'
         );
 
         $new = clone $this;

@@ -113,7 +113,8 @@ trait HasListCollection
             $this->validateInList(
                 $value,
                 'Invalid value "%s" for the list type method. Allowed values are: "%s".',
-                'ol', 'ul',
+                'ol',
+                'ul',
             );
         }
 

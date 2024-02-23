@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
+
 use PHPForge\Html\Attribute\Custom\HasValidateIterable;
 
 /*

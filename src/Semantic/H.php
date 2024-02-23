@@ -36,7 +36,12 @@ final class H extends AbstractBlockElement
         $this->validateInList(
             $this->tagName,
             'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
-            'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+            'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6'
         );
 
         return parent::run();

@@ -29,7 +29,8 @@ trait HasLoading
         $this->validateInList(
             $value,
             'Invalid value "%s" for the loading attribute. Allowed values are: "%s".',
-            'eager', 'lazy'
+            'eager',
+            'lazy'
         );
 
         $new = clone $this;
