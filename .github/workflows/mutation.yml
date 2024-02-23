@@ -27,6 +27,7 @@ jobs:
       AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
       STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
     with:
+      debug: true
       os: >-
         ['ubuntu-latest']
       php: >-
