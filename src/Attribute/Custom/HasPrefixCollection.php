@@ -106,14 +106,12 @@ trait HasPrefixCollection
      */
     private function renderPrefixTag(): string
     {
-        if ($this->prefixContainer === false) {
-            return $this->prefix;
-        }
-
-        return Tag::widget()
-            ->attributes($this->prefixContainerAttributes)
-            ->content($this->prefix)
-            ->tagName($this->prefixContainerTag)
-            ->render();
+        return $this->prefixContainer === true
+            ? Tag::widget()
+                ->attributes($this->prefixContainerAttributes)
+                ->content($this->prefix)
+                ->tagName($this->prefixContainerTag)
+                ->render()
+            : $this->prefix;
     }
 }

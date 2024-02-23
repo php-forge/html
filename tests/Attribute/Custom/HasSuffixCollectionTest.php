@@ -66,24 +66,17 @@ final class HasSuffixCollectionTest extends TestCase
         $instance = new class () {
             use HasSuffixCollection;
 
-            public function getSuffix(): string
-            {
-                return $this->suffix;
-            }
-
             public function run(): string
             {
                 return $this->renderSuffixTag();
             }
         };
 
-        $instance = $instance->suffix('suffix')->suffixContainer(false);
-
         Assert::equalsWithoutLE(
             <<<HTML
             suffix
             HTML,
-            $instance->run()
+            $instance->suffix('suffix')->suffixContainer(false)->run()
         );
     }
 
@@ -92,10 +85,6 @@ final class HasSuffixCollectionTest extends TestCase
         $instance = new class () {
             use HasSuffixCollection;
 
-            public function getSuffix(): string
-            {
-                return $this->suffix;
-            }
 
             public function run(): string
             {
@@ -103,15 +92,13 @@ final class HasSuffixCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->suffix('suffix', Span::widget())->suffixContainer(true);
-
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            suffix<span></span>
+            suffix
             </div>
             HTML,
-            $instance->run()
+            $instance->suffix('suffix')->suffixContainer(true)->run()
         );
     }
 
