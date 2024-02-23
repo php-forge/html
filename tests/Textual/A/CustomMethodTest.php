@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Textual\A;
 
-use PHPForge\Html\Textual\A;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Textual\A, Support\Assert};
+use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class CustomMethodTest extends \PHPUnit\Framework\TestCase
+final class CustomMethodTest extends TestCase
 {
     public function testPrefix(): void
     {

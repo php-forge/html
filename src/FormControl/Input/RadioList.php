@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
+use PHPForge\Html\Attribute\Custom\HasValidateScalar;
+
 /*
  * Generates a list of radio buttons.
  *
@@ -12,6 +14,8 @@ namespace PHPForge\Html\FormControl\Input;
  */
 final class RadioList extends Base\AbstractChoiceList
 {
+    use HasValidateScalar;
+
     /**
      * Sets the items for the RadioList.
      *

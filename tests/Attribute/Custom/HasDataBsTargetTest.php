@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataBsTarget;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\Attribute\{Custom\HasDataBsTarget, HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataBsTargetTest extends TestCase
@@ -19,11 +18,9 @@ final class HasDataBsTargetTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataBsTarget('id');
+        $instance = $instance->dataBsTarget('value');
 
-        $this->assertSame([
-            'data-bs-target' => 'id',
-        ], $instance->attributes);
+        $this->assertSame(['data-bs-target' => 'value'], $instance->attributes);
     }
 
     public function testDataBsTargetWithTrue(): void

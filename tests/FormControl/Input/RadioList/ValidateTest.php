@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\RadioList;
 
-use PHPForge\Html\FormControl\Input\{Radio, RadioList};
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Radio, Html\FormControl\Input\RadioList, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,8 +26,8 @@ final class ValidateTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Red')->value('red'),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Blue')->value('blue'),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Red')->value('red'),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Blue')->value('blue'),
                 )
                 ->name('radioform[text]')
                 ->required()

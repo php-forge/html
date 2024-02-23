@@ -5,12 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Input;
 
 use InvalidArgumentException;
+use PHPForge\Html\Attribute\Custom\HasValidateInList;
 
 /**
  * Is used by widgets that implement the formenctype method.
  */
 trait HasFormenctype
 {
+    use HasValidateInList;
+
     /**
      * Set a mime type with which a UA is meant to associate this element for form submission.
      *
@@ -23,16 +26,13 @@ trait HasFormenctype
      */
     public function formenctype(string $value): static
     {
-        if (
-            $value !== 'multipart/form-data' &&
-            $value !== 'application/x-www-form-urlencoded' &&
-            $value !== 'text/plain'
-        ) {
-            throw new InvalidArgumentException(
-                'The formenctype attribute must be one of the following values: ' .
-                '"multipart/form-data", "application/x-www-form-urlencoded", "text/plain".'
-            );
-        }
+        $this->validateInList(
+            $value,
+            'Invalid value "%s" for the formenctype attribute. Allowed values are: "%s".',
+            'application/x-www-form-urlencoded',
+            'multipart/form-data',
+            'text/plain'
+        );
 
         $new = clone $this;
         $new->attributes['formenctype'] = $value;

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Radio;
 
-use PHPForge\Html\FormControl\Input\Radio;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Radio, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 final class LabelTest extends TestCase
@@ -19,7 +18,7 @@ final class LabelTest extends TestCase
             Red
             </label>
             HTML,
-            Radio::widget()->enclosedByLabel(true)->id('radio-6582f2d099e8b')->labelContent('Red')->render()
+            Radio::widget()->enclosedByLabel(true)->id('radio-6582f2d099e8b')->label('Red')->render()
         );
     }
 
@@ -45,7 +44,7 @@ final class LabelTest extends TestCase
             Radio::widget()
                 ->enclosedByLabel(true)
                 ->id('checkbox-6582f2d099e8b')
-                ->labelContent('Red')
+                ->label('Red')
                 ->labelFor('label-for')
                 ->render()
         );
@@ -58,7 +57,7 @@ final class LabelTest extends TestCase
             <input id="radio-6582f2d099e8b" type="radio">
             <label for="radio-6582f2d099e8b">Active</label>
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Active')->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->label('Active')->render()
         );
     }
 
@@ -71,8 +70,8 @@ final class LabelTest extends TestCase
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
+                ->label('Active')
                 ->labelAttributes(['class' => 'class'])
-                ->labelContent('Active')
                 ->render()
         );
     }
@@ -84,18 +83,7 @@ final class LabelTest extends TestCase
             <input id="radio-6582f2d099e8b" type="radio">
             <label class="class" for="radio-6582f2d099e8b">Active</label>
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->labelClass('class')->labelContent('Active')->render()
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio">
-            <label for="radio-6582f2d099e8b">Active</label>
-            HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Active')->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->label('Active')->labelClass('class')->render()
         );
     }
 
@@ -106,7 +94,7 @@ final class LabelTest extends TestCase
             <input id="checkbox-6582f2d099e8b" type="radio">
             <label for="label-for">Red</label>
             HTML,
-            Radio::widget()->id('checkbox-6582f2d099e8b')->labelContent('Red')->labelFor('label-for')->render()
+            Radio::widget()->id('checkbox-6582f2d099e8b')->label('Red')->labelFor('label-for')->render()
         );
     }
 
@@ -116,7 +104,7 @@ final class LabelTest extends TestCase
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->labelContent('Red')->notLabel()->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->label('Red')->notLabel()->render()
         );
     }
 }

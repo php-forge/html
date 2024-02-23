@@ -4,8 +4,17 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Attribute\Custom\HasWidgetValidation;
-use PHPForge\Html\Attribute\Input\{CanBeRequired, HasMax, HasMin, HasStep, HasValue};
+use PHPForge\Html\{
+    Attribute\Custom\HasValidateString,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasMax,
+    Attribute\Input\HasMin,
+    Attribute\Input\HasStep,
+    Attribute\Input\HasValue,
+    FormControl\Input\Contract\RangeLengthInterface,
+    FormControl\Input\Contract\RequiredInterface,
+    FormControl\Input\Contract\ValueInterface
+};
 
 /**
  * The input element with a type attribute whose value is "datetime-local" represents a control for setting the
@@ -13,17 +22,14 @@ use PHPForge\Html\Attribute\Input\{CanBeRequired, HasMax, HasMin, HasStep, HasVa
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.datetime-local.html#input.datetime-local
  */
-final class DatetimeLocal extends Base\AbstractInput implements
-    Contract\RangeLengthInterface,
-    Contract\RequiredInterface,
-    Contract\ValueInterface
+final class DatetimeLocal extends Base\AbstractInput implements RangeLengthInterface, RequiredInterface, ValueInterface
 {
     use CanBeRequired;
     use HasMax;
     use HasMin;
     use HasStep;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected function run(): string
     {

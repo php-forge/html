@@ -4,26 +4,37 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Multimedia;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Base;
+use PHPForge\Html\{
+    Attribute\Input\HasAlt,
+    Attribute\Input\HasHeight,
+    Attribute\Input\HasSrc,
+    Attribute\Input\HasWidth,
+    Attribute\Tag\HasCrossorigin,
+    Attribute\Tag\HasIsmap,
+    Attribute\Tag\HasLoading,
+    Attribute\Tag\HasReferrerpolicy,
+    Attribute\Tag\HasSizes,
+    Attribute\Tag\HasSrcset,
+    Base\AbstractElement
+};
 
 /**
  * The `<img>` HTML element embeds an image into the document.
  *
  * @link https://html.spec.whatwg.org/multipage/embedded-content.html#the-img-element
  */
-final class Img extends Base\AbstractElement
+final class Img extends AbstractElement
 {
-    use Attribute\Input\HasAlt;
-    use Attribute\Input\HasHeight;
-    use Attribute\Input\HasSrc;
-    use Attribute\Input\HasWidth;
-    use Attribute\Tag\HasCrossorigin;
-    use Attribute\Tag\HasIsmap;
-    use Attribute\Tag\HasLoading;
-    use Attribute\Tag\HasReferrerpolicy;
-    use Attribute\Tag\HasSizes;
-    use Attribute\Tag\HasSrcset;
+    use HasAlt;
+    use HasCrossorigin;
+    use HasHeight;
+    use HasIsmap;
+    use HasLoading;
+    use HasReferrerpolicy;
+    use HasSizes;
+    use HasSrc;
+    use HasSrcset;
+    use HasWidth;
 
     protected function run(): string
     {

@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests;
 
 use InvalidArgumentException;
-use PHPForge\Html\HtmlBuilder;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\HtmlBuilder, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 final class HtmlBuilderTest extends TestCase

@@ -4,10 +4,26 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Textual;
 
-use PHPForge\Html\Attribute\Aria\{HasAriaControls, HasAriaDisabled, HasAriaExpanded, HasAriaLabel, HasRole};
-use PHPForge\Html\Attribute\Tag\{HasDownload, HasHref, HasHreflang, HasPing, HasReferrerpolicy, HasRel, HasTarget};
-use PHPForge\Html\Attribute\{CanBeAutofocus, CanBeHidden, Custom\HasContent, Input\HasType, HasTabindex};
-use PHPForge\Html\Base;
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaControls,
+    Attribute\Aria\HasAriaDisabled,
+    Attribute\Aria\HasAriaExpanded,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\Aria\HasRole,
+    Attribute\CanBeAutofocus,
+    Attribute\CanBeHidden,
+    Attribute\Custom\HasContent,
+    Attribute\HasTabindex,
+    Attribute\Input\HasType,
+    Attribute\Tag\HasDownload,
+    Attribute\Tag\HasHref,
+    Attribute\Tag\HasHreflang,
+    Attribute\Tag\HasPing,
+    Attribute\Tag\HasReferrerpolicy,
+    Attribute\Tag\HasRel,
+    Attribute\Tag\HasTarget,
+    Base\AbstractElement
+};
 
 /**
  * The `<a>` `HTML` element (or anchor element), with its href attribute, creates a hyperlink to web pages, files, email
@@ -15,7 +31,7 @@ use PHPForge\Html\Base;
  *
  * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-a-element
  */
-final class A extends Base\AbstractElement
+final class A extends AbstractElement
 {
     use CanBeAutofocus;
     use CanBeHidden;

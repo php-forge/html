@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Semantic\Section;
 
-use PHPForge\Html\Semantic\Section;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Semantic\Section, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

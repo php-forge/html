@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataDropdownToggle;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\Attribute\{Custom\HasDataDropdownToggle, HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataDropdownToggleTest extends TestCase
@@ -19,11 +18,9 @@ final class HasDataDropdownToggleTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataDropdownToggle('id');
+        $instance = $instance->dataDropdownToggle('value');
 
-        $this->assertSame([
-            'data-dropdown-toggle' => 'id',
-        ], $instance->attributes);
+        $this->assertSame(['data-dropdown-toggle' => 'value'], $instance->attributes);
     }
 
     public function testDataDropdownToggleWithTrue(): void

@@ -4,20 +4,30 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\Attribute\Input\{
-    CanBeDisabled,
-    CanBeReadonly,
-    CanBeRequired,
-    HasAutocomplete,
-    HasDirname,
-    HasForm,
-    HasMaxLength,
-    HasMinLength,
-    HasPlaceholder
+use PHPForge\Html\{
+    Attribute\CanBeAutofocus,
+    Attribute\Custom\HasContent,
+    Attribute\Field\HasGenerateField,
+    Attribute\HasTabindex,
+    Attribute\Input\CanBeDisabled,
+    Attribute\Input\CanBeReadonly,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasAutocomplete,
+    Attribute\Input\HasDirname,
+    Attribute\Input\HasForm,
+    Attribute\Input\HasMaxLength,
+    Attribute\Input\HasMinLength,
+    Attribute\Input\HasPlaceholder,
+    Attribute\Tag\HasCols,
+    Attribute\Tag\HasRows,
+    Attribute\Tag\HasWrap,
+    Base\AbstractElement,
+    FormControl\Input\Contract\ContentInterface,
+    FormControl\Input\Contract\InputInterface,
+    FormControl\Input\Contract\LengthInterface,
+    FormControl\Input\Contract\PlaceholderInterface,
+    FormControl\Input\Contract\RequiredInterface
 };
-use PHPForge\Html\Attribute\Tag\{HasCols, HasRows, HasWrap};
-use PHPForge\Html\Attribute\{CanBeAutofocus, HasTabindex, Custom\HasContent, Field\HasGenerateField};
-use PHPForge\Html\Base\AbstractElement;
 
 /**
  * The `<textarea>` HTML element represents a multi-line plain-text editing control, useful when you want to allow users
@@ -26,11 +36,11 @@ use PHPForge\Html\Base\AbstractElement;
  * @link https://html.spec.whatwg.org/multipage/form-elements.html#the-textarea-element
  */
 final class TextArea extends AbstractElement implements
-    Input\Contract\ContentInterface,
-    Input\Contract\InputInterface,
-    Input\Contract\LengthInterface,
-    Input\Contract\PlaceholderInterface,
-    Input\Contract\RequiredInterface
+    ContentInterface,
+    InputInterface,
+    LengthInterface,
+    PlaceholderInterface,
+    RequiredInterface
 {
     use CanBeAutofocus;
     use CanBeDisabled;

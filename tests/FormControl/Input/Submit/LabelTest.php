@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Submit;
 
-use PHPForge\Html\FormControl\Input\Submit;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Submit, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,6 +12,19 @@ use PHPUnit\Framework\TestCase;
  */
 final class LabelTest extends TestCase
 {
+    public function testLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <label for="submit-6582f2d099e8b">Label</label>
+            <input id="submit-6582f2d099e8b" type="submit">
+            </div>
+            HTML,
+            Submit::widget()->id('submit-6582f2d099e8b')->label('Label')->render()
+        );
+    }
+
     public function testLabelAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -24,10 +36,8 @@ final class LabelTest extends TestCase
             HTML,
             Submit::widget()
                 ->id('submit-6582f2d099e8b')
-                ->labelAttributes([
-                    'class' => 'value',
-                ])
-                ->labelContent('Label')
+                ->label('Label')
+                ->labelAttributes(['class' => 'value'])
                 ->render()
         );
     }
@@ -41,24 +51,7 @@ final class LabelTest extends TestCase
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()
-                ->id('submit-6582f2d099e8b')
-                ->labelClass('value')
-                ->labelContent('Label')
-                ->render()
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <label for="submit-6582f2d099e8b">Label</label>
-            <input id="submit-6582f2d099e8b" type="submit">
-            </div>
-            HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->labelContent('Label')->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->label('Label')->labelClass('value')->render()
         );
     }
 
@@ -71,11 +64,7 @@ final class LabelTest extends TestCase
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()
-                ->id('submit-6582f2d099e8b')
-                ->labelContent('Label')
-                ->LabelFor('label-for')
-                ->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->label('Label')->LabelFor('label-for')->render()
         );
     }
 
@@ -87,7 +76,7 @@ final class LabelTest extends TestCase
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->labelContent('Label')->notLabel()->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->label('Label')->notLabel()->render()
         );
     }
 }

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\RadioList;
 
-use PHPForge\Html\FormControl\Input\{Radio, RadioList};
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Radio, Html\FormControl\Input\RadioList, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,8 +25,8 @@ final class LabelTest extends TestCase
                 ->enclosedByLabel(true)
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->name('radioform[text]')
                 ->render(),
@@ -49,10 +48,10 @@ final class LabelTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->name('radioform[text]')
                 ->render(),
         );
@@ -73,11 +72,11 @@ final class LabelTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
                 ->labelAttributes(['class' => 'value'])
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->name('radioform[text]')
                 ->render(),
         );
@@ -98,35 +97,11 @@ final class LabelTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->labelClass('value')
-                ->name('radioform[text]')
-                ->render(),
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <label for="radiolist-65858c272ea89">Select your gender?</label>
-            <div id="radiolist-65858c272ea89">
-            <input id="radio-6599b6a33dd96" name="radioform[text]" type="radio" value="1">
-            <label for="radio-6599b6a33dd96">Female</label>
-            <input id="radio-6599b6a33dd97" name="radioform[text]" type="radio" value="2">
-            <label for="radio-6599b6a33dd97">Male</label>
-            </div>
-            HTML,
-            RadioList::widget()
-                ->id('radiolist-65858c272ea89')
-                ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
-                )
-                ->labelContent('Select your gender?')
                 ->name('radioform[text]')
                 ->render(),
         );
@@ -147,10 +122,10 @@ final class LabelTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->labelItemClass('value')
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -171,10 +146,10 @@ final class LabelTest extends TestCase
             RadioList::widget()
                 ->id('radiolist-65858c272ea89')
                 ->items(
-                    Radio::widget()->id('radio-6599b6a33dd96')->labelContent('Female')->value(1),
-                    Radio::widget()->id('radio-6599b6a33dd97')->labelContent('Male')->value(2),
+                    Radio::widget()->id('radio-6599b6a33dd96')->label('Female')->value(1),
+                    Radio::widget()->id('radio-6599b6a33dd97')->label('Male')->value(2),
                 )
-                ->labelContent('Select your gender?')
+                ->label('Select your gender?')
                 ->name('radioform[text]')
                 ->notLabel()
                 ->render(),

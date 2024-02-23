@@ -6,15 +6,15 @@ namespace PHPForge\Html\Attribute\Input;
 
 use InvalidArgumentException;
 
-use function implode;
-use function in_array;
-use function sprintf;
+use PHPForge\Html\Attribute\Custom\HasValidateInList;
 
 /**
  * Is used by widgets that implement the formtarget method.
  */
 trait HasFormtarget
 {
+    use HasValidateInList;
+
     /**
      * Specifies a browsing context name or keyword that represents the target of the control.
      *
@@ -27,16 +27,15 @@ trait HasFormtarget
      */
     public function formtarget(string $value): static
     {
-        $allowedValues = ['_blank', '_self', '_parent', '_top'];
+        $this->validateInList(
+            $value,
+            'Invalid value "%s" for the formtarget attribute. Allowed values are: "%s".',
+            '_blank',
+            '_self',
+            '_parent',
+            '_top'
+        );
 
-        if (in_array($value, $allowedValues, true) === false) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'The formtarget attribute value must be one of "%s"',
-                    implode('", "', $allowedValues)
-                )
-            );
-        }
 
         $new = clone $this;
         $new->attributes['formtarget'] = $value;

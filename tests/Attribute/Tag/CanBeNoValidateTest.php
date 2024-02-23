@@ -29,8 +29,6 @@ final class CanBeNoValidateTest extends TestCase
         };
 
         $this->assertEmpty($instance->attributes);
-        $this->assertSame([
-            'novalidate' => true,
-        ], $instance->noValidate()->attributes);
+        $this->assertSame(['novalidate' => true], $instance->noValidate()->attributes);
     }
 }

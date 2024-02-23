@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Group\Li;
 
-use PHPForge\Html\Group\Li;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Group\Li, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

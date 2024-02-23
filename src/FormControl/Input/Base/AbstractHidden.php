@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\Attribute\Custom\{HasAttributes, HasTemplate, HasWidgetValidation};
-use PHPForge\Html\Attribute\Input\{HasName, HasValue};
-use PHPForge\Html\Attribute\{HasClass, HasId, HasStyle};
-use PHPForge\Html\FormControl\Input\Contract\ValueInterface;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasTemplate,
+    Attribute\Custom\HasValidateString,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasStyle,
+    Attribute\Input\HasName,
+    Attribute\Input\HasValue,
+    FormControl\Input\Contract\ValueInterface,
+    Tag
+};
 use PHPForge\Widget\Element;
 
 abstract class AbstractHidden extends Element implements ValueInterface
@@ -19,8 +26,8 @@ abstract class AbstractHidden extends Element implements ValueInterface
     use HasName;
     use HasStyle;
     use HasTemplate;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected array $attributes = [];
 

@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasCrossoriginTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasCrossorigin;
@@ -19,9 +19,27 @@ final class HasCrossoriginTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The value must be one of: anonymous, use-credentials.');
+        $this->expectExceptionMessage(
+            'The value must not be empty. The valid values are: "anonymous", "use-credentials".'
+        );
 
         $instance->crossorigin('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasCrossorigin;
+
+            public array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Invalid value "value" for the crossorigin attribute. Allowed values are: "anonymous", "use-credentials".'
+        );
+
+        $instance->crossorigin('value');
     }
 
     public function testImmutability(): void

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Tag;
 
-use PHPForge\Html\FormControl\Label;
-use PHPForge\Html\Tag;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Label, Html\Tag, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

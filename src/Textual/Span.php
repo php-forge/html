@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Textual;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\Base;
+use PHPForge\Html\{Attribute\Custom\HasContent, Base\AbstractElement};
 
 /**
  * The `<span>` HTML element represents a generic inline container for phrasing content, which doesn't inherently
@@ -18,9 +17,9 @@ use PHPForge\Html\Base;
  *
  * @link https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-span-element
  */
-final class Span extends Base\AbstractElement
+final class Span extends AbstractElement
 {
-    use Attribute\Custom\HasContent;
+    use HasContent;
 
     protected function run(): string
     {

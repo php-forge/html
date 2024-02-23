@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Submit;
 
-use PHPForge\Html\FormControl\Input\Submit;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Submit, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

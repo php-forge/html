@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Button;
 
-use PHPForge\Html\FormControl\Input\Button;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Button, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -13,6 +12,19 @@ use PHPUnit\Framework\TestCase;
  */
 final class LabelTest extends TestCase
 {
+    public function testLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <label for="button-6582f2d099e8b">Label</label>
+            <input id="button-6582f2d099e8b" type="button">
+            </div>
+            HTML,
+            Button::widget()->id('button-6582f2d099e8b')->label('Label')->render()
+        );
+    }
+
     public function testLabelAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -24,8 +36,8 @@ final class LabelTest extends TestCase
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
+                ->label('Label')
                 ->labelAttributes(['class' => 'value'])
-                ->labelContent('Label')
                 ->render()
         );
     }
@@ -41,22 +53,9 @@ final class LabelTest extends TestCase
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
+                ->label('Label')
                 ->labelClass('value')
-                ->labelContent('Label')
                 ->render()
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <label for="button-6582f2d099e8b">Label</label>
-            <input id="button-6582f2d099e8b" type="button">
-            </div>
-            HTML,
-            Button::widget()->id('button-6582f2d099e8b')->labelContent('Label')->render()
         );
     }
 
@@ -71,7 +70,7 @@ final class LabelTest extends TestCase
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
-                ->labelContent('Label')
+                ->label('Label')
                 ->LabelFor('label-for')
                 ->render()
         );
@@ -85,7 +84,7 @@ final class LabelTest extends TestCase
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('button-6582f2d099e8b')->labelContent('Label')->notLabel()->render()
+            Button::widget()->id('button-6582f2d099e8b')->label('Label')->notLabel()->render()
         );
     }
 }

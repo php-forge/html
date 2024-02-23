@@ -6,14 +6,15 @@ namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
 
-use function in_array;
-use function sprintf;
+use PHPForge\Html\Attribute\Custom\HasValidateInList;
 
 /**
  * Is used by widgets that implement the crossorigin method.
  */
 trait HasCrossorigin
 {
+    use HasValidateInList;
+
     /**
      * Set the crossorigin.
      *
@@ -30,11 +31,12 @@ trait HasCrossorigin
      */
     public function crossorigin(string $value): static
     {
-        $allowedCrossorigin = ['anonymous', 'use-credentials'];
-
-        if (!in_array($value, $allowedCrossorigin, true)) {
-            throw new InvalidArgumentException(sprintf('The value must be one of: %s.', implode(', ', $allowedCrossorigin)));
-        }
+        $this->validateInList(
+            $value,
+            'Invalid value "%s" for the crossorigin attribute. Allowed values are: "%s".',
+            'anonymous',
+            'use-credentials'
+        );
 
         $new = clone $this;
         $new->attributes['crossorigin'] = $value;

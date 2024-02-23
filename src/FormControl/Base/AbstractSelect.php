@@ -5,14 +5,34 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Base;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Aria\HasAriaLabel;
-use PHPForge\Html\Attribute\Custom\{HasAttributes, HasLabel, HasPrefixAndSuffix};
-use PHPForge\Html\Attribute\Field\HasGenerateField;
-use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeMultiple, CanBeRequired, HasName, HasSize, HasValue};
-use PHPForge\Html\Attribute\Tag\{HasGroup, HasItems, HasItemsAttributes, HasPrompt};
-use PHPForge\Html\Attribute\{CanBeAutofocus, HasClass, HasId, HasStyle, HasTabindex};
-use PHPForge\Html\FormControl\Input\Contract\{InputInterface, RequiredInterface, ValueInterface};
-use PHPForge\Html\{Tag, FormControl\Label};
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaLabel,
+    Attribute\CanBeAutofocus,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasLabelCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
+    Attribute\Field\HasGenerateField,
+    Attribute\HasClass,
+    Attribute\HasId,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\Input\CanBeDisabled,
+    Attribute\Input\CanBeMultiple,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasName,
+    Attribute\Input\HasSize,
+    Attribute\Input\HasValue,
+    Attribute\Tag\HasGroup,
+    Attribute\Tag\HasItems,
+    Attribute\Tag\HasItemsAttributes,
+    Attribute\Tag\HasPrompt,
+    FormControl\Input\Contract\InputInterface,
+    FormControl\Input\Contract\RequiredInterface,
+    FormControl\Input\Contract\ValueInterface,
+    FormControl\Label,
+    Tag
+};
 use PHPForge\Widget\Element;
 use Stringable;
 
@@ -41,12 +61,13 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
     use HasId;
     use HasItems;
     use HasItemsAttributes;
-    use HasLabel;
+    use HasLabelCollection;
     use HasName;
-    use HasPrefixAndSuffix;
+    use HasPrefixCollection;
     use HasPrompt;
     use HasSize;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasValue;
 
@@ -100,13 +121,13 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
             ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('select');
 
-        if ($this->notLabel === true || $this->labelContent === '') {
+        if ($this->isLabel === false || $this->label === '') {
             return $selectTag->render();
         }
 
         return Label::widget()
             ->attributes($this->labelAttributes)
-            ->content($this->labelContent, PHP_EOL, $selectTag, PHP_EOL)
+            ->content($this->label, PHP_EOL, $selectTag, PHP_EOL)
             ->for($this->labelFor)
             ->render();
     }

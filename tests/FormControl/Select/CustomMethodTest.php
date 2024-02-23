@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Select;
 
-use PHPForge\Html\FormControl\Select;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Select, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -134,6 +133,24 @@ final class CustomMethodTest extends TestCase
         );
     }
 
+    public function testLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label>Cities:
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            </label>
+            HTML,
+            Select::widget()->items($this->cities)->label('Cities:')->render()
+        );
+    }
+
     public function testLabelAttributes(): void
     {
         Assert::equalsWithoutLE(
@@ -151,7 +168,7 @@ final class CustomMethodTest extends TestCase
             Select::widget()
                 ->items($this->cities)
                 ->labelAttributes(['class' => 'value'])
-                ->labelContent('Cities:')
+                ->label('Cities:')
                 ->render()
         );
     }
@@ -170,25 +187,7 @@ final class CustomMethodTest extends TestCase
             </select>
             </label>
             HTML,
-            Select::widget()->items($this->cities)->labelClass('value')->labelContent('Cities:')->render()
-        );
-    }
-
-    public function testLabelContent(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <label>Cities:
-            <select>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            </label>
-            HTML,
-            Select::widget()->items($this->cities)->labelContent('Cities:')->render()
+            Select::widget()->items($this->cities)->labelClass('value')->label('Cities:')->render()
         );
     }
 
@@ -206,7 +205,7 @@ final class CustomMethodTest extends TestCase
             </select>
             </label>
             HTML,
-            Select::widget()->id('value')->items($this->cities)->labelContent('Cities:')->labelFor('value')->render()
+            Select::widget()->id('value')->items($this->cities)->label('Cities:')->labelFor('value')->render()
         );
     }
 
@@ -222,7 +221,7 @@ final class CustomMethodTest extends TestCase
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->items($this->cities)->labelContent('Cities:')->notLabel()->render()
+            Select::widget()->items($this->cities)->label('Cities:')->notLabel()->render()
         );
     }
 

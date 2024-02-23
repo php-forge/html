@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Search;
 
-use PHPForge\Html\FormControl\Input\Search;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Search, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

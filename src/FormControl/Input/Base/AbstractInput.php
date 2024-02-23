@@ -4,23 +4,31 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
-use PHPForge\Html\Attribute\Custom\{HasAttributes, HasPrefixAndSuffix, HasTemplate};
-use PHPForge\Html\Attribute\Field\HasGenerateField;
-use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeReadonly, HasForm, HasName};
-use PHPForge\Html\Attribute\{
-    CanBeAutofocus,
-    CanBeHidden,
-    HasClass,
-    HasData,
-    HasId,
-    HasLang,
-    HasStyle,
-    HasTabindex,
-    HasTitle
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaDescribedBy,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\CanBeAutofocus,
+    Attribute\CanBeHidden,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
+    Attribute\Custom\HasTemplate,
+    Attribute\Field\HasGenerateField,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\HasTitle,
+    Attribute\Input\CanBeDisabled,
+    Attribute\Input\CanBeReadonly,
+    Attribute\Input\HasForm,
+    Attribute\Input\HasName,
+    FormControl\Input\Contract\AriaDescribedByInterface,
+    FormControl\Input\Contract\InputInterface,
+    Tag
 };
-use PHPForge\Html\FormControl\Input\Contract\{AriaDescribedByInterface, InputInterface};
-use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 /**
@@ -42,8 +50,9 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasId;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffix;
+    use HasPrefixCollection;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTemplate;
     use HasTitle;

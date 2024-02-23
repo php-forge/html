@@ -4,28 +4,32 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\Attribute\Aria\{HasAriaDescribedBy, HasAriaLabel};
-use PHPForge\Html\Attribute\Custom\{
-    HasAttributes,
-    HasContainer,
-    HasLabel,
-    HasPrefixAndSuffix,
-    HasTemplate,
-    HasWidgetValidation
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaDescribedBy,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\CanBeAutofocus,
+    Attribute\CanBeHidden,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContainerCollection,
+    Attribute\Custom\HasLabelCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
+    Attribute\Custom\HasTemplate,
+    Attribute\Custom\HasValidateString,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\HasTitle,
+    Attribute\Input\CanBeDisabled,
+    Attribute\Input\CanBeReadonly,
+    Attribute\Input\HasForm,
+    Attribute\Input\HasName,
+    Attribute\Input\HasValue,
+    Tag
 };
-use PHPForge\Html\Attribute\Input\{CanBeDisabled, CanBeReadonly, HasForm, HasName, HasValue};
-use PHPForge\Html\Attribute\{
-    CanBeAutofocus,
-    CanBeHidden,
-    HasClass,
-    HasData,
-    HasId,
-    HasLang,
-    HasStyle,
-    HasTabindex,
-    HasTitle
-};
-use PHPForge\Html\Tag;
 use PHPForge\Widget\Element;
 
 abstract class AbstractButton extends Element
@@ -38,20 +42,21 @@ abstract class AbstractButton extends Element
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasContainer;
+    use HasContainerCollection;
     use HasData;
     use HasForm;
     use HasId;
-    use HasLabel;
+    use HasLabelCollection;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffix;
+    use HasPrefixCollection;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTemplate;
     use HasTitle;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected array $attributes = [];
     protected string $type = 'button';

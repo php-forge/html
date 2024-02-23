@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\Attribute\Custom\HasContainer;
-use PHPForge\Html\FormControl\Input\{Button, Reset, Submit};
-use PHPForge\Widget\Element;
+use PHPForge\{
+    Html\Attribute\Custom\HasContainerCollection,
+    Html\FormControl\Input\Button,
+    Html\FormControl\Input\Reset,
+    Html\FormControl\Input\Submit,
+    Widget\Element
+};
 
 use function implode;
 
 abstract class AbstractButtonGroup extends Element
 {
-    use HasContainer;
+    use HasContainerCollection;
 
     /**
      * @psalm-var Button[]|Reset[]|Submit[]

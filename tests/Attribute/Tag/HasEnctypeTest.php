@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasEnctypeTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasEnctype;
@@ -20,10 +20,26 @@ final class HasEnctypeTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The value must be one of: multipart/form-data, application/x-www-form-urlencoded, text/plain.'
+            'The value must not be empty. The valid values are: "multipart/form-data", "application/x-www-form-urlencoded", "text/plain".'
         );
 
         $instance->enctype('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasEnctype;
+
+            public array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Invalid value "value" for the enctype attribute. Allowed values are: "multipart/form-data", "application/x-www-form-urlencoded", "text/plain".'
+        );
+
+        $instance->enctype('value');
     }
 
     public function testImmutability(): void
@@ -47,21 +63,15 @@ final class HasEnctypeTest extends TestCase
 
         $this->assertEmpty($instance->attributes);
         $this->assertSame(
-            [
-                'enctype' => 'application/x-www-form-urlencoded',
-            ],
+            ['enctype' => 'application/x-www-form-urlencoded'],
             $instance->enctype('application/x-www-form-urlencoded')->attributes,
         );
         $this->assertSame(
-            [
-                'enctype' => 'multipart/form-data',
-            ],
+            ['enctype' => 'multipart/form-data'],
             $instance->enctype('multipart/form-data')->attributes,
         );
         $this->assertSame(
-            [
-                'enctype' => 'text/plain',
-            ],
+            ['enctype' => 'text/plain'],
             $instance->enctype('text/plain')->attributes,
         );
     }

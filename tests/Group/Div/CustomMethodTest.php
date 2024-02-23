@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Group\Div;
 
-use PHPForge\Html\Group\Div;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Group\Div, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

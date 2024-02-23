@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasRelTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasRel;
@@ -20,10 +20,26 @@ final class HasRelTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The rel value must be one of the following: alternate, author, bookmark, help, icon, license, next, nofollow, noopener, noreferrer, pingback, preconnect, prefetch, preload, prerender, prev, search, sidebar, stylesheet, tag'
+            'The value must not be empty. The valid values are: "alternate", "author", "bookmark", "help", "icon", "license", "next", "nofollow", "noopener", "noreferrer", "pingback", "preconnect", "prefetch", "preload", "prerender", "prev", "search", "sidebar", "stylesheet", "tag".'
         );
 
         $instance->rel('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasRel;
+
+            protected array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Invalid value "value" for the rel attribute. Allowed values are: "alternate", "author", "bookmark", "help", "icon", "license", "next", "nofollow", "noopener", "noreferrer", "pingback", "preconnect", "prefetch", "preload", "prerender", "prev", "search", "sidebar", "stylesheet", "tag".'
+        );
+
+        $instance->rel('value');
     }
 
     public function testImmutability(): void

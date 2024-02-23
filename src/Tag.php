@@ -4,6 +4,16 @@ declare(strict_types=1);
 
 namespace PHPForge\Html;
 
+use PHPForge\Html\{
+    Attribute\Custom\HasContent,
+    Attribute\Custom\HasTagName,
+    Attribute\Custom\HasTokenValues,
+    Attribute\HasTabindex,
+    Attribute\Input\HasType,
+    Attribute\Input\HasValue,
+    Base\AbstractElement
+};
+
 /**
  * The `<tag>` HTML element represents a generic tag.
  *
@@ -16,14 +26,14 @@ namespace PHPForge\Html;
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements
  * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element
  */
-final class Tag extends Base\AbstractElement
+final class Tag extends AbstractElement
 {
-    use Attribute\Custom\HasContent;
-    use Attribute\Custom\HasTagName;
-    use Attribute\Custom\HasTokenValues;
-    use Attribute\HasTabindex;
-    use Attribute\Input\HasType;
-    use Attribute\Input\HasValue;
+    use HasContent;
+    use HasTabindex;
+    use HasTagName;
+    use HasTokenValues;
+    use HasType;
+    use HasValue;
 
     protected function run(): string
     {

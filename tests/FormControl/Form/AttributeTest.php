@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Form;
 
-use PHPForge\Html\FormControl\Form;
-use PHPForge\Html\Textual\Span;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Form, Html\Textual\Span, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

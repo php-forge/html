@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasFormenctypeTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasFormenctype;
@@ -20,11 +20,26 @@ final class HasFormenctypeTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The formenctype attribute must be one of the following values: ' .
-            '"multipart/form-data", "application/x-www-form-urlencoded", "text/plain".',
+            'The value must not be empty. The valid values are: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain".'
         );
 
         $instance->formenctype('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasFormenctype;
+
+            protected array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Invalid value "invalid" for the formenctype attribute. Allowed values are: "application/x-www-form-urlencoded", "multipart/form-data", "text/plain".'
+        );
+
+        $instance->formenctype('invalid');
     }
 
     public function testImmutability(): void

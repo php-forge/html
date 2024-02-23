@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataDismissTarget;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\Attribute\{Custom\HasDataDismissTarget, HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataDismissTargetTest extends TestCase
@@ -19,11 +18,9 @@ final class HasDataDismissTargetTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataDismissTarget('id');
+        $instance = $instance->dataDismissTarget('value');
 
-        $this->assertSame([
-            'data-dismiss-target' => 'id',
-        ], $instance->attributes);
+        $this->assertSame(['data-dismiss-target' => 'value'], $instance->attributes);
     }
 
     public function testImmutability(): void

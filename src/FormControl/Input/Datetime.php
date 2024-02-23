@@ -4,8 +4,14 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Attribute\Custom\HasWidgetValidation;
-use PHPForge\Html\Attribute\Input\{CanBeRequired, HasMax, HasMin, HasStep, HasValue};
+use PHPForge\Html\{
+    Attribute\Custom\HasValidateString,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasMax,
+    Attribute\Input\HasMin,
+    Attribute\Input\HasStep,
+    Attribute\Input\HasValue
+};
 
 /**
  * The input element with a type attribute whose value is "datetime" represents a control for setting the element’s
@@ -22,8 +28,8 @@ final class Datetime extends Base\AbstractInput implements
     use HasMax;
     use HasMin;
     use HasStep;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected function run(): string
     {

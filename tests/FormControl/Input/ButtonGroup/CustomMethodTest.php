@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\ButtonGroup;
 
-use PHPForge\Html\FormControl\Input\{ButtonGroup, Reset, Submit};
-use PHPForge\Support\Assert;
+use PHPForge\{
+    Html\FormControl\Input\ButtonGroup,
+    Html\FormControl\Input\Reset,
+    Html\FormControl\Input\Submit,
+    Support\Assert
+};
 use PHPUnit\Framework\TestCase;
 
 /**

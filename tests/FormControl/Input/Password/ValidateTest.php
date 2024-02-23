@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Password;
 
-use PHPForge\Html\FormControl\Input\Password;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Password, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Mutlimedia\Img;
 
-use PHPForge\Html\Multimedia\Img;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Multimedia\Img, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

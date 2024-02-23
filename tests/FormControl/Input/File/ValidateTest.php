@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\File;
 
-use PHPForge\Html\FormControl\Input\File;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\File, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

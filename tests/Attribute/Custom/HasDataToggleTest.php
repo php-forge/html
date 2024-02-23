@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataToggle;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\Attribute\{Custom\HasDataToggle, HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataToggleTest extends TestCase
@@ -19,11 +18,9 @@ final class HasDataToggleTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataToggle('id');
+        $instance = $instance->dataToggle('value');
 
-        $this->assertSame([
-            'data-toggle' => 'id',
-        ], $instance->attributes);
+        $this->assertSame(['data-toggle' => 'value'], $instance->attributes);
     }
 
     public function testDataDataToggleWithTrue(): void

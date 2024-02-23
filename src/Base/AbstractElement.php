@@ -4,8 +4,20 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Base;
 
-use PHPForge\Html\Attribute;
-use PHPForge\Html\HtmlBuilder;
+use PHPForge\Html\{
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
+    Attribute\Custom\HasTemplate,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTitle,
+    Attribute\Input\HasName,
+    HtmlBuilder
+};
 use PHPForge\Widget\Element;
 
 /**
@@ -13,16 +25,17 @@ use PHPForge\Widget\Element;
  */
 abstract class AbstractElement extends Element
 {
-    use Attribute\Custom\HasAttributes;
-    use Attribute\Custom\HasPrefixAndSuffix;
-    use Attribute\Custom\HasTemplate;
-    use Attribute\HasClass;
-    use Attribute\HasData;
-    use Attribute\HasId;
-    use Attribute\HasLang;
-    use Attribute\HasStyle;
-    use Attribute\HasTitle;
-    use Attribute\Input\HasName;
+    use HasAttributes;
+    use HasClass;
+    use HasData;
+    use HasId;
+    use HasLang;
+    use HasName;
+    use HasPrefixCollection;
+    use HasStyle;
+    use HasSuffixCollection;
+    use HasTemplate;
+    use HasTitle;
 
     protected array $attributes = [];
 

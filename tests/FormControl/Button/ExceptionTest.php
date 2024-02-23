@@ -13,19 +13,19 @@ use PHPUnit\Framework\TestCase;
  */
 final class ExceptionTest extends TestCase
 {
-    public function testTagName(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Button::class widget must have a tag name of a, button.');
-
-        Button::widget()->tagName('div')->render();
-    }
-
-    public function testWithoutTagName(): void
+    public function testTagNameWithEmptyValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Button::class widget must have a tag name.');
 
         Button::widget()->tagName('');
+    }
+
+    public function testTagnameWithInvalidValue(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid value "div" for the tagname method. Allowed values are: "a", "button".');
+
+        Button::widget()->tagName('div')->render();
     }
 }

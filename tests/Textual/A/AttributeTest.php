@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Textual\A;
 
-use PHPForge\Html\Textual\A;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Textual\A, Support\Assert};
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor

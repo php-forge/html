@@ -20,17 +20,10 @@ final class HasLinkAttributesTest extends TestCase
             }
         };
 
-        $instance = $instance->linkAttributes([
-            'class' => 'foo',
-        ]);
-        $instance = $instance->linkAttributes([
-            'disabled' => true,
-        ]);
+        $instance = $instance->linkAttributes(['class' => 'value']);
+        $instance = $instance->linkAttributes(['disabled' => true]);
 
-        $this->assertSame([
-            'class' => 'foo',
-            'disabled' => true,
-        ], $instance->getLinkAttributes());
+        $this->assertSame(['class' => 'value', 'disabled' => true], $instance->getLinkAttributes());
     }
 
     public function testClass(): void
@@ -46,17 +39,17 @@ final class HasLinkAttributesTest extends TestCase
 
         $this->assertEmpty($instance->getLinkClass());
 
-        $instance = $instance->linkClass('test-class');
+        $instance = $instance->linkClass('class');
 
-        $this->assertSame('test-class', $instance->getLinkClass());
+        $this->assertSame('class', $instance->getLinkClass());
 
-        $instance = $instance->linkClass('test-class-1');
+        $instance = $instance->linkClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getLinkClass());
+        $this->assertSame('class class-1', $instance->getLinkClass());
 
-        $instance = $instance->linkClass('test-override-class', true);
+        $instance = $instance->linkClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getLinkClass());
+        $this->assertSame('override-class', $instance->getLinkClass());
     }
 
     public function testGetLinkAttributes(): void
@@ -66,12 +59,8 @@ final class HasLinkAttributesTest extends TestCase
         };
 
         $this->assertSame(
-            [
-                'class' => 'test-class',
-            ],
-            $instance->linkAttributes([
-                'class' => 'test-class',
-            ])->getLinkAttributes(),
+            ['class' => 'value'],
+            $instance->linkAttributes(['class' => 'value'])->getLinkAttributes()
         );
     }
 

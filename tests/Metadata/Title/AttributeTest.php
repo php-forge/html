@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Metadata\Title;
 
-use PHPForge\Html\Metadata\Title;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Metadata\Title, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\CheckboxList;
 
-use PHPForge\Html\FormControl\Input\{Checkbox, CheckboxList};
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Checkbox, Html\FormControl\Input\CheckboxList, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -30,9 +29,9 @@ final class AttributeTest extends TestCase
                 ->ariaDescribedBy('value')
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render()
@@ -56,9 +55,9 @@ final class AttributeTest extends TestCase
                 ->ariaLabel('value')
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render()
@@ -82,9 +81,9 @@ final class AttributeTest extends TestCase
                 ->attributes(['class' => 'value'])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -108,9 +107,9 @@ final class AttributeTest extends TestCase
                 ->autofocus()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -134,9 +133,9 @@ final class AttributeTest extends TestCase
                 ->checked([1, 2])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -160,9 +159,9 @@ final class AttributeTest extends TestCase
                 ->checked(null)
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -186,9 +185,9 @@ final class AttributeTest extends TestCase
                 ->class('value')
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -212,9 +211,9 @@ final class AttributeTest extends TestCase
                 ->ariaDescribedBy()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -238,9 +237,9 @@ final class AttributeTest extends TestCase
                 ->ariaDescribedBy(false)
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -268,9 +267,9 @@ final class AttributeTest extends TestCase
             CheckboxList::widget()
                 ->id('value')
                 ->items(
-                    Checkbox::widget()->id('id-checkbox-1')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('id-checkbox-2')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('id-checkbox-3')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('id-checkbox-1')->label('Apple')->value(1),
+                    Checkbox::widget()->id('id-checkbox-2')->label('Banana')->value(2),
+                    Checkbox::widget()->id('id-checkbox-3')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -293,9 +292,9 @@ final class AttributeTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('value')
                 ->render(),
@@ -318,9 +317,9 @@ final class AttributeTest extends TestCase
             CheckboxList::widget()
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->tabIndex(1)
@@ -346,9 +345,9 @@ final class AttributeTest extends TestCase
                 ->checked([1, 3])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value('1'),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value('2'),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value('3'),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value('1'),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value('2'),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value('3'),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -370,9 +369,9 @@ final class AttributeTest extends TestCase
                 ->checked(['1', '2'])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -394,9 +393,9 @@ final class AttributeTest extends TestCase
                 ->checked([7])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -418,9 +417,9 @@ final class AttributeTest extends TestCase
                 ->checked([])
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -444,9 +443,9 @@ final class AttributeTest extends TestCase
                 ->checked(null)
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->labelContent('Apple')->value(1),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->labelContent('Banana')->value(2),
-                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->labelContent('Orange')->value(3),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd96')->label('Apple')->value(1),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd98')->label('Banana')->value(2),
+                    Checkbox::widget()->id('checkbox-6599b6a33dd97')->label('Orange')->value(3),
                 )
                 ->name('CheckboxForm[text]')
                 ->render(),
@@ -470,9 +469,9 @@ final class AttributeTest extends TestCase
                 ->generateField('ModelName', 'fieldName')
                 ->id(null)
                 ->items(
-                    Checkbox::widget()->labelContent('Apple')->value(1),
-                    Checkbox::widget()->labelContent('Banana')->value(2),
-                    Checkbox::widget()->labelContent('Orange')->value(3),
+                    Checkbox::widget()->label('Apple')->value(1),
+                    Checkbox::widget()->label('Banana')->value(2),
+                    Checkbox::widget()->label('Orange')->value(3),
                 )
                 ->render(),
         );
@@ -495,9 +494,9 @@ final class AttributeTest extends TestCase
                 ->generateField('ModelName', 'fieldName')
                 ->id('checkboxlist-65858c272ea89')
                 ->items(
-                    Checkbox::widget()->labelContent('Apple')->value(1),
-                    Checkbox::widget()->labelContent('Banana')->value(2),
-                    Checkbox::widget()->labelContent('Orange')->value(3),
+                    Checkbox::widget()->label('Apple')->value(1),
+                    Checkbox::widget()->label('Banana')->value(2),
+                    Checkbox::widget()->label('Orange')->value(3),
                 )
                 ->name(null)
                 ->render(),

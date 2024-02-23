@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Email;
 
-use PHPForge\Html\FormControl\Input\Email;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Email, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

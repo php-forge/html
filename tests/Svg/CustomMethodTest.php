@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Svg;
 
-use PHPForge\Html\Svg;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Svg, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

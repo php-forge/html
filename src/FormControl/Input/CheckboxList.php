@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
+use PHPForge\Html\Attribute\Custom\HasValidateIterable;
+
 /*
  * Generates a list of checkbox buttons.
  *
@@ -12,6 +14,8 @@ namespace PHPForge\Html\FormControl\Input;
  */
 final class CheckboxList extends Base\AbstractChoiceList
 {
+    use HasValidateIterable;
+
     /**
      * Sets the items for the CheckboxList.
      *

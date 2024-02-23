@@ -4,22 +4,31 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\Attribute\{HasClass, HasData, HasId, HasLang, HasStyle, HasTabindex, HasTitle};
-use PHPForge\Html\Attribute\Aria\{HasAriaControls,
-    HasAriaDescribedBy,
-    HasAriaDisabled,
-    HasAriaExpanded,
-    HasAriaLabel,
-    HasRole};
-use PHPForge\Html\Attribute\Custom\{HasAttributes,
-    HasContainer,
-    HasContent,
-    HasPrefixAndSuffix,
-    HasTagName,
-    HasTemplate,
-    HasWidgetValidation};
-use PHPForge\Html\Attribute\Input\HasName;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{
+    Attribute\Aria\HasAriaControls,
+    Attribute\Aria\HasAriaDescribedBy,
+    Attribute\Aria\HasAriaDisabled,
+    Attribute\Aria\HasAriaExpanded,
+    Attribute\Aria\HasAriaLabel,
+    Attribute\Aria\HasRole,
+    Attribute\Custom\HasAttributes,
+    Attribute\Custom\HasContainerCollection,
+    Attribute\Custom\HasContent,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
+    Attribute\Custom\HasTagName,
+    Attribute\Custom\HasTemplate,
+    Attribute\Custom\HasValidateInList,
+    Attribute\HasClass,
+    Attribute\HasData,
+    Attribute\HasId,
+    Attribute\HasLang,
+    Attribute\HasStyle,
+    Attribute\HasTabindex,
+    Attribute\HasTitle,
+    Attribute\Input\HasName,
+    Tag
+};
 use PHPForge\Widget\Element;
 
 /**
@@ -38,20 +47,21 @@ final class Button extends Element
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasContainer;
+    use HasContainerCollection;
     use HasContent;
     use HasData;
     use HasId;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffix;
+    use HasPrefixCollection;
     use HasRole;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTagName;
     use HasTemplate;
     use HasTitle;
-    use HasWidgetValidation;
+    use HasValidateInList;
 
     protected array $attributes = [];
     protected string $type = 'button';
@@ -77,7 +87,12 @@ final class Button extends Element
     {
         $attributes = $this->attributes;
 
-        $this->validateTagName($this->tagName, 'a', 'button');
+        $this->validateInList(
+            $this->tagName,
+            'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
+            'a',
+            'button'
+        );
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";
