@@ -85,7 +85,6 @@ final class HasSuffixCollectionTest extends TestCase
         $instance = new class () {
             use HasSuffixCollection;
 
-
             public function run(): string
             {
                 return $this->renderSuffixTag();
