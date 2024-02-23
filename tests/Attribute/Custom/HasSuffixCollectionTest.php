@@ -72,11 +72,14 @@ final class HasSuffixCollectionTest extends TestCase
             }
         };
 
+        $instance = $instance->suffix('suffix')->suffixContainer(false);
+
+        $this->assertStringNotContainsString('<div>', $instance->run());
         Assert::equalsWithoutLE(
             <<<HTML
             suffix
             HTML,
-            $instance->suffix('suffix')->suffixContainer(false)->run()
+            $instance->run()
         );
     }
 
@@ -91,13 +94,16 @@ final class HasSuffixCollectionTest extends TestCase
             }
         };
 
+        $instance = $instance->suffix('suffix')->suffixContainer(true);
+
+        $this->assertStringContainsString('<div>', $instance->run());
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             suffix
             </div>
             HTML,
-            $instance->suffix('suffix')->suffixContainer(true)->run()
+            $instance->run()
         );
     }
 

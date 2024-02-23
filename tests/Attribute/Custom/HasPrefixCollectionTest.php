@@ -72,11 +72,14 @@ final class HasPrefixCollectionTest extends TestCase
             }
         };
 
+        $instance = $instance->prefix('prefix')->prefixContainer(false);
+
+        $this->assertStringNotContainsString('<div>', $instance->run());
         Assert::equalsWithoutLE(
             <<<HTML
             prefix
             HTML,
-            $instance->prefix('prefix')->prefixContainer(false)->run()
+            $instance->run()
         );
     }
 
@@ -93,13 +96,14 @@ final class HasPrefixCollectionTest extends TestCase
 
         $instance = $instance->prefix('prefix')->prefixContainer(true);
 
+        $this->assertStringContainsString('<div>', $instance->run());
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             prefix
             </div>
             HTML,
-            $instance->prefix('prefix')->prefixContainer(true)->run()
+            $instance->run()
         );
     }
 
