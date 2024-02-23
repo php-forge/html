@@ -10,6 +10,7 @@
             "report": "main"
         }
     },
+    "timeout": 20,
     "mutators": {
         "@default": true,
         "PublicVisibility": {
