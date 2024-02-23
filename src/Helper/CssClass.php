@@ -23,7 +23,7 @@ final class CssClass
      * effect.
      *
      * @param array $attributes The attributes to be modified.
-     * @param string|array $class The CSS class(es) to be added.
+     * @param array|string $class The CSS class(es) to be added.
      * @param bool $override Whether to override existing CSS class(es) with new one.
      *
      * @psalm-param string|string[] $class
