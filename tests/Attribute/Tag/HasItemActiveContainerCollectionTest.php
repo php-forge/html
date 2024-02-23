@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Tag;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Tag\HasItemActiveContainer;
+use PHPForge\Html\Attribute\Tag\HasItemActiveContainerCollection;
 use PHPUnit\Framework\TestCase;
 
-final class HasItemActiveContainerTest extends TestCase
+final class HasItemActiveContainerCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasItemActiveContainer;
+            use HasItemActiveContainerCollection;
 
             public function getItemActiveContainerClass(): string
             {
@@ -39,7 +39,7 @@ final class HasItemActiveContainerTest extends TestCase
     public function testException(): void
     {
         $instance = new class () {
-            use HasItemActiveContainer;
+            use HasItemActiveContainerCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -51,7 +51,7 @@ final class HasItemActiveContainerTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasItemActiveContainer;
+            use HasItemActiveContainerCollection;
         };
 
         $this->assertNotSame($instance, $instance->itemActiveContainer(false));

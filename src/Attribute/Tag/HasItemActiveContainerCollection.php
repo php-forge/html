@@ -10,7 +10,7 @@ use PHPForge\Html\Helper\CssClass;
 /**
  * Is used by widgets that implement the item active container methods.
  */
-trait HasItemActiveContainer
+trait HasItemActiveContainerCollection
 {
     protected bool $itemActiveContainer = false;
     protected array $itemActiveContainerAttributes = [];
