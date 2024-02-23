@@ -30,5 +30,6 @@ jobs:
       debug: true
       os: >-
         ['ubuntu-latest']
+      options: --threads=2 --ignore-msi-with-no-mutations --only-covered -s --log-verbosity=all
       php: >-
         ['8.1']
