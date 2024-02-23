@@ -10,7 +10,8 @@ use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\CanBeHidden,
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
     Attribute\Custom\HasTemplate,
     Attribute\Field\HasGenerateField,
     Attribute\HasClass,
@@ -49,8 +50,9 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasId;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffixCollection;
+    use HasPrefixCollection;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTemplate;
     use HasTitle;

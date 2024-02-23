@@ -12,12 +12,13 @@ use PHPForge\Html\{
     Attribute\Aria\HasAriaLabel,
     Attribute\Aria\HasRole,
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasContainerCollection,
     Attribute\Custom\HasContent,
-    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
     Attribute\Custom\HasTagName,
     Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateInList,
     Attribute\HasClass,
     Attribute\HasData,
     Attribute\HasId,
@@ -46,20 +47,21 @@ final class Button extends Element
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasContainer;
+    use HasContainerCollection;
     use HasContent;
     use HasData;
     use HasId;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffixCollection;
+    use HasPrefixCollection;
     use HasRole;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTagName;
     use HasTemplate;
     use HasTitle;
-    use HasWidgetValidation;
+    use HasValidateInList;
 
     protected array $attributes = [];
     protected string $type = 'button';
@@ -85,7 +87,11 @@ final class Button extends Element
     {
         $attributes = $this->attributes;
 
-        $this->validateTagName($this->tagName, 'a', 'button');
+        $this->validateInList(
+            $this->tagName,
+            'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
+            'a', 'button'
+        );
 
         if ($this->ariaDescribedBy === true) {
             $attributes['aria-describedby'] = "$this->id-help";

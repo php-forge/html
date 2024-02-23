@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\Html\FormControl\Label;
-use PHPForge\Html\Helper\{CssClass, Encode};
-use PHPForge\Widget\ElementInterface;
+use PHPForge\{Html\FormControl\Label, Html\Helper\CssClass, Html\Helper\Encode, Widget\ElementInterface};
 
 /**
  * Is used by widgets that implement the label methods.

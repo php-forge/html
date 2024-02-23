@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasFormtargetTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasFormtarget;
@@ -20,10 +20,26 @@ final class HasFormtargetTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The formtarget attribute value must be one of "_blank", "_self", "_parent", "_top"'
+            'The value must not be empty. The valid values are: "_blank", "_self", "_parent", "_top".'
         );
 
         $instance->formtarget('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasFormtarget;
+
+            protected array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Invalid value "value" for the formtarget attribute. Allowed values are: "_blank", "_self", "_parent", "_top".'
+        );
+
+        $instance->formtarget('value');
     }
 
     public function testImmutability(): void

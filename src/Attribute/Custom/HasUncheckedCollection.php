@@ -12,7 +12,7 @@ use function array_merge;
 /**
  * Is used by widgets which implement the unchecked method.
  */
-trait HasUnchecked
+trait HasUncheckedCollection
 {
     protected array $uncheckAttributes = [];
     protected mixed $uncheckValue = null;

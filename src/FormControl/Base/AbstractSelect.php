@@ -10,7 +10,8 @@ use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\Custom\HasAttributes,
     Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
     Attribute\Field\HasGenerateField,
     Attribute\HasClass,
     Attribute\HasId,
@@ -62,10 +63,11 @@ abstract class AbstractSelect extends Element implements InputInterface, Require
     use HasItemsAttributes;
     use HasLabelCollection;
     use HasName;
-    use HasPrefixAndSuffixCollection;
+    use HasPrefixCollection;
     use HasPrompt;
     use HasSize;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasValue;
 

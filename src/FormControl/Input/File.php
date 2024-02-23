@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasUnchecked,
+    Attribute\Custom\HasUncheckedCollection,
     Attribute\Input\CanBeMultiple,
     Attribute\Input\CanBeRequired,
     Attribute\Input\HasAccept,
@@ -23,7 +23,7 @@ final class File extends Base\AbstractInput implements Contract\RequiredInterfac
     use CanBeMultiple;
     use CanBeRequired;
     use HasAccept;
-    use HasUnchecked;
+    use HasUncheckedCollection;
 
     protected function loadDefaultDefinitions(): array
     {

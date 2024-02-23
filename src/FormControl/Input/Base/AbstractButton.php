@@ -10,11 +10,12 @@ use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\CanBeHidden,
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasContainerCollection,
     Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
     Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateString,
     Attribute\HasClass,
     Attribute\HasData,
     Attribute\HasId,
@@ -41,20 +42,21 @@ abstract class AbstractButton extends Element
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasContainer;
+    use HasContainerCollection;
     use HasData;
     use HasForm;
     use HasId;
     use HasLabelCollection;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffixCollection;
+    use HasPrefixCollection;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTemplate;
     use HasTitle;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected array $attributes = [];
     protected string $type = 'button';

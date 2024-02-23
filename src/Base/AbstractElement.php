@@ -6,7 +6,8 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\{
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasPrefixCollection,
+    Attribute\Custom\HasSuffixCollection,
     Attribute\Custom\HasTemplate,
     Attribute\HasClass,
     Attribute\HasData,
@@ -30,8 +31,9 @@ abstract class AbstractElement extends Element
     use HasId;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffixCollection;
+    use HasPrefixCollection;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTemplate;
     use HasTitle;
 

@@ -7,7 +7,7 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\Html\{
     Attribute\Custom\HasAttributes,
     Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateString,
     Attribute\HasClass,
     Attribute\HasId,
     Attribute\HasStyle,
@@ -26,8 +26,8 @@ abstract class AbstractHidden extends Element implements ValueInterface
     use HasName;
     use HasStyle;
     use HasTemplate;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected array $attributes = [];
 

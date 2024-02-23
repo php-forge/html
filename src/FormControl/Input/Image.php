@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasWidgetValidation,
     Attribute\Input\HasAlt,
     Attribute\Input\HasFormaction,
     Attribute\Input\HasFormenctype,
@@ -38,7 +37,6 @@ final class Image extends AbstractInput implements SrcInterface
     use HasHeight;
     use HasSrc;
     use HasValue;
-    use HasWidgetValidation;
     use HasWidth;
 
     protected function run(): string

@@ -10,15 +10,16 @@ use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\CanBeHidden,
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasContainerCollection,
     Attribute\Custom\HasContent,
     Attribute\Custom\HasEnclosedByLabel,
     Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasPrefixAndSuffixCollection,
+    Attribute\Custom\HasPrefixCollection,
     Attribute\Custom\HasSeparator,
+    Attribute\Custom\HasSuffixCollection,
     Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasUnchecked,
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasUncheckedCollection,
+    Attribute\Custom\HasValidateScalar,
     Attribute\Field\HasGenerateField,
     Attribute\HasClass,
     Attribute\HasData,
@@ -64,7 +65,7 @@ abstract class AbstractInputChoice extends Element implements
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasContainer;
+    use HasContainerCollection;
     use HasContent;
     use HasData;
     use HasEnclosedByLabel;
@@ -74,15 +75,16 @@ abstract class AbstractInputChoice extends Element implements
     use HasLabelCollection;
     use HasLang;
     use HasName;
-    use HasPrefixAndSuffixCollection;
+    use HasPrefixCollection;
     use HasSeparator;
     use HasStyle;
+    use HasSuffixCollection;
     use HasTabindex;
     use HasTemplate;
     use HasTitle;
-    use HasUnchecked;
+    use HasUncheckedCollection;
+    use HasValidateScalar;
     use HasValue;
-    use HasWidgetValidation;
 
     protected array $attributes = [];
     protected string $tagName = '';

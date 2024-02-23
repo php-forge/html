@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use InvalidArgumentException;
-use PHPForge\Html\Helper\CssClass;
-use PHPForge\Html\Tag;
+use PHPForge\Html\{Helper\CssClass, Tag};
 
 use function implode;
 
 /**
  * Is used by widgets that implement container methods.
  */
-trait HasContainer
+trait HasContainerCollection
 {
     protected array $containerAttributes = [];
     protected bool $container = false;

@@ -6,15 +6,15 @@ namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
 
-use function implode;
-use function in_array;
-use function sprintf;
+use PHPForge\Html\Attribute\Custom\HasValidateInList;
 
 /**
  * Is used by widgets that implement the loading method.
  */
 trait HasLoading
 {
+    use HasValidateInList;
+
     /**
      * Specifying when the browser should load the image.
      *
@@ -26,13 +26,11 @@ trait HasLoading
      */
     public function loading(string $value): static
     {
-        $allowedLoadingValues = ['eager', 'lazy'];
-
-        if (in_array($value, $allowedLoadingValues, true) === false) {
-            throw new InvalidArgumentException(
-                sprintf('The value must be one of: %s.', implode(', ', $allowedLoadingValues))
-            );
-        }
+        $this->validateInList(
+            $value,
+            'Invalid value "%s" for the loading attribute. Allowed values are: "%s".',
+            'eager', 'lazy'
+        );
 
         $new = clone $this;
         $new->attributes['loading'] = $value;

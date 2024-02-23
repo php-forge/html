@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasWrapTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasWrap;
@@ -19,9 +19,23 @@ final class HasWrapTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The wrap value must be one of the following: hard, soft');
+        $this->expectExceptionMessage('The value must not be empty. The valid values are: "hard", "soft".');
 
         $instance->wrap('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasWrap;
+
+            protected array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid value "value" for the wrap attribute. Allowed values are: "hard", "soft".');
+
+        $instance->wrap('value');
     }
 
     public function testImmutability(): void

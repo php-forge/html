@@ -62,16 +62,28 @@ final class HasListCollectionTest extends TestCase
         $this->assertSame('override-class', $instance->getListContainerClass());
     }
 
-    public function testException(): void
+    public function testListTypeWithEmptyValue(): void
     {
         $instance = new class () {
             use HasListCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Invalid list type "foo".');
+        $this->expectExceptionMessage('The value must not be empty. The valid values are: "ol", "ul".');
 
-        $instance->listType('foo');
+        $instance->listType('');
+    }
+
+    public function testListTypeWithInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasListCollection;
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid value "value" for the list type method. Allowed values are: "ol", "ul".');
+
+        $instance->listType('value');
     }
 
     public function testImmutability(): void

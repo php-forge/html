@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateNumeric,
     Attribute\Input\HasMax,
     Attribute\Input\HasMin,
     Attribute\Input\HasStep,
@@ -26,8 +26,8 @@ final class Range extends AbstractInput implements RangeLengthInterface, ValueIn
     use HasMax;
     use HasMin;
     use HasStep;
+    use HasValidateNumeric;
     use HasValue;
-    use HasWidgetValidation;
 
     protected function run(): string
     {

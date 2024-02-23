@@ -6,7 +6,7 @@ namespace PHPForge\Html\Semantic;
 
 use PHPForge\Html\{
     Attribute\Custom\HasTagName,
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateInList,
     Base\AbstractBlockElement
 };
 
@@ -19,7 +19,7 @@ use PHPForge\Html\{
 final class H extends AbstractBlockElement
 {
     use HasTagName;
-    use HasWidgetValidation;
+    use HasValidateInList;
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -33,7 +33,11 @@ final class H extends AbstractBlockElement
 
     protected function run(): string
     {
-        $this->validateTagName($this->tagName, 'h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+        $this->validateInList(
+            $this->tagName,
+            'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+        );
 
         return parent::run();
     }

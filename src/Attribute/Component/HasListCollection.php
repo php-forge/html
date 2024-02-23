@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Helper\CssClass;
-
-use function in_array;
-use function sprintf;
+use PHPForge\Html\{Attribute\Custom\HasValidateInList, Helper\CssClass};
 
 /**
  * Is used by widgets that implement list collection.
  */
 trait HasListCollection
 {
+    use HasValidateInList;
+
     protected array $listAttributes = [];
     protected bool $listContainer = false;
     protected array $listContainerAttributes = [];
@@ -104,12 +103,18 @@ trait HasListCollection
      * @param false|string $value The list type. `ul` for an unordered list, `ol` for an ordered list, `false` to
      * disable.
      *
+     * @throws InvalidArgumentException If the value is not one of: "ul", "ol".
+     *
      * @return static A new instance of the current class with the specified list type for tag `<ul>` or `<ol>`.
      */
     public function listType(string|false $value): static
     {
-        if ($value !== false && in_array($value, ['ul', 'ol'], true) === false) {
-            throw new InvalidArgumentException(sprintf('Invalid list type "%s".', $value));
+        if ($value !== false) {
+            $this->validateInList(
+                $value,
+                'Invalid value "%s" for the list type method. Allowed values are: "%s".',
+                'ol', 'ul',
+            );
         }
 
         $new = clone $this;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateString,
     Attribute\Input\CanBeRequired,
     Attribute\Input\HasMaxLength,
     Attribute\Input\HasMinLength,
@@ -40,8 +40,8 @@ final class Url extends AbstractInput implements
     use HasPattern;
     use HasPlaceholder;
     use HasSize;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected function run(): string
     {

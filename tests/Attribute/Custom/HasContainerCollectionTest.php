@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasContainer;
-use PHPForge\Html\FormControl\Input\Base\AbstractButton;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Attribute\Custom\HasContainerCollection, Html\FormControl\Input\Base\AbstractButton, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
-final class HasContainerTest extends TestCase
+final class HasContainerCollectionTest extends TestCase
 {
     public function testClass(): void
     {
         $instance = new class () {
-            use HasContainer;
+            use HasContainerCollection;
 
             public function getContainerClass(): string
             {
@@ -41,7 +39,7 @@ final class HasContainerTest extends TestCase
     public function testException(): void
     {
         $instance = new class () {
-            use HasContainer;
+            use HasContainerCollection;
         };
 
         $this->expectException(InvalidArgumentException::class);
@@ -53,7 +51,7 @@ final class HasContainerTest extends TestCase
     public function testImmutability(): void
     {
         $instance = new class () {
-            use HasContainer;
+            use HasContainerCollection;
         };
 
         $this->assertNotSame($instance, $instance->container(true));

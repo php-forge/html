@@ -9,14 +9,13 @@ use PHPForge\Html\{
     Attribute\Aria\HasAriaLabel,
     Attribute\CanBeAutofocus,
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainer,
+    Attribute\Custom\HasContainerCollection,
     Attribute\Custom\HasEnclosedByLabel,
     Attribute\Custom\HasLabelCollection,
     Attribute\Custom\HasLabelItemClass,
     Attribute\Custom\HasSeparator,
     Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasUnchecked,
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasUncheckedCollection,
     Attribute\Field\HasGenerateField,
     Attribute\HasClass,
     Attribute\HasId,
@@ -53,7 +52,7 @@ abstract class AbstractChoiceList extends Element implements
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasContainer;
+    use HasContainerCollection;
     use HasEnclosedByLabel;
     use HasGenerateField;
     use HasId;
@@ -63,8 +62,7 @@ abstract class AbstractChoiceList extends Element implements
     use HasSeparator;
     use HasTabindex;
     use HasTemplate;
-    use HasUnchecked;
-    use HasWidgetValidation;
+    use HasUncheckedCollection;
 
     protected array $attributes = [];
     /**

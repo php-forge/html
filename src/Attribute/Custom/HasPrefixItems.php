@@ -8,12 +8,11 @@ use PHPForge\Html\Helper\Encode;
 use PHPForge\Widget\ElementInterface;
 
 /**
- * Is used by widgets that implement the prefix and suffix item methods.
+ * Is used by widgets that implement the prefix item methods.
  */
-trait HasPrefixAndSuffixItems
+trait HasPrefixItems
 {
     protected string $prefixItems = '';
-    protected string $suffixItems = '';
 
     /**
      * Set the `HTML` prefix items content.
@@ -26,21 +25,6 @@ trait HasPrefixAndSuffixItems
     {
         $new = clone $this;
         $new->prefixItems = Encode::sanitizeXSS(...$values);
-
-        return $new;
-    }
-
-    /**
-     * Set the `HTML` suffix items content.
-     *
-     * @param ElementInterface|string ...$values The `HTML` suffix item content.
-     *
-     * @return static A new instance of the current class with the specified suffix item content.
-     */
-    public function suffixItems(string|ElementInterface ...$values): static
-    {
-        $new = clone $this;
-        $new->suffixItems = Encode::sanitizeXSS(...$values);
 
         return $new;
     }

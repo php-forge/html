@@ -5,20 +5,17 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Html\Tag;
-use PHPForge\Widget\ElementInterface;
+use PHPForge\{Html\Attribute\Custom\HasValidateInList, Html\Helper\Encode, Html\Tag, Widget\ElementInterface};
 
 use function array_merge;
-use function implode;
-use function in_array;
-use function sprintf;
 
 /**
  * Is used by widgets that implement the toggle collection.
  */
 trait HasToggleCollection
 {
+    use HasValidateInList;
+
     protected bool $isToggle = true;
     protected array $toggleAttributes = [];
     protected string $toggleClass = '';
@@ -92,12 +89,18 @@ trait HasToggleCollection
      * Sets the toggle data attribute.
      *
      * @param string $name The data attribute name, without the `data-` prefix.
+     * @param string $value The data attribute value.
+     *
+     * @throws InvalidArgumentException If the name is not one of: "bs-toggle", "bs-target", "collapse-toggle",
+     * "drawer-target", "drawer-toggle", "dropdown-toggle", "dropdown-trigger".
      *
      * @return static A new instance of the current class with the specified toggle data attribute.
      */
     public function toggleDataAttribute(string $name, string $value): static
     {
-        $allowedDataAttributes = [
+        $this->validateInList(
+            $name,
+            'Invalid value "%s" for the data attribute. Allowed values are: "%s".',
             'bs-toggle',
             'bs-target',
             'collapse-toggle',
@@ -105,17 +108,7 @@ trait HasToggleCollection
             'drawer-toggle',
             'dropdown-toggle',
             'dropdown-trigger',
-        ];
-
-        if (in_array($name, $allowedDataAttributes, true) === false) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'The data attribute `%s` is not allowed. Allowed data attributes are: %s',
-                    $name,
-                    implode(', ', $allowedDataAttributes)
-                ),
-            );
-        }
+        );
 
         $new = clone $this;
         $new->toggleAttributes["data-$name"] = $value;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateString,
     Attribute\Input\CanBeRequired,
     Attribute\Input\HasMax,
     Attribute\Input\HasMin,
@@ -29,8 +29,8 @@ final class Week extends AbstractInput implements RangeLengthInterface, Required
     use HasMax;
     use HasMin;
     use HasStep;
+    use HasValidateString;
     use HasValue;
-    use HasWidgetValidation;
 
     protected function run(): string
     {

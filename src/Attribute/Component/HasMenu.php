@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Component;
 
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Widget\ElementInterface;
+use PHPForge\{Html\Helper\Encode, Widget\ElementInterface};
 
 /**
  * Is used by widgets that implement menu methods.

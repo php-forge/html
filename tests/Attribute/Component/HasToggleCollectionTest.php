@@ -25,22 +25,13 @@ final class HasToggleCollectionTest extends TestCase
 
         $this->assertSame([], $instance->getToggleAttributes());
 
-        $instance = $instance->toggleAttributes([
-            'class' => 'class',
-        ]);
+        $instance = $instance->toggleAttributes(['class' => 'class']);
 
-        $this->assertSame([
-            'class' => 'class',
-        ], $instance->getToggleAttributes());
+        $this->assertSame(['class' => 'class'], $instance->getToggleAttributes());
 
-        $instance = $instance->toggleAttributes([
-            'disabled' => 'true',
-        ]);
+        $instance = $instance->toggleAttributes(['disabled' => 'true']);
 
-        $this->assertSame([
-            'disabled' => 'true',
-            'class' => 'class',
-        ], $instance->getToggleAttributes());
+        $this->assertSame(['disabled' => 'true', 'class' => 'class'], $instance->getToggleAttributes());
     }
 
     public function testClass(): void
@@ -78,12 +69,24 @@ final class HasToggleCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->toggleContent('foo && bar', Span::widget(), 'id');
+        $instance = $instance->toggleContent('value', Span::widget(), 'id');
 
-        $this->assertSame('foo && bar<span></span>id', $instance->getToggleContent());
+        $this->assertSame('value<span></span>id', $instance->getToggleContent());
     }
 
-    public function testExceptionDataAttributes(): void
+    public function testDataAttributesWithEmptyValue(): void
+    {
+        $instance = new class () {
+            use HasToggleCollection;
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage('The value must not be empty. The valid values are: "bs-toggle", "bs-target", "collapse-toggle", "drawer-target", "drawer-toggle", "dropdown-toggle", "dropdown-trigger".');
+
+        $instance->toggleDataAttribute('', '');
+    }
+
+    public function testDataAttributesWithInvalidValue(): void
     {
         $instance = new class () {
             use HasToggleCollection;
@@ -91,7 +94,7 @@ final class HasToggleCollectionTest extends TestCase
 
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage(
-            'The data attribute `id` is not allowed. Allowed data attributes are: bs-toggle, bs-target, collapse-toggle, drawer-target, drawer-toggle, dropdown-toggle'
+            'Invalid value "id" for the data attribute. Allowed values are: "bs-toggle", "bs-target", "collapse-toggle", "drawer-target", "drawer-toggle", "dropdown-toggle", "dropdown-trigger".'
         );
 
         $instance->toggleDataAttribute('id', 'id');
@@ -125,12 +128,12 @@ final class HasToggleCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->toggleClass('sr-only')->togglePrefix('prefix');
+        $instance = $instance->toggleClass('value')->togglePrefix('prefix');
 
         Assert::equalsWithoutLE(
             <<<HTML
             prefix
-            <span class="sr-only"></span>
+            <span class="value"></span>
             HTML,
             $instance->run()
         );
@@ -261,11 +264,11 @@ final class HasToggleCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->toggleClass('sr-only')->toggleSuffix('suffix');
+        $instance = $instance->toggleClass('value')->toggleSuffix('suffix');
 
         Assert::equalsWithoutLE(
             <<<HTML
-            <span class="sr-only"></span>
+            <span class="value"></span>
             suffix
             HTML,
             $instance->run()
@@ -292,7 +295,7 @@ final class HasToggleCollectionTest extends TestCase
         $this->assertSame('div', $instance->getToggleTag());
     }
 
-    public function testTagException(): void
+    public function testTagWithEmptyValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The toggle tag must be a non-empty string.');

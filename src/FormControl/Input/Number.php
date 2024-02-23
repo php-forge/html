@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasWidgetValidation,
+    Attribute\Custom\HasValidateNumeric,
     Attribute\Input\CanBeRequired,
     Attribute\Input\HasMax,
     Attribute\Input\HasMin,
@@ -36,8 +36,8 @@ final class Number extends AbstractInput implements
     use HasMin;
     use HasPlaceholder;
     use HasStep;
+    use HasValidateNumeric;
     use HasValue;
-    use HasWidgetValidation;
 
     protected function run(): string
     {

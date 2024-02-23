@@ -5,16 +5,15 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-
-use function implode;
-use function in_array;
-use function sprintf;
+use PHPForge\Html\Attribute\Custom\HasValidateInList;
 
 /**
  * Is used by widgets that implement the rel method.
  */
 trait HasRel
 {
+    use HasValidateInList;
+
     /**
      * Set the rel attribute specifies the relationship between the current document and the linked document.
      *
@@ -30,7 +29,9 @@ trait HasRel
      */
     public function rel(string $value): static
     {
-        $allowedRelValues = [
+        $this->validateInList(
+            $value,
+            'Invalid value "%s" for the rel attribute. Allowed values are: "%s".',
             'alternate',
             'author',
             'bookmark',
@@ -51,16 +52,7 @@ trait HasRel
             'sidebar',
             'stylesheet',
             'tag',
-        ];
-
-        if (in_array($value, $allowedRelValues, true) === false) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    'The rel value must be one of the following: %s',
-                    implode(', ', $allowedRelValues)
-                )
-            );
-        }
+        );
 
         $new = clone $this;
         $new->attributes['rel'] = $value;

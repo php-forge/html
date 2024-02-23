@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HasLoadingTest extends TestCase
 {
-    public function testException(): void
+    public function testEmptyValue(): void
     {
         $instance = new class () {
             use HasLoading;
@@ -19,9 +19,25 @@ final class HasLoadingTest extends TestCase
         };
 
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('The value must be one of: eager, lazy.');
+        $this->expectExceptionMessage('The value must not be empty. The valid values are: "eager", "lazy".');
 
         $instance->loading('');
+    }
+
+    public function testInvalidValue(): void
+    {
+        $instance = new class () {
+            use HasLoading;
+
+            protected array $attributes = [];
+        };
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(
+            'Invalid value "value" for the loading attribute. Allowed values are: "eager", "lazy".'
+        );
+
+        $instance->loading('value');
     }
 
     public function testImmutability(): void
