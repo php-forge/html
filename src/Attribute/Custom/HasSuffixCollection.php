@@ -106,13 +106,13 @@ trait HasSuffixCollection
      */
     private function renderSuffixTag(): string
     {
-        return match ($this->suffixContainer) {
-            true => Tag::widget()
-                ->attributes($this->suffixContainerAttributes)
-                ->content($this->suffix)
-                ->tagName($this->suffixContainerTag)
-                ->render(),
-            default => $this->suffix,
-        };
+        if ($this->suffixContainer === false) {
+            return $this->suffix;
+        }
+
+        return Tag::widget()->attributes($this->suffixContainerAttributes)
+            ->content($this->suffix)
+            ->tagName($this->suffixContainerTag)
+            ->render();
     }
 }
