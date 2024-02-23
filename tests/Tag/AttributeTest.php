@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Tag;
 
-use PHPForge\{Html\Svg, Support\Assert};
+use PHPForge\{Html\Tag, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
