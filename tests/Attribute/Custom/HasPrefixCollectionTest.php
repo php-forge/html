@@ -23,17 +23,17 @@ final class HasPrefixCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getPrefixContainerClass());
 
-        $instance = $instance->prefixContainerClass('test-class');
+        $instance = $instance->prefixContainerClass('class');
 
-        $this->assertSame('test-class', $instance->getPrefixContainerClass());
+        $this->assertSame('class', $instance->getPrefixContainerClass());
 
-        $instance = $instance->prefixContainerClass('test-class-1');
+        $instance = $instance->prefixContainerClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getPrefixContainerClass());
+        $this->assertSame('class class-1', $instance->getPrefixContainerClass());
 
-        $instance = $instance->prefixContainerClass('test-override-class', true);
+        $instance = $instance->prefixContainerClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getPrefixContainerClass());
+        $this->assertSame('override-class', $instance->getPrefixContainerClass());
     }
 
     public function testContainerTagException(): void

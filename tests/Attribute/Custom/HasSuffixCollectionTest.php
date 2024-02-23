@@ -23,17 +23,17 @@ final class HasSuffixCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getSuffixContainerClass());
 
-        $instance = $instance->suffixContainerClass('test-class');
+        $instance = $instance->suffixContainerClass('class');
 
-        $this->assertSame('test-class', $instance->getSuffixContainerClass());
+        $this->assertSame('class', $instance->getSuffixContainerClass());
 
-        $instance = $instance->suffixContainerClass('test-class-1');
+        $instance = $instance->suffixContainerClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getSuffixContainerClass());
+        $this->assertSame('class class-1', $instance->getSuffixContainerClass());
 
-        $instance = $instance->suffixContainerClass('test-override-class', true);
+        $instance = $instance->suffixContainerClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getSuffixContainerClass());
+        $this->assertSame('override-class', $instance->getSuffixContainerClass());
     }
 
     public function testContainerTagException(): void

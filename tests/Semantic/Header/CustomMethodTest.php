@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Semantic\Header;
 
-use PHPForge\Html\Semantic\Header;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Semantic\Header, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

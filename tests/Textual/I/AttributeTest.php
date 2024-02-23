@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Textual\I;
 
-use PHPForge\Html\Textual\I;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Textual\I, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

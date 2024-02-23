@@ -20,17 +20,10 @@ final class HasUnchekedCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->uncheckAttributes([
-            'class' => 'foo',
-        ]);
-        $instance = $instance->uncheckAttributes([
-            'disabled' => true,
-        ]);
+        $instance = $instance->uncheckAttributes(['class' => 'value']);
+        $instance = $instance->uncheckAttributes(['disabled' => true]);
 
-        $this->assertSame([
-            'class' => 'foo',
-            'disabled' => true,
-        ], $instance->getUncheckAttributes());
+        $this->assertSame(['class' => 'value', 'disabled' => true], $instance->getUncheckAttributes());
     }
 
     public function testClass(): void

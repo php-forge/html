@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Radio;
 
-use PHPForge\Html\FormControl\Input\Radio;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Radio, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 final class LabelTest extends TestCase

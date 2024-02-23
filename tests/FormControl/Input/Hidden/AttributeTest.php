@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Hidden;
 
-use PHPForge\Html\FormControl\Input\Hidden;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Hidden, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

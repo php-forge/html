@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Helper;
 
-use PHPForge\Html\Helper\Encode;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Helper\Encode, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 final class EncodeTest extends TestCase

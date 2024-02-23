@@ -22,17 +22,17 @@ final class HasListItemCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getListItemClass());
 
-        $instance = $instance->listItemClass('test-class');
+        $instance = $instance->listItemClass('class');
 
-        $this->assertSame('test-class', $instance->getListItemClass());
+        $this->assertSame('class', $instance->getListItemClass());
 
-        $instance = $instance->listItemClass('test-class-1');
+        $instance = $instance->listItemClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getListItemClass());
+        $this->assertSame('class class-1', $instance->getListItemClass());
 
-        $instance = $instance->listItemClass('test-override-class', true);
+        $instance = $instance->listItemClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getListItemClass());
+        $this->assertSame('override-class', $instance->getListItemClass());
     }
 
     public function testGetListItemAttributes(): void
@@ -43,13 +43,9 @@ final class HasListItemCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getListItemAttributes());
 
-        $instance = $instance->listItemAttributes([
-            'foo' => 'bar',
-        ]);
+        $instance = $instance->listItemAttributes(['class' => 'value']);
 
-        $this->assertSame([
-            'foo' => 'bar',
-        ], $instance->getListItemAttributes());
+        $this->assertSame(['class' => 'value'], $instance->getListItemAttributes());
     }
 
     public function testImmutability(): void

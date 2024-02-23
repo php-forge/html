@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\TextArea;
 
-use PHPForge\Html\FormControl\TextArea;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\TextArea, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Reset;
 
-use PHPForge\Html\FormControl\Input\Reset;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Reset, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

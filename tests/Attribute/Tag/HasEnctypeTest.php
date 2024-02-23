@@ -63,21 +63,15 @@ final class HasEnctypeTest extends TestCase
 
         $this->assertEmpty($instance->attributes);
         $this->assertSame(
-            [
-                'enctype' => 'application/x-www-form-urlencoded',
-            ],
+            ['enctype' => 'application/x-www-form-urlencoded'],
             $instance->enctype('application/x-www-form-urlencoded')->attributes,
         );
         $this->assertSame(
-            [
-                'enctype' => 'multipart/form-data',
-            ],
+            ['enctype' => 'multipart/form-data'],
             $instance->enctype('multipart/form-data')->attributes,
         );
         $this->assertSame(
-            [
-                'enctype' => 'text/plain',
-            ],
+            ['enctype' => 'text/plain'],
             $instance->enctype('text/plain')->attributes,
         );
     }

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Month;
 
-use PHPForge\Html\FormControl\Input\Month;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Month, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

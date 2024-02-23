@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataBsDismiss;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\{Attribute\Custom\HasDataBsDismiss, Attribute\HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataBsDismissTest extends TestCase
@@ -19,10 +18,8 @@ final class HasDataBsDismissTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataBsDismiss('alert');
+        $instance = $instance->dataBsDismiss('value');
 
-        $this->assertSame([
-            'data-bs-dismiss' => 'alert',
-        ], $instance->attributes);
+        $this->assertSame(['data-bs-dismiss' => 'value'], $instance->attributes);
     }
 }

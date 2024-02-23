@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Range;
 
-use PHPForge\Html\FormControl\Input\Range;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Range, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

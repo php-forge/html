@@ -30,12 +30,10 @@ final class HasAriaControlsTest extends TestCase
         $this->assertTrue($instance->getAriaControls());
         $this->assertEmpty($instance->attributes);
 
-        $instance = $instance->ariaControls('aria-controls');
+        $instance = $instance->ariaControls('value');
 
         $this->assertFalse($instance->getAriaControls());
-        $this->assertSame([
-            'aria-controls' => 'aria-controls',
-        ], $instance->attributes);
+        $this->assertSame(['aria-controls' => 'value'], $instance->attributes);
     }
 
     public function testImmutability(): void

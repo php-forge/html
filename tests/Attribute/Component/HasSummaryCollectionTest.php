@@ -22,17 +22,17 @@ final class HasSummaryCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getSummaryClass());
 
-        $instance = $instance->summaryClass('test-class');
+        $instance = $instance->summaryClass('class');
 
-        $this->assertSame('test-class', $instance->getSummaryClass());
+        $this->assertSame('class', $instance->getSummaryClass());
 
-        $instance = $instance->summaryClass('test-class-1');
+        $instance = $instance->summaryClass('class-1');
 
-        $this->assertSame('test-class test-class-1', $instance->getSummaryClass());
+        $this->assertSame('class class-1', $instance->getSummaryClass());
 
-        $instance = $instance->summaryClass('test-override-class', true);
+        $instance = $instance->summaryClass('override-class', true);
 
-        $this->assertSame('test-override-class', $instance->getSummaryClass());
+        $this->assertSame('override-class', $instance->getSummaryClass());
     }
 
     public function testImmutability(): void

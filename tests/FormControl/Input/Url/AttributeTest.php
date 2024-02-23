@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Url;
 
-use PHPForge\Html\FormControl\Input\Url;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Url, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

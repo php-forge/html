@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataBsToggle;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\Attribute\{Custom\HasDataBsToggle, HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataBsToggleTest extends TestCase
@@ -19,10 +18,8 @@ final class HasDataBsToggleTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataBsToggle('collapse');
+        $instance = $instance->dataBsToggle('value');
 
-        $this->assertSame([
-            'data-bs-toggle' => 'collapse',
-        ], $instance->attributes);
+        $this->assertSame(['data-bs-toggle' => 'value'], $instance->attributes);
     }
 }

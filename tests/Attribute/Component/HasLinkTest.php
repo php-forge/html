@@ -15,7 +15,7 @@ final class HasLinkTest extends TestCase
             use HasLink;
         };
 
-        $this->assertSame('test-link', $instance->link('test-link')->getLink());
+        $this->assertSame('value', $instance->link('value')->getLink());
     }
 
     public function testImmutability(): void

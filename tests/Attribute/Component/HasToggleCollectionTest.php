@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Component\HasToggleCollection;
-use PHPForge\Html\Textual\Span;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Attribute\Component\HasToggleCollection, Html\Textual\Span, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 final class HasToggleCollectionTest extends TestCase
@@ -25,13 +23,13 @@ final class HasToggleCollectionTest extends TestCase
 
         $this->assertSame([], $instance->getToggleAttributes());
 
-        $instance = $instance->toggleAttributes(['class' => 'class']);
+        $instance = $instance->toggleAttributes(['class' => 'value']);
 
-        $this->assertSame(['class' => 'class'], $instance->getToggleAttributes());
+        $this->assertSame(['class' => 'value'], $instance->getToggleAttributes());
 
         $instance = $instance->toggleAttributes(['disabled' => 'true']);
 
-        $this->assertSame(['disabled' => 'true', 'class' => 'class'], $instance->getToggleAttributes());
+        $this->assertSame(['disabled' => 'true', 'class' => 'value'], $instance->getToggleAttributes());
     }
 
     public function testClass(): void
@@ -53,9 +51,9 @@ final class HasToggleCollectionTest extends TestCase
         $this->assertEmpty($instance->getToggleClass());
         $this->assertFalse($instance->getToggleClassOverride());
 
-        $instance = $instance->toggleClass('class');
+        $instance = $instance->toggleClass('value');
 
-        $this->assertSame('class', $instance->getToggleClass());
+        $this->assertSame('value', $instance->getToggleClass());
     }
 
     public function testContent(): void
@@ -290,9 +288,9 @@ final class HasToggleCollectionTest extends TestCase
 
         $this->assertSame('span', $instance->getToggleTag());
 
-        $instance = $instance->toggleTag('div');
+        $instance = $instance->toggleTag('value');
 
-        $this->assertSame('div', $instance->getToggleTag());
+        $this->assertSame('value', $instance->getToggleTag());
     }
 
     public function testTagWithEmptyValue(): void

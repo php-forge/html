@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasLabelCollection;
-use PHPForge\Html\FormControl\Input\Base\AbstractButton;
-use PHPForge\Html\Textual\Span;
+use PHPForge\Html\{Attribute\Custom\HasLabelCollection, FormControl\Input\Base\AbstractButton, Textual\Span};
 use PHPUnit\Framework\TestCase;
 
 final class HasLabelCollectionTest extends TestCase
@@ -48,9 +46,9 @@ final class HasLabelCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->label('foo && bar', Span::widget()->content('foo && bar'));
+        $instance = $instance->label('value', Span::widget()->content('value'));
 
-        $this->assertSame('foo && bar<span>foo && bar</span>', $instance->getLabel());
+        $this->assertSame('value<span>value</span>', $instance->getLabel());
     }
 
     public function testImmutability(): void
@@ -81,7 +79,7 @@ final class HasLabelCollectionTest extends TestCase
         $this->assertFalse($instance->notLabel()->isLabel());
     }
 
-    public function testRenderLabelTag(): void
+    public function testRender(): void
     {
         $instance = new class () extends AbstractButton {
             public function run(): string
@@ -90,10 +88,10 @@ final class HasLabelCollectionTest extends TestCase
             }
         };
 
-        $this->assertSame('<label>content</label>', $instance->label('content')->run());
+        $this->assertSame('<label>value</label>', $instance->label('value')->run());
     }
 
-    public function testXSS(): void
+    public function testRenderWithXSS(): void
     {
         $instance = new class () {
             use HasLabelCollection;
@@ -104,8 +102,8 @@ final class HasLabelCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->label("<script>alert('Hack');</script>", Span::widget()->content('foo && bar'));
+        $instance = $instance->label("<script>alert('Hack');</script>", Span::widget()->content('value'));
 
-        $this->assertSame('<span>foo && bar</span>', $instance->getLabel());
+        $this->assertSame('<span>value</span>', $instance->getLabel());
     }
 }

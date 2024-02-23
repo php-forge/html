@@ -17,9 +17,9 @@ final class HasContentTest extends TestCase
 
         $this->assertSame('', $instance->getContent());
 
-        $instance = $instance->content('foo');
+        $instance = $instance->content('value');
 
-        $this->assertSame('foo', $instance->getContent());
+        $this->assertSame('value', $instance->getContent());
     }
 
     public function testImmutability(): void

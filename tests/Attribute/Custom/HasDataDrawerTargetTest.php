@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Attribute\Custom;
 
-use PHPForge\Html\Attribute\Custom\HasDataDrawerTarget;
-use PHPForge\Html\Attribute\HasData;
+use PHPForge\Html\Attribute\{Custom\HasDataDrawerTarget, HasData};
 use PHPUnit\Framework\TestCase;
 
 final class HasDataDrawerTargetTest extends TestCase
@@ -19,11 +18,9 @@ final class HasDataDrawerTargetTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->dataDrawerTarget('id');
+        $instance = $instance->dataDrawerTarget('value');
 
-        $this->assertSame([
-            'data-drawer-target' => 'id',
-        ], $instance->attributes);
+        $this->assertSame(['data-drawer-target' => 'value'], $instance->attributes);
     }
 
     public function testDataDrawerTargetWithTrue(): void

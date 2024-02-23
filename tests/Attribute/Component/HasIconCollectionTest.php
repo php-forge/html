@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Component\HasIconCollection;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Attribute\Component\HasIconCollection, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 final class HasIconCollectionTest extends TestCase
@@ -24,9 +23,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getIconClass());
 
-        $instance = $instance->iconClass('class');
+        $instance = $instance->iconClass('value');
 
-        $this->assertSame('class', $instance->getIconClass());
+        $this->assertSame('value', $instance->getIconClass());
     }
 
     public function testContainerClass(): void
@@ -75,13 +74,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getIconAttributes());
 
-        $instance = $instance->iconAttributes([
-            'class' => 'class',
-        ]);
+        $instance = $instance->iconAttributes(['class' => 'value']);
 
-        $this->assertSame([
-            'class' => 'class',
-        ], $instance->getIconAttributes());
+        $this->assertSame(['class' => 'value'], $instance->getIconAttributes());
     }
 
     public function testGetIconContainerAttributes(): void
@@ -92,13 +87,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getIconContainerAttributes());
 
-        $instance = $instance->iconContainerAttributes([
-            'class' => 'class',
-        ]);
+        $instance = $instance->iconContainerAttributes(['class' => 'value']);
 
-        $this->assertSame([
-            'class' => 'class',
-        ], $instance->getIconContainerAttributes());
+        $this->assertSame(['class' => 'value'], $instance->getIconContainerAttributes());
     }
 
     public function testGetIconContent(): void
@@ -109,9 +100,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->getIcon());
 
-        $instance = $instance->icon('content');
+        $instance = $instance->icon('value');
 
-        $this->assertSame('content', $instance->getIcon());
+        $this->assertSame('value', $instance->getIcon());
     }
 
     public function testImmutability(): void
@@ -180,9 +171,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->iconClass('class')->icon('content');
+        $instance = $instance->iconClass('value')->icon('value');
 
-        $this->assertSame('<i class="class">content</i>', $instance->render());
+        $this->assertSame('<i class="value">value</i>', $instance->render());
     }
 
     public function testRenderIconTagWithContainer(): void
@@ -203,12 +194,12 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->iconClass('class')->iconContainer(true)->icon('content');
+        $instance = $instance->iconClass('value')->iconContainer(true)->icon('value');
 
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <i class="class">content</i>
+            <i class="value">value</i>
             </div>
             HTML,
             $instance->render()
@@ -233,9 +224,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->icon('content')->iconTag('i');
+        $instance = $instance->icon('value')->iconTag('i');
 
-        $this->assertSame('<i>content</i>', $instance->render());
+        $this->assertSame('<i>value</i>', $instance->render());
     }
 
     public function testRenderIconTagWithFalse(): void
@@ -256,9 +247,9 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertEmpty($instance->render());
 
-        $instance = $instance->icon('<svg>content</svg>')->iconTag(false);
+        $instance = $instance->icon('<svg>value</svg>')->iconTag(false);
 
-        $this->assertSame('<svg>content</svg>', $instance->render());
+        $this->assertSame('<svg>value</svg>', $instance->render());
     }
 
     public function testRenderIconTagWithSVG(): void
@@ -302,12 +293,12 @@ final class HasIconCollectionTest extends TestCase
 
         $this->assertSame('i', $instance->getIconTag());
 
-        $instance = $instance->iconTag('span');
+        $instance = $instance->iconTag('value');
 
-        $this->assertSame('span', $instance->getIconTag());
+        $this->assertSame('value', $instance->getIconTag());
     }
 
-    public function testTagException(): void
+    public function testTagWithEmptyValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('The icon tag must be a non-empty string.');

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Label;
 
-use PHPForge\Html\FormControl\Label;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Label, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

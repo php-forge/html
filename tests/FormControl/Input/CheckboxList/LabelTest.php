@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\CheckboxList;
 
-use PHPForge\Html\FormControl\Input\{Checkbox, CheckboxList};
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Checkbox, Html\FormControl\Input\CheckboxList, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

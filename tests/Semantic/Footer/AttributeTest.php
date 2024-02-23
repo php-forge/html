@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Semantic\Footer;
 
-use PHPForge\Html\Semantic\Footer;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Semantic\Footer, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

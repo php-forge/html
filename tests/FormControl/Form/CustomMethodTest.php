@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Form;
 
-use PHPForge\Html\FormControl\Form;
-use PHPForge\Support\Assert;
-use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\TestCase;
+use PHPForge\{Html\FormControl\Form, Support\Assert};
+use PHPUnit\Framework\{Attributes\DataProvider, TestCase};
 use Stringable;
 
 /**

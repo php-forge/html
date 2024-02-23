@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\DatetimeLocal;
 
-use PHPForge\Html\FormControl\Input\DatetimeLocal;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\DatetimeLocal, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

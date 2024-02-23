@@ -17,10 +17,10 @@ final class HasAttributesTest extends TestCase
             public array $attributes = [];
         };
 
-        $instance = $instance->attributes(['class' => 'foo']);
+        $instance = $instance->attributes(['class' => 'value']);
         $instance = $instance->attributes(['disabled' => true]);
 
-        $this->assertSame(['class' => 'foo', 'disabled' => true], $instance->attributes);
+        $this->assertSame(['class' => 'value', 'disabled' => true], $instance->attributes);
     }
 
     public function testImmutability(): void

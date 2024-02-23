@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\Time;
 
-use PHPForge\Html\FormControl\Input\Time;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Time, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

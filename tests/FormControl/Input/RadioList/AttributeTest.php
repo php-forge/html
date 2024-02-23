@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\FormControl\Input\RadioList;
 
-use PHPForge\Html\FormControl\Input\{Radio, RadioList};
-use PHPForge\Support\Assert;
+use PHPForge\{Html\FormControl\Input\Radio, Html\FormControl\Input\RadioList, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**

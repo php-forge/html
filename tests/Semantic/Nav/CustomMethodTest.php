@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Tests\Semantic\Nav;
 
-use PHPForge\Html\Semantic\Nav;
-use PHPForge\Support\Assert;
+use PHPForge\{Html\Semantic\Nav, Support\Assert};
 use PHPUnit\Framework\TestCase;
 
 /**
