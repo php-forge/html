@@ -21,7 +21,7 @@ trait HasValidateScalar
      *
      * @throws InvalidArgumentException If the value is invalid.
      */
-    protected function validateScalar(mixed ...$values): void
+    private function validateScalar(mixed ...$values): void
     {
         foreach ($values as $value) {
             if (is_scalar($value) === false && $value !== null) {

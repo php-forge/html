@@ -21,7 +21,7 @@ trait HasValidateIterable
      *
      * @throws InvalidArgumentException If the value is invalid.
      */
-    protected function validateIterable(mixed $value): void
+    private function validateIterable(mixed $value): void
     {
         if (!is_iterable($value) && $value !== null) {
             throw new InvalidArgumentException(
