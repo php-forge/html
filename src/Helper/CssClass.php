@@ -23,8 +23,10 @@ final class CssClass
      * effect.
      *
      * @param array $attributes The attributes to be modified.
-     * @param string|string[] $class The CSS class(es) to be added.
+     * @param string|array $class The CSS class(es) to be added.
      * @param bool $override Whether to override existing CSS class(es) with new one.
+     *
+     * @psalm-param string|string[] $class
      */
     public static function add(array &$attributes, array|string $class, bool $override = false): void
     {
@@ -46,7 +48,11 @@ final class CssClass
             /** @psalm-var string[] $existingClasses */
             $existingClasses = is_array($attributes['class'])
                 ? $attributes['class']
-                : preg_split('/\s+/', (string) $attributes['class'], flags: PREG_SPLIT_NO_EMPTY);
+                : preg_split(
+                    '/\s+/',
+                    is_string($attributes['class']) ? $attributes['class'] : '',
+                    flags: PREG_SPLIT_NO_EMPTY
+                );
 
             $newClasses = is_array($class)
                 ? $class
