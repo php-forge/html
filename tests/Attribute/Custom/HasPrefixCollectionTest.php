@@ -77,13 +77,11 @@ final class HasPrefixCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->prefix(Span::widget(), 'prefix');
-
-        $this->assertSame('<span></span>prefix', $instance->getPrefix());
+        $instance = $instance->prefix('prefix')->prefixContainer(false);
 
         Assert::equalsWithoutLE(
             <<<HTML
-            <span></span>prefix
+            prefix
             HTML,
             $instance->run()
         );

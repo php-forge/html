@@ -77,13 +77,11 @@ final class HasSuffixCollectionTest extends TestCase
             }
         };
 
-        $instance = $instance->suffix('suffix', Span::widget());
-
-        $this->assertSame('suffix<span></span>', $instance->getSuffix());
+        $instance = $instance->suffix('suffix')->suffixContainer(false);
 
         Assert::equalsWithoutLE(
             <<<HTML
-            suffix<span></span>
+            suffix
             HTML,
             $instance->run()
         );
