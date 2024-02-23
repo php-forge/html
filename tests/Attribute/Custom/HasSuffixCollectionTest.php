@@ -89,6 +89,34 @@ final class HasSuffixCollectionTest extends TestCase
         );
     }
 
+    public function testRenderWithContainerTrue(): void
+    {
+        $instance = new class () {
+            use HasSuffixCollection;
+
+            public function getSuffix(): string
+            {
+                return $this->suffix;
+            }
+
+            public function run(): string
+            {
+                return $this->renderSuffixTag();
+            }
+        };
+
+        $instance = $instance->suffix('suffix', Span::widget())->suffixContainer(true);
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            suffix<span></span>
+            </div>
+            HTML,
+            $instance->run()
+        );
+    }
+
     public function testRenderWithXSS(): void
     {
         $instance = new class () {

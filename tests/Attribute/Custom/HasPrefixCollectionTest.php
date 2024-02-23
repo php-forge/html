@@ -89,6 +89,34 @@ final class HasPrefixCollectionTest extends TestCase
         );
     }
 
+    public function testRenderWithContainerTrue(): void
+    {
+        $instance = new class () {
+            use HasPrefixCollection;
+
+            public function getPrefix(): string
+            {
+                return $this->prefix;
+            }
+
+            public function run(): string
+            {
+                return $this->renderPrefixTag();
+            }
+        };
+
+        $instance = $instance->prefix(Span::widget(), 'prefix')->prefixContainer(true);
+
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <span></span>prefix
+            </div>
+            HTML,
+            $instance->run()
+        );
+    }
+
     public function testRenderWithXSS(): void
     {
         $instance = new class () {
