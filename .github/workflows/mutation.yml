@@ -30,6 +30,6 @@ jobs:
       debug: true
       os: >-
         ['ubuntu-latest']
-      options: --threads=2 -j --log-verbosity=all
+      options: -j --log-verbosity=all
       php: >-
         ['8.1']
