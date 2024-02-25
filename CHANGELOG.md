@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.1.2 Under development
+
 ## 0.1.1 February 25, 2024
 
 - Bug #334: Move `WordFormatter::class` helper to `php-forge/helper` package (@terabytesoftw)
