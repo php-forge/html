@@ -25,3 +25,5 @@ Thumbs.db
 
 # security private repo
 auth.json
+
+.vscode
