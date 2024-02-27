@@ -4,7 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Attribute\{Custom\HasValidateString, Input\CanBeRequired, Input\HasValue};
+use PHPForge\{
+    Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasValue,
+    Html\Interop\RequiredInterface,
+    Html\Interop\ValueInterface
+};
 
 /**
  * The input element with a type attribute whose value is "color" represents a color-well control, for setting the
@@ -12,7 +18,7 @@ use PHPForge\Html\Attribute\{Custom\HasValidateString, Input\CanBeRequired, Inpu
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.color.html#input.color
  */
-final class Color extends Base\AbstractInput implements Contract\RequiredInterface, Contract\ValueInterface
+final class Color extends Base\AbstractInput implements RequiredInterface, ValueInterface
 {
     use CanBeRequired;
     use HasValidateString;

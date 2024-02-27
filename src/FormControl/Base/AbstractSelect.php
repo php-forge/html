@@ -5,35 +5,36 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Base;
 
 use InvalidArgumentException;
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaLabel,
-    Attribute\CanBeAutofocus,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Field\HasGenerateField,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\Input\CanBeDisabled,
-    Attribute\Input\CanBeMultiple,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasName,
-    Attribute\Input\HasSize,
-    Attribute\Input\HasValue,
-    Attribute\Tag\HasGroup,
-    Attribute\Tag\HasItems,
-    Attribute\Tag\HasItemsAttributes,
-    Attribute\Tag\HasPrompt,
-    FormControl\Input\Contract\InputInterface,
-    FormControl\Input\Contract\RequiredInterface,
-    FormControl\Input\Contract\ValueInterface,
-    FormControl\Label,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\CanBeAutofocus,
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasLabelCollection,
+    Html\Attribute\Custom\HasPrefixCollection,
+    Html\Attribute\Custom\HasSuffixCollection,
+    Html\Attribute\Field\HasGenerateField,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasId,
+    Html\Attribute\HasStyle,
+    Html\Attribute\HasTabindex,
+    Html\Attribute\Input\CanBeDisabled,
+    Html\Attribute\Input\CanBeMultiple,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasName,
+    Html\Attribute\Input\HasSize,
+    Html\Attribute\Input\HasValue,
+    Html\Attribute\Tag\HasGroup,
+    Html\Attribute\Tag\HasItems,
+    Html\Attribute\Tag\HasItemsAttributes,
+    Html\Attribute\Tag\HasPrompt,
+    Html\FormControl\Label,
+    Html\Interop\InputInterface,
+    Html\Interop\RequiredInterface,
+    Html\Interop\ValueInterface,
+    Html\Tag,
+    Widget\Element,
+    Widget\ElementInterface
 };
-use PHPForge\Widget\Element;
 use Stringable;
 
 use function array_merge;
@@ -47,7 +48,11 @@ use function is_object;
 /**
  * Provides a foundation for creating HTML `select` elements with various attributes and content.
  */
-abstract class AbstractSelect extends Element implements InputInterface, RequiredInterface, ValueInterface
+abstract class AbstractSelect extends Element implements
+    ElementInterface,
+    InputInterface,
+    RequiredInterface,
+    ValueInterface
 {
     use CanBeAutofocus;
     use CanBeDisabled;

@@ -1,6 +1,8 @@
 # Change Log
 
-## 0.1.2 Under development
+## 0.2.0 February 27, 2024
+
+- Enh #336: Move common interfaces to `php-forge/html-interop` package (@terabytesoftw)
 
 ## 0.1.1 February 25, 2024
 

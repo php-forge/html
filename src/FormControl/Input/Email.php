@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasValidateString,
-    Attribute\Input\CanBeMultiple,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasMaxLength,
-    Attribute\Input\HasMinLength,
-    Attribute\Input\HasPattern,
-    Attribute\Input\HasPlaceholder,
-    Attribute\Input\HasSize,
-    Attribute\Input\HasValue,
-    FormControl\Input\Base\AbstractInput,
-    FormControl\Input\Contract\LengthInterface,
-    FormControl\Input\Contract\PatternInterface,
-    FormControl\Input\Contract\PlaceholderInterface,
-    FormControl\Input\Contract\RequiredInterface,
-    FormControl\Input\Contract\ValueInterface
+use PHPForge\{
+    Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\Input\CanBeMultiple,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasMaxLength,
+    Html\Attribute\Input\HasMinLength,
+    Html\Attribute\Input\HasPattern,
+    Html\Attribute\Input\HasPlaceholder,
+    Html\Attribute\Input\HasSize,
+    Html\Attribute\Input\HasValue,
+    Html\FormControl\Input\Base\AbstractInput,
+    Html\Interop\LengthInterface,
+    Html\Interop\PatternInterface,
+    Html\Interop\PlaceholderInterface,
+    Html\Interop\RequiredInterface,
+    Html\Interop\ValueInterface
 };
 
 /**

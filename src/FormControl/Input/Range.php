@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasValidateNumeric,
-    Attribute\Input\HasMax,
-    Attribute\Input\HasMin,
-    Attribute\Input\HasStep,
-    Attribute\Input\HasValue,
-    FormControl\Input\Base\AbstractInput,
-    FormControl\Input\Contract\RangeLengthInterface,
-    FormControl\Input\Contract\ValueInterface
+use PHPForge\{
+    Html\Attribute\Custom\HasValidateNumeric,
+    Html\Attribute\Input\HasMax,
+    Html\Attribute\Input\HasMin,
+    Html\Attribute\Input\HasStep,
+    Html\Attribute\Input\HasValue,
+    Html\FormControl\Input\Base\AbstractInput,
+    Html\Interop\RangeLengthInterface,
+    Html\Interop\ValueInterface
 };
 
 /**
