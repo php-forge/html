@@ -22,7 +22,8 @@ use PHPForge\{
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.datetime.html#input.datetime
  */
-final class Datetime extends Base\AbstractInput implements RangeLengthInterface, RequiredInterface, ValueInterface {
+final class Datetime extends Base\AbstractInput implements RangeLengthInterface, RequiredInterface, ValueInterface
+{
     use CanBeRequired;
     use HasMax;
     use HasMin;
