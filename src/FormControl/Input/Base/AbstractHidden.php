@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasValidateString,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasStyle,
-    Attribute\Input\HasName,
-    Attribute\Input\HasValue,
-    FormControl\Input\Contract\ValueInterface,
-    Tag
+use PHPForge\{
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasId,
+    Html\Attribute\HasStyle,
+    Html\Attribute\Input\HasName,
+    Html\Attribute\Input\HasValue,
+    Html\Interop\ValueInterface,
+    Html\Tag
 };
 use PHPForge\Widget\Element;
 

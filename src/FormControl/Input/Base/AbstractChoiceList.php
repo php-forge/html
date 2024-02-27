@@ -4,34 +4,35 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaDescribedBy,
-    Attribute\Aria\HasAriaLabel,
-    Attribute\CanBeAutofocus,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainerCollection,
-    Attribute\Custom\HasEnclosedByLabel,
-    Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasLabelItemClass,
-    Attribute\Custom\HasSeparator,
-    Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasUncheckedCollection,
-    Attribute\Field\HasGenerateField,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasTabindex,
-    Attribute\Input\CanBeChecked,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasName,
-    FormControl\Input\Contract\AriaDescribedByInterface,
-    FormControl\Input\Contract\CheckedInterface,
-    FormControl\Input\Contract\InputInterface,
-    FormControl\Input\Contract\LabelInterface,
-    FormControl\Input\Contract\RequiredInterface,
-    Helper\Utils,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaDescribedBy,
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\CanBeAutofocus,
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasContainerCollection,
+    Html\Attribute\Custom\HasEnclosedByLabel,
+    Html\Attribute\Custom\HasLabelCollection,
+    Html\Attribute\Custom\HasLabelItemClass,
+    Html\Attribute\Custom\HasSeparator,
+    Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\Custom\HasUncheckedCollection,
+    Html\Attribute\Field\HasGenerateField,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasId,
+    Html\Attribute\HasTabindex,
+    Html\Attribute\Input\CanBeChecked,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasName,
+    Html\FormControl\Input\Contract\LabelInterface,
+    Html\Helper\Utils,
+    Html\Interop\AriaDescribedByInterface,
+    Html\Interop\CheckedInterface,
+    Html\Interop\InputInterface,
+    Html\Interop\RequiredInterface,
+    Html\Tag,
+    Widget\Element,
+    Widget\ElementInterface
 };
-use PHPForge\Widget\Element;
 
 use function in_array;
 use function is_bool;
@@ -41,6 +42,7 @@ use function is_scalar;
 abstract class AbstractChoiceList extends Element implements
     AriaDescribedByInterface,
     CheckedInterface,
+    ElementInterface,
     InputInterface,
     LabelInterface,
     RequiredInterface

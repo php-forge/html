@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasValidateString,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasMax,
-    Attribute\Input\HasMin,
-    Attribute\Input\HasStep,
-    Attribute\Input\HasValue
+use PHPForge\{
+    Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasMax,
+    Html\Attribute\Input\HasMin,
+    Html\Attribute\Input\HasStep,
+    Html\Attribute\Input\HasValue,
+    Html\Interop\RangeLengthInterface,
+    Html\Interop\RequiredInterface,
+    Html\Interop\ValueInterface
 };
 
 /**
@@ -19,11 +22,7 @@ use PHPForge\Html\{
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.datetime.html#input.datetime
  */
-final class Datetime extends Base\AbstractInput implements
-    Contract\RangeLengthInterface,
-    Contract\RequiredInterface,
-    Contract\ValueInterface
-{
+final class Datetime extends Base\AbstractInput implements RangeLengthInterface, RequiredInterface, ValueInterface {
     use CanBeRequired;
     use HasMax;
     use HasMin;

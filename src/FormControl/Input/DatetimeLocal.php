@@ -4,16 +4,16 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasValidateString,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasMax,
-    Attribute\Input\HasMin,
-    Attribute\Input\HasStep,
-    Attribute\Input\HasValue,
-    FormControl\Input\Contract\RangeLengthInterface,
-    FormControl\Input\Contract\RequiredInterface,
-    FormControl\Input\Contract\ValueInterface
+use PHPForge\{
+    Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasMax,
+    Html\Attribute\Input\HasMin,
+    Html\Attribute\Input\HasStep,
+    Html\Attribute\Input\HasValue,
+    Html\Interop\RangeLengthInterface,
+    Html\Interop\RequiredInterface,
+    Html\Interop\ValueInterface
 };
 
 /**

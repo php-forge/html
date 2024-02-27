@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasUncheckedCollection,
-    Attribute\Input\CanBeMultiple,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasAccept,
-    Helper\Utils
+use PHPForge\{
+    Html\Attribute\Custom\HasUncheckedCollection,
+    Html\Attribute\Input\CanBeMultiple,
+    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\Input\HasAccept,
+    Html\Helper\Utils,
+    Html\Interop\RequiredInterface
 };
 
 /**
@@ -18,7 +19,7 @@ use PHPForge\Html\{
  *
  * @link https://www.w3.org/TR/2012/WD-html-markup-20120329/input.file.html#input.file
  */
-final class File extends Base\AbstractInput implements Contract\RequiredInterface
+final class File extends Base\AbstractInput implements RequiredInterface
 {
     use CanBeMultiple;
     use CanBeRequired;

@@ -4,37 +4,38 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaDescribedBy,
-    Attribute\Aria\HasAriaLabel,
-    Attribute\CanBeAutofocus,
-    Attribute\CanBeHidden,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Custom\HasTemplate,
-    Attribute\Field\HasGenerateField,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\HasTitle,
-    Attribute\Input\CanBeDisabled,
-    Attribute\Input\CanBeReadonly,
-    Attribute\Input\HasForm,
-    Attribute\Input\HasName,
-    FormControl\Input\Contract\AriaDescribedByInterface,
-    FormControl\Input\Contract\InputInterface,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaDescribedBy,
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\CanBeAutofocus,
+    Html\Attribute\CanBeHidden,
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasPrefixCollection,
+    Html\Attribute\Custom\HasSuffixCollection,
+    Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\Field\HasGenerateField,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasData,
+    Html\Attribute\HasId,
+    Html\Attribute\HasLang,
+    Html\Attribute\HasStyle,
+    Html\Attribute\HasTabindex,
+    Html\Attribute\HasTitle,
+    Html\Attribute\Input\CanBeDisabled,
+    Html\Attribute\Input\CanBeReadonly,
+    Html\Attribute\Input\HasForm,
+    Html\Attribute\Input\HasName,
+    Html\Interop\AriaDescribedByInterface,
+    Html\Interop\InputInterface,
+    Html\Tag,
+    Widget\Element,
+    Widget\ElementInterface,
 };
-use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML `input` custom elements with various attributes and content.
  */
-abstract class AbstractInput extends Element implements AriaDescribedByInterface, InputInterface
+abstract class AbstractInput extends Element implements AriaDescribedByInterface, ElementInterface, InputInterface
 {
     use CanBeAutofocus;
     use CanBeDisabled;
