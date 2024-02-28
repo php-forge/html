@@ -22,7 +22,7 @@ use PHPForge\Html\{
     Attribute\Tag\HasRows,
     Attribute\Tag\HasWrap,
     Base\AbstractElement,
-    FormControl\Input\Contract\ContentInterface,
+    Interop\ContentInterface,
     Interop\InputInterface,
     Interop\LengthInterface,
     Interop\PlaceholderInterface,

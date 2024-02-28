@@ -35,13 +35,13 @@ use PHPForge\{
     Html\Attribute\Input\HasForm,
     Html\Attribute\Input\HasName,
     Html\Attribute\Input\HasValue,
-    Html\FormControl\Input\Contract\LabelInterface,
     Html\FormControl\Label,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\CheckedInterface,
     Html\Interop\InputInterface,
-    Html\Interop\RequiredInterface,
+    Html\Interop\LabelInterface,
     Html\Interop\RenderInterface,
+    Html\Interop\RequiredInterface,
     Html\Tag,
     Widget\Element
 };
