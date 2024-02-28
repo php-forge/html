@@ -3,6 +3,8 @@
 ## 0.3.0 Under development
 
 - Enh #338: Move `Helper` classes to `php-forge/html-helper` package (@terabytesoftw)
+- Enh #339: Move interface `ContentInterface::class` and `LabelInterface::class` to `php-forge/html-interop` package
+  (@terabytesoftw)
 
 ## 0.2.0 February 27, 2024
 
