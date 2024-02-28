@@ -1,6 +1,8 @@
 # Change Log
 
-## 0.2.1 Under development
+## 0.3.0 Under development
+
+- Enh #338: Move `Helper` classes to `php-forge/html-helper` package (@terabytesoftw)
 
 ## 0.2.0 February 27, 2024
 
