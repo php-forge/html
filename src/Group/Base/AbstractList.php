@@ -24,7 +24,7 @@ use function trim;
 /**
  * Provides a foundation for creating HTML `<ul>`, `<ol>` elements with various attributes and content.
  */
-abstract class AbstractList extends Element
+abstract class AbstractList extends Element implements RenderInterface
 {
     use HasAttributes;
     use HasClass;

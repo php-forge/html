@@ -24,7 +24,7 @@ use function trim;
 /**
  * Provides a foundation for creating HTML `<li>` elements with various attributes and content.
  */
-abstract class AbstractLi extends Element
+abstract class AbstractLi extends Element implements RenderInterface
 {
     use HasAttributes;
     use HasClass;
