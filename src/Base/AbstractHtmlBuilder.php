@@ -133,9 +133,8 @@ abstract class AbstractHtmlBuilder
      */
     public static function create(string $tag, string $content = '', array $attributes = []): string
     {
-        $helperAttributes = new Attributes();
         $tag = self::validateTag($tag);
-        $voidElement = "<$tag" . $helperAttributes->render($attributes) . '>';
+        $voidElement = "<$tag" . Attributes::render($attributes) . '>';
 
         if (self::voidElements($tag)) {
             return $voidElement;

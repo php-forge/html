@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\{Html\Attribute\Custom\HasValidateInList, Html\Helper\Encode, Html\Tag, Widget\ElementInterface};
+use PHPForge\Html\{Attribute\Custom\HasValidateInList, Helper\Sanitize, Interop\RenderInterface, Tag};
 
 use function array_merge;
 
@@ -73,14 +73,14 @@ trait HasToggleCollection
     /**
      * Set the `HTML` content for the toggle.
      *
-     * @param ElementInterface|string ...$values The `HTML` toggle button content.
+     * @param RenderInterface|string ...$values The `HTML` toggle button content.
      *
      * @return static A new instance of the current class with the specified toggle content.
      */
-    public function toggleContent(string|ElementInterface ...$values): static
+    public function toggleContent(string|RenderInterface ...$values): static
     {
         $new = clone $this;
-        $new->toggleContent = Encode::sanitizeXSS(...$values);
+        $new->toggleContent = Sanitize::html(...$values);
 
         return $new;
     }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use InvalidArgumentException;
-use PHPForge\{Html\Helper\CssClass, Html\Helper\Encode, Html\Tag, Widget\ElementInterface};
+use PHPForge\Html\{Helper\CssClass, Helper\Sanitize, Interop\RenderInterface, Tag};
 
 /**
  * Is used by widgets that implement the prefix and suffix methods.
@@ -20,14 +20,14 @@ trait HasSuffixCollection
     /**
      * Set the `HTML` suffix content.
      *
-     * @param ElementInterface|string ...$values The `HTML` suffix content.
+     * @param RenderInterface|string ...$values The `HTML` suffix content.
      *
      * @return static A new instance of the current class with the specified suffix content.
      */
-    public function suffix(string|ElementInterface ...$values): static
+    public function suffix(string|RenderInterface ...$values): static
     {
         $new = clone $this;
-        $new->suffix = Encode::sanitizeXSS(...$values);
+        $new->suffix = Sanitize::html(...$values);
 
         return $new;
     }

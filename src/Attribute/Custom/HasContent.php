@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\{Html\Helper\Encode, Widget\ElementInterface};
+use PHPForge\Html\{Helper\Sanitize, Interop\RenderInterface};
 
 /**
  * Is used by widgets that implement the content method.
@@ -16,14 +16,14 @@ trait HasContent
     /**
      * Set the `HTML` content value.
      *
-     * @param ElementInterface|string ...$values The `HTML` content value.
+     * @param RenderInterface|string ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */
-    public function content(string|ElementInterface ...$values): static
+    public function content(string|RenderInterface ...$values): static
     {
         $new = clone $this;
-        $new->content = Encode::sanitizeXSS(...$values);
+        $new->content = Sanitize::html(...$values);
 
         return $new;
     }

@@ -4,26 +4,27 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Base;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Custom\HasTemplate,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTitle,
-    Attribute\Input\HasName,
-    HtmlBuilder
+use PHPForge\{
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasPrefixCollection,
+    Html\Attribute\Custom\HasSuffixCollection,
+    Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasData,
+    Html\Attribute\HasId,
+    Html\Attribute\HasLang,
+    Html\Attribute\HasStyle,
+    Html\Attribute\HasTitle,
+    Html\Attribute\Input\HasName,
+    Html\HtmlBuilder,
+    Html\Interop\RenderInterface,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 /**
  * Provides a foundation for creating HTML elements with various attributes and content.
  */
-abstract class AbstractElement extends Element
+abstract class AbstractElement extends Element implements RenderInterface
 {
     use HasAttributes;
     use HasClass;

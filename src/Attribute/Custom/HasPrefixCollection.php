@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Custom;
 
 use InvalidArgumentException;
-use PHPForge\{Html\Helper\CssClass, Html\Helper\Encode, Html\Tag, Widget\ElementInterface};
+use PHPForge\Html\{Helper\CssClass, Helper\Sanitize, Interop\RenderInterface, Tag};
 
 /**
  * Is used by widgets that implement the prefix collection.
@@ -20,14 +20,14 @@ trait HasPrefixCollection
     /**
      * Set the `HTML` prefix content.
      *
-     * @param ElementInterface|string ...$values The `HTML` prefix content.
+     * @param RenderInterface|string ...$values The `HTML` prefix content.
      *
      * @return static A new instance of the current class with the specified prefix content.
      */
-    public function prefix(string|ElementInterface ...$values): static
+    public function prefix(string|RenderInterface ...$values): static
     {
         $new = clone $this;
-        $new->prefix = Encode::sanitizeXSS(...$values);
+        $new->prefix = Sanitize::html(...$values);
 
         return $new;
     }

@@ -4,26 +4,27 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Group\Base;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\HasTitle,
-    Attribute\Input\HasName,
-    Attribute\Input\HasValue,
-    Tag
+use PHPForge\{
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasId,
+    Html\Attribute\HasLang,
+    Html\Attribute\HasStyle,
+    Html\Attribute\HasTabindex,
+    Html\Attribute\HasTitle,
+    Html\Attribute\Input\HasName,
+    Html\Attribute\Input\HasValue,
+    Html\Interop\RenderInterface,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\{Element, ElementInterface};
 
 use function trim;
 
 /**
  * Provides a foundation for creating HTML `<li>` elements with various attributes and content.
  */
-abstract class AbstractLi extends Element
+abstract class AbstractLi extends Element implements RenderInterface
 {
     use HasAttributes;
     use HasClass;
@@ -41,11 +42,11 @@ abstract class AbstractLi extends Element
     /**
      * Set the `HTML` content value.
      *
-     * @param ElementInterface|string ...$values The `HTML` content value.
+     * @param RenderInterface|string ...$values The `HTML` content value.
      *
      * @return static A new instance of the current class with the specified content value.
      */
-    public function content(string|ElementInterface ...$values): static
+    public function content(string|RenderInterface ...$values): static
     {
         $new = clone $this;
 

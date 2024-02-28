@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Custom;
 
-use PHPForge\{Html\FormControl\Label, Html\Helper\CssClass, Html\Helper\Encode, Widget\ElementInterface};
+use PHPForge\Html\{FormControl\Label, Helper\CssClass, Helper\Sanitize, Interop\RenderInterface};
 
 /**
  * Is used by widgets that implement the label methods.
@@ -20,14 +20,14 @@ trait HasLabelCollection
     /**
      * Set the `HTML` label content.
      *
-     * @param ElementInterface|string ...$values The `HTML` label content value.
+     * @param RenderInterface|string ...$values The `HTML` label content value.
      *
      * @return static A new instance of the current class with the specified `HTML` label content.
      */
-    public function label(ElementInterface|string ...$values): static
+    public function label(RenderInterface|string ...$values): static
     {
         $new = clone $this;
-        $new->label = Encode::sanitizeXSS(...$values);
+        $new->label = Sanitize::html(...$values);
 
         return $new;
     }

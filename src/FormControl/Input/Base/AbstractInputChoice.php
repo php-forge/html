@@ -41,9 +41,9 @@ use PHPForge\{
     Html\Interop\CheckedInterface,
     Html\Interop\InputInterface,
     Html\Interop\RequiredInterface,
+    Html\Interop\RenderInterface,
     Html\Tag,
-    Widget\Element,
-    Widget\ElementInterface
+    Widget\Element
 };
 
 /**
@@ -52,9 +52,9 @@ use PHPForge\{
 abstract class AbstractInputChoice extends Element implements
     AriaDescribedByInterface,
     CheckedInterface,
-    ElementInterface,
     InputInterface,
     LabelInterface,
+    RenderInterface,
     RequiredInterface
 {
     use CanBeAutofocus;

@@ -27,15 +27,15 @@ use PHPForge\{
     Html\Attribute\Input\HasName,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\InputInterface,
+    Html\Interop\RenderInterface,
     Html\Tag,
     Widget\Element,
-    Widget\ElementInterface,
 };
 
 /**
  * Provides a foundation for creating HTML `input` custom elements with various attributes and content.
  */
-abstract class AbstractInput extends Element implements AriaDescribedByInterface, ElementInterface, InputInterface
+abstract class AbstractInput extends Element implements AriaDescribedByInterface, InputInterface, RenderInterface
 {
     use CanBeAutofocus;
     use CanBeDisabled;
