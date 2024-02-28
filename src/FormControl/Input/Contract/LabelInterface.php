@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Contract;
 
-use PHPForge\Widget\ElementInterface;
+use PHPForge\Html\Interop\RenderInterface;
 
 /**
  * Provide methods for handling HTML choice input-related attributes and properties.
@@ -23,11 +23,11 @@ interface LabelInterface
     /**
      * Set the `HTML` label content.
      *
-     * @param ElementInterface|string ...$values The `HTML` label content value.
+     * @param RenderInterface|string ...$values The `HTML` label content value.
      *
      * @return static A new instance of the current class with the specified `HTML` label content.
      */
-    public function label(string|ElementInterface ...$values): static;
+    public function label(string|RenderInterface ...$values): static;
 
     /**
      * Set the `HTML` attributes for the label.

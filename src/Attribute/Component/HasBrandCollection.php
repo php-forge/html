@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Attribute\Component;
 
-use PHPForge\Html\Helper\{CssClass, Encode};
-use PHPForge\Widget\ElementInterface;
+use PHPForge\Html\{Helper\CssClass, Helper\Sanitize, Interop\RenderInterface};
 
 /**
  * Is used by widgets that implement brand collection.
@@ -88,14 +87,14 @@ trait HasBrandCollection
     /**
      * Set the brand image.
      *
-     * @param ElementInterface|string $value The brand image.
+     * @param RenderInterface|string $value The brand image.
      *
      * @return static A new instance of the current class with the specified brand image.
      */
-    public function brandImage(string|ElementInterface $value): static
+    public function brandImage(string|RenderInterface $value): static
     {
         $new = clone $this;
-        $new->brandImage = Encode::sanitizeXSS($value);
+        $new->brandImage = Sanitize::html($value);
 
         return $new;
     }
@@ -163,14 +162,14 @@ trait HasBrandCollection
     /**
      * Set the brand text.
      *
-     * @param ElementInterface|string $value The brand text.
+     * @param RenderInterface|string $value The brand text.
      *
      * @return static A new instance of the current class with the specified brand text.
      */
-    public function brandText(string|ElementInterface $value): static
+    public function brandText(string|RenderInterface $value): static
     {
         $new = clone $this;
-        $new->brandText = Encode::sanitizeXSS($value);
+        $new->brandText = Sanitize::html($value);
 
         return $new;
     }
@@ -178,14 +177,14 @@ trait HasBrandCollection
     /**
      * Set the brand toggle.
      *
-     * @param ElementInterface|string $value The brand toggle.
+     * @param RenderInterface|string $value The brand toggle.
      *
      * @return static A new instance of the current class with the specified brand toggle.
      */
-    public function brandToggle(string|ElementInterface $value): static
+    public function brandToggle(string|RenderInterface $value): static
     {
         $new = clone $this;
-        $new->brandToggle = Encode::sanitizeXSS($value);
+        $new->brandToggle = Sanitize::html($value);
 
         return $new;
     }

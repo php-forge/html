@@ -29,11 +29,11 @@ use PHPForge\{
     Html\Attribute\Tag\HasPrompt,
     Html\FormControl\Label,
     Html\Interop\InputInterface,
+    Html\Interop\RenderInterface,
     Html\Interop\RequiredInterface,
     Html\Interop\ValueInterface,
     Html\Tag,
     Widget\Element,
-    Widget\ElementInterface
 };
 use Stringable;
 
@@ -49,8 +49,8 @@ use function is_object;
  * Provides a foundation for creating HTML `select` elements with various attributes and content.
  */
 abstract class AbstractSelect extends Element implements
-    ElementInterface,
     InputInterface,
+    RenderInterface,
     RequiredInterface,
     ValueInterface
 {

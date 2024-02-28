@@ -4,30 +4,30 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\{
-    Html\Attribute\CanBeAutofocus,
-    Html\Attribute\Custom\HasContent,
-    Html\Attribute\Field\HasGenerateField,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\Input\CanBeDisabled,
-    Html\Attribute\Input\CanBeReadonly,
-    Html\Attribute\Input\CanBeRequired,
-    Html\Attribute\Input\HasAutocomplete,
-    Html\Attribute\Input\HasDirname,
-    Html\Attribute\Input\HasForm,
-    Html\Attribute\Input\HasMaxLength,
-    Html\Attribute\Input\HasMinLength,
-    Html\Attribute\Input\HasPlaceholder,
-    Html\Attribute\Tag\HasCols,
-    Html\Attribute\Tag\HasRows,
-    Html\Attribute\Tag\HasWrap,
-    Html\Base\AbstractElement,
-    Html\FormControl\Input\Contract\ContentInterface,
-    Html\Interop\InputInterface,
-    Html\Interop\LengthInterface,
-    Html\Interop\PlaceholderInterface,
-    Html\Interop\RequiredInterface,
-    Widget\ElementInterface
+use PHPForge\Html\{
+    Attribute\CanBeAutofocus,
+    Attribute\Custom\HasContent,
+    Attribute\Field\HasGenerateField,
+    Attribute\HasTabindex,
+    Attribute\Input\CanBeDisabled,
+    Attribute\Input\CanBeReadonly,
+    Attribute\Input\CanBeRequired,
+    Attribute\Input\HasAutocomplete,
+    Attribute\Input\HasDirname,
+    Attribute\Input\HasForm,
+    Attribute\Input\HasMaxLength,
+    Attribute\Input\HasMinLength,
+    Attribute\Input\HasPlaceholder,
+    Attribute\Tag\HasCols,
+    Attribute\Tag\HasRows,
+    Attribute\Tag\HasWrap,
+    Base\AbstractElement,
+    FormControl\Input\Contract\ContentInterface,
+    Interop\InputInterface,
+    Interop\LengthInterface,
+    Interop\PlaceholderInterface,
+    Interop\RenderInterface,
+    Interop\RequiredInterface
 };
 
 /**
@@ -38,10 +38,10 @@ use PHPForge\{
  */
 final class TextArea extends AbstractElement implements
     ContentInterface,
-    ElementInterface,
     InputInterface,
     LengthInterface,
     PlaceholderInterface,
+    RenderInterface,
     RequiredInterface
 {
     use CanBeAutofocus;

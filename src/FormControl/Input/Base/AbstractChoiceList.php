@@ -28,10 +28,10 @@ use PHPForge\{
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\CheckedInterface,
     Html\Interop\InputInterface,
+    Html\Interop\RenderInterface,
     Html\Interop\RequiredInterface,
     Html\Tag,
-    Widget\Element,
-    Widget\ElementInterface
+    Widget\Element
 };
 
 use function in_array;
@@ -42,9 +42,9 @@ use function is_scalar;
 abstract class AbstractChoiceList extends Element implements
     AriaDescribedByInterface,
     CheckedInterface,
-    ElementInterface,
     InputInterface,
     LabelInterface,
+    RenderInterface,
     RequiredInterface
 {
     use CanBeAutofocus;
