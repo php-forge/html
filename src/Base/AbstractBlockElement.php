@@ -56,7 +56,6 @@ abstract class AbstractBlockElement extends Block
     protected function run(): string
     {
         if ($this->isBeginExecuted() === false) {
-
             return HtmlBuilder::create($this->tagName, $this->content, $this->attributes);
         }
 
