@@ -7,6 +7,7 @@ namespace PHPForge\Html\FormControl;
 use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\Custom\HasContent,
+    Attribute\FormControl\HasFieldAttributes,
     Attribute\HasTabindex,
     Attribute\Input\CanBeDisabled,
     Attribute\Input\CanBeReadonly,
@@ -52,6 +53,7 @@ final class TextArea extends AbstractElement implements
     use HasCols;
     use HasContent;
     use HasDirname;
+    use HasFieldAttributes;
     use HasForm;
     use HasMaxLength;
     use HasMinLength;
@@ -59,13 +61,6 @@ final class TextArea extends AbstractElement implements
     use HasRows;
     use HasTabindex;
     use HasWrap;
-
-    public function fieldAttributes(string $formModel, string $property, bool $arrayable = false): static
-    {
-        return $this
-            ->id(Utils::generateInputId($formModel, $property))
-            ->name(Utils::generateInputName($formModel, $property, $arrayable));
-    }
 
     /**
      * This method is used to configure the widget with the provided default definitions.

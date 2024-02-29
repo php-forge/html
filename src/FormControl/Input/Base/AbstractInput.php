@@ -13,6 +13,7 @@ use PHPForge\{
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
     Html\Attribute\HasId,
@@ -46,6 +47,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasAttributes;
     use HasClass;
     use HasData;
+    use HasFieldAttributes;
     use HasForm;
     use HasId;
     use HasLang;
@@ -58,13 +60,6 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasTitle;
 
     protected array $attributes = [];
-
-    public function fieldAttributes(string $formModel, string $property, bool $arrayable = false): static
-    {
-        return $this
-            ->id(Utils::generateInputId($formModel, $property))
-            ->name(Utils::generateInputName($formModel, $property, $arrayable));
-    }
 
     /**
      * This method is used to configure the widget with the provided default definitions.

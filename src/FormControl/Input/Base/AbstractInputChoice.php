@@ -20,7 +20,7 @@ use PHPForge\{
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasUncheckedCollection,
     Html\Attribute\Custom\HasValidateScalar,
-    Html\Attribute\Field\HasGenerateField,
+    Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
     Html\Attribute\HasId,
@@ -72,8 +72,8 @@ abstract class AbstractInputChoice extends Element implements
     use HasContent;
     use HasData;
     use HasEnclosedByLabel;
+    use HasFieldAttributes;
     use HasForm;
-    use HasGenerateField;
     use HasId;
     use HasLabelCollection;
     use HasLang;

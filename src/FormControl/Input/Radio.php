@@ -14,13 +14,6 @@ use PHPForge\Html\Helper\Utils;
  */
 final class Radio extends Base\AbstractInputChoice
 {
-    public function fieldAttributes(string $formModel, string $property, bool $arrayable = false): static
-    {
-        return $this
-            ->id(Utils::generateInputId($formModel, $property))
-            ->name(Utils::generateInputName($formModel, $property, $arrayable));
-    }
-
     protected function run(): string
     {
         return $this->buildChoiceTag('radio');
