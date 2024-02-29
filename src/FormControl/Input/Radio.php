@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\Html\Helper\Utils;
-
 /**
  * The input element with a type attribute whose value is "radio" represents a selection of one item from a list of
  * items (a radio button).
