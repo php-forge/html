@@ -51,11 +51,7 @@ final class LabelTest extends TestCase
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()
-                ->id('button-6582f2d099e8b')
-                ->label('Label')
-                ->labelClass('value')
-                ->render()
+            Button::widget()->id('button-6582f2d099e8b')->label('Label')->labelClass('value')->render()
         );
     }
 
@@ -64,15 +60,11 @@ final class LabelTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <label for="label-for">Label</label>
+            <label for="value">Label</label>
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()
-                ->id('button-6582f2d099e8b')
-                ->label('Label')
-                ->LabelFor('label-for')
-                ->render()
+            Button::widget()->id('button-6582f2d099e8b')->label('Label')->LabelFor('value')->render()
         );
     }
 

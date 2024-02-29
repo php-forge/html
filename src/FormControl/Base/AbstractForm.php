@@ -67,9 +67,7 @@ abstract class AbstractForm extends Block
 
         $hiddenInputs = $this->renderHiddenInput();
 
-        $attributes = $this->attributes;
-
-        $html = HtmlBuilder::begin('form', $attributes);
+        $html = HtmlBuilder::begin('form', $this->attributes);
 
         if ($hiddenInputs !== '') {
             $html .= "\n$hiddenInputs";
@@ -88,14 +86,13 @@ abstract class AbstractForm extends Block
         if ($this->isBeginExecuted() === false) {
             $hiddenInputs = $this->renderHiddenInput();
 
-            $attributes = $this->attributes;
             $html = '';
 
             if ($hiddenInputs !== '') {
                 $html = "$hiddenInputs\n";
             }
 
-            return HtmlBuilder::create('form', $html . $this->content, $attributes);
+            return HtmlBuilder::create('form', $html . $this->content, $this->attributes);
         }
 
         return HtmlBuilder::end('form');

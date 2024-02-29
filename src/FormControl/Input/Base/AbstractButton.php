@@ -78,11 +78,12 @@ abstract class AbstractButton extends Element
     {
         $this->validateString($this->getValue());
 
-        $attributes = $this->attributes;
         $id = $this->getId();
+
+        $attributes = $this->attributes;
         $labelFor = $this->labelFor ?? $id;
 
-        if ($this->ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true && $id !== null) {
             $attributes['aria-describedby'] = "$id-help";
         }
 

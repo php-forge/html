@@ -37,10 +37,10 @@ final class DatetimeLocal extends Base\AbstractInput implements RangeLengthInter
      */
     protected function loadDefaultDefinitions(): array
     {
-        return [
-            'id()' => [Utils::generateId('datetime-local-')],
-            'template()' => ['{prefix}\n{tag}\n{suffix}'],
-        ];
+        $defaultDefinitions = parent::loadDefaultDefinitions();
+        $defaultDefinitions['id()'] = [Utils::generateId('datetime-local-')];
+
+        return $defaultDefinitions;
     }
 
     protected function run(): string

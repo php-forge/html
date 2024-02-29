@@ -80,8 +80,6 @@ abstract class AbstractSelect extends Element implements
 
     protected function run(): string
     {
-        $attributes = $this->attributes;
-        $multiple = false;
         /** @psalm-var array<int, Stringable|scalar>|scalar|object|null $value */
         $value = $this->getValue();
 
@@ -98,11 +96,11 @@ abstract class AbstractSelect extends Element implements
             throw new InvalidArgumentException('Select::class widget value can not be an object.');
         }
 
-        if (array_key_exists('multiple', $attributes) && is_bool($attributes['multiple'])) {
-            $multiple = $attributes['multiple'];
-        }
-
-        if ($multiple === true && is_array($value) === false) {
+        if (
+            isset($this->attributes['multiple']) &&
+            $this->attributes['multiple'] === true &&
+            is_array($value) === false
+        ) {
             throw new InvalidArgumentException('Select::class widget value must be an array when multiple is "true".');
         }
 
@@ -110,10 +108,10 @@ abstract class AbstractSelect extends Element implements
             $items .= PHP_EOL . implode(PHP_EOL, $this->renderItems($value)) . PHP_EOL;
         }
 
-        unset($attributes['value']);
+        unset($this->attributes['value']);
 
         $selectTag = Tag::widget()
-            ->attributes($attributes)
+            ->attributes($this->attributes)
             ->content($items)
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)

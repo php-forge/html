@@ -41,9 +41,6 @@ final class Image extends AbstractInput implements SrcInterface
 
     protected function run(): string
     {
-        /** @var string|null $src */
-        $src = $this->attributes['src'] ?? null;
-
         // The value attribute is not allowed for the input type `image`.
         unset($this->attributes['value']);
 

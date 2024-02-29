@@ -20,10 +20,9 @@ final class Reset extends Base\AbstractButton
      */
     protected function loadDefaultDefinitions(): array
     {
-        return [
-            'container()' => [true],
-            'id()' => [Utils::generateId('reset-')],
-            'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-        ];
+        $defaultDefinitions = parent::loadDefaultDefinitions();
+        $defaultDefinitions['id()'] = [Utils::generateId('reset-')];
+
+        return $defaultDefinitions;
     }
 }

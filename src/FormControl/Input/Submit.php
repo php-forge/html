@@ -20,10 +20,9 @@ final class Submit extends Base\AbstractButton
      */
     protected function loadDefaultDefinitions(): array
     {
-        return [
-            'container()' => [true],
-            'id()' => [Utils::generateId('submit-')],
-            'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-        ];
+        $defaultDefinitions = parent::loadDefaultDefinitions();
+        $defaultDefinitions['id()'] = [Utils::generateId('submit-')];
+
+        return $defaultDefinitions;
     }
 }

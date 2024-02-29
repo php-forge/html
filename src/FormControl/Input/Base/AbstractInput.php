@@ -86,8 +86,6 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
             $attributes['aria-describedby'] = "$id-help";
         }
 
-        unset($attributes['type']);
-
         return Tag::widget()
             ->attributes($attributes)
             ->name($name)
