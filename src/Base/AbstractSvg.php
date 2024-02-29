@@ -187,9 +187,7 @@ abstract class AbstractSvg extends Element
 
         /** @psalm-var mixed $value */
         foreach ($attributes as $name => $value) {
-            if ($name !== '' && $value !== '' && $value !== null) {
-                $renderedSvg->setAttribute($name, (string) $value);
-            }
+            $renderedSvg->setAttribute($name, (string) $value);
         }
 
         return $svg->saveXML($renderedSvg);
