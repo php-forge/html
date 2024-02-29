@@ -42,7 +42,6 @@ use function get_debug_type;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_bool;
 use function is_object;
 
 /**
