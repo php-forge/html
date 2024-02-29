@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="image">
+            <input id="formmodelname-property" name="FormModelName[property]" type="image">
             HTML,
-            Image::widget()->generateField('ModelName', 'fieldName')->render()
+            Image::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 

@@ -16,9 +16,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="value"></label>
+            <label class="value">value</label>
             HTML,
-            Label::widget()->attributes(['class' => 'value'])->render()
+            Label::widget()->attributes(['class' => 'value'])->content('value')->render()
         );
     }
 
@@ -26,9 +26,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label class="value"></label>
+            <label class="value">value</label>
             HTML,
-            Label::widget()->class('value')->render()
+            Label::widget()->class('value')->content('value')->render()
         );
     }
 
@@ -46,9 +46,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label data-value="value"></label>
+            <label data-value="value">value</label>
             HTML,
-            Label::widget()->dataAttributes(['value' => 'value'])->render()
+            Label::widget()->content('value')->dataAttributes(['value' => 'value'])->render()
         );
     }
 
@@ -56,9 +56,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label for="value"></label>
+            <label for="value">value</label>
             HTML,
-            Label::widget()->for('value')->render()
+            Label::widget()->content('value')->for('value')->render()
         );
     }
 
@@ -66,9 +66,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label form="value"></label>
+            <label form="value">value</label>
             HTML,
-            Label::widget()->form('value')->render()
+            Label::widget()->content('value')->form('value')->render()
         );
     }
 
@@ -76,9 +76,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label id="value"></label>
+            <label id="value">value</label>
             HTML,
-            Label::widget()->id('value')->render()
+            Label::widget()->content('value')->id('value')->render()
         );
     }
 
@@ -86,9 +86,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label name="value"></label>
+            <label name="value">value</label>
             HTML,
-            Label::widget()->name('value')->render()
+            Label::widget()->content('value')->name('value')->render()
         );
     }
 
@@ -96,9 +96,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label style="value"></label>
+            <label style="value">value</label>
             HTML,
-            Label::widget()->style('value')->render()
+            Label::widget()->content('value')->style('value')->render()
         );
     }
 
@@ -106,9 +106,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label title="value"></label>
+            <label title="value">value</label>
             HTML,
-            Label::widget()->title('value')->render()
+            Label::widget()->content('value')->title('value')->render()
         );
     }
 }

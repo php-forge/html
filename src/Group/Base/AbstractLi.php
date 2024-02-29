@@ -64,11 +64,6 @@ abstract class AbstractLi extends Element implements RenderInterface
      */
     protected function run(): string
     {
-        return Tag::widget()
-            ->attributes($this->attributes)
-            ->content(trim($this->content))
-            ->id($this->id)
-            ->tagName('li')
-            ->render();
+        return Tag::widget()->attributes($this->attributes)->content(trim($this->content))->tagName('li')->render();
     }
 }

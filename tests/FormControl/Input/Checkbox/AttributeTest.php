@@ -317,9 +317,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="checkbox">
+            <input name="FormModelName[property]" type="checkbox">
             HTML,
-            Checkbox::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Checkbox::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -327,9 +327,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="checkbox">
+            <input id="formmodelname-property" type="checkbox">
             HTML,
-            Checkbox::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Checkbox::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

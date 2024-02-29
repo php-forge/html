@@ -79,13 +79,13 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="radio">
+            <input id="formmodelname-property" name="FormModelName[property]" type="radio">
             HTML,
-            Radio::widget()->generateField('ModelName', 'fieldName')->render()
+            Radio::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 

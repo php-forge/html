@@ -299,4 +299,36 @@ final class AttributeTest extends TestCase
             Select::widget()->items($this->cities)->value(null)->render()
         );
     }
+
+    public function testWithoutId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select name="FormModelName[property]">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->fieldAttributes('FormModelName', 'property')->id(null)->items($this->cities)->render()
+        );
+    }
+
+    public function testWithoutName(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select id="formmodelname-property">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->items($this->cities)->fieldAttributes('FormModelName', 'property')->name(null)->render()
+        );
+    }
 }

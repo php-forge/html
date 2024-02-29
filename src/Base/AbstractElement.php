@@ -61,12 +61,9 @@ abstract class AbstractElement extends Element implements RenderInterface
      */
     protected function buildElement(string $tagName, string $content = '', array $tokenValues = []): string
     {
-        $attributes = $this->attributes;
-        $attributes['id'] ??= $this->id;
-
         $tokenTemplateValues = [
             '{prefix}' => $this->renderPrefixTag(),
-            '{tag}' => HtmlBuilder::create($tagName, $content, $attributes),
+            '{tag}' => HtmlBuilder::create($tagName, $content, $this->attributes),
             '{suffix}' => $this->renderSuffixTag(),
         ];
         $tokenTemplateValues += $tokenValues;

@@ -29,6 +29,7 @@ final class File extends Base\AbstractInput implements RequiredInterface
     protected function loadDefaultDefinitions(): array
     {
         return [
+            'id()' => [Utils::generateId('file-')],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{suffix}'],
         ];
     }

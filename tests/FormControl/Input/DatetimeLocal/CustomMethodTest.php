@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="datetime-local">
+            <input id="formmodelname-property" name="FormModelName[property]" type="datetime-local">
             HTML,
-            DateTimeLocal::widget()->generateField('ModelName', 'fieldName')->render()
+            DateTimeLocal::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 

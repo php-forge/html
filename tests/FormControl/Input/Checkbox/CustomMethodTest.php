@@ -82,13 +82,13 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testGenerateFieldId(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="checkbox">
+            <input id="formmodelname-property" name="FormModelName[property]" type="checkbox">
             HTML,
-            Checkbox::widget()->generateField('ModelName', 'fieldName')->render()
+            Checkbox::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 

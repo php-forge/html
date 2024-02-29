@@ -45,6 +45,6 @@ final class Meta extends Element
      */
     protected function run(): string
     {
-        return Tag::widget()->attributes($this->attributes)->id($this->id)->tagName('meta')->render();
+        return Tag::widget()->attributes($this->attributes)->tagName('meta')->render();
     }
 }

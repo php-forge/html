@@ -14,9 +14,10 @@ use PHPForge\{
     Html\Attribute\Input\HasName,
     Html\Attribute\Input\HasValue,
     Html\Interop\ValueInterface,
-    Html\Tag
+    Html\Helper\Utils,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 abstract class AbstractHidden extends Element implements ValueInterface
 {
@@ -31,15 +32,20 @@ abstract class AbstractHidden extends Element implements ValueInterface
 
     protected array $attributes = [];
 
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    protected function loadDefaultDefinitions(): array
+    {
+        return [
+            'id()' => [Utils::generateId('hidden-')],
+        ];
+    }
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return Tag::widget()
-            ->attributes($this->attributes)
-            ->id($this->generateId('hidden-'))
-            ->tagName('input')
-            ->type('hidden')
-            ->render();
+        return Tag::widget()->attributes($this->attributes)->tagName('input')->type('hidden')->render();
     }
 }

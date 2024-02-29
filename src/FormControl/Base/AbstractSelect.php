@@ -12,7 +12,6 @@ use PHPForge\{
     Html\Attribute\Custom\HasLabelCollection,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Field\HasGenerateField,
     Html\Attribute\HasClass,
     Html\Attribute\HasId,
     Html\Attribute\HasStyle,
@@ -28,12 +27,13 @@ use PHPForge\{
     Html\Attribute\Tag\HasItemsAttributes,
     Html\Attribute\Tag\HasPrompt,
     Html\FormControl\Label,
+    Html\Helper\Utils,
     Html\Interop\InputInterface,
     Html\Interop\RenderInterface,
     Html\Interop\RequiredInterface,
     Html\Interop\ValueInterface,
     Html\Tag,
-    Widget\Element,
+    Widget\Element
 };
 use Stringable;
 
@@ -61,7 +61,6 @@ abstract class AbstractSelect extends Element implements
     use HasAriaLabel;
     use HasAttributes;
     use HasClass;
-    use HasGenerateField;
     use HasGroup;
     use HasId;
     use HasItems;
@@ -77,6 +76,13 @@ abstract class AbstractSelect extends Element implements
     use HasValue;
 
     protected array $attributes = [];
+
+    public function fieldAttributes(string $formModel, string $property, bool $arrayable = false): static
+    {
+        return $this
+            ->id(Utils::generateInputId($formModel, $property))
+            ->name(Utils::generateInputName($formModel, $property, $arrayable));
+    }
 
     protected function run(): string
     {
@@ -115,7 +121,6 @@ abstract class AbstractSelect extends Element implements
         $selectTag = Tag::widget()
             ->attributes($attributes)
             ->content($items)
-            ->id($this->id)
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)

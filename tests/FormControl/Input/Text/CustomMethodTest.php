@@ -16,9 +16,9 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="text">
+            <input id="formmodelname-property" name="FormModelName[property]" type="text">
             HTML,
-            Text::widget()->generateField('ModelName', 'fieldName')->render()
+            Text::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 

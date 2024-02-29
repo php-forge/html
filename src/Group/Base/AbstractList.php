@@ -67,7 +67,6 @@ abstract class AbstractList extends Element implements RenderInterface
         return Tag::widget()
             ->attributes($this->attributes)
             ->content(trim($this->content))
-            ->id($this->id)
             ->tagName($this->tagName)
             ->render();
     }

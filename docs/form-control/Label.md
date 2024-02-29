@@ -33,6 +33,9 @@ If you want to include content within the `label` tag, use the `content` method.
 $label->content('MyContent');
 ```
 
+> if content is empty, the `label` tag will not be rendered.
+
+
 ## Rendering
 
 Generate the `HTML` output using the `render` method.

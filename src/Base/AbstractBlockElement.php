@@ -44,10 +44,8 @@ abstract class AbstractBlockElement extends Block
     public function begin(): string
     {
         parent::begin();
-        $attributes = $this->attributes;
-        $attributes['id'] = $this->id;
 
-        return HtmlBuilder::begin($this->tagName, $attributes);
+        return HtmlBuilder::begin($this->tagName, $this->attributes);
     }
 
     /**
@@ -58,10 +56,8 @@ abstract class AbstractBlockElement extends Block
     protected function run(): string
     {
         if ($this->isBeginExecuted() === false) {
-            $attributes = $this->attributes;
-            $attributes['id'] = $this->id;
 
-            return HtmlBuilder::create($this->tagName, $this->content, $attributes);
+            return HtmlBuilder::create($this->tagName, $this->content, $this->attributes);
         }
 
         return HtmlBuilder::end($this->tagName);

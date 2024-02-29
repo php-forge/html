@@ -7,7 +7,6 @@ namespace PHPForge\Html\FormControl;
 use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\Custom\HasContent,
-    Attribute\Field\HasGenerateField,
     Attribute\HasTabindex,
     Attribute\Input\CanBeDisabled,
     Attribute\Input\CanBeReadonly,
@@ -22,6 +21,7 @@ use PHPForge\Html\{
     Attribute\Tag\HasRows,
     Attribute\Tag\HasWrap,
     Base\AbstractElement,
+    Helper\Utils,
     Interop\ContentInterface,
     Interop\InputInterface,
     Interop\LengthInterface,
@@ -53,7 +53,6 @@ final class TextArea extends AbstractElement implements
     use HasContent;
     use HasDirname;
     use HasForm;
-    use HasGenerateField;
     use HasMaxLength;
     use HasMinLength;
     use HasPlaceholder;
@@ -61,13 +60,20 @@ final class TextArea extends AbstractElement implements
     use HasTabindex;
     use HasWrap;
 
+    public function fieldAttributes(string $formModel, string $property, bool $arrayable = false): static
+    {
+        return $this
+            ->id(Utils::generateInputId($formModel, $property))
+            ->name(Utils::generateInputName($formModel, $property, $arrayable));
+    }
+
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
     protected function loadDefaultDefinitions(): array
     {
         return [
-            'id()' => [$this->generateId('textarea-')],
+            'id()' => [Utils::generateId('textarea-')],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }

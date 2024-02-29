@@ -4,33 +4,34 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaDescribedBy,
-    Attribute\Aria\HasAriaLabel,
-    Attribute\CanBeAutofocus,
-    Attribute\CanBeHidden,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainerCollection,
-    Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasValidateString,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\HasTitle,
-    Attribute\Input\CanBeDisabled,
-    Attribute\Input\CanBeReadonly,
-    Attribute\Input\HasForm,
-    Attribute\Input\HasName,
-    Attribute\Input\HasValue,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaDescribedBy,
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\CanBeAutofocus,
+    Html\Attribute\CanBeHidden,
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasContainerCollection,
+    Html\Attribute\Custom\HasLabelCollection,
+    Html\Attribute\Custom\HasPrefixCollection,
+    Html\Attribute\Custom\HasSuffixCollection,
+    Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasData,
+    Html\Attribute\HasId,
+    Html\Attribute\HasLang,
+    Html\Attribute\HasStyle,
+    Html\Attribute\HasTabindex,
+    Html\Attribute\HasTitle,
+    Html\Attribute\Input\CanBeDisabled,
+    Html\Attribute\Input\CanBeReadonly,
+    Html\Attribute\Input\HasForm,
+    Html\Attribute\Input\HasName,
+    Html\Attribute\Input\HasValue,
+    Html\Helper\Utils,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 abstract class AbstractButton extends Element
 {
@@ -68,7 +69,7 @@ abstract class AbstractButton extends Element
     {
         return [
             'container()' => [true],
-            'id()' => [$this->generateId('button-')],
+            'id()' => [Utils::generateId('button-')],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
         ];
     }
@@ -78,17 +79,17 @@ abstract class AbstractButton extends Element
         $this->validateString($this->getValue());
 
         $attributes = $this->attributes;
-        $labelFor = $this->labelFor ?? $this->id;
+        $id = $this->getId();
+        $labelFor = $this->labelFor ?? $id;
 
         if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$this->id-help";
+            $attributes['aria-describedby'] = "$id-help";
         }
 
         return $this->renderContainerTag(
             null,
             Tag::widget()
                 ->attributes($attributes)
-                ->id($this->id)
                 ->prefix($this->prefix)
                 ->prefixContainer($this->prefixContainer)
                 ->prefixContainerAttributes($this->prefixContainerAttributes)

@@ -11,6 +11,7 @@ use PHPForge\{
     Html\Attribute\Input\HasMin,
     Html\Attribute\Input\HasStep,
     Html\Attribute\Input\HasValue,
+    Html\Helper\Utils,
     Html\Interop\RangeLengthInterface,
     Html\Interop\RequiredInterface,
     Html\Interop\ValueInterface
@@ -30,6 +31,17 @@ final class DatetimeLocal extends Base\AbstractInput implements RangeLengthInter
     use HasStep;
     use HasValidateString;
     use HasValue;
+
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    protected function loadDefaultDefinitions(): array
+    {
+        return [
+            'id()' => [Utils::generateId('datetime-local-')],
+            'template()' => ['{prefix}\n{tag}\n{suffix}'],
+        ];
+    }
 
     protected function run(): string
     {

@@ -4,32 +4,33 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaControls,
-    Attribute\Aria\HasAriaDescribedBy,
-    Attribute\Aria\HasAriaDisabled,
-    Attribute\Aria\HasAriaExpanded,
-    Attribute\Aria\HasAriaLabel,
-    Attribute\Aria\HasRole,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainerCollection,
-    Attribute\Custom\HasContent,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Custom\HasTagName,
-    Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasValidateInList,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\HasTitle,
-    Attribute\Input\HasName,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaControls,
+    Html\Attribute\Aria\HasAriaDescribedBy,
+    Html\Attribute\Aria\HasAriaDisabled,
+    Html\Attribute\Aria\HasAriaExpanded,
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\Aria\HasRole,
+    Html\Attribute\Custom\HasAttributes,
+    Html\Attribute\Custom\HasContainerCollection,
+    Html\Attribute\Custom\HasContent,
+    Html\Attribute\Custom\HasPrefixCollection,
+    Html\Attribute\Custom\HasSuffixCollection,
+    Html\Attribute\Custom\HasTagName,
+    Html\Attribute\Custom\HasTemplate,
+    Html\Attribute\Custom\HasValidateInList,
+    Html\Attribute\HasClass,
+    Html\Attribute\HasData,
+    Html\Attribute\HasId,
+    Html\Attribute\HasLang,
+    Html\Attribute\HasStyle,
+    Html\Attribute\HasTabindex,
+    Html\Attribute\HasTitle,
+    Html\Attribute\Input\HasName,
+    Html\Helper\Utils,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 /**
  * The `<button>` `HTML` element is an interactive element activated by a user with a mouse, keyboard, finger, voice
@@ -72,7 +73,7 @@ final class Button extends Element
     protected function loadDefaultDefinitions(): array
     {
         return [
-            'id()' => [$this->generateId('button-')],
+            'id()' => [Utils::generateId('button-')],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
             'tagName()' => ['button'],
         ];
@@ -94,8 +95,10 @@ final class Button extends Element
             'button'
         );
 
-        if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$this->id-help";
+        $id = $this->getId();
+
+        if ($this->ariaDescribedBy === true && $id !== null) {
+            $attributes['aria-describedby'] = "$id-help";
         }
 
         if ($this->tagName === 'a' && $this->role === true) {
@@ -107,7 +110,6 @@ final class Button extends Element
             Tag::widget()
                 ->attributes($attributes)
                 ->content($this->content)
-                ->id($this->id)
                 ->prefix($this->prefix)
                 ->prefixContainer($this->prefixContainer)
                 ->prefixContainerAttributes($this->prefixContainerAttributes)

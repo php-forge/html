@@ -16,8 +16,9 @@
         "ext-mbstring": "*",
         "enshrined/svg-sanitize": "^0.17.0",
         "php-forge/awesome-widget": "^0.1.2",
-        "php-forge/html-helper": "^0.1",
-        "php-forge/html-interop": "^0.1",
+        "php-forge/html-attribute": "dev-main",
+        "php-forge/html-helper": "^0.2",
+        "php-forge/html-interop": "^0.2",
         "voku/anti-xss": "^4.1"
     },
     "require-dev": {

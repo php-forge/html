@@ -12,23 +12,23 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="file">
+            <input id="formmodelname-property" name="FormModelName[property]" type="file">
             HTML,
-            File::widget()->generateField('ModelName', 'fieldName')->render()
+            File::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 
-    public function testGenerateFieldWithMultiple(): void
+    public function testFieldAttributesWithMultiple(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName][]" type="file" multiple>
+            <input id="formmodelname-property" name="FormModelName[property][]" type="file" multiple>
             HTML,
-            File::widget()->generateField('ModelName', 'fieldName')->multiple()->render()
+            File::widget()->fieldAttributes('FormModelName', 'property')->multiple()->render()
         );
     }
 

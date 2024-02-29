@@ -17,9 +17,9 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             value
-            <label></label>
+            <label>value</label>
             HTML,
-            Label::widget()->prefix('value')->render()
+            Label::widget()->content('value')->prefix('value')->render()
         );
     }
 
@@ -30,9 +30,9 @@ final class CustomMethodTest extends TestCase
             <div>
             value
             </div>
-            <label></label>
+            <label>value</label>
             HTML,
-            Label::widget()->prefixContainer(true)->prefix('value')->render()
+            Label::widget()->content('value')->prefixContainer(true)->prefix('value')->render()
         );
     }
 
@@ -43,9 +43,10 @@ final class CustomMethodTest extends TestCase
             <div class="value">
             value
             </div>
-            <label></label>
+            <label>value</label>
             HTML,
             Label::widget()
+                ->content('value')
                 ->prefixContainer(true)
                 ->prefix('value')
                 ->prefixContainerAttributes(['class' => 'value'])
@@ -60,9 +61,14 @@ final class CustomMethodTest extends TestCase
             <div class="value">
             value
             </div>
-            <label></label>
+            <label>value</label>
             HTML,
-            Label::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
+            Label::widget()
+                ->content('value')
+                ->prefixContainer(true)
+                ->prefix('value')
+                ->prefixContainerClass('value')
+                ->render()
         );
     }
 
@@ -71,30 +77,30 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <span>value</span>
-            <label></label>
+            <label>value</label>
             HTML,
-            Label::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
+            Label::widget()
+                ->content('value')
+                ->prefixContainer(true)
+                ->prefix('value')
+                ->prefixContainerTag('span')
+                ->render()
         );
     }
 
     public function testRender(): void
     {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <label></label>
-            HTML,
-            Label::widget()->render()
-        );
+        $this->assertEmpty(Label::widget()->render());
     }
 
     public function testSuffix(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label></label>
+            <label>value</label>
             value
             HTML,
-            Label::widget()->suffix('value')->render()
+            Label::widget()->content('value')->suffix('value')->render()
         );
     }
 
@@ -102,12 +108,12 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label></label>
+            <label>value</label>
             <div>
             value
             </div>
             HTML,
-            Label::widget()->suffixContainer(true)->suffix('value')->render()
+            Label::widget()->content('value')->suffixContainer(true)->suffix('value')->render()
         );
     }
 
@@ -115,12 +121,13 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label></label>
+            <label>value</label>
             <div class="value">
             value
             </div>
             HTML,
             Label::widget()
+                ->content('value')
                 ->suffixContainer(true)
                 ->suffix('value')
                 ->suffixContainerAttributes(['class' => 'value'])
@@ -132,12 +139,17 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label></label>
+            <label>value</label>
             <div class="value">
             value
             </div>
             HTML,
-            Label::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
+            Label::widget()
+                ->content('value')
+                ->suffixContainer(true)
+                ->suffix('value')
+                ->suffixContainerClass('value')
+                ->render()
         );
     }
 
@@ -145,10 +157,15 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <label></label>
+            <label>value</label>
             <span>value</span>
             HTML,
-            Label::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
+            Label::widget()
+                ->content('value')
+                ->suffixContainer(true)
+                ->suffix('value')
+                ->suffixContainerTag('span')
+                ->render()
         );
     }
 

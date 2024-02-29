@@ -226,9 +226,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="range">
+            <input name="FormModelName[property]" type="range">
             HTML,
-            Range::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Range::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -236,9 +236,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="range">
+            <input id="formmodelname-property" type="range">
             HTML,
-            Range::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Range::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

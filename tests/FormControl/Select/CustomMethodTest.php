@@ -40,11 +40,11 @@ final class CustomMethodTest extends TestCase
         ],
     ];
 
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <select id="modelname-fieldname" name="ModelName[fieldName]">
+            <select id="formmodelname-fieldname" name="formModelName[fieldName]">
             <option>Select an option</option>
             <option value="1">Moscu</option>
             <option value="2">San Petersburgo</option>
@@ -52,7 +52,7 @@ final class CustomMethodTest extends TestCase
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->generateField('ModelName', 'fieldName')->items($this->cities)->render()
+            Select::widget()->fieldAttributes('formModelName', 'fieldName')->items($this->cities)->render()
         );
     }
 

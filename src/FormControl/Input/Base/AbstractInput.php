@@ -13,7 +13,6 @@ use PHPForge\{
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\Field\HasGenerateField,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
     Html\Attribute\HasId,
@@ -25,11 +24,12 @@ use PHPForge\{
     Html\Attribute\Input\CanBeReadonly,
     Html\Attribute\Input\HasForm,
     Html\Attribute\Input\HasName,
+    Html\Helper\Utils,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\InputInterface,
     Html\Interop\RenderInterface,
     Html\Tag,
-    Widget\Element,
+    Widget\Element
 };
 
 /**
@@ -47,7 +47,6 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasClass;
     use HasData;
     use HasForm;
-    use HasGenerateField;
     use HasId;
     use HasLang;
     use HasName;
@@ -60,12 +59,22 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
 
     protected array $attributes = [];
 
+    public function fieldAttributes(string $formModel, string $property, bool $arrayable = false): static
+    {
+        return $this
+            ->id(Utils::generateInputId($formModel, $property))
+            ->name(Utils::generateInputName($formModel, $property, $arrayable));
+    }
+
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
     protected function loadDefaultDefinitions(): array
     {
+        $shortClassName = Utils::getShortNameClass(static::class, false, true);
+
         return [
+            'id()' => [Utils::generateId("$shortClassName-")],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }
@@ -76,13 +85,9 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
         array $tokenValues = [],
         string $name = ''
     ): string {
-        $id = $this->generateId("$type-");
+        $id = $this->getId();
 
-        if ($id === null) {
-            unset($attributes['id']);
-        }
-
-        if ($this->ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true && $id !== null) {
             $attributes['aria-describedby'] = "$id-help";
         }
 
@@ -90,7 +95,6 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
 
         return Tag::widget()
             ->attributes($attributes)
-            ->id($id)
             ->name($name)
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)

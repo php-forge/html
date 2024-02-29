@@ -36,6 +36,7 @@ use PHPForge\{
     Html\Attribute\Input\HasName,
     Html\Attribute\Input\HasValue,
     Html\FormControl\Label,
+    Html\Helper\Utils,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\CheckedInterface,
     Html\Interop\InputInterface,
@@ -96,7 +97,10 @@ abstract class AbstractInputChoice extends Element implements
      */
     protected function loadDefaultDefinitions(): array
     {
+        $class = Utils::getShortNameClass(static::class, false, true);
+
         return [
+            'id()' => [Utils::generateId("$class-")],
             'separator()' => [PHP_EOL],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{label}\n{suffix}'],
         ];
@@ -113,17 +117,12 @@ abstract class AbstractInputChoice extends Element implements
 
         $this->validateScalar($value, $this->checked);
 
+        $id = $this->getId();
+
         $attributes = $this->attributes;
         $labelTag = '';
-
-        /** @var string $id */
-        $id = $attributes['id'] ?? $this->generateId("$type-");
-
-        if ($this->id === null) {
-            $id = null;
-        }
-
         $labelFor = $this->labelFor ?? $id;
+
         /** @var string $name */
         $name = $attributes['name'] ?? '';
 
@@ -141,9 +140,9 @@ abstract class AbstractInputChoice extends Element implements
             $attributes['checked'] = (string) $value === (string) $this->checked;
         }
 
-        unset($attributes['id'], $attributes['type'], $attributes['value']);
+        unset($attributes['type'], $attributes['value']);
 
-        $tag = Tag::widget()->attributes($attributes)->id($id)->tagName('input')->type($type)->value($value)->render();
+        $tag = Tag::widget()->attributes($attributes)->tagName('input')->type($type)->value($value)->render();
 
         if ($this->enclosedByLabel) {
             $tag = $this->renderEnclosedByLabel($tag, $labelFor);
