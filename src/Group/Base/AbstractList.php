@@ -7,7 +7,6 @@ namespace PHPForge\Html\Group\Base;
 use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasTagName,
-    Html\Attribute\Input\HasName,
     Html\Attribute\HasClass,
     Html\Attribute\HasId,
     Html\Attribute\HasLang,
@@ -30,7 +29,6 @@ abstract class AbstractList extends Element implements RenderInterface
     use HasClass;
     use HasId;
     use HasLang;
-    use HasName;
     use HasStyle;
     use HasTabindex;
     use HasTagName;

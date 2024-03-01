@@ -8,13 +8,13 @@ use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasValidateString,
+    Html\Attribute\FormControl\HasName,
     Html\Attribute\HasClass,
     Html\Attribute\HasId,
     Html\Attribute\HasStyle,
-    Html\Attribute\Input\HasName,
     Html\Attribute\Input\HasValue,
-    Html\Interop\ValueInterface,
     Html\Helper\Utils,
+    Html\Interop\ValueInterface,
     Html\Tag,
     Widget\Element
 };

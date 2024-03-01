@@ -19,6 +19,7 @@ use PHPForge\{
     Html\Attribute\Custom\HasTagName,
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasValidateInList,
+    Html\Attribute\FormControl\HasName,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
     Html\Attribute\HasId,
@@ -26,7 +27,6 @@ use PHPForge\{
     Html\Attribute\HasStyle,
     Html\Attribute\HasTabindex,
     Html\Attribute\HasTitle,
-    Html\Attribute\Input\HasName,
     Html\Helper\Utils,
     Html\Tag,
     Widget\Element

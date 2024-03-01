@@ -14,6 +14,7 @@ use PHPForge\{
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\FormControl\HasFieldAttributes,
+    Html\Attribute\FormControl\HasName,
     Html\Attribute\FormControl\Input\HasForm,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
@@ -24,7 +25,6 @@ use PHPForge\{
     Html\Attribute\HasTitle,
     Html\Attribute\Input\CanBeDisabled,
     Html\Attribute\Input\CanBeReadonly,
-    Html\Attribute\Input\HasName,
     Html\Helper\Utils,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\InputInterface,
@@ -77,8 +77,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     protected function buildInputTag(
         array $attributes,
         string $type,
-        array $tokenValues = [],
-        string $name = ''
+        array $tokenValues = []
     ): string {
         $id = $this->getId();
 
@@ -88,7 +87,6 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
 
         return Tag::widget()
             ->attributes($attributes)
-            ->name($name)
             ->prefix($this->prefix)
             ->prefixContainer($this->prefixContainer)
             ->prefixContainerAttributes($this->prefixContainerAttributes)

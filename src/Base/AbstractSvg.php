@@ -16,7 +16,6 @@ use PHPForge\{
     Html\Attribute\HasLang,
     Html\Attribute\HasTitle,
     Html\Attribute\Input\HasHeight,
-    Html\Attribute\Input\HasName,
     Html\Attribute\Input\HasWidth,
     Html\Tag,
     Widget\Element
@@ -36,7 +35,6 @@ abstract class AbstractSvg extends Element
     use HasHeight;
     use HasId;
     use HasLang;
-    use HasName;
     use HasTitle;
     use HasWidth;
 

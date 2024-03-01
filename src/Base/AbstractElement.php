@@ -15,7 +15,6 @@ use PHPForge\{
     Html\Attribute\HasLang,
     Html\Attribute\HasStyle,
     Html\Attribute\HasTitle,
-    Html\Attribute\Input\HasName,
     Html\HtmlBuilder,
     Html\Interop\RenderInterface,
     Widget\Element
@@ -31,7 +30,6 @@ abstract class AbstractElement extends Element implements RenderInterface
     use HasData;
     use HasId;
     use HasLang;
-    use HasName;
     use HasPrefixCollection;
     use HasStyle;
     use HasSuffixCollection;

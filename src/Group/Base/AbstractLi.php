@@ -12,7 +12,6 @@ use PHPForge\{
     Html\Attribute\HasStyle,
     Html\Attribute\HasTabindex,
     Html\Attribute\HasTitle,
-    Html\Attribute\Input\HasName,
     Html\Attribute\Input\HasValue,
     Html\Interop\RenderInterface,
     Html\Tag,
@@ -30,7 +29,6 @@ abstract class AbstractLi extends Element implements RenderInterface
     use HasClass;
     use HasId;
     use HasLang;
-    use HasName;
     use HasStyle;
     use HasTabindex;
     use HasTitle;

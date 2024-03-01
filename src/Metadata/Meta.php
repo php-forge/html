@@ -7,11 +7,11 @@ namespace PHPForge\Html\Metadata;
 use PHPForge\Html\{
     Attribute\Custom\HasAttributes,
     Attribute\Custom\HasContentAttribute,
+    Attribute\FormControl\HasName,
     Attribute\HasClass,
     Attribute\HasId,
     Attribute\HasLang,
     Attribute\HasStyle,
-    Attribute\Input\HasName,
     Attribute\Tag\HasCharset,
     Attribute\Tag\HasHttpEquiv,
     Tag

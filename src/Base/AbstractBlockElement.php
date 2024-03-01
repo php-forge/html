@@ -13,7 +13,6 @@ use PHPForge\Html\{
     Attribute\HasLang,
     Attribute\HasStyle,
     Attribute\HasTitle,
-    Attribute\Input\HasName,
     HtmlBuilder
 };
 use PHPForge\Widget\Block;
@@ -29,7 +28,6 @@ abstract class AbstractBlockElement extends Block
     use HasData;
     use HasId;
     use HasLang;
-    use HasName;
     use HasStyle;
     use HasTitle;
 

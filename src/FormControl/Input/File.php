@@ -38,23 +38,17 @@ final class File extends Base\AbstractInput implements RequiredInterface
     {
         $attributes = $this->attributes;
         $multiple = $attributes['multiple'] ?? false;
-        /** @var string $name */
-        $name = $attributes['name'] ?? '';
+
+        $name = $this->getName();
 
         if ($multiple === true && $name !== '') {
             $name = Utils::generateArrayableName($name);
+            $attributes['name'] = $name;
         }
 
         // The value attribute is not allowed for the input type `file`.
         unset($attributes['value']);
 
-        return $this->buildInputTag(
-            $attributes,
-            'file',
-            [
-                '{unchecktag}' => $this->renderUncheckTag($name),
-            ],
-            $name
-        );
+        return $this->buildInputTag($attributes, 'file', ['{unchecktag}' => $this->renderUncheckTag($name)]);
     }
 }

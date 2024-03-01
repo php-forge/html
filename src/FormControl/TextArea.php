@@ -8,6 +8,7 @@ use PHPForge\Html\{
     Attribute\CanBeAutofocus,
     Attribute\Custom\HasContent,
     Attribute\FormControl\HasFieldAttributes,
+    Attribute\FormControl\HasName,
     Attribute\FormControl\Input\HasForm,
     Attribute\HasTabindex,
     Attribute\Input\CanBeDisabled,
@@ -57,6 +58,7 @@ final class TextArea extends AbstractElement implements
     use HasForm;
     use HasMaxLength;
     use HasMinLength;
+    use HasName;
     use HasPlaceholder;
     use HasRows;
     use HasTabindex;

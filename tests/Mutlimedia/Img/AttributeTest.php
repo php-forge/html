@@ -112,16 +112,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <img name="value">
-            HTML,
-            Img::widget()->name('value')->render()
-        );
-    }
-
     public function testSizes(): void
     {
         Assert::equalsWithoutLE(
