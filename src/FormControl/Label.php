@@ -7,7 +7,7 @@ namespace PHPForge\Html\FormControl;
 use PHPForge\Html\{
     Attribute\Custom\HasContent,
     Attribute\FormControl\HasFor,
-    Attribute\Input\HasForm,
+    Attribute\FormControl\Input\HasForm,
     Base\AbstractElement
 };
 
