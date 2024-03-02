@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\{
-    Html\Attribute\FormControl\HasAlt,
-    Html\Attribute\Input\HasFormaction,
-    Html\Attribute\Input\HasFormenctype,
-    Html\Attribute\Input\HasFormmethod,
-    Html\Attribute\Input\HasFormnovalidate,
-    Html\Attribute\Input\HasFormtarget,
-    Html\Attribute\Input\HasHeight,
-    Html\Attribute\Input\HasSrc,
-    Html\Attribute\Input\HasValue,
-    Html\Attribute\Input\HasWidth,
-    Html\FormControl\Input\Base\AbstractInput,
-    Html\Interop\SrcInterface
+use PHPForge\Html\{
+    Attribute\FormControl\HasAlt,
+    Attribute\FormControl\HasFormaction,
+    Attribute\FormControl\HasFormenctype,
+    Attribute\FormControl\HasFormmethod,
+    Attribute\FormControl\HasFormnovalidate,
+    Attribute\FormControl\HasFormtarget,
+    Attribute\Input\HasHeight,
+    Attribute\Input\HasSrc,
+    Attribute\Input\HasValue,
+    Attribute\Input\HasWidth,
+    FormControl\Input\Base\AbstractInput,
+    Interop\SrcInterface
 };
 
 /**

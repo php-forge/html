@@ -18,6 +18,11 @@ use PHPForge\{
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
     Html\Attribute\FormControl\HasForm,
+    Html\Attribute\FormControl\HasFormaction,
+    Html\Attribute\FormControl\HasFormenctype,
+    Html\Attribute\FormControl\HasFormmethod,
+    Html\Attribute\FormControl\HasFormnovalidate,
+    Html\Attribute\FormControl\HasFormtarget,
     Html\Attribute\FormControl\HasName,
     Html\Attribute\FormControl\Label\CanBeDisableLabel,
     Html\Attribute\FormControl\Label\HasLabel,
@@ -52,6 +57,11 @@ abstract class AbstractButton extends Element
     use HasContainerCollection;
     use HasData;
     use HasForm;
+    use HasFormaction;
+    use HasFormenctype;
+    use HasFormmethod;
+    use HasFormnovalidate;
+    use HasFormtarget;
     use HasId;
     use HasLabel;
     use HasLabelAttributes;

@@ -19,6 +19,11 @@ use PHPForge\{
     Html\Attribute\Custom\HasTagName,
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasValidateInList,
+    Html\Attribute\FormControl\HasFormaction,
+    Html\Attribute\FormControl\HasFormenctype,
+    Html\Attribute\FormControl\HasFormmethod,
+    Html\Attribute\FormControl\HasFormnovalidate,
+    Html\Attribute\FormControl\HasFormtarget,
     Html\Attribute\FormControl\HasName,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
@@ -51,6 +56,11 @@ final class Button extends Element
     use HasContainerCollection;
     use HasContent;
     use HasData;
+    use HasFormaction;
+    use HasFormenctype;
+    use HasFormmethod;
+    use HasFormnovalidate;
+    use HasFormtarget;
     use HasId;
     use HasLang;
     use HasName;

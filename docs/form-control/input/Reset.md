@@ -107,6 +107,11 @@ The following methods are available for setting attributes:
 | `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
 | `disabled()`       | Set the `disabled` attribute.                                                                   |
 | `form()`           | Set the `form` attribute.                                                                       |
+| `formaction()`     | Set the `formaction` attribute.                                                                 |
+| `formenctype()`    | Set the `formenctype` attribute.                                                                |
+| `formmethod()`     | Set the `formmethod` attribute.                                                                 |
+| `formnovalidate()` | Set the `formnovalidate` attribute.                                                             |
+| `formtarget()`     | Set the `formtarget` attribute.                                                                 |
 | `hidden()`         | Set the `hidden` attribute.                                                                     |
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |

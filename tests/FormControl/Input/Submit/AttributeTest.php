@@ -112,6 +112,66 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testFormaction(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit" formaction="value">
+            </div>
+            HTML,
+            Submit::widget()->formaction('value')->id('submit-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testFormenctype(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit" formenctype="text/plain">
+            </div>
+            HTML,
+            Submit::widget()->formenctype('text/plain')->id('submit-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testFormmethod(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit" formmethod="GET">
+            </div>
+            HTML,
+            Submit::widget()->formmethod('GET')->id('submit-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testFormnovalidate(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit" formnovalidate>
+            </div>
+            HTML,
+            Submit::widget()->formnovalidate()->id('submit-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testFormtarget(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit" formtarget="_blank">
+            </div>
+            HTML,
+            Submit::widget()->formtarget('_blank')->id('submit-6582f2d099e8b')->render()
+        );
+    }
+
     public function testGenerateAriaDescribeBy(): void
     {
         Assert::equalsWithoutLE(

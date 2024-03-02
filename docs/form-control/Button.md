@@ -120,6 +120,11 @@ The following methods are available for setting attributes:
 | `class()`          | Set the `class` attribute.                                                                      |
 | `content()`        | Set the `content` within the `button` element.                                                  |
 | `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
+| `formaction()`     | Set the `formaction` attribute.                                                                 |
+| `formenctype()`    | Set the `formenctype` attribute.                                                                |
+| `formmethod()`     | Set the `formmethod` attribute.                                                                 |
+| `formnovalidate()` | Set the `formnovalidate` attribute.                                                             |
+| `formtarget()`     | Set the `formtarget` attribute.                                                                 |
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
 | `name()`           | Set the `name` attribute.                                                                       |
