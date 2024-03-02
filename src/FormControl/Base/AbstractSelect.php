@@ -105,8 +105,7 @@ abstract class AbstractSelect extends Element implements
             throw new InvalidArgumentException('Select::class widget value can not be an object.');
         }
 
-        if ($this->isMultiple() === true && is_array($value) === false)
-        {
+        if ($this->isMultiple() === true && is_array($value) === false) {
             throw new InvalidArgumentException('Select::class widget value must be an array when multiple is "true".');
         }
 
