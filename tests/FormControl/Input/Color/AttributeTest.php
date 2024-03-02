@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="color-6582f2d099e8b" type="color" autocomplete="on">
+            HTML,
+            Color::widget()->autocomplete('on')->id('color-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(

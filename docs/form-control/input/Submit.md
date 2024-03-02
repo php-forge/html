@@ -153,8 +153,8 @@ The following methods are available for customizing the `HTML` output:
 
 | Method             | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
+| `disableLabel()`   | Set disabled for the `label` element.                                                           |
 | `labelAttributes()`| Set `attributes` for the `label` element.                                                       |
 | `labelClass()`     | Set the `class` attribute for the `label` element.                                              |
 | `labelContent()`   | Set the `content` within the `label` element.                                                   |
 | `labelFor()`       | Set the `for` attribute for the `label` element.                                                |
-| `notLabel()`       | Set disabled for the `label` element.                                                           |

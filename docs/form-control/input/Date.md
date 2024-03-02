@@ -13,17 +13,16 @@ $date = Date::widget();
 
 ## Generate field id and name
 
-The `generateField` method is used to generate the field id and name for the `HTML` output.
+The `fieldAttributes` method is used to generate the field id and name for the `HTML` output.
 
 Allowed arguments are:
 
-- `modelName` - The name of the model.
-- `fieldName` - The name of the field.
-- `arrayable` - Whether the field is an array. For default, it is `false`.
+- `formModel` - The name of the model.
+- `property` - The name of the field.
 
 ```php
 // generate field id and name
-$date->generateField('model', 'field');
+$date->fieldAttributes('formModel', 'field');
 ```
 
 ## Setting Attributes
@@ -142,10 +141,10 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
+| `fieldAttributes()`            | Generate the field id and name for the `HTML` output.                               |
 | `prefix()`                   | Add text before the `textarea` element.                                               |
 | `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |
 | `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
 | `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
 | `render()`                   | Generates the `HTML` output.                                                          |

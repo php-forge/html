@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML

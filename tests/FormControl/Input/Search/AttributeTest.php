@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\FormControl\Input\Search;
 
 use PHPForge\{Html\FormControl\Input\Search, Support\Assert};
-use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class AttributeTest extends TestCase
+final class AttributeTest extends \PHPUnit\Framework\TestCase
 {
     public function testAriaDescribedBy(): void
     {
@@ -38,9 +37,17 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input class="value" id="search-6582f2d099e8b" type="search">
             HTML,
-            Search::widget()->attributes([
-                'class' => 'value',
-            ])->id('search-6582f2d099e8b')->render()
+            Search::widget()->attributes(['class' => 'value'])->id('search-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testAutoComplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="search-6582f2d099e8b" type="search" autocomplete="on">
+            HTML,
+            Search::widget()->autoComplete('on')->id('search-6582f2d099e8b')->render()
         );
     }
 
@@ -70,9 +77,7 @@ final class AttributeTest extends TestCase
             <<<HTML
             <input id="search-6582f2d099e8b" type="search" data-value="value">
             HTML,
-            Search::widget()->dataAttributes([
-                'value' => 'value',
-            ])->id('search-6582f2d099e8b')->render()
+            Search::widget()->dataAttributes(['value' => 'value'])->id('search-6582f2d099e8b')->render()
         );
     }
 

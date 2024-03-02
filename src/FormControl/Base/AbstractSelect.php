@@ -11,11 +11,12 @@ use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
+    Html\Attribute\FormControl\CanBeDisabled,
+    Html\Attribute\FormControl\CanBeMultiple,
+    Html\Attribute\FormControl\CanBeRequired,
+    Html\Attribute\FormControl\HasAutocomplete,
     Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\FormControl\HasName,
-    Html\Attribute\FormControl\Input\CanBeDisabled,
-    Html\Attribute\FormControl\Input\CanBeMultiple,
-    Html\Attribute\FormControl\Input\CanBeRequired,
     Html\Attribute\FormControl\Label\CanBeDisableLabel,
     Html\Attribute\FormControl\Label\HasLabel,
     Html\Attribute\FormControl\Label\HasLabelAttributes,
@@ -64,6 +65,7 @@ abstract class AbstractSelect extends Element implements
     use CanBeRequired;
     use HasAriaLabel;
     use HasAttributes;
+    use HasAutocomplete;
     use HasClass;
     use HasFieldAttributes;
     use HasGroup;

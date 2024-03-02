@@ -6,9 +6,9 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasUncheckedCollection,
-    Html\Attribute\FormControl\Input\CanBeMultiple,
-    Html\Attribute\FormControl\Input\CanBeRequired,
-    Html\Attribute\Input\HasAccept,
+    Html\Attribute\FormControl\CanBeMultiple,
+    Html\Attribute\FormControl\CanBeRequired,
+    Html\Attribute\FormControl\HasAccept,
     Html\Helper\Utils,
     Html\Interop\RequiredInterface
 };

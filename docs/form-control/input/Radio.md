@@ -13,17 +13,16 @@ $radio = Radio::widget();
 
 ## Generate field id and name
 
-The `generateField` method is used to generate the field id and name for the `HTML` output.
+The `fieldAttributes` method is used to generate the field id and name for the `HTML` output.
 
 Allowed arguments are:
 
-- `modelName` - The name of the model.
-- `fieldName` - The name of the field.
-- `arrayable` - Whether the field is an array. For default, it is `false`.
+- `formModel` - The name of the model.
+- `property` - The name of the field.
 
 ```php
 // generate field id and name
-$radio->generateField('model', 'field');
+$radio->fieldAttributes('model', 'field');
 ```
 
 ## Setting Attributes
@@ -185,10 +184,10 @@ The following methods are available for customizing the `HTML` output:
 | `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
 | `containerClass()`           | Set the `class` attribute for the `container` element.                                |
 | `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
+| `fieldAttributes()`          | Generate the field id and name for the `HTML` output.                                 |
 | `prefix()`                   | Add text before the `textarea` element.                                               |
 | `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
+| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |
 | `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
 | `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
 | `render()`                   | Generates the `HTML` output.                                                          |
@@ -213,12 +212,12 @@ The following methods are available for customizing the `HTML` output:
 
 | Method             | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
+| `disableLabel()`   | Set disabled for the `label` element.                                                           |
 | `enclosedByLabel()`| Set enabled or disabled for the `enclosed-by-label` element.                                    |
 | `labelAttributes()`| Set `attributes` for the `label` element.                                                       |
 | `labelClass()`     | Set the `class` attribute for the `label` element.                                              |
 | `labelContent()`   | Set the `content` within the `label` element.                                                   |
 | `labelFor()`       | Set the `for` attribute for the `label` element.                                                |
-| `notLabel()`       | Set disabled for the `label` element.   
 
 ## Validate methods
 

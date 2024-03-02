@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="url-6582f2d099e8b" type="url" autocomplete="on">
+            HTML,
+            Url::widget()->autocomplete('on')->id('url-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(

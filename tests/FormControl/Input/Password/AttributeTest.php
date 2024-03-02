@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutoComplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="password-6582f2d099e8b" type="password" autocomplete="on">
+            HTML,
+            Password::widget()->autoComplete('on')->id('password-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\{Attribute\Custom\HasContent, Attribute\FormControl\Input\HasForm, Base\AbstractElement};
+use PHPForge\Html\{Attribute\Custom\HasContent, Attribute\FormControl\HasForm, Base\AbstractElement};
 
 /**
  * The `<label>` HTML element represents a caption for an item in a user interface.

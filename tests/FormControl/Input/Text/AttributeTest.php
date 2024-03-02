@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\FormControl\Input\Text;
 
 use PHPForge\{Html\FormControl\Input\Text, Support\Assert};
-use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class AttributeTest extends TestCase
+final class AttributeTest extends \PHPUnit\Framework\TestCase
 {
     public function testAriaDescribedBy(): void
     {
@@ -41,6 +40,16 @@ final class AttributeTest extends TestCase
             Text::widget()->attributes([
                 'class' => 'value',
             ])->id('text-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text" autocomplete="on">
+            HTML,
+            Text::widget()->autocomplete('on')->id('text-6582f2d099e8b')->render()
         );
     }
 

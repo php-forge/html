@@ -6,7 +6,7 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\FormControl\Input\CanBeRequired,
+    Html\Attribute\FormControl\CanBeRequired,
     Html\Attribute\Input\HasMax,
     Html\Attribute\Input\HasMin,
     Html\Attribute\Input\HasStep,

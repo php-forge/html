@@ -6,6 +6,7 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasValidateNumeric,
+    Html\Attribute\FormControl\HasAutocomplete,
     Html\Attribute\Input\HasMax,
     Html\Attribute\Input\HasMin,
     Html\Attribute\Input\HasStep,
@@ -23,6 +24,7 @@ use PHPForge\{
  */
 final class Range extends AbstractInput implements RangeLengthInterface, ValueInterface
 {
+    use HasAutocomplete;
     use HasMax;
     use HasMin;
     use HasStep;

@@ -6,8 +6,9 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\FormControl\Input\CanBeMultiple,
-    Html\Attribute\FormControl\Input\CanBeRequired,
+    Html\Attribute\FormControl\CanBeMultiple,
+    Html\Attribute\FormControl\CanBeRequired,
+    Html\Attribute\FormControl\HasAutocomplete,
     Html\Attribute\Input\HasMaxLength,
     Html\Attribute\Input\HasMinLength,
     Html\Attribute\Input\HasPattern,
@@ -37,6 +38,7 @@ final class Email extends AbstractInput implements
 {
     use CanBeMultiple;
     use CanBeRequired;
+    use HasAutocomplete;
     use HasMaxLength;
     use HasMinLength;
     use HasPattern;

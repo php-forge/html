@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
-    Html\Attribute\Input\HasAlt,
+    Html\Attribute\FormControl\HasAlt,
     Html\Attribute\Input\HasFormaction,
     Html\Attribute\Input\HasFormenctype,
     Html\Attribute\Input\HasFormmethod,
