@@ -6,8 +6,8 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasUncheckedCollection,
-    Html\Attribute\Input\CanBeMultiple,
-    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\FormControl\Input\CanBeMultiple,
+    Html\Attribute\FormControl\Input\CanBeRequired,
     Html\Attribute\Input\HasAccept,
     Html\Helper\Utils,
     Html\Interop\RequiredInterface
@@ -39,11 +39,9 @@ final class File extends Base\AbstractInput implements RequiredInterface
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $multiple = $attributes['multiple'] ?? false;
-
         $name = $this->getName();
 
-        if ($multiple === true && $name !== '') {
+        if ($this->isMultiple() === true && $name !== '') {
             $name = Utils::generateArrayableName($name);
             $attributes['name'] = $name;
         }

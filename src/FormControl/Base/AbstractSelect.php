@@ -13,6 +13,9 @@ use PHPForge\{
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\FormControl\HasName,
+    Html\Attribute\FormControl\Input\CanBeDisabled,
+    Html\Attribute\FormControl\Input\CanBeMultiple,
+    Html\Attribute\FormControl\Input\CanBeRequired,
     Html\Attribute\FormControl\Label\CanBeDisableLabel,
     Html\Attribute\FormControl\Label\HasLabel,
     Html\Attribute\FormControl\Label\HasLabelAttributes,
@@ -22,9 +25,6 @@ use PHPForge\{
     Html\Attribute\HasId,
     Html\Attribute\HasStyle,
     Html\Attribute\HasTabindex,
-    Html\Attribute\Input\CanBeDisabled,
-    Html\Attribute\Input\CanBeMultiple,
-    Html\Attribute\Input\CanBeRequired,
     Html\Attribute\Input\HasSize,
     Html\Attribute\Input\HasValue,
     Html\Attribute\Tag\HasGroup,
@@ -103,11 +103,8 @@ abstract class AbstractSelect extends Element implements
             throw new InvalidArgumentException('Select::class widget value can not be an object.');
         }
 
-        if (
-            isset($this->attributes['multiple']) &&
-            $this->attributes['multiple'] === true &&
-            is_array($value) === false
-        ) {
+        if ($this->isMultiple() === true && is_array($value) === false)
+        {
             throw new InvalidArgumentException('Select::class widget value must be an array when multiple is "true".');
         }
 

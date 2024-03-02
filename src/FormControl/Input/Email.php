@@ -6,8 +6,8 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\Input\CanBeMultiple,
-    Html\Attribute\Input\CanBeRequired,
+    Html\Attribute\FormControl\Input\CanBeMultiple,
+    Html\Attribute\FormControl\Input\CanBeRequired,
     Html\Attribute\Input\HasMaxLength,
     Html\Attribute\Input\HasMinLength,
     Html\Attribute\Input\HasPattern,
