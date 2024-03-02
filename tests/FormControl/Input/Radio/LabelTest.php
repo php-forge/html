@@ -9,6 +9,16 @@ use PHPUnit\Framework\TestCase;
 
 final class LabelTest extends TestCase
 {
+    public function testDisableLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio">
+            HTML,
+            Radio::widget()->disableLabel()->id('radio-6582f2d099e8b')->label('Red')->render()
+        );
+    }
+
     public function testEnclosedByLabel(): void
     {
         Assert::equalsWithoutLE(
@@ -95,16 +105,6 @@ final class LabelTest extends TestCase
             <label for="label-for">Red</label>
             HTML,
             Radio::widget()->id('checkbox-6582f2d099e8b')->label('Red')->labelFor('label-for')->render()
-        );
-    }
-
-    public function testNotLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio">
-            HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->label('Red')->notLabel()->render()
         );
     }
 }

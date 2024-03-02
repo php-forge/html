@@ -26,6 +26,8 @@ final class File extends Base\AbstractInput implements RequiredInterface
     use HasAccept;
     use HasUncheckedCollection;
 
+    protected string $type = 'file';
+
     protected function loadDefaultDefinitions(): array
     {
         return [
@@ -49,6 +51,6 @@ final class File extends Base\AbstractInput implements RequiredInterface
         // The value attribute is not allowed for the input type `file`.
         unset($attributes['value']);
 
-        return $this->buildInputTag($attributes, 'file', ['{unchecktag}' => $this->renderUncheckTag($name)]);
+        return $this->renderInputTag($attributes, ['{unchecktag}' => $this->renderUncheckTag($name)]);
     }
 }

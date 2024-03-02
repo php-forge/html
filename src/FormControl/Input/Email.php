@@ -45,10 +45,12 @@ final class Email extends AbstractInput implements
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'email';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'email');
+        return $this->renderInputTag($this->attributes);
     }
 }

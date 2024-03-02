@@ -13,7 +13,6 @@ use PHPForge\{
     Html\Attribute\Custom\HasContainerCollection,
     Html\Attribute\Custom\HasContent,
     Html\Attribute\Custom\HasEnclosedByLabel,
-    Html\Attribute\Custom\HasLabelCollection,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSeparator,
     Html\Attribute\Custom\HasSuffixCollection,
@@ -22,7 +21,13 @@ use PHPForge\{
     Html\Attribute\Custom\HasValidateScalar,
     Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\FormControl\HasName,
+    Html\Attribute\FormControl\Input\CanBeChecked,
     Html\Attribute\FormControl\Input\HasForm,
+    Html\Attribute\FormControl\Label\CanBeDisableLabel,
+    Html\Attribute\FormControl\Label\HasLabel,
+    Html\Attribute\FormControl\Label\HasLabelAttributes,
+    Html\Attribute\FormControl\Label\HasLabelClass,
+    Html\Attribute\FormControl\Label\HasLabelFor,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
     Html\Attribute\HasId,
@@ -30,7 +35,6 @@ use PHPForge\{
     Html\Attribute\HasStyle,
     Html\Attribute\HasTabindex,
     Html\Attribute\HasTitle,
-    Html\Attribute\Input\CanBeChecked,
     Html\Attribute\Input\CanBeDisabled,
     Html\Attribute\Input\CanBeReadonly,
     Html\Attribute\Input\CanBeRequired,
@@ -61,6 +65,7 @@ abstract class AbstractInputChoice extends Element implements
     use CanBeAutofocus;
     use CanBeChecked;
     use CanBeDisabled;
+    use CanBeDisableLabel;
     use CanBeHidden;
     use CanBeReadonly;
     use CanBeRequired;
@@ -75,7 +80,10 @@ abstract class AbstractInputChoice extends Element implements
     use HasFieldAttributes;
     use HasForm;
     use HasId;
-    use HasLabelCollection;
+    use HasLabel;
+    use HasLabelAttributes;
+    use HasLabelClass;
+    use HasLabelFor;
     use HasLang;
     use HasName;
     use HasPrefixCollection;
@@ -117,16 +125,11 @@ abstract class AbstractInputChoice extends Element implements
 
         $this->validateScalar($value, $this->checked);
 
+        $attributes = $this->attributes;
+
         $id = $this->getId();
 
-        $attributes = $this->attributes;
-        $labelTag = '';
-        $labelFor = $this->labelFor ?? $id;
-
-        /** @var string $name */
-        $name = $attributes['name'] ?? '';
-
-        if ($this->ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true && $id !== null) {
             $attributes['aria-describedby'] = "$id-help";
         }
 
@@ -137,29 +140,36 @@ abstract class AbstractInputChoice extends Element implements
         }
 
         if (is_scalar($this->checked) && $value !== null) {
-            $attributes['checked'] = (string) $value === (string) $this->checked;
+            $attributes['checked'] = "$value" === "$this->checked";
         }
 
         unset($attributes['type'], $attributes['value']);
 
         $tag = Tag::widget()->attributes($attributes)->tagName('input')->type($type)->value($value)->render();
+        $labelTag = '';
 
-        if ($this->enclosedByLabel) {
-            $tag = $this->renderEnclosedByLabel($tag, $labelFor);
-        } else {
-            $labelTag = $this->renderLabelTag($labelFor);
+        if ($this->enclosedByLabel === true && $this->disableLabel === false && $this->label !== '') {
+            $tag = $this->renderLabel(
+                $this->separator,
+                $tag,
+                $this->separator,
+                $this->label,
+                $this->separator,
+            );
+        } elseif ($this->disableLabel === false) {
+            $labelTag = $this->renderLabel($this->label);
         }
 
-        $choiceTag = $this->prepareTemplate($tag, $labelTag, $name);
+        $choiceTag = $this->prepareTemplate($tag, $labelTag);
 
         return $this->renderContainerTag(null, $choiceTag);
     }
 
-    private function prepareTemplate(string $tag, string $labelTag, string $name): string
+    private function prepareTemplate(string $tag, string $labelTag): string
     {
         $tokenValues = [
             '{prefix}' => $this->renderPrefixTag(),
-            '{unchecktag}' => $this->renderUncheckTag($name),
+            '{unchecktag}' => $this->renderUncheckTag($this->getName()),
             '{tag}' => $tag,
             '{label}' => $labelTag,
             '{suffix}' => $this->renderSuffixTag(),
@@ -168,22 +178,12 @@ abstract class AbstractInputChoice extends Element implements
         return $this->renderTemplate($this->template, $tokenValues);
     }
 
-    private function renderEnclosedByLabel(string $tag, string|null $labelFor): string
+    private function renderLabel(string ...$content): string
     {
-        if ($this->isLabel === false || $this->label === '') {
-            return $tag;
-        }
-
         return Label::widget()
             ->attributes($this->labelAttributes)
-            ->content(
-                $this->separator,
-                $tag,
-                $this->separator,
-                $this->label,
-                $this->separator,
-            )
-            ->for($labelFor)
+            ->content(...$content)
+            ->for($this->labelFor ?? $this->getId())
             ->render();
     }
 }

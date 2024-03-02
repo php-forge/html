@@ -12,6 +12,18 @@ use PHPUnit\Framework\TestCase;
  */
 final class LabelTest extends TestCase
 {
+    public function testDisableLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit">
+            </div>
+            HTML,
+            Submit::widget()->disableLabel()->id('submit-6582f2d099e8b')->label('Label')->render()
+        );
+    }
+
     public function testLabel(): void
     {
         Assert::equalsWithoutLE(
@@ -65,18 +77,6 @@ final class LabelTest extends TestCase
             </div>
             HTML,
             Submit::widget()->id('submit-6582f2d099e8b')->label('Label')->LabelFor('label-for')->render()
-        );
-    }
-
-    public function testNotLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <input id="submit-6582f2d099e8b" type="submit">
-            </div>
-            HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->label('Label')->notLabel()->render()
         );
     }
 }

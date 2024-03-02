@@ -32,10 +32,12 @@ final class Month extends AbstractInput implements RangeLengthInterface, Require
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'month';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'month');
+        return $this->renderInputTag($this->attributes);
     }
 }

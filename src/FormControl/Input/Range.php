@@ -29,10 +29,12 @@ final class Range extends AbstractInput implements RangeLengthInterface, ValueIn
     use HasValidateNumeric;
     use HasValue;
 
+    protected string $type = 'range';
+
     protected function run(): string
     {
         $this->validateNumeric($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'range');
+        return $this->renderInputTag($this->attributes);
     }
 }

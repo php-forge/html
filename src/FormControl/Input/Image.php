@@ -39,11 +39,13 @@ final class Image extends AbstractInput implements SrcInterface
     use HasValue;
     use HasWidth;
 
+    protected string $type = 'image';
+
     protected function run(): string
     {
         // The value attribute is not allowed for the input type `image`.
         unset($this->attributes['value']);
 
-        return $this->buildInputTag($this->attributes, 'image');
+        return $this->renderInputTag($this->attributes);
     }
 }

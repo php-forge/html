@@ -43,10 +43,12 @@ final class Password extends AbstractInput implements
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'password';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'password');
+        return $this->renderInputTag($this->attributes);
     }
 }

@@ -32,10 +32,12 @@ final class Week extends AbstractInput implements RangeLengthInterface, Required
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'week';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'week');
+        return $this->renderInputTag($this->attributes);
     }
 }

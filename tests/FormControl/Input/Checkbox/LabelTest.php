@@ -12,6 +12,16 @@ use PHPUnit\Framework\TestCase;
  */
 final class LabelTest extends TestCase
 {
+    public function testDisableLabel(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->disableLabel()->id('checkbox-6582f2d099e8b')->label('Red')->render()
+        );
+    }
+
     public function testEnclosedByLabel(): void
     {
         Assert::equalsWithoutLE(
@@ -98,16 +108,6 @@ final class LabelTest extends TestCase
             <label for="value">Red</label>
             HTML,
             Checkbox::widget()->id('checkbox-6582f2d099e8b')->label('Red')->labelFor('value')->render()
-        );
-    }
-
-    public function testNotLabel(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox">
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->label('Red')->notLabel()->render()
         );
     }
 }

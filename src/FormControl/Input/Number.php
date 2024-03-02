@@ -39,10 +39,12 @@ final class Number extends AbstractInput implements
     use HasValidateNumeric;
     use HasValue;
 
+    protected string $type = 'number';
+
     protected function run(): string
     {
         $this->validateNumeric($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'number');
+        return $this->renderInputTag($this->attributes);
     }
 }

@@ -31,10 +31,12 @@ final class Datetime extends Base\AbstractInput implements RangeLengthInterface,
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'datetime';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'datetime');
+        return $this->renderInputTag($this->attributes);
     }
 }

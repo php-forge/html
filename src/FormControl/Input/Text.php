@@ -49,6 +49,6 @@ final class Text extends AbstractInput implements
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'text');
+        return $this->renderInputTag($this->attributes);
     }
 }

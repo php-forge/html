@@ -32,10 +32,12 @@ final class Time extends AbstractInput implements RangeLengthInterface, Required
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'time';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'time');
+        return $this->renderInputTag($this->attributes);
     }
 }

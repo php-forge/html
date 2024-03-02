@@ -32,6 +32,8 @@ final class DatetimeLocal extends Base\AbstractInput implements RangeLengthInter
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'datetime-local';
+
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
@@ -47,6 +49,6 @@ final class DatetimeLocal extends Base\AbstractInput implements RangeLengthInter
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'datetime-local');
+        return $this->renderInputTag($this->attributes);
     }
 }

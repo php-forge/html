@@ -97,7 +97,7 @@ final class Button extends Element
 
         $id = $this->getId();
 
-        if ($this->ariaDescribedBy === true && $id !== null) {
+        if ($this->ariaDescribedBy === true && $id !== '') {
             $attributes['aria-describedby'] = "$id-help";
         }
 

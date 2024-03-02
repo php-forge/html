@@ -11,13 +11,17 @@ use PHPForge\{
     Html\Attribute\CanBeHidden,
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
-    Html\Attribute\Custom\HasLabelCollection,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasValidateString,
     Html\Attribute\FormControl\HasName,
     Html\Attribute\FormControl\Input\HasForm,
+    Html\Attribute\FormControl\Label\CanBeDisableLabel,
+    Html\Attribute\FormControl\Label\HasLabel,
+    Html\Attribute\FormControl\Label\HasLabelAttributes,
+    Html\Attribute\FormControl\Label\HasLabelClass,
+    Html\Attribute\FormControl\Label\HasLabelFor,
     Html\Attribute\HasClass,
     Html\Attribute\HasData,
     Html\Attribute\HasId,
@@ -32,11 +36,13 @@ use PHPForge\{
     Html\Tag,
     Widget\Element
 };
+use PHPForge\Html\FormControl\Label;
 
 abstract class AbstractButton extends Element
 {
     use CanBeAutofocus;
     use CanBeDisabled;
+    use CanBeDisableLabel;
     use CanBeHidden;
     use CanBeReadonly;
     use HasAriaDescribedBy;
@@ -47,7 +53,10 @@ abstract class AbstractButton extends Element
     use HasData;
     use HasForm;
     use HasId;
-    use HasLabelCollection;
+    use HasLabel;
+    use HasLabelAttributes;
+    use HasLabelClass;
+    use HasLabelFor;
     use HasLang;
     use HasName;
     use HasPrefixCollection;
@@ -81,10 +90,17 @@ abstract class AbstractButton extends Element
         $id = $this->getId();
 
         $attributes = $this->attributes;
-        $labelFor = $this->labelFor ?? $id;
+        $label = '';
 
         if ($this->ariaDescribedBy === true && $id !== null) {
             $attributes['aria-describedby'] = "$id-help";
+        }
+
+        if ($this->disableLabel === false) {
+            $label = Label::widget()
+                ->attributes($this->labelAttributes)
+                ->content($this->label)
+                ->for($this->labelFor ?? $id);
         }
 
         return $this->renderContainerTag(
@@ -102,7 +118,7 @@ abstract class AbstractButton extends Element
                 ->tagName('input')
                 ->template($this->template)
                 ->type($this->type)
-                ->tokenValues(['{label}' => $this->renderLabelTag($labelFor)])
+                ->tokenValues(['{label}' => $label])
                 ->render()
         );
     }

@@ -60,6 +60,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasTitle;
 
     protected array $attributes = [];
+    protected string $type = 'text';
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -74,11 +75,8 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
         ];
     }
 
-    protected function buildInputTag(
-        array $attributes,
-        string $type,
-        array $tokenValues = []
-    ): string {
+    protected function renderInputTag(array $attributes, array $tokenValues = []): string
+    {
         $id = $this->getId();
 
         if ($this->ariaDescribedBy === true && $id !== null) {
@@ -98,7 +96,7 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
             ->tagName('input')
             ->template($this->template)
             ->tokenValues($tokenValues)
-            ->type($type)
+            ->type($this->type)
             ->render();
     }
 }

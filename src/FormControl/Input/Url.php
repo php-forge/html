@@ -43,10 +43,12 @@ final class Url extends AbstractInput implements
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'url';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'url');
+        return $this->renderInputTag($this->attributes);
     }
 }

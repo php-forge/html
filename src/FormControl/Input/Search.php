@@ -45,10 +45,12 @@ final class Search extends AbstractInput implements
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'search';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'search');
+        return $this->renderInputTag($this->attributes);
     }
 }

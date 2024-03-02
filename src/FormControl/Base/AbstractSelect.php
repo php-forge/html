@@ -9,11 +9,15 @@ use PHPForge\{
     Html\Attribute\Aria\HasAriaLabel,
     Html\Attribute\CanBeAutofocus,
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasLabelCollection,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\FormControl\HasName,
+    Html\Attribute\FormControl\Label\CanBeDisableLabel,
+    Html\Attribute\FormControl\Label\HasLabel,
+    Html\Attribute\FormControl\Label\HasLabelAttributes,
+    Html\Attribute\FormControl\Label\HasLabelClass,
+    Html\Attribute\FormControl\Label\HasLabelFor,
     Html\Attribute\HasClass,
     Html\Attribute\HasId,
     Html\Attribute\HasStyle,
@@ -55,6 +59,7 @@ abstract class AbstractSelect extends Element implements
 {
     use CanBeAutofocus;
     use CanBeDisabled;
+    use CanBeDisableLabel;
     use CanBeMultiple;
     use CanBeRequired;
     use HasAriaLabel;
@@ -65,7 +70,10 @@ abstract class AbstractSelect extends Element implements
     use HasId;
     use HasItems;
     use HasItemsAttributes;
-    use HasLabelCollection;
+    use HasLabel;
+    use HasLabelAttributes;
+    use HasLabelClass;
+    use HasLabelFor;
     use HasName;
     use HasPrefixCollection;
     use HasPrompt;
@@ -122,7 +130,7 @@ abstract class AbstractSelect extends Element implements
             ->suffixContainerTag($this->suffixContainerTag)
             ->tagName('select');
 
-        if ($this->isLabel === false || $this->label === '') {
+        if ($this->disableLabel === true || $this->label === '') {
             return $selectTag->render();
         }
 

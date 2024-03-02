@@ -24,10 +24,12 @@ final class Color extends Base\AbstractInput implements RequiredInterface, Value
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'color';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'color');
+        return $this->renderInputTag($this->attributes);
     }
 }

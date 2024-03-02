@@ -31,10 +31,12 @@ final class Date extends Base\AbstractInput implements RangeLengthInterface, Req
     use HasValidateString;
     use HasValue;
 
+    protected string $type = 'date';
+
     protected function run(): string
     {
         $this->validateString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'date');
+        return $this->renderInputTag($this->attributes);
     }
 }
