@@ -11,7 +11,6 @@ use PHPForge\{Html\FormControl\Select, Support\Assert};
  */
 final class LabelTest extends \PHPUnit\Framework\TestCase
 {
-
     private array $cities = [
         1 => 'Moscu',
         2 => 'San Petersburgo',
