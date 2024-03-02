@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\{
-    Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\FormControl\CanBeRequired,
-    Html\Attribute\FormControl\HasAutocomplete,
-    Html\Attribute\Input\HasValue,
-    Html\Interop\RequiredInterface,
-    Html\Interop\ValueInterface
+use PHPForge\Html\{
+    Attribute\Custom\HasValidateString,
+    Attribute\FormControl\CanBeRequired,
+    Attribute\FormControl\HasAutocomplete,
+    Attribute\FormControl\HasDirname,
+    Attribute\Input\HasValue,
+    Interop\RequiredInterface,
+    Interop\ValueInterface
 };
 
 /**
@@ -23,6 +24,7 @@ final class Color extends Base\AbstractInput implements RequiredInterface, Value
 {
     use CanBeRequired;
     use HasAutocomplete;
+    use HasDirname;
     use HasValidateString;
     use HasValue;
 

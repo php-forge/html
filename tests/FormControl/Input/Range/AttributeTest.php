@@ -82,6 +82,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="range-6582f2d099e8b" type="range" dirname="value">
+            HTML,
+            Range::widget()->dirname('value')->id('range-6582f2d099e8b')->render()
+        );
+    }
+
     public function testDisabled(): void
     {
         Assert::equalsWithoutLE(

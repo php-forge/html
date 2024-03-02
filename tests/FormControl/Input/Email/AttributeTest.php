@@ -82,6 +82,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="email-65a15e0439570" type="email" dirname="value">
+            HTML,
+            Email::widget()->dirName('value')->id('email-65a15e0439570')->render()
+        );
+    }
+
     public function testDisabled(): void
     {
         Assert::equalsWithoutLE(

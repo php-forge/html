@@ -121,6 +121,7 @@ The following methods are available for setting attributes:
 | `autofocus()`      | Set the `autofocus` attribute.                                                                  |
 | `class()`          | Set the `class` attribute.                                                                      |
 | `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
+| `dirname()`        | Set the `dirname` attribute.                                                                    |
 | `disabled()`       | Set the `disabled` attribute.                                                                   |
 | `form()`           | Set the `form` attribute.                                                                       |
 | `hidden()`         | Set the `hidden` attribute.                                                                     |

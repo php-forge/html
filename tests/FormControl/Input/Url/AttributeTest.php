@@ -82,6 +82,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="url-6582f2d099e8b" type="url" dirname="value">
+            HTML,
+            Url::widget()->dirname('value')->id('url-6582f2d099e8b')->render()
+        );
+    }
+
     public function testDisabled(): void
     {
         Assert::equalsWithoutLE(
