@@ -8,15 +8,17 @@ use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasData,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTitle,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasTemplate,
+    Html\Helper\Template,
     Html\HtmlBuilder,
     Html\Interop\RenderInterface,
+    Html\Tag,
     Widget\Element
 };
 
@@ -60,12 +62,30 @@ abstract class AbstractElement extends Element implements RenderInterface
     protected function buildElement(string $tagName, string $content = '', array $tokenValues = []): string
     {
         $tokenTemplateValues = [
-            '{prefix}' => $this->renderPrefixTag(),
+            '{prefix}' => $this->renderTag(
+                $this->prefixContainerAttributes,
+                $this->prefixContainer,
+                $this->prefix,
+                $this->prefixContainerTag
+            ),
             '{tag}' => HtmlBuilder::create($tagName, $content, $this->attributes),
-            '{suffix}' => $this->renderSuffixTag(),
+            '{suffix}' => $this->renderTag(
+                $this->suffixContainerAttributes,
+                $this->suffixContainer,
+                $this->suffix,
+                $this->suffixContainerTag
+            ),
         ];
         $tokenTemplateValues += $tokenValues;
 
-        return $this->renderTemplate($this->template, $tokenTemplateValues);
+        return Template::render($this->template, $tokenTemplateValues);
+    }
+
+    private function renderTag(array $attributes, bool $container, string $content, string $tag): string
+    {
+        return match ($container) {
+            true => Tag::widget()->attributes($attributes)->content($content)->tagName($tag)->render(),
+            false => $content,
+        };
     }
 }

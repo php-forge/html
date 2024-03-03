@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl;
 
 use PHPForge\Html\{
-    Attribute\CanBeAutofocus,
-    Attribute\Custom\HasContent,
     Attribute\FormControl\CanBeDisabled,
     Attribute\FormControl\CanBeReadonly,
     Attribute\FormControl\CanBeRequired,
@@ -15,7 +13,9 @@ use PHPForge\Html\{
     Attribute\FormControl\HasFieldAttributes,
     Attribute\FormControl\HasForm,
     Attribute\FormControl\HasName,
-    Attribute\HasTabindex,
+    Attribute\Global\CanBeAutofocus,
+    Attribute\Global\HasTabindex,
+    Attribute\HasContent,
     Attribute\Input\HasMaxLength,
     Attribute\Input\HasMinLength,
     Attribute\Input\HasPlaceholder,

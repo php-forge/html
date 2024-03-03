@@ -98,21 +98,4 @@ trait HasPrefixCollection
 
         return $new;
     }
-
-    /**
-     * Render the prefix container.
-     *
-     * @return string The prefix container.
-     */
-    private function renderPrefixTag(): string
-    {
-        return match ($this->prefixContainer) {
-            true => Tag::widget()
-                ->attributes($this->prefixContainerAttributes)
-                ->content($this->prefix)
-                ->tagName($this->prefixContainerTag)
-                ->render(),
-            false => $this->prefix,
-        };
-    }
 }

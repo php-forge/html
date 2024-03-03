@@ -98,21 +98,4 @@ trait HasSuffixCollection
 
         return $new;
     }
-
-    /**
-     * Render the suffix container.
-     *
-     * @return string The suffix container.
-     */
-    private function renderSuffixTag(): string
-    {
-        return match ($this->suffixContainer) {
-            true => Tag::widget()
-                ->attributes($this->suffixContainerAttributes)
-                ->content($this->suffix)
-                ->tagName($this->suffixContainerTag)
-                ->render(),
-            default => $this->suffix,
-        };
-    }
 }

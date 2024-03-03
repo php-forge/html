@@ -11,7 +11,7 @@ use PHPForge\Html\{
     Attribute\FormControl\HasFormmethod,
     Attribute\FormControl\HasFormnovalidate,
     Attribute\FormControl\HasFormtarget,
-    Attribute\Input\HasHeight,
+    Attribute\FormControl\HasHeight,
     Attribute\Input\HasSrc,
     Attribute\Input\HasValue,
     Attribute\Input\HasWidth,

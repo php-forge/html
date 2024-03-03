@@ -6,7 +6,7 @@ namespace PHPForge\Html\Multimedia;
 
 use PHPForge\Html\{
     Attribute\FormControl\HasAlt,
-    Attribute\Input\HasHeight,
+    Attribute\FormControl\HasHeight,
     Attribute\Input\HasSrc,
     Attribute\Input\HasWidth,
     Attribute\Tag\HasCrossorigin,

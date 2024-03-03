@@ -6,12 +6,12 @@ namespace PHPForge\Html\Group\Base;
 
 use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\HasTitle,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
     Html\Attribute\Input\HasValue,
     Html\Interop\RenderInterface,
     Html\Tag,

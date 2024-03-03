@@ -7,7 +7,6 @@ namespace PHPForge\Html\FormControl\Base;
 use InvalidArgumentException;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\CanBeAutofocus,
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
@@ -22,10 +21,11 @@ use PHPForge\{
     Html\Attribute\FormControl\Label\HasLabelAttributes,
     Html\Attribute\FormControl\Label\HasLabelClass,
     Html\Attribute\FormControl\Label\HasLabelFor,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
+    Html\Attribute\Global\CanBeAutofocus,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
     Html\Attribute\Input\HasSize,
     Html\Attribute\Input\HasValue,
     Html\Attribute\Tag\HasGroup,

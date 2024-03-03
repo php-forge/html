@@ -61,50 +61,6 @@ final class HasPrefixCollectionTest extends TestCase
         $this->assertNotSame($instance, $instance->prefixContainerTag('span'));
     }
 
-    public function testRender(): void
-    {
-        $instance = new class () {
-            use HasPrefixCollection;
-
-            public function run(): string
-            {
-                return $this->renderPrefixTag();
-            }
-        };
-
-        $instance = $instance->prefix('prefix')->prefixContainer(false);
-
-        Assert::equalsWithoutLE(
-            <<<HTML
-            prefix
-            HTML,
-            $instance->run()
-        );
-    }
-
-    public function testRenderWithContainerTrue(): void
-    {
-        $instance = new class () {
-            use HasPrefixCollection;
-
-            public function run(): string
-            {
-                return $this->renderPrefixTag();
-            }
-        };
-
-        $instance = $instance->prefix('prefix')->prefixContainer(true);
-
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            HTML,
-            $instance->run()
-        );
-    }
-
     public function testRenderWithXSS(): void
     {
         $instance = new class () {

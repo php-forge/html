@@ -6,11 +6,11 @@ namespace PHPForge\Html\FormControl\Input\Base;
 
 use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasTemplate,
     Html\Attribute\FormControl\HasName,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasStyle,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\HasTemplate,
     Html\Attribute\Input\HasValue,
     Html\Helper\Utils,
     Html\Helper\Validator,

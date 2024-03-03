@@ -61,52 +61,6 @@ final class HasSuffixCollectionTest extends TestCase
         $this->assertNotSame($instance, $instance->suffixContainerTag('span'));
     }
 
-    public function testRender(): void
-    {
-        $instance = new class () {
-            use HasSuffixCollection;
-
-            public function run(): string
-            {
-                return $this->renderSuffixTag();
-            }
-        };
-
-        $instance = $instance->suffix('suffix')->suffixContainer(false);
-
-        $this->assertStringNotContainsString('<div>', $instance->run());
-        Assert::equalsWithoutLE(
-            <<<HTML
-            suffix
-            HTML,
-            $instance->run()
-        );
-    }
-
-    public function testRenderWithContainerTrue(): void
-    {
-        $instance = new class () {
-            use HasSuffixCollection;
-
-            public function run(): string
-            {
-                return $this->renderSuffixTag();
-            }
-        };
-
-        $instance = $instance->suffix('suffix')->suffixContainer(true);
-
-        $this->assertStringContainsString('<div>', $instance->run());
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            suffix
-            </div>
-            HTML,
-            $instance->run()
-        );
-    }
-
     public function testRenderWithXSS(): void
     {
         $instance = new class () {

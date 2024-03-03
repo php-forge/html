@@ -10,12 +10,12 @@ use enshrined\svgSanitize\Sanitizer;
 use InvalidArgumentException;
 use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasContent,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasTitle,
-    Html\Attribute\Input\HasHeight,
+    Html\Attribute\FormControl\HasHeight,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasContent,
     Html\Attribute\Input\HasWidth,
     Html\Tag,
     Widget\Element

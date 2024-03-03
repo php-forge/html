@@ -6,13 +6,13 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\Html\{
     Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContent,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTitle,
+    Attribute\Global\HasClass,
+    Attribute\Global\HasData,
+    Attribute\Global\HasId,
+    Attribute\Global\HasLang,
+    Attribute\Global\HasStyle,
+    Attribute\Global\HasTitle,
+    Attribute\HasContent,
     HtmlBuilder
 };
 use PHPForge\Widget\Block;

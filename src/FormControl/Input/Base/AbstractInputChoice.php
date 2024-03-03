@@ -7,16 +7,12 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\CanBeAutofocus,
-    Html\Attribute\CanBeHidden,
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
-    Html\Attribute\Custom\HasContent,
     Html\Attribute\Custom\HasEnclosedByLabel,
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSeparator,
     Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasUncheckedCollection,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
@@ -30,15 +26,20 @@ use PHPForge\{
     Html\Attribute\FormControl\Label\HasLabelAttributes,
     Html\Attribute\FormControl\Label\HasLabelClass,
     Html\Attribute\FormControl\Label\HasLabelFor,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasData,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\HasTitle,
+    Html\Attribute\Global\CanBeAutofocus,
+    Html\Attribute\Global\CanBeHidden,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasContent,
+    Html\Attribute\HasTemplate,
     Html\Attribute\Input\HasValue,
     Html\FormControl\Label,
+    Html\Helper\Template,
     Html\Helper\Utils,
     Html\Helper\Validator,
     Html\Interop\AriaDescribedByInterface,
@@ -167,14 +168,24 @@ abstract class AbstractInputChoice extends Element implements
     private function prepareTemplate(string $tag, string $labelTag): string
     {
         $tokenValues = [
-            '{prefix}' => $this->renderPrefixTag(),
+            '{prefix}' => $this->renderTag(
+                $this->prefixContainerAttributes,
+                $this->prefixContainer,
+                $this->prefix,
+                $this->prefixContainerTag
+            ),
             '{unchecktag}' => $this->renderUncheckTag($this->getName()),
             '{tag}' => $tag,
             '{label}' => $labelTag,
-            '{suffix}' => $this->renderSuffixTag(),
+            '{suffix}' => $this->renderTag(
+                $this->suffixContainerAttributes,
+                $this->suffixContainer,
+                $this->suffix,
+                $this->suffixContainerTag
+            ),
         ];
 
-        return $this->renderTemplate($this->template, $tokenValues);
+        return Template::render($this->template, $tokenValues);
     }
 
     private function renderLabel(string ...$content): string
@@ -184,5 +195,13 @@ abstract class AbstractInputChoice extends Element implements
             ->content(...$content)
             ->for($this->labelFor ?? $this->getId())
             ->render();
+    }
+
+    private function renderTag(array $attributes, bool $container, string $content, string $tag): string
+    {
+        return match ($container) {
+            true => Tag::widget()->attributes($attributes)->content($content)->tagName($tag)->render(),
+            false => $content,
+        };
     }
 }

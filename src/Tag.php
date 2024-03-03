@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace PHPForge\Html;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasContent,
     Attribute\Custom\HasTagName,
     Attribute\Custom\HasTokenValues,
-    Attribute\HasTabindex,
+    Attribute\Global\HasTabindex,
+    Attribute\HasContent,
     Attribute\Input\HasType,
     Attribute\Input\HasValue,
     Base\AbstractElement
