@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasValidateNumeric,
     Attribute\FormControl\HasAutocomplete,
     Attribute\FormControl\HasDirname,
     Attribute\Input\HasMax,
@@ -13,6 +12,7 @@ use PHPForge\Html\{
     Attribute\Input\HasStep,
     Attribute\Input\HasValue,
     FormControl\Input\Base\AbstractInput,
+    Helper\Validator,
     Interop\RangeLengthInterface,
     Interop\ValueInterface
 };
@@ -30,14 +30,13 @@ final class Range extends AbstractInput implements RangeLengthInterface, ValueIn
     use HasMax;
     use HasMin;
     use HasStep;
-    use HasValidateNumeric;
     use HasValue;
 
     protected string $type = 'range';
 
     protected function run(): string
     {
-        $this->validateNumeric($this->getValue());
+        Validator::isNumeric($this->getValue());
 
         return $this->renderInputTag($this->attributes);
     }

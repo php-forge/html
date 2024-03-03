@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasValidateInList;
+use PHPForge\Html\Helper\Validator;
 
 /**
  * Is used by widgets that implement the target method.
  */
 trait HasTarget
 {
-    use HasValidateInList;
-
     /**
      * Set the target attributes, if specified, must have values that are valid browsing context names or keywords.
      *
@@ -28,7 +26,7 @@ trait HasTarget
      */
     public function target(string $value): static
     {
-        $this->validateInList(
+        Validator::inList(
             $value,
             'Invalid value "%s" for the target attribute. Allowed values are: "%s".',
             '_blank',

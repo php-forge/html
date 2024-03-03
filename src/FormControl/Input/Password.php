@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasValidateString,
     Attribute\FormControl\CanBeRequired,
     Attribute\FormControl\HasAutocomplete,
     Attribute\FormControl\HasDirname,
@@ -16,6 +15,7 @@ use PHPForge\Html\{
     Attribute\Input\HasSize,
     Attribute\Input\HasValue,
     FormControl\Input\Base\AbstractInput,
+    Helper\Validator,
     Interop\LengthInterface,
     Interop\PatternInterface,
     Interop\PlaceholderInterface,
@@ -44,14 +44,13 @@ final class Password extends AbstractInput implements
     use HasPattern;
     use HasPlaceholder;
     use HasSize;
-    use HasValidateString;
     use HasValue;
 
     protected string $type = 'password';
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
         return $this->renderInputTag($this->attributes);
     }

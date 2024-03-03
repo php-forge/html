@@ -16,7 +16,7 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Datetime::class widget must be a string or null value.');
+        $this->expectExceptionMessage('The value must be a string or null value. The value is: array.');
 
         Datetime::widget()->value([])->render();
     }

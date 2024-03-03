@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasValidateInList;
+use PHPForge\Html\Helper\Validator;
 
 /**
  * Is used by widgets that implement the referrerpolicy method.
  */
 trait HasReferrerpolicy
 {
-    use HasValidateInList;
-
     /**
      * Returns a new instance specifying a string indicating which referrer to use when fetching the resource.
      *
@@ -29,7 +27,7 @@ trait HasReferrerpolicy
      */
     public function referrerpolicy(string $value): static
     {
-        $this->validateInList(
+        Validator::inList(
             $value,
             'Invalid value "%s" for the referrerpolicy attribute. Allowed values are: "%s".',
             'no-referrer',

@@ -16,7 +16,7 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Button::class widget must be a string or null value.');
+        $this->expectExceptionMessage('The value must be a string or null value. The value is: array.');
 
         Button::widget()->value([])->render();
     }

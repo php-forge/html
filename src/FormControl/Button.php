@@ -18,7 +18,6 @@ use PHPForge\{
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTagName,
     Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\Custom\HasValidateInList,
     Html\Attribute\FormControl\HasFormaction,
     Html\Attribute\FormControl\HasFormenctype,
     Html\Attribute\FormControl\HasFormmethod,
@@ -33,6 +32,7 @@ use PHPForge\{
     Html\Attribute\HasTabindex,
     Html\Attribute\HasTitle,
     Html\Helper\Utils,
+    Html\Helper\Validator,
     Html\Tag,
     Widget\Element
 };
@@ -72,7 +72,6 @@ final class Button extends Element
     use HasTagName;
     use HasTemplate;
     use HasTitle;
-    use HasValidateInList;
 
     protected array $attributes = [];
     protected string $type = 'button';
@@ -98,7 +97,7 @@ final class Button extends Element
     {
         $attributes = $this->attributes;
 
-        $this->validateInList(
+        Validator::inList(
             $this->tagName,
             'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
             'a',

@@ -14,7 +14,6 @@ use PHPForge\{
     Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\Custom\HasValidateString,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
     Html\Attribute\FormControl\HasForm,
@@ -37,11 +36,12 @@ use PHPForge\{
     Html\Attribute\HasTabindex,
     Html\Attribute\HasTitle,
     Html\Attribute\Input\HasValue,
+    Html\FormControl\Label,
     Html\Helper\Utils,
+    Html\Helper\Validator,
     Html\Tag,
     Widget\Element
 };
-use PHPForge\Html\FormControl\Label;
 
 abstract class AbstractButton extends Element
 {
@@ -75,7 +75,6 @@ abstract class AbstractButton extends Element
     use HasTabindex;
     use HasTemplate;
     use HasTitle;
-    use HasValidateString;
     use HasValue;
 
     protected array $attributes = [];
@@ -95,7 +94,7 @@ abstract class AbstractButton extends Element
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
         $id = $this->getId();
 

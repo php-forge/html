@@ -5,16 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-
-use PHPForge\Html\Attribute\Custom\HasValidateInList;
+use PHPForge\Html\Helper\Validator;
 
 /**
  * Is used by widgets that implement the loading method.
  */
 trait HasLoading
 {
-    use HasValidateInList;
-
     /**
      * Specifying when the browser should load the image.
      *
@@ -26,7 +23,7 @@ trait HasLoading
      */
     public function loading(string $value): static
     {
-        $this->validateInList(
+        Validator::inList(
             $value,
             'Invalid value "%s" for the loading attribute. Allowed values are: "%s".',
             'eager',

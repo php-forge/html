@@ -17,7 +17,7 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Radio::class widget must be a scalar value.');
+        $this->expectExceptionMessage('The value must be a scalar or null value. The value is: array.');
 
         Radio::widget()->value([])->render();
     }

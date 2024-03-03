@@ -18,7 +18,6 @@ use PHPForge\{
     Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasUncheckedCollection,
-    Html\Attribute\Custom\HasValidateScalar,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
     Html\Attribute\FormControl\CanBeRequired,
@@ -41,6 +40,7 @@ use PHPForge\{
     Html\Attribute\Input\HasValue,
     Html\FormControl\Label,
     Html\Helper\Utils,
+    Html\Helper\Validator,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\CheckedInterface,
     Html\Interop\InputInterface,
@@ -94,7 +94,6 @@ abstract class AbstractInputChoice extends Element implements
     use HasTemplate;
     use HasTitle;
     use HasUncheckedCollection;
-    use HasValidateScalar;
     use HasValue;
 
     protected array $attributes = [];
@@ -123,7 +122,7 @@ abstract class AbstractInputChoice extends Element implements
     {
         $value = $this->getValue();
 
-        $this->validateScalar($value, $this->checked);
+        Validator::isScalar($value, $this->checked);
 
         $attributes = $this->attributes;
 

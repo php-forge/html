@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasValidateString,
     Attribute\FormControl\CanBeRequired,
     Attribute\FormControl\HasAutocomplete,
     Attribute\FormControl\HasDirname,
@@ -22,6 +21,7 @@ use PHPForge\Html\{
     Interop\RequiredInterface,
     Interop\ValueInterface
 };
+use PHPForge\Html\Helper\Validator;
 
 /**
  * The input element with a type attribute whose value is "search" represents a one-line plain-text edit control for
@@ -44,14 +44,13 @@ final class Search extends AbstractInput implements
     use HasPattern;
     use HasPlaceholder;
     use HasSize;
-    use HasValidateString;
     use HasValue;
 
     protected string $type = 'search';
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
         return $this->renderInputTag($this->attributes);
     }

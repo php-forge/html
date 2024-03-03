@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\{
-    Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\FormControl\CanBeRequired,
-    Html\Attribute\Input\HasMax,
-    Html\Attribute\Input\HasMin,
-    Html\Attribute\Input\HasStep,
-    Html\Attribute\Input\HasValue,
-    Html\FormControl\Input\Base\AbstractInput,
-    Html\Interop\RangeLengthInterface,
-    Html\Interop\RequiredInterface,
-    Html\Interop\ValueInterface
+use PHPForge\Html\{
+    Attribute\FormControl\CanBeRequired,
+    Attribute\Input\HasMax,
+    Attribute\Input\HasMin,
+    Attribute\Input\HasStep,
+    Attribute\Input\HasValue,
+    FormControl\Input\Base\AbstractInput,
+    Helper\Validator,
+    Interop\RangeLengthInterface,
+    Interop\RequiredInterface,
+    Interop\ValueInterface
 };
 
 /**
@@ -29,14 +29,13 @@ final class Time extends AbstractInput implements RangeLengthInterface, Required
     use HasMax;
     use HasMin;
     use HasStep;
-    use HasValidateString;
     use HasValue;
 
     protected string $type = 'time';
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
         return $this->renderInputTag($this->attributes);
     }

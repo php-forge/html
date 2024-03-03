@@ -7,13 +7,13 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\Custom\HasValidateString,
     Html\Attribute\FormControl\HasName,
     Html\Attribute\HasClass,
     Html\Attribute\HasId,
     Html\Attribute\HasStyle,
     Html\Attribute\Input\HasValue,
     Html\Helper\Utils,
+    Html\Helper\Validator,
     Html\Interop\ValueInterface,
     Html\Tag,
     Widget\Element
@@ -27,7 +27,6 @@ abstract class AbstractHidden extends Element implements ValueInterface
     use HasName;
     use HasStyle;
     use HasTemplate;
-    use HasValidateString;
     use HasValue;
 
     protected array $attributes = [];
@@ -44,7 +43,7 @@ abstract class AbstractHidden extends Element implements ValueInterface
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
         return Tag::widget()->attributes($this->attributes)->tagName('input')->type('hidden')->render();
     }

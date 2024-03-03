@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasValidateInList;
+use PHPForge\Html\Helper\Validator;
 
 /**
  * Is used by widgets that implement the rel method.
  */
 trait HasRel
 {
-    use HasValidateInList;
-
     /**
      * Set the rel attribute specifies the relationship between the current document and the linked document.
      *
@@ -29,7 +27,7 @@ trait HasRel
      */
     public function rel(string $value): static
     {
-        $this->validateInList(
+        Validator::inList(
             $value,
             'Invalid value "%s" for the rel attribute. Allowed values are: "%s".',
             'alternate',
