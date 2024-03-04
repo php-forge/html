@@ -126,7 +126,7 @@ final class CustomMethodTest extends TestCase
             DatetimeLocal::widget()
                 ->id('datetime-local-6582f2d099e8b')
                 ->suffix('value')
-                ->suffixAttributes(['class' => 'value',])
+                ->suffixAttributes(['class' => 'value'])
                 ->suffixTag('div')
                 ->render()
         );
