@@ -9,12 +9,12 @@ use DOMElement;
 use enshrined\svgSanitize\Sanitizer;
 use InvalidArgumentException;
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\FormControl\HasHeight,
     Html\Attribute\Global\HasClass,
     Html\Attribute\Global\HasId,
     Html\Attribute\Global\HasLang,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasContent,
     Html\Attribute\Input\HasWidth,
     Html\Tag,
@@ -38,7 +38,6 @@ abstract class AbstractSvg extends Element
     use HasTitle;
     use HasWidth;
 
-    protected array $attributes = [];
     private string $filePath = '';
 
     /**

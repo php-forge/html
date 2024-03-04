@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Group\Base;
 
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Global\HasClass,
     Html\Attribute\Global\HasId,
     Html\Attribute\Global\HasLang,
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\Input\HasValue,
     Html\Interop\RenderInterface,
     Html\Tag,
@@ -34,7 +34,6 @@ abstract class AbstractLi extends Element implements RenderInterface
     use HasTitle;
     use HasValue;
 
-    protected array $attributes = [];
     protected string $content = '';
 
     /**

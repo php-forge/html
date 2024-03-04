@@ -11,7 +11,6 @@ use PHPForge\{
     Html\Attribute\Aria\HasAriaExpanded,
     Html\Attribute\Aria\HasAriaLabel,
     Html\Attribute\Aria\HasRole,
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
     Html\Attribute\Custom\HasTagName,
     Html\Attribute\FormControl\HasFormaction,
@@ -27,6 +26,7 @@ use PHPForge\{
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasContent,
     Html\Attribute\HasPrefixCollection,
     Html\Attribute\HasSuffixCollection,
@@ -73,7 +73,6 @@ final class Button extends Element
     use HasTemplate;
     use HasTitle;
 
-    protected array $attributes = [];
     protected string $type = 'button';
 
     /**

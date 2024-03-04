@@ -7,7 +7,6 @@ namespace PHPForge\Html\FormControl\Base;
 use InvalidArgumentException;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeMultiple,
     Html\Attribute\FormControl\CanBeRequired,
@@ -20,6 +19,7 @@ use PHPForge\{
     Html\Attribute\Global\HasId,
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasPrefixCollection,
     Html\Attribute\HasSuffixCollection,
     Html\Attribute\Input\HasSize,
@@ -76,8 +76,6 @@ abstract class AbstractSelect extends Element implements
     use HasSuffixCollection;
     use HasTabindex;
     use HasValue;
-
-    protected array $attributes = [];
 
     protected function run(): string
     {

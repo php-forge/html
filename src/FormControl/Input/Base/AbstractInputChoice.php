@@ -7,7 +7,6 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
     Html\Attribute\Custom\HasEnclosedByLabel,
     Html\Attribute\Custom\HasSeparator,
@@ -29,6 +28,7 @@ use PHPForge\{
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasContent,
     Html\Attribute\HasPrefixCollection,
     Html\Attribute\HasSuffixCollection,
@@ -89,7 +89,6 @@ abstract class AbstractInputChoice extends Element implements
     use HasUncheckedCollection;
     use HasValue;
 
-    protected array $attributes = [];
     protected string $tagName = '';
 
     /**

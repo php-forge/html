@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Base;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
     Attribute\Custom\HasCsrf,
     Attribute\FormControl\HasAccept,
     Attribute\FormControl\HasAutocomplete,
@@ -15,6 +14,7 @@ use PHPForge\Html\{
     Attribute\Global\HasLang,
     Attribute\Global\HasStyle,
     Attribute\Global\HasTitle,
+    Attribute\HasAttributes,
     Attribute\HasContent,
     Attribute\Tag\CanBeNoValidate,
     Attribute\Tag\HasAction,
@@ -53,8 +53,6 @@ abstract class AbstractForm extends Block
     use HasRel;
     use HasStyle;
     use HasTitle;
-
-    protected array $attributes = [];
 
     /**
      * Begin rendering the block element.

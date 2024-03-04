@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Metadata;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
     Attribute\Custom\HasContentAttribute,
     Attribute\FormControl\HasName,
     Attribute\Global\HasClass,
     Attribute\Global\HasId,
     Attribute\Global\HasLang,
     Attribute\Global\HasStyle,
+    Attribute\HasAttributes,
     Attribute\Tag\HasCharset,
     Attribute\Tag\HasHttpEquiv,
     Tag
@@ -35,8 +35,6 @@ final class Meta extends Element
     use HasLang;
     use HasName;
     use HasStyle;
-
-    private array $attributes = [];
 
     /**
      * Generate the HTML representation of the element.

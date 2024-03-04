@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PHPForge\Html\Group\Base;
 
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasTagName,
     Html\Attribute\Global\HasClass,
     Html\Attribute\Global\HasId,
@@ -13,6 +12,7 @@ use PHPForge\{
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Interop\RenderInterface,
     Html\Tag,
     Widget\Element
@@ -34,7 +34,6 @@ abstract class AbstractList extends Element implements RenderInterface
     use HasTagName;
     use HasTitle;
 
-    protected array $attributes = [];
     protected string $content = '';
 
     /**

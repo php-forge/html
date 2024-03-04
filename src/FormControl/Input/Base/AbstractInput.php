@@ -7,7 +7,6 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
     Html\Attribute\FormControl\HasFieldAttributes,
@@ -22,6 +21,7 @@ use PHPForge\{
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasPrefixCollection,
     Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
@@ -59,7 +59,6 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasTemplate;
     use HasTitle;
 
-    protected array $attributes = [];
     protected string $type = 'text';
 
     /**

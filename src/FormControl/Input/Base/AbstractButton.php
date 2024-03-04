@@ -7,7 +7,6 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
@@ -28,6 +27,7 @@ use PHPForge\{
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasPrefixCollection,
     Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
@@ -69,7 +69,6 @@ abstract class AbstractButton extends Element
     use HasTitle;
     use HasValue;
 
-    protected array $attributes = [];
     protected string $type = 'button';
 
     /**

@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
     Attribute\Global\HasClass,
     Attribute\Global\HasData,
     Attribute\Global\HasId,
     Attribute\Global\HasLang,
     Attribute\Global\HasStyle,
     Attribute\Global\HasTitle,
+    Attribute\HasAttributes,
     Attribute\HasContent,
     HtmlBuilder
 };
@@ -30,8 +30,7 @@ abstract class AbstractBlockElement extends Block
     use HasLang;
     use HasStyle;
     use HasTitle;
-
-    protected array $attributes = [];
+    
     protected string $tagName = '';
 
     /**

@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Global\HasClass,
     Html\Attribute\Global\HasData,
     Html\Attribute\Global\HasId,
     Html\Attribute\Global\HasLang,
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Attribute\HasPrefixCollection,
     Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
@@ -38,8 +38,6 @@ abstract class AbstractElement extends Element implements RenderInterface
     use HasSuffixCollection;
     use HasTemplate;
     use HasTitle;
-
-    protected array $attributes = [];
 
     /**
      * This method is used to configure the widget with the provided default definitions.
