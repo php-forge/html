@@ -6,14 +6,14 @@ namespace PHPForge\Html\Base;
 
 use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Global\HasClass,
     Html\Attribute\Global\HasData,
     Html\Attribute\Global\HasId,
     Html\Attribute\Global\HasLang,
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
     Html\Helper\Template,
     Html\HtmlBuilder,
@@ -21,6 +21,7 @@ use PHPForge\{
     Html\Tag,
     Widget\Element
 };
+use PHPForge\Html\Document\Html;
 
 /**
  * Provides a foundation for creating HTML elements with various attributes and content.
@@ -46,6 +47,8 @@ abstract class AbstractElement extends Element implements RenderInterface
     protected function loadDefaultDefinitions(): array
     {
         return [
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }
@@ -62,30 +65,21 @@ abstract class AbstractElement extends Element implements RenderInterface
     protected function buildElement(string $tagName, string $content = '', array $tokenValues = []): string
     {
         $tokenTemplateValues = [
-            '{prefix}' => $this->renderTag(
-                $this->prefixContainerAttributes,
-                $this->prefixContainer,
-                $this->prefix,
-                $this->prefixContainerTag
-            ),
+            '{prefix}' => $this->renderTag($this->prefixAttributes, $this->prefix, $this->prefixTag),
             '{tag}' => HtmlBuilder::create($tagName, $content, $this->attributes),
-            '{suffix}' => $this->renderTag(
-                $this->suffixContainerAttributes,
-                $this->suffixContainer,
-                $this->suffix,
-                $this->suffixContainerTag
-            ),
+            '{suffix}' => $this->renderTag($this->suffixAttributes, $this->suffix, $this->suffixTag),
         ];
         $tokenTemplateValues += $tokenValues;
 
         return Template::render($this->template, $tokenTemplateValues);
     }
 
-    private function renderTag(array $attributes, bool $container, string $content, string $tag): string
+    private function renderTag(array $attributes, string $content, false|string $tag): string
     {
-        return match ($container) {
-            true => Tag::widget()->attributes($attributes)->content($content)->tagName($tag)->render(),
-            false => $content,
-        };
+        if ($content === '' || $tag === false) {
+            return $content;
+        }
+
+        return HtmlBuilder::create($tag, $content, $attributes);
     }
 }

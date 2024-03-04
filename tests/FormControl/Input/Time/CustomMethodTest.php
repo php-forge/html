@@ -26,77 +26,65 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <input id="time-6582f2d099e8b" type="time">
             HTML,
-            Time::widget()->id('time-6582f2d099e8b')->prefix('prefix')->render()
+            Time::widget()->id('time-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <input id="time-6582f2d099e8b" type="time">
-            HTML,
-            Time::widget()->id('time-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="time-6582f2d099e8b" type="time">
             HTML,
             Time::widget()
                 ->id('time-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="time-6582f2d099e8b" type="time">
             HTML,
-            Time::widget()
-                ->id('time-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerClass('value')
-                ->render()
+            Time::widget()->id('time-6582f2d099e8b')->prefix('value')->prefixClass('value')->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <article>
-            prefix
+            value
             </article>
             <input id="time-6582f2d099e8b" type="time">
             HTML,
-            Time::widget()
-                ->id('time-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('article')
-                ->render()
+            Time::widget()->id('time-6582f2d099e8b')->prefix('value')->prefixTag('article')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <input id="time-6582f2d099e8b" type="time">
+            HTML,
+            Time::widget()->id('time-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -115,76 +103,64 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="time-6582f2d099e8b" type="time">
-            suffix
+            value
             HTML,
-            Time::widget()->id('time-6582f2d099e8b')->suffix('suffix')->render()
+            Time::widget()->id('time-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="time-6582f2d099e8b" type="time">
-            <div>
-            suffix
-            </div>
-            HTML,
-            Time::widget()->id('time-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="time-6582f2d099e8b" type="time">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Time::widget()
                 ->id('time-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="time-6582f2d099e8b" type="time">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
-            Time::widget()
-                ->id('time-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
-                ->render()
+            Time::widget()->id('time-6582f2d099e8b')->suffix('value')->suffixClass('value')->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixrTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="time-6582f2d099e8b" type="time">
             <article>
-            suffix
+            value
             </article>
             HTML,
-            Time::widget()
-                ->id('time-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('article')
-                ->render()
+            Time::widget()->id('time-6582f2d099e8b')->suffix('value')->suffixTag('article')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="time-6582f2d099e8b" type="time">
+            value
+            HTML,
+            Time::widget()->id('time-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

@@ -137,25 +137,8 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
-            <select>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            HTML,
-            Select::widget()->items($this->cities)->prefix('prefix')->render()
-        );
-    }
-
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
             <div>
-            prefix
+            value
             </div>
             <select>
             <option>Select an option</option>
@@ -165,16 +148,16 @@ final class CustomMethodTest extends TestCase
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()->items($this->cities)->prefixContainer(true)->prefix('prefix')->render()
+            Select::widget()->items($this->cities)->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <select>
             <option>Select an option</option>
@@ -184,20 +167,17 @@ final class CustomMethodTest extends TestCase
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()
-                ->items($this->cities)
-                ->prefixContainer(true)
-                ->prefix('prefix')
-                ->prefixContainerClass('value')
-                ->render()
+            Select::widget()->items($this->cities)->prefix('value')->prefixAttributes(['class' => 'value'])->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>prefix</span>
+            <div class="value">
+            value
+            </div>
             <select>
             <option>Select an option</option>
             <option value="1">Moscu</option>
@@ -206,12 +186,41 @@ final class CustomMethodTest extends TestCase
             <option value="4">Ekaterinburgo</option>
             </select>
             HTML,
-            Select::widget()
-                ->items($this->cities)
-                ->prefixContainer(true)
-                ->prefix('prefix')
-                ->prefixContainerTag('span')
-                ->render()
+            Select::widget()->items($this->cities)->prefix('value')->prefixClass('value')->render()
+        );
+    }
+
+    public function testPrefixTag(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <span>value</span>
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->items($this->cities)->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->items($this->cities)->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -226,32 +235,15 @@ final class CustomMethodTest extends TestCase
             <option value="3">Novosibirsk</option>
             <option value="4">Ekaterinburgo</option>
             </select>
+            <div>
             value
+            </div>
             HTML,
             Select::widget()->items($this->cities)->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <select>
-            <option>Select an option</option>
-            <option value="1">Moscu</option>
-            <option value="2">San Petersburgo</option>
-            <option value="3">Novosibirsk</option>
-            <option value="4">Ekaterinburgo</option>
-            </select>
-            <div>
-            value
-            </div>
-            HTML,
-            Select::widget()->items($this->cities)->suffixContainer(true)->suffix('value')->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -263,16 +255,11 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Select::widget()
-                ->items([1 => 'Moscu'])
-                ->suffixContainer(true)
-                ->suffix('value')
-                ->suffixContainerAttributes(['class' => 'value'])
-                ->render()
+            Select::widget()->items([1 => 'Moscu'])->suffix('value')->suffixAttributes(['class' => 'value'])->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -284,16 +271,11 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Select::widget()
-                ->items([1 => 'Moscu'])
-                ->suffixContainer(true)
-                ->suffix('value')
-                ->suffixContainerClass('value')
-                ->render()
+            Select::widget()->items([1 => 'Moscu'])->suffix('value')->suffixClass('value')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -303,12 +285,21 @@ final class CustomMethodTest extends TestCase
             </select>
             <span>value</span>
             HTML,
-            Select::widget()
-                ->items([1 => 'Moscu'])
-                ->suffixContainer(true)
-                ->suffix('value')
-                ->suffixContainerTag('span')
-                ->render()
+            Select::widget()->items([1 => 'Moscu'])->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select>
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            value
+            HTML,
+            Select::widget()->items([1 => 'Moscu'])->suffix('value')->suffixTag(false)->render()
         );
     }
 }

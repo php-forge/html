@@ -13,8 +13,6 @@ use PHPForge\{
     Html\Attribute\Aria\HasRole,
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasTagName,
     Html\Attribute\FormControl\HasFormaction,
     Html\Attribute\FormControl\HasFormenctype,
@@ -30,6 +28,8 @@ use PHPForge\{
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
     Html\Attribute\HasContent,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
     Html\Helper\Utils,
     Html\Helper\Validator,
@@ -83,6 +83,8 @@ final class Button extends Element
     {
         return [
             'id()' => [Utils::generateId('button-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
             'tagName()' => ['button'],
         ];
@@ -120,13 +122,11 @@ final class Button extends Element
                 ->attributes($attributes)
                 ->content($this->content)
                 ->prefix($this->prefix)
-                ->prefixContainer($this->prefixContainer)
-                ->prefixContainerAttributes($this->prefixContainerAttributes)
-                ->prefixContainerTag($this->prefixContainerTag)
+                ->prefixAttributes($this->prefixAttributes)
+                ->prefixTag($this->prefixTag)
                 ->suffix($this->suffix)
-                ->suffixContainer($this->suffixContainer)
-                ->suffixContainerAttributes($this->suffixContainerAttributes)
-                ->suffixContainerTag($this->suffixContainerTag)
+                ->suffixAttributes($this->suffixAttributes)
+                ->suffixTag($this->suffixTag)
                 ->tagName($this->tagName)
                 ->template($this->template)
                 ->type($this->type)

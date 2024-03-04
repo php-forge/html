@@ -10,9 +10,7 @@ use PHPForge\{
     Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
     Html\Attribute\Custom\HasEnclosedByLabel,
-    Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSeparator,
-    Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\Custom\HasUncheckedCollection,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
@@ -21,11 +19,7 @@ use PHPForge\{
     Html\Attribute\FormControl\HasForm,
     Html\Attribute\FormControl\HasName,
     Html\Attribute\FormControl\Input\CanBeChecked,
-    Html\Attribute\FormControl\Label\CanBeDisableLabel,
-    Html\Attribute\FormControl\Label\HasLabel,
-    Html\Attribute\FormControl\Label\HasLabelAttributes,
-    Html\Attribute\FormControl\Label\HasLabelClass,
-    Html\Attribute\FormControl\Label\HasLabelFor,
+    Html\Attribute\FormControl\Label\HasLabelCollection,
     Html\Attribute\Global\CanBeAutofocus,
     Html\Attribute\Global\CanBeHidden,
     Html\Attribute\Global\HasClass,
@@ -36,6 +30,8 @@ use PHPForge\{
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
     Html\Attribute\HasContent,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
     Html\Attribute\Input\HasValue,
     Html\FormControl\Label,
@@ -66,7 +62,6 @@ abstract class AbstractInputChoice extends Element implements
     use CanBeAutofocus;
     use CanBeChecked;
     use CanBeDisabled;
-    use CanBeDisableLabel;
     use CanBeHidden;
     use CanBeReadonly;
     use CanBeRequired;
@@ -81,10 +76,7 @@ abstract class AbstractInputChoice extends Element implements
     use HasFieldAttributes;
     use HasForm;
     use HasId;
-    use HasLabel;
-    use HasLabelAttributes;
-    use HasLabelClass;
-    use HasLabelFor;
+    use HasLabelCollection;
     use HasLang;
     use HasName;
     use HasPrefixCollection;
@@ -109,7 +101,9 @@ abstract class AbstractInputChoice extends Element implements
 
         return [
             'id()' => [Utils::generateId("$class-")],
+            'prefixTag()' => [false],
             'separator()' => [PHP_EOL],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{label}\n{suffix}'],
         ];
     }
@@ -168,21 +162,11 @@ abstract class AbstractInputChoice extends Element implements
     private function prepareTemplate(string $tag, string $labelTag): string
     {
         $tokenValues = [
-            '{prefix}' => $this->renderTag(
-                $this->prefixContainerAttributes,
-                $this->prefixContainer,
-                $this->prefix,
-                $this->prefixContainerTag
-            ),
+            '{prefix}' => $this->renderTag($this->prefixAttributes, $this->prefix, $this->prefixTag),
             '{unchecktag}' => $this->renderUncheckTag($this->getName()),
             '{tag}' => $tag,
             '{label}' => $labelTag,
-            '{suffix}' => $this->renderTag(
-                $this->suffixContainerAttributes,
-                $this->suffixContainer,
-                $this->suffix,
-                $this->suffixContainerTag
-            ),
+            '{suffix}' => $this->renderTag($this->suffixAttributes, $this->suffix, $this->suffixTag),
         ];
 
         return Template::render($this->template, $tokenValues);
@@ -197,11 +181,12 @@ abstract class AbstractInputChoice extends Element implements
             ->render();
     }
 
-    private function renderTag(array $attributes, bool $container, string $content, string $tag): string
+    private function renderTag(array $attributes, string $content, false|string $tag): string
     {
-        return match ($container) {
-            true => Tag::widget()->attributes($attributes)->content($content)->tagName($tag)->render(),
-            false => $content,
-        };
+        if ($content === '' || $tag === false) {
+            return $content;
+        }
+
+        return Tag::widget()->attributes($attributes)->content($content)->tagName($tag)->render();
     }
 }

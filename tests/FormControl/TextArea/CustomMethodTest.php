@@ -26,75 +26,68 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <textarea id="textarea-659fc6087e75b"></textarea>
             HTML,
-            TextArea::widget()->id('textarea-659fc6087e75b')->prefix('prefix')->render()
+            TextArea::widget()->id('textarea-659fc6087e75b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <textarea id="textarea-659fc6087e75b"></textarea>
-            HTML,
-            TextArea::widget()->id('textarea-659fc6087e75b')->prefixContainer(true)->prefix('prefix')->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <textarea id="textarea-659fc6087e75b"></textarea>
             HTML,
             TextArea::widget()
                 ->id('textarea-659fc6087e75b')
-                ->prefixContainer(true)
-                ->prefix('prefix')
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <textarea id="textarea-659fc6087e75b"></textarea>
             HTML,
             TextArea::widget()
                 ->id('textarea-659fc6087e75b')
-                ->prefixContainer(true)
-                ->prefix('prefix')
-                ->prefixContainerClass('value')
+                ->prefix('value')
+                ->prefixClass('value')
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>prefix</span>
+            <span>value</span>
             <textarea id="textarea-659fc6087e75b"></textarea>
             HTML,
-            TextArea::widget()
-                ->id('textarea-659fc6087e75b')
-                ->prefixContainer(true)
-                ->prefix('prefix')
-                ->prefixContainerTag('span')
-                ->render()
+            TextArea::widget()->id('textarea-659fc6087e75b')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <textarea id="textarea-659fc6087e75b"></textarea>
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -113,74 +106,67 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <textarea id="textarea-659fc6087e75b"></textarea>
-            suffix
+            value
             HTML,
-            TextArea::widget()->id('textarea-659fc6087e75b')->suffix('suffix')->render()
+            TextArea::widget()->id('textarea-659fc6087e75b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <textarea id="textarea-659fc6087e75b"></textarea>
-            <div>
-            suffix
-            </div>
-            HTML,
-            TextArea::widget()->id('textarea-659fc6087e75b')->suffixContainer(true)->suffix('suffix')->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <textarea id="textarea-659fc6087e75b"></textarea>
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             TextArea::widget()
                 ->id('textarea-659fc6087e75b')
-                ->suffixContainer(true)
-                ->suffix('suffix')
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <textarea id="textarea-659fc6087e75b"></textarea>
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             TextArea::widget()
                 ->id('textarea-659fc6087e75b')
-                ->suffixContainer(true)
-                ->suffix('suffix')
-                ->suffixContainerClass('value')
+                ->suffix('value')
+                ->suffixClass('value')
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <textarea id="textarea-659fc6087e75b"></textarea>
-            <span>suffix</span>
+            <span>value</span>
             HTML,
-            TextArea::widget()
-                ->id('textarea-659fc6087e75b')
-                ->suffixContainer(true)
-                ->suffix('suffix')
-                ->suffixContainerTag('span')
-                ->render()
+            TextArea::widget()->id('textarea-659fc6087e75b')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <textarea id="textarea-659fc6087e75b"></textarea>
+            value
+            HTML,
+            TextArea::widget()->id('textarea-659fc6087e75b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

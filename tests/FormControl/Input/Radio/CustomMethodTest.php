@@ -93,75 +93,69 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->prefix('prefix')->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <input id="radio-6582f2d099e8b" type="radio">
-            HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerClass('value')
+                ->prefix('value')
+                ->prefixClass('value')
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>prefix</span>
+            <span>value</span>
             <input id="radio-6582f2d099e8b" type="radio">
             HTML,
-            Radio::widget()
-                ->id('radio-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('span')
-                ->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <input id="radio-6582f2d099e8b" type="radio">
+            HTML,
+            Radio::widget()->id('radio-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -180,74 +174,67 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
-            suffix
+            value
             HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->suffix('suffix')->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="radio-6582f2d099e8b" type="radio">
-            <div>
-            suffix
-            </div>
-            HTML,
-            Radio::widget()->id('radio-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Radio::widget()
                 ->id('radio-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
+                ->suffix('value')
+                ->suffixClass('value')
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="radio-6582f2d099e8b" type="radio">
-            <span>suffix</span>
+            <span>value</span>
             HTML,
-            Radio::widget()
-                ->id('radio-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('span')
-                ->render()
+            Radio::widget()->id('radio-6582f2d099e8b')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="radio-6582f2d099e8b" type="radio">
+            value
+            HTML,
+            Radio::widget()->id('radio-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

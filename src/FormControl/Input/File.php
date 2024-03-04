@@ -32,6 +32,8 @@ final class File extends Base\AbstractInput implements RequiredInterface
     {
         return [
             'id()' => [Utils::generateId('file-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{suffix}'],
         ];
     }

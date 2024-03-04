@@ -8,24 +8,20 @@ use InvalidArgumentException;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaLabel,
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeMultiple,
     Html\Attribute\FormControl\CanBeRequired,
     Html\Attribute\FormControl\HasAutocomplete,
     Html\Attribute\FormControl\HasFieldAttributes,
     Html\Attribute\FormControl\HasName,
-    Html\Attribute\FormControl\Label\CanBeDisableLabel,
-    Html\Attribute\FormControl\Label\HasLabel,
-    Html\Attribute\FormControl\Label\HasLabelAttributes,
-    Html\Attribute\FormControl\Label\HasLabelClass,
-    Html\Attribute\FormControl\Label\HasLabelFor,
+    Html\Attribute\FormControl\Label\HasLabelCollection,
     Html\Attribute\Global\CanBeAutofocus,
     Html\Attribute\Global\HasClass,
     Html\Attribute\Global\HasId,
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
     Html\Attribute\Input\HasSize,
     Html\Attribute\Input\HasValue,
     Html\Attribute\Tag\HasGroup,
@@ -60,7 +56,6 @@ abstract class AbstractSelect extends Element implements
 {
     use CanBeAutofocus;
     use CanBeDisabled;
-    use CanBeDisableLabel;
     use CanBeMultiple;
     use CanBeRequired;
     use HasAriaLabel;
@@ -72,10 +67,7 @@ abstract class AbstractSelect extends Element implements
     use HasId;
     use HasItems;
     use HasItemsAttributes;
-    use HasLabel;
-    use HasLabelAttributes;
-    use HasLabelClass;
-    use HasLabelFor;
+    use HasLabelCollection;
     use HasName;
     use HasPrefixCollection;
     use HasPrompt;
@@ -119,13 +111,11 @@ abstract class AbstractSelect extends Element implements
             ->attributes($this->attributes)
             ->content($items)
             ->prefix($this->prefix)
-            ->prefixContainer($this->prefixContainer)
-            ->prefixContainerAttributes($this->prefixContainerAttributes)
-            ->prefixContainerTag($this->prefixContainerTag)
+            ->prefixAttributes($this->prefixAttributes)
+            ->prefixTag($this->prefixTag)
             ->suffix($this->suffix)
-            ->suffixContainer($this->suffixContainer)
-            ->suffixContainerAttributes($this->suffixContainerAttributes)
-            ->suffixContainerTag($this->suffixContainerTag)
+            ->suffixAttributes($this->suffixAttributes)
+            ->suffixTag($this->suffixTag)
             ->tagName('select');
 
         if ($this->disableLabel === true || $this->label === '') {

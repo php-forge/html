@@ -96,75 +96,68 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->prefix('prefix')->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <input id="checkbox-6582f2d099e8b" type="checkbox">
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
             Checkbox::widget()
                 ->id('checkbox-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
             Checkbox::widget()
                 ->id('checkbox-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerClass('value')
+                ->prefix('value')
+                ->prefixClass('value')
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>prefix</span>
+            <span>value</span>
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             HTML,
-            Checkbox::widget()
-                ->id('checkbox-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('span')
-                ->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -183,74 +176,67 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
-            suffix
+            value
             HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->suffix('suffix')->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="checkbox-6582f2d099e8b" type="checkbox">
-            <div>
-            suffix
-            </div>
-            HTML,
-            Checkbox::widget()->id('checkbox-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Checkbox::widget()
                 ->id('checkbox-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Checkbox::widget()
                 ->id('checkbox-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
+                ->suffix('value')
+                ->suffixClass('value')
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="checkbox-6582f2d099e8b" type="checkbox">
-            <span>suffix</span>
+            <span>value</span>
             HTML,
-            Checkbox::widget()
-                ->id('checkbox-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('span')
-                ->render()
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="checkbox-6582f2d099e8b" type="checkbox">
+            value
+            HTML,
+            Checkbox::widget()->id('checkbox-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

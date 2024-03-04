@@ -71,6 +71,8 @@ final class TextArea extends AbstractElement implements
     {
         return [
             'id()' => [Utils::generateId('textarea-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }

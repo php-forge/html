@@ -8,8 +8,6 @@ use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
     Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
     Html\Attribute\FormControl\CanBeDisabled,
     Html\Attribute\FormControl\CanBeReadonly,
     Html\Attribute\FormControl\HasFieldAttributes,
@@ -24,6 +22,8 @@ use PHPForge\{
     Html\Attribute\Global\HasStyle,
     Html\Attribute\Global\HasTabindex,
     Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
     Html\Attribute\HasTemplate,
     Html\Helper\Utils,
     Html\Interop\AriaDescribedByInterface,
@@ -71,6 +71,8 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
 
         return [
             'id()' => [Utils::generateId("$shortClassName-")],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }
@@ -86,13 +88,11 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
         return Tag::widget()
             ->attributes($attributes)
             ->prefix($this->prefix)
-            ->prefixContainer($this->prefixContainer)
-            ->prefixContainerAttributes($this->prefixContainerAttributes)
-            ->prefixContainerTag($this->prefixContainerTag)
+            ->prefixAttributes($this->prefixAttributes)
+            ->prefixTag($this->prefixTag)
             ->suffix($this->suffix)
-            ->suffixContainer($this->suffixContainer)
-            ->suffixContainerAttributes($this->suffixContainerAttributes)
-            ->suffixContainerTag($this->suffixContainerTag)
+            ->suffixAttributes($this->suffixAttributes)
+            ->suffixTag($this->suffixTag)
             ->tagName('input')
             ->template($this->template)
             ->tokenValues($tokenValues)

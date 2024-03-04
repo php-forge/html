@@ -23,20 +23,7 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            value
-            </div>
-            <label>value</label>
-            HTML,
-            Label::widget()->content('value')->prefixContainer(true)->prefix('value')->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -47,14 +34,14 @@ final class CustomMethodTest extends TestCase
             HTML,
             Label::widget()
                 ->content('value')
-                ->prefixContainer(true)
                 ->prefix('value')
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -63,28 +50,29 @@ final class CustomMethodTest extends TestCase
             </div>
             <label>value</label>
             HTML,
-            Label::widget()
-                ->content('value')
-                ->prefixContainer(true)
-                ->prefix('value')
-                ->prefixContainerClass('value')
-                ->render()
+            Label::widget()->content('value')->prefix('value')->prefixClass('value')->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <span>value</span>
             <label>value</label>
             HTML,
-            Label::widget()
-                ->content('value')
-                ->prefixContainer(true)
-                ->prefix('value')
-                ->prefixContainerTag('span')
-                ->render()
+            Label::widget()->content('value')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <label>value</label>
+            HTML,
+            Label::widget()->content('value')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -104,20 +92,7 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <label>value</label>
-            <div>
-            value
-            </div>
-            HTML,
-            Label::widget()->content('value')->suffixContainer(true)->suffix('value')->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -128,14 +103,14 @@ final class CustomMethodTest extends TestCase
             HTML,
             Label::widget()
                 ->content('value')
-                ->suffixContainer(true)
                 ->suffix('value')
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -144,28 +119,29 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Label::widget()
-                ->content('value')
-                ->suffixContainer(true)
-                ->suffix('value')
-                ->suffixContainerClass('value')
-                ->render()
+            Label::widget()->content('value')->suffix('value')->suffixClass('value')->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <label>value</label>
             <span>value</span>
             HTML,
-            Label::widget()
-                ->content('value')
-                ->suffixContainer(true)
-                ->suffix('value')
-                ->suffixContainerTag('span')
-                ->render()
+            Label::widget()->content('value')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <label>value</label>
+            value
+            HTML,
+            Label::widget()->content('value')->suffix('value')->suffixTag(false)->render()
         );
     }
 
