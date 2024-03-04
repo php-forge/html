@@ -15,17 +15,16 @@ $radioList = RadioList::widget();
 
 ## Generate field id and name
 
-The `generateField` method is used to generate the field id and name for the `HTML` output.
+The `fieldAttributes` method is used to generate the field id and name for the `HTML` output.
 
 Allowed arguments are:
 
-- `modelName` - The name of the model.
-- `fieldName` - The name of the field.
-- `arrayable` - Whether the field is an array. For default, it is `false`.
+- `formModel` - The name of the model.
+- `property` - The name of the field.
 
 ```php
 // generate field id and name
-$radioList->generateField('model', 'field');
+$radioList->fieldAttributes('model', 'field');
 ```
 
 ## Adding items
@@ -166,7 +165,7 @@ The following methods are available for customizing the `HTML` output:
 | `containerAttributes()`| Set `attributes` for the `container` element.                                               |
 | `containerClass()`     | Set the `class` attribute for the `container` element.                                      |
 | `containerTag()`       | Set the `tag` for the `container` element.                                                  |
-| `generateField()`      | Generate the field id and name for the `HTML` output.                                       |
+| `fieldAttributes()`    | Generate the field id and name for the `HTML` output.                                       |
 | `items()`              | Set the `items` for the `HTML` output.                                                      |
 | `render()`             | Generates the `HTML` output.                                                                |
 | `separator()`          | Set the `separator` for the `HTML` output.                                                  |
@@ -185,12 +184,12 @@ The following methods are available for customizing the `HTML` output:
 
 | Method             | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
+| `disableLabel()`   | Set disabled for the `label` element.                                                           |
 | `enclosedByLabel()`| Set enabled or disabled for the `enclosed-by-label` element.                                    |
 | `labelAttributes()`| Set `attributes` for the `label` element.                                                       |
 | `labelClass()`     | Set the `class` attribute for the `label` element.                                              |
 | `labelContent()`   | Set the `content` within the `label` element.                                                   |
 | `labelFor()`       | Set the `for` attribute for the `label` element.                                                |
-| `notLabel()`       | Set disabled for the `label` element.   
 
 ## Validate methods
 

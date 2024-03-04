@@ -4,11 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Semantic;
 
-use PHPForge\Html\{
-    Attribute\Custom\HasTagName,
-    Attribute\Custom\HasValidateInList,
-    Base\AbstractBlockElement
-};
+use PHPForge\Html\{Attribute\Custom\HasTagName, Base\AbstractBlockElement, Helper\Validator};
 
 /**
  * The `<h1>` to `<h6>` HTML elements represent six levels of section headings.
@@ -19,7 +15,6 @@ use PHPForge\Html\{
 final class H extends AbstractBlockElement
 {
     use HasTagName;
-    use HasValidateInList;
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -33,7 +28,7 @@ final class H extends AbstractBlockElement
 
     protected function run(): string
     {
-        $this->validateInList(
+        Validator::inList(
             $this->tagName,
             'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
             'h1',

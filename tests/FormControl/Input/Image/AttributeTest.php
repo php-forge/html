@@ -276,9 +276,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="image">
+            <input name="FormModelName[property]" type="image">
             HTML,
-            Image::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Image::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -286,9 +286,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="image">
+            <input id="formmodelname-property" type="image">
             HTML,
-            Image::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Image::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

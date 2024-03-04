@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="color-6582f2d099e8b" type="color" autocomplete="on">
+            HTML,
+            Color::widget()->autocomplete('on')->id('color-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(
@@ -226,9 +236,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="color">
+            <input name="FormModelName[property]" type="color">
             HTML,
-            Color::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Color::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -236,9 +246,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="color">
+            <input id="formmodelname-property" type="color">
             HTML,
-            Color::widget()->generateField('ModelName', 'fieldName')->id('color-6582f2d099e8b')->name(null)->render()
+            Color::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

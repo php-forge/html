@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
+use PHPForge\Html\Helper\Utils;
+
 /**
  * The input element with a type attribute whose value is "reset" represents a button for resetting a form.
  *
@@ -18,10 +20,9 @@ final class Reset extends Base\AbstractButton
      */
     protected function loadDefaultDefinitions(): array
     {
-        return [
-            'container()' => [true],
-            'id()' => [$this->generateId('reset-')],
-            'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-        ];
+        $defaultDefinitions = parent::loadDefaultDefinitions();
+        $defaultDefinitions['id()'] = [Utils::generateId('reset-')];
+
+        return $defaultDefinitions;
     }
 }

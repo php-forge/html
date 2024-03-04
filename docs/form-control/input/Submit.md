@@ -107,6 +107,11 @@ The following methods are available for setting attributes:
 | `dataAttributes()` | Set multiple `data-attributes` at once.                                                         |
 | `disabled()`       | Set the `disabled` attribute.                                                                   |
 | `form()`           | Set the `form` attribute.                                                                       |
+| `formaction()`     | Set the `formaction` attribute.                                                                 |
+| `formenctype()`    | Set the `formenctype` attribute.                                                                |
+| `formmethod()`     | Set the `formmethod` attribute.                                                                 |
+| `formnovalidate()` | Set the `formnovalidate` attribute.                                                             |
+| `formtarget()`     | Set the `formtarget` attribute.                                                                 |
 | `hidden()`         | Set the `hidden` attribute.                                                                     |
 | `id()`             | Set the `id` attribute.                                                                         |
 | `lang()`           | Set the `lang` attribute.                                                                       |
@@ -130,17 +135,17 @@ The following methods are available for customizing the `HTML` output:
 | `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
 | `containerClass()`           | Set the `class` attribute for the `container` element.                                |
 | `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `prefix()`                   | Add text before the `textarea` element.                                               |
-| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
-| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
+| `prefix()`                   | Add text before the `input` element. If empty, the `prefix` tag will be disabled.     |
+| `prefixAttributes()`         | Set `attributes` for the `prefix` element.                                            |
+| `prefixClass()`              | Set the `class` attribute for the `prefix` element.                                   |
+| `prefixTag()`                | Set the `tag` for the `prefix` element.                                               |
+|                              | If `false` the prefix tag will be disabled.                                           |
 | `render()`                   | Generates the `HTML` output.                                                          |
-| `suffix()`                   | Add text after the `label` element.                                                   |
-| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
+| `suffix()`                   | Add text after the `input` element. If empty, the `suffix` tag will be disabled.      |
+| `suffixAttributes()`         | Set `attributes` for the `suffix` element.                                            |
+| `suffixClass()`              | Set the `class` attribute for the `suffix` element.                                   |
+| `suffixTag()`                | Set the `tag` for the `suffix-container` element.                                     |
+|                              | If `false` the suffix tag will be disabled.                                           |
 | `template()`                 | Set the template for the `HTML` output.                                               |
 | `widget()`                   | Instantiates the `Submit::class`.                                                     |
                                                                 |
@@ -153,8 +158,8 @@ The following methods are available for customizing the `HTML` output:
 
 | Method             | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
+| `disableLabel()`   | Set disabled for the `label` element.                                                           |
 | `labelAttributes()`| Set `attributes` for the `label` element.                                                       |
 | `labelClass()`     | Set the `class` attribute for the `label` element.                                              |
 | `labelContent()`   | Set the `content` within the `label` element.                                                   |
 | `labelFor()`       | Set the `for` attribute for the `label` element.                                                |
-| `notLabel()`       | Set disabled for the `label` element.                                                           |

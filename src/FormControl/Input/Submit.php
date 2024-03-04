@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
+use PHPForge\Html\Helper\Utils;
+
 /**
  * The input element with a type attribute whose value is "submit" represents a button for submitting a form.
  *
@@ -18,10 +20,9 @@ final class Submit extends Base\AbstractButton
      */
     protected function loadDefaultDefinitions(): array
     {
-        return [
-            'container()' => [true],
-            'id()' => [$this->generateId('submit-')],
-            'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
-        ];
+        $defaultDefinitions = parent::loadDefaultDefinitions();
+        $defaultDefinitions['id()'] = [Utils::generateId('submit-')];
+
+        return $defaultDefinitions;
     }
 }

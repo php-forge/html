@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasValidateInList;
+use PHPForge\Html\Helper\Validator;
 
 /**
  * Is used by widgets that implement the enctype method.
  */
 trait HasEnctype
 {
-    use HasValidateInList;
-
     /**
      * Set the enctype content attribute specifies the content type of the form submission.
      *
@@ -28,7 +26,7 @@ trait HasEnctype
      */
     public function enctype(string $value): static
     {
-        $this->validateInList(
+        Validator::inList(
             $value,
             'Invalid value "%s" for the enctype attribute. Allowed values are: "%s".',
             'multipart/form-data',

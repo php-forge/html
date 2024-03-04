@@ -79,17 +79,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div name="value">
-            </div>
-            HTML,
-            Div::widget()->name('value')->render()
-        );
-    }
-
     public function testStyle(): void
     {
         Assert::equalsWithoutLE(

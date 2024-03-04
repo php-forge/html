@@ -23,20 +23,7 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            value
-            </div>
-            <img>
-            HTML,
-            Img::widget()->prefixContainer(true)->prefix('value')->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -45,15 +32,11 @@ final class CustomMethodTest extends TestCase
             </div>
             <img>
             HTML,
-            Img::widget()
-                ->prefixContainer(true)
-                ->prefix('value')
-                ->prefixContainerAttributes(['class' => 'value'])
-                ->render()
+            Img::widget()->prefix('value')->prefixAttributes(['class' => 'value'])->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -62,18 +45,29 @@ final class CustomMethodTest extends TestCase
             </div>
             <img>
             HTML,
-            Img::widget()->prefixContainer(true)->prefix('value')->prefixContainerClass('value')->render()
+            Img::widget()->prefix('value')->prefixClass('value')->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <span>value</span>
             <img>
             HTML,
-            Img::widget()->prefixContainer(true)->prefix('value')->prefixContainerTag('span')->render()
+            Img::widget()->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <img>
+            HTML,
+            Img::widget()->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -98,20 +92,7 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <img>
-            <div>
-            value
-            </div>
-            HTML,
-            Img::widget()->suffixContainer(true)->suffix('value')->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -120,15 +101,11 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Img::widget()
-                ->suffixContainer(true)
-                ->suffix('value')
-                ->suffixContainerAttributes(['class' => 'value'])
-                ->render()
+            Img::widget()->suffix('value')->suffixAttributes(['class' => 'value'])->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
@@ -137,18 +114,29 @@ final class CustomMethodTest extends TestCase
             value
             </div>
             HTML,
-            Img::widget()->suffixContainer(true)->suffix('value')->suffixContainerClass('value')->render()
+            Img::widget()->suffix('value')->suffixClass('value')->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <img>
             <span>value</span>
             HTML,
-            Img::widget()->suffixContainer(true)->suffix('value')->suffixContainerTag('span')->render()
+            Img::widget()->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <img>
+            value
+            HTML,
+            Img::widget()->suffix('value')->suffixTag(false)->render()
         );
     }
 

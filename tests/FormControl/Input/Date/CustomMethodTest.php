@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateFieldId(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="date">
+            <input id="formmodelname-property" name="FormModelName[property]" type="date">
             HTML,
-            Date::widget()->generateField('ModelName', 'fieldName')->render()
+            Date::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 
@@ -26,77 +26,65 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <input id="date-6582f2d099e8b" type="date">
             HTML,
-            Date::widget()->id('date-6582f2d099e8b')->prefix('prefix')->render()
+            Date::widget()->id('date-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <input id="date-6582f2d099e8b" type="date">
-            HTML,
-            Date::widget()->id('date-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="date-6582f2d099e8b" type="date">
             HTML,
             Date::widget()
                 ->id('date-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="date-6582f2d099e8b" type="date">
             HTML,
-            Date::widget()
-                ->id('date-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerClass('value')
-                ->render()
+            Date::widget()->id('date-6582f2d099e8b')->prefix('value')->prefixClass('value')->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <article>
-            prefix
+            value
             </article>
             <input id="date-6582f2d099e8b" type="date">
             HTML,
-            Date::widget()
-                ->id('date-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('article')
-                ->render()
+            Date::widget()->id('date-6582f2d099e8b')->prefix('value')->prefixTag('article')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <input id="date-6582f2d099e8b" type="date">
+            HTML,
+            Date::widget()->id('date-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -115,76 +103,64 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="date-6582f2d099e8b" type="date">
-            suffix
+            value
             HTML,
-            Date::widget()->id('date-6582f2d099e8b')->suffix('suffix')->render()
+            Date::widget()->id('date-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="date-6582f2d099e8b" type="date">
-            <div>
-            suffix
-            </div>
-            HTML,
-            Date::widget()->id('date-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="date-6582f2d099e8b" type="date">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Date::widget()
                 ->id('date-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="date-6582f2d099e8b" type="date">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
-            Date::widget()
-                ->id('date-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
-                ->render()
+            Date::widget()->id('date-6582f2d099e8b')->suffix('value')->suffixClass('value')->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="date-6582f2d099e8b" type="date">
             <article>
-            suffix
+            value
             </article>
             HTML,
-            Date::widget()
-                ->id('date-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('article')
-                ->render()
+            Date::widget()->id('date-6582f2d099e8b')->suffix('value')->suffixTag('article')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="date-6582f2d099e8b" type="date">
+            value
+            HTML,
+            Date::widget()->id('date-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

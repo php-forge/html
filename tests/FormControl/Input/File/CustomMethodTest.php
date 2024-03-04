@@ -12,23 +12,23 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="file">
+            <input id="formmodelname-property" name="FormModelName[property]" type="file">
             HTML,
-            File::widget()->generateField('ModelName', 'fieldName')->render()
+            File::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 
-    public function testGenerateFieldWithMultiple(): void
+    public function testFieldAttributesWithMultiple(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName][]" type="file" multiple>
+            <input id="formmodelname-property" name="FormModelName[property][]" type="file" multiple>
             HTML,
-            File::widget()->generateField('ModelName', 'fieldName')->multiple()->render()
+            File::widget()->fieldAttributes('FormModelName', 'property')->multiple()->render()
         );
     }
 
@@ -36,75 +36,63 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <input id="file-65a15e0439570" type="file">
             HTML,
-            File::widget()->id('file-65a15e0439570')->prefix('prefix')->render()
+            File::widget()->id('file-65a15e0439570')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <input id="file-65a15e0439570" type="file">
-            HTML,
-            File::widget()->id('file-65a15e0439570')->prefix('prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="file-65a15e0439570" type="file">
             HTML,
             File::widget()
                 ->id('file-65a15e0439570')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="file-65a15e0439570" type="file">
             HTML,
-            File::widget()
-                ->id('file-65a15e0439570')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerClass('value')
-                ->render()
+            File::widget()->id('file-65a15e0439570')->prefix('value')->prefixClass('value')->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <span>prefix</span>
+            <span>value</span>
             <input id="file-65a15e0439570" type="file">
             HTML,
-            File::widget()
-                ->id('file-65a15e0439570')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('span')
-                ->render()
+            File::widget()->id('file-65a15e0439570')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <input id="file-65a15e0439570" type="file">
+            HTML,
+            File::widget()->id('file-65a15e0439570')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -123,74 +111,62 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="file-65a15e0439570" type="file">
-            suffix
+            value
             HTML,
-            File::widget()->id('file-65a15e0439570')->suffix('suffix')->render()
+            File::widget()->id('file-65a15e0439570')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="file-65a15e0439570" type="file">
-            <div>
-            suffix
-            </div>
-            HTML,
-            File::widget()->id('file-65a15e0439570')->suffix('suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="file-65a15e0439570" type="file">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             File::widget()
                 ->id('file-65a15e0439570')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="file-65a15e0439570" type="file">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
-            File::widget()
-                ->id('file-65a15e0439570')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
-                ->render()
+            File::widget()->id('file-65a15e0439570')->suffix('value')->suffixClass('value')->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="file-65a15e0439570" type="file">
-            <span>suffix</span>
+            <span>value</span>
             HTML,
-            File::widget()
-                ->id('file-65a15e0439570')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('span')
-                ->render()
+            File::widget()->id('file-65a15e0439570')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="file-65a15e0439570" type="file">
+            value
+            HTML,
+            File::widget()->id('file-65a15e0439570')->suffix('value')->suffixTag(false)->render()
         );
     }
 

@@ -12,17 +12,16 @@ $select = Select::widget();
 
 ## Generate field id and name
 
-The `generateField` method is used to generate the field id and name for the `HTML` output.
+The `fieldAttributes` method is used to generate the field id and name for the `HTML` output.
 
 Allowed arguments are:
 
-- `modelName` - The name of the model.
-- `fieldName` - The name of the field.
-- `arrayable` - Whether the field is an array. For default, it is `false`.
+- `formModel` - The name of the model.
+- `property` - The name of the field.
 
 ```php
 // generate field id and name
-$select->generateField('model', 'field');
+$select->fieldAttributes('model', 'field');
 ```
 
 ## Setting Attributes
@@ -205,6 +204,7 @@ The following methods are available for setting attributes:
 | ----------------- | ------------------------------------------------------------------------------------------------ |
 | `ariaLabel()`     | Set the `aria-label` attribute.                                                                  |
 | `attributes()`    | Set multiple `attributes` at once.                                                               |
+| `autocomplete()`  | Set the `autocomplete` attribute.                                                                |
 | `autofocus()`     | Set the `autofocus` attribute.                                                                   |
 | `class()`         | Set the `class` attribute.                                                                       |
 | `disabled()`      | Set the `disabled` attribute.                                                                    |
@@ -227,23 +227,24 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
+| `disableLabel()`             | Set enabled or disabled for the `label` element.                                      |
+| `fieldAttributes()`          | Set `attributes` for the `field` element.                                             |
+| `groups()`                   | Add `groups` to the `select` element.                                                 |
 | `items()`                    | Add `items` to the `select` element.                                                  |
 | `itemsAttributes()`          | Add `attributes` to the `items` element.                                              |
-| `groups()`                   | Add `groups` to the `select` element.                                                 |
 | `labelAttributes()`          | Set `attributes` for the `label` element.                                             |
 | `labelClass()`               | Set the `class` attribute for the `label` element.                                    |
 | `labelContent()`             | Set the `content` for the `label` element.                                            |
 | `labelFor()`                 | Set the `for` attribute for the `label` element.                                      |
-| `notLabel()`                 | Set enabled or disabled for the `label` element.                                      |
-| `prefix()`                   | Add text before the `select` element.                                                 |
-| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
-| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
+| `prefix()`                   | Add text before the `tag` element. If empty, the `prefix` tag will be disabled.       |
+| `prefixAttributes()`         | Set `attributes` for the `prefix` element.                                            |
+| `prefixClass()`              | Set the `class` attribute for the `prefix` element.                                   |
+| `prefixTag()`                | Set the `tag` for the `prefix` element.                                               |
+|                              | If `false` the prefix tag will be disabled.                                           |
 | `render()`                   | Generates the `HTML` output.                                                          |
-| `suffix()`                   | Add text after the `select` element.                                                  |
-| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
+| `suffix()`                   | Add text after the `tag` element. If empty, the `suffix` tag will be disabled.        |
+| `suffixAttributes()`         | Set `attributes` for the `suffix` element.                                            |
+| `suffixClass()`              | Set the `class` attribute for the `suffix` element.                                   |
+| `suffixTag()`                | Set the `tag` for the `suffix-container` element.                                     |
+|                              | If `false` the suffix tag will be disabled.                                           |
 | `widget()`                   | Instantiates the `Select::class`.                                                     |

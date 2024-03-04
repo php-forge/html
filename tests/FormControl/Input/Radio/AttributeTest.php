@@ -314,9 +314,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="radio">
+            <input name="FormModelName[property]" type="radio">
             HTML,
-            Radio::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Radio::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -324,9 +324,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="radio">
+            <input id="formmodelname-property" type="radio">
             HTML,
-            Radio::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Radio::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

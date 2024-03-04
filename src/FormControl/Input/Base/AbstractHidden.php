@@ -5,18 +5,19 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Input\Base;
 
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasStyle,
-    Html\Attribute\Input\HasName,
+    Html\Attribute\FormControl\HasName,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasTemplate,
     Html\Attribute\Input\HasValue,
+    Html\Helper\Utils,
+    Html\Helper\Validator,
     Html\Interop\ValueInterface,
-    Html\Tag
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 abstract class AbstractHidden extends Element implements ValueInterface
 {
@@ -26,20 +27,22 @@ abstract class AbstractHidden extends Element implements ValueInterface
     use HasName;
     use HasStyle;
     use HasTemplate;
-    use HasValidateString;
     use HasValue;
 
-    protected array $attributes = [];
+    /**
+     * This method is used to configure the widget with the provided default definitions.
+     */
+    protected function loadDefaultDefinitions(): array
+    {
+        return [
+            'id()' => [Utils::generateId('hidden-')],
+        ];
+    }
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
-        return Tag::widget()
-            ->attributes($this->attributes)
-            ->id($this->generateId('hidden-'))
-            ->tagName('input')
-            ->type('hidden')
-            ->render();
+        return Tag::widget()->attributes($this->attributes)->tagName('input')->type('hidden')->render();
     }
 }

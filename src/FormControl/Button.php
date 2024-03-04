@@ -4,32 +4,38 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl;
 
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaControls,
-    Attribute\Aria\HasAriaDescribedBy,
-    Attribute\Aria\HasAriaDisabled,
-    Attribute\Aria\HasAriaExpanded,
-    Attribute\Aria\HasAriaLabel,
-    Attribute\Aria\HasRole,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainerCollection,
-    Attribute\Custom\HasContent,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Custom\HasTagName,
-    Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasValidateInList,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\HasTitle,
-    Attribute\Input\HasName,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaControls,
+    Html\Attribute\Aria\HasAriaDescribedBy,
+    Html\Attribute\Aria\HasAriaDisabled,
+    Html\Attribute\Aria\HasAriaExpanded,
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\Aria\HasRole,
+    Html\Attribute\Custom\HasContainerCollection,
+    Html\Attribute\Custom\HasTagName,
+    Html\Attribute\FormControl\HasFormaction,
+    Html\Attribute\FormControl\HasFormenctype,
+    Html\Attribute\FormControl\HasFormmethod,
+    Html\Attribute\FormControl\HasFormnovalidate,
+    Html\Attribute\FormControl\HasFormtarget,
+    Html\Attribute\FormControl\HasName,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasContent,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
+    Html\Attribute\HasTemplate,
+    Html\Helper\Utils,
+    Html\Helper\Validator,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 /**
  * The `<button>` `HTML` element is an interactive element activated by a user with a mouse, keyboard, finger, voice
@@ -50,6 +56,11 @@ final class Button extends Element
     use HasContainerCollection;
     use HasContent;
     use HasData;
+    use HasFormaction;
+    use HasFormenctype;
+    use HasFormmethod;
+    use HasFormnovalidate;
+    use HasFormtarget;
     use HasId;
     use HasLang;
     use HasName;
@@ -61,9 +72,7 @@ final class Button extends Element
     use HasTagName;
     use HasTemplate;
     use HasTitle;
-    use HasValidateInList;
 
-    protected array $attributes = [];
     protected string $type = 'button';
 
     /**
@@ -72,7 +81,9 @@ final class Button extends Element
     protected function loadDefaultDefinitions(): array
     {
         return [
-            'id()' => [$this->generateId('button-')],
+            'id()' => [Utils::generateId('button-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
             'tagName()' => ['button'],
         ];
@@ -87,15 +98,17 @@ final class Button extends Element
     {
         $attributes = $this->attributes;
 
-        $this->validateInList(
+        Validator::inList(
             $this->tagName,
             'Invalid value "%s" for the tagname method. Allowed values are: "%s".',
             'a',
             'button'
         );
 
-        if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$this->id-help";
+        $id = $this->getId();
+
+        if ($this->ariaDescribedBy === true && $id !== '') {
+            $attributes['aria-describedby'] = "$id-help";
         }
 
         if ($this->tagName === 'a' && $this->role === true) {
@@ -107,15 +120,12 @@ final class Button extends Element
             Tag::widget()
                 ->attributes($attributes)
                 ->content($this->content)
-                ->id($this->id)
                 ->prefix($this->prefix)
-                ->prefixContainer($this->prefixContainer)
-                ->prefixContainerAttributes($this->prefixContainerAttributes)
-                ->prefixContainerTag($this->prefixContainerTag)
+                ->prefixAttributes($this->prefixAttributes)
+                ->prefixTag($this->prefixTag)
                 ->suffix($this->suffix)
-                ->suffixContainer($this->suffixContainer)
-                ->suffixContainerAttributes($this->suffixContainerAttributes)
-                ->suffixContainerTag($this->suffixContainerTag)
+                ->suffixAttributes($this->suffixAttributes)
+                ->suffixTag($this->suffixTag)
                 ->tagName($this->tagName)
                 ->template($this->template)
                 ->type($this->type)

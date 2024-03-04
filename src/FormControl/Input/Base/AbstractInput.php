@@ -7,29 +7,30 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\CanBeAutofocus,
-    Html\Attribute\CanBeHidden,
-    Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\Field\HasGenerateField,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasData,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\HasTitle,
-    Html\Attribute\Input\CanBeDisabled,
-    Html\Attribute\Input\CanBeReadonly,
-    Html\Attribute\Input\HasForm,
-    Html\Attribute\Input\HasName,
+    Html\Attribute\FormControl\CanBeDisabled,
+    Html\Attribute\FormControl\CanBeReadonly,
+    Html\Attribute\FormControl\HasFieldAttributes,
+    Html\Attribute\FormControl\HasForm,
+    Html\Attribute\FormControl\HasName,
+    Html\Attribute\Global\CanBeAutofocus,
+    Html\Attribute\Global\CanBeHidden,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
+    Html\Attribute\HasTemplate,
+    Html\Helper\Utils,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\InputInterface,
     Html\Interop\RenderInterface,
     Html\Tag,
-    Widget\Element,
+    Widget\Element
 };
 
 /**
@@ -46,8 +47,8 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasAttributes;
     use HasClass;
     use HasData;
+    use HasFieldAttributes;
     use HasForm;
-    use HasGenerateField;
     use HasId;
     use HasLang;
     use HasName;
@@ -58,52 +59,43 @@ abstract class AbstractInput extends Element implements AriaDescribedByInterface
     use HasTemplate;
     use HasTitle;
 
-    protected array $attributes = [];
+    protected string $type = 'text';
 
     /**
      * This method is used to configure the widget with the provided default definitions.
      */
     protected function loadDefaultDefinitions(): array
     {
+        $shortClassName = Utils::getShortNameClass(static::class, false, true);
+
         return [
+            'id()' => [Utils::generateId("$shortClassName-")],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }
 
-    protected function buildInputTag(
-        array $attributes,
-        string $type,
-        array $tokenValues = [],
-        string $name = ''
-    ): string {
-        $id = $this->generateId("$type-");
+    protected function renderInputTag(array $attributes, array $tokenValues = []): string
+    {
+        $id = $this->getId();
 
-        if ($id === null) {
-            unset($attributes['id']);
-        }
-
-        if ($this->ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true && $id !== null) {
             $attributes['aria-describedby'] = "$id-help";
         }
 
-        unset($attributes['type']);
-
         return Tag::widget()
             ->attributes($attributes)
-            ->id($id)
-            ->name($name)
             ->prefix($this->prefix)
-            ->prefixContainer($this->prefixContainer)
-            ->prefixContainerAttributes($this->prefixContainerAttributes)
-            ->prefixContainerTag($this->prefixContainerTag)
+            ->prefixAttributes($this->prefixAttributes)
+            ->prefixTag($this->prefixTag)
             ->suffix($this->suffix)
-            ->suffixContainer($this->suffixContainer)
-            ->suffixContainerAttributes($this->suffixContainerAttributes)
-            ->suffixContainerTag($this->suffixContainerTag)
+            ->suffixAttributes($this->suffixAttributes)
+            ->suffixTag($this->suffixTag)
             ->tagName('input')
             ->template($this->template)
             ->tokenValues($tokenValues)
-            ->type($type)
+            ->type($this->type)
             ->render();
     }
 }

@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContent,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTitle,
-    Attribute\Input\HasName,
+    Attribute\Global\HasClass,
+    Attribute\Global\HasData,
+    Attribute\Global\HasId,
+    Attribute\Global\HasLang,
+    Attribute\Global\HasStyle,
+    Attribute\Global\HasTitle,
+    Attribute\HasAttributes,
+    Attribute\HasContent,
     HtmlBuilder
 };
 use PHPForge\Widget\Block;
@@ -29,11 +28,9 @@ abstract class AbstractBlockElement extends Block
     use HasData;
     use HasId;
     use HasLang;
-    use HasName;
     use HasStyle;
     use HasTitle;
 
-    protected array $attributes = [];
     protected string $tagName = '';
 
     /**
@@ -44,10 +41,8 @@ abstract class AbstractBlockElement extends Block
     public function begin(): string
     {
         parent::begin();
-        $attributes = $this->attributes;
-        $attributes['id'] = $this->id;
 
-        return HtmlBuilder::begin($this->tagName, $attributes);
+        return HtmlBuilder::begin($this->tagName, $this->attributes);
     }
 
     /**
@@ -58,10 +53,7 @@ abstract class AbstractBlockElement extends Block
     protected function run(): string
     {
         if ($this->isBeginExecuted() === false) {
-            $attributes = $this->attributes;
-            $attributes['id'] = $this->id;
-
-            return HtmlBuilder::create($this->tagName, $this->content, $attributes);
+            return HtmlBuilder::create($this->tagName, $this->content, $this->attributes);
         }
 
         return HtmlBuilder::end($this->tagName);

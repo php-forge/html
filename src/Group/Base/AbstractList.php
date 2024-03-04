@@ -5,15 +5,14 @@ declare(strict_types=1);
 namespace PHPForge\Html\Group\Base;
 
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasTagName,
-    Html\Attribute\Input\HasName,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\HasTitle,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
     Html\Interop\RenderInterface,
     Html\Tag,
     Widget\Element
@@ -30,13 +29,11 @@ abstract class AbstractList extends Element implements RenderInterface
     use HasClass;
     use HasId;
     use HasLang;
-    use HasName;
     use HasStyle;
     use HasTabindex;
     use HasTagName;
     use HasTitle;
 
-    protected array $attributes = [];
     protected string $content = '';
 
     /**
@@ -67,7 +64,6 @@ abstract class AbstractList extends Element implements RenderInterface
         return Tag::widget()
             ->attributes($this->attributes)
             ->content(trim($this->content))
-            ->id($this->id)
             ->tagName($this->tagName)
             ->render();
     }

@@ -12,13 +12,13 @@ use PHPUnit\Framework\TestCase;
  */
 final class CustomMethodTest extends TestCase
 {
-    public function testGenerateField(): void
+    public function testFieldAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" name="ModelName[fieldName]" type="text">
+            <input id="formmodelname-property" name="FormModelName[property]" type="text">
             HTML,
-            Text::widget()->generateField('ModelName', 'fieldName')->render()
+            Text::widget()->fieldAttributes('FormModelName', 'property')->render()
         );
     }
 
@@ -26,77 +26,65 @@ final class CustomMethodTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            prefix
+            value
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Text::widget()->id('text-6582f2d099e8b')->prefix('prefix')->render()
+            Text::widget()->id('text-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            prefix
-            </div>
-            <input id="text-6582f2d099e8b" type="text">
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->prefix('prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
             Text::widget()
                 ->id('text-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerClass(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div class="value">
-            prefix
+            value
             </div>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Text::widget()
-                ->id('text-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerClass('value')
-                ->render()
+            Text::widget()->id('text-6582f2d099e8b')->prefix('value')->prefixClass('value')->prefixTag('div')->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <article>
-            prefix
+            value
             </article>
             <input id="text-6582f2d099e8b" type="text">
             HTML,
-            Text::widget()
-                ->id('text-6582f2d099e8b')
-                ->prefix('prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('article')
-                ->render()
+            Text::widget()->id('text-6582f2d099e8b')->prefix('value')->prefixTag('article')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            value
+            <input id="text-6582f2d099e8b" type="text">
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -115,76 +103,64 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
-            suffix
+            value
             HTML,
-            Text::widget()->id('text-6582f2d099e8b')->suffix('suffix')->render()
+            Text::widget()->id('text-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <input id="text-6582f2d099e8b" type="text">
-            <div>
-            suffix
-            </div>
-            HTML,
-            Text::widget()->id('text-6582f2d099e8b')->suffix('suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
             Text::widget()
                 ->id('text-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
             <div class="value">
-            suffix
+            value
             </div>
             HTML,
-            Text::widget()
-                ->id('text-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
-                ->render()
+            Text::widget()->id('text-6582f2d099e8b')->suffix('value')->suffixClass('value')->suffixTag('div')->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <input id="text-6582f2d099e8b" type="text">
             <article>
-            suffix
+            value
             </article>
             HTML,
-            Text::widget()
-                ->id('text-6582f2d099e8b')
-                ->suffix('suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('article')
-                ->render()
+            Text::widget()->id('text-6582f2d099e8b')->suffix('value')->suffixTag('article')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="text-6582f2d099e8b" type="text">
+            value
+            HTML,
+            Text::widget()->id('text-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

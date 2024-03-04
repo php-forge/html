@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace PHPForge\Html\Multimedia;
 
 use PHPForge\Html\{
-    Attribute\Input\HasAlt,
-    Attribute\Input\HasHeight,
+    Attribute\FormControl\HasAlt,
+    Attribute\FormControl\HasHeight,
     Attribute\Input\HasSrc,
     Attribute\Input\HasWidth,
     Attribute\Tag\HasCrossorigin,

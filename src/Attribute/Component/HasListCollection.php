@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\{Attribute\Custom\HasValidateInList, Helper\CssClass};
+use PHPForge\Html\Helper\{CssClass, Validator};
 
 /**
  * Is used by widgets that implement list collection.
  */
 trait HasListCollection
 {
-    use HasValidateInList;
-
     protected array $listAttributes = [];
     protected bool $listContainer = false;
     protected array $listContainerAttributes = [];
@@ -110,7 +108,7 @@ trait HasListCollection
     public function listType(string|false $value): static
     {
         if ($value !== false) {
-            $this->validateInList(
+            Validator::inList(
                 $value,
                 'Invalid value "%s" for the list type method. Allowed values are: "%s".',
                 'ol',

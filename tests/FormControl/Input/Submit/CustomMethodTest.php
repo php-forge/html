@@ -75,66 +75,57 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            Prefix
+            value
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->prefix('Prefix')->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <div>
-            Prefix
-            </div>
-            <input id="submit-6582f2d099e8b" type="submit">
-            </div>
-            HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->prefix('Prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <div class="value">
-            Prefix
+            value
             </div>
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
             Submit::widget()
                 ->id('submit-6582f2d099e8b')
-                ->prefix('Prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <span>Prefix</span>
+            <span>value</span>
             <input id="submit-6582f2d099e8b" type="submit">
             </div>
             HTML,
-            Submit::widget()
-                ->id('submit-6582f2d099e8b')
-                ->prefix('Prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('span')
-                ->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            value
+            <input id="submit-6582f2d099e8b" type="submit">
+            </div>
+            HTML,
+            Submit::widget()->id('submit-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -156,85 +147,76 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <div>
             <input id="submit-6582f2d099e8b" type="submit">
-            Suffix
+            value
             </div>
             HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->suffix('Suffix')->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <input id="submit-6582f2d099e8b" type="submit">
-            <div>
-            Suffix
-            </div>
-            </div>
-            HTML,
-            Submit::widget()->id('submit-6582f2d099e8b')->suffix('Suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <input id="submit-6582f2d099e8b" type="submit">
             <div class="value">
-            Suffix
+            value
             </div>
             </div>
             HTML,
             Submit::widget()
                 ->id('submit-6582f2d099e8b')
-                ->suffix('Suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes([
-                    'class' => 'value',
-                ])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <input id="submit-6582f2d099e8b" type="submit">
             <div class="value">
-            Suffix
+            value
             </div>
             </div>
             HTML,
             Submit::widget()
                 ->id('submit-6582f2d099e8b')
-                ->suffix('Suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
+                ->suffix('value')
+                ->suffixClass('value')
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <input id="submit-6582f2d099e8b" type="submit">
-            <span>Suffix</span>
+            <span>value</span>
             </div>
             HTML,
-            Submit::widget()
-                ->id('submit-6582f2d099e8b')
-                ->suffix('Suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('span')
-                ->render()
+            Submit::widget()->id('submit-6582f2d099e8b')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="submit-6582f2d099e8b" type="submit">
+            value
+            </div>
+            HTML,
+            Submit::widget()->id('submit-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

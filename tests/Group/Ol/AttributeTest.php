@@ -73,17 +73,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <ol name="value">
-            </ol>
-            HTML,
-            Ol::widget()->name('value')->render(),
-        );
-    }
-
     public function testReversed(): void
     {
         Assert::equalsWithoutLE(

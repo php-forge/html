@@ -71,64 +71,77 @@ final class CustomMethodTest extends TestCase
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            Prefix
+            value
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
-            Button::widget()->id('button-6582f2d099e8b')->prefix('Prefix')->render()
+            Button::widget()->id('button-6582f2d099e8b')->prefix('value')->render()
         );
     }
 
-    public function testPrefixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <div>
-            Prefix
-            </div>
-            <input id="button-6582f2d099e8b" type="button">
-            </div>
-            HTML,
-            Button::widget()->id('button-6582f2d099e8b')->prefix('Prefix')->prefixContainer(true)->render()
-        );
-    }
-
-    public function testPrefixContainerAttributes(): void
+    public function testPrefixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <div class="value">
-            Prefix
+            value
             </div>
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
-                ->prefix('Prefix')
-                ->prefixContainer(true)
-                ->prefixContainerAttributes(['class' => 'value'])
+                ->prefix('value')
+                ->prefixAttributes(['class' => 'value'])
+                ->prefixTag('div')
                 ->render()
         );
     }
 
-    public function testPrefixContainerTag(): void
+    public function testPrefixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
-            <span>Prefix</span>
+            <div class="value">
+            value
+            </div>
             <input id="button-6582f2d099e8b" type="button">
             </div>
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
-                ->prefix('Prefix')
-                ->prefixContainer(true)
-                ->prefixContainerTag('span')
+                ->prefix('value')
+                ->prefixClass('value')
+                ->prefixTag('div')
                 ->render()
+        );
+    }
+
+    public function testPrefixTag(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <span>value</span>
+            <input id="button-6582f2d099e8b" type="button">
+            </div>
+            HTML,
+            Button::widget()->id('button-6582f2d099e8b')->prefix('value')->prefixTag('span')->render()
+        );
+    }
+
+    public function testPrefixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            value
+            <input id="button-6582f2d099e8b" type="button">
+            </div>
+            HTML,
+            Button::widget()->id('button-6582f2d099e8b')->prefix('value')->prefixTag(false)->render()
         );
     }
 
@@ -150,83 +163,76 @@ final class CustomMethodTest extends TestCase
             <<<HTML
             <div>
             <input id="button-6582f2d099e8b" type="button">
-            Suffix
+            value
             </div>
             HTML,
-            Button::widget()->id('button-6582f2d099e8b')->suffix('Suffix')->render()
+            Button::widget()->id('button-6582f2d099e8b')->suffix('value')->render()
         );
     }
 
-    public function testSuffixContainer(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <div>
-            <input id="button-6582f2d099e8b" type="button">
-            <div>
-            Suffix
-            </div>
-            </div>
-            HTML,
-            Button::widget()->id('button-6582f2d099e8b')->suffix('Suffix')->suffixContainer(true)->render()
-        );
-    }
-
-    public function testSuffixContainerAttributes(): void
+    public function testSuffixAttributes(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <input id="button-6582f2d099e8b" type="button">
             <div class="value">
-            Suffix
+            value
             </div>
             </div>
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
-                ->suffix('Suffix')
-                ->suffixContainer(true)
-                ->suffixContainerAttributes(['class' => 'value'])
+                ->suffix('value')
+                ->suffixAttributes(['class' => 'value'])
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerClass(): void
+    public function testSuffixClass(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <input id="button-6582f2d099e8b" type="button">
             <div class="value">
-            Suffix
+            value
             </div>
             </div>
             HTML,
             Button::widget()
                 ->id('button-6582f2d099e8b')
-                ->suffix('Suffix')
-                ->suffixContainer(true)
-                ->suffixContainerClass('value')
+                ->suffix('value')
+                ->suffixClass('value')
+                ->suffixTag('div')
                 ->render()
         );
     }
 
-    public function testSuffixContainerTag(): void
+    public function testSuffixTag(): void
     {
         Assert::equalsWithoutLE(
             <<<HTML
             <div>
             <input id="button-6582f2d099e8b" type="button">
-            <span>Suffix</span>
+            <span>value</span>
             </div>
             HTML,
-            Button::widget()
-                ->id('button-6582f2d099e8b')
-                ->suffix('Suffix')
-                ->suffixContainer(true)
-                ->suffixContainerTag('span')
-                ->render()
+            Button::widget()->id('button-6582f2d099e8b')->suffix('value')->suffixTag('span')->render()
+        );
+    }
+
+    public function testSuffixTagWithFalseValue(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <div>
+            <input id="button-6582f2d099e8b" type="button">
+            value
+            </div>
+            HTML,
+            Button::widget()->id('button-6582f2d099e8b')->suffix('value')->suffixTag(false)->render()
         );
     }
 

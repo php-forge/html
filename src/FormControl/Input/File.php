@@ -6,9 +6,9 @@ namespace PHPForge\Html\FormControl\Input;
 
 use PHPForge\{
     Html\Attribute\Custom\HasUncheckedCollection,
-    Html\Attribute\Input\CanBeMultiple,
-    Html\Attribute\Input\CanBeRequired,
-    Html\Attribute\Input\HasAccept,
+    Html\Attribute\FormControl\CanBeMultiple,
+    Html\Attribute\FormControl\CanBeRequired,
+    Html\Attribute\FormControl\HasAccept,
     Html\Helper\Utils,
     Html\Interop\RequiredInterface
 };
@@ -26,9 +26,14 @@ final class File extends Base\AbstractInput implements RequiredInterface
     use HasAccept;
     use HasUncheckedCollection;
 
+    protected string $type = 'file';
+
     protected function loadDefaultDefinitions(): array
     {
         return [
+            'id()' => [Utils::generateId('file-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{suffix}'],
         ];
     }
@@ -36,24 +41,16 @@ final class File extends Base\AbstractInput implements RequiredInterface
     protected function run(): string
     {
         $attributes = $this->attributes;
-        $multiple = $attributes['multiple'] ?? false;
-        /** @var string $name */
-        $name = $attributes['name'] ?? '';
+        $name = $this->getName();
 
-        if ($multiple === true && $name !== '') {
+        if ($this->isMultiple() === true && $name !== '') {
             $name = Utils::generateArrayableName($name);
+            $attributes['name'] = $name;
         }
 
         // The value attribute is not allowed for the input type `file`.
         unset($attributes['value']);
 
-        return $this->buildInputTag(
-            $attributes,
-            'file',
-            [
-                '{unchecktag}' => $this->renderUncheckTag($name),
-            ],
-            $name
-        );
+        return $this->renderInputTag($attributes, ['{unchecktag}' => $this->renderUncheckTag($name)]);
     }
 }

@@ -5,21 +5,23 @@ declare(strict_types=1);
 namespace PHPForge\Html\Base;
 
 use PHPForge\{
-    Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Custom\HasTemplate,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasData,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTitle,
-    Html\Attribute\Input\HasName,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
+    Html\Attribute\HasTemplate,
+    Html\Helper\Template,
     Html\HtmlBuilder,
     Html\Interop\RenderInterface,
+    Html\Tag,
     Widget\Element
 };
+use PHPForge\Html\Document\Html;
 
 /**
  * Provides a foundation for creating HTML elements with various attributes and content.
@@ -31,14 +33,11 @@ abstract class AbstractElement extends Element implements RenderInterface
     use HasData;
     use HasId;
     use HasLang;
-    use HasName;
     use HasPrefixCollection;
     use HasStyle;
     use HasSuffixCollection;
     use HasTemplate;
     use HasTitle;
-
-    protected array $attributes = [];
 
     /**
      * This method is used to configure the widget with the provided default definitions.
@@ -46,6 +45,8 @@ abstract class AbstractElement extends Element implements RenderInterface
     protected function loadDefaultDefinitions(): array
     {
         return [
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }
@@ -61,16 +62,22 @@ abstract class AbstractElement extends Element implements RenderInterface
      */
     protected function buildElement(string $tagName, string $content = '', array $tokenValues = []): string
     {
-        $attributes = $this->attributes;
-        $attributes['id'] ??= $this->id;
-
         $tokenTemplateValues = [
-            '{prefix}' => $this->renderPrefixTag(),
-            '{tag}' => HtmlBuilder::create($tagName, $content, $attributes),
-            '{suffix}' => $this->renderSuffixTag(),
+            '{prefix}' => $this->renderTag($this->prefixAttributes, $this->prefix, $this->prefixTag),
+            '{tag}' => HtmlBuilder::create($tagName, $content, $this->attributes),
+            '{suffix}' => $this->renderTag($this->suffixAttributes, $this->suffix, $this->suffixTag),
         ];
         $tokenTemplateValues += $tokenValues;
 
-        return $this->renderTemplate($this->template, $tokenTemplateValues);
+        return Template::render($this->template, $tokenTemplateValues);
+    }
+
+    private function renderTag(array $attributes, string $content, false|string $tag): string
+    {
+        if ($content === '' || $tag === false) {
+            return $content;
+        }
+
+        return HtmlBuilder::create($tag, $content, $attributes);
     }
 }

@@ -5,16 +5,17 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl;
 
 use PHPForge\Html\{
-    Attribute\CanBeAutofocus,
-    Attribute\Custom\HasContent,
-    Attribute\Field\HasGenerateField,
-    Attribute\HasTabindex,
-    Attribute\Input\CanBeDisabled,
-    Attribute\Input\CanBeReadonly,
-    Attribute\Input\CanBeRequired,
-    Attribute\Input\HasAutocomplete,
-    Attribute\Input\HasDirname,
-    Attribute\Input\HasForm,
+    Attribute\FormControl\CanBeDisabled,
+    Attribute\FormControl\CanBeReadonly,
+    Attribute\FormControl\CanBeRequired,
+    Attribute\FormControl\HasAutocomplete,
+    Attribute\FormControl\HasDirname,
+    Attribute\FormControl\HasFieldAttributes,
+    Attribute\FormControl\HasForm,
+    Attribute\FormControl\HasName,
+    Attribute\Global\CanBeAutofocus,
+    Attribute\Global\HasTabindex,
+    Attribute\HasContent,
     Attribute\Input\HasMaxLength,
     Attribute\Input\HasMinLength,
     Attribute\Input\HasPlaceholder,
@@ -22,6 +23,7 @@ use PHPForge\Html\{
     Attribute\Tag\HasRows,
     Attribute\Tag\HasWrap,
     Base\AbstractElement,
+    Helper\Utils,
     Interop\ContentInterface,
     Interop\InputInterface,
     Interop\LengthInterface,
@@ -52,10 +54,11 @@ final class TextArea extends AbstractElement implements
     use HasCols;
     use HasContent;
     use HasDirname;
+    use HasFieldAttributes;
     use HasForm;
-    use HasGenerateField;
     use HasMaxLength;
     use HasMinLength;
+    use HasName;
     use HasPlaceholder;
     use HasRows;
     use HasTabindex;
@@ -67,7 +70,9 @@ final class TextArea extends AbstractElement implements
     protected function loadDefaultDefinitions(): array
     {
         return [
-            'id()' => [$this->generateId('textarea-')],
+            'id()' => [Utils::generateId('textarea-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{tag}\n{suffix}'],
         ];
     }

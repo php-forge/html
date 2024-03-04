@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Metadata;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
     Attribute\Custom\HasContentAttribute,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\Input\HasName,
+    Attribute\FormControl\HasName,
+    Attribute\Global\HasClass,
+    Attribute\Global\HasId,
+    Attribute\Global\HasLang,
+    Attribute\Global\HasStyle,
+    Attribute\HasAttributes,
     Attribute\Tag\HasCharset,
     Attribute\Tag\HasHttpEquiv,
     Tag
@@ -36,8 +36,6 @@ final class Meta extends Element
     use HasName;
     use HasStyle;
 
-    private array $attributes = [];
-
     /**
      * Generate the HTML representation of the element.
      *
@@ -45,6 +43,6 @@ final class Meta extends Element
      */
     protected function run(): string
     {
-        return Tag::widget()->attributes($this->attributes)->id($this->id)->tagName('meta')->render();
+        return Tag::widget()->attributes($this->attributes)->tagName('meta')->render();
     }
 }

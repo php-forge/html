@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Tag;
 
 use InvalidArgumentException;
-use PHPForge\Html\Attribute\Custom\HasValidateInList;
+use PHPForge\Html\Helper\Validator;
 
 /**
  * Is used by widgets that implement the wrap method.
  */
 trait HasWrap
 {
-    use HasValidateInList;
-
     /**
      * Set the wrap attribute is an enumerated attribute with two keywords and states: the soft keyword, which maps to
      * the Soft state, and the hard keyword which maps to the Hard state.
@@ -32,7 +30,7 @@ trait HasWrap
      */
     public function wrap(string $value = 'hard'): static
     {
-        $this->validateInList(
+        Validator::inList(
             $value,
             'Invalid value "%s" for the wrap attribute. Allowed values are: "%s".',
             'hard',

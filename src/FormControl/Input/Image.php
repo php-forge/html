@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\{
-    Html\Attribute\Input\HasAlt,
-    Html\Attribute\Input\HasFormaction,
-    Html\Attribute\Input\HasFormenctype,
-    Html\Attribute\Input\HasFormmethod,
-    Html\Attribute\Input\HasFormnovalidate,
-    Html\Attribute\Input\HasFormtarget,
-    Html\Attribute\Input\HasHeight,
-    Html\Attribute\Input\HasSrc,
-    Html\Attribute\Input\HasValue,
-    Html\Attribute\Input\HasWidth,
-    Html\FormControl\Input\Base\AbstractInput,
-    Html\Interop\SrcInterface
+use PHPForge\Html\{
+    Attribute\FormControl\HasAlt,
+    Attribute\FormControl\HasFormaction,
+    Attribute\FormControl\HasFormenctype,
+    Attribute\FormControl\HasFormmethod,
+    Attribute\FormControl\HasFormnovalidate,
+    Attribute\FormControl\HasFormtarget,
+    Attribute\FormControl\HasHeight,
+    Attribute\Input\HasSrc,
+    Attribute\Input\HasValue,
+    Attribute\Input\HasWidth,
+    FormControl\Input\Base\AbstractInput,
+    Interop\SrcInterface
 };
 
 /**
@@ -39,14 +39,13 @@ final class Image extends AbstractInput implements SrcInterface
     use HasValue;
     use HasWidth;
 
+    protected string $type = 'image';
+
     protected function run(): string
     {
-        /** @var string|null $src */
-        $src = $this->attributes['src'] ?? null;
-
         // The value attribute is not allowed for the input type `image`.
         unset($this->attributes['value']);
 
-        return $this->buildInputTag($this->attributes, 'image');
+        return $this->renderInputTag($this->attributes);
     }
 }

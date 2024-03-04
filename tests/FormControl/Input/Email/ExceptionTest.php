@@ -16,7 +16,7 @@ final class ExceptionTest extends TestCase
     public function testValue(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessage('Email::class widget must be a string or null value.');
+        $this->expectExceptionMessage('The value must be a string or null value. The value is: integer.');
 
         Email::widget()->value(1)->render();
     }

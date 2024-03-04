@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="url-6582f2d099e8b" type="url" autocomplete="on">
+            HTML,
+            Url::widget()->autocomplete('on')->id('url-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(
@@ -69,6 +79,16 @@ final class AttributeTest extends TestCase
             <input id="url-6582f2d099e8b" type="url" data-value="value">
             HTML,
             Url::widget()->dataAttributes(['value' => 'value'])->id('url-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="url-6582f2d099e8b" type="url" dirname="value">
+            HTML,
+            Url::widget()->dirname('value')->id('url-6582f2d099e8b')->render()
         );
     }
 
@@ -246,9 +266,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="url">
+            <input name="FormModelName[property]" type="url">
             HTML,
-            Url::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Url::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -256,9 +276,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="url">
+            <input id="formmodelname-property" type="url">
             HTML,
-            Url::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Url::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

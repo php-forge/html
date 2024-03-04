@@ -4,33 +4,40 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input\Base;
 
-use PHPForge\Html\{
-    Attribute\Aria\HasAriaDescribedBy,
-    Attribute\Aria\HasAriaLabel,
-    Attribute\CanBeAutofocus,
-    Attribute\CanBeHidden,
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContainerCollection,
-    Attribute\Custom\HasLabelCollection,
-    Attribute\Custom\HasPrefixCollection,
-    Attribute\Custom\HasSuffixCollection,
-    Attribute\Custom\HasTemplate,
-    Attribute\Custom\HasValidateString,
-    Attribute\HasClass,
-    Attribute\HasData,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTabindex,
-    Attribute\HasTitle,
-    Attribute\Input\CanBeDisabled,
-    Attribute\Input\CanBeReadonly,
-    Attribute\Input\HasForm,
-    Attribute\Input\HasName,
-    Attribute\Input\HasValue,
-    Tag
+use PHPForge\{
+    Html\Attribute\Aria\HasAriaDescribedBy,
+    Html\Attribute\Aria\HasAriaLabel,
+    Html\Attribute\Custom\HasContainerCollection,
+    Html\Attribute\FormControl\CanBeDisabled,
+    Html\Attribute\FormControl\CanBeReadonly,
+    Html\Attribute\FormControl\HasForm,
+    Html\Attribute\FormControl\HasFormaction,
+    Html\Attribute\FormControl\HasFormenctype,
+    Html\Attribute\FormControl\HasFormmethod,
+    Html\Attribute\FormControl\HasFormnovalidate,
+    Html\Attribute\FormControl\HasFormtarget,
+    Html\Attribute\FormControl\HasName,
+    Html\Attribute\FormControl\Label\HasLabelCollection,
+    Html\Attribute\Global\CanBeAutofocus,
+    Html\Attribute\Global\CanBeHidden,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
+    Html\Attribute\HasTemplate,
+    Html\Attribute\Input\HasValue,
+    Html\FormControl\Label,
+    Html\Helper\Utils,
+    Html\Helper\Validator,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 
 abstract class AbstractButton extends Element
 {
@@ -45,6 +52,11 @@ abstract class AbstractButton extends Element
     use HasContainerCollection;
     use HasData;
     use HasForm;
+    use HasFormaction;
+    use HasFormenctype;
+    use HasFormmethod;
+    use HasFormnovalidate;
+    use HasFormtarget;
     use HasId;
     use HasLabelCollection;
     use HasLang;
@@ -55,10 +67,8 @@ abstract class AbstractButton extends Element
     use HasTabindex;
     use HasTemplate;
     use HasTitle;
-    use HasValidateString;
     use HasValue;
 
-    protected array $attributes = [];
     protected string $type = 'button';
 
     /**
@@ -68,39 +78,47 @@ abstract class AbstractButton extends Element
     {
         return [
             'container()' => [true],
-            'id()' => [$this->generateId('button-')],
+            'id()' => [Utils::generateId('button-')],
+            'prefixTag()' => [false],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{label}\n{tag}\n{suffix}'],
         ];
     }
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
+
+        $id = $this->getId();
 
         $attributes = $this->attributes;
-        $labelFor = $this->labelFor ?? $this->id;
+        $label = '';
 
-        if ($this->ariaDescribedBy === true) {
-            $attributes['aria-describedby'] = "$this->id-help";
+        if ($this->ariaDescribedBy === true && $id !== null) {
+            $attributes['aria-describedby'] = "$id-help";
+        }
+
+        if ($this->disableLabel === false) {
+            $label = Label::widget()
+                ->attributes($this->labelAttributes)
+                ->content($this->label)
+                ->for($this->labelFor ?? $id);
         }
 
         return $this->renderContainerTag(
             null,
             Tag::widget()
                 ->attributes($attributes)
-                ->id($this->id)
                 ->prefix($this->prefix)
-                ->prefixContainer($this->prefixContainer)
-                ->prefixContainerAttributes($this->prefixContainerAttributes)
-                ->prefixContainerTag($this->prefixContainerTag)
+                ->prefixAttributes($this->prefixAttributes)
+                ->prefixTag($this->prefixTag)
                 ->suffix($this->suffix)
-                ->suffixContainer($this->suffixContainer)
-                ->suffixContainerAttributes($this->suffixContainerAttributes)
-                ->suffixContainerTag($this->suffixContainerTag)
+                ->suffixAttributes($this->suffixAttributes)
+                ->suffixTag($this->suffixTag)
                 ->tagName('input')
                 ->template($this->template)
                 ->type($this->type)
-                ->tokenValues(['{label}' => $this->renderLabelTag($labelFor)])
+                ->tokenValues(['{label}' => $label])
                 ->render()
         );
     }

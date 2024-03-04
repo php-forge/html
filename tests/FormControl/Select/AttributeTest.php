@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PHPForge\Html\Tests\FormControl\Select;
 
 use PHPForge\{Html\FormControl\Select, Support\Assert};
-use PHPUnit\Framework\TestCase;
 
 /**
  * @psalm-suppress PropertyNotSetInConstructor
  */
-final class AttributeTest extends TestCase
+final class AttributeTest extends \PHPUnit\Framework\TestCase
 {
     private array $cities = [
         1 => 'Moscu',
@@ -42,6 +41,19 @@ final class AttributeTest extends TestCase
             </select>
             HTML,
             Select::widget()->attributes(['class' => 'value'])->items([1 => 'Moscu'])->render()
+        );
+    }
+
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select autocomplete="on">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            </select>
+            HTML,
+            Select::widget()->autocomplete('on')->items([1 => 'Moscu'])->render()
         );
     }
 
@@ -297,6 +309,38 @@ final class AttributeTest extends TestCase
             </select>
             HTML,
             Select::widget()->items($this->cities)->value(null)->render()
+        );
+    }
+
+    public function testWithoutId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select name="FormModelName[property]">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->fieldAttributes('FormModelName', 'property')->id(null)->items($this->cities)->render()
+        );
+    }
+
+    public function testWithoutName(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <select id="formmodelname-property">
+            <option>Select an option</option>
+            <option value="1">Moscu</option>
+            <option value="2">San Petersburgo</option>
+            <option value="3">Novosibirsk</option>
+            <option value="4">Ekaterinburgo</option>
+            </select>
+            HTML,
+            Select::widget()->items($this->cities)->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

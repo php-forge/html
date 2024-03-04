@@ -5,17 +5,17 @@ declare(strict_types=1);
 namespace PHPForge\Html\FormControl\Base;
 
 use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContent,
     Attribute\Custom\HasCsrf,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasStyle,
-    Attribute\HasTitle,
-    Attribute\Input\HasAccept,
-    Attribute\Input\HasAutocomplete,
-    Attribute\Input\HasName,
+    Attribute\FormControl\HasAccept,
+    Attribute\FormControl\HasAutocomplete,
+    Attribute\FormControl\HasName,
+    Attribute\Global\HasClass,
+    Attribute\Global\HasId,
+    Attribute\Global\HasLang,
+    Attribute\Global\HasStyle,
+    Attribute\Global\HasTitle,
+    Attribute\HasAttributes,
+    Attribute\HasContent,
     Attribute\Tag\CanBeNoValidate,
     Attribute\Tag\HasAction,
     Attribute\Tag\HasEnctype,
@@ -54,8 +54,6 @@ abstract class AbstractForm extends Block
     use HasStyle;
     use HasTitle;
 
-    protected array $attributes = [];
-
     /**
      * Begin rendering the block element.
      *
@@ -67,10 +65,7 @@ abstract class AbstractForm extends Block
 
         $hiddenInputs = $this->renderHiddenInput();
 
-        $attributes = $this->attributes;
-        $attributes['id'] = $this->id;
-
-        $html = HtmlBuilder::begin('form', $attributes);
+        $html = HtmlBuilder::begin('form', $this->attributes);
 
         if ($hiddenInputs !== '') {
             $html .= "\n$hiddenInputs";
@@ -89,15 +84,13 @@ abstract class AbstractForm extends Block
         if ($this->isBeginExecuted() === false) {
             $hiddenInputs = $this->renderHiddenInput();
 
-            $attributes = $this->attributes;
-            $attributes['id'] = $this->id;
             $html = '';
 
             if ($hiddenInputs !== '') {
                 $html = "$hiddenInputs\n";
             }
 
-            return HtmlBuilder::create('form', $html . $this->content, $attributes);
+            return HtmlBuilder::create('form', $html . $this->content, $this->attributes);
         }
 
         return HtmlBuilder::end('form');

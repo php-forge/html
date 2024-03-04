@@ -7,20 +7,21 @@ namespace PHPForge\Html\FormControl\Base;
 use InvalidArgumentException;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\CanBeAutofocus,
-    Html\Attribute\Custom\HasAttributes,
-    Html\Attribute\Custom\HasLabelCollection,
-    Html\Attribute\Custom\HasPrefixCollection,
-    Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Field\HasGenerateField,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasId,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\Input\CanBeDisabled,
-    Html\Attribute\Input\CanBeMultiple,
-    Html\Attribute\Input\CanBeRequired,
-    Html\Attribute\Input\HasName,
+    Html\Attribute\FormControl\CanBeDisabled,
+    Html\Attribute\FormControl\CanBeMultiple,
+    Html\Attribute\FormControl\CanBeRequired,
+    Html\Attribute\FormControl\HasAutocomplete,
+    Html\Attribute\FormControl\HasFieldAttributes,
+    Html\Attribute\FormControl\HasName,
+    Html\Attribute\FormControl\Label\HasLabelCollection,
+    Html\Attribute\Global\CanBeAutofocus,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
     Html\Attribute\Input\HasSize,
     Html\Attribute\Input\HasValue,
     Html\Attribute\Tag\HasGroup,
@@ -33,7 +34,7 @@ use PHPForge\{
     Html\Interop\RequiredInterface,
     Html\Interop\ValueInterface,
     Html\Tag,
-    Widget\Element,
+    Widget\Element
 };
 use Stringable;
 
@@ -42,7 +43,6 @@ use function get_debug_type;
 use function implode;
 use function in_array;
 use function is_array;
-use function is_bool;
 use function is_object;
 
 /**
@@ -60,8 +60,9 @@ abstract class AbstractSelect extends Element implements
     use CanBeRequired;
     use HasAriaLabel;
     use HasAttributes;
+    use HasAutocomplete;
     use HasClass;
-    use HasGenerateField;
+    use HasFieldAttributes;
     use HasGroup;
     use HasId;
     use HasItems;
@@ -76,12 +77,8 @@ abstract class AbstractSelect extends Element implements
     use HasTabindex;
     use HasValue;
 
-    protected array $attributes = [];
-
     protected function run(): string
     {
-        $attributes = $this->attributes;
-        $multiple = false;
         /** @psalm-var array<int, Stringable|scalar>|scalar|object|null $value */
         $value = $this->getValue();
 
@@ -98,11 +95,7 @@ abstract class AbstractSelect extends Element implements
             throw new InvalidArgumentException('Select::class widget value can not be an object.');
         }
 
-        if (array_key_exists('multiple', $attributes) && is_bool($attributes['multiple'])) {
-            $multiple = $attributes['multiple'];
-        }
-
-        if ($multiple === true && is_array($value) === false) {
+        if ($this->isMultiple() === true && is_array($value) === false) {
             throw new InvalidArgumentException('Select::class widget value must be an array when multiple is "true".');
         }
 
@@ -110,23 +103,20 @@ abstract class AbstractSelect extends Element implements
             $items .= PHP_EOL . implode(PHP_EOL, $this->renderItems($value)) . PHP_EOL;
         }
 
-        unset($attributes['value']);
+        unset($this->attributes['value']);
 
         $selectTag = Tag::widget()
-            ->attributes($attributes)
+            ->attributes($this->attributes)
             ->content($items)
-            ->id($this->id)
             ->prefix($this->prefix)
-            ->prefixContainer($this->prefixContainer)
-            ->prefixContainerAttributes($this->prefixContainerAttributes)
-            ->prefixContainerTag($this->prefixContainerTag)
+            ->prefixAttributes($this->prefixAttributes)
+            ->prefixTag($this->prefixTag)
             ->suffix($this->suffix)
-            ->suffixContainer($this->suffixContainer)
-            ->suffixContainerAttributes($this->suffixContainerAttributes)
-            ->suffixContainerTag($this->suffixContainerTag)
+            ->suffixAttributes($this->suffixAttributes)
+            ->suffixTag($this->suffixTag)
             ->tagName('select');
 
-        if ($this->isLabel === false || $this->label === '') {
+        if ($this->disableLabel === true || $this->label === '') {
             return $selectTag->render();
         }
 

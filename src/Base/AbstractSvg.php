@@ -8,19 +8,18 @@ use DOMDocument;
 use DOMElement;
 use enshrined\svgSanitize\Sanitizer;
 use InvalidArgumentException;
-use PHPForge\Html\{
-    Attribute\Custom\HasAttributes,
-    Attribute\Custom\HasContent,
-    Attribute\HasClass,
-    Attribute\HasId,
-    Attribute\HasLang,
-    Attribute\HasTitle,
-    Attribute\Input\HasHeight,
-    Attribute\Input\HasName,
-    Attribute\Input\HasWidth,
-    Tag
+use PHPForge\{
+    Html\Attribute\FormControl\HasHeight,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasContent,
+    Html\Attribute\Input\HasWidth,
+    Html\Tag,
+    Widget\Element
 };
-use PHPForge\Widget\Element;
 use RuntimeException;
 
 use function file_get_contents;
@@ -36,11 +35,9 @@ abstract class AbstractSvg extends Element
     use HasHeight;
     use HasId;
     use HasLang;
-    use HasName;
     use HasTitle;
     use HasWidth;
 
-    protected array $attributes = [];
     private string $filePath = '';
 
     /**
@@ -136,7 +133,6 @@ abstract class AbstractSvg extends Element
             default => Tag::widget()
                 ->attributes($this->attributes)
                 ->content(PHP_EOL, $this->content, PHP_EOL)
-                ->id($this->id)
                 ->tagName('svg')
                 ->render(),
         };
@@ -181,7 +177,6 @@ abstract class AbstractSvg extends Element
     {
         /** @psalm-var array<string, mixed> $attributes */
         $attributes = $this->attributes;
-        $attributes['id'] = $this->id;
 
         $svg = new DOMDocument();
 
@@ -189,9 +184,7 @@ abstract class AbstractSvg extends Element
 
         /** @psalm-var mixed $value */
         foreach ($attributes as $name => $value) {
-            if ($name !== '' && $value !== '' && $value !== null) {
-                $renderedSvg->setAttribute($name, (string) $value);
-            }
+            $renderedSvg->setAttribute($name, (string) $value);
         }
 
         return $svg->saveXML($renderedSvg);

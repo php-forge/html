@@ -226,9 +226,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="datetime">
+            <input name="FormModelName[property]" type="datetime">
             HTML,
-            Datetime::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Datetime::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -236,9 +236,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="datetime">
+            <input id="formmodelname-property" type="datetime">
             HTML,
-            Datetime::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Datetime::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

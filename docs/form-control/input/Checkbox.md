@@ -12,17 +12,16 @@ $checkbox = Checkbox::widget();
 
 ## Generate field id and name
 
-The `generateField` method is used to generate the field id and name for the `HTML` output.
+The `fieldAttributes` method is used to generate the field id and name for the `HTML` output.
 
 Allowed arguments are:
 
-- `modelName` - The name of the model.
-- `fieldName` - The name of the field.
-- `arrayable` - Whether the field is an array. For default, it is `false`.
+- `formModel` - The name of the model.
+- `property` - The name of the field.
 
 ```php
 // generate field id and name
-$checkbox->generateField('model', 'field');
+$checkbox->fieldAttributes('formModel', 'field');
 ```
 
 ## Setting Attributes
@@ -184,19 +183,19 @@ The following methods are available for customizing the `HTML` output:
 | `containerAttributes()`      | Set `attributes` for the `container` element.                                         |
 | `containerClass()`           | Set the `class` attribute for the `container` element.                                |
 | `containerTag()`             | Set the `tag` for the `container` element.                                            |
-| `generateField()`            | Generate the field id and name for the `HTML` output.                                 |
-| `prefix()`                   | Add text before the `textarea` element.                                               |
-| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
-| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
+| `fieldAttributes()`          | Generate the field id and name for the `HTML` output.                                 |
+| `prefix()`                   | Add text before the `input` element. If empty, the `prefix` tag will be disabled.     |
+| `prefixAttributes()`         | Set `attributes` for the `prefix` element.                                            |
+| `prefixClass()`              | Set the `class` attribute for the `prefix` element.                                   |
+| `prefixTag()`                | Set the `tag` for the `prefix` element.                                               |
+|                              | If `false` the prefix tag will be disabled.                                           |
 | `render()`                   | Generates the `HTML` output.                                                          |
 | `separator()`                | Set the `separator` for the `HTML` output.                                            |
-| `suffix()`                   | Add text after the `label` element.                                                   |
-| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
+| `suffix()`                   | Add text after the `input` element. If empty, the `suffix` tag will be disabled.      |
+| `suffixAttributes()`         | Set `attributes` for the `suffix` element.                                            |
+| `suffixClass()`              | Set the `class` attribute for the `suffix` element.                                   |
+| `suffixTag()`                | Set the `tag` for the `suffix-container` element.                                     |
+|                              | If `false` the suffix tag will be disabled.                                           |
 | `template()`                 | Set the template for the `HTML` output.                                               |
 | `uncheckAttributes()`        | Set the attributes for the hidden input tag.                                          |
 | `uncheckClass()`             | Set the `class` attribute for the hidden input tag.                                   |
@@ -212,12 +211,12 @@ The following methods are available for customizing the `HTML` output:
 
 | Method             | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
+| `disableLabeñ()`   | Set disabled for the `label` element.                                                           |   
 | `enclosedByLabel()`| Set enabled or disabled for the `enclosed-by-label` element.                                    |
 | `labelAttributes()`| Set `attributes` for the `label` element.                                                       |
 | `labelClass()`     | Set the `class` attribute for the `label` element.                                              |
 | `labelContent()`   | Set the `content` within the `label` element.                                                   |
 | `labelFor()`       | Set the `for` attribute for the `label` element.                                                |
-| `notLabel()`       | Set disabled for the `label` element.   
 
 ## Validate methods
 

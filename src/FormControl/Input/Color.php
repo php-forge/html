@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\{
-    Html\Attribute\Custom\HasValidateString,
-    Html\Attribute\Input\CanBeRequired,
-    Html\Attribute\Input\HasValue,
-    Html\Interop\RequiredInterface,
-    Html\Interop\ValueInterface
+use PHPForge\Html\{
+    Attribute\FormControl\CanBeRequired,
+    Attribute\FormControl\HasAutocomplete,
+    Attribute\FormControl\HasDirname,
+    Attribute\Input\HasValue,
+    Helper\Validator,
+    Interop\RequiredInterface,
+    Interop\ValueInterface
 };
 
 /**
@@ -21,13 +23,16 @@ use PHPForge\{
 final class Color extends Base\AbstractInput implements RequiredInterface, ValueInterface
 {
     use CanBeRequired;
-    use HasValidateString;
+    use HasAutocomplete;
+    use HasDirname;
     use HasValue;
+
+    protected string $type = 'color';
 
     protected function run(): string
     {
-        $this->validateString($this->getValue());
+        Validator::isString($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'color');
+        return $this->renderInputTag($this->attributes);
     }
 }

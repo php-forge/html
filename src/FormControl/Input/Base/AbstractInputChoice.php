@@ -7,35 +7,37 @@ namespace PHPForge\Html\FormControl\Input\Base;
 use PHPForge\{
     Html\Attribute\Aria\HasAriaDescribedBy,
     Html\Attribute\Aria\HasAriaLabel,
-    Html\Attribute\CanBeAutofocus,
-    Html\Attribute\CanBeHidden,
-    Html\Attribute\Custom\HasAttributes,
     Html\Attribute\Custom\HasContainerCollection,
-    Html\Attribute\Custom\HasContent,
     Html\Attribute\Custom\HasEnclosedByLabel,
-    Html\Attribute\Custom\HasLabelCollection,
-    Html\Attribute\Custom\HasPrefixCollection,
     Html\Attribute\Custom\HasSeparator,
-    Html\Attribute\Custom\HasSuffixCollection,
-    Html\Attribute\Custom\HasTemplate,
     Html\Attribute\Custom\HasUncheckedCollection,
-    Html\Attribute\Custom\HasValidateScalar,
-    Html\Attribute\Field\HasGenerateField,
-    Html\Attribute\HasClass,
-    Html\Attribute\HasData,
-    Html\Attribute\HasId,
-    Html\Attribute\HasLang,
-    Html\Attribute\HasStyle,
-    Html\Attribute\HasTabindex,
-    Html\Attribute\HasTitle,
-    Html\Attribute\Input\CanBeChecked,
-    Html\Attribute\Input\CanBeDisabled,
-    Html\Attribute\Input\CanBeReadonly,
-    Html\Attribute\Input\CanBeRequired,
-    Html\Attribute\Input\HasForm,
-    Html\Attribute\Input\HasName,
+    Html\Attribute\FormControl\CanBeDisabled,
+    Html\Attribute\FormControl\CanBeReadonly,
+    Html\Attribute\FormControl\CanBeRequired,
+    Html\Attribute\FormControl\HasFieldAttributes,
+    Html\Attribute\FormControl\HasForm,
+    Html\Attribute\FormControl\HasName,
+    Html\Attribute\FormControl\Input\CanBeChecked,
+    Html\Attribute\FormControl\Label\HasLabelCollection,
+    Html\Attribute\Global\CanBeAutofocus,
+    Html\Attribute\Global\CanBeHidden,
+    Html\Attribute\Global\HasClass,
+    Html\Attribute\Global\HasData,
+    Html\Attribute\Global\HasId,
+    Html\Attribute\Global\HasLang,
+    Html\Attribute\Global\HasStyle,
+    Html\Attribute\Global\HasTabindex,
+    Html\Attribute\Global\HasTitle,
+    Html\Attribute\HasAttributes,
+    Html\Attribute\HasContent,
+    Html\Attribute\HasPrefixCollection,
+    Html\Attribute\HasSuffixCollection,
+    Html\Attribute\HasTemplate,
     Html\Attribute\Input\HasValue,
     Html\FormControl\Label,
+    Html\Helper\Template,
+    Html\Helper\Utils,
+    Html\Helper\Validator,
     Html\Interop\AriaDescribedByInterface,
     Html\Interop\CheckedInterface,
     Html\Interop\InputInterface,
@@ -71,8 +73,8 @@ abstract class AbstractInputChoice extends Element implements
     use HasContent;
     use HasData;
     use HasEnclosedByLabel;
+    use HasFieldAttributes;
     use HasForm;
-    use HasGenerateField;
     use HasId;
     use HasLabelCollection;
     use HasLang;
@@ -85,10 +87,8 @@ abstract class AbstractInputChoice extends Element implements
     use HasTemplate;
     use HasTitle;
     use HasUncheckedCollection;
-    use HasValidateScalar;
     use HasValue;
 
-    protected array $attributes = [];
     protected string $tagName = '';
 
     /**
@@ -96,8 +96,13 @@ abstract class AbstractInputChoice extends Element implements
      */
     protected function loadDefaultDefinitions(): array
     {
+        $class = Utils::getShortNameClass(static::class, false, true);
+
         return [
+            'id()' => [Utils::generateId("$class-")],
+            'prefixTag()' => [false],
             'separator()' => [PHP_EOL],
+            'suffixTag()' => [false],
             'template()' => ['{prefix}\n{unchecktag}\n{tag}\n{label}\n{suffix}'],
         ];
     }
@@ -111,23 +116,13 @@ abstract class AbstractInputChoice extends Element implements
     {
         $value = $this->getValue();
 
-        $this->validateScalar($value, $this->checked);
+        Validator::isScalar($value, $this->checked);
 
         $attributes = $this->attributes;
-        $labelTag = '';
 
-        /** @var string $id */
-        $id = $attributes['id'] ?? $this->generateId("$type-");
+        $id = $this->getId();
 
-        if ($this->id === null) {
-            $id = null;
-        }
-
-        $labelFor = $this->labelFor ?? $id;
-        /** @var string $name */
-        $name = $attributes['name'] ?? '';
-
-        if ($this->ariaDescribedBy === true) {
+        if ($this->ariaDescribedBy === true && $id !== null) {
             $attributes['aria-describedby'] = "$id-help";
         }
 
@@ -138,53 +133,59 @@ abstract class AbstractInputChoice extends Element implements
         }
 
         if (is_scalar($this->checked) && $value !== null) {
-            $attributes['checked'] = (string) $value === (string) $this->checked;
+            $attributes['checked'] = "$value" === "$this->checked";
         }
 
-        unset($attributes['id'], $attributes['type'], $attributes['value']);
+        unset($attributes['type'], $attributes['value']);
 
-        $tag = Tag::widget()->attributes($attributes)->id($id)->tagName('input')->type($type)->value($value)->render();
+        $tag = Tag::widget()->attributes($attributes)->tagName('input')->type($type)->value($value)->render();
+        $labelTag = '';
 
-        if ($this->enclosedByLabel) {
-            $tag = $this->renderEnclosedByLabel($tag, $labelFor);
-        } else {
-            $labelTag = $this->renderLabelTag($labelFor);
-        }
-
-        $choiceTag = $this->prepareTemplate($tag, $labelTag, $name);
-
-        return $this->renderContainerTag(null, $choiceTag);
-    }
-
-    private function prepareTemplate(string $tag, string $labelTag, string $name): string
-    {
-        $tokenValues = [
-            '{prefix}' => $this->renderPrefixTag(),
-            '{unchecktag}' => $this->renderUncheckTag($name),
-            '{tag}' => $tag,
-            '{label}' => $labelTag,
-            '{suffix}' => $this->renderSuffixTag(),
-        ];
-
-        return $this->renderTemplate($this->template, $tokenValues);
-    }
-
-    private function renderEnclosedByLabel(string $tag, string|null $labelFor): string
-    {
-        if ($this->isLabel === false || $this->label === '') {
-            return $tag;
-        }
-
-        return Label::widget()
-            ->attributes($this->labelAttributes)
-            ->content(
+        if ($this->enclosedByLabel === true && $this->disableLabel === false && $this->label !== '') {
+            $tag = $this->renderLabel(
                 $this->separator,
                 $tag,
                 $this->separator,
                 $this->label,
                 $this->separator,
-            )
-            ->for($labelFor)
+            );
+        } elseif ($this->disableLabel === false) {
+            $labelTag = $this->renderLabel($this->label);
+        }
+
+        $choiceTag = $this->prepareTemplate($tag, $labelTag);
+
+        return $this->renderContainerTag(null, $choiceTag);
+    }
+
+    private function prepareTemplate(string $tag, string $labelTag): string
+    {
+        $tokenValues = [
+            '{prefix}' => $this->renderTag($this->prefixAttributes, $this->prefix, $this->prefixTag),
+            '{unchecktag}' => $this->renderUncheckTag($this->getName()),
+            '{tag}' => $tag,
+            '{label}' => $labelTag,
+            '{suffix}' => $this->renderTag($this->suffixAttributes, $this->suffix, $this->suffixTag),
+        ];
+
+        return Template::render($this->template, $tokenValues);
+    }
+
+    private function renderLabel(string ...$content): string
+    {
+        return Label::widget()
+            ->attributes($this->labelAttributes)
+            ->content(...$content)
+            ->for($this->labelFor ?? $this->getId())
             ->render();
+    }
+
+    private function renderTag(array $attributes, string $content, false|string $tag): string
+    {
+        if ($content === '' || $tag === false) {
+            return $content;
+        }
+
+        return Tag::widget()->attributes($attributes)->content($content)->tagName($tag)->render();
     }
 }

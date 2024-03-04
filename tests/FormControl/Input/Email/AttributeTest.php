@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="email-65a15e0439570" type="email" autocomplete="on">
+            HTML,
+            Email::widget()->autoComplete('on')->id('email-65a15e0439570')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(
@@ -69,6 +79,16 @@ final class AttributeTest extends TestCase
             <input id="email-65a15e0439570" type="email" data-value="value">
             HTML,
             Email::widget()->dataAttributes(['value' => 'value'])->id('email-65a15e0439570')->render()
+        );
+    }
+
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="email-65a15e0439570" type="email" dirname="value">
+            HTML,
+            Email::widget()->dirName('value')->id('email-65a15e0439570')->render()
         );
     }
 
@@ -256,9 +276,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="email">
+            <input name="FormModelName[property]" type="email">
             HTML,
-            Email::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Email::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -266,9 +286,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="email">
+            <input id="formmodelname-property" type="email">
             HTML,
-            Email::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Email::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

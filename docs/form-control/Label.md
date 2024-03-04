@@ -33,6 +33,9 @@ If you want to include content within the `label` tag, use the `content` method.
 $label->content('MyContent');
 ```
 
+> if content is empty, the `label` tag will not be rendered.
+
+
 ## Rendering
 
 Generate the `HTML` output using the `render` method.
@@ -120,16 +123,16 @@ The following methods are available for customizing the `HTML` output:
 
 | Method                       | Description                                                                           |
 | ---------------------------- | ------------------------------------------------------------------------------------- |
-| `prefix()`                   | Add text before the `label` element.                                                  |
-| `prefixContainer()`          | Set enabled or disabled for the `prefix-container` element.                           |
-| `prefixContainerAttributes()`| Set `attributes` for the `prefix-container` element.                                  |                                            
-| `prefixContainerClass()`     | Set the `class` attribute for the `prefix-container` element.                         |
-| `prefixContainerTag()`       | Set the `tag` for the `prefix-container` element.                                     |
+| `prefix()`                   | Add text before the `tag` element. If empty, the `prefix` tag will be disabled.       |
+| `prefixAttributes()`         | Set `attributes` for the `prefix` element.                                            |
+| `prefixClass()`              | Set the `class` attribute for the `prefix` element.                                   |
+| `prefixTag()`                | Set the `tag` for the `prefix` element.                                               |
+|                              | If `false` the prefix tag will be disabled.                                           |
 | `render()`                   | Generates the `HTML` output.                                                          |
-| `suffix()`                   | Add text after the `label` element.                                                   |
-| `suffixContainer()`          | Set enabled or disabled for the `suffix-container` element.                           |
-| `suffixContainerAttributes()`| Set `attributes` for the `suffix-container` element.                                  |
-| `suffixContainerClass()`     | Set the `class` attribute for the `suffix-container` element.                         |
-| `suffixContainerTag()`       | Set the `tag` for the `suffix-container` element.                                     |
+| `suffix()`                   | Add text after the `tag` element. If empty, the `suffix` tag will be disabled.        |
+| `suffixAttributes()`         | Set `attributes` for the `suffix` element.                                            |
+| `suffixClass()`              | Set the `class` attribute for the `suffix` element.                                   |
+| `suffixTag()`                | Set the `tag` for the `suffix-container` element.                                     |
+|                              | If `false` the suffix tag will be disabled.                                           |
 | `template()`                 | Set the `template` for the `label` element.                                           |
 | `widget()`                   | Instantiates the `Label::class`.                                                      |

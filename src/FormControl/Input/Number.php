@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\FormControl\Input;
 
-use PHPForge\{
-    Html\Attribute\Custom\HasValidateNumeric,
-    Html\Attribute\Input\CanBeRequired,
-    Html\Attribute\Input\HasMax,
-    Html\Attribute\Input\HasMin,
-    Html\Attribute\Input\HasPlaceholder,
-    Html\Attribute\Input\HasStep,
-    Html\Attribute\Input\HasValue,
-    Html\FormControl\Input\Base\AbstractInput,
-    Html\Interop\PlaceholderInterface,
-    Html\Interop\RangeLengthInterface,
-    Html\Interop\RequiredInterface,
-    Html\Interop\ValueInterface
+use PHPForge\Html\{
+    Attribute\FormControl\CanBeRequired,
+    Attribute\Input\HasMax,
+    Attribute\Input\HasMin,
+    Attribute\Input\HasPlaceholder,
+    Attribute\Input\HasStep,
+    Attribute\Input\HasValue,
+    FormControl\Input\Base\AbstractInput,
+    Helper\Validator,
+    Interop\PlaceholderInterface,
+    Interop\RangeLengthInterface,
+    Interop\RequiredInterface,
+    Interop\ValueInterface
 };
 
 /**
@@ -36,13 +36,14 @@ final class Number extends AbstractInput implements
     use HasMin;
     use HasPlaceholder;
     use HasStep;
-    use HasValidateNumeric;
     use HasValue;
+
+    protected string $type = 'number';
 
     protected function run(): string
     {
-        $this->validateNumeric($this->getValue());
+        Validator::isNumeric($this->getValue());
 
-        return $this->buildInputTag($this->attributes, 'number');
+        return $this->renderInputTag($this->attributes);
     }
 }

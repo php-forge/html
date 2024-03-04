@@ -84,18 +84,6 @@ final class AttributeTest extends TestCase
         );
     }
 
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <svg name="value">
-            value
-            </svg>
-            HTML,
-            Svg::widget()->content('value')->name('value')->render()
-        );
-    }
-
     public function testStroke(): void
     {
         Assert::equalsWithoutLE(

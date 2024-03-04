@@ -161,16 +161,6 @@ final class AttributeTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    public function testName(): void
-    {
-        Assert::equalsWithoutLE(
-            <<<HTML
-            <a name="value"></a>
-            HTML,
-            A::widget()->name('value')->render()
-        );
-    }
-
     public function testPing(): void
     {
         Assert::equalsWithoutLE(

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PHPForge\Html\Textual;
 
-use PHPForge\Html\{Attribute\Custom\HasContent, Base\AbstractElement};
+use PHPForge\Html\{Attribute\HasContent, Base\AbstractElement};
 
 /**
  * The `<span>` HTML element represents a generic inline container for phrasing content, which doesn't inherently

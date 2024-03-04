@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PHPForge\Html\Attribute\Component;
 
 use InvalidArgumentException;
-use PHPForge\Html\{Attribute\Custom\HasValidateInList, Helper\Sanitize, Interop\RenderInterface, Tag};
+use PHPForge\Html\{Helper\Sanitize, Helper\Validator, Interop\RenderInterface, Tag};
 
 use function array_merge;
 
@@ -14,8 +14,6 @@ use function array_merge;
  */
 trait HasToggleCollection
 {
-    use HasValidateInList;
-
     protected bool $isToggle = true;
     protected array $toggleAttributes = [];
     protected string $toggleClass = '';
@@ -98,7 +96,7 @@ trait HasToggleCollection
      */
     public function toggleDataAttribute(string $name, string $value): static
     {
-        $this->validateInList(
+        Validator::inList(
             $name,
             'Invalid value "%s" for the data attribute. Allowed values are: "%s".',
             'bs-toggle',

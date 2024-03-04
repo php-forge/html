@@ -42,6 +42,16 @@ final class AttributeTest extends TestCase
         );
     }
 
+    public function testAutocomplete(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="range-6582f2d099e8b" type="range" autocomplete="on">
+            HTML,
+            Range::widget()->autocomplete('on')->id('range-6582f2d099e8b')->render()
+        );
+    }
+
     public function testAutofocus(): void
     {
         Assert::equalsWithoutLE(
@@ -69,6 +79,16 @@ final class AttributeTest extends TestCase
             <input id="range-6582f2d099e8b" type="range" data-value="value">
             HTML,
             Range::widget()->dataAttributes(['value' => 'value'])->id('range-6582f2d099e8b')->render()
+        );
+    }
+
+    public function testDirname(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <input id="range-6582f2d099e8b" type="range" dirname="value">
+            HTML,
+            Range::widget()->dirname('value')->id('range-6582f2d099e8b')->render()
         );
     }
 
@@ -226,9 +246,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input name="ModelName[fieldName]" type="range">
+            <input name="FormModelName[property]" type="range">
             HTML,
-            Range::widget()->generateField('ModelName', 'fieldName')->id(null)->render()
+            Range::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
         );
     }
 
@@ -236,9 +256,9 @@ final class AttributeTest extends TestCase
     {
         Assert::equalsWithoutLE(
             <<<HTML
-            <input id="modelname-fieldname" type="range">
+            <input id="formmodelname-property" type="range">
             HTML,
-            Range::widget()->generateField('ModelName', 'fieldName')->name(null)->render()
+            Range::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
         );
     }
 }

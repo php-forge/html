@@ -238,4 +238,24 @@ final class AttributeTest extends TestCase
             TextArea::widget()->id('textarea-659fc6087e75b')->wrap('hard')->render()
         );
     }
+
+    public function testWithoutId(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <textarea name="FormModelName[property]"></textarea>
+            HTML,
+            TextArea::widget()->fieldAttributes('FormModelName', 'property')->id(null)->render()
+        );
+    }
+
+    public function testWithoutName(): void
+    {
+        Assert::equalsWithoutLE(
+            <<<HTML
+            <textarea id="formmodelname-property"></textarea>
+            HTML,
+            TextArea::widget()->fieldAttributes('FormModelName', 'property')->name(null)->render()
+        );
+    }
 }
