@@ -147,7 +147,6 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-
     public function testPrefixTagWithFalseValue(): void
     {
         Assert::equalsWithoutLE(

@@ -159,7 +159,6 @@ final class CustomMethodTest extends TestCase
         );
     }
 
-
     public function testSuffixTagWithFalseValue(): void
     {
         Assert::equalsWithoutLE(
