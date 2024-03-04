@@ -30,7 +30,7 @@ abstract class AbstractBlockElement extends Block
     use HasLang;
     use HasStyle;
     use HasTitle;
-    
+
     protected string $tagName = '';
 
     /**
